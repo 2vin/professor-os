@@ -120,6 +120,18 @@ jobs:
           git config user.name "Professor OS"
           git config user.email "professor-os@users.noreply.github.com"
 
+          # Clean transient Professor OS files before Git operations
+          git restore teacher_agent.log 2>/dev/null || true
+          rm -f .robotics_teacher_runtime.json
+          rm -rf .pytest_cache
+
+          find teacher_agent tests \
+            -type d \
+            -name "__pycache__" \
+            -prune \
+            -exec rm -rf {} +
+
+          # Stage only persistent generated content
           git add preview
 
           if [ -f .robotics_teacher_progress.json ]; then
@@ -135,6 +147,9 @@ jobs:
           git status --short
 
           git commit -m "Professor OS: persist nightly lesson state"
+
+          echo "Checking workspace before sync:"
+          git status --short
 
           git pull --rebase origin main
           git push origin HEAD:main
