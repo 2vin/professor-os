@@ -78,12 +78,18 @@ jobs:
           python -m teacher_agent.main --once
 
       - name: Persist website state and preview
-        shell: bash
         run: |
+          echo "Workspace: $GITHUB_WORKSPACE"
+          cd "$GITHUB_WORKSPACE"
+
           git config user.name "Professor OS"
           git config user.email "professor-os@users.noreply.github.com"
 
-          git add preview .robotics_teacher_progress.json
+          git add preview
+
+          if [ -f .robotics_teacher_progress.json ]; then
+            git add .robotics_teacher_progress.json
+          fi
 
           if git diff --cached --quiet; then
             echo "No generated changes to persist."
