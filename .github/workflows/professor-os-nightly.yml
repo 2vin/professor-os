@@ -3,7 +3,7 @@ name: Professor OS Nightly Lecture
 on:
   workflow_dispatch:
   schedule:
-    # 21:00 Asia/Kolkata = 15:30 UTC
+    # 21:00 IST = 15:30 UTC
     - cron: '30 15 * * *'
 
 permissions:
@@ -16,8 +16,6 @@ concurrency:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    container:
-      image: python:3.7-slim
 
     env:
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
@@ -44,6 +42,9 @@ jobs:
       NIGHTLY_RELEASE_HOUR: '21'
       NIGHTLY_RELEASE_MINUTE: '0'
 
+      MPLBACKEND: Agg
+      PYTHONUNBUFFERED: '1'
+
       LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
       LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
 
@@ -52,35 +53,69 @@ jobs:
       YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
 
     steps:
-      - name: Install git
-        run: |
-          apt-get update
-          apt-get install -y --no-install-recommends git ca-certificates
-          rm -rf /var/lib/apt/lists/*
 
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
-      - name: Install Python dependencies
+      - name: Run Professor OS in Python 3.7
+        shell: bash
         run: |
-          python -m pip install --upgrade "pip<24.1"
-          python -m pip install -r requirements.txt
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/workspace" \
+            -w /workspace \
+            -e OPENAI_API_KEY \
+            -e OPENAI_MODEL \
+            -e GEMINI_API_KEY \
+            -e USE_GEMINI_IMAGES \
+            -e GEMINI_IMAGE_MODEL \
+            -e GITHUB_TOKEN \
+            -e GITHUB_OWNER \
+            -e GITHUB_REPO \
+            -e GITHUB_BRANCH \
+            -e PUBLIC_LESSON_BASE_URL \
+            -e AUTO_PUBLISH \
+            -e AUTO_SYNC_SOURCE \
+            -e DASHBOARD_SCHEDULE \
+            -e AUTO_BOOTSTRAP_GENERATION \
+            -e ENABLE_MANUAL_RUN \
+            -e TIMEZONE \
+            -e NIGHTLY_RELEASE_HOUR \
+            -e NIGHTLY_RELEASE_MINUTE \
+            -e MPLBACKEND \
+            -e PYTHONUNBUFFERED \
+            -e LINKEDIN_ACCESS_TOKEN \
+            -e LINKEDIN_AUTHOR_URN \
+            -e GOOGLE_CSE_API_KEY \
+            -e GOOGLE_CSE_ID \
+            -e YOUTUBE_API_KEY \
+            python:3.7-slim \
+            sh -lc '
+              python -m pip install --upgrade "pip<24.1"
+              python -m pip install -r requirements.txt
 
-      - name: Validate source
-        run: |
-          python -m pytest -q
-          python -m compileall -q teacher_agent tests
+              echo "Running Professor OS tests..."
+              python -m pytest -q
+              python -m compileall -q teacher_agent tests
 
-      - name: Generate and publish next lesson
-        run: |
-          python -m teacher_agent.main --once
+              echo "Generating next lesson..."
+              python -m teacher_agent.main --once
+            '
 
-      - name: Persist website state and preview
+      - name: Restore workspace ownership
+        if: always()
+        shell: bash
         run: |
-          echo "Workspace: $GITHUB_WORKSPACE"
+          sudo chown -R "$(id -u):$(id -g)" "$GITHUB_WORKSPACE"
+
+      - name: Persist generated lesson state
+        shell: bash
+        run: |
           cd "$GITHUB_WORKSPACE"
+
+          echo "Repository:"
+          git rev-parse --show-toplevel
 
           git config user.name "Professor OS"
           git config user.email "professor-os@users.noreply.github.com"
@@ -95,6 +130,9 @@ jobs:
             echo "No generated changes to persist."
             exit 0
           fi
+
+          echo "Files being saved:"
+          git status --short
 
           git commit -m "Professor OS: persist nightly lesson state"
 
