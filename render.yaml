@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: professor-os
+    runtime: docker
+    plan: free
+    autoDeploy: true
+    healthCheckPath: /api/health
+    envVars:
+      - key: DASHBOARD_HOST
+        value: 0.0.0.0
+      - key: DASHBOARD_SCHEDULE
+        value: "false"
+      - key: AUTO_BOOTSTRAP_GENERATION
+        value: "false"
+      - key: ENABLE_MANUAL_RUN
+        value: "false"
+      - key: AUTO_SYNC_SOURCE
+        value: "false"
+      - key: AUTO_PUBLISH
+        value: "false"
+      - key: TIMEZONE
+        value: Asia/Kolkata

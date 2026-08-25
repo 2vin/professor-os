@@ -1,0 +1,302 @@
+[
+  {
+    "class_no": 1,
+    "title": "What Is a Robot?",
+    "concepts": "robot, autonomy, machine, environment"
+  },
+  {
+    "class_no": 2,
+    "title": "Sense \u2192 Think \u2192 Act",
+    "concepts": "sensors, controller, actuators, feedback"
+  },
+  {
+    "class_no": 3,
+    "title": "Your First Robot Brain in Python",
+    "concepts": "variables, decisions, loops"
+  },
+  {
+    "class_no": 4,
+    "title": "Coordinates: How Robots Describe Space",
+    "concepts": "x-y plane, origin, distance"
+  },
+  {
+    "class_no": 5,
+    "title": "Distance and Speed",
+    "concepts": "units, velocity, timing"
+  },
+  {
+    "class_no": 6,
+    "title": "Electricity for Roboticists",
+    "concepts": "voltage, current, resistance"
+  },
+  {
+    "class_no": 7,
+    "title": "Motors: Turning Electricity into Motion",
+    "concepts": "DC motor, torque, RPM"
+  },
+  {
+    "class_no": 8,
+    "title": "Motor Control with PWM",
+    "concepts": "duty cycle, speed control"
+  },
+  {
+    "class_no": 9,
+    "title": "Gears: Trading Speed for Strength",
+    "concepts": "gear ratio, torque"
+  },
+  {
+    "class_no": 10,
+    "title": "Sensors: Giving Robots Senses",
+    "concepts": "measurement, noise, calibration"
+  },
+  {
+    "class_no": 11,
+    "title": "Ultrasonic Distance Sensing",
+    "concepts": "time of flight, range"
+  },
+  {
+    "class_no": 12,
+    "title": "Infrared Sensors",
+    "concepts": "reflection, proximity"
+  },
+  {
+    "class_no": 13,
+    "title": "Encoders: Measuring Wheel Motion",
+    "concepts": "ticks, angle, odometry"
+  },
+  {
+    "class_no": 14,
+    "title": "Build a Virtual Line Follower",
+    "concepts": "thresholds, steering"
+  },
+  {
+    "class_no": 15,
+    "title": "Feedback: Why Robots Correct Themselves",
+    "concepts": "error, correction"
+  },
+  {
+    "class_no": 16,
+    "title": "P Control",
+    "concepts": "proportional controller"
+  },
+  {
+    "class_no": 17,
+    "title": "PI and PID Intuition",
+    "concepts": "integral, derivative"
+  },
+  {
+    "class_no": 18,
+    "title": "Robot Kinematics: Motion Without Forces",
+    "concepts": "pose, velocity"
+  },
+  {
+    "class_no": 19,
+    "title": "Differential Drive Robots",
+    "concepts": "left/right wheel speeds"
+  },
+  {
+    "class_no": 20,
+    "title": "Odometry",
+    "concepts": "dead reckoning, drift"
+  },
+  {
+    "class_no": 21,
+    "title": "Probability for Robots",
+    "concepts": "uncertainty, distributions"
+  },
+  {
+    "class_no": 22,
+    "title": "Sensor Noise",
+    "concepts": "random error, filtering"
+  },
+  {
+    "class_no": 23,
+    "title": "Moving Average Filters",
+    "concepts": "smoothing"
+  },
+  {
+    "class_no": 24,
+    "title": "Kalman Filter Intuition",
+    "concepts": "prediction, correction"
+  },
+  {
+    "class_no": 25,
+    "title": "Computer Vision: Pixels as Numbers",
+    "concepts": "images, RGB, arrays"
+  },
+  {
+    "class_no": 26,
+    "title": "Thresholding and Segmentation",
+    "concepts": "binary masks"
+  },
+  {
+    "class_no": 27,
+    "title": "Contours and Shape Detection",
+    "concepts": "geometry, OpenCV concepts"
+  },
+  {
+    "class_no": 28,
+    "title": "Camera Geometry",
+    "concepts": "projection, field of view"
+  },
+  {
+    "class_no": 29,
+    "title": "Object Detection",
+    "concepts": "boxes, confidence, classes"
+  },
+  {
+    "class_no": 30,
+    "title": "Tracking Objects Over Time",
+    "concepts": "association, motion"
+  },
+  {
+    "class_no": 31,
+    "title": "Mapping",
+    "concepts": "world models, occupancy"
+  },
+  {
+    "class_no": 32,
+    "title": "Occupancy Grids",
+    "concepts": "free/occupied/unknown"
+  },
+  {
+    "class_no": 33,
+    "title": "Localization",
+    "concepts": "where am I?"
+  },
+  {
+    "class_no": 34,
+    "title": "Bayes Rule for Robot Localization",
+    "concepts": "belief update"
+  },
+  {
+    "class_no": 35,
+    "title": "Particle Filters",
+    "concepts": "sampling, hypotheses"
+  },
+  {
+    "class_no": 36,
+    "title": "SLAM",
+    "concepts": "mapping while localizing"
+  },
+  {
+    "class_no": 37,
+    "title": "Path Planning",
+    "concepts": "start, goal, obstacle"
+  },
+  {
+    "class_no": 38,
+    "title": "Graph Search",
+    "concepts": "nodes, edges, cost"
+  },
+  {
+    "class_no": 39,
+    "title": "Dijkstra's Algorithm",
+    "concepts": "shortest path"
+  },
+  {
+    "class_no": 40,
+    "title": "A* Search",
+    "concepts": "heuristics"
+  },
+  {
+    "class_no": 41,
+    "title": "Potential Fields",
+    "concepts": "attraction, repulsion"
+  },
+  {
+    "class_no": 42,
+    "title": "Robot Arms",
+    "concepts": "joints, links, degrees of freedom"
+  },
+  {
+    "class_no": 43,
+    "title": "Forward Kinematics",
+    "concepts": "joint angles to pose"
+  },
+  {
+    "class_no": 44,
+    "title": "Inverse Kinematics",
+    "concepts": "pose to joint angles"
+  },
+  {
+    "class_no": 45,
+    "title": "Grippers",
+    "concepts": "force, geometry, grasping"
+  },
+  {
+    "class_no": 46,
+    "title": "Dynamics",
+    "concepts": "mass, force, acceleration"
+  },
+  {
+    "class_no": 47,
+    "title": "Trajectory Generation",
+    "concepts": "smooth motion"
+  },
+  {
+    "class_no": 48,
+    "title": "State Machines",
+    "concepts": "robot behavior"
+  },
+  {
+    "class_no": 49,
+    "title": "Behavior Trees",
+    "concepts": "structured autonomy"
+  },
+  {
+    "class_no": 50,
+    "title": "ROS 2 Mental Model",
+    "concepts": "nodes, topics, services"
+  },
+  {
+    "class_no": 51,
+    "title": "Messages and Topics",
+    "concepts": "publish/subscribe"
+  },
+  {
+    "class_no": 52,
+    "title": "Robot Simulation",
+    "concepts": "digital robot experiments"
+  },
+  {
+    "class_no": 53,
+    "title": "Gazebo / Physics Simulation Concepts",
+    "concepts": "worlds, collisions, sensors"
+  },
+  {
+    "class_no": 54,
+    "title": "Reinforcement Learning",
+    "concepts": "agent, reward, policy"
+  },
+  {
+    "class_no": 55,
+    "title": "Q-Learning with a Grid Robot",
+    "concepts": "states, actions, Q table"
+  },
+  {
+    "class_no": 56,
+    "title": "Imitation Learning",
+    "concepts": "learning from demonstrations"
+  },
+  {
+    "class_no": 57,
+    "title": "Autonomous Drones",
+    "concepts": "6-DoF, control, sensing"
+  },
+  {
+    "class_no": 58,
+    "title": "Mobile Robot Navigation Stack",
+    "concepts": "localization, planning, control"
+  },
+  {
+    "class_no": 59,
+    "title": "Robotics Safety and Failure Modes",
+    "concepts": "limits, validation, redundancy"
+  },
+  {
+    "class_no": 60,
+    "title": "Capstone: Design an Autonomous Robot",
+    "concepts": "requirements, architecture, testing"
+  }
+]

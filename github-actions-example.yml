@@ -1,0 +1,33 @@
+name: Daily Robotics Class
+
+on:
+  schedule:
+    # GitHub Actions cron is UTC. 11:00 UTC = 16:30 IST.
+    - cron: "0 11 * * *"
+  workflow_dispatch:
+
+jobs:
+  teach:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Generate and publish class
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: gpt-5
+          GITHUB_TOKEN: ${{ secrets.ROBOTICS_REPO_TOKEN }}
+          GITHUB_OWNER: YOUR_OWNER
+          GITHUB_REPO: robotics-classroom
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_AUTHOR_URN: ${{ secrets.LINKEDIN_AUTHOR_URN }}
+          LINKEDIN_VERSION: "202607"
+          PUBLIC_LESSON_BASE_URL: https://YOUR_USERNAME.github.io/robotics-classroom
+          AUTO_PUBLISH: "true"
+        run: python -m teacher_agent.main --once

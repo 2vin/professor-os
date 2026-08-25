@@ -1,0 +1,12 @@
+[2026-08-25T07:37:57.943847+00:00] WARNING: Editorial review JSON was malformed; requesting automatic structured repair: Malformed quality-review JSON: Expecting ',' delimiter: line 1 column 22 (char 21)
+[2026-08-25T07:37:57.944125+00:00] SUCCESS: Editorial review JSON repaired successfully on attempt 1.
+[2026-08-25T07:37:57.946126+00:00] WARNING: Editorial review JSON was malformed; requesting automatic structured repair: Malformed quality-review JSON: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+[2026-08-25T07:37:57.946281+00:00] WARNING: Editorial JSON repair attempt 1 failed: still invalid
+[2026-08-25T07:37:57.947099+00:00] WARNING: Editorial JSON repair attempt 2 failed: still invalid
+[2026-08-25T07:37:57.947283+00:00] ERROR: AI editorial review remained malformed after automatic repair: still invalid
+[2026-08-25T07:37:57.948526+00:00] WARNING: Post-media quality remediation 1: visual_teaching_plan=74.
+[2026-08-25T07:37:57.948845+00:00] SUCCESS: Final editorial remediation passed after 0 technical and 1 visual/editorial repair round(s).
+[2026-08-25T07:37:57.950114+00:00] WARNING: Post-media technical correction 1: Contradiction on steady-state error with sensor bias. | Stability map classification bug at Kp*dt=1.
+[2026-08-25T07:37:57.950386+00:00] SUCCESS: Final editorial remediation passed after 1 technical and 0 visual/editorial repair round(s).
+[2026-08-25T07:37:57.964665+00:00] INFO: Source sync: Running pytest validation gate.
+[2026-08-25T07:38:03.325747+00:00] INFO: Professor OS website started at http://127.0.0.1:8877
