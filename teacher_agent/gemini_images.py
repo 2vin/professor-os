@@ -1,0 +1,161 @@
+from pathlib import Path
+
+from .config import settings
+from .gemini_image_client import GeminiImageClient
+from .runtime import monitor
+
+
+PREMIUM_STYLE = (
+    'Premium educational robotics publication visual. '
+    'Professional editorial quality, technically plausible, modern and polished. '
+    'Clear visual hierarchy, sophisticated composition, realistic materials and lighting '
+    'where appropriate, restrained modern color palette, high visual clarity. '
+    'Designed for a premium robotics course for serious learners. '
+    'No childish cartoon style, no clipart, no generic sci-fi robot, no watermark, '
+    'no unnecessary decoration, no meaningless text. '
+    'Use text only when essential to understanding a technical diagram. '
+    '16:9 landscape composition.'
+)
+
+
+def generate_gemini_image(
+        prompt,
+        output_path,
+        alt_text=None,
+        style='premium robotics educational',
+        visual_type=None):
+
+    if not settings.use_gemini_images:
+        raise RuntimeError(
+            'Gemini lesson visuals are required but USE_GEMINI_IMAGES is false.'
+        )
+
+    if not settings.gemini_api_key:
+        raise RuntimeError(
+            'Gemini lesson visuals are required but GEMINI_API_KEY is missing.'
+        )
+
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    visual_type = visual_type or 'educational illustration'
+
+    full_prompt = (
+        '{0}\n\n'
+        'VISUAL TYPE:\n{1}\n\n'
+        'LESSON-SPECIFIC BRIEF:\n{2}\n\n'
+        'QUALITY AND STYLE REQUIREMENTS:\n{3}\n\n'
+        'The visual must communicate the lesson-specific concept immediately. '
+        'Every visible object should support the educational purpose.'
+    ).format(
+        style,
+        visual_type,
+        prompt.strip(),
+        PREMIUM_STYLE,
+    )
+
+    monitor.event(
+        'info',
+        'Generating Gemini visual: {0}'.format(output_path.name)
+    )
+
+    GeminiImageClient().generate_image(
+        full_prompt,
+        output_path
+    )
+
+    if not output_path.exists():
+        raise RuntimeError(
+            'Gemini completed without creating image: {0}'.format(output_path)
+        )
+
+    if output_path.stat().st_size < 10000:
+        raise RuntimeError(
+            'Generated Gemini image appears invalid or too small: {0}'.format(
+                output_path
+            )
+        )
+
+    return {
+        'path': str(output_path),
+        'filename': output_path.name,
+        'prompt': prompt,
+        'full_prompt': full_prompt,
+        'alt_text': alt_text or '',
+        'style': style,
+        'visual_type': visual_type,
+        'source': 'gemini',
+    }
+
+
+def generate_lesson_visuals(visual_plan, output_dir):
+    output_dir = Path(output_dir)
+
+    if not isinstance(visual_plan, dict):
+        raise RuntimeError('Visual plan must be a JSON object.')
+
+    hero = visual_plan.get('hero_image') or {}
+
+    if not hero.get('needed', True):
+        raise RuntimeError(
+            'Professor OS requires a hero visual for every published lesson.'
+        )
+
+    if not hero.get('prompt'):
+        raise RuntimeError('Visual plan hero_image is missing its prompt.')
+
+    hero_meta = generate_gemini_image(
+        hero['prompt'],
+        output_dir / 'hero.png',
+        alt_text=hero.get('alt_text', ''),
+        visual_type=hero.get(
+            'visual_type',
+            'premium robotics hero illustration'
+        ),
+    )
+
+    hero_meta['caption'] = hero.get('caption', '')
+    hero_meta['section_heading'] = hero.get('section', 'top')
+
+    planned_inline = visual_plan.get('inline_visuals') or []
+
+    if len(planned_inline) < 2:
+        raise RuntimeError(
+            'Premium Professor OS lessons require at least 2 inline visuals.'
+        )
+
+    inline_assets = []
+
+    for idx, item in enumerate(planned_inline, 1):
+        if not item.get('section_heading'):
+            raise RuntimeError(
+                'Inline visual {0} has no section_heading.'.format(idx)
+            )
+
+        if not item.get('prompt'):
+            raise RuntimeError(
+                'Inline visual {0} has no Gemini prompt.'.format(idx)
+            )
+
+        filename = 'inline_{0:02d}.png'.format(idx)
+
+        meta = generate_gemini_image(
+            item['prompt'],
+            output_dir / filename,
+            alt_text=item.get('alt_text', ''),
+            visual_type=item.get(
+                'visual_type',
+                'educational robotics illustration'
+            ),
+        )
+
+        meta['section_heading'] = item['section_heading']
+        meta['caption'] = item.get('caption', '')
+
+        inline_assets.append(meta)
+
+    return {
+        'hero': hero_meta,
+        'inline': inline_assets,
+        'count': 1 + len(inline_assets),
+    }
