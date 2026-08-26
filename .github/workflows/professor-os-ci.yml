@@ -1,0 +1,58 @@
+name: Professor OS Code Check
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v5
+
+      - name: Test Professor OS in Python 3.7
+        shell: bash
+        run: |
+          docker run --rm \
+            -v "$GITHUB_WORKSPACE:/workspace" \
+            -w /workspace \
+            python:3.7-slim \
+            sh -lc '
+              python -m pip install --upgrade "pip<24.1"
+              python -m pip install -r requirements.txt
+
+              echo "=============================="
+              echo "Running tests"
+              echo "=============================="
+              python -m pytest -q
+
+              echo "=============================="
+              echo "Checking Python compilation"
+              echo "=============================="
+              python -m compileall -q teacher_agent tests
+
+              echo "=============================="
+              echo "Checking imports"
+              echo "=============================="
+              python - <<'"'"'PY'"'"'
+from teacher_agent.pipeline import RoboticsTeacherAgent
+from teacher_agent.lesson_writer import LessonWriter
+from teacher_agent.visual_plan import extract_visual_plan
+from teacher_agent.media_inserter import inject_inline_visuals
+from teacher_agent.gemini_images import generate_lesson_visuals
+from teacher_agent.publication_gate import final_publication_gate
+
+print("Professor OS imports: PASS")
+PY
+
+              echo "=============================="
+              echo "ALL CODE CHECKS PASSED"
+              echo "=============================="
+            '
