@@ -156,6 +156,45 @@ class RoboticsTeacherAgent(object):
                 'AI editorial review could not be parsed after repair; static quality gate only.')
         return static_report, ai_review
 
+    def _repair_until_valid(self, markdown, errors, context_label, max_attempts=3):
+        """Repair generated lesson code/structure until it validates or attempts are exhausted."""
+        current_errors = list(errors or [])
+        attempts_used = 0
+
+        if not current_errors:
+            return markdown, current_errors, attempts_used
+
+        for repair_round in range(1, max_attempts + 1):
+            attempts_used = repair_round
+            monitor.event(
+                'warning',
+                '{0} executable repair round {1}/{2}: {3}'.format(
+                    context_label,
+                    repair_round,
+                    max_attempts,
+                    ' | '.join(current_errors)[:1600]
+                )
+            )
+
+            markdown = self.writer.repair_code(
+                markdown,
+                '\n'.join(current_errors)
+            )
+
+            current_errors = validate_lesson(markdown)
+
+            if not current_errors:
+                monitor.event(
+                    'success',
+                    '{0} executable validation repaired on round {1}.'.format(
+                        context_label,
+                        repair_round
+                    )
+                )
+                break
+
+        return markdown, current_errors, attempts_used
+
     def _premium_editorial_gate(self, markdown, lesson, output_dir):
         last_report = None
         polish_rounds = 0
@@ -196,14 +235,24 @@ class RoboticsTeacherAgent(object):
 
             errors = validate_lesson(markdown)
             if errors:
-                monitor.event('warning', 'Correction changed executable content; running code/structure repair: {0}'.format(
-                    ' | '.join(errors)[:1200]))
-                markdown = self.writer.repair_code(markdown, '\n'.join(errors))
-                errors = validate_lesson(markdown)
+                monitor.event(
+                    'warning',
+                    'Correction changed executable content; running resilient code/structure repair: {0}'.format(
+                        ' | '.join(errors)[:1200]
+                    )
+                )
+                markdown, errors, code_repair_attempts = self._repair_until_valid(
+                    markdown,
+                    errors,
+                    'Editorial-stage',
+                    max_attempts=3
+                )
                 if errors:
                     raise PublicationBlockedError(
-                        'Corrected lesson still fails executable validation: ' + ' | '.join(errors),
-                        attempts=technical_rounds + polish_rounds)
+                        'Corrected lesson still fails executable validation after 3 repair rounds: ' +
+                        ' | '.join(errors),
+                        attempts=technical_rounds + polish_rounds + code_repair_attempts
+                    )
             review_round += 1
 
         Path(output_dir).mkdir(parents=True, exist_ok=True)
@@ -268,14 +317,22 @@ class RoboticsTeacherAgent(object):
             if errors:
                 monitor.event(
                     'warning',
-                    'Remediation changed executable content; correcting validator findings before re-review: {0}'.format(
-                        ' | '.join(errors)[:1400]))
-                markdown = self.writer.repair_code(markdown, '\n'.join(errors))
-                errors = validate_lesson(markdown)
+                    'Remediation changed executable content; running resilient validator repair before re-review: {0}'.format(
+                        ' | '.join(errors)[:1400]
+                    )
+                )
+                markdown, errors, code_repair_attempts = self._repair_until_valid(
+                    markdown,
+                    errors,
+                    'Post-media',
+                    max_attempts=3
+                )
                 if errors:
                     raise PublicationBlockedError(
-                        'Post-media correction still fails executable validation: ' + ' | '.join(errors),
-                        attempts=technical_rounds + visual_rounds)
+                        'Post-media correction still fails executable validation after 3 repair rounds: ' +
+                        ' | '.join(errors),
+                        attempts=technical_rounds + visual_rounds + code_repair_attempts
+                    )
             review_round += 1
 
         Path(output_dir).mkdir(parents=True, exist_ok=True)
@@ -358,17 +415,32 @@ class RoboticsTeacherAgent(object):
             step_id = 'repair'
             if errors:
                 monitor.step('repair', 'Repairing {0} structural/code validation issue(s).'.format(len(errors)))
-                for repair_round in range(1, 3):
-                    monitor.event('warning', 'Validation repair round {0}: {1}'.format(
-                        repair_round, ' | '.join(errors)[:1200]))
-                    markdown = self.writer.repair_code(markdown, '\n'.join(errors))
-                    errors = validate_lesson(markdown)
-                    if not errors:
-                        break
+                markdown, errors, repair_attempts = self._repair_until_valid(
+                    markdown,
+                    errors,
+                    'Initial-validation',
+                    max_attempts=3
+                )
                 if errors:
-                    monitor.fail_step('repair', 'Lesson still failed validation after repair: ' + ' | '.join(errors))
-                    raise RuntimeError('Lesson failed validation after repair: ' + '\n'.join(errors))
-                monitor.complete_step('repair', 'All validation issues repaired successfully.')
+                    monitor.fail_step(
+                        'repair',
+                        'Lesson still failed validation after {0} repair rounds: {1}'.format(
+                            repair_attempts,
+                            ' | '.join(errors)
+                        )
+                    )
+                    raise RuntimeError(
+                        'Lesson failed validation after {0} repair rounds: {1}'.format(
+                            repair_attempts,
+                            '\n'.join(errors)
+                        )
+                    )
+                monitor.complete_step(
+                    'repair',
+                    'All validation issues repaired successfully after {0} round(s).'.format(
+                        repair_attempts
+                    )
+                )
             else:
                 monitor.complete_step('repair', 'No structural/code repair required.')
 
@@ -654,6 +726,35 @@ class RoboticsTeacherAgent(object):
             }
         except PublicationBlockedError as exc:
             message = str(exc)
+
+            # Persist the exact failed lesson and a compact machine-readable diagnostic.
+            # GitHub Actions can upload these even when --once exits with code 2.
+            try:
+                failed_out = locals().get('out')
+                failed_markdown = locals().get('markdown')
+                if failed_out:
+                    failed_out = Path(failed_out)
+                    failed_out.mkdir(parents=True, exist_ok=True)
+                    if failed_markdown:
+                        (failed_out / 'FAILED_RUN.md').write_text(
+                            failed_markdown,
+                            encoding='utf-8'
+                        )
+                    (failed_out / 'FAILED_RUN.json').write_text(
+                        json.dumps({
+                            'class_no': locals().get('class_no'),
+                            'step': step_id,
+                            'reason': message,
+                            'attempts': getattr(exc, 'attempts', 0),
+                        }, indent=2),
+                        encoding='utf-8'
+                    )
+            except Exception as diagnostic_exc:
+                monitor.event(
+                    'warning',
+                    'Could not persist blocked-run diagnostics: {0}'.format(diagnostic_exc)
+                )
+
             try:
                 monitor.fail_step(step_id, 'Publication hold: ' + message)
             except Exception:

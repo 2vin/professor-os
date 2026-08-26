@@ -115,6 +115,21 @@ class LessonWriter(object):
             'inline_02.png, or diagram.png, preserve those image references, their captions, '
             'and their surrounding teaching context. '
 
+            'ASSERTION FAILURE RULE: if validation reports AssertionError, do not blindly '
+            'preserve, delete, or invert the assertion. Re-evaluate the tested function using '
+            'the exact input in the assertion. Determine whether the implementation or the '
+            'asserted expected value contradicts the lesson semantics, equations, examples, '
+            'or stated behavior. Fix whichever is actually wrong. The corrected assertion '
+            'must pass when the complete fenced Python block runs independently. '
+
+            'If an assertion was introduced only as a regression self-check and its expected '
+            'value cannot be justified from the lesson, replace it with a correct self-check '
+            'derived from the demonstrated behavior. Never hide a real logic bug by merely '
+            'removing a meaningful test. '
+
+            'After repairing, mentally execute every assertion and every normal statement in '
+            'each Python block from top to bottom using the exact values shown. '
+
             'All executable code must run on Python 3.7. '
             'Do not use syntax introduced after Python 3.7. '
             'Before returning the lesson, mentally execute every Python block independently.'
