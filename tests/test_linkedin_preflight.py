@@ -1,3 +1,5 @@
+import teacher_agent.diagram as diagram_module
+
 from teacher_agent.diagram import make_linkedin_cover
 from teacher_agent.linkedin_preflight import preflight_linkedin_package
 
@@ -22,19 +24,57 @@ def good_package():
     }
 
 
-def test_preflight_accepts_premium_package(tmp_path):
+def _disable_live_gemini(monkeypatch):
+    monkeypatch.setattr(
+        diagram_module.settings,
+        'use_gemini_images',
+        False
+    )
+    monkeypatch.setattr(
+        diagram_module.settings,
+        'gemini_api_key',
+        ''
+    )
+
+
+def test_preflight_accepts_premium_package(tmp_path, monkeypatch):
+    _disable_live_gemini(monkeypatch)
+
     hero = tmp_path / 'hero.png'
-    make_linkedin_cover(1, 'What Is a Robot?', 'robot, autonomy, sensors', hero)
-    report = preflight_linkedin_package(good_package(), hero)
+    make_linkedin_cover(
+        1,
+        'What Is a Robot?',
+        'robot, autonomy, sensors',
+        hero
+    )
+
+    report = preflight_linkedin_package(
+        good_package(),
+        hero
+    )
+
     assert report['passed'], report['errors']
     assert report['thumbnail_width'] == 1200
     assert report['thumbnail_height'] == 675
 
 
-def test_preflight_rejects_invalid_source(tmp_path):
+def test_preflight_rejects_invalid_source(tmp_path, monkeypatch):
+    _disable_live_gemini(monkeypatch)
+
     hero = tmp_path / 'hero.png'
-    make_linkedin_cover(1, 'What Is a Robot?', 'robot', hero)
+    make_linkedin_cover(
+        1,
+        'What Is a Robot?',
+        'robot',
+        hero
+    )
+
     package = good_package()
     package['source'] = 'not-public'
-    report = preflight_linkedin_package(package, hero)
+
+    report = preflight_linkedin_package(
+        package,
+        hero
+    )
+
     assert not report['passed']
