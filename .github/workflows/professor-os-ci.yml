@@ -25,34 +25,40 @@ jobs:
             -w /workspace \
             python:3.7-slim \
             sh -lc '
+              set -eu
+
+              echo "=============================="
+              echo "Installing dependencies"
+              echo "=============================="
+
               python -m pip install --upgrade "pip<24.1"
               python -m pip install -r requirements.txt
 
               echo "=============================="
-              echo "Running tests"
+              echo "Running Professor OS tests"
               echo "=============================="
+
               python -m pytest -q
 
               echo "=============================="
               echo "Checking Python compilation"
               echo "=============================="
+
               python -m compileall -q teacher_agent tests
 
               echo "=============================="
-              echo "Checking imports"
+              echo "Checking critical imports"
               echo "=============================="
-              python - <<'"'"'PY'"'"'
-from teacher_agent.pipeline import RoboticsTeacherAgent
-from teacher_agent.lesson_writer import LessonWriter
-from teacher_agent.visual_plan import extract_visual_plan
-from teacher_agent.media_inserter import inject_inline_visuals
-from teacher_agent.gemini_images import generate_lesson_visuals
-from teacher_agent.publication_gate import final_publication_gate
 
-print("Professor OS imports: PASS")
-PY
+              python -c "from teacher_agent.pipeline import RoboticsTeacherAgent; from teacher_agent.lesson_writer import LessonWriter; from teacher_agent.visual_plan import extract_visual_plan; from teacher_agent.media_inserter import inject_inline_visuals, validate_inserted_visuals; from teacher_agent.gemini_images import generate_lesson_visuals; from teacher_agent.publication_gate import final_publication_gate; print(\"Professor OS critical imports: PASS\")"
 
               echo "=============================="
-              echo "ALL CODE CHECKS PASSED"
+              echo "Testing visual-plan prompt"
+              echo "=============================="
+
+              python -c "from teacher_agent.prompts import lesson_prompt; p=lesson_prompt({\"class_no\":1,\"title\":\"What Is a Robot?\",\"concepts\":\"sense, think, act\"},None,\"Robot Parts\"); assert \"## Visual Generation Plan\" in p; assert \"\`\`\`json\" in p; print(\"Visual plan prompt: PASS\")"
+
+              echo "=============================="
+              echo "ALL PROFESSOR OS CODE CHECKS PASSED"
               echo "=============================="
             '
