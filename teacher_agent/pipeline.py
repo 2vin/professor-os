@@ -9,6 +9,10 @@ from .config import settings
 from .diagram import make_linkedin_cover, make_teaching_diagram
 from .gemini_images import generate_lesson_visuals
 from .visual_plan import extract_visual_plan, remove_visual_plan
+from .media_inserter import (
+    inject_inline_visuals,
+    validate_inserted_visuals,
+)
 from .github_client import GitHubPublisher
 from .lesson_writer import LessonWriter
 from .linkedin_client import LinkedInPublisher
