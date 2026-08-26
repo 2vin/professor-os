@@ -427,6 +427,21 @@ class RoboticsTeacherAgent(object):
                 )
             )
 
+            diagram_path = out / 'diagram.png'
+
+            make_teaching_diagram(
+                class_no,
+                lesson['title'],
+                lesson.get('concepts', ''),
+                diagram_path
+            )
+            
+            monitor.artifact(
+                'visual',
+                diagram_path,
+                'Professor OS engineering teaching schematic'
+            )
+
             # Review the exact post-media + generated-visual lesson and automatically repair weak dimensions.
             visual_context = media_review_context(media_result, hero_path=hero_path, diagram_path=diagram_path)
             step_id = 'editorial'
