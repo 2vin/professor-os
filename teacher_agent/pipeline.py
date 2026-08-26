@@ -397,7 +397,7 @@ class RoboticsTeacherAgent(object):
                 'visual',
                 'Building the lesson visual plan and generating premium Gemini teaching assets.'
             )
-            
+
             visual_plan = extract_visual_plan(markdown)
 
             visual_plan_path = out / 'VISUAL_PLAN.json'
@@ -405,22 +405,21 @@ class RoboticsTeacherAgent(object):
                 json.dumps(visual_plan, indent=2),
                 encoding='utf-8'
             )
-            
+
             monitor.artifact(
                 'visual',
                 visual_plan_path,
                 'Machine-readable Gemini visual production plan'
             )
-            
+
             visual_assets = generate_lesson_visuals(
                 visual_plan,
                 out
             )
-            
+
             hero_path = Path(visual_assets['hero']['path'])
-            
             inline_assets = visual_assets['inline']
-            
+
             for asset in inline_assets:
                 monitor.artifact(
                     'visual',
@@ -429,18 +428,11 @@ class RoboticsTeacherAgent(object):
                         asset['section_heading']
                     )
                 )
-            
+
             monitor.artifact(
                 'visual',
                 hero_path,
                 'Premium Gemini lesson hero'
-            )
-            
-            monitor.complete_step(
-                'visual',
-                'Generated {0} premium Gemini lesson visuals.'.format(
-                    visual_assets['count']
-                )
             )
 
             diagram_path = out / 'diagram.png'
@@ -451,21 +443,112 @@ class RoboticsTeacherAgent(object):
                 lesson.get('concepts', ''),
                 diagram_path
             )
-            
+
             monitor.artifact(
                 'visual',
                 diagram_path,
                 'Professor OS engineering teaching schematic'
             )
 
+            # Insert every planned Gemini teaching visual beside the lesson section
+            # it was created to explain.
+            markdown = inject_inline_visuals(
+                markdown,
+                inline_assets
+            )
+
+            # Keep the existing Professor OS engineering schematic visible too.
+            markdown = append_generated_teaching_visual(
+                markdown,
+                lesson
+            )
+
+            # The Visual Generation Plan is machine metadata only.
+            # Keep VISUAL_PLAN.json, but remove the plan from the student-facing lesson.
+            markdown = remove_visual_plan(markdown)
+
+            # Fail closed if a planned inline visual is missing, invalid, or not inserted.
+            visual_errors = validate_inserted_visuals(
+                markdown,
+                inline_assets,
+                out
+            )
+
+            if visual_errors:
+                raise PublicationBlockedError(
+                    'Premium visual package failed validation: '
+                    + ' | '.join(visual_errors)
+                )
+
+            monitor.complete_step(
+                'visual',
+                'Generated and inserted {0} premium Gemini lesson visuals.'.format(
+                    visual_assets['count']
+                )
+            )
+
+            # Tell the final editorial board exactly which generated visuals exist
+            # and where they were inserted.
+            visual_context = media_review_context(
+                media_result,
+                hero_path=hero_path,
+                diagram_path=diagram_path
+            )
+
+            inline_context = []
+            for asset in inline_assets:
+                inline_context.append(
+                    (
+                        'Gemini inline teaching visual: {filename}; '
+                        'inserted after {section}; '
+                        'type={visual_type}; '
+                        'caption={caption}; '
+                        'alt={alt}.'
+                    ).format(
+                        filename=asset.get('filename', ''),
+                        section=asset.get('section_heading', ''),
+                        visual_type=asset.get('visual_type', ''),
+                        caption=asset.get('caption', ''),
+                        alt=asset.get('alt_text', ''),
+                    )
+                )
+
+            if inline_context:
+                visual_context += '\n' + '\n'.join(inline_context)
+
             # Review the exact post-media + generated-visual lesson and automatically repair weak dimensions.
-            visual_context = media_review_context(media_result, hero_path=hero_path, diagram_path=diagram_path)
             step_id = 'editorial'
-            monitor.step('editorial', 'Re-reviewing the exact final lesson after media and generated visuals, with targeted remediation if needed.')
+            monitor.step(
+                'editorial',
+                'Re-reviewing the exact final lesson after media and generated visuals, with targeted remediation if needed.'
+            )
             markdown, final_ai, final_quality_report = self._post_media_editorial_gate(
-                markdown, lesson, out, visual_context, quality_report.get('rewrite_rounds_used', 0))
-            monitor.complete_step('editorial', 'Final post-media editorial gate passed at {0}/100.'.format(
-                (final_ai or {}).get('overall_score', 'static-only')))
+                markdown,
+                lesson,
+                out,
+                visual_context,
+                quality_report.get('rewrite_rounds_used', 0)
+            )
+
+            # The final editorial repair pass is allowed to rewrite Markdown, so verify
+            # once more that it did not accidentally remove a required Gemini visual.
+            visual_errors = validate_inserted_visuals(
+                markdown,
+                inline_assets,
+                out
+            )
+            if visual_errors:
+                raise PublicationBlockedError(
+                    'Final editorial pass damaged the premium visual package: '
+                    + ' | '.join(visual_errors)
+                )
+
+            monitor.complete_step(
+                'editorial',
+                'Final post-media editorial gate passed at {0}/100.'.format(
+                    (final_ai or {}).get('overall_score', 'static-only')
+                )
+            )
 
             step_id = 'package'
             monitor.step('package', 'Building the final lesson, web article, labs, quality report, and attribution record.')
