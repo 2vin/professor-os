@@ -399,6 +399,18 @@ class RoboticsTeacherAgent(object):
             )
             
             visual_plan = extract_visual_plan(markdown)
+
+            visual_plan_path = out / 'VISUAL_PLAN.json'
+            visual_plan_path.write_text(
+                json.dumps(visual_plan, indent=2),
+                encoding='utf-8'
+            )
+            
+            monitor.artifact(
+                'visual',
+                visual_plan_path,
+                'Machine-readable Gemini visual production plan'
+            )
             
             visual_assets = generate_lesson_visuals(
                 visual_plan,
