@@ -29,8 +29,21 @@ def main():
     args = parser.parse_args()
 
     if args.once:
-        result = run()
-        sys.exit(0 if result else 1)
+    result = run()
+
+    if not result:
+        sys.exit(1)
+
+    if result.get('publication_blocked'):
+        print(
+            'Professor OS completed generation but publication was BLOCKED: {0}'.format(
+                result.get('reason', 'quality or validation gate failed')
+            ),
+            file=sys.stderr
+        )
+        sys.exit(2)
+
+    sys.exit(0)
 
     if args.scheduler:
         source_watcher = SourceSyncWatcher() if settings.auto_sync_source else None
