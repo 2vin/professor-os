@@ -389,20 +389,43 @@ class RoboticsTeacherAgent(object):
             # Render the actual visual assets BEFORE the final visual-teaching review.
             # The previous implementation reviewed visual_teaching_plan before these assets existed.
             step_id = 'visual'
-            monitor.step('visual', 'Rendering a consistent 16:9 lesson cover and professional engineering schematic.')
-            hero_path = out / 'hero.png'
-            diagram_path = out / 'diagram.png'
-            photo_path = None
-            for media_item in media_result.get('items') or []:
-                if media_item.get('kind') == 'image' and media_item.get('local_path'):
-                    photo_path = media_item.get('local_path')
-                    break
-            make_linkedin_cover(class_no, lesson['title'], lesson.get('concepts', ''), hero_path, photo_path=photo_path)
-            make_teaching_diagram(class_no, lesson['title'], lesson.get('concepts', ''), diagram_path)
-            markdown = append_generated_teaching_visual(markdown, lesson)
-            monitor.artifact('visual', hero_path, 'Premium 16:9 lesson cover')
-            monitor.artifact('visual', diagram_path, 'Premium engineering teaching schematic')
-            monitor.complete_step('visual', 'Visual assets rendered and inserted into the teaching flow.')
+            monitor.step(
+                'visual',
+                'Building the lesson visual plan and generating premium Gemini teaching assets.'
+            )
+            
+            visual_plan = extract_visual_plan(markdown)
+            
+            visual_assets = generate_lesson_visuals(
+                visual_plan,
+                out
+            )
+            
+            hero_path = Path(visual_assets['hero']['path'])
+            
+            inline_assets = visual_assets['inline']
+            
+            for asset in inline_assets:
+                monitor.artifact(
+                    'visual',
+                    Path(asset['path']),
+                    'Gemini teaching visual for {0}'.format(
+                        asset['section_heading']
+                    )
+                )
+            
+            monitor.artifact(
+                'visual',
+                hero_path,
+                'Premium Gemini lesson hero'
+            )
+            
+            monitor.complete_step(
+                'visual',
+                'Generated {0} premium Gemini lesson visuals.'.format(
+                    visual_assets['count']
+                )
+            )
 
             # Review the exact post-media + generated-visual lesson and automatically repair weak dimensions.
             visual_context = media_review_context(media_result, hero_path=hero_path, diagram_path=diagram_path)
