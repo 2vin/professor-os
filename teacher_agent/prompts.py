@@ -83,7 +83,42 @@ Requirements:
 - explicitly connect this class to both previous and next class;
 - make visualizable concepts explicit enough that an illustrator could draw them;
 - use original examples rather than standard textbook boilerplate whenever possible;
-- output Markdown only.
+VISUAL GENERATION PLAN:
+At the very end of the lesson, after ## Next Class, append this exact heading:
+
+## Visual Generation Plan
+
+Under that heading output exactly one fenced JSON block.
+
+The JSON must have this structure:
+
+```json
+{{
+  "hero_image": {{
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "prompt": "",
+    "caption": "",
+    "alt_text": ""
+  }},
+  "inline_visuals": [
+    {{
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "prompt": "",
+      "caption": "",
+      "alt_text": ""
+    }},
+    {{
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "prompt": "",
+      "caption": "",
+      "alt_text": ""
+    }}
+  ]
+}}
 """.format(
         class_no=lesson['class_no'],
         title=lesson['title'],
