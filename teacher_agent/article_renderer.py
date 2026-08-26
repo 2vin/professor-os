@@ -211,16 +211,139 @@ def render_premium_article(markdown, lesson, output_path, hero_filename='hero.pn
         page = page.replace(key, value)
     Path(output_path).write_text(page, encoding='utf-8')
     return output_path
+
 def render_linkedin_preview(package, output_path, hero_filename='hero.png'):
-    commentary = html.escape(package.get('commentary', '')).replace('\n', '<br>')
+    commentary = html.escape(
+        package.get('commentary', '')
+    ).replace('\n', '<br>')
+
     title = html.escape(package.get('title', ''))
     description = html.escape(package.get('description', ''))
-    page = '''<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>LinkedIn Preflight</title><style>body{margin:0;background:#f3f6f9;font-family:Arial,sans-serif;color:#1d2226}.wrap{max-width:620px;margin:30px auto}.post{background:#fff;border:1px solid #d8d8d8;border-radius:12px;overflow:hidden;box-shadow:0 16px 40px rgba(0,0,0,.08)}.author{padding:15px 16px 8px;font-weight:700}.copy{padding:8px 16px 16px;font-size:14px;line-height:1.5;white-space:normal}img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}.article{padding:12px 16px 15px;background:#f7f8f9;border-top:1px solid #e6e6e6}.article h2{font-size:15px;margin:0 0 6px}.article p{font-size:12px;color:#5e5e5e;margin:0;line-height:1.4}.note{font-size:12px;color:#6b6b6b;margin-bottom:10px}</style></head><body><div class="wrap"><div class="note">Local approximation for typography, spacing, and article-card preflight. LinkedIn controls the final platform font.</div><div class="post"><div class="author">Professor OS · Connect.Vin</div><div class="copy">{commentary}</div><img src="{hero}" alt="{alt}"><div class="article"><h2>{title}</h2><p>{description}</p></div></div></div></body></html>'''.format(
-        commentary=commentary,
-        hero=html.escape(hero_filename, quote=True),
-        alt=html.escape(package.get('thumbnail_alt_text', ''), quote=True),
-        title=title,
-        description=description,
+    alt_text = html.escape(
+        package.get('thumbnail_alt_text', ''),
+        quote=True
     )
+    hero = html.escape(hero_filename, quote=True)
+
+    page = '''<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>LinkedIn Preflight</title>
+
+<style>
+body{
+    margin:0;
+    background:#f3f6f9;
+    font-family:Arial,sans-serif;
+    color:#1d2226;
+}
+
+.wrap{
+    max-width:620px;
+    margin:30px auto;
+}
+
+.post{
+    background:#fff;
+    border:1px solid #d8d8d8;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 16px 40px rgba(0,0,0,.08);
+}
+
+.author{
+    padding:15px 16px 8px;
+    font-weight:700;
+}
+
+.copy{
+    padding:8px 16px 16px;
+    font-size:14px;
+    line-height:1.5;
+    white-space:normal;
+}
+
+img{
+    width:100%;
+    aspect-ratio:16/9;
+    object-fit:cover;
+    display:block;
+}
+
+.article{
+    padding:12px 16px 15px;
+    background:#f7f8f9;
+    border-top:1px solid #e6e6e6;
+}
+
+.article h2{
+    font-size:15px;
+    margin:0 0 6px;
+}
+
+.article p{
+    font-size:12px;
+    color:#5e5e5e;
+    margin:0;
+    line-height:1.4;
+}
+
+.note{
+    font-size:12px;
+    color:#6b6b6b;
+    margin-bottom:10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+<div class="note">
+Local approximation for typography, spacing, and article-card preflight.
+LinkedIn controls the final platform font.
+</div>
+
+<div class="post">
+
+<div class="author">
+Professor OS · Connect.Vin
+</div>
+
+<div class="copy">
+__COMMENTARY__
+</div>
+
+<img
+    src="__HERO__"
+    alt="__ALT__"
+>
+
+<div class="article">
+<h2>__TITLE__</h2>
+<p>__DESCRIPTION__</p>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>'''
+
+    replacements = {
+        '__COMMENTARY__': commentary,
+        '__HERO__': hero,
+        '__ALT__': alt_text,
+        '__TITLE__': title,
+        '__DESCRIPTION__': description,
+    }
+
+    for key, value in replacements.items():
+        page = page.replace(key, value)
+
     Path(output_path).write_text(page, encoding='utf-8')
+
     return output_path
