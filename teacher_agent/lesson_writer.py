@@ -68,14 +68,38 @@ class LessonWriter(object):
         )
 
     def repair_code(self, lesson_markdown, error_report):
-        instructions = (
-            'You repair a robotics teaching lesson. Return the COMPLETE corrected Markdown lesson. '
-            'Change only what is necessary. Preserve all required headings and teaching continuity. '
-            'All Python code must run on Python 3.7; do not use syntax introduced after Python 3.7.'
-        )
-        user_input = 'LESSON:\n{0}\n\nVALIDATION ERRORS:\n{1}'.format(
-            lesson_markdown, error_report)
-        return self._call_openai(instructions, user_input)
+    instructions = (
+        'You are repairing executable Python examples inside a robotics teaching lesson. '
+        'Return the COMPLETE corrected Markdown lesson only. '
+        'Preserve all required headings, explanations, diagrams, and teaching continuity. '
+        'Change only what is necessary to correct validation errors. '
+
+        'CRITICAL VALIDATION RULE: every fenced ```python code block is executed '
+        'IN ISOLATION in a fresh Python process. Therefore EVERY Python code block '
+        'must be independently executable. A block may NOT depend on variables, '
+        'functions, classes, imports, constants, or setup defined in another code block. '
+
+        'If a demonstration needs find_safe_route(), start, goal, a class, an import, '
+        'or any other dependency, define or import that dependency inside that same '
+        'Python block. '
+
+        'Do not solve validation failures by deleting meaningful teaching examples. '
+        'Make examples self-contained instead. '
+
+        'All executable code must run on Python 3.7. '
+        'Do not use syntax introduced after Python 3.7. '
+        'Before returning the lesson, mentally execute every Python block independently.'
+    )
+
+    user_input = (
+        'LESSON:\n{0}\n\n'
+        'VALIDATION ERRORS:\n{1}'
+    ).format(lesson_markdown, error_report)
+
+    return self._call_openai(
+        instructions,
+        user_input
+    )
     def _premium_review_format(self):
         return {
             'type': 'json_schema',
