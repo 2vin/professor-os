@@ -29,29 +29,38 @@ def main():
     args = parser.parse_args()
 
     if args.once:
-    result = run()
+        result = run()
 
-    if not result:
-        sys.exit(1)
+        if not result:
+            sys.exit(1)
 
-    if result.get('publication_blocked'):
-        print(
-            'Professor OS completed generation but publication was BLOCKED: {0}'.format(
-                result.get('reason', 'quality or validation gate failed')
-            ),
-            file=sys.stderr
-        )
-        sys.exit(2)
+        if result.get('publication_blocked'):
+            print(
+                'Professor OS completed generation but publication was BLOCKED: {0}'.format(
+                    result.get('reason', 'quality or validation gate failed')
+                ),
+                file=sys.stderr
+            )
+            sys.exit(2)
 
-    sys.exit(0)
+        sys.exit(0)
 
     if args.scheduler:
         source_watcher = SourceSyncWatcher() if settings.auto_sync_source else None
         if source_watcher:
             source_watcher.start()
-        scheduler = DailyISTScheduler(run, hour=settings.nightly_release_hour, minute=settings.nightly_release_minute)
+        scheduler = DailyISTScheduler(
+            run,
+            hour=settings.nightly_release_hour,
+            minute=settings.nightly_release_minute
+        )
         scheduler.start()
-        print('Robotics Teacher Agent scheduled daily at {0:02d}:{1:02d} (Asia/Kolkata)'.format(settings.nightly_release_hour, settings.nightly_release_minute))
+        print(
+            'Robotics Teacher Agent scheduled daily at {0:02d}:{1:02d} (Asia/Kolkata)'.format(
+                settings.nightly_release_hour,
+                settings.nightly_release_minute
+            )
+        )
         try:
             while True:
                 import time

@@ -1,6 +1,13 @@
 from .config import settings
 from .http_utils import request_with_retry
-from .prompts import SYSTEM_PROMPT, lesson_prompt, premium_review_prompt, post_media_polish_prompt, premium_polish_prompt, technical_correction_prompt
+from .prompts import (
+    SYSTEM_PROMPT,
+    lesson_prompt,
+    premium_review_prompt,
+    post_media_polish_prompt,
+    premium_polish_prompt,
+    technical_correction_prompt,
+)
 from .runtime import monitor
 from .quality import PREMIUM_REVIEW_SCHEMA
 
@@ -23,8 +30,10 @@ class LessonWriter(object):
         }
         if text_format is not None:
             payload['text'] = {'format': text_format}
+
         response = request_with_retry(
-            'POST', self.url,
+            'POST',
+            self.url,
             headers=self.headers,
             json=payload,
             timeout=settings.openai_timeout,
@@ -35,8 +44,12 @@ class LessonWriter(object):
             response.raise_for_status()
         except Exception:
             body = response.text[-2000:] if response.text else '(empty response body)'
-            raise RuntimeError('OpenAI API returned HTTP {0}: {1}'.format(
-                response.status_code, body))
+            raise RuntimeError(
+                'OpenAI API returned HTTP {0}: {1}'.format(
+                    response.status_code,
+                    body
+                )
+            )
 
         try:
             data = response.json()
@@ -52,54 +65,71 @@ class LessonWriter(object):
                         texts.append(text)
 
         if not texts:
-            raise RuntimeError('OpenAI returned no output_text. Response keys: {0}'.format(
-                ', '.join(sorted(data.keys()))))
+            raise RuntimeError(
+                'OpenAI returned no output_text. Response keys: {0}'.format(
+                    ', '.join(sorted(data.keys()))
+                )
+            )
 
-        monitor.event('success', 'OpenAI returned {0:,} characters of lesson content.'.format(
-            len('\n'.join(texts))))
-        return '\n'.join(texts)
+        joined = '\n'.join(texts)
+        monitor.event(
+            'success',
+            'OpenAI returned {0:,} characters of lesson content.'.format(len(joined))
+        )
+        return joined
 
     def write(self, lesson, previous_title=None, next_title=None):
         instructions = SYSTEM_PROMPT.format(
-            class_no=lesson['class_no'], title=lesson['title'])
+            class_no=lesson['class_no'],
+            title=lesson['title']
+        )
         return self._call_openai(
             instructions,
             lesson_prompt(lesson, previous_title, next_title),
         )
 
     def repair_code(self, lesson_markdown, error_report):
-    instructions = (
-        'You are repairing executable Python examples inside a robotics teaching lesson. '
-        'Return the COMPLETE corrected Markdown lesson only. '
-        'Preserve all required headings, explanations, diagrams, and teaching continuity. '
-        'Change only what is necessary to correct validation errors. '
+        instructions = (
+            'You are repairing executable Python examples inside a robotics teaching lesson. '
+            'Return the COMPLETE corrected Markdown lesson only. '
+            'Preserve all required headings, explanations, diagrams, media references, and teaching continuity. '
+            'Change only what is necessary to correct validation errors. '
 
-        'CRITICAL VALIDATION RULE: every fenced ```python code block is executed '
-        'IN ISOLATION in a fresh Python process. Therefore EVERY Python code block '
-        'must be independently executable. A block may NOT depend on variables, '
-        'functions, classes, imports, constants, or setup defined in another code block. '
+            'CRITICAL VALIDATION RULE: every fenced ```python code block is executed '
+            'IN ISOLATION in a fresh Python process. Therefore EVERY Python code block '
+            'must be independently executable. A block may NOT depend on variables, '
+            'functions, classes, imports, constants, or setup defined in another code block. '
 
-        'If a demonstration needs find_safe_route(), start, goal, a class, an import, '
-        'or any other dependency, define or import that dependency inside that same '
-        'Python block. '
+            'If a demonstration needs find_safe_route(), start, goal, a class, an import, '
+            'or any other dependency, define or import that dependency inside that same '
+            'Python block. '
 
-        'Do not solve validation failures by deleting meaningful teaching examples. '
-        'Make examples self-contained instead. '
+            'Do not solve validation failures by deleting meaningful teaching examples. '
+            'Make examples self-contained instead. '
 
-        'All executable code must run on Python 3.7. '
-        'Do not use syntax introduced after Python 3.7. '
-        'Before returning the lesson, mentally execute every Python block independently.'
-    )
+            'If the lesson contains a ## Visual Generation Plan section, preserve the ENTIRE '
+            'heading and its fenced ```json block exactly as machine-readable metadata. '
+            'Keep that JSON syntactically valid and keep it after ## Next Class. '
 
-    user_input = (
-        'LESSON:\n{0}\n\n'
-        'VALIDATION ERRORS:\n{1}'
-    ).format(lesson_markdown, error_report)
+            'If the lesson already contains local image references such as inline_01.png, '
+            'inline_02.png, or diagram.png, preserve those image references, their captions, '
+            'and their surrounding teaching context. '
 
-    return self._call_openai(
-        instructions,
-        user_input
-    )
+            'All executable code must run on Python 3.7. '
+            'Do not use syntax introduced after Python 3.7. '
+            'Before returning the lesson, mentally execute every Python block independently.'
+        )
+
+        user_input = (
+            'LESSON:\n{0}\n\n'
+            'VALIDATION ERRORS:\n{1}'
+        ).format(lesson_markdown, error_report)
+
+        return self._call_openai(
+            instructions,
+            user_input
+        )
+
     def _premium_review_format(self):
         return {
             'type': 'json_schema',
@@ -115,23 +145,37 @@ class LessonWriter(object):
             'Return only the requested structured review. Be conservative with scores.'
         )
         user_input = premium_review_prompt(
-            lesson_markdown, lesson['class_no'], lesson['title'], visual_context=visual_context)
+            lesson_markdown,
+            lesson['class_no'],
+            lesson['title'],
+            visual_context=visual_context
+        )
         try:
             return self._call_openai(
-                instructions, user_input, text_format=self._premium_review_format())
+                instructions,
+                user_input,
+                text_format=self._premium_review_format()
+            )
         except RuntimeError as exc:
             # Older/unsupported model configurations can reject strict JSON schema.
             # Fall back to JSON mode, which still forces syntactically valid JSON.
             message = str(exc).lower()
-            if ('json_schema' not in message and 'response format' not in message and
-                    'text.format' not in message and 'unsupported' not in message):
+            if (
+                'json_schema' not in message and
+                'response format' not in message and
+                'text.format' not in message and
+                'unsupported' not in message
+            ):
                 raise
             monitor.event(
                 'warning',
-                'Strict editorial JSON schema was rejected; falling back to JSON-object mode.')
+                'Strict editorial JSON schema was rejected; falling back to JSON-object mode.'
+            )
             return self._call_openai(
-                instructions, user_input,
-                text_format={'type': 'json_object'})
+                instructions,
+                user_input,
+                text_format={'type': 'json_object'}
+            )
 
     def repair_premium_review_json(self, malformed_text, lesson, parse_error):
         instructions = (
@@ -144,17 +188,32 @@ class LessonWriter(object):
             'Parse error: {0}\n\n'
             'Lesson: Class {1}: {2}\n\n'
             'MALFORMED REVIEW:\n{3}'
-        ).format(parse_error, lesson['class_no'], lesson['title'], malformed_text[:12000])
+        ).format(
+            parse_error,
+            lesson['class_no'],
+            lesson['title'],
+            malformed_text[:12000]
+        )
         try:
             return self._call_openai(
-                instructions, user_input, text_format=self._premium_review_format())
+                instructions,
+                user_input,
+                text_format=self._premium_review_format()
+            )
         except RuntimeError as exc:
             message = str(exc).lower()
-            if ('json_schema' not in message and 'response format' not in message and
-                    'text.format' not in message and 'unsupported' not in message):
+            if (
+                'json_schema' not in message and
+                'response format' not in message and
+                'text.format' not in message and
+                'unsupported' not in message
+            ):
                 raise
             return self._call_openai(
-                instructions, user_input, text_format={'type': 'json_object'})
+                instructions,
+                user_input,
+                text_format={'type': 'json_object'}
+            )
 
     def repair_technical_quality(self, lesson_markdown, review_json, visual_context=None):
         instructions = (
@@ -164,7 +223,12 @@ class LessonWriter(object):
         )
         return self._call_openai(
             instructions,
-            technical_correction_prompt(lesson_markdown, review_json, visual_context))
+            technical_correction_prompt(
+                lesson_markdown,
+                review_json,
+                visual_context
+            )
+        )
 
     def polish_post_media_quality(self, lesson_markdown, review_json, visual_context):
         instructions = (
@@ -173,7 +237,12 @@ class LessonWriter(object):
         )
         return self._call_openai(
             instructions,
-            post_media_polish_prompt(lesson_markdown, review_json, visual_context))
+            post_media_polish_prompt(
+                lesson_markdown,
+                review_json,
+                visual_context
+            )
+        )
 
     def polish_premium_quality(self, lesson_markdown, review_json, static_errors):
         instructions = (
@@ -183,5 +252,9 @@ class LessonWriter(object):
         )
         return self._call_openai(
             instructions,
-            premium_polish_prompt(lesson_markdown, review_json, static_errors))
-
+            premium_polish_prompt(
+                lesson_markdown,
+                review_json,
+                static_errors
+            )
+        )

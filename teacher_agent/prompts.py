@@ -83,6 +83,7 @@ Requirements:
 - explicitly connect this class to both previous and next class;
 - make visualizable concepts explicit enough that an illustrator could draw them;
 - use original examples rather than standard textbook boilerplate whenever possible;
+
 VISUAL GENERATION PLAN:
 At the very end of the lesson, after ## Next Class, append this exact heading:
 
@@ -119,6 +120,25 @@ The JSON must have this structure:
     }}
   ]
 }}
+```
+
+Visual rules:
+- hero_image is mandatory and needed must be true;
+- include at least 2 inline visuals;
+- include 3 or 4 inline visuals when they materially improve learning;
+- every inline section_heading must exactly match one existing ## heading in the lesson;
+- every prompt must describe the exact concept being taught, not generic robotics imagery;
+- every caption must tell the learner what to notice or understand;
+- every alt_text must clearly describe the educational content;
+- use diagrams for abstract concepts, algorithms, control loops, coordinate systems, planning, sensing, state machines, and math;
+- use realistic engineering illustrations for physical robots, mechanisms, sensors, motors, labs, and environments;
+- images should look like a premium robotics textbook/editorial publication;
+- use professional composition, high visual clarity, technically plausible hardware, restrained modern styling, and realistic materials/lighting when appropriate;
+- no childish cartoon styling, clipart, meaningless humanoid robots, decorative sci-fi imagery, watermarks, or clutter;
+- avoid text-heavy generated images unless labels are essential to a technical diagram;
+- do not include URLs in the visual plan;
+- keep the JSON valid and machine-readable;
+- output Markdown only.
 """.format(
         class_no=lesson['class_no'],
         title=lesson['title'],
@@ -175,6 +195,8 @@ Review requirements:
 - Check continuity and progressive learning flow.
 - Check that examples and code genuinely teach rather than merely decorate the lesson.
 - Check readability, section balance, redundancy, vocabulary, and beginner accessibility.
+- Before generated assets exist, judge visual_teaching_plan from the machine-readable Visual Generation Plan: relevance, educational purpose, section placement, prompt specificity, captions, and alt text.
+- After generated assets exist, judge visual_teaching_plan from BOTH the final Markdown image references and VISUAL / MEDIA IMPLEMENTATION CONTEXT.
 - Decide whether real-world media materially improves understanding. Prefer a real photograph for physical hardware, laboratory setups, mechanisms, actuators, sensors, manipulators, vehicles, drones, and industrial robots. Prefer a technical schematic only when a photograph cannot communicate the concept well (for example coordinate frames, control loops, state estimation, SLAM, or path planning).
 - If media helps, set media_style to one of "photo", "video", or "mixed". Provide a concise image_query suitable for licensed Google image discovery / Wikimedia search and a concise youtube_query for an expert explanatory or real-hardware video. Do not request cartoons, mascots, clipart, childish illustrations, glossy sci-fi concept art, or decorative AI imagery.
 - Choose media_insert_after_heading from the lesson's existing ## headings; normally use "## Real Robot Connection" or "## See It in Your Head". Explain the teaching purpose in media_reason. Otherwise set media_would_help=false and media_style="none".
@@ -188,11 +210,16 @@ Lesson identity: Class {class_no}: {title}
 VISUAL / MEDIA IMPLEMENTATION CONTEXT:
 {visual_context}
 
-Important: score visual_teaching_plan against BOTH the lesson Markdown and the implementation context above. A local image reference such as diagram.png represents a real generated asset, not a missing placeholder.
+Important: a local image reference such as hero.png, diagram.png, or inline_01.png represents a generated asset, not a missing placeholder.
 
 LESSON:
 {lesson}
-""".format(class_no=class_no, title=title, visual_context=visual_context or 'No additional visual context supplied.', lesson=lesson_markdown)
+""".format(
+        class_no=class_no,
+        title=title,
+        visual_context=visual_context or 'No additional visual context supplied.',
+        lesson=lesson_markdown,
+    )
 
 
 def premium_polish_prompt(lesson_markdown, review_json, static_errors):
@@ -202,6 +229,8 @@ You are a senior robotics educator and technical editor. Rewrite the COMPLETE le
 Rules:
 - preserve every required ## heading exactly and in the same order;
 - preserve the class identity and continuity;
+- if a ## Visual Generation Plan exists, preserve the ENTIRE section and fenced ```json block, keep the JSON valid, and keep it after ## Next Class;
+- never replace the Visual Generation Plan with prose or delete it during a rewrite;
 - fix every issue from the review and deterministic checks;
 - improve technical precision without making the lesson unnecessarily difficult;
 - remove repetition and generic filler;
@@ -228,18 +257,20 @@ CURRENT LESSON:
 
 def post_media_polish_prompt(lesson_markdown, review_json, visual_context):
     return """
-You are a senior robotics educator and visual-learning editor. Improve the COMPLETE lesson after media has already been selected.
+You are a senior robotics educator and visual-learning editor. Improve the COMPLETE lesson after media and generated visuals have already been selected and inserted.
 
-The goal is to fix weak post-media editorial dimensions without damaging technical accuracy, code, headings, or course continuity.
+The goal is to fix weak post-media editorial dimensions without damaging technical accuracy, code, headings, course continuity, or the visual package.
 
 Rules:
 - preserve every required ## heading exactly and in the same order;
 - keep all Python code Python 3.7 compatible;
-- preserve valid media URLs, local image paths, YouTube markers, source credits, and licenses;
-- do not invent new URLs, citations, sources, licenses, or videos;
-- if visual_teaching_plan is weak, improve how the lesson TELLS the learner what to inspect in the photo/video/schematic, add concise captions or observation prompts, and connect the visual directly to the concept being taught;
+- preserve every existing local generated-image reference such as hero.png, diagram.png, inline_01.png, inline_02.png, and later inline_XX.png references;
+- preserve the educational captions and alt-text-bearing Markdown image syntax associated with those local images;
+- preserve valid media URLs, YouTube markers, source credits, and licenses;
+- do not invent new URLs, citations, sources, licenses, videos, or image filenames;
+- do not reintroduce a ## Visual Generation Plan section after it has been removed from the student-facing lesson;
+- if visual_teaching_plan is weak, improve what the learner should inspect in the existing image/video/schematic and connect the visual directly to the concept being taught;
 - avoid decorative language and childish explanations;
-- do not remove the Professor OS generated diagram reference if present;
 - return the COMPLETE improved Markdown only.
 
 EDITORIAL REVIEW:
@@ -250,7 +281,11 @@ VISUAL / MEDIA CONTEXT:
 
 CURRENT LESSON:
 {lesson}
-""".format(review=review_json, visual_context=visual_context, lesson=lesson_markdown)
+""".format(
+        review=review_json,
+        visual_context=visual_context,
+        lesson=lesson_markdown,
+    )
 
 
 def technical_correction_prompt(lesson_markdown, review_json, visual_context=None):
@@ -263,6 +298,8 @@ This is not a style rewrite. Fix every blocking technical issue precisely and pr
 
 Mandatory rules:
 - preserve every required ## heading exactly and in the same order;
+- if a ## Visual Generation Plan exists, preserve the ENTIRE section and fenced ```json block, keep the JSON valid, and keep it after ## Next Class;
+- if local generated-image references such as diagram.png or inline_XX.png already exist, preserve those references and their captions;
 - independently verify every blocking issue before editing; do not blindly copy a reviewer-proposed fix if that proposed fix is itself mathematically questionable;
 - resolve every real factual contradiction identified by the editorial review, choosing the physically and mathematically correct interpretation;
 - when the review identifies a mathematical claim as wrong, re-derive it from the stated model and correct the derivation, example, sidebar, exercise, quiz, and answer wherever that claim appears so the lesson is internally consistent;
