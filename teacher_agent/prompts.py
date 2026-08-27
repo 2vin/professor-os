@@ -30,6 +30,11 @@ Teaching rules:
 18. Write in clear professional English. Avoid repetitive motivational filler, generic AI phrases, fake quotes, and empty conclusions.
 19. Use concise paragraphs, meaningful lists, and descriptive subheadings. Do not create a wall of text.
 20. The lesson should be understandable to a beginner but technically respectable to an experienced roboticist.
+21. When a technical term has multiple professional definitions or taxonomies, present common engineering usage first. If the course uses a broader teaching model, label it explicitly as a course-specific instructional model at first use; never let the teaching shortcut masquerade as a universal definition.
+22. Keep automation, feedback control, adaptation, and autonomy distinct. A sensor-triggered action is not automatically feedback control: feedback requires measured output or state to influence corrective control. A fixed stimulus-response rule is not automatically task-level autonomy.
+23. Do not inflate originality by inventing new robotics terminology or unusual classifications. Originality should come from fresh explanations, examples, experiments, diagrams, and exercises while the technical vocabulary remains standard.
+24. Explain a foundational distinction once with precision, then refer back to it. Do not repeat the same taxonomy caveat, definition, or boundary-case discussion across many sections.
+25. Verify every stated program result, trace length, move count, numerical answer, and assertion against the actual code or derivation before returning the lesson.
 
 Every lesson MUST contain these headings exactly:
 
@@ -54,7 +59,7 @@ Every lesson MUST contain these headings exactly:
 ## Further Learning
 ## Next Class
 
-The lesson should normally be 1,800-3,000 words. Depth matters more than filler.
+The lesson body should normally be 1,800-3,000 words and should rarely exceed 3,300 words. Depth must come from precision, examples, and reasoning rather than repetition.
 Use fenced Python code blocks for runnable code.
 Use Mermaid only when it materially improves comprehension; the pipeline independently creates premium visual assets.
 """
@@ -83,6 +88,12 @@ Requirements:
 - explicitly connect this class to both previous and next class;
 - make visualizable concepts explicit enough that an illustrator could draw them;
 - use original examples rather than standard textbook boilerplate whenever possible;
+- keep the student-facing lesson focused: aim for roughly 2,200-3,000 words and avoid exceeding 3,300 words unless the topic genuinely requires it;
+- for definition-heavy topics, use common robotics/control terminology as the primary taxonomy and clearly label any broader course teaching model as instructional rather than universal;
+- when comparing automation, feedback control, and autonomy, use one compact comparison instead of repeating edge cases in multiple sections;
+- do not call a sensor-triggered sequence closed-loop feedback unless a measured output/state is actually used to adjust the control action;
+- verify all claimed outputs, path lengths, move counts, equations, quiz answers, and code assertions against the executable code or derivation;
+- prefer one memorable, original RoboRover example per core idea over many loosely related examples;
 
 VISUAL GENERATION PLAN:
 At the very end of the lesson, after ## Next Class, append this exact heading:
@@ -195,6 +206,8 @@ Review requirements:
 - Check continuity and progressive learning flow.
 - Check that examples and code genuinely teach rather than merely decorate the lesson.
 - Check readability, section balance, redundancy, vocabulary, and beginner accessibility.
+- For originality, reward fresh pedagogy, examples, simulations, exercises, and wording; do NOT reward invented taxonomies, nonstandard definitions, or unnecessary novelty in technical terminology.
+- Penalize repeated caveats or definitions that make a foundational lesson substantially longer than necessary.
 - Before generated assets exist, judge visual_teaching_plan from the machine-readable Visual Generation Plan: relevance, educational purpose, section placement, prompt specificity, captions, and alt text.
 - After generated assets exist, judge visual_teaching_plan from BOTH the final Markdown image references and VISUAL / MEDIA IMPLEMENTATION CONTEXT.
 - Decide whether real-world media materially improves understanding. Prefer a real photograph for physical hardware, laboratory setups, mechanisms, actuators, sensors, manipulators, vehicles, drones, and industrial robots. Prefer a technical schematic only when a photograph cannot communicate the concept well (for example coordinate frames, control loops, state estimation, SLAM, or path planning).
@@ -231,9 +244,14 @@ Rules:
 - preserve the class identity and continuity;
 - if a ## Visual Generation Plan exists, preserve the ENTIRE section and fenced ```json block, keep the JSON valid, and keep it after ## Next Class;
 - never replace the Visual Generation Plan with prose or delete it during a rewrite;
+- treat every blocking issue and every below-threshold dimension in the review as a mandatory checklist; do not leave a known blocker merely softened or caveated;
 - fix every issue from the review and deterministic checks;
 - improve technical precision without making the lesson unnecessarily difficult;
+- if the lesson is substantially above the 1,800-3,000 word target, aggressively remove repeated definitions, repeated boundary cases, duplicate caveats, and redundant prose while preserving required headings, essential reasoning, code, and exercises;
 - remove repetition and generic filler;
+- use common engineering terminology as the anchor when a taxonomy is disputed; label any course-specific teaching model clearly and only once;
+- never describe sensor-triggered automation as feedback control unless the measured output/state is used for correction; distinguish fixed automation, feedback control, and delegated autonomy explicitly;
+- improve originality through fresh examples and teaching design, never by inventing nonstandard technical categories;
 - strengthen examples, code explanations, predictions, and real-world engineering caveats;
 - all Python must run on Python 3.7;
 - do not invent URLs or citations;
@@ -302,6 +320,9 @@ Mandatory rules:
 - if local generated-image references such as diagram.png or inline_XX.png already exist, preserve those references and their captions;
 - independently verify every blocking issue before editing; do not blindly copy a reviewer-proposed fix if that proposed fix is itself mathematically questionable;
 - resolve every real factual contradiction identified by the editorial review, choosing the physically and mathematically correct interpretation;
+- when the issue is definitional or taxonomic, use common robotics/control terminology as the primary reference and explicitly label any broader course model as an instructional simplification rather than a universal definition;
+- do not equate a trigger sensor with closed-loop feedback: feedback control requires measured output/state to influence corrective action; keep automation, feedback, adaptation, and autonomy conceptually separate;
+- if the review says a distinction remains confusing, replace the ambiguous classification with a compact decision rule or comparison table instead of adding more caveats;
 - when the review identifies a mathematical claim as wrong, re-derive it from the stated model and correct the derivation, example, sidebar, exercise, quiz, and answer wherever that claim appears so the lesson is internally consistent;
 - distinguish different kinds of boundaries precisely (for example stability boundary versus monotonic/oscillatory response boundary) instead of using one vague label for both;
 - when the review identifies a code-semantic bug, correct the actual Python logic, not merely the prose describing it;
@@ -328,3 +349,57 @@ CURRENT LESSON:
         visual_context=visual_context or 'No additional visual context supplied.',
         lesson=lesson_markdown,
     )
+
+
+def final_convergence_prompt(
+        lesson_markdown,
+        review_json,
+        static_report_json,
+        visual_context=None):
+    return """
+You are the final publication-convergence editor for Professor OS.
+
+The lesson has already gone through normal technical correction and editorial polish but still fails the premium gate. Make ONE decisive, coherent rewrite that resolves the remaining issues simultaneously instead of adding more caveats around them.
+
+Publication targets:
+- no blocking editorial issues;
+- overall quality at least 88/100;
+- every quality dimension at least 80/100;
+- technically correct, beginner-readable, original, concise, and internally consistent;
+- preserve all required ## headings exactly and in the same order;
+- preserve Python 3.7 compatibility and executable semantics;
+- preserve meaningful worked examples, quiz/answers, challenge, and course continuity.
+
+Convergence rules:
+- Treat EVERY current blocking issue and EVERY below-threshold dimension as mandatory. Resolve the underlying cause, not just the wording around it.
+- Read the improvement notes too. Apply the high-value changes that improve clarity, pedagogy, originality, accessibility, and consistency without bloating the lesson.
+- If static feedback shows excessive length or the lesson is obviously repetitive, reduce it toward roughly 2,200-3,200 words by deleting duplicate explanations, repeated edge cases, repeated caveats, and redundant examples. Do not remove required headings or essential reasoning merely to shorten it.
+- Prefer one clear standard engineering taxonomy over a broad ambiguous taxonomy. If a course-specific instructional model is useful, label it explicitly at first use and do not let it redefine normal robotics terminology.
+- Distinguish fixed/open-loop automation, sensor-triggered automation, closed-loop feedback control, adaptation, and autonomy precisely. Do not call a trigger sensor feedback unless measured output/state is used for correction. Do not call a fixed response task-level autonomy merely because it selects an immediate action.
+- Improve originality through fresh RoboRover scenarios, diagrams, experiments, comparisons, and questions. Never invent nonstandard terminology or classifications to appear original.
+- Verify every numerical result, route length, trace, equation, quiz answer, and assertion against the actual code or derivation.
+- If the lesson contains a ## Visual Generation Plan, preserve the entire heading and fenced JSON block, keep valid JSON, and keep it after ## Next Class.
+- If the Visual Generation Plan has already been removed, DO NOT recreate it.
+- Preserve every existing local image reference (hero.png, diagram.png, inline_XX.png), its alt text, and its educational caption.
+- Preserve valid external media references, credits, and licenses. Do not invent URLs or sources.
+- If you change executable code, make every fenced Python block independently runnable in Python 3.7.
+- Return the COMPLETE corrected Markdown lesson only. No preamble and no review commentary.
+
+CURRENT EDITORIAL REVIEW JSON:
+{review}
+
+CURRENT DETERMINISTIC QUALITY REPORT:
+{static_report}
+
+VISUAL / MEDIA CONTEXT:
+{visual_context}
+
+CURRENT LESSON:
+{lesson}
+""".format(
+        review=review_json,
+        static_report=static_report_json,
+        visual_context=visual_context or 'No additional visual context supplied.',
+        lesson=lesson_markdown,
+    )
+

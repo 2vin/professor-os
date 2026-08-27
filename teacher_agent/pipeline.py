@@ -195,6 +195,91 @@ class RoboticsTeacherAgent(object):
 
         return markdown, current_errors, attempts_used
 
+    def _quality_convergence(
+            self,
+            markdown,
+            lesson,
+            last_report,
+            visual_context=None,
+            prior_rounds=0,
+            context_label='Editorial',
+            max_rounds=2):
+        """Last-resort premium rewrite that targets all remaining quality issues together."""
+        current_report = last_report or {}
+        current_ai = current_report.get('ai') or {}
+        rounds_used = 0
+
+        for convergence_round in range(1, max_rounds + 1):
+            rounds_used = convergence_round
+            static_report = current_report.get('static') or {}
+            reasons = quality_failure_summary(current_report)
+
+            monitor.event(
+                'warning',
+                '{0} convergence round {1}/{2}: {3}'.format(
+                    context_label,
+                    convergence_round,
+                    max_rounds,
+                    ' | '.join(reasons)[:2200] or 'remaining premium-quality weaknesses'
+                )
+            )
+
+            markdown = self.writer.converge_premium_quality(
+                markdown,
+                json.dumps(current_ai or {}, indent=2),
+                json.dumps(static_report or {}, indent=2),
+                visual_context=visual_context
+            )
+
+            errors = validate_lesson(markdown)
+            if errors:
+                monitor.event(
+                    'warning',
+                    '{0} convergence changed executable content; repairing validator findings: {1}'.format(
+                        context_label,
+                        ' | '.join(errors)[:1400]
+                    )
+                )
+                markdown, errors, code_repair_attempts = self._repair_until_valid(
+                    markdown,
+                    errors,
+                    '{0}-convergence'.format(context_label),
+                    max_attempts=3
+                )
+                if errors:
+                    raise PublicationBlockedError(
+                        '{0} convergence still fails executable validation after 3 repair rounds: {1}'.format(
+                            context_label,
+                            ' | '.join(errors)
+                        ),
+                        attempts=prior_rounds + convergence_round + code_repair_attempts
+                    )
+
+            static_report, current_ai = self._review(
+                markdown,
+                lesson,
+                visual_context=visual_context
+            )
+            current_report = combined_quality_report(
+                static_report,
+                current_ai,
+                prior_rounds + convergence_round
+            )
+            monitor.quality(current_report)
+
+            if premium_review_passes(static_report, current_ai):
+                monitor.event(
+                    'success',
+                    '{0} convergence passed the premium gate on round {1}.'.format(
+                        context_label,
+                        convergence_round
+                    )
+                )
+                return markdown, current_ai, current_report, rounds_used
+
+        return markdown, current_ai, current_report, rounds_used
+
+
     def _premium_editorial_gate(self, markdown, lesson, output_dir):
         last_report = None
         polish_rounds = 0
@@ -228,8 +313,10 @@ class RoboticsTeacherAgent(object):
                 reasons = quality_failure_summary(last_report)
                 monitor.event('warning', 'Premium editorial polish round {0}: {1}'.format(
                     polish_rounds, ' | '.join(reasons)[:1600]))
+                static_feedback = list(static_report.get('errors') or [])
+                static_feedback.extend(static_report.get('warnings') or [])
                 markdown = self.writer.polish_premium_quality(
-                    markdown, json.dumps(ai_review or {}, indent=2), static_report.get('errors') or [])
+                    markdown, json.dumps(ai_review or {}, indent=2), static_feedback)
             else:
                 break
 
@@ -255,14 +342,28 @@ class RoboticsTeacherAgent(object):
                     )
             review_round += 1
 
+        markdown, ai_review, last_report, convergence_rounds = self._quality_convergence(
+            markdown,
+            lesson,
+            last_report,
+            visual_context=None,
+            prior_rounds=technical_rounds + polish_rounds,
+            context_label='Pre-media editorial',
+            max_rounds=2
+        )
+        if premium_review_passes(
+                last_report.get('static') or {},
+                last_report.get('ai') or {}):
+            return markdown, ai_review, last_report
+
         Path(output_dir).mkdir(parents=True, exist_ok=True)
         (Path(output_dir) / 'FAILED_DRAFT.md').write_text(markdown, encoding='utf-8')
         (Path(output_dir) / 'QUALITY_REPORT.json').write_text(
             json.dumps(last_report or {}, indent=2), encoding='utf-8')
         raise PublicationBlockedError(
-            'Premium quality gate remains blocked after automatic correction: ' +
+            'Premium quality gate remains blocked after automatic correction and convergence: ' +
             ' | '.join(quality_failure_summary(last_report or {})),
-            attempts=technical_rounds + polish_rounds)
+            attempts=technical_rounds + polish_rounds + convergence_rounds)
 
     def _post_media_editorial_gate(self, markdown, lesson, output_dir, visual_context, prior_rounds=0):
         last_report = None
@@ -335,14 +436,28 @@ class RoboticsTeacherAgent(object):
                     )
             review_round += 1
 
+        markdown, final_ai, last_report, convergence_rounds = self._quality_convergence(
+            markdown,
+            lesson,
+            last_report,
+            visual_context=visual_context,
+            prior_rounds=prior_rounds + technical_rounds + visual_rounds,
+            context_label='Post-media editorial',
+            max_rounds=2
+        )
+        if premium_review_passes(
+                last_report.get('static') or {},
+                last_report.get('ai') or {}):
+            return markdown, final_ai, last_report
+
         Path(output_dir).mkdir(parents=True, exist_ok=True)
         (Path(output_dir) / 'FAILED_FINAL.md').write_text(markdown, encoding='utf-8')
         (Path(output_dir) / 'QUALITY_REPORT.json').write_text(
             json.dumps(last_report or {}, indent=2), encoding='utf-8')
         raise PublicationBlockedError(
-            'Final publication quality remains blocked after automatic technical/editorial remediation: ' +
+            'Final publication quality remains blocked after automatic remediation and convergence: ' +
             ' | '.join(quality_failure_summary(last_report or {})),
-            attempts=technical_rounds + visual_rounds)
+            attempts=technical_rounds + visual_rounds + convergence_rounds)
 
     def _write_code_labs(self, markdown, output_dir):
         code_dir = Path(output_dir) / 'code'

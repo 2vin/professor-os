@@ -7,6 +7,7 @@ from .prompts import (
     post_media_polish_prompt,
     premium_polish_prompt,
     technical_correction_prompt,
+    final_convergence_prompt,
 )
 from .runtime import monitor
 from .quality import PREMIUM_REVIEW_SCHEMA
@@ -273,3 +274,27 @@ class LessonWriter(object):
                 static_errors
             )
         )
+
+    def converge_premium_quality(
+            self,
+            lesson_markdown,
+            review_json,
+            static_report_json,
+            visual_context=None):
+        instructions = (
+            'You are the final publication-convergence editor for a premium robotics course. '
+            'Resolve all remaining blockers and weak dimensions in one coherent rewrite. '
+            'Do not lower standards, add vague caveats, or game the score. '
+            'Return the complete corrected Markdown lesson only. '
+            'Preserve Python 3.7 compatibility, required headings, and existing generated-media references.'
+        )
+        return self._call_openai(
+            instructions,
+            final_convergence_prompt(
+                lesson_markdown,
+                review_json,
+                static_report_json,
+                visual_context=visual_context
+            )
+        )
+
