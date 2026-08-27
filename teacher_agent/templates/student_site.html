@@ -24,6 +24,19 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.hidden{display:n
 .home-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(350px,.8fr);gap:16px}.hero-window{min-height:610px}.hero-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.74fr);min-height:564px}.hero-copy{padding:32px;display:flex;flex-direction:column;justify-content:center;position:relative;z-index:2}.sys-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}.hero-copy h1{margin:18px 0 16px;font-size:clamp(56px,6.6vw,104px);line-height:.86;letter-spacing:-.065em;font-weight:560;max-width:8.3ch}.hero-copy h1 .thin{color:#8a9291;font-weight:420}.hero-copy p{margin:0;max-width:680px;color:var(--soft);font-size:14px;line-height:1.82}.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:24px}.primary-btn,.secondary-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 15px;border-radius:12px;border:1px solid var(--line);font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;transition:.18s}.primary-btn{background:linear-gradient(135deg,var(--acid),var(--acid2));border-color:transparent;color:#111111}.secondary-btn{background:rgba(13,16,19,.82);color:var(--soft)}.primary-btn:hover,.secondary-btn:hover{transform:translateY(-2px)}
 .hero-metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:28px}.metric{padding:13px 14px;border:1px solid var(--line);border-radius:14px;background:rgba(12,15,17,.74)}.metric span{display:block;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}.metric b{display:block;margin-top:7px;font-size:17px;line-height:1.2}.hero-canvas-wrap{position:relative;border-left:1px solid rgba(54,63,70,.62);background:radial-gradient(circle at 50% 45%,rgba(202,255,79,.08),transparent 30%),linear-gradient(180deg,#0d1013,#090b0d);overflow:hidden}.hero-canvas-wrap canvas{position:absolute;inset:0;width:100%;height:100%}.canvas-overlay{position:absolute;inset:0;pointer-events:none}.canvas-tag{position:absolute;top:16px;left:16px;font-size:8px;letter-spacing:.13em;text-transform:uppercase;color:#5d7587}.canvas-bottom{position:absolute;left:16px;right:16px;bottom:16px;display:flex;justify-content:space-between;gap:12px;font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:#5d7587}
 .hero-canvas-wrap{cursor:grab;isolation:isolate;touch-action:none}
+/* Front-page layout guard: the visual stays inside its grid cell and can never
+   re-parent or resize the rest of the dashboard. */
+.home-grid{align-items:start}
+.hero-window,.hero-body,.hero-copy,.hero-canvas-wrap{min-width:0}
+.hero-window{height:auto}
+.hero-body{align-items:stretch}
+.hero-canvas-wrap{
+  min-height:564px;
+  border-radius:0;
+  contain:layout paint;
+}
+.hero-canvas-wrap .canvas-overlay{overflow:hidden}
+
 
 .hero-canvas-wrap{
   overflow:hidden;
@@ -180,17 +193,6 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.hidden{display:n
 @media(prefers-reduced-motion:reduce){
   .professor-scan,.professor-render-stage.is-live .professor-reticle{animation:none}
 }
-@media (max-width: 960px){
-  .professor-render-stage img{width:min(92%,560px)}
-  .scene-badge-stack{right:12px; bottom:56px}
-}
-@media (max-width: 640px){
-  .professor-render-stage img{width:96%}
-  .scene-badge-stack{display:none}
-  .professor-orbit.orbit-a{width:92%; height:48%}
-  .professor-orbit.orbit-b{width:74%; height:34%}
-}
-
 .hero-canvas-wrap:active{cursor:grabbing}
 .hero-canvas-wrap:after{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(180deg,transparent 0%,rgba(202,255,79,.028) 48%,rgba(202,255,79,.09) 49.5%,rgba(202,255,79,.028) 51%,transparent 100%);background-size:100% 180px;animation:professorScan 7s linear infinite;mix-blend-mode:screen;opacity:.42}
 .hero-canvas-wrap:before{content:"";position:absolute;inset:0;pointer-events:none;z-index:1;background:linear-gradient(rgba(202,255,79,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(202,255,79,.018) 1px,transparent 1px);background-size:34px 34px;mask-image:linear-gradient(to bottom,transparent,black 18%,black 80%,transparent)}
@@ -216,9 +218,9 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.hidden{display:n
 .notification-panel{position:fixed;right:14px;top:62px;width:min(390px,calc(100vw - 28px));z-index:250;border:1px solid var(--line2);border-radius:16px;background:#090b0d;box-shadow:0 28px 80px rgba(0,0,0,.5);display:none;overflow:hidden}.notification-panel.open{display:block}.notify-head{display:flex;justify-content:space-between;align-items:center;padding:13px 14px;border-bottom:1px solid var(--line)}.notify-head b{font-size:10px;letter-spacing:.11em;text-transform:uppercase}.notify-head span{font-size:8px;color:var(--muted)}.notify-list{display:grid;max-height:420px;overflow:auto}.notify-item{padding:12px 14px;border-top:1px solid rgba(54,63,70,.48)}.notify-item:first-child{border-top:0}.notify-item b{font-size:10px}.notify-item p{margin:4px 0 0;color:var(--muted);font-size:9px;line-height:1.55}
 .mobile-nav{display:none}
 @keyframes pulse{50%{transform:scale(1.08)}}@keyframes appIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-@media(max-width:1260px){.home-grid,.hero-body,.learn-layout,.tonight-main{grid-template-columns:1fr}.hero-canvas-wrap{min-height:420px;border-left:0;border-top:1px solid rgba(54,63,70,.62)}.recent-grid,.library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.system-grid{grid-template-columns:1fr}}
+@media(max-width:1260px){.home-grid,.learn-layout,.tonight-main{grid-template-columns:1fr}.hero-body{grid-template-columns:minmax(0,1fr) minmax(320px,.72fr)}.hero-canvas-wrap{min-height:564px}.recent-grid,.library-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.system-grid{grid-template-columns:1fr}}@media(max-width:1040px){.hero-body{grid-template-columns:1fr}.hero-canvas-wrap{min-height:460px;border-left:0;border-top:1px solid rgba(54,63,70,.62)}.professor-wireframe-figure{height:112%;width:min(86%,680px);object-fit:contain}}
 @media(max-width:860px){:root{--dock:0px}.os-dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.breadcrumb{display:none}.top-actions{justify-self:end}.workspace{padding:10px}.hero-copy{padding:22px}.hero-copy h1{font-size:54px}.hero-metrics,.focus-meta,.sector-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.recent-grid,.library-grid{grid-template-columns:1fr}.library-controls{grid-template-columns:1fr}.app-header{grid-template-columns:1fr}.app-badge{text-align:left}.mobile-nav{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:repeat(5,1fr);gap:6px;padding:8px;border:1px solid var(--line2);border-radius:16px;background:rgba(6,7,8,.95);backdrop-filter:blur(18px);box-shadow:var(--shadow)}.mobile-nav button{border:1px solid var(--line);border-radius:10px;background:#0d1013;color:var(--muted);padding:9px 4px;font-size:8px;font-weight:800;text-transform:uppercase}.mobile-nav button.active{background:linear-gradient(135deg,var(--acid),var(--acid2));color:#111111;border-color:transparent}.desktop{padding-bottom:74px}}
-@media(max-width:560px){.os-brand span,.top-pill.scheduler{display:none}.hero-copy h1{font-size:43px}.hero-metrics,.focus-meta,.sector-stats,.release-count{grid-template-columns:1fr}.countdown{grid-template-columns:repeat(3,1fr)}.window-bar{grid-template-columns:auto 1fr}.window-state{display:none}.release-card{padding:18px}.app-header h1{font-size:38px}}
+@media(max-width:560px){.os-brand span,.top-pill.scheduler{display:none}.hero-copy h1{font-size:43px}.hero-metrics,.focus-meta,.sector-stats,.release-count{grid-template-columns:1fr}.countdown{grid-template-columns:repeat(3,1fr)}.window-bar{grid-template-columns:auto 1fr}.window-state{display:none}.release-card{padding:18px}.app-header h1{font-size:38px}.hero-canvas-wrap{min-height:390px}.professor-wireframe-figure{height:108%;width:100%;object-fit:contain}.professor-data{display:none}.canvas-bottom span:first-child{display:none}.canvas-bottom{justify-content:flex-end}.canvas-hint{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -249,13 +251,23 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.hidden{display:n
   <section class="app-view active" id="app-home" data-label="Home">
     <div class="home-grid">
       <section class="window hero-window">
-        <div class="window-bar"><div class="window-dots"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i></div><div class="window-title">Home / Professor Core</div><div class="window-state">Always live</div></div>
+        <div class="window-bar">
+          <div class="window-dots"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i></div>
+          <div class="window-title">Home / Learning Runtime</div>
+          <div class="window-state">Professor OS</div>
+        </div>
+
         <div class="hero-body">
           <div class="hero-copy">
             <div class="sys-label">Learning OS · Robotics Academy</div>
             <h1>Learn robotics inside a <span class="thin">living OS.</span></h1>
             <p>Professor OS continuously generates, validates, organizes, and releases robotics lessons. The interface behaves like an operating system so students always know what is live, what to learn next, and where every knowledge stream belongs.</p>
-            <div class="hero-actions"><a class="primary-btn" id="resumeBtn" href="#">Continue learning</a><button class="secondary-btn" type="button" data-open-app="library">Open library</button></div>
+
+            <div class="hero-actions">
+              <a class="primary-btn" id="resumeBtn" href="#">Continue learning</a>
+              <button class="secondary-btn" type="button" data-open-app="library">Open library</button>
+            </div>
+
             <div class="hero-metrics">
               <div class="metric"><span>Total curriculum</span><b id="totalClasses">--</b></div>
               <div class="metric"><span>Available now</span><b id="availableLectures">--</b></div>
@@ -263,59 +275,58 @@ a{text-decoration:none;color:inherit}button,input{font:inherit}.hidden{display:n
               <div class="metric"><span>Nightly release</span><b id="nightlyTime">21:00 IST</b></div>
             </div>
           </div>
+
           <div class="hero-canvas-wrap" id="professorCore">
-  <canvas id="osCanvas" role="img" aria-label="Interactive monochrome wireframe Professor OS face"></canvas>
-  <div class="professor-render-stage" id="professorRenderStage" aria-hidden="true">
-    <img
-      id="professorCoreFigure"
-      class="professor-wireframe-figure"
-      src="/static/professor-core-wireframe.png"
-      alt="Professor OS monochrome wireframe face render">
-    <div class="professor-face-vignette"></div>
-    <div class="professor-depth-particles"></div>
-    <div class="professor-axis-tick"></div>
-    <div class="professor-crosshair"></div>
-    <div class="professor-reticle"></div>
-    <div class="professor-scan"></div>
+            <canvas id="osCanvas" role="img" aria-label="Interactive monochrome wireframe Professor OS face"></canvas>
 
-    <div class="professor-data tl">
-      <b>PROFESSOR.OS</b>
-      Neural mesh / active<br>
-      Robotics pedagogy core
-    </div>
-    <div class="professor-data tr">
-      <b>LIVE RENDER</b>
-      Face topology / 3D<br>
-      Input: pointer parallax
-    </div>
-    <div class="professor-data bl">
-      <b>KNOWLEDGE STATE</b>
-      Curriculum linked<br>
-      Safe tutor ready
-    </div>
-    <div class="professor-data br">
-      <b>RENDER TIER</b>
-      Monochrome mesh<br>
-      Realtime / adaptive
-    </div>
-  </div>
+            <div class="professor-render-stage" id="professorRenderStage" aria-hidden="true">
+              <img
+                id="professorCoreFigure"
+                class="professor-wireframe-figure"
+                src="/static/professor-core-wireframe.png"
+                alt="Professor OS monochrome wireframe face render">
 
-  <div class="canvas-overlay">
-    <div class="canvas-tag">3D Professor Core / Neural Wireframe</div>
-    <div class="canvas-hint">Move to inspect</div>
-    <div class="canvas-bottom">
-      <span>Professor OS · interactive teaching presence</span>
-      <span class="canvas-status-chip" id="canvasState">Standby</span>
-    </div>
-  </div>
-</div>
-      <div class="scene-badge"><div class="k">Interaction</div><div class="v">Ambient parallax · live state pulse · knowledge orbit</div></div>
-    </div>
-    <div class="canvas-bottom"><span>Professor OS · embodied teaching interface</span><span class="canvas-status-chip" id="canvasState">Standby</span></div>
-  </div>
-</div></div></div>
+              <div class="professor-face-vignette"></div>
+              <div class="professor-depth-particles"></div>
+              <div class="professor-axis-tick"></div>
+              <div class="professor-crosshair"></div>
+              <div class="professor-reticle"></div>
+              <div class="professor-scan"></div>
+
+              <div class="professor-data tl">
+                <b>PROFESSOR.OS</b>
+                Neural mesh / active<br>
+                Robotics pedagogy core
+              </div>
+              <div class="professor-data tr">
+                <b>LIVE RENDER</b>
+                Face topology / 3D<br>
+                Input: pointer parallax
+              </div>
+              <div class="professor-data bl">
+                <b>KNOWLEDGE STATE</b>
+                Curriculum linked<br>
+                Safe tutor ready
+              </div>
+              <div class="professor-data br">
+                <b>RENDER TIER</b>
+                Monochrome mesh<br>
+                Realtime / adaptive
+              </div>
+            </div>
+
+            <div class="canvas-overlay">
+              <div class="canvas-tag">3D Professor Core / Neural Wireframe</div>
+              <div class="canvas-hint">Move to inspect</div>
+              <div class="canvas-bottom">
+                <span>Professor OS · interactive teaching presence</span>
+                <span class="canvas-status-chip" id="canvasState">Standby</span>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
+
       <aside class="side-stack">
         <section class="window">
           <div class="window-bar"><div class="window-dots"><i class="window-dot"></i><i class="window-dot"></i><i class="window-dot"></i></div><div class="window-title">Focus / Student Runtime</div><div class="window-state" id="progressStateText">Ready</div></div>
