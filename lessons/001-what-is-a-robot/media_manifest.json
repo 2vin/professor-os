@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small wheeled educational mobile robot rover in an engineering laboratory, visible motors sensors and controller, professional documentary photograph",
+  "media_style": "photo",
+  "reason": "The generated diagrams adequately teach boundaries and control modes, but a real photograph of a modest mobile robot would ground the abstract vocabulary in physical hardware and help students connect the simulated RoboRover to actual engineering systems. Place it after the real-world connection so it reinforces, rather than interrupts, the conceptual progression.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
