@@ -1,0 +1,7 @@
+{
+  "title": "Class 1: What Is a Robot? Separating Robot Identity, Autonomy, and Feedback",
+  "description": "A foundational robotics lesson using RoboRover, comparison cases, distance modeling, and Python simulation to distinguish physical robot identity from decision authority and feedback.",
+  "commentary": "What makes a machine a robot\u2014and what does not?\n\nProfessor OS Class 1 gives learners a durable starting model by separating three ideas that are often conflated:\n\n\u2022 Robot identity: the physical machine and the task its actuators perform.\n\u2022 Decision authority: whether immediate actions come from a human, a stored program, or autonomous software.\n\u2022 Feedback: whether measurements influence current or future actions.\n\u2022 Engineering realism: why commanded speed and measured motion are not always the same.\n\nStudents apply the ideas to a thermostat, traffic signal, teleoperated rover, industrial arm, and autonomous vacuum. They then calculate RoboRover\u2019s ideal distance and run a Python simulation comparing three decision-authority modes.\n\nTry the lab by changing the command sequences and obstacle measurements before running the code. Ask students to predict the final positions\u2014and explain whether each mode is using feedback.\n\n#RoboticsEducation #Robotics #Python #Engineering",
+  "thumbnail_alt_text": "Educational mobile rover diagram showing human, programmed, and autonomous decision authority",
+  "source": "https://professor-os.onrender.com/lessons/001-what-is-a-robot/"
+}
