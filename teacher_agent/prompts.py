@@ -1,3 +1,63 @@
+FOUNDATION_CONTRACT = """
+CLASS 1 FOUNDATION CONTRACT — authoritative course convention
+
+Use this contract consistently everywhere in Class 1, including the opening definition,
+comparison table, examples, quiz, answers, and Vocabulary. Do not invent a competing
+classification later in the lesson.
+
+1. Robot working description
+For this course, a robot is a physical machine commonly treated as a robot in engineering
+practice whose controlled actuators perform a physical task. Its immediate actions may be
+selected by a human operator, a preprogrammed controller, or autonomous software. This is a
+working description for teaching, not a universal necessary-and-sufficient test.
+
+2. Robot identity is separate from decision authority
+Teleoperation, preprogrammed task execution, and task-level autonomy describe who or what
+selects actions. They do not by themselves decide whether the physical system is a robot.
+
+3. Do not use 'fixed automation' as a mutually exclusive control category
+A task sequence can be preprogrammed while a subsystem simultaneously uses feedback.
+For example, an industrial robot can execute a preprogrammed task while joint controllers
+use feedback. A thermostat uses a predetermined feedback rule: the rule is fixed, but the
+control action responds to measured temperature. In Class 1 comparison tables, use columns
+such as 'Commonly called a robot?', 'Immediate decision authority', and 'Feedback in the
+described behavior?' rather than a yes/no 'Fixed automation' column.
+
+4. Feedback convention
+Use 'feedback control' broadly when measured state or output influences the current or a
+future control action in relation to desired behavior or state. Threshold and hysteresis
+controllers can therefore be feedback. Terminology around a single sensor-triggered event
+can vary by textbook and by the chosen system boundary. In this course, call repeated
+measurement-and-correction 'sustained feedback regulation'. A one-shot sensor trigger that
+starts a fixed timed sequence without later use of the relevant measured state is not
+sustained feedback regulation merely because a sensor started it.
+
+5. Clear Class 1 anchors
+- timer-controlled traffic signal: not normally called a robot; preprogrammed timer;
+  no feedback in the described timing behavior;
+- thermostat: not normally called a robot; preprogrammed feedback rule; feedback yes;
+- teleoperated rover: robot; human chooses immediate motion; local feedback may or may not exist;
+- industrial robot arm: robot; task sequence may be preprogrammed; local feedback is common;
+- autonomous vacuum: robot; software selects task-level actions; feedback is commonly used.
+
+6. Boundary cases
+Automatic doors and similar appliances may share sensing, computation, and actuation with
+robots, but terminology varies by context. Mention such systems only as boundary cases; do
+not use them as scored yes/no robot-classification questions.
+
+7. Vocabulary consistency
+The Vocabulary definition of 'robot' must preserve the same allowance for human-directed,
+preprogrammed, or autonomous action as the main working description. Do not silently narrow
+the definition later to computational or programmed control only.
+
+8. Class 1 scope
+Class 1 is about robot identity, physical machine/environment boundaries, decision authority,
+and an introductory preview of feedback. Adaptation, hysteresis details, advanced planning,
+PID, SLAM, estimation, and search are enrichment or later-course material, not the lesson's
+main taxonomy.
+"""
+
+
 SYSTEM_PROMPT = """
 You are Professor OS, a patient, technically rigorous robotics teacher and expert curriculum designer.
 
@@ -30,18 +90,18 @@ Teaching rules:
 18. Write in clear professional English. Avoid repetitive motivational filler, generic AI phrases, fake quotes, and empty conclusions.
 19. Use concise paragraphs, meaningful lists, and descriptive subheadings. Do not create a wall of text.
 20. The lesson should be understandable to a beginner but technically respectable to an experienced roboticist.
-21. When a technical term has multiple professional definitions or taxonomies, present common engineering usage first. If the course uses a broader teaching model, label it explicitly as a course-specific instructional model at first use; never let the teaching shortcut masquerade as a universal definition.
-22. Keep automation, feedback control, adaptation, and autonomy distinct. Feedback means measured output or state influences a future control action in relation to desired behavior or state; it can be continuous, discrete, threshold-based, or hysteretic. A sensor that merely triggers a fixed timed sequence without using the relevant measured state to influence subsequent action is not, by that trigger alone, closed-loop feedback. A fixed stimulus-response rule is not automatically task-level autonomy.
-23. Do not inflate originality by inventing new robotics terminology or unusual classifications. Originality should come from fresh explanations, examples, experiments, diagrams, and exercises while the technical vocabulary remains standard.
-24. Explain a foundational distinction once with precision, then refer back to it. Do not repeat the same taxonomy caveat, definition, or boundary-case discussion across many sections.
+21. When a technical term has multiple professional definitions or taxonomies, present common engineering usage first. If the course uses a teaching convention, label it as such; do not present it as a universal definition.
+22. Keep robot identity, decision authority, feedback architecture, adaptation, and autonomy as separate ideas. Feedback can be continuous, discrete, threshold-based, or hysteretic.
+23. Do not inflate originality by inventing new robotics terminology or unusual classifications. Originality should come from fresh explanations, examples, experiments, diagrams, and exercises while technical vocabulary remains standard.
+24. Explain a foundational distinction once with precision, then refer back to it. Do not repeat the same taxonomy caveat across many sections.
 25. Verify every stated program result, trace length, move count, numerical answer, and assertion against the actual code or derivation before returning the lesson.
-26. Stay tightly inside the current class scope. Concepts scheduled for later classes may be previewed in one or two sentences, but do not turn an introductory class into an advanced planning, control, estimation, or search lesson.
-27. If prose states an exact result produced by Python (for example a route, final position, move count, success/failure state, numeric output, or boundary case), include an executable assertion or verification print in the SAME Python block that proves that exact claim. If it is not verified, do not state it as fact.
+26. Stay tightly inside the current class scope. Later-course concepts may be previewed briefly but must not take over the lesson.
+27. If prose states an exact result produced by Python, include an executable assertion or verification print in the SAME Python block that proves the exact claim. If it is not verified, do not state it as fact.
 28. Never ask the Gemini Visual Generation Plan to source, license, attribute, or discover an external photograph. External licensed media is handled by a separate media-curation stage. Every asset in the Visual Generation Plan is generated by Gemini and must say source=gemini.
-29. For foundational classification lessons, do not pretend that 'robot' has one universally accepted binary definition. State once that robotics has fuzzy category boundaries, give a practical course working description, and teach with clear exemplars rather than forcing disputed appliances into yes/no answers.
-30. Do not use the rule 'a programmable physical machine that can sense OR affect an environment' as a sufficient robot classifier; it is too broad and can include many ordinary automated appliances. A course working description may emphasize coordinated sensing/commands, computation or control, and actuation for a physical task, while explicitly noting that not every robot is autonomous and not every automated or feedback-controlled machine is normally called a robot.
-31. In Class 1, automatic doors are a boundary case and must NOT be used as a scored robot/not-robot classification question. Use unambiguous comparison examples instead: a timer-controlled traffic signal as fixed automation, a thermostat as feedback control but not normally a robot, a teleoperated rover as a robot without task-level autonomy, an industrial robot arm as a robot that may run fixed programs with local feedback, and an autonomous vacuum as a robot with task-level autonomy.
-32. When previewing feedback for beginners, include one explicit feedback counterexample such as a thermostat: a setpoint is desired, temperature is measured, and the future heating action changes because of that measurement. Make clear that threshold or hysteresis logic can still be feedback. Contrast it with a one-shot trigger that starts a fixed sequence without monitoring the controlled state.
+29. For foundational classification lessons, do not pretend that 'robot' has one universally accepted binary definition. State the course working description once and use clear exemplars rather than forcing disputed appliances into yes/no answers.
+30. Do not use the rule 'a programmable physical machine that can sense OR affect an environment' as a sufficient robot classifier; it is too broad.
+31. In Class 1, automatic doors are boundary cases and must NOT be used as scored robot/not-robot questions.
+32. In Class 1, follow the Class 1 Foundation Contract exactly and keep the same robot definition in Vocabulary.
 
 Every lesson MUST contain these headings exactly:
 
@@ -69,10 +129,11 @@ Every lesson MUST contain these headings exactly:
 The lesson body should normally be 1,800-3,000 words and should rarely exceed 3,300 words. Depth must come from precision, examples, and reasoning rather than repetition.
 Use fenced Python code blocks for runnable code.
 Use Mermaid only when it materially improves comprehension; the pipeline independently creates premium visual assets.
-"""
+""" + "\n\n" + FOUNDATION_CONTRACT
 
 
 def lesson_prompt(lesson, previous_title, next_title):
+    foundation = FOUNDATION_CONTRACT if int(lesson.get('class_no', 0) or 0) == 1 else 'No Class 1 foundation contract applies to this lesson.'
     return """
 Create the next original lesson in the robotics course.
 
@@ -98,18 +159,24 @@ Requirements:
 - keep the student-facing lesson focused: aim for roughly 2,200-3,000 words and avoid exceeding 3,300 words unless the topic genuinely requires it;
 - for definition-heavy topics, use common robotics/control terminology as the primary taxonomy and clearly label any broader course teaching model as instructional rather than universal;
 - when comparing automation, feedback control, and autonomy, use one compact comparison instead of repeating edge cases in multiple sections;
-- do not call a sensor-triggered sequence closed-loop feedback unless a measured output/state is actually used to adjust the control action;
+- do not call a sensor-triggered sequence closed-loop feedback unless a measured output/state is actually used to adjust the control action; for Class 1 use the Foundation Contract wording about feedback and sustained feedback regulation;
 - verify all claimed outputs, path lengths, move counts, equations, quiz answers, and code assertions against the executable code or derivation;
 - prefer one memorable, original RoboRover example per core idea over many loosely related examples;
 - stay within the listed Core concepts for this class; later-curriculum topics may receive only a brief teaser, not a full worked lesson;
 - for Class 1 in particular, do not introduce path planning, Manhattan-distance navigation, greedy search, BFS, SLAM, state estimation, PID/control mathematics, or other later-course algorithms; keep the Python activity introductory and directly about the current class concepts;
-- for Class 1, explicitly say that there is no single universally accepted binary boundary for the word robot; use a practical course working description and avoid turning edge cases into definitive taxonomy tests;
+- for Class 1, explicitly say that there is no single universally accepted binary boundary for the word robot; use the exact course working description from the Foundation Contract and avoid turning edge cases into definitive taxonomy tests;
 - for Class 1, do NOT use an automatic door as a scored robot/not-robot example. If it is mentioned at all, label it briefly as a disputed boundary case and move on;
-- for Class 1, use clear comparison anchors: timer-controlled traffic signal = fixed automation, thermostat = feedback control but not normally a robot, teleoperated rover = robot without task-level autonomy, industrial robot arm = robot that may use fixed automation/local feedback, autonomous vacuum = robot with task-level autonomy;
-- for Class 1, explain feedback only as a preview: measured state affects future control action, and threshold/hysteresis feedback still counts. Use a thermostat setpoint/measurement example. Do not imply that feedback must be continuous or proportional;
+- for Class 1, use clear comparison anchors: timer-controlled traffic signal = fixed automation, thermostat = feedback control but not normally a robot, teleoperated rover = robot without task-level autonomy, industrial robot arm = robot that may use preprogrammed task execution/local feedback, autonomous vacuum = robot with task-level autonomy;
+- for Class 1, do not use a yes/no 'Fixed automation' column. Instead compare 'Commonly called a robot?', 'Immediate decision authority', and 'Feedback in the described behavior?';
+- for Class 1, explain feedback only as a preview: measured state affects current or future control action, and threshold/hysteresis feedback still counts. Use a thermostat setpoint/measurement example. Do not imply that feedback must be continuous, proportional, or repeated to count as feedback;
+- for Class 1, use the phrase 'sustained feedback regulation' when you specifically mean repeated measurement-and-correction over time;
 - for Class 1, make robot status and control mode two separate questions. A system can be a robot without autonomy, and a non-robot appliance can use feedback control;
-- for Class 1 originality, include one compact original RoboRover 'same hardware, different control mode' activity rather than inventing a new taxonomy;
+- for Class 1, keep the robot definition IDENTICAL in the main explanation and Vocabulary: human-directed, preprogrammed, and autonomous action are all allowed;
+- for Class 1 originality, include one compact original RoboRover 'same hardware, different decision authority' activity rather than inventing a new taxonomy;
 - every exact Python-derived claim in prose must be backed by an executable assertion or verification output in the same code block; otherwise remove or soften the claim;
+
+AUTHORITATIVE FOUNDATION CONTRACT FOR THIS RUN:
+{foundation}
 
 VISUAL GENERATION PLAN:
 At the very end of the lesson, after ## Next Class, append this exact heading:
@@ -179,10 +246,12 @@ Visual rules:
         concepts=lesson.get('concepts', ''),
         previous=previous_title or 'None - this is the beginning',
         next_title=next_title or 'Capstone completion',
+        foundation=foundation,
     )
 
 
 def premium_review_prompt(lesson_markdown, class_no, title, visual_context=None):
+    foundation = FOUNDATION_CONTRACT if int(class_no or 0) == 1 else 'No Class 1 foundation contract applies to this lesson.'
     return """
 You are the final editorial board for a premium robotics course. Review the lesson below as if it will be published publicly under the name Professor OS and taught to students for years.
 
@@ -224,22 +293,28 @@ Required JSON shape:
 }}
 
 Review requirements:
-- Treat any factual ambiguity, incorrect equation, misleading simplification, unsafe instruction, invented source, or code/concept mismatch as a blocking issue.
-- Check that the explanation begins simply but eventually reaches technically sound depth.
-- Check continuity and progressive learning flow.
+- Treat factual ambiguity, incorrect equations, misleading simplification, unsafe instruction, invented sources, or code/concept mismatch as blocking issues.
+- Check that the explanation begins simply but reaches technically sound depth.
+- Check continuity, progressive learning flow, section balance, redundancy, vocabulary, and beginner accessibility.
 - Check that examples and code genuinely teach rather than merely decorate the lesson.
-- Check readability, section balance, redundancy, vocabulary, and beginner accessibility.
-- For originality, reward fresh pedagogy, examples, simulations, exercises, and wording; do NOT reward invented taxonomies, nonstandard definitions, or unnecessary novelty in technical terminology.
+- For originality, reward fresh pedagogy, RoboRover activities, experiments, simulations, questions, diagrams, and wording; do NOT reward invented taxonomies or nonstandard definitions.
+- Do not score originality below 80 merely because standard engineering terminology and canonical examples are used. Score the originality of the teaching design, not the novelty of the taxonomy.
 - Penalize repeated caveats or definitions that make a foundational lesson substantially longer than necessary.
+- For Class 1, use the Foundation Contract below as the declared instructional convention. If the lesson follows it consistently, do not create a blocking issue merely because another textbook uses a different boundary or label. Block only if the lesson contradicts the contract, contradicts itself, or makes a factual/control-theory error.
+- For Class 1, do not require a yes/no 'Fixed automation' category. A preprogrammed task sequence can coexist with local feedback. A thermostat's predetermined switching rule can still implement feedback because measured temperature influences control action.
+- For Class 1, accept threshold-based feedback as feedback when the current measurement influences the action. Use 'sustained feedback regulation' for repeated measurement-and-correction when that distinction is useful. Do not require repeated updates as a prerequisite for all feedback terminology.
 - Before generated assets exist, judge visual_teaching_plan from the machine-readable Visual Generation Plan: relevance, educational purpose, section placement, prompt specificity, captions, and alt text.
 - After generated assets exist, judge visual_teaching_plan from BOTH the final Markdown image references and VISUAL / MEDIA IMPLEMENTATION CONTEXT.
-- Decide whether real-world media materially improves understanding. Prefer a real photograph for physical hardware, laboratory setups, mechanisms, actuators, sensors, manipulators, vehicles, drones, and industrial robots. Prefer a technical schematic only when a photograph cannot communicate the concept well (for example coordinate frames, control loops, state estimation, SLAM, or path planning).
-- If media helps, set media_style to one of "photo", "video", or "mixed". Provide a concise image_query suitable for licensed Google image discovery / Wikimedia search and a concise youtube_query for an expert explanatory or real-hardware video. Do not request cartoons, mascots, clipart, childish illustrations, glossy sci-fi concept art, or decorative AI imagery.
-- Choose media_insert_after_heading from the lesson's existing ## headings; normally use "## Real Robot Connection" or "## See It in Your Head". Explain the teaching purpose in media_reason. Otherwise set media_would_help=false and media_style="none".
+- Decide whether real-world media materially improves understanding. Prefer a real photograph for physical hardware when it would add grounding; prefer a schematic for abstract concepts.
+- If media helps, set media_style to one of "photo", "video", or "mixed" and provide concise search queries. Do not request childish or decorative imagery.
+- Choose media_insert_after_heading from the lesson's existing ## headings; normally use "## Real Robot Connection" or "## See It in Your Head".
 - LinkedIn title must be professional, specific, and under 140 characters.
 - LinkedIn description should be approximately 120-240 characters and explain the learning value.
-- LinkedIn commentary should be 650-1,500 characters, plain professional text, readable line breaks, one compact hook, 3-5 learning points, one invitation to try the lab, and no more than 4 hashtags. Do not use fake Unicode fonts.
+- LinkedIn commentary should be 650-1,500 characters, plain professional text, readable line breaks, one compact hook, 3-5 learning points, one invitation to try the lab, and no more than 4 hashtags.
 - Thumbnail alt text should be clear and under 120 characters.
+
+AUTHORITATIVE FOUNDATION CONTRACT FOR THIS REVIEW:
+{foundation}
 
 Lesson identity: Class {class_no}: {title}
 
@@ -253,6 +328,7 @@ LESSON:
 """.format(
         class_no=class_no,
         title=title,
+        foundation=foundation,
         visual_context=visual_context or 'No additional visual context supplied.',
         lesson=lesson_markdown,
     )
@@ -267,19 +343,24 @@ Rules:
 - preserve the class identity and continuity;
 - if a ## Visual Generation Plan exists, preserve the ENTIRE section and fenced ```json block, keep the JSON valid, and keep it after ## Next Class;
 - never replace the Visual Generation Plan with prose or delete it during a rewrite;
-- treat every blocking issue and every below-threshold dimension in the review as a mandatory checklist; do not leave a known blocker merely softened or caveated;
+- treat every blocking issue and every below-threshold dimension in the review as a mandatory checklist;
 - fix every issue from the review and deterministic checks;
 - improve technical precision without making the lesson unnecessarily difficult;
-- if the lesson is substantially above the 1,800-3,000 word target, aggressively remove repeated definitions, repeated boundary cases, duplicate caveats, and redundant prose while preserving required headings, essential reasoning, code, and exercises;
+- if the lesson is substantially above the 1,800-3,000 word target, remove repeated definitions, repeated boundary cases, duplicate caveats, and redundant prose;
 - remove repetition and generic filler;
 - use common engineering terminology as the anchor when a taxonomy is disputed; label any course-specific teaching model clearly and only once;
-- never describe sensor-triggered automation as feedback control unless the measured output/state is used for correction; distinguish fixed automation, feedback control, and delegated autonomy explicitly;
+- for Class 1, obey the Foundation Contract below. Do not use 'fixed automation' as a mutually exclusive yes/no control category; distinguish preprogrammed task sequencing, decision authority, and feedback as separate axes;
+- for Class 1, keep the robot working description identical in the main explanation and Vocabulary;
+- for Class 1, threshold-based measurement-to-action can be feedback; use 'sustained feedback regulation' only when repeated correction over time is the point;
 - improve originality through fresh examples and teaching design, never by inventing nonstandard technical categories;
 - strengthen examples, code explanations, predictions, and real-world engineering caveats;
 - all Python must run on Python 3.7;
 - do not invent URLs or citations;
 - do not copy textbook wording;
 - return Markdown only.
+
+CLASS 1 FOUNDATION CONTRACT:
+{foundation}
 
 EDITORIAL REVIEW JSON:
 {review}
@@ -290,6 +371,7 @@ DETERMINISTIC ISSUES:
 CURRENT LESSON:
 {lesson}
 """.format(
+        foundation=FOUNDATION_CONTRACT,
         review=review_json,
         static_errors='\n'.join(static_errors or []) or 'None',
         lesson=lesson_markdown,
@@ -310,9 +392,13 @@ Rules:
 - preserve valid media URLs, YouTube markers, source credits, and licenses;
 - do not invent new URLs, citations, sources, licenses, videos, or image filenames;
 - do not reintroduce a ## Visual Generation Plan section after it has been removed from the student-facing lesson;
-- if visual_teaching_plan is weak, improve what the learner should inspect in the existing image/video/schematic and connect the visual directly to the concept being taught;
+- if visual_teaching_plan is weak, improve what the learner should inspect in the existing media and connect it directly to the concept;
+- for Class 1 terminology edits, preserve the Foundation Contract below rather than reintroducing an older taxonomy;
 - avoid decorative language and childish explanations;
 - return the COMPLETE improved Markdown only.
+
+CLASS 1 FOUNDATION CONTRACT:
+{foundation}
 
 EDITORIAL REVIEW:
 {review}
@@ -323,6 +409,7 @@ VISUAL / MEDIA CONTEXT:
 CURRENT LESSON:
 {lesson}
 """.format(
+        foundation=FOUNDATION_CONTRACT,
         review=review_json,
         visual_context=visual_context,
         lesson=lesson_markdown,
@@ -333,38 +420,33 @@ def technical_correction_prompt(lesson_markdown, review_json, visual_context=Non
     return """
 You are the senior robotics faculty member responsible for TECHNICAL CORRECTION of a lesson that failed publication review.
 
-Return the COMPLETE corrected Markdown lesson only.
-
-This is not a style rewrite. Fix every blocking technical issue precisely and preserve everything that is already correct.
+Return the COMPLETE corrected Markdown lesson only. This is not a style rewrite. Fix every blocking technical issue precisely and preserve everything that is already correct.
 
 Mandatory rules:
 - preserve every required ## heading exactly and in the same order;
 - if a ## Visual Generation Plan exists, preserve the ENTIRE section and fenced ```json block, keep the JSON valid, and keep it after ## Next Class;
-- if local generated-image references such as diagram.png or inline_XX.png already exist, preserve those references and their captions;
-- independently verify every blocking issue before editing; do not blindly copy a reviewer-proposed fix if that proposed fix is itself mathematically questionable;
-- resolve every real factual contradiction identified by the editorial review, choosing the physically and mathematically correct interpretation;
-- when the issue is definitional or taxonomic, use common robotics/control terminology as the primary reference and explicitly label any broader course model as an instructional simplification rather than a universal definition;
-- if the review flags robot-classification ambiguity, do not add more caveats to the same broad binary rule. State that robot boundaries are not universally standardized, replace disputed yes/no examples with clear exemplars, and keep any contested appliance explicitly outside scored classification;
-- if the lesson says 'sense OR affect the environment' is sufficient to make something a robot, replace that as a binary classifier because it is overly broad;
-- if the review flags feedback ambiguity, state that feedback is measured state/output influencing future control action relative to desired behavior/state and can be threshold-based or hysteretic. Use a thermostat as the canonical beginner counterexample; distinguish it from a one-shot sensor trigger followed by a fixed sequence;
-- do not equate a trigger sensor with closed-loop feedback: feedback control requires measured output/state to influence corrective action; keep automation, feedback, adaptation, and autonomy conceptually separate;
-- if the review says a distinction remains confusing, replace the ambiguous classification with a compact decision rule or comparison table instead of adding more caveats;
-- when the review identifies a mathematical claim as wrong, re-derive it from the stated model and correct the derivation, example, sidebar, exercise, quiz, and answer wherever that claim appears so the lesson is internally consistent;
-- distinguish different kinds of boundaries precisely (for example stability boundary versus monotonic/oscillatory response boundary) instead of using one vague label for both;
-- when the review identifies a code-semantic bug, correct the actual Python logic, not merely the prose describing it;
-- when the review identifies a mismatch between code and a claimed route, move count, stopping point, output, or exercise result, treat the executable code as the source of truth unless the code itself is explicitly the bug. Recompute the result from the exact code and update every prose/table/quiz reference consistently;
-- for every map, scenario, or boundary case whose exact result is discussed, add an executable assertion in the SAME Python block for final position, success/failure, move count, or other claimed invariant. Do not invent a new scenario unless it is verified by those assertions;
-- if a claimed exercise map does not demonstrate the intended behavior, either change the explanation to the actual verified behavior or replace the map with a simpler verified example and assert the intended result;
-- never repair a visual-provenance issue by rewriting unrelated lesson code or robotics concepts. Generated assets are source=gemini; independently sourced media must come only from the media-curation context with real attribution/license metadata;
-- when practical, add small executable self-check assertions for the exact boundary cases or invariants that caused the bug, so the normal validator can catch a regression;
+- if local generated-image references such as diagram.png or inline_XX.png already exist, preserve those references and captions;
+- independently verify every blocking issue before editing;
+- resolve every real factual contradiction identified by the editorial review;
+- when the issue is definitional or taxonomic in Class 1, use the Foundation Contract below as the single source of truth and make the entire lesson consistent with it;
+- if the lesson uses 'fixed automation' as a yes/no mutually exclusive category, replace that structure. Use decision authority/task sequencing and feedback as separate axes. In particular, do not mark a thermostat as both 'Fixed automation: Yes' and 'Feedback: Yes' in a table whose definition says fixed automation excludes response to measured state;
+- use the exact Class 1 robot working description in both the main definition and Vocabulary so teleoperation is never accidentally excluded;
+- if feedback terminology is disputed, say explicitly that textbook terminology can vary with system boundary. In this course, threshold measurement-to-action can be feedback; repeated measurement-and-correction is called sustained feedback regulation;
+- do not equate task-level autonomy with feedback; keep them independent;
+- if the review says a distinction remains confusing, replace the ambiguous comparison with the Foundation Contract table axes rather than adding more caveats;
+- when the review identifies a mathematical claim as wrong, re-derive it and correct every related example, quiz item, and answer;
+- when the review identifies a code-semantic bug, correct the actual Python logic, not merely the prose;
+- when prose claims an exact Python result, verify it with an assertion or verification output in the same block;
+- never repair a visual-provenance issue by rewriting unrelated lesson code or robotics concepts. Generated assets are source=gemini; independently sourced media comes only from media curation with real attribution/license metadata;
 - ensure code behavior agrees with equations and worked examples;
 - preserve Python 3.7 compatibility;
-- use explicit tolerances for floating-point boundary classifications where appropriate;
 - do not invent citations, media, URLs, licenses, results, or experiments;
 - preserve existing valid media references and source credits;
-- do not lower technical depth just to remove the issue;
 - after editing, mentally re-run every example and code branch mentioned in the blocking issues;
 - return Markdown only, with no preamble.
+
+CLASS 1 FOUNDATION CONTRACT:
+{foundation}
 
 BLOCKING EDITORIAL REVIEW:
 {review}
@@ -375,6 +457,7 @@ VISUAL / MEDIA CONTEXT:
 CURRENT LESSON:
 {lesson}
 """.format(
+        foundation=FOUNDATION_CONTRACT,
         review=review_json,
         visual_context=visual_context or 'No additional visual context supplied.',
         lesson=lesson_markdown,
@@ -402,22 +485,27 @@ Publication targets:
 
 Convergence rules:
 - Treat EVERY current blocking issue and EVERY below-threshold dimension as mandatory. Resolve the underlying cause, not just the wording around it.
-- Read the improvement notes too. Apply the high-value changes that improve clarity, pedagogy, originality, accessibility, and consistency without bloating the lesson.
-- If static feedback shows excessive length or the lesson is obviously repetitive, reduce it toward roughly 2,200-3,200 words by deleting duplicate explanations, repeated edge cases, repeated caveats, and redundant examples. Do not remove required headings or essential reasoning merely to shorten it.
+- Read the improvement notes too. Apply high-value changes without bloating the lesson.
+- If static feedback shows excessive length or the lesson is repetitive, reduce it toward roughly 2,200-3,200 words by deleting duplicate explanations, repeated edge cases, caveats, and redundant examples.
 - Prefer one clear standard engineering taxonomy over a broad ambiguous taxonomy. If a course-specific instructional model is useful, label it explicitly at first use and do not let it redefine normal robotics terminology.
-- Distinguish fixed/open-loop automation, sensor-triggered automation, closed-loop feedback control, adaptation, and autonomy precisely. Feedback can be continuous, discrete, threshold-based, or hysteretic: what matters is that measured output/state influences future control action in relation to desired behavior/state. A one-shot trigger followed by a fixed sequence is not closed-loop merely because a sensor started it. Do not call a fixed response task-level autonomy merely because it selects an immediate action.
-- For a foundational 'What Is a Robot?' lesson, do not force disputed appliances such as automatic doors into a scored yes/no robot classification. State once that the category boundary is not universally standardized, then teach with clear exemplars: timer-controlled traffic signal, thermostat, teleoperated rover, industrial robot arm, and autonomous vacuum. Keep robot status separate from control mode.
+- Feedback can be continuous, discrete, threshold-based, or hysteretic. A one-shot trigger followed by a fixed sequence is not closed-loop merely because a sensor started it. For Class 1, use the more precise Foundation Contract wording: a threshold measurement-to-action may still be feedback, while repeated correction is called sustained feedback regulation.
+- For Class 1, eliminate any yes/no 'Fixed automation' column and use independent axes for robot status, immediate decision authority, and feedback in the described behavior.
+- For Class 1, keep the same robot working description in the main definition and Vocabulary, explicitly allowing human-directed, preprogrammed, or autonomous action.
+- For a foundational 'What Is a Robot?' lesson, do not force disputed appliances such as automatic doors into scored yes/no classification.
 - Improve originality through fresh RoboRover scenarios, diagrams, experiments, comparisons, and questions. Never invent nonstandard terminology or classifications to appear original.
-- Verify every numerical result, route length, trace, equation, quiz answer, and assertion against the actual code or derivation. Any exact Python-derived claim must have a matching executable assertion or verification in the same Python block.
-- Do not introduce new maps, routes, algorithms, or numerical claims merely to make the lesson more interesting. New exact claims must be executable and verified.
-- Do not broaden the lesson beyond its curriculum scope during convergence. Prefer deleting unstable enrichment over adding a new advanced concept.
-- For generated lesson visuals, provenance is authoritative: source=gemini. Never describe a Gemini-generated inline_XX.png as independently sourced or licensed external media. External media is separate and must have actual attribution/license metadata in the supplied media context.
+- Verify every numerical result, equation, quiz answer, and assertion against actual code or derivation. Any exact Python-derived claim must have a matching executable assertion or verification in the same Python block.
+- Do not introduce new maps, routes, algorithms, or numerical claims merely to make the lesson more interesting.
+- Do not broaden the lesson beyond its curriculum scope during convergence.
+- For generated lesson visuals, provenance is authoritative: source=gemini. Never describe a Gemini-generated inline_XX.png as independently sourced or licensed external media.
 - If the lesson contains a ## Visual Generation Plan, preserve the entire heading and fenced JSON block, keep valid JSON, and keep it after ## Next Class.
 - If the Visual Generation Plan has already been removed, DO NOT recreate it.
-- Preserve every existing local image reference (hero.png, diagram.png, inline_XX.png), its alt text, and its educational caption.
+- Preserve every existing local image reference, its alt text, and educational caption.
 - Preserve valid external media references, credits, and licenses. Do not invent URLs or sources.
 - If you change executable code, make every fenced Python block independently runnable in Python 3.7.
 - Return the COMPLETE corrected Markdown lesson only. No preamble and no review commentary.
+
+CLASS 1 FOUNDATION CONTRACT:
+{foundation}
 
 CURRENT EDITORIAL REVIEW JSON:
 {review}
@@ -431,6 +519,7 @@ VISUAL / MEDIA CONTEXT:
 CURRENT LESSON:
 {lesson}
 """.format(
+        foundation=FOUNDATION_CONTRACT,
         review=review_json,
         static_report=static_report_json,
         visual_context=visual_context or 'No additional visual context supplied.',
@@ -456,18 +545,17 @@ Hard rules:
 - Keep the lesson within roughly 1,800-3,200 words unless the current valid lesson is already shorter.
 - If clarity is below threshold, replace ambiguity with one explicit rule/example rather than adding several caveats.
 - If originality is below threshold, replace ONE generic example, checkpoint, or exercise with a fresh RoboRover-based activity that teaches the same concept. Do not invent new taxonomy or terminology.
-- If the issue concerns robot classification, explicitly acknowledge that the word "robot" has fuzzy professional boundaries; use a practical course working description, not a claimed universal binary test.
-- Do NOT use an automatic door as a scored yes/no robot-classification item. If an automatic door remains in the lesson, describe it only as a boundary case that shares sensing/actuation with robotics and whose label varies by context.
+- If consistency is below threshold in Class 1, run a terminology sweep: robot definition, comparison table, feedback explanation, quiz, answers, and Vocabulary must all use the Foundation Contract consistently.
+- If the issue concerns robot classification, explicitly acknowledge that the word "robot" has fuzzy professional boundaries; use the Foundation Contract working description, not a claimed universal binary test.
+- Do NOT use an automatic door as a scored yes/no robot-classification item. If an automatic door remains, describe it only as a boundary case.
 - Do NOT use "senses OR affects the environment" as a sufficient binary robot classifier.
-- For a foundational comparison, prefer these unambiguous anchors:
-  * timer-controlled traffic signal: fixed automation, not normally called a robot;
-  * thermostat: feedback control, not normally called a robot;
-  * teleoperated rover: robot, but not task-level autonomous by default;
-  * industrial robot arm: robot; may use fixed automation and local feedback;
-  * autonomous vacuum: robot with task-level autonomy and feedback.
-- If feedback is discussed, say explicitly that measured state/output influences future control action relative to desired behavior/state. Feedback can use thresholds or hysteresis; it need not be continuous or proportional.
-- Use a thermostat as the canonical beginner feedback counterexample: desired temperature/setpoint, measured temperature, and future heating action influenced by that measurement.
+- For a foundational comparison, use these anchors: timer-controlled traffic signal = fixed automation, thermostat = feedback control but not normally a robot, teleoperated rover = robot without task-level autonomy, industrial robot arm = robot with possible preprogrammed task execution and local feedback, autonomous vacuum = robot with task-level autonomy.
+- IMPORTANT: the preceding 'fixed automation' phrase is an informal description of a preprogrammed task, not a mutually exclusive control-system category. Do not create a yes/no Fixed automation column. A preprogrammed task and feedback can coexist.
+- If feedback is discussed, say explicitly that measured state/output influences current or future control action relative to desired behavior/state. Feedback can use thresholds or hysteresis; it need not be continuous or proportional.
+- Use a thermostat as the canonical beginner feedback example. Its switching rule is predetermined, but its control action responds to measured temperature, so it is feedback.
+- State that terminology around a single threshold event can vary by textbook/system boundary. In this course, repeated measurement-and-correction is called sustained feedback regulation; do not imply repeated correction is required for all feedback.
 - Keep feedback control and task-level autonomy as independent axes.
+- Keep the Class 1 robot definition identical in Vocabulary and the main explanation, including human-directed teleoperation.
 - If exact Python-derived claims are edited, verify them with executable assertions or verification output in the same Python block.
 - Preserve Python 3.7 compatibility.
 - If a ## Visual Generation Plan exists, preserve it as valid JSON and keep every visual source equal to "gemini".
@@ -475,6 +563,9 @@ Hard rules:
 - Preserve every existing local image reference, alt text, caption, and valid external media credit/license.
 - Do not invent URLs, sources, licenses, facts, or results.
 - Return the COMPLETE corrected Markdown lesson only, with no preamble.
+
+CLASS 1 FOUNDATION CONTRACT:
+{foundation}
 
 CURRENT EDITORIAL REVIEW JSON:
 {review}
@@ -488,6 +579,7 @@ VISUAL / MEDIA CONTEXT:
 CURRENT LESSON:
 {lesson}
 """.format(
+        foundation=FOUNDATION_CONTRACT,
         review=review_json,
         static_report=static_report_json,
         visual_context=visual_context or 'No additional visual context supplied.',
