@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration of a small, technically plausible wheeled rover named RoboRover in a clean indoor engineering test room. Show the rover crossing a floor toward a red inspection box, with subtle visual callouts indicating machine boundary, wheels and motors as actuators, sensors, human operator, and surrounding environment. Professional editorial robotics style, realistic materials and lighting, restrained modern colors, high visual clarity, no decorative sci-fi elements, no meaningless humanoid robot, minimal essential labels only.",
+    "caption": "RoboRover is a physical machine whose controlled actuators perform a task in an environment; the immediate commands may come from a human, a stored program, or autonomous software.",
+    "alt_text": "A small wheeled rover moves toward a box in an indoor test room, with its motors and sensors inside the machine boundary and the floor, box, and operator outside in the environment."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear technical diagram for a beginner robotics lesson showing RoboRover inside a bold machine boundary and a surrounding environment outside it. Inside: battery, computer, two motorized wheels, and sensor. Arrows show commands entering from a human operator or software, measurements entering from the environment, and physical motion leaving through the wheels. Use simple professional labels, accurate arrow directions, white background, restrained textbook color palette, no clutter.",
+      "caption": "The machine boundary separates RoboRover\u2019s physical components from the environment while allowing commands, measurements, energy, and forces to cross.",
+      "alt_text": "A labeled rover diagram shows motors, sensors, battery, and computer inside a machine boundary, with a floor, wall, box, and operator outside."
+    },
+    {
+      "section_heading": "## Core Concept",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational three-panel technical diagram using the same RoboRover hardware in three control modes: teleoperated with a human holding a controller, preprogrammed with a stored command sequence, and autonomous with onboard software selecting actions from sensor measurements. Keep the rover chassis identical in all panels. Emphasize that decision authority changes while robot identity and physical hardware remain the same. Premium robotics textbook illustration, sparse labels, technically plausible.",
+      "caption": "The same physical rover can be teleoperated, preprogrammed, or autonomous depending on who or what selects its immediate actions.",
+      "alt_text": "Three panels show identical rover hardware controlled respectively by a human, a stored program, and onboard autonomous software."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Realistic engineering illustration of RoboRover traveling along a marked 3 metre test line in a laboratory. Show a start mark, a work-area mark 3.0 metres away, wheel motors, and a small inspection camera. Include a clean visual representation of speed 0.20 metres per second and time 15 seconds as subtle educational annotations, with units correct. Professional technical textbook composition, realistic floor and rover materials, no excessive text.",
+      "caption": "At a simplified constant speed of 0.20 m/s for 15 s, the modeled travel distance is 3.0 m; real robots may differ because of slip, battery changes, and calibration errors.",
+      "alt_text": "A wheeled rover with an inspection camera travels from a start line to a work area 3 metres away in a laboratory test scene."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean educational visualization of a one-dimensional RoboRover simulation: a horizontal track from 0.0 m to 2.0 m with position markers after four one-second steps for teleoperated, preprogrammed, and autonomous modes. Show the same rover icon and distinguish the three traces with restrained colors. Include a small inset indicating command values forward, stop, and reverse. Technical accuracy and legibility are more important than decoration; premium robotics textbook style.",
+      "caption": "The simulation keeps hardware and speed constant while changing only the source of the motion commands.",
+      "alt_text": "A horizontal track compares three simulated rover position traces for teleoperated, preprogrammed, and autonomous command selection."
+    }
+  ]
+}

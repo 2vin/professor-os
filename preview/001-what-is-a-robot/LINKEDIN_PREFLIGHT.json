@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Some LinkedIn commentary lines are visually dense; shorter paragraphs would scan better."
+  ],
+  "title_length": 81,
+  "description_length": 179,
+  "commentary_length": 1056,
+  "hashtags": [
+    "#Robotics",
+    "#Education",
+    "#Python",
+    "#Engineering"
+  ],
+  "thumbnail_width": 1376,
+  "thumbnail_height": 768
+}
