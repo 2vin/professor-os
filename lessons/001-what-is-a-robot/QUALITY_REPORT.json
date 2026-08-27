@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 3386,
+    "code_blocks": 3,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 90,
+      "clarity": 91,
+      "depth": 90,
+      "examples": 93,
+      "interactivity": 89,
+      "code_alignment": 94,
+      "visual_teaching_plan": 91,
+      "originality": 86,
+      "consistency": 95,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is unusually long for a foundational Class 1. Consider reducing repeated explanations of robot identity, autonomy, and feedback, especially across The Big Idea, Core Concept, Common Mistakes, Answers, and Vocabulary.",
+      "The working description is contract-compliant but syntactically dense for beginners. Introduce a shorter plain-language paraphrase immediately before the formal course wording, such as: \u201cA robot is a physical machine whose actuators carry out a task; a person, a program, or onboard software may choose its actions.\u201d",
+      "The Try It Yourself classification activity asks learners to classify feedback but does not provide an answer key or expected reasoning. Add a compact instructor answer table, particularly clarifying that the autonomous obstacle-response mode uses feedback in the broad course convention.",
+      "The distinction between autonomous command selection and feedback control is accurate but could be made more explicit in the Python Lab. State directly that the obstacle measurement influences the current command, making this a minimal feedback example, while the code does not model continuous regulation.",
+      "Add a brief software setup note for matplotlib and a fallback option for environments where graphical windows are unavailable. This would improve reproducibility for beginners using notebooks or browser-based Python.",
+      "The bicycle opening is accessible, but the phrase \u201cphysical effort\u201d may distract from the lesson\u2019s robot boundary. Either connect it explicitly to human actuation or shorten the comparison.",
+      "The generated diagrams have useful captions and placement, but the visual plan would be stronger if the comparison diagram visibly distinguished robot identity, decision authority, and feedback as three separate rows or labels rather than relying mainly on panel text.",
+      "Add a short physical safety note before any future real-rover extension: keep wheels clear of fingers, use a low speed, and test in an uncluttered area. The current lesson is safe as written, but the course promises hardware work."
+    ],
+    "linkedin": {
+      "title": "Class 1: What Is a Robot? Separating Robot Identity, Autonomy, and Feedback",
+      "description": "A foundational robotics lesson using RoboRover, comparison cases, distance modeling, and Python simulation to distinguish physical robot identity from decision authority and feedback.",
+      "commentary": "What makes a machine a robot\u2014and what does not?\n\nProfessor OS Class 1 gives learners a durable starting model by separating three ideas that are often conflated:\n\n\u2022 Robot identity: the physical machine and the task its actuators perform.\n\u2022 Decision authority: whether immediate actions come from a human, a stored program, or autonomous software.\n\u2022 Feedback: whether measurements influence current or future actions.\n\u2022 Engineering realism: why commanded speed and measured motion are not always the same.\n\nStudents apply the ideas to a thermostat, traffic signal, teleoperated rover, industrial arm, and autonomous vacuum. They then calculate RoboRover\u2019s ideal distance and run a Python simulation comparing three decision-authority modes.\n\nTry the lab by changing the command sequences and obstacle measurements before running the code. Ask students to predict the final positions\u2014and explain whether each mode is using feedback.\n\n#RoboticsEducation #Robotics #Python #Engineering",
+      "thumbnail_alt_text": "Educational mobile rover diagram showing human, programmed, and autonomous decision authority"
+    },
+    "media_query": "engineering photograph of a small mobile robot rover, visible wheels sensors battery and controller, laboratory setting",
+    "image_query": "small educational mobile robot rover with sensors and joystick controller in engineering lab",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the conceptual distinctions well, but a carefully chosen real photograph would ground the working description in identifiable hardware and help beginners connect actuators, sensors, controller, and environment to an actual robot. It should supplement the diagrams rather than replace them.",
+    "media_would_help": true
+  }
+}
