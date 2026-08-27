@@ -1,8 +1,10 @@
 import json
 import mimetypes
+import re
 import threading
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+
 try:
     from urllib.parse import parse_qs, quote, unquote, urlparse
 except ImportError:
@@ -23,6 +25,10 @@ _source_sync_watcher = None
 _SITE_TEMPLATE = Path(__file__).parent / 'templates' / 'student_site.html'
 _PROJECT_ROOT = Path.cwd().resolve()
 _CURRICULUM_PATH = _PROJECT_ROOT / 'curriculum.json'
+
+# Deliberately bumped for the requested full course restart. Old V1 browser
+# reading/completion state stays isolated and no longer affects the restarted course.
+STUDENT_PROGRESS_KEY = 'professorOSStudentProgressV2'
 
 
 def _run_agent_thread():
@@ -121,8 +127,7 @@ def _reading_minutes(lesson_md):
 def _lecture_summary(lecture):
     concepts = [x.strip() for x in str(lecture.get('concepts') or '').split(',') if x.strip()]
     if concepts:
-        return 'Learn {0} through intuition, worked examples, visuals, and Python labs.'.format(
-            ', '.join(concepts[:3]))
+        return 'Learn {0} through intuition, worked examples, visuals, and Python labs.'.format(', '.join(concepts[:3]))
     return 'A structured robotics lesson with explanations, visuals, and practical exercises.'
 
 
@@ -133,6 +138,7 @@ def _lecture_preview(lecture):
     lesson_html = preview_dir / 'index.html'
     diagram = preview_dir / 'diagram.png'
     hero = preview_dir / 'hero.png'
+    podcast = preview_dir / 'podcast.mp3'
     code_dir = preview_dir / 'code'
     code_files = []
     if code_dir.exists():
@@ -148,6 +154,7 @@ def _lecture_preview(lecture):
         'page_available': lesson_html.exists(),
         'diagram_available': diagram.exists(),
         'hero_available': hero.exists(),
+        'podcast_available': podcast.exists(),
         'code_count': len(code_files),
         'category': _category_for_class(lecture['class_no']),
         'summary': _lecture_summary(lecture),
@@ -155,6 +162,7 @@ def _lecture_preview(lecture):
         'lesson_url': _site_lesson_url(slug) if lesson_html.exists() else None,
         'diagram_url': '/lessons/{0}/diagram.png'.format(slug) if diagram.exists() else None,
         'hero_url': '/lessons/{0}/hero.png'.format(slug) if hero.exists() else None,
+        'podcast_url': '/lessons/{0}/podcast.mp3'.format(slug) if podcast.exists() else None,
         'code_urls': code_files,
     }
 
@@ -167,10 +175,37 @@ def _lecture_status(lecture, progress, current_class, state_status):
         return 'published'
     if class_no <= int(progress.get('last_generated_class', 0) or 0):
         return 'generated' if lecture.get('preview_available') else 'missing'
-    next_class = max(int(progress.get('last_generated_class', 0) or 0), int(progress.get('last_published_class', 0) or 0)) + 1
+    next_class = max(
+        int(progress.get('last_generated_class', 0) or 0),
+        int(progress.get('last_published_class', 0) or 0)
+    ) + 1
     if class_no == next_class:
         return 'next'
     return 'queued'
+
+
+def _visible_class_limit(progress=None):
+    progress = progress or load_progress()
+    return max(
+        int(progress.get('last_generated_class', 0) or 0),
+        int(progress.get('last_published_class', 0) or 0)
+    )
+
+
+def _hide_cached_unreleased_assets(item):
+    item['cached_package_present'] = bool(item.get('preview_available') or item.get('page_available'))
+    item['preview_available'] = False
+    item['page_available'] = False
+    item['diagram_available'] = False
+    item['hero_available'] = False
+    item['podcast_available'] = False
+    item['lesson_url'] = None
+    item['diagram_url'] = None
+    item['hero_url'] = None
+    item['podcast_url'] = None
+    item['code_urls'] = []
+    item['code_count'] = 0
+    return item
 
 
 def _latest_lesson_url(lectures):
@@ -185,11 +220,13 @@ def _state_payload():
     progress = load_progress()
     data['course_memory'] = progress
     data['course_total'] = len(_load_curriculum())
+    data['student_progress_key'] = STUDENT_PROGRESS_KEY
     data['brand'] = {
         'name': 'Professor OS',
         'builder': 'Connect.Vin',
         'version': '18.1',
     }
+
     integration_health = data.get('integration_health') or {}
     github_health = integration_health.get('github') or {}
     linkedin_health = integration_health.get('linkedin') or {}
@@ -211,6 +248,7 @@ def _state_payload():
             'label': settings.linkedin_author_urn or 'Not configured',
         },
     }
+
     if _scheduler is not None:
         data['scheduler'] = {
             'enabled': True,
@@ -219,18 +257,24 @@ def _state_payload():
             'hour': settings.nightly_release_hour,
             'minute': settings.nightly_release_minute,
         }
+
     curriculum = _load_curriculum()
+    visible_limit = _visible_class_limit(progress)
     lectures = []
     for lecture in curriculum:
         item = dict(lecture)
         item.update(_lecture_preview(lecture))
         item['status'] = _lecture_status(item, progress, data.get('current_class'), data.get('status'))
+        if int(item.get('class_no') or 0) > visible_limit:
+            _hide_cached_unreleased_assets(item)
         lectures.append(item)
+
     for idx, item in enumerate(lectures):
         previous_item = lectures[idx - 1] if idx > 0 else None
         next_item = lectures[idx + 1] if idx + 1 < len(lectures) else None
         item['previous_lesson_url'] = previous_item.get('lesson_url') if previous_item else None
         item['next_lesson_url'] = next_item.get('lesson_url') if next_item else None
+
     data['lectures'] = lectures
     category_names = []
     for item in lectures:
@@ -238,13 +282,18 @@ def _state_payload():
         if category and category not in category_names:
             category_names.append(category)
     data['categories'] = category_names
+
     upcoming = None
     for item in lectures:
         if item.get('status') in ('next', 'queued'):
             upcoming = dict(item)
             break
     data['upcoming_lecture'] = upcoming
-    generated_available = len([x for x in lectures if x.get('status') in ('generated', 'active') and x.get('preview_available')])
+
+    generated_available = len([
+        x for x in lectures
+        if x.get('status') in ('generated', 'active') and x.get('preview_available')
+    ])
     published_count = len([x for x in lectures if x.get('status') == 'published'])
     missing_count = len([x for x in lectures if x.get('status') == 'missing'])
     data['integrity'] = {
@@ -252,8 +301,11 @@ def _state_payload():
         'published_count': published_count,
         'missing_count': missing_count,
         'healthy': missing_count == 0,
-        'message': ('All generated lesson packages are present.' if missing_count == 0
-                    else '{0} generated lesson package(s) are missing locally. The next run will regenerate the earliest missing class.'.format(missing_count)),
+        'message': (
+            'All generated lesson packages are present.'
+            if missing_count == 0
+            else '{0} generated lesson package(s) are missing locally. The next run will regenerate the earliest missing class.'.format(missing_count)
+        ),
     }
     data['links'] = {
         'home': '/',
@@ -275,8 +327,11 @@ def _state_payload():
 
 def _rebuild_existing_lesson_pages():
     curriculum = _load_curriculum()
+    visible_limit = _visible_class_limit()
     rebuilt = 0
     for index, lesson in enumerate(curriculum):
+        if int(lesson.get('class_no') or 0) > visible_limit:
+            continue
         slug = '{0:03d}-{1}'.format(lesson['class_no'], slugify(lesson['title']))
         lesson_dir = _PROJECT_ROOT / 'preview' / slug
         markdown_path = lesson_dir / 'README.md'
@@ -292,22 +347,22 @@ def _rebuild_existing_lesson_pages():
                 quality_report = None
         previous_item = curriculum[index - 1] if index > 0 else None
         next_item = curriculum[index + 1] if index + 1 < len(curriculum) else None
-        previous_slug = ('{0:03d}-{1}'.format(previous_item['class_no'], slugify(previous_item['title']))
-                         if previous_item else None)
-        next_slug = ('{0:03d}-{1}'.format(next_item['class_no'], slugify(next_item['title']))
-                     if next_item else None)
+        previous_slug = ('{0:03d}-{1}'.format(previous_item['class_no'], slugify(previous_item['title'])) if previous_item else None)
+        next_slug = ('{0:03d}-{1}'.format(next_item['class_no'], slugify(next_item['title'])) if next_item else None)
         navigation = {
             'previous': ({
                 'class_no': previous_item['class_no'],
                 'title': previous_item['title'],
                 'url': ('/lessons/{0}/'.format(previous_slug)
-                        if (_PROJECT_ROOT / 'preview' / previous_slug / 'README.md').exists() else None),
+                        if previous_item['class_no'] <= visible_limit and (_PROJECT_ROOT / 'preview' / previous_slug / 'README.md').exists()
+                        else None),
             } if previous_item else None),
             'next': ({
                 'class_no': next_item['class_no'],
                 'title': next_item['title'],
                 'url': ('/lessons/{0}/'.format(next_slug)
-                        if (_PROJECT_ROOT / 'preview' / next_slug / 'README.md').exists() else None),
+                        if next_item['class_no'] <= visible_limit and (_PROJECT_ROOT / 'preview' / next_slug / 'README.md').exists()
+                        else None),
             } if next_item else None),
         }
         article_path = lesson_dir / 'index.html'
@@ -342,6 +397,16 @@ def _safe_lesson_asset(slug, extra_path):
     return None
 
 
+def _class_no_from_slug(slug):
+    match = re.match(r'^(\d{3})-', str(slug or ''))
+    if not match:
+        return None
+    try:
+        return int(match.group(1))
+    except Exception:
+        return None
+
+
 class DashboardHandler(BaseHTTPRequestHandler):
     server_version = 'ProfessorOS/18.1'
 
@@ -366,11 +431,12 @@ class DashboardHandler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         if parsed.path == '/':
             try:
-                html = _SITE_TEMPLATE.read_text(encoding='utf-8')
+                page = _SITE_TEMPLATE.read_text(encoding='utf-8')
+                page = page.replace('professorOSStudentProgressV1', STUDENT_PROGRESS_KEY)
             except Exception as exc:
                 self._send(500, 'Website template error: {0}'.format(exc), 'text/plain; charset=utf-8')
                 return
-            self._send(200, html, 'text/html; charset=utf-8')
+            self._send(200, page, 'text/html; charset=utf-8')
             return
         if parsed.path == '/admin':
             self.send_response(302)
@@ -392,6 +458,10 @@ class DashboardHandler(BaseHTTPRequestHandler):
             parts = [p for p in parsed.path.split('/') if p]
             if len(parts) >= 2:
                 slug = parts[1]
+                class_no = _class_no_from_slug(slug)
+                if class_no is None or class_no > _visible_class_limit():
+                    self._send(404, 'Lesson not currently published.', 'text/plain; charset=utf-8')
+                    return
                 extra = '/'.join(parts[2:]) if len(parts) > 2 else 'index.html'
                 target = _safe_lesson_asset(slug, extra)
                 if target is None and extra == '':
@@ -427,7 +497,6 @@ class DashboardHandler(BaseHTTPRequestHandler):
             return
         _run_agent_thread()
         self._json(202, {'ok': True, 'message': 'Teacher agent started.'})
-
 
 
 def _bootstrap_live_generation():
