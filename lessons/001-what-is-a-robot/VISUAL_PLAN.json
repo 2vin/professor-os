@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact two-wheeled educational rover, positioned on a clean laboratory floor beside a red test box and a human operator holding a controller. Show subtle visual callouts for wheels, motors, battery, computer, sensors, and the surrounding environment, with professional robotics textbook composition, realistic materials and lighting, restrained blue and orange accents, no decorative sci-fi elements, no clutter, no readable text except minimal technically necessary labels.",
+    "caption": "RoboRover is a physical machine whose controlled actuators perform a task while it interacts with an environment.",
+    "alt_text": "A small wheeled educational rover with visible motors, sensors, battery, and computer sits on a laboratory floor near a box and a human operator."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical diagram showing the same RoboRover hardware in three side-by-side panels: human-directed teleoperation, preprogrammed task execution, and autonomous software selecting task-level actions. Keep the rover identical in all panels and change only the decision-authority arrows. Use clear sparse labels, arrows from operator or program to rover, and actuator arrows from rover to wheels. Professional robotics textbook styling, white background, precise linework, no childish cartoon style.",
+      "caption": "The rover\u2019s robot identity can stay the same while the source of immediate decisions changes.",
+      "alt_text": "Three panels show identical RoboRover hardware controlled by a human operator, a stored program, and autonomous software."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Realistic engineering illustration of RoboRover traveling along a marked straight laboratory track toward a target 2.4 meters away. Include a clean measurement overlay showing ideal speed 0.60 meters per second and time 4.0 seconds, with a visual distinction between the ideal model and possible real-world wheel slip or battery variation. Premium educational robotics publication style, technically plausible two-wheel rover, restrained annotations, no unnecessary text.",
+      "caption": "The ideal distance prediction comes from speed multiplied by time, while real motion can differ because of slip, delay, and calibration.",
+      "alt_text": "A two-wheeled rover moves along a measured track toward a target, with speed, time, and ideal distance represented in a technical overlay."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional systems diagram comparing robot identity, decision authority, and feedback as separate ideas. Show five engineering examples in a compact table-like visual: timer-controlled traffic signal, thermostat, teleoperated rover, industrial robot arm, and autonomous vacuum. Use columns represented by icons and short labels for commonly called a robot, immediate decision authority, and feedback in the described behavior. Include a thermostat measurement-to-heater arrow as the only detailed feedback loop. Clean technical textbook layout, high visual clarity, minimal readable text.",
+      "caption": "Robot identity, decision authority, and feedback describe different aspects of a system and should not be collapsed into one test.",
+      "alt_text": "A technical comparison diagram separates robot identity, who selects actions, and whether measured state affects control actions across five systems."
+    }
+  ]
+}
