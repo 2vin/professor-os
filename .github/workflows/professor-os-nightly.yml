@@ -45,6 +45,11 @@ jobs:
       TECHNICAL_QUALITY_REPAIR_ROUNDS: '3'
       REQUIRE_AI_QUALITY_REVIEW: 'true'
 
+      # External licensed photos/videos are enrichment, not a hard dependency.
+      # Gemini hero + inline teaching visuals remain mandatory and gated.
+      ENABLE_EXTERNAL_MEDIA: 'true'
+      REQUIRE_RECOMMENDED_MEDIA: 'false'
+
       TIMEZONE: Asia/Kolkata
       NIGHTLY_RELEASE_HOUR: '21'
       NIGHTLY_RELEASE_MINUTE: '0'
@@ -93,6 +98,8 @@ jobs:
             -e POST_MEDIA_REPAIR_ROUNDS \
             -e TECHNICAL_QUALITY_REPAIR_ROUNDS \
             -e REQUIRE_AI_QUALITY_REVIEW \
+            -e ENABLE_EXTERNAL_MEDIA \
+            -e REQUIRE_RECOMMENDED_MEDIA \
             -e TIMEZONE \
             -e NIGHTLY_RELEASE_HOUR \
             -e NIGHTLY_RELEASE_MINUTE \
