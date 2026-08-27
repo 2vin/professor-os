@@ -50,6 +50,14 @@ jobs:
       ENABLE_EXTERNAL_MEDIA: 'true'
       REQUIRE_RECOMMENDED_MEDIA: 'false'
 
+      # Every published lesson receives an offline-downloadable podcast.
+      PODCAST_ENABLED: 'true'
+      PODCAST_REQUIRED: 'true'
+      PODCAST_TTS_MODEL: 'gpt-4o-mini-tts'
+      PODCAST_VOICE: 'alloy'
+      PODCAST_SCRIPT_MAX_WORDS: '1000'
+      PODCAST_BACKFILL_MAX: '2'
+
       TIMEZONE: Asia/Kolkata
       NIGHTLY_RELEASE_HOUR: '21'
       NIGHTLY_RELEASE_MINUTE: '0'
@@ -100,6 +108,12 @@ jobs:
             -e REQUIRE_AI_QUALITY_REVIEW \
             -e ENABLE_EXTERNAL_MEDIA \
             -e REQUIRE_RECOMMENDED_MEDIA \
+            -e PODCAST_ENABLED \
+            -e PODCAST_REQUIRED \
+            -e PODCAST_TTS_MODEL \
+            -e PODCAST_VOICE \
+            -e PODCAST_SCRIPT_MAX_WORDS \
+            -e PODCAST_BACKFILL_MAX \
             -e TIMEZONE \
             -e NIGHTLY_RELEASE_HOUR \
             -e NIGHTLY_RELEASE_MINUTE \
@@ -122,6 +136,9 @@ jobs:
 
               echo "Checking Python compilation..."
               python -m compileall -q teacher_agent tests
+
+              echo "Backfilling missing Professor OS podcasts..."
+              python -m teacher_agent.podcast_backfill
 
               echo "All static checks passed. Generating next lesson..."
               python -m teacher_agent.main --once
@@ -148,6 +165,9 @@ jobs:
             preview/**/hero.png
             preview/**/diagram.png
             preview/**/inline_*.png
+            preview/**/PODCAST.json
+            preview/**/podcast_transcript.txt
+            preview/**/podcast.mp3
             teacher_agent.log
             .robotics_teacher_runtime.json
 
