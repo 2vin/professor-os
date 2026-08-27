@@ -142,7 +142,12 @@ def test_convergence_prompt_demands_root_cause_fix_and_concision():
     assert 'Resolve the underlying cause' in prompt
     assert '2,200-3,200 words' in prompt
     assert 'common robotics/control terminology' not in prompt or 'standard engineering taxonomy' in prompt
-    assert 'Do not call a trigger sensor feedback' in prompt
+
+    # Test the actual control-theory guard semantically instead of relying on
+    # an obsolete exact sentence from an older prompt revision.
+    assert 'Feedback can be continuous, discrete, threshold-based, or hysteretic' in prompt
+    assert 'one-shot trigger followed by a fixed sequence is not closed-loop' in prompt
+
     assert '6009' in prompt
 
 
