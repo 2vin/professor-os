@@ -391,6 +391,22 @@ def _serve_file(handler, path):
     handler._send(200, body, ctype)
 
 
+
+def _safe_static_asset(extra_path):
+    base = (_PROJECT_ROOT / 'teacher_agent' / 'static').resolve()
+    target = (base / str(extra_path or '')).resolve()
+
+    try:
+        target.relative_to(base)
+    except Exception:
+        return None
+
+    if target.exists() and target.is_file():
+        return target
+
+    return None
+
+
 def _safe_lesson_asset(slug, extra_path):
     base = (_PROJECT_ROOT / 'preview' / slug).resolve()
     target = (base / extra_path).resolve()
@@ -498,6 +514,20 @@ class DashboardHandler(BaseHTTPRequestHandler):
                 'lesson_chat_privacy': 'on-device',
             })
             return
+        if parsed.path.startswith('/static/'):
+            extra = parsed.path[len('/static/'):]
+            target = _safe_static_asset(extra)
+            if target:
+                _serve_file(self, target)
+                return
+
+            self._send(
+                404,
+                'Static asset not found.',
+                'text/plain; charset=utf-8'
+            )
+            return
+
         if parsed.path.startswith('/lessons/'):
             parts = [p for p in parsed.path.split('/') if p]
             if len(parts) >= 2:
