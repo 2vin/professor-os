@@ -58,12 +58,23 @@ class Settings(object):
         self.technical_quality_repair_rounds = max(0, min(5, _as_int('TECHNICAL_QUALITY_REPAIR_ROUNDS', 3)))
         self.require_ai_quality_review = os.getenv('REQUIRE_AI_QUALITY_REVIEW', 'true').lower() == 'true'
 
-        # Premium real-world media enrichment. Search is discovery; reuse rights are still verified.
+        # Premium real-world media enrichment.
+        #
+        # External photo/video enrichment is OPTIONAL by default. Professor OS already
+        # requires and validates its Gemini hero + inline teaching visuals. A reviewer
+        # saying that a real-world photo "would help" should not make publication depend
+        # on a third-party search API, network availability, or a reusable-license result.
+        #
+        # Set REQUIRE_RECOMMENDED_MEDIA=true explicitly only if an installation wants
+        # external licensed media to be a hard publication requirement.
         self.enable_external_media = os.getenv('ENABLE_EXTERNAL_MEDIA', 'true').lower() == 'true'
         self.external_media_max_items = max(0, min(4, _as_int('EXTERNAL_MEDIA_MAX_ITEMS', 3)))
         self.external_media_min_width = max(640, _as_int('EXTERNAL_MEDIA_MIN_WIDTH', 1200))
         self.prefer_real_photos = os.getenv('PREFER_REAL_PHOTOS', 'true').lower() == 'true'
-        self.require_recommended_media = os.getenv('REQUIRE_RECOMMENDED_MEDIA', 'true').lower() == 'true'
+        self.require_recommended_media = os.getenv(
+            'REQUIRE_RECOMMENDED_MEDIA',
+            'false'
+        ).lower() == 'true'
 
         # Google Programmable Search can discover real photographs with usage-right filters.
         # A Google result is never trusted by itself: the source page must expose a reusable license.
