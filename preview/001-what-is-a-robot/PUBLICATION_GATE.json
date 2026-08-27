@@ -9,7 +9,8 @@
     "inline_visual_count": true,
     "article_design": true,
     "linkedin_preview_design": true,
-    "media_licensing": true
+    "media_licensing": true,
+    "podcast": true
   },
   "visuals": {
     "planned_inline_count": 4,
@@ -25,5 +26,10 @@
     "LinkedIn preview has no explicit media query; verify narrow-screen flow.",
     "Editorial review recommended real-world media, but none passed selection."
   ],
-  "message": "Publication package passed every final gate."
+  "message": "Publication package passed every final gate.",
+  "podcast": {
+    "required": true,
+    "available": true,
+    "filename": "podcast.mp3"
+  }
 }

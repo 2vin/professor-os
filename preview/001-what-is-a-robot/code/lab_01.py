@@ -1,76 +1,66 @@
-# Python 3.7-compatible example
-# Class 1: Same hardware, different decision authority
+import matplotlib.pyplot as plt
 
-import math
+TIME_STEP_S = 1.0
+SPEED_M_PER_S = 0.5
 
-
-def run_rover(commands, speed_m_per_s, command_time_s):
-    """Return the rover's final position after a list of commands."""
+def simulate(commands):
+    """Return position after each command, including the starting position."""
+    positions = [0.0]
     position_m = 0.0
 
     for command in commands:
-        # Keep the command within the actuator's allowed range.
-        if command > 1:
-            command = 1
-        elif command < -1:
-            command = -1
+        position_m += command * SPEED_M_PER_S * TIME_STEP_S
+        positions.append(position_m)
 
-        position_m += command * speed_m_per_s * command_time_s
+    return positions
 
-    return position_m
+# The human operator chooses these commands:
+# 1 means forward, 0 means stop.
+human_commands = [1, 0, 1, 0]
 
+# The stored program chooses these commands in advance.
+preprogrammed_commands = [1, 1, 1, 0]
 
-def choose_autonomous_commands(marker_distance_m):
-    """Choose task-level commands from a simulated marker measurement."""
-    if marker_distance_m > 1.5:
-        # The marker is far ahead: approach it for three command intervals.
-        return [1, 1, 1, 0]
-    elif marker_distance_m > 0.5:
-        # The marker is nearer: approach it for two command intervals.
-        return [1, 1, 0, 0]
+# The environment reports an obstacle during time steps 3 and 4.
+obstacle_detected = [False, False, True, True]
+
+# Autonomous software selects its own command from the measurements.
+autonomous_commands = []
+for obstacle in obstacle_detected:
+    if obstacle:
+        autonomous_commands.append(0)
     else:
-        # The marker is already near: remain stopped.
-        return [0, 0, 0, 0]
+        autonomous_commands.append(1)
 
+runs = {
+    "human-directed": simulate(human_commands),
+    "preprogrammed": simulate(preprogrammed_commands),
+    "autonomous": simulate(autonomous_commands),
+}
 
-speed_m_per_s = 0.60
-command_time_s = 2.0
+final_positions_m = {}
+for name, positions in runs.items():
+    final_positions_m[name] = positions[-1]
 
-# A human operator chooses these immediate commands.
-teleoperated_commands = [1, 1, 0, -1]
+# Executable verification of the exact results.
+assert autonomous_commands == [1, 1, 0, 0]
+assert final_positions_m["human-directed"] == 1.0
+assert final_positions_m["preprogrammed"] == 1.5
+assert final_positions_m["autonomous"] == 1.0
 
-# A stored program contains the same commands.
-preprogrammed_commands = [1, 1, 0, -1]
+print("Autonomous commands:", autonomous_commands)
+print("Final positions (m):", final_positions_m)
+print("Verified: all final positions match the model.")
 
-# A simulated sensor reports that the visible marker is 2.0 m away.
-# Task-level software uses that measurement to choose the commands.
-marker_distance_m = 2.0
-autonomous_commands = choose_autonomous_commands(marker_distance_m)
+time_s = [0.0, 1.0, 2.0, 3.0, 4.0]
 
-teleoperated_position = run_rover(
-    teleoperated_commands, speed_m_per_s, command_time_s
-)
-preprogrammed_position = run_rover(
-    preprogrammed_commands, speed_m_per_s, command_time_s
-)
-autonomous_position = run_rover(
-    autonomous_commands, speed_m_per_s, command_time_s
-)
+for name, positions in runs.items():
+    plt.plot(time_s, positions, marker="o", label=name)
 
-print("Teleoperated final position: {:.1f} m".format(teleoperated_position))
-print("Preprogrammed final position: {:.1f} m".format(preprogrammed_position))
-print("Autonomous commands: {}".format(autonomous_commands))
-print("Autonomous final position: {:.1f} m".format(autonomous_position))
-
-# Floating-point arithmetic can represent 3.6 approximately, so compare
-# with a small tolerance rather than requiring exact binary equality.
-assert math.isclose(teleoperated_position, 1.2, rel_tol=0.0, abs_tol=1e-9)
-assert math.isclose(preprogrammed_position, 1.2, rel_tol=0.0, abs_tol=1e-9)
-assert autonomous_commands == [1, 1, 1, 0]
-assert math.isclose(autonomous_position, 3.6, rel_tol=0.0, abs_tol=1e-9)
-assert math.isclose(
-    teleoperated_position,
-    preprogrammed_position,
-    rel_tol=0.0,
-    abs_tol=1e-9,
-)
+plt.title("RoboRover: same hardware, different decision authority")
+plt.xlabel("Time (s)")
+plt.ylabel("Position (m)")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()

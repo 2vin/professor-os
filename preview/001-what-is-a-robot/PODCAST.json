@@ -3,10 +3,10 @@
   "transcript_filename": "podcast_transcript.txt",
   "class_no": 1,
   "title": "What Is a Robot?",
-  "script_words": 992,
+  "script_words": 994,
   "estimated_minutes": 7,
   "tts_model": "gpt-4o-mini-tts",
   "voice": "alloy",
   "synthetic_narration": true,
-  "generated_at_utc": "2026-08-27T10:24:15Z"
+  "generated_at_utc": "2026-08-27T14:02:04Z"
 }

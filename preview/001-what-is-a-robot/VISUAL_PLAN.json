@@ -4,42 +4,42 @@
     "section": "top",
     "visual_type": "premium robotics hero illustration",
     "source": "gemini",
-    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled rover with two driven wheels, a supporting caster, visible motors, battery compartment, onboard computer, and simple sensors, positioned on a clean laboratory floor with a colored cone and marked environmental boundary; restrained modern robotics textbook styling, realistic materials and lighting, technically plausible hardware, no decorative sci-fi elements, no watermark, minimal or no text",
-    "caption": "RoboRover is a physical machine whose controlled actuators perform a physical task in an environment.",
-    "alt_text": "A compact wheeled educational rover with motors, sensors, computer, and battery sits on a laboratory floor beside a cone, showing the machine and its physical environment."
+    "prompt": "A premium robotics textbook hero illustration of RoboRover, a compact two-wheel educational rover with a small front distance sensor, visible motors and battery compartment, positioned on a marked laboratory floor facing a cardboard box. Include subtle visual callouts showing three decision-authority possibilities: a human operator with a controller, a stored program represented inside the onboard computer, and an onboard sensor observing the box. Technically plausible educational hardware, realistic materials and lighting, restrained modern editorial style, clean composition, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover is the same physical robot whether a human, a stored program, or autonomous software selects its immediate actions.",
+    "alt_text": "Educational engineering illustration of a small wheeled rover with motors, computer, battery, front distance sensor, human controller, and cardboard box environment."
   },
   "inline_visuals": [
     {
       "section_heading": "## The Big Idea",
       "visual_type": "diagram",
       "source": "gemini",
-      "prompt": "Premium technical diagram showing the same RoboRover hardware in three side-by-side panels: teleoperated with a human holding a controller, preprogrammed with a stored sequence, and autonomous with task-level software; clearly separate robot hardware identity from immediate decision authority, use restrained engineering colors, simple labels, arrows from decision authority to controller to actuators, no clutter, no decorative humanoid robot imagery",
-      "caption": "The same physical robot can operate under human, preprogrammed, or autonomous decision authority.",
-      "alt_text": "Three panels show identical RoboRover hardware controlled respectively by a human operator, a stored program, and autonomous software."
-    },
-    {
-      "section_heading": "## Worked Robotics Example",
-      "visual_type": "illustration",
-      "source": "gemini",
-      "prompt": "Technically accurate generated engineering illustration of RoboRover driving in a straight hallway test, with a human operator holding a remote controller, a visible floor measurement scale, and a clean annotation area representing speed 0.60 meters per second, time 8 seconds, and distance 4.8 meters; emphasize physical measurement and assumptions, premium robotics textbook composition, realistic materials and lighting, avoid text-heavy imagery",
-      "caption": "A simple distance calculation describes motion, while the human operator determines the immediate command.",
-      "alt_text": "RoboRover drives along a measured hallway while a human uses a controller; the visual represents speed, elapsed time, and traveled distance."
+      "prompt": "Create a clean technical diagram explaining the course working description of a robot. Show a physical machine boundary around RoboRover, controlled actuators labeled at the wheels, an arrow showing physical task performance, and three separate sources of immediate action selection: human operator, preprogrammed controller, and autonomous software. Visually separate robot identity from decision authority. Premium robotics textbook style, clear arrows, restrained colors, minimal readable labels, no clutter.",
+      "caption": "Robot identity concerns the physical machine and its controlled task; decision authority may belong to a human, a preprogrammed controller, or autonomous software.",
+      "alt_text": "Diagram separating a robot's physical machine and actuators from the three possible sources of immediate action decisions."
     },
     {
       "section_heading": "## Core Concept",
       "visual_type": "diagram",
       "source": "gemini",
-      "prompt": "Clean educational systems diagram of RoboRover inside a dashed machine boundary, with wheels, motors, battery, computer, and sensors inside; floor, walls, cone, and surrounding space outside labeled as environment; separate arrows show actuators affecting the environment and measurements entering the controller; technically precise, premium editorial robotics textbook style, restrained colors, minimal essential labels",
-      "caption": "A system boundary helps distinguish the robot\u2019s machine components from the environment it affects and measures.",
-      "alt_text": "A dashed boundary encloses RoboRover\u2019s chassis, motors, battery, computer, and sensors, while the floor, walls, and cone outside form the environment."
+      "prompt": "Create a compact comparison diagram with five technically accurate panels: timer-controlled traffic signal, thermostat, teleoperated rover, industrial robot arm, and autonomous vacuum. For each panel show physical system, immediate decision authority, and whether measured state affects the current or future action. Emphasize that a preprogrammed task and feedback can coexist. Do not use an automatic door. Premium editorial robotics education layout, precise icons and arrows, minimal text.",
+      "caption": "Different systems can have different decision authority and feedback behavior; robot identity and control mode are separate questions.",
+      "alt_text": "Five-panel technical comparison of a traffic signal, thermostat, teleoperated rover, industrial arm, and autonomous vacuum showing decision authority and feedback."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Create a realistic engineering illustration of RoboRover moving a lightweight blue block toward a collection tray on a marked laboratory floor. Include a small measurement panel or diagram showing average speed 0.25 metres per second, elapsed time 8 seconds, and distance 2.00 metres, with units clearly arranged as a visual teaching aid. Show wheel contact with the floor and subtle indications that real wheel slip can make measured distance differ from the ideal model. Premium robotics textbook style, technically plausible, no clutter.",
+      "caption": "The ideal distance model multiplies average speed by elapsed time, while real wheel slip and changing conditions can create error.",
+      "alt_text": "Small wheeled rover pushing a blue block toward a tray, with a visual equation showing speed, time, and ideal distance plus wheel-slip caveat."
     },
     {
       "section_heading": "## Python Lab",
       "visual_type": "diagram",
       "source": "gemini",
-      "prompt": "Premium technical infographic illustrating a simple one-dimensional RoboRover simulation: command values -1, 0, and +1 enter a controller, actuator-limited motion changes position in meters, and three labeled tracks compare teleoperated, preprogrammed, and autonomous command sequences; include a subtle indication of actuator saturation without showing complex algorithms, clean grid, professional robotics education design, no clutter",
-      "caption": "The simulation keeps the hardware model fixed while changing the source of the commands.",
-      "alt_text": "A one-dimensional simulation diagram shows command sequences driving RoboRover and compares final positions for three decision authorities."
+      "prompt": "Create a clean technical visualization of the Python lab: three position-versus-time traces for the same RoboRover hardware under human-directed, preprogrammed, and autonomous obstacle-response modes. Show forward commands as rising segments and stop commands as flat segments, with an obstacle symbol appearing during the autonomous run. Use a textbook graph style with axes in seconds and metres, restrained colors, clear legend, and no unsupported numerical labels beyond the described four-second experiment.",
+      "caption": "The simulation keeps the hardware and speed model fixed while changing who or what selects the commands.",
+      "alt_text": "Technical line graph comparing three RoboRover position traces over time for human-directed, preprogrammed, and autonomous command selection."
     }
   ]
 }

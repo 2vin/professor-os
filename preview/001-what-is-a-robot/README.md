@@ -2,90 +2,71 @@
 
 ## Where We Are in the Robotics Journey
 
-Welcome to the beginning of the robotics course. Our recurring example is **RoboRover**, a small wheeled machine with sensors, a computer, motors, and a battery.
+Welcome to the beginning of the robotics course. You and RoboRover are starting with a question that sounds simple but is surprisingly important:
 
-Today we establish vocabulary used throughout the course:
+**What counts as a robot?**
 
-- robot identity;
-- decision authority;
-- autonomy;
-- machine and environment boundaries;
-- an introductory view of feedback control.
+Before building circuits, writing movement code, or studying sensors, we need a clear mental model. A robot is not defined only by its appearance. A robot may have wheels, arms, tracks, legs, or another kind of mechanism. It may be controlled directly by a person, follow a programmed sequence, or choose actions using software.
 
-In the next class, we will open the basic robotics cycle:
+This class establishes the course’s working description of a robot. It also separates three ideas that are often mixed together:
 
-> **Sense → Think → Act**
+1. **Robot identity:** what kind of physical machine it is.
+2. **Decision authority:** who or what selects its immediate actions.
+3. **Feedback:** whether measured information affects current or future actions.
 
-That cycle will help us describe how RoboRover measures the world, selects an action, and moves an actuator.
+The next class, **Sense → Think → Act**, will examine the basic action cycle that connects sensors, decisions, and actuators.
 
 ## Today We Will Learn
 
 By the end of this class, you should be able to:
 
-1. Use the course’s working description of a robot.
-2. Separate **robot identity** from **who or what selects actions**.
-3. Explain autonomy as task-level decision-making by software.
-4. Identify a machine’s physical environment boundary.
-5. Recognize the basic idea of feedback control.
-6. Test three decision modes using a small Python simulation.
+- describe a robot using the course’s working description;
+- distinguish a robot from a general machine;
+- explain what an environment is in robotics;
+- distinguish human-directed, preprogrammed, and autonomous action;
+- recognize feedback as a preview concept;
+- compare several familiar systems without forcing every boundary case into a yes/no definition;
+- calculate a simple robot movement distance;
+- run a small Python simulation showing the same RoboRover hardware under different decision authorities.
 
 ## 2-Minute Recap
 
-Because this is Class 1, there is no earlier robotics material to review.
+There is no previous class in this course. This is our starting point.
 
-Start with two questions:
+Begin with a familiar machine: a bicycle. It is a physical machine that can perform a task—carrying a person—but the rider supplies the immediate decisions and physical effort.
 
-> If a machine has wheels, is it automatically a robot?
+Now imagine a motorized rover. Its wheels are **actuators**: parts that produce controlled physical movement. A human might drive it with a joystick. A stored program might command it to move for a particular time. Or software might examine sensor readings and choose what to do next.
 
-No. Wheels alone do not determine robot identity. A wheelbarrow has wheels, but people usually do not call it a robot. A motorized toy may move, but whether people call it a robot depends on its physical task, controlled actuators, and engineering context.
-
-> If a human controls a machine, can it still be a robot?
-
-Yes. A teleoperated rover is commonly called a robot even though a human chooses its immediate motion.
-
-These questions separate two ideas:
-
-- **Robot identity:** what the physical system is.
-- **Decision authority:** who or what selects its actions.
-
-They are related, but they are not the same question.
+The wheels and motors do not decide anything by themselves. They are part of the physical system that carries out a decision.
 
 ## The Big Idea
 
 
-![Three panels show identical RoboRover hardware controlled respectively by a human operator, a stored program, and autonomous software.](inline_01.png)
+![Diagram separating a robot's physical machine and actuators from the three possible sources of immediate action decisions.](inline_01.png)
 
-**Figure:** The same physical robot can operate under human, preprogrammed, or autonomous decision authority.
+**Figure:** Robot identity concerns the physical machine and its controlled task; decision authority may belong to a human, a preprogrammed controller, or autonomous software.
 
-For this course, we will use this working description:
+For this course:
 
-> **For this course, a robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.**
+> **A robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.**
 
-The most important rule is:
+This definition has two important parts.
 
-> **Robot identity and decision authority are separate.**
+First, a robot is a **physical machine**. A computer simulation of a robot is useful, but the simulation itself is not the physical robot. The real robot has mechanisms, sensors, actuators, power, and a physical relationship with its surroundings.
 
-RoboRover remains the same physical robot whether a person drives it, a stored program drives it, or software chooses its task-level actions.
+Second, its controlled actuators perform a **physical task**. RoboRover might drive, carry a small object, push a marker, or rotate a camera. The task is performed through physical action.
 
-### Physical machine
+There is no single universally accepted binary boundary for the word *robot*. Engineering communities may use the word differently depending on the application. Therefore, this course uses clear examples and the working description above rather than pretending that every unusual appliance has one universally correct answer.
 
-A robot exists as a physical system. It may include structure, motors, wheels, joints, tools, electronics, and other mechanisms.
+### Robot identity is not the same as autonomy
 
-### Controlled actuators
+Suppose RoboRover has motors, wheels, a battery, and a radio receiver.
 
-An **actuator** produces controlled physical movement or force. Examples include:
+- If a student drives it using a joystick, RoboRover is a **teleoperated robot**. “Teleoperated” means operated from a distance by a human.
+- If RoboRover follows a stored movement sequence, it is still a robot. Its immediate actions are selected by a **preprogrammed controller**.
+- If RoboRover measures its surroundings and selects task-level actions using software, it is an **autonomous robot**.
 
-- a motor turning a wheel;
-- a joint motor lifting an arm;
-- a gripper motor closing fingers.
-
-### Physical task
-
-The robot performs work in the physical world. It may drive, lift, sort, carry, paint, inspect, or manipulate an object.
-
-### Commonly treated as a robot
-
-The word *robot* does not have one universally accepted boundary. Engineers, manufacturers, researchers, and the public may classify boundary cases differently. This course therefore uses clear engineering examples rather than treating every case as a permanent yes-or-no decision.
+The hardware can remain the same while the decision authority changes. Robot identity and autonomy are separate questions.
 
 ## See It in Your Head
 
@@ -93,82 +74,102 @@ The word *robot* does not have one universally accepted boundary. Engineers, man
 
 ![Professor OS engineering schematic](diagram.png)
 
-**How to inspect this visual:** First locate the machine boundary. Then trace the path from sensing and decision-making to actuation. Ask which blocks would remain the same if a human replaced the software decision-maker.
+**How to read this visual:** Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.
 
-Imagine RoboRover on a laboratory floor. Its chassis, wheels, motors, battery, computer, and onboard sensors are inside a dashed boundary labeled **machine**. The floor, cone, walls, lighting, and obstacles are outside that boundary in the **environment**.
 
-Now compare three versions of the same rover:
 
-- **Teleoperated:** a human chooses “forward,” “stop,” or “turn.”
-- **Preprogrammed:** a stored sequence chooses the next action.
-- **Autonomous:** software selects task-level actions using available information.
+Imagine a cutaway drawing of RoboRover in a rectangular room.
 
-The hardware can remain nearly identical. What changes is the source of the immediate motion command.
+- Inside the rover: a battery, small computer, motor drivers, and wiring.
+- At the left and right wheels: two motors, shown as actuators.
+- On the front: a distance sensor pointing toward a cardboard box.
+- Outside the rover: the floor, walls, box, and a human holding a controller.
 
-> **Same hardware, different decision authority.**
+Now draw three versions of the same scene:
+
+1. **Human-directed:** a radio signal travels from the controller to RoboRover. The human chooses “forward” or “stop.”
+2. **Preprogrammed:** a stored list inside the computer says “move forward, stop, turn.” The controller follows the list.
+3. **Autonomous:** the sensor measures the box. Software uses that measurement to select an action, such as stopping when the box is close.
+
+The physical rover has not necessarily changed. The source of the immediate decision has changed.
+
+The **environment** is everything relevant outside the robot that can affect the task or be affected by it: the floor, box, walls, people, light, dust, and so on. The boundary depends on the question being studied. For a wheel-motion experiment, the floor may be central while the room’s lighting may not matter.
 
 ## Core Concept
 
 
-![A dashed boundary encloses RoboRover’s chassis, motors, battery, computer, and sensors, while the floor, walls, and cone outside form the environment.](inline_03.png)
+![Five-panel technical comparison of a traffic signal, thermostat, teleoperated rover, industrial arm, and autonomous vacuum showing decision authority and feedback.](inline_02.png)
 
-**Figure:** A system boundary helps distinguish the robot’s machine components from the environment it affects and measures.
+**Figure:** Different systems can have different decision authority and feedback behavior; robot identity and control mode are separate questions.
 
-### Machine and environment
+### Machine
 
-A **machine** is a physical system arranged to transform energy and control signals into useful physical action.
+A **machine** is a physical system designed or arranged to use energy and mechanisms to perform a task. A hand-cranked pencil sharpener, washing machine, bicycle, and electric drill are machines.
 
-For RoboRover:
+Not every machine is commonly called a robot. The word *robot* usually highlights a physical machine whose controlled actuators perform a task in a robotics context.
 
-- the chassis, wheels, motors, battery, computer, and onboard sensors are part of the machine;
-- the floor, walls, objects, people, lighting, and air around it are part of the environment.
+A machine may be:
 
-Onboard sensors measure the environment while remaining physically part of the machine. The boundary is an engineering choice that should be stated clearly. For example, a charging station may be outside the rover in one analysis and part of a larger robot system in another.
+- manually operated;
+- controlled by a simple switch;
+- controlled by a programmed sequence;
+- controlled using measurements and software.
 
-A useful beginner approach is to identify:
+These features alone do not settle every classification question.
 
-1. what physically moves or supplies power;
-2. what measures or computes inside the machine;
-3. what exists outside and is affected or measured.
+### Environment
+
+A robot does not act in empty space. It operates in an **environment**: the physical surroundings relevant to its task.
+
+For RoboRover, the environment might include:
+
+- the floor that supports its wheels;
+- a box that it may approach or push;
+- walls that limit movement;
+- a person who teleoperates it;
+- lighting that affects a camera sensor.
+
+The environment is important because a robot’s actions have consequences. A motor command is not just a number in a program; it can make a wheel rotate, move the rover, and possibly bump into something.
 
 ### Autonomy
 
-In common robotics usage, **autonomy** means that software selects actions at a task level without a human choosing every immediate command.
+**Autonomy** describes how much task-level decision-making is performed by the robot’s software or onboard system rather than by a human operator.
 
-An autonomous vacuum may decide when to move, stop, or change direction as part of its cleaning task. This does not mean it is independent of all humans. People may still choose its schedule, charge it, define its operating area, or maintain it.
+A highly autonomous robot can select actions for a task using its own sensors, software, and stored goals. Autonomy is not the same as consciousness, intelligence in the human sense, or freedom from all programming. An autonomous robot still operates according to hardware, software, power, limits, and design choices made by people.
 
-Autonomy is not the same as:
-
-- intelligence in every situation;
-- freedom from maintenance;
-- having no human influence;
-- being a humanoid machine.
-
-A teleoperated robot can be a robot without task-level autonomy. Conversely, autonomy and feedback are separate concepts: software may select a task action autonomously while a lower-level controller uses feedback to regulate a motor.
+A remote-controlled rover can be a robot without task-level autonomy. An autonomous vacuum can be a robot with task-level autonomy.
 
 ### Feedback: an introductory preview
 
-Use **feedback control** broadly when a measured state or output influences a current or future control action in relation to a desired state or behavior.
+In robotics and control engineering, **feedback control** broadly means that a measured state or output influences a current or future control action in relation to a desired behavior or state.
 
-In this course, a threshold measurement-to-action rule can count as feedback control. We use **sustained feedback regulation** for repeated measurement-and-correction over time.
+A thermostat is a useful example:
 
-A thermostat illustrates the idea:
+- desired state: the selected temperature, such as 21 °C;
+- measured state: the room temperature;
+- action: turn heating on or off.
 
-1. Desired temperature: **20 °C**.
-2. Measured room temperature: **18 °C**.
-3. The controller turns heating on.
-4. A later measurement shows that the temperature has reached the desired range.
-5. The controller changes the heating action.
+The rule may be simple and predetermined, but the action responds to a measurement. Threshold and hysteresis controllers can still be feedback controllers. In this course, we will use **sustained feedback regulation** when we specifically mean repeated measurement-and-correction over time.
 
-The rule may be fixed in advance, but the action responds to measurement. Therefore, the described behavior uses feedback.
+A single sensor event that starts a fixed timed sequence is not automatically sustained feedback regulation. The measured state must actually influence a current or future control action in relation to the desired behavior.
 
-Feedback need not be continuous or smoothly proportional. A rule such as “turn the fan on when temperature reaches 24 °C” also responds to a measured state.
+### One compact comparison
 
-A single sensor event does not necessarily create sustained feedback regulation. If RoboRover detects a marker once and then drives for exactly five seconds without using later measurements to adjust its action, the timed motion is not being repeatedly regulated by that measured state.
+| System | Commonly called a robot? | Immediate decision authority | Feedback in the described behavior? |
+|---|---|---|---|
+| Timer-controlled traffic signal | Not normally | Preprogrammed timer | No; timing follows the stored schedule |
+| Thermostat | Not normally | Preprogrammed rule responding to temperature | Yes; measured temperature affects heating |
+| Teleoperated rover | Yes | Human operator | May or may not; local feedback depends on the design |
+| Industrial robot arm | Yes | Often a preprogrammed task sequence | Local feedback is common |
+| Autonomous vacuum | Yes | Software selects task-level actions | Feedback is commonly used |
+
+“Preprogrammed” and “feedback” are not mutually exclusive categories. An industrial arm may execute a preprogrammed task while its joint controllers use measured position to adjust motor action. The program can be fixed while some control actions respond to measurements.
+
+Automatic doors and similar appliances are boundary cases: they share sensing, computation, and actuation with some robots, but terminology varies by context. We will not use them as a scored yes/no test.
 
 ## Math Without Fear
 
-Suppose RoboRover travels in a straight line at a constant average speed.
+A simple robot movement calculation begins with:
 
 \[
 d = vt
@@ -176,442 +177,362 @@ d = vt
 
 where:
 
-- \(d\) is distance traveled in **meters (m)**;
-- \(v\) is average speed in **meters per second (m/s)**;
-- \(t\) is elapsed time in **seconds (s)**.
+- \(d\) is distance traveled, measured in metres (m);
+- \(v\) is average speed, measured in metres per second (m/s);
+- \(t\) is elapsed time, measured in seconds (s).
 
-If RoboRover’s average speed is \(0.60\ \text{m/s}\) and it drives for \(8\ \text{s}\):
-
-\[
-d = (0.60\ \text{m/s})(8\ \text{s}) = 4.8\ \text{m}
-\]
-
-The units confirm the result:
+Suppose RoboRover moves at an average speed of:
 
 \[
-\text{m/s} \times \text{s} = \text{m}
+v = 0.30\ \text{m/s}
 \]
 
-Under this assumption, RoboRover travels **4.8 m**. The calculation describes motion, not autonomy. A human, a timer, or autonomous software could all command the same eight-second drive.
+for:
 
-> **Model limitation:** This one-dimensional constant-speed model does not represent turning, acceleration, collisions, wheel slip, changing speed, or low-level motor feedback.
+\[
+t = 6\ \text{s}
+\]
 
-In a physical test, motors need time to accelerate, the floor may not be level, battery voltage may change, and the stated speed may be an estimate. The equation is therefore a useful model, not a guarantee of exact final placement.
+Then:
+
+\[
+d = (0.30\ \text{m/s})(6\ \text{s}) = 1.80\ \text{m}
+\]
+
+The seconds cancel:
+
+\[
+\frac{\text{m}}{\text{s}} \times \text{s} = \text{m}
+\]
+
+So RoboRover’s idealized distance is **1.80 m**.
+
+This is a model, not a guarantee. It assumes the rover’s average speed really is 0.30 m/s and that it moves along the intended path. Real wheels may slip, the battery voltage may change, and starting or stopping may take time.
 
 ## Worked Robotics Example
 
 
-![RoboRover drives along a measured hallway while a human uses a controller; the visual represents speed, elapsed time, and traveled distance.](inline_02.png)
+![Small wheeled rover pushing a blue block toward a tray, with a visual equation showing speed, time, and ideal distance plus wheel-slip caveat.](inline_03.png)
 
-**Figure:** A simple distance calculation describes motion, while the human operator determines the immediate command.
+**Figure:** The ideal distance model multiplies average speed by elapsed time, while real wheel slip and changing conditions can create error.
 
-RoboRover is tested in a hallway. A human operator presses the forward button for \(8\ \text{s}\). During the test, the rover’s measured average speed is \(0.60\ \text{m/s}\).
+RoboRover is assigned a physical task: move a lightweight blue block from a marked starting area toward a collection tray.
+
+Its motors are controlled so that the rover’s average forward speed is \(0.25\ \text{m/s}\). The movement command lasts \(8\ \text{s}\).
+
+Using:
 
 \[
 d = vt
 \]
 
-with:
-
-- \(v = 0.60\ \text{m/s}\);
-- \(t = 8\ \text{s}\).
-
-Therefore:
+we obtain:
 
 \[
-d = 0.60\ \text{m/s} \times 8\ \text{s} = 4.8\ \text{m}
+d = (0.25\ \text{m/s})(8\ \text{s}) = 2.00\ \text{m}
 \]
 
-The rover is still a robot even though the human selected the immediate action.
+**Interpretation:** under the simple model, RoboRover travels 2.00 metres during the command.
 
-Now replace the button press with:
+Now consider three decision-authority versions of the same task:
 
-> Drive forward for \(8\ \text{s}\), then stop.
+- **Teleoperated version:** a human watches RoboRover and decides when to move and stop.
+- **Preprogrammed version:** the controller commands forward motion for 8 seconds.
+- **Autonomous version:** software uses sensor measurements and chooses when to move or stop according to the task.
 
-The hardware and approximate distance may remain the same, but the decision authority changes from **human operator** to **preprogrammed controller**.
+All three can be robots under our course description. The distinction is not “robot versus not robot”; it is who or what selects the immediate action.
 
-Finally, suppose software selects “drive forward” because its task is to approach a visible work area. The decision authority is now **autonomous software**.
+### Engineering caveat: commanded speed is not measured speed
 
-| System | Commonly called a robot? | Immediate decision authority | Feedback in the described behavior? |
-|---|---|---|---|
-| Timer-controlled traffic signal | Not normally | Preprogrammed timer | No, not in the described timing behavior |
-| Thermostat | Not normally | Preprogrammed feedback rule | Yes |
-| Teleoperated rover | Yes | Human operator | Local feedback may or may not exist |
-| Industrial robot arm | Yes | Task sequence may be preprogrammed | Local feedback is common |
-| Autonomous vacuum | Yes | Autonomous software | Feedback is commonly used |
+A motor command such as “50 percent power” is not automatically a speed measurement. Two wheels may rotate at slightly different rates. One wheel may encounter dust or a smoother surface. The rover may veer away from a straight line.
 
-The table separates three dimensions. “Preprogrammed” and “feedback” are not opposites: an industrial arm can execute a preprogrammed task while its joint controllers use feedback.
-
-Automatic doors and similar appliances are useful boundary cases. They may have sensing, computation, and actuation like a robot, but terminology varies by context; this lesson does not use them as scored classification questions.
+A careful engineer would measure the actual distance, repeat the test, and compare the result with the ideal calculation. This is an early example of the difference between a **model** and a **physical result**.
 
 ## Python Lab
 
 
-![A one-dimensional simulation diagram shows command sequences driving RoboRover and compares final positions for three decision authorities.](inline_04.png)
+![Technical line graph comparing three RoboRover position traces over time for human-directed, preprogrammed, and autonomous command selection.](inline_04.png)
 
-**Figure:** The simulation keeps the hardware model fixed while changing the source of the commands.
+**Figure:** The simulation keeps the hardware and speed model fixed while changing who or what selects the commands.
 
-This program models the same RoboRover hardware under three decision authorities. It uses one-dimensional position in meters:
+This program models the same RoboRover hardware under three kinds of decision authority:
 
-- positive commands move forward;
-- negative commands move backward;
-- zero commands stop.
+- a human gives a sequence of commands;
+- a preprogrammed controller follows a stored sequence;
+- autonomous software checks whether an obstacle is detected and decides whether to move.
 
-The autonomous example uses a simulated marker measurement to select a task-level command sequence. It does **not** model low-level motor feedback.
+The model uses a one-dimensional track. Position is measured in metres. Each time step represents 1 second, and forward motion has an average speed of \(0.5\ \text{m/s}\).
 
-Before running the program, predict the results:
+### Predict before you run it
 
-| Mode | Decision source | Commands for the original example | Predicted final position |
-|---|---|---|---:|
-| Teleoperated | Human operator | `[1, 1, 0, -1]` | \(1.2\ \text{m}\) |
-| Preprogrammed | Stored sequence | `[1, 1, 0, -1]` | \(1.2\ \text{m}\) |
-| Autonomous | Software uses marker distance | Selected as `[1, 1, 1, 0]` when the marker is far ahead | \(3.6\ \text{m}\) |
+Before running the program, predict:
+
+1. Which mode will travel farthest?
+2. Which autonomous time steps will produce no movement?
+3. What will the three final positions be?
 
 ```python
-# Python 3.7-compatible example
-# Class 1: Same hardware, different decision authority
+import matplotlib.pyplot as plt
 
-import math
+TIME_STEP_S = 1.0
+SPEED_M_PER_S = 0.5
 
-
-def run_rover(commands, speed_m_per_s, command_time_s):
-    """Return the rover's final position after a list of commands."""
+def simulate(commands):
+    """Return position after each command, including the starting position."""
+    positions = [0.0]
     position_m = 0.0
 
     for command in commands:
-        # Keep the command within the actuator's allowed range.
-        if command > 1:
-            command = 1
-        elif command < -1:
-            command = -1
+        position_m += command * SPEED_M_PER_S * TIME_STEP_S
+        positions.append(position_m)
 
-        position_m += command * speed_m_per_s * command_time_s
+    return positions
 
-    return position_m
+# The human operator chooses these commands:
+# 1 means forward, 0 means stop.
+human_commands = [1, 0, 1, 0]
 
+# The stored program chooses these commands in advance.
+preprogrammed_commands = [1, 1, 1, 0]
 
-def choose_autonomous_commands(marker_distance_m):
-    """Choose task-level commands from a simulated marker measurement."""
-    if marker_distance_m > 1.5:
-        # The marker is far ahead: approach it for three command intervals.
-        return [1, 1, 1, 0]
-    elif marker_distance_m > 0.5:
-        # The marker is nearer: approach it for two command intervals.
-        return [1, 1, 0, 0]
+# The environment reports an obstacle during time steps 3 and 4.
+obstacle_detected = [False, False, True, True]
+
+# Autonomous software selects its own command from the measurements.
+autonomous_commands = []
+for obstacle in obstacle_detected:
+    if obstacle:
+        autonomous_commands.append(0)
     else:
-        # The marker is already near: remain stopped.
-        return [0, 0, 0, 0]
+        autonomous_commands.append(1)
 
+runs = {
+    "human-directed": simulate(human_commands),
+    "preprogrammed": simulate(preprogrammed_commands),
+    "autonomous": simulate(autonomous_commands),
+}
 
-speed_m_per_s = 0.60
-command_time_s = 2.0
+final_positions_m = {}
+for name, positions in runs.items():
+    final_positions_m[name] = positions[-1]
 
-# A human operator chooses these immediate commands.
-teleoperated_commands = [1, 1, 0, -1]
+# Executable verification of the exact results.
+assert autonomous_commands == [1, 1, 0, 0]
+assert final_positions_m["human-directed"] == 1.0
+assert final_positions_m["preprogrammed"] == 1.5
+assert final_positions_m["autonomous"] == 1.0
 
-# A stored program contains the same commands.
-preprogrammed_commands = [1, 1, 0, -1]
+print("Autonomous commands:", autonomous_commands)
+print("Final positions (m):", final_positions_m)
+print("Verified: all final positions match the model.")
 
-# A simulated sensor reports that the visible marker is 2.0 m away.
-# Task-level software uses that measurement to choose the commands.
-marker_distance_m = 2.0
-autonomous_commands = choose_autonomous_commands(marker_distance_m)
+time_s = [0.0, 1.0, 2.0, 3.0, 4.0]
 
-teleoperated_position = run_rover(
-    teleoperated_commands, speed_m_per_s, command_time_s
-)
-preprogrammed_position = run_rover(
-    preprogrammed_commands, speed_m_per_s, command_time_s
-)
-autonomous_position = run_rover(
-    autonomous_commands, speed_m_per_s, command_time_s
-)
+for name, positions in runs.items():
+    plt.plot(time_s, positions, marker="o", label=name)
 
-print("Teleoperated final position: {:.1f} m".format(teleoperated_position))
-print("Preprogrammed final position: {:.1f} m".format(preprogrammed_position))
-print("Autonomous commands: {}".format(autonomous_commands))
-print("Autonomous final position: {:.1f} m".format(autonomous_position))
-
-# Floating-point arithmetic can represent 3.6 approximately, so compare
-# with a small tolerance rather than requiring exact binary equality.
-assert math.isclose(teleoperated_position, 1.2, rel_tol=0.0, abs_tol=1e-9)
-assert math.isclose(preprogrammed_position, 1.2, rel_tol=0.0, abs_tol=1e-9)
-assert autonomous_commands == [1, 1, 1, 0]
-assert math.isclose(autonomous_position, 3.6, rel_tol=0.0, abs_tol=1e-9)
-assert math.isclose(
-    teleoperated_position,
-    preprogrammed_position,
-    rel_tol=0.0,
-    abs_tol=1e-9,
-)
+plt.title("RoboRover: same hardware, different decision authority")
+plt.xlabel("Time (s)")
+plt.ylabel("Position (m)")
+plt.grid(True)
+plt.legend()
+plt.tight_layout()
+plt.show()
 ```
 
-Expected output:
+The `simulate` function applies the simple movement model. A command of `1` means forward, while `0` means stop. The `runs` dictionary stores each experiment under a descriptive name.
 
-```text
-Teleoperated final position: 1.2 m
-Preprogrammed final position: 1.2 m
-Autonomous commands: [1, 1, 1, 0]
-Autonomous final position: 3.6 m
+The autonomous loop is the key conceptual line:
+
+```python
+obstacle = True
+autonomous_commands = []
+
+if obstacle:
+    autonomous_commands.append(0)
 ```
 
-The assertions verify the numerical results and the autonomous decision branch.
+The software uses information about the environment to select an action. That is a small example of task-level autonomy.
 
-Important lines:
-
-- `position_m = 0.0` sets the starting position.
-- The loop processes one command at a time.
-- The command limit from \(-1\) to \(1\) represents a simple actuator limit.
-- `marker_distance_m` is the simulated sensor input.
-- `choose_autonomous_commands` uses that input to select task-level actions.
-- `speed_m_per_s * command_time_s` converts a normalized command into distance.
-- The assertions make the results checkable while allowing for floating-point representation.
-
-The teleoperated and preprogrammed systems finish at the same position because their command sequences match. The autonomous system finishes elsewhere because its marker measurement selects a different sequence. The code does not repeatedly measure wheel motion and correct motor power.
+The `assert` statements are executable checks. If one of the exact numerical claims is wrong, the program stops with an error instead of silently displaying a misleading result.
 
 ## Mini Simulation or Game
 
-Use this challenge to test both the model and the terminology.
+Try changing one thing at a time:
 
-### Challenge 1: Change the marker distance
+1. Change `human_commands` to `[1, 1, 0, 1]`.
+2. Change `preprogrammed_commands` to `[1, 1, 1, 1]`.
+3. Change `obstacle_detected` to `[False, True, False, False]`.
+4. Before running each change, predict the final position.
 
-Run the program once with:
-
-```python
-marker_distance_m = 2.0
-```
-
-Then change the value to each of the following:
-
-```python
-marker_distance_m = 1.0
-marker_distance_m = 0.2
-```
-
-Predict the autonomous command list and final position before each run.
-
-| Marker distance | Expected autonomous commands | Expected final position |
-|---:|---|---:|
-| \(2.0\ \text{m}\) | `[1, 1, 1, 0]` | \(3.6\ \text{m}\) |
-| \(1.0\ \text{m}\) | `[1, 1, 0, 0]` | \(2.4\ \text{m}\) |
-| \(0.2\ \text{m}\) | `[0, 0, 0, 0]` | \(0.0\ \text{m}\) |
-
-The teleoperated and preprogrammed positions remain \(1.2\ \text{m}\) as long as their command lists remain `[1, 1, 0, -1]`. This demonstrates that changing the autonomous sensor input changes the autonomous command sequence, not the robot’s physical identity.
-
-### Challenge 2: Compare matching command counts
-
-Change the command lists to:
-
-```python
-teleoperated_commands = [1, 0, 1, 0]
-preprogrammed_commands = [1, 0, 1, 0]
-autonomous_commands = [0, 1, 0, 1]
-```
-
-Each sequence contains two forward commands, so each final position should be:
+For this simple model, each forward command changes position by:
 
 \[
-2(1)(0.60\ \text{m/s})(2.0\ \text{ s}) = 2.4\ \text{m}
+(0.5\ \text{m/s})(1.0\ \text{s}) = 0.5\ \text{m}
 \]
 
-The different ordering does not affect final position in this simplified model.
+A stop command changes position by \(0\ \text{m}\).
 
-### Challenge 3: Test the actuator limit
+Now turn the activity into a classification game. For each run, answer:
 
-Change one command list:
+- Is the physical system commonly called a robot?
+- Who has immediate decision authority?
+- Is the software responding to an environment measurement?
 
-```python
-autonomous_commands = [2, 2, 0, 0]
-```
-
-The program clips each `2` to `1`, so the simulated actuator never receives more than its allowed normalized command. This is a simple model of **saturation**. Real actuators may be limited by voltage, current, friction, temperature, or mechanical stops.
+The hardware remains the same in all three runs. Only the decision authority and command-selection rule change.
 
 ## What Should Happen?
 
-For the original program:
+The original program should verify these results:
 
-- Teleoperated RoboRover finishes at \(1.2\ \text{m}\).
-- Preprogrammed RoboRover finishes at \(1.2\ \text{m}\).
-- Autonomous RoboRover finishes at \(3.6\ \text{m}\).
-- The first two positions match because their command sequences match.
-- With `marker_distance_m = 2.0`, the autonomous function returns `[1, 1, 1, 0]`.
+- autonomous commands: `[1, 1, 0, 0]`;
+- human-directed final position: \(1.0\ \text{m}\);
+- preprogrammed final position: \(1.5\ \text{m}\);
+- autonomous final position: \(1.0\ \text{m}\).
 
-One command contributes:
+The preprogrammed version travels farthest because it contains three forward commands. The autonomous version moves for two seconds, then stops when the simulated obstacle is detected. The human-directed version also has two forward commands, but they occur at different times.
 
-\[
-(1)(0.60\ \text{m/s})(2.0\ \text{s}) = 1.2\ \text{m}
-\]
-
-Teleoperated sequence:
-
-\[
-1.2 + 1.2 + 0 - 1.2 = 1.2\ \text{m}
-\]
-
-Autonomous sequence:
-
-\[
-1.2 + 1.2 + 1.2 + 0 = 3.6\ \text{m}
-\]
-
-Changing the marker distance should change only the autonomous branch, because that branch uses the simulated sensor input. “Autonomous” does not mean “moves farther”; it means that software selects the task-level action.
+The plotted lines show position increasing during forward commands and remaining level during stop commands.
 
 ## Common Mistakes
 
 ### Mistake 1: “A robot must be autonomous.”
 
-Correction: A teleoperated rover is commonly called a robot. Autonomy concerns who or what selects task-level actions.
+No. A teleoperated rover is commonly called a robot even though a human selects its immediate motion.
 
 ### Mistake 2: “Anything with a sensor is a robot.”
 
-Correction: Sensors alone do not establish robot identity. A thermostat uses sensing and feedback but is not normally called a robot.
+No. A thermostat uses a sensor and feedback control but is not normally called a robot.
 
-### Mistake 3: “Preprogrammed means no feedback.”
+### Mistake 3: “A fixed program cannot use feedback.”
 
-Correction: A preprogrammed task sequence can include local feedback controllers. “Preprogrammed” describes task selection; feedback describes whether measurements influence control actions.
+It can. A preprogrammed task may include lower-level feedback controllers that use measured state to adjust actuator commands.
 
-### Mistake 4: “One sensor trigger always creates closed-loop feedback.”
+### Mistake 4: “A sensor event automatically means closed-loop control.”
 
-Correction: A one-shot trigger followed by a fixed timed sequence is not sustained feedback regulation if later measurements do not adjust the action.
+Not necessarily. If a sensor starts a fixed timed sequence and the later actions do not use the measured state, that is not sustained feedback regulation merely because sensing occurred.
 
-### Mistake 5: “The calculated distance is guaranteed.”
+### Mistake 5: “The calculated distance must equal the measured distance.”
 
-Correction: \(d=vt\) assumes a known average speed and simplified motion. Acceleration, wheel slip, uneven floors, and calibration errors can change the physical result.
+The equation uses an average-speed model. Wheel slip, uneven surfaces, motor differences, battery voltage, and mechanical limits can create an error.
 
-### Mistake 6: “Autonomous means independent of humans.”
+### Mistake 6: “Autonomy means the robot has no programming.”
 
-Correction: An autonomous robot can still depend on human setup, boundaries, maintenance, charging, or task instructions.
+Autonomous behavior is produced by designed software, rules, models, and hardware. It is not the absence of programming.
 
 ## Try It Yourself
 
-### Challenge: Classify the decision authority
+### Challenge: classify RoboRover’s three modes
 
-For each description, identify the immediate decision authority:
+Create a table with these columns:
 
-1. A person watches a camera feed and presses the forward button.
-2. The rover follows the stored sequence “forward, forward, stop.”
-3. Software checks whether a work marker is visible and chooses whether to move.
-4. A motor controller repeatedly measures wheel rotation and adjusts motor power to match a requested speed.
+- RoboRover mode;
+- commonly called a robot?;
+- immediate decision authority;
+- feedback in the described behavior?;
+- one sentence explaining why.
 
-### Self-check
+Use the three program modes:
 
-1. **Human operator.**
-2. **Preprogrammed controller or stored sequence.**
-3. **Autonomous software.**
-4. The immediate controller is a **feedback controller** regulating motor speed. This example does not, by itself, identify who selected the larger task or motion request.
+1. human-directed;
+2. preprogrammed;
+3. autonomous obstacle response.
 
-Number 4 is intentionally different: feedback describes measurement-based control, while decision authority describes who or what selects an action at the level being analyzed.
+Your explanation should keep robot identity separate from control mode.
 
 ### Optional extension
 
-Modify `run_rover` so that it also returns the total distance traveled, not only final position. A backward movement reduces final position but still contributes to total distance traveled.
+Modify the program so the autonomous rover reverses for one second when an obstacle is detected. Use `-1` for reverse.
 
-For the original teleoperated sequence `[1, 1, 0, -1]`:
-
-- **Final position:** \(1.2\ \text{m}\)
-- **Total distance traveled:** \(1.2 + 1.2 + 0 + 1.2 = 3.6\ \text{m}\)
-
-A concise implementation hint is:
+Before running it, predict the final position for:
 
 ```python
-commands = [1, 1, 0, -1]
-speed_m_per_s = 0.60
-command_time_s = 2.0
-total_distance_m = 0.0
-
-for command in commands:
-    total_distance_m += abs(command) * speed_m_per_s * command_time_s
-
-print("Total distance traveled: {:.1f} m".format(total_distance_m))
-assert abs(total_distance_m - 3.6) < 1e-9
+autonomous_commands = [1, 1, -1, -1]
 ```
 
-Distinguish:
+Using the program’s model, the result should be:
 
-- **final position:** where the rover ends relative to its starting point;
-- **total distance traveled:** the accumulated amount of motion, ignoring direction.
+\[
+(1 + 1 - 1 - 1)(0.5\ \text{m}) = 0.0\ \text{m}
+\]
 
-This distinction matters when measuring wear, battery use, or travel activity.
+The rover ends where it started in this idealized one-dimensional model. In a real rover, reversing would not guarantee returning to exactly the same location because of slip and uneven motor behavior.
 
 ## Quick Quiz
 
-1. Can a teleoperated rover be a robot even when a human chooses its immediate motion?
+1. According to this course’s working description, which feature is central to a robot?
+   - A. It must look human-like.
+   - B. Its controlled actuators perform a physical task.
+   - C. It must be fully autonomous.
+   - D. It must use artificial intelligence.
 
-2. Which system is not normally called a robot but does use feedback control in the described behavior: a timer-controlled traffic signal or a thermostat?
+2. RoboRover is driven by a person using a radio controller. Is it commonly called a robot, and who selects its immediate actions?
 
-3. In the course working description, what must the robot’s controlled actuators perform?
+3. A thermostat turns heating on when measured temperature is below a setpoint. Is feedback present? Is the thermostat normally called a robot?
 
-4. What is the difference between robot identity and decision authority?
+4. A preprogrammed industrial robot arm uses joint measurements to adjust motor commands while carrying out a stored task. Can it be both preprogrammed and use feedback?
 
 ## Answers
 
-1. **Yes.** A teleoperated rover is commonly called a robot. Human direction does not remove its robot identity.
+1. **B.** The course working description focuses on a physical machine whose controlled actuators perform a physical task. Human-directed, preprogrammed, and autonomous action are all allowed.
 
-2. **A thermostat.** Its fixed rule responds to measured temperature, so it uses feedback control in the described behavior. A timer-controlled traffic signal uses a preprogrammed timing behavior without feedback in that description.
+2. **Yes, it is commonly called a robot.** The human operator selects its immediate actions. It is teleoperated and need not have task-level autonomy.
 
-3. They must perform a **physical task**. The complete course description also requires a physical machine commonly treated as a robot in engineering practice.
+3. **Yes, feedback is present** because measured temperature affects the heating action in relation to the desired temperature. A thermostat is **not normally called a robot**.
 
-4. **Robot identity** asks what kind of physical system it is. **Decision authority** asks who or what selects its immediate actions: a human operator, a preprogrammed controller, or autonomous software. Feedback is a separate axis and does not by itself establish task-level autonomy.
+4. **Yes.** A preprogrammed task sequence and feedback control can coexist. The task sequence may be fixed while local controllers use measurements to adjust motor action.
 
 ## Real Robot Connection
 
-When engineers describe a robot, they examine both its physical structure and its task:
+When engineers describe a robot, they ask more than “Does it have a computer?”
 
-- What can move?
-- Which motors or actuators are controlled?
-- What physical work is being performed?
-- What belongs to the machine, and what belongs to the environment?
-- Which decisions come from a person, a stored program, or software?
-- Are measurements used to adjust current or future actions?
+They examine:
 
-Use RoboRover’s hardware as an inspection checklist: identify the chassis, battery, sensors, computer, motor controllers, and wheel actuators. Then identify the external floor, objects, people, and obstacles that form its environment.
+- what physical task the actuators perform;
+- what parts belong to the robot and what parts belong to the environment;
+- who or what selects immediate actions;
+- which measurements affect those actions;
+- what assumptions the model makes;
+- what happens when sensors are noisy or mechanisms behave imperfectly.
 
-A practical failure can occur even when the definition is clear. If RoboRover is commanded to drive at \(0.60\ \text{m/s}\) but one wheel has less grip than the other, it may curve instead of traveling straight. The calculation can be mathematically correct under its assumptions while the physical result differs.
+For RoboRover, a human joystick command might arrive late because of radio delay. A distance sensor might report a slightly incorrect value. A wheel might spin without producing the expected movement. These are not reasons to abandon the robot definition; they are engineering realities that must be measured and handled.
 
-Engineers address this by measuring behavior, checking calibration, accounting for actuator limits, and using feedback when appropriate. We will study the sensing and action cycle next.
+This class also prepares us for the next one. A robot’s physical machine contains **sensors** that gather information and **actuators** that affect the environment. Between them is a decision process. In the next class, we will study the repeating pattern:
+
+**Sense → Think → Act**
 
 ## Vocabulary
 
-**Robot:** For this course, a robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.
-
-**Machine:** A physical system arranged to transform energy and control signals into useful physical action.
-
-**Environment:** The physical surroundings and external objects that interact with the machine.
-
-**Actuator:** A device that produces controlled physical movement or force, such as a motor or powered joint.
-
-**Decision authority:** The human, stored controller, or autonomous software that selects an immediate action.
-
-**Teleoperation:** Operation in which a human chooses the robot’s immediate commands, often through a remote controller.
-
-**Autonomy:** Task-level action selection by software without a human choosing every immediate command.
-
-**Feedback control:** Control in which a measured state or output affects a current or future control action in relation to a desired state or behavior.
-
-**Sustained feedback regulation:** Repeated measurement-and-correction over time.
-
-**Preprogrammed controller:** A controller whose action rules or task sequence were specified in advance. A preprogrammed controller may still contain feedback.
+- **Robot:** For this course, a robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.
+- **Machine:** A physical system designed or arranged to use energy and mechanisms to perform a task.
+- **Actuator:** A component that produces controlled physical action, such as a motor moving a wheel.
+- **Environment:** The relevant physical surroundings that can affect a robot’s task or be affected by the robot.
+- **Decision authority:** The person, stored controller, or software system that selects a robot’s immediate action.
+- **Teleoperation:** Operation of a robot by a human from a distance.
+- **Preprogrammed controller:** A controller that follows instructions or a task sequence prepared in advance.
+- **Autonomy:** Task-level decision-making performed by the robot’s onboard system rather than selected immediately by a human operator.
+- **Feedback control:** Control in which a measured state or output influences a current or future control action in relation to desired behavior or state.
+- **Sustained feedback regulation:** Repeated measurement-and-correction over time.
+- **Model:** A simplified description used to predict or calculate how a system behaves.
 
 ## Further Learning
 
-The following are search prompts for independent exploration, not citations or vetted source titles:
+Useful search-friendly resources and topics:
 
-- “robotics actuator sensor controller introduction”
-- “teleoperation versus autonomy robotics”
+- “robotics actuator sensor controller basics”
+- “teleoperation versus autonomy in robotics”
 - “feedback control thermostat example”
-- “robot system boundary machine environment”
+- “robot operating environment”
+- introductory robotics chapters on robot systems and control architecture
+- beginner Python plotting with `matplotlib`
 
-As you study, keep asking two separate questions:
+As you study examples, keep asking two separate questions:
 
-1. What physical task does the machine perform?
-2. Who or what selects its immediate action?
+1. Is this physical system commonly treated as a robot?
+2. Who or what selects its immediate actions?
 
 ## Next Class
 
-Next we begin the central robotics loop:
+**Sense → Think → Act**
 
-> **Sense → Think → Act**
-
-RoboRover will use sensors to obtain information, a controller to process that information, and actuators to affect the environment. We will distinguish a sensor reading from an interpretation and an action command from physical motion.
-
-Today’s definition gives us the system. Next class, we examine its basic operation.
+Next, RoboRover will meet its sensors. We will trace how a physical measurement becomes information, how a controller uses that information, and how an actuator changes the environment. We will begin building the foundational architecture used throughout robotics.
