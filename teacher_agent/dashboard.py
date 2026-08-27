@@ -15,6 +15,12 @@ from .article_renderer import render_premium_article
 from .config import settings
 from .pipeline import RoboticsTeacherAgent, slugify
 from .progress import load_progress
+from .lesson_chat import (
+    LessonChatTutor,
+    allow_chat_request,
+    extract_chapter,
+    sanitize_history,
+)
 from .runtime import monitor, LOG_PATH, STATE_PATH
 from .scheduler import DailyISTScheduler
 from .source_sync import SourceSyncWatcher
@@ -407,6 +413,37 @@ def _class_no_from_slug(slug):
         return None
 
 
+def _lesson_for_chat(class_no):
+    try:
+        class_no = int(class_no)
+    except (TypeError, ValueError):
+        return None, None, None
+
+    if class_no <= 0 or class_no > _visible_class_limit():
+        return None, None, None
+
+    for lesson in _load_curriculum():
+        if int(lesson.get('class_no') or 0) != class_no:
+            continue
+        slug = '{0:03d}-{1}'.format(class_no, slugify(lesson['title']))
+        markdown_path = _PROJECT_ROOT / 'preview' / slug / 'README.md'
+        if not markdown_path.exists():
+            return None, None, None
+        return lesson, slug, markdown_path
+
+    return None, None, None
+
+
+def _chat_client_key(handler):
+    forwarded = str(handler.headers.get('X-Forwarded-For') or '').strip()
+    if forwarded:
+        return forwarded.split(',')[0].strip()[:160]
+    try:
+        return str(handler.client_address[0])[:160]
+    except Exception:
+        return 'unknown'
+
+
 class DashboardHandler(BaseHTTPRequestHandler):
     server_version = 'ProfessorOS/18.1'
 
@@ -452,6 +489,13 @@ class DashboardHandler(BaseHTTPRequestHandler):
                 'python_target': '3.7',
                 'mode': 'publish' if settings.auto_publish else 'preview',
                 'nightly_release': '{0:02d}:{1:02d} IST'.format(settings.nightly_release_hour, settings.nightly_release_minute),
+                'lesson_chat_enabled': bool(settings.lesson_chat_enabled),
+                'lesson_chat_configured': True,
+                'lesson_chat_provider': settings.lesson_chat_provider,
+                'lesson_chat_model': settings.lesson_chat_model,
+                'lesson_chat_paid_fallback': False,
+                'lesson_chat_server_inference': False,
+                'lesson_chat_privacy': 'on-device',
             })
             return
         if parsed.path.startswith('/lessons/'):
@@ -483,8 +527,48 @@ class DashboardHandler(BaseHTTPRequestHandler):
             return
         self._json(404, {'ok': False, 'message': 'Not found'})
 
+    def _read_json_body(self, max_bytes=20000):
+        try:
+            length = int(self.headers.get('Content-Length') or '0')
+        except ValueError:
+            raise ValueError('Invalid Content-Length header.')
+
+        if length <= 0:
+            raise ValueError('Request body is required.')
+        if length > max_bytes:
+            raise ValueError('Request body is too large.')
+
+        raw = self.rfile.read(length)
+        try:
+            payload = json.loads(raw.decode('utf-8'))
+        except Exception:
+            raise ValueError('Request body must be valid JSON.')
+
+        if not isinstance(payload, dict):
+            raise ValueError('Request body must be one JSON object.')
+        return payload
+
+    def _handle_lesson_chat(self):
+        # Deliberately no server-side LLM inference. The lesson UI runs an open
+        # Qwen model locally in the student's browser, so there is no API bill.
+        self._json(410, {
+            'ok': False,
+            'message': (
+                'Professor OS Tutor now runs locally in the browser. '
+                'This server endpoint is permanently disabled.'
+            ),
+            'provider': 'qwen_on_device',
+            'server_inference': False,
+            'paid_fallback_used': False,
+        })
+
     def do_POST(self):
         parsed = urlparse(self.path)
+
+        if parsed.path == '/api/lesson-chat':
+            self._handle_lesson_chat()
+            return
+
         if parsed.path != '/api/run':
             self._json(404, {'ok': False, 'message': 'Not found'})
             return

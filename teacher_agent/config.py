@@ -106,6 +106,22 @@ class Settings(object):
             0, min(10, _as_int('PODCAST_BACKFILL_MAX', 2))
         )
 
+        # Zero-cost class-grounded Professor OS Tutor.
+        #
+        # Inference happens entirely in the student's browser with Transformers.js
+        # and an open Qwen model. No tutor API key or remote LLM provider is used.
+        self.lesson_chat_enabled = True
+        self.lesson_chat_provider = 'qwen_on_device'
+        self.lesson_chat_model = 'Qwen3-0.6B-ONNX-q4'
+        self.lesson_chat_fallback_model = 'none'
+        # Compatibility field intentionally forced empty so old server code can
+        # never accidentally call Gemini.
+        self.lesson_chat_gemini_api_key = ''
+        self.lesson_chat_max_question_chars = 800
+        self.lesson_chat_max_history_turns = 4
+        self.lesson_chat_max_requests = 0
+        self.lesson_chat_window_seconds = 0
+
         # LinkedIn publication preflight.
         self.linkedin_require_thumbnail = os.getenv('LINKEDIN_REQUIRE_THUMBNAIL', 'true').lower() == 'true'
         self.linkedin_commentary_soft_limit = max(500, _as_int('LINKEDIN_COMMENTARY_SOFT_LIMIT', 1800))

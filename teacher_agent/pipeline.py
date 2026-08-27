@@ -1,5 +1,6 @@
 import json
 import re
+import shutil
 import threading
 import uuid
 from pathlib import Path
@@ -80,6 +81,19 @@ class RoboticsTeacherAgent(object):
         slug = self._lesson_slug(lesson)
         lesson_path = Path('preview') / slug / 'README.md'
         return lesson_path.exists()
+
+    def _prepare_lesson_output_dir(self, output_dir):
+        """Start a regenerated class from a clean package directory.
+
+        A course reset can intentionally reuse the same class slug. Removing the
+        previous package prevents stale images, code labs, podcast audio,
+        transcripts, and old diagnostics from leaking into the new lesson.
+        """
+        output_dir = Path(output_dir)
+        if output_dir.exists():
+            shutil.rmtree(str(output_dir))
+        output_dir.mkdir(parents=True, exist_ok=True)
+        return output_dir
 
     def next_lesson(self):
         progress = load_progress()
@@ -687,7 +701,7 @@ class RoboticsTeacherAgent(object):
 
     def _upload_lesson_package(self, github, output_dir, slug, class_no):
         repo_dir = 'lessons/' + slug
-        allowed_suffixes = set(['.md', '.html', '.json', '.py', '.png', '.jpg', '.jpeg'])
+        allowed_suffixes = set(['.md', '.html', '.json', '.py', '.png', '.jpg', '.jpeg', '.mp3', '.txt'])
         paths = []
         for path in Path(output_dir).rglob('*'):
             if path.is_file() and path.suffix.lower() in allowed_suffixes:
@@ -711,8 +725,9 @@ class RoboticsTeacherAgent(object):
             next_title = self.curriculum[index + 1]['title'] if index + 1 < len(self.curriculum) else None
             class_no = lesson['class_no']
             slug = self._lesson_slug(lesson)
-            out = Path('preview') / slug
-            out.mkdir(parents=True, exist_ok=True)
+            out = self._prepare_lesson_output_dir(
+                Path('preview') / slug
+            )
 
             run_id = uuid.uuid4().hex[:10]
             mode = 'publish' if settings.auto_publish else 'preview'
