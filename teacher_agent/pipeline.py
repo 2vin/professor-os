@@ -195,6 +195,53 @@ class RoboticsTeacherAgent(object):
 
         return markdown, current_errors, attempts_used
 
+
+
+    def _quality_rank(self, report):
+        """Comparable quality rank used to prevent an automatic rewrite from making a lesson worse."""
+        report = report or {}
+        static = report.get('static') or {}
+        ai = report.get('ai') or {}
+        dimensions = ai.get('dimensions') or {}
+
+        scores = []
+        for value in dimensions.values():
+            try:
+                scores.append(int(value))
+            except (TypeError, ValueError):
+                scores.append(0)
+
+        min_dimension = min(scores) if scores else 0
+        average_dimension = int(sum(scores) / float(len(scores))) if scores else 0
+        weak_count = len([
+            value for value in scores
+            if value < settings.premium_quality_min_dimension
+        ])
+        blockers = len(ai.get('blocking_issues') or [])
+        critical = []
+        for key in ('technical_accuracy', 'code_alignment', 'consistency'):
+            try:
+                critical.append(int(dimensions.get(key, 0)))
+            except (TypeError, ValueError):
+                critical.append(0)
+        critical_min = min(critical) if critical else 0
+
+        return (
+            1 if static.get('passed') else 0,
+            -blockers,
+            -weak_count,
+            critical_min,
+            int(ai.get('overall_score', 0) or 0),
+            min_dimension,
+            average_dimension,
+            -len(static.get('warnings') or []),
+        )
+
+    def _better_quality(self, candidate_report, reference_report):
+        if reference_report is None:
+            return True
+        return self._quality_rank(candidate_report) > self._quality_rank(reference_report)
+
     def _quality_convergence(
             self,
             markdown,
@@ -204,15 +251,16 @@ class RoboticsTeacherAgent(object):
             prior_rounds=0,
             context_label='Editorial',
             max_rounds=2):
-        """Last-resort premium rewrite that targets all remaining quality issues together."""
-        current_report = last_report or {}
-        current_ai = current_report.get('ai') or {}
+        """Last-resort rewrite that can improve quality but is never allowed to keep a regression."""
+        best_markdown = markdown
+        best_report = last_report or {}
+        best_ai = best_report.get('ai') or {}
         rounds_used = 0
 
         for convergence_round in range(1, max_rounds + 1):
             rounds_used = convergence_round
-            static_report = current_report.get('static') or {}
-            reasons = quality_failure_summary(current_report)
+            static_report = best_report.get('static') or {}
+            reasons = quality_failure_summary(best_report)
 
             monitor.event(
                 'warning',
@@ -224,14 +272,14 @@ class RoboticsTeacherAgent(object):
                 )
             )
 
-            markdown = self.writer.converge_premium_quality(
-                markdown,
-                json.dumps(current_ai or {}, indent=2),
+            candidate_markdown = self.writer.converge_premium_quality(
+                best_markdown,
+                json.dumps(best_ai or {}, indent=2),
                 json.dumps(static_report or {}, indent=2),
                 visual_context=visual_context
             )
 
-            errors = validate_lesson(markdown)
+            errors = validate_lesson(candidate_markdown)
             if errors:
                 monitor.event(
                     'warning',
@@ -240,34 +288,56 @@ class RoboticsTeacherAgent(object):
                         ' | '.join(errors)[:1400]
                     )
                 )
-                markdown, errors, code_repair_attempts = self._repair_until_valid(
-                    markdown,
+                candidate_markdown, errors, code_repair_attempts = self._repair_until_valid(
+                    candidate_markdown,
                     errors,
                     '{0}-convergence'.format(context_label),
                     max_attempts=3
                 )
                 if errors:
-                    raise PublicationBlockedError(
-                        '{0} convergence still fails executable validation after 3 repair rounds: {1}'.format(
-                            context_label,
-                            ' | '.join(errors)
-                        ),
-                        attempts=prior_rounds + convergence_round + code_repair_attempts
+                    monitor.event(
+                        'warning',
+                        '{0} convergence candidate was discarded because executable validation still failed.'.format(
+                            context_label
+                        )
                     )
+                    continue
 
-            static_report, current_ai = self._review(
-                markdown,
+            candidate_static, candidate_ai = self._review(
+                candidate_markdown,
                 lesson,
                 visual_context=visual_context
             )
-            current_report = combined_quality_report(
-                static_report,
-                current_ai,
+            candidate_report = combined_quality_report(
+                candidate_static,
+                candidate_ai,
                 prior_rounds + convergence_round
             )
-            monitor.quality(current_report)
+            monitor.quality(candidate_report)
 
-            if premium_review_passes(static_report, current_ai):
+            if self._better_quality(candidate_report, best_report):
+                best_markdown = candidate_markdown
+                best_report = candidate_report
+                best_ai = candidate_ai
+                monitor.event(
+                    'success',
+                    '{0} convergence round {1} improved the retained lesson candidate.'.format(
+                        context_label,
+                        convergence_round
+                    )
+                )
+            else:
+                monitor.event(
+                    'warning',
+                    '{0} convergence round {1} regressed quality and was discarded. Best candidate retained.'.format(
+                        context_label,
+                        convergence_round
+                    )
+                )
+
+            if premium_review_passes(
+                    best_report.get('static') or {},
+                    best_report.get('ai') or {}):
                 monitor.event(
                     'success',
                     '{0} convergence passed the premium gate on round {1}.'.format(
@@ -275,9 +345,9 @@ class RoboticsTeacherAgent(object):
                         convergence_round
                     )
                 )
-                return markdown, current_ai, current_report, rounds_used
+                return best_markdown, best_ai, best_report, rounds_used
 
-        return markdown, current_ai, current_report, rounds_used
+        return best_markdown, best_ai, best_report, rounds_used
 
 
     def _premium_editorial_gate(self, markdown, lesson, output_dir):
@@ -687,12 +757,14 @@ class RoboticsTeacherAgent(object):
                 inline_context.append(
                     (
                         'Gemini inline teaching visual: {filename}; '
+                        'source={source}; '
                         'inserted after {section}; '
                         'type={visual_type}; '
                         'caption={caption}; '
                         'alt={alt}.'
                     ).format(
                         filename=asset.get('filename', ''),
+                        source=asset.get('source', 'gemini'),
                         section=asset.get('section_heading', ''),
                         visual_type=asset.get('visual_type', ''),
                         caption=asset.get('caption', ''),
@@ -701,7 +773,12 @@ class RoboticsTeacherAgent(object):
                 )
 
             if inline_context:
-                visual_context += '\n' + '\n'.join(inline_context)
+                visual_context += (
+                    '\nAUTHORITATIVE GENERATED-ASSET PROVENANCE: every inline_XX.png listed below '
+                    'was generated by Gemini inside Professor OS. Its source is gemini, not an '
+                    'independently sourced photograph and not externally licensed media.\n'
+                    + '\n'.join(inline_context)
+                )
 
             # Review the exact post-media + generated-visual lesson and automatically repair weak dimensions.
             step_id = 'editorial'
