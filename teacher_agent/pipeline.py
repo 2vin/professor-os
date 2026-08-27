@@ -350,6 +350,114 @@ class RoboticsTeacherAgent(object):
         return best_markdown, best_ai, best_report, rounds_used
 
 
+    def _surgical_quality_repair(
+            self,
+            markdown,
+            lesson,
+            last_report,
+            visual_context=None,
+            prior_rounds=0,
+            context_label='Editorial',
+            max_rounds=2):
+        """Minimal last-mile edits for a near-pass lesson; regressions are discarded."""
+        best_markdown = markdown
+        best_report = last_report or {}
+        best_ai = best_report.get('ai') or {}
+        rounds_used = 0
+
+        for surgical_round in range(1, max_rounds + 1):
+            rounds_used = surgical_round
+            static_report = best_report.get('static') or {}
+            reasons = quality_failure_summary(best_report)
+
+            monitor.event(
+                'warning',
+                '{0} surgical repair round {1}/{2}: {3}'.format(
+                    context_label,
+                    surgical_round,
+                    max_rounds,
+                    ' | '.join(reasons)[:2200] or 'remaining premium-quality weaknesses'
+                )
+            )
+
+            candidate_markdown = self.writer.surgical_premium_quality(
+                best_markdown,
+                json.dumps(best_ai or {}, indent=2),
+                json.dumps(static_report or {}, indent=2),
+                visual_context=visual_context
+            )
+
+            errors = validate_lesson(candidate_markdown)
+            if errors:
+                monitor.event(
+                    'warning',
+                    '{0} surgical repair changed executable content; repairing validator findings: {1}'.format(
+                        context_label,
+                        ' | '.join(errors)[:1400]
+                    )
+                )
+                candidate_markdown, errors, _ = self._repair_until_valid(
+                    candidate_markdown,
+                    errors,
+                    '{0}-surgical'.format(context_label),
+                    max_attempts=3
+                )
+                if errors:
+                    monitor.event(
+                        'warning',
+                        '{0} surgical candidate discarded because executable validation still failed.'.format(
+                            context_label
+                        )
+                    )
+                    continue
+
+            candidate_static, candidate_ai = self._review(
+                candidate_markdown,
+                lesson,
+                visual_context=visual_context
+            )
+            candidate_report = combined_quality_report(
+                candidate_static,
+                candidate_ai,
+                prior_rounds + surgical_round
+            )
+            monitor.quality(candidate_report)
+
+            if self._better_quality(candidate_report, best_report):
+                best_markdown = candidate_markdown
+                best_report = candidate_report
+                best_ai = candidate_ai
+                monitor.event(
+                    'success',
+                    '{0} surgical repair round {1} improved the retained lesson candidate.'.format(
+                        context_label,
+                        surgical_round
+                    )
+                )
+            else:
+                monitor.event(
+                    'warning',
+                    '{0} surgical repair round {1} regressed quality and was discarded.'.format(
+                        context_label,
+                        surgical_round
+                    )
+                )
+
+            if premium_review_passes(
+                    best_report.get('static') or {},
+                    best_report.get('ai') or {}):
+                monitor.event(
+                    'success',
+                    '{0} surgical repair passed the premium gate on round {1}.'.format(
+                        context_label,
+                        surgical_round
+                    )
+                )
+                return best_markdown, best_ai, best_report, rounds_used
+
+        return best_markdown, best_ai, best_report, rounds_used
+
+
     def _premium_editorial_gate(self, markdown, lesson, output_dir):
         last_report = None
         polish_rounds = 0
@@ -426,14 +534,28 @@ class RoboticsTeacherAgent(object):
                 last_report.get('ai') or {}):
             return markdown, ai_review, last_report
 
+        markdown, ai_review, last_report, surgical_rounds = self._surgical_quality_repair(
+            markdown,
+            lesson,
+            last_report,
+            visual_context=None,
+            prior_rounds=technical_rounds + polish_rounds + convergence_rounds,
+            context_label='Pre-media editorial',
+            max_rounds=2
+        )
+        if premium_review_passes(
+                last_report.get('static') or {},
+                last_report.get('ai') or {}):
+            return markdown, ai_review, last_report
+
         Path(output_dir).mkdir(parents=True, exist_ok=True)
         (Path(output_dir) / 'FAILED_DRAFT.md').write_text(markdown, encoding='utf-8')
         (Path(output_dir) / 'QUALITY_REPORT.json').write_text(
             json.dumps(last_report or {}, indent=2), encoding='utf-8')
         raise PublicationBlockedError(
-            'Premium quality gate remains blocked after automatic correction and convergence: ' +
+            'Premium quality gate remains blocked after automatic correction, convergence, and surgical remediation: ' +
             ' | '.join(quality_failure_summary(last_report or {})),
-            attempts=technical_rounds + polish_rounds + convergence_rounds)
+            attempts=technical_rounds + polish_rounds + convergence_rounds + surgical_rounds)
 
     def _post_media_editorial_gate(self, markdown, lesson, output_dir, visual_context, prior_rounds=0):
         last_report = None
@@ -520,14 +642,28 @@ class RoboticsTeacherAgent(object):
                 last_report.get('ai') or {}):
             return markdown, final_ai, last_report
 
+        markdown, final_ai, last_report, surgical_rounds = self._surgical_quality_repair(
+            markdown,
+            lesson,
+            last_report,
+            visual_context=visual_context,
+            prior_rounds=prior_rounds + technical_rounds + visual_rounds + convergence_rounds,
+            context_label='Post-media editorial',
+            max_rounds=2
+        )
+        if premium_review_passes(
+                last_report.get('static') or {},
+                last_report.get('ai') or {}):
+            return markdown, final_ai, last_report
+
         Path(output_dir).mkdir(parents=True, exist_ok=True)
         (Path(output_dir) / 'FAILED_FINAL.md').write_text(markdown, encoding='utf-8')
         (Path(output_dir) / 'QUALITY_REPORT.json').write_text(
             json.dumps(last_report or {}, indent=2), encoding='utf-8')
         raise PublicationBlockedError(
-            'Final publication quality remains blocked after automatic remediation and convergence: ' +
+            'Final publication quality remains blocked after automatic remediation, convergence, and surgical repair: ' +
             ' | '.join(quality_failure_summary(last_report or {})),
-            attempts=technical_rounds + visual_rounds + convergence_rounds)
+            attempts=technical_rounds + visual_rounds + convergence_rounds + surgical_rounds)
 
     def _write_code_labs(self, markdown, output_dir):
         code_dir = Path(output_dir) / 'code'

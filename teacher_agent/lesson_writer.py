@@ -8,6 +8,7 @@ from .prompts import (
     premium_polish_prompt,
     technical_correction_prompt,
     final_convergence_prompt,
+    surgical_quality_repair_prompt,
 )
 from .runtime import monitor
 from .quality import PREMIUM_REVIEW_SCHEMA
@@ -298,3 +299,25 @@ class LessonWriter(object):
             )
         )
 
+
+    def surgical_premium_quality(
+            self,
+            lesson_markdown,
+            review_json,
+            static_report_json,
+            visual_context=None):
+        instructions = (
+            'You are the surgical publication editor for a premium robotics course. '
+            'Fix only the remaining explicit blockers and weak dimensions. '
+            'Preserve everything already correct and do not broaden the lesson. '
+            'Return the complete corrected Markdown lesson only.'
+        )
+        return self._call_openai(
+            instructions,
+            surgical_quality_repair_prompt(
+                lesson_markdown,
+                review_json,
+                static_report_json,
+                visual_context=visual_context
+            )
+        )
