@@ -19,7 +19,7 @@ def test_article_has_learning_progress_and_toc(tmp_path):
         target,
         navigation={'next': {'class_no': 2, 'title': 'Next', 'url': None}})
     text = target.read_text(encoding='utf-8')
-    assert 'professorOSStudentProgressV1' in text
+    assert 'professorOSStudentProgressV2' in text
     assert 'id="toc"' in text
     assert 'Mark class complete' in text
     assert 'Reading progress' in text
@@ -31,6 +31,6 @@ def test_student_home_has_search_filters_progress_and_tonight():
     text = path.read_text(encoding='utf-8')
     assert 'id="searchInput"' in text
     assert 'id="filters"' in text
-    assert 'professorOSStudentProgressV1' in text
+    assert 'professorOSStudentProgressV2' in text
     assert "Tonight's upcoming lecture" in text
     assert 'mobile-nav' in text
