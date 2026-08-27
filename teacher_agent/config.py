@@ -91,6 +91,21 @@ class Settings(object):
             'MIT OpenCourseWare,NASA,NASA JPL,Stanford Online,MathWorks,NVIDIA Developer,Open Robotics,Boston Dynamics,ETH Zurich,The Construct,Articulated Robotics')
         self.youtube_trusted_channels = [item.strip().lower() for item in trusted.split(',') if item.strip()]
 
+        # Downloadable lesson podcast.
+        # Generation is disabled by default so local tests and web-server restarts never
+        # spend audio credits unexpectedly. The nightly workflow enables it explicitly.
+        self.podcast_enabled = os.getenv('PODCAST_ENABLED', 'false').lower() == 'true'
+        self.podcast_required = os.getenv('PODCAST_REQUIRED', 'false').lower() == 'true'
+        self.podcast_tts_model = os.getenv('PODCAST_TTS_MODEL', 'gpt-4o-mini-tts')
+        self.podcast_voice = os.getenv('PODCAST_VOICE', 'alloy')
+        self.podcast_script_max_words = max(
+            500, min(1100, _as_int('PODCAST_SCRIPT_MAX_WORDS', 1000))
+        )
+        self.podcast_timeout = max(30, _as_int('PODCAST_TIMEOUT', 180))
+        self.podcast_backfill_max = max(
+            0, min(10, _as_int('PODCAST_BACKFILL_MAX', 2))
+        )
+
         # LinkedIn publication preflight.
         self.linkedin_require_thumbnail = os.getenv('LINKEDIN_REQUIRE_THUMBNAIL', 'true').lower() == 'true'
         self.linkedin_commentary_soft_limit = max(500, _as_int('LINKEDIN_COMMENTARY_SOFT_LIMIT', 1800))
