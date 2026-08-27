@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small two-wheel educational rover with front ultrasonic distance sensor facing a wall in a safe robotics laboratory, clear physical hardware, no people in motion path",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract sensor-controller-actuator model in recognizable hardware and reinforce the safety and calibration discussion. It should supplement, not replace, the planned schematic diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

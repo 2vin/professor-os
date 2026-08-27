@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
+<title>Class 2: Sense → Think → Act · Professor OS</title>
+<style>
+:root{--bg:#060708;--panel:#0d1013;--panel2:#11161a;--line:#252b30;--line2:#363f46;--text:#f4f5f2;--soft:#bcc1bc;--muted:#6f7778;--acid:#caff4f;--acid2:#dbff86;--blue:#84e7ff;--cyan:var(--acid);--mint:var(--acid2);--amber:#ffc57a;--green:#88edaa;--shadow:0 26px 80px rgba(0,0,0,.46);--top:54px;--dock:72px;--reading:0%}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:80px}body{margin:0;background:radial-gradient(circle at 10% 0,rgba(202,255,79,.09),transparent 24%),linear-gradient(180deg,#060708,#0a0c0e);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit}::selection{background:var(--acid);color:#111}
+.reading-line{position:fixed;top:0;left:0;right:0;height:3px;z-index:150;background:rgba(255,255,255,.04)}.reading-line i{display:block;width:var(--reading);height:100%;background:linear-gradient(90deg,var(--acid),var(--acid2));transition:width .12s}
+.os-topbar{position:fixed;left:0;right:0;top:0;height:var(--top);z-index:100;display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;padding:0 14px;border-bottom:1px solid rgba(54,63,70,.62);background:rgba(6,7,8,.88);backdrop-filter:blur(18px)}.brand{display:flex;align-items:center;gap:10px}.mark{width:30px;height:30px;border-radius:10px;background:linear-gradient(145deg,#1a2112,#11160d);border:1px solid rgba(202,255,79,.28);display:grid;place-items:center;font-weight:900}.brand b{font-size:11px;letter-spacing:.15em;text-transform:uppercase}.brand span{font-size:8px;color:var(--muted);letter-spacing:.11em;text-transform:uppercase}.crumb{justify-self:center;font-size:9px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}.crumb b{color:var(--soft)}.top-actions{display:flex;gap:7px}.pill{display:inline-flex;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:999px;background:#0d1013;font-size:8px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--soft)}
+.dock{position:fixed;left:0;top:var(--top);bottom:0;width:var(--dock);z-index:90;border-right:1px solid rgba(54,63,70,.58);background:rgba(6,7,8,.92);display:flex;flex-direction:column;align-items:center;padding:14px 10px;gap:9px}.dock a{width:46px;height:46px;border:1px solid var(--line);border-radius:14px;background:#0d1013;color:var(--muted);display:grid;place-items:center;font-size:16px}.dock a.active{background:linear-gradient(135deg,var(--acid),var(--acid2));color:#111111;border-color:transparent}.dock .spacer{flex:1}
+.desktop{margin-left:var(--dock);padding-top:var(--top);min-height:100vh}.shell{max-width:1460px;margin:0 auto;padding:16px 16px 88px}.window{border:1px solid rgba(54,63,70,.78);border-radius:24px;background:linear-gradient(180deg,rgba(13,16,19,.98),rgba(9,11,13,.99));box-shadow:var(--shadow);overflow:hidden}.bar{height:46px;display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:0 14px;border-bottom:1px solid rgba(54,63,70,.62)}.dots{display:flex;gap:6px}.dots i{width:8px;height:8px;border-radius:50%;background:#353b3e}.dots i:nth-child(1){background:#7b4e54}.dots i:nth-child(2){background:#735f3f}.dots i:nth-child(3){background:#3d695a}.bar-title{font-size:9px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}.bar-state{font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft)}
+.hero{display:grid;grid-template-columns:minmax(0,.58fr) minmax(360px,.42fr);min-height:500px}.hero-copy{padding:28px;display:flex;flex-direction:column;justify-content:center}.eyebrow{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan)}.hero h1{margin:16px 0 14px;font-size:clamp(44px,5vw,76px);line-height:.94;letter-spacing:-.055em;max-width:10ch}.lead{margin:0;color:var(--soft);font-size:14px;line-height:1.8;max-width:680px}.hero-meta{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:22px}.meta{padding:12px;border:1px solid var(--line);border-radius:13px;background:rgba(12,15,17,.76)}.meta span{display:block;font-size:7px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}.meta b{display:block;margin-top:6px;font-size:12px;line-height:1.35}.hero-media{border-left:1px solid rgba(54,63,70,.62);background:#090b0d;min-height:430px}.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+.reader{display:grid;grid-template-columns:300px minmax(0,1fr);gap:16px;margin-top:16px;align-items:start}.rail{position:sticky;top:70px;display:grid;gap:14px}.rail-window{padding:16px}.rail-window h3{margin:0 0 12px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}.progress-row{display:flex;justify-content:space-between;gap:10px;font-size:10px;color:var(--muted)}.progress-row b{color:var(--text)}.track{height:8px;border-radius:999px;background:#11161a;border:1px solid var(--line);overflow:hidden;margin:10px 0}.track i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--acid),var(--acid2));border-radius:999px}.complete{width:100%;border:0;border-radius:11px;padding:11px 12px;background:linear-gradient(135deg,var(--acid),var(--acid2));color:#111111;font-size:9px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;cursor:pointer}.complete.done{background:linear-gradient(135deg,var(--green),var(--mint))}.resume-note{display:none;margin-top:9px;font-size:10px;line-height:1.55;color:var(--muted)}.toc{display:grid;gap:6px}.toc a{display:block;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:rgba(12,15,17,.76);font-size:10px;color:var(--soft)}.toc a.active{border-color:var(--line2);color:var(--text);background:#11161a}.core{height:160px;border:1px solid var(--line);border-radius:14px;background:radial-gradient(circle at center,rgba(202,255,79,.08),transparent 34%),linear-gradient(180deg,#0d1013,#090b0d);position:relative;display:grid;place-items:center;overflow:hidden}.core:before,.core:after{content:"";position:absolute;border:1px solid rgba(202,255,79,.14);border-radius:50%;width:110px;height:110px;animation:spin 16s linear infinite}.core:after{width:160px;height:160px;border-color:rgba(219,255,134,.12);animation-direction:reverse;animation-duration:24s}.core i{width:72px;height:72px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#f4f5f2,#dbff86 24%,#59633d 58%,transparent 82%);box-shadow:0 18px 38px rgba(202,255,79,.10)}
+.content-window{padding:28px}.content h1{font-size:40px;letter-spacing:-.045em}.content h2{margin:40px 0 14px;font-size:30px;letter-spacing:-.035em;line-height:1.05}.content h3{margin:27px 0 10px;font-size:21px;letter-spacing:-.02em}.content p,.content li{font-size:15px;line-height:1.86;color:var(--soft)}.content p{margin:0 0 16px}.content ul{padding-left:20px}.content li{margin:8px 0}.content strong{color:var(--text)}.content a{color:#dfff96;text-decoration:underline;text-underline-offset:2px}.content code{font-size:.92em;padding:2px 6px;border-radius:7px;background:#090b0d;border:1px solid var(--line);color:#d8e0d4}.code-card{margin:22px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#07090b}.code-label{padding:10px 13px;border-bottom:1px solid var(--line);font-size:8px;letter-spacing:.11em;text-transform:uppercase;color:var(--muted)}pre{margin:0;padding:16px;overflow:auto;line-height:1.65}pre code{padding:0;border:0;background:none;color:#e0e5dd}figure{margin:28px 0}figure img{display:block;width:100%;border-radius:16px;border:1px solid var(--line)}.video-card{margin:28px 0;border:1px solid var(--line);border-radius:16px;overflow:hidden}.video-frame{position:relative;width:100%;aspect-ratio:16/9}.video-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lessonnav{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}.navtile{display:grid;gap:6px;padding:16px;border:1px solid rgba(54,63,70,.78);border-radius:18px;background:linear-gradient(180deg,rgba(13,16,19,.98),rgba(9,11,13,.99));box-shadow:var(--shadow)}.navtile:hover{border-color:var(--line2);transform:translateY(-2px)}.navtile span{font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.navtile b{font-size:14px;line-height:1.4}.navtile em{font-style:normal;font-size:10px;color:var(--muted)}.navtile.next{text-align:right}.navtile.disabled{opacity:.55}.footer{display:flex;justify-content:space-between;gap:12px;margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:16px;color:var(--muted);font-size:10px}.mobile-dock{display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:1100px){.hero,.reader{grid-template-columns:1fr}.hero-media{border-left:0;border-top:1px solid rgba(54,63,70,.62);min-height:330px}.rail{position:static;grid-template-columns:repeat(2,minmax(0,1fr))}.hero-meta{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+/* PROFESSOR_OS_PODCAST_STYLE_START */
+.podcast-strip{margin-top:16px;padding:0;overflow:hidden}
+.podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
+.podcast-copy{display:grid;gap:7px;min-width:0}.podcast-kicker{font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--acid)}.podcast-copy h2{margin:0;font-size:20px;letter-spacing:-.025em}.podcast-copy p{margin:0;color:var(--muted);font-size:10px;line-height:1.55}
+.podcast-controls{display:grid;grid-template-columns:minmax(240px,360px) auto;gap:10px;align-items:center}.podcast-controls audio{width:100%;height:38px;accent-color:var(--acid)}.podcast-download{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;padding:11px 13px;border-radius:11px;background:linear-gradient(135deg,var(--acid),var(--acid2));color:#111;font-size:8px;font-weight:900;letter-spacing:.09em;text-transform:uppercase}
+@media(max-width:900px){.podcast-inner{grid-template-columns:1fr}.podcast-controls{grid-template-columns:1fr auto}}@media(max-width:560px){.podcast-controls{grid-template-columns:1fr}.podcast-inner{padding:16px}}
+/* PROFESSOR_OS_PODCAST_STYLE_END */
+
+</style>
+</head>
+<body data-class="2">
+<div class="reading-line"><i></i></div>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
+<main class="desktop"><div class="shell">
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~20 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
+
+<!-- PROFESSOR_OS_PODCAST_START -->
+<section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
+  <div class="podcast-inner">
+    <div class="podcast-copy">
+      <span class="podcast-kicker">Listen anywhere</span>
+      <h2>Class podcast · Sense → Think → Act</h2>
+      <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
+    </div>
+    <div class="podcast-controls">
+      <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
+    </div>
+  </div>
+</section>
+<!-- PROFESSOR_OS_PODCAST_END -->
+
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
+<h2>Where We Are in the Robotics Journey</h2>
+<p>In Class 1, we asked, “What is a robot?” We used RoboRover to separate three ideas:</p>
+<ul>
+<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
+<li><strong>Decision authority:</strong> whether a human, a programmed controller, or autonomous software selects actions.</li>
+<li><strong>Feedback:</strong> whether measured state influences a current or future action.</li>
+</ul>
+<p>There is no single universally accepted binary boundary for the word *robot*. In this course, we use this working description:</p>
+<p>&gt; A robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software.</p>
+<p>Today we open RoboRover’s “body plan.” We will see how information travels from the world into the robot, through a controller, and back into the world.</p>
+<p>Next class, we will replace a small controller diagram with RoboRover’s first robot brain in Python.</p>
+<h2>Today We Will Learn</h2>
+<p>By the end of this class, you should be able to:</p>
+<p>1. Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do. 2. Trace the information pathway <strong>sense → think → act</strong>. 3. Explain feedback as measurement that changes a current or future action. 4. Calculate a simple control error using units. 5. Simulate RoboRover approaching a wall while avoiding excessive motion. 6. Identify practical problems such as noisy sensors, delays, saturation, and calibration errors.</p>
+<h2>2-Minute Recap</h2>
+<p>Imagine RoboRover is a small wheeled rover carrying a package.</p>
+<ul>
+<li>The <strong>environment</strong> is everything outside the robot: floor, walls, light, objects, and people.</li>
+<li>A <strong>sensor</strong> measures something about the environment or the robot’s own condition.</li>
+<li>A <strong>controller</strong> uses sensor information, goals, and rules to choose commands.</li>
+<li>An <strong>actuator</strong> converts a command into physical action. Motors are common actuators.</li>
+<li><strong>Feedback</strong> occurs when a measured result influences what the robot does next.</li>
+</ul>
+<p>A robot can be teleoperated and still be a robot. A robot can follow a preprogrammed task and still use feedback. A non-robot appliance can also use feedback. These are separate questions.</p>
+<h2>The Big Idea</h2>
+<figure><img src="inline_01.png" alt="A cyclic diagram shows the physical world feeding sensors, sensors feeding a controller, the controller commanding actuators, and actuators changing the physical world."></figure>
+<p><strong>Figure:</strong> The feedback loop connects measurements, decisions, actions, and the changed world.</p>
+<p>A useful first mental model is:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>physical world
+      ↓
+   sensors       “What is happening?”
+      ↓
+   controller    “What should I command?”
+      ↓
+   actuators     “Make the robot move or change.”
+      ↓
+physical world changes
+      ↺</code></pre></div>
+<p>The returning arrow matters. If RoboRover measures its distance from a wall, drives forward, measures again, and changes its command based on the new measurement, it is using feedback.</p>
+<p>Without the returning measurement, RoboRover might simply drive forward for five seconds. That is a timed command. It may work on one floor with one battery charge, but it does not know whether it actually reached the desired location.</p>
+<h3>A compact comparison</h3>
+<p>| Idea | Main question | RoboRover example | |---|---|---| | Task sequencing | Is the task sequence or rule predetermined? | “Drive forward for five seconds.” | | Immediate decision authority | Who or what selects the next action? | A human operator, programmed controller, or autonomous software selects the command. | | Feedback control | Does measured state affect the current or a future action? | “Drive until the measured distance is near 30 cm.” | | Task-level autonomy | Does software select task-level actions without continuous human selection? | Software chooses to approach the wall rather than wait for a human command. |</p>
+<p>These are separate axes. RoboRover may execute a preprogrammed task, use feedback while moving, and still receive its overall mission from a human. Task-level autonomy is not the same thing as feedback control.</p>
+<p>&gt; <strong>Terminology note:</strong> Textbook terminology can vary with the chosen system boundary. In this course, a threshold measurement-to-action rule can be called feedback control when the measured state affects an action. We call repeated measurement-and-correction <strong>sustained feedback regulation</strong>.</p>
+<h2>See It in Your Head</h2>
+<h3>AI-Generated Engineering Visual · Professor OS</h3>
+<figure><img src="diagram.png" alt="Professor OS engineering schematic"></figure>
+<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
+<figure><img src="inline_02.png" alt="Three top-down views of RoboRover show fixed-speed forward motion at 60 and 35 centimetres, followed by stopped motors when the measured distance is near 30 centimetres."></figure>
+<p><strong>Figure:</strong> The fixed-speed threshold controller continues forward outside the tolerance band and stops when the measured distance enters the band.</p>
+<p>Picture RoboRover from above, facing a wall.</p>
+<p>At the front is a small distance sensor. Draw a dotted measurement line from the sensor to the wall and label it <strong>measured distance</strong>. Inside the rover, draw a box labeled <strong>controller</strong>. Two curved arrows leave the controller and go to the left and right wheel motors. A target card near the controller says <strong>desired distance = 30 cm</strong>.</p>
+<p>Now imagine three moments:</p>
+<p>1. RoboRover is 60 cm from the wall. The controller commands forward motion at its fixed forward speed. 2. RoboRover is 35 cm away. The error is 5 cm, which is greater than the 2 cm tolerance, so the controller continues commanding the same fixed forward speed. It does not slow down. 3. RoboRover is about 30 cm away. The measured distance is within the tolerance band, so the controller stops.</p>
+<p>An illustrator should show that the controller does not “see” the wall directly. It only receives a number from the sensor. The controller’s internal decision is based on that number, the target, and its programmed rule. This lesson’s threshold controller has only two commands: fixed-speed <strong>FORWARD</strong> and <strong>STOP</strong>. It does not use reduced-speed motion.</p>
+<h2>Core Concept</h2>
+<h3>Sensors: turning physical conditions into information</h3>
+<p>A sensor is a device that produces a measurement related to something physical.</p>
+<p>Examples include:</p>
+<ul>
+<li>distance to an object, in metres or centimetres;</li>
+<li>wheel rotation, in revolutions or encoder counts;</li>
+<li>light level, in a sensor-specific unit;</li>
+<li>temperature, in degrees Celsius;</li>
+<li>contact, represented as pressed or not pressed.</li>
+</ul>
+<p>A sensor does not provide perfect truth. Its reading may contain:</p>
+<ul>
+<li><strong>noise:</strong> small random variation;</li>
+<li><strong>bias:</strong> a consistent offset;</li>
+<li><strong>latency:</strong> a delay between the physical event and the reported value;</li>
+<li><strong>limited range:</strong> inability to measure beyond a minimum or maximum;</li>
+<li><strong>calibration error:</strong> the conversion from sensor signal to physical units is imperfect.</li>
+</ul>
+<h3>Controller: converting information into a decision</h3>
+<p>A controller is the part of a robot that transforms information into commands. It may be a small microcontroller, a computer, or software running on a larger computer.</p>
+<p>For today, RoboRover’s controller follows a simple one-sided threshold rule:</p>
+<p>&gt; If the measured distance is more than the target plus the tolerance, drive forward at a fixed speed. Otherwise, stop.</p>
+<p>Thus, the rover stops both when it is within the tolerance band and when it is already too close to the wall. This simple rule does not command reverse motion.</p>
+<p>This is a feedback controller because the measured distance affects the current command. The implemented controller is a <strong>fixed-speed threshold controller</strong>. Proportional control, which changes speed according to the size of the error, is a preview concept and is not implemented in today’s Python lab.</p>
+<h3>Actuators: turning commands into physical effects</h3>
+<p>An actuator changes the physical world or the robot’s physical state.</p>
+<p>Examples include:</p>
+<ul>
+<li>electric motors turning wheels;</li>
+<li>a servo moving a gripper;</li>
+<li>a pump moving liquid;</li>
+<li>a speaker producing sound;</li>
+<li>an LED producing light.</li>
+</ul>
+<p>The controller might command “motor speed = 40%,” but the actuator may not produce exactly the same result every time. Battery voltage, friction, load, and floor texture matter.</p>
+<h3>Feedback is a loop, not merely a sensor event</h3>
+<p>Suppose a sensor detects a wall and starts a five-second motor sequence. If later measurements do not affect that sequence, then the described behavior is not sustained feedback regulation. It is a sensor-triggered action.</p>
+<p>By contrast, if RoboRover repeatedly measures distance and changes motor commands as the distance changes, measured state is actively closing the loop.</p>
+<p>Feedback may be continuous, repeated at discrete times, threshold-based, or include hysteresis. Hysteresis means using slightly different switching thresholds to avoid rapid on-off changes near one boundary. Hysteresis is a preview concept for this class; we will use a simple threshold today and revisit hysteresis later.</p>
+<h2>Math Without Fear</h2>
+<p>Let RoboRover’s desired distance from the wall be</p>
+<p>\[ d_{\text{target}} = 30\ \text{cm}. \]</p>
+<p>Suppose the sensor measures</p>
+<p>\[ d_{\text{measured}} = 42\ \text{cm}. \]</p>
+<p>Define the distance error as</p>
+<p>\[ e = d_{\text{measured}} - d_{\text{target}}. \]</p>
+<p>Here:</p>
+<ul>
+<li>\(e\) is the distance error, in centimetres;</li>
+<li>\(d_{\text{measured}}\) is the sensor reading, in centimetres;</li>
+<li>\(d_{\text{target}}\) is the desired distance, in centimetres.</li>
+</ul>
+<p>Therefore,</p>
+<p>\[ e = 42\ \text{cm} - 30\ \text{cm} = 12\ \text{cm}. \]</p>
+<p>The positive error tells us RoboRover is 12 cm too far away. Because RoboRover faces the wall, it should move forward.</p>
+<p>One possible proportional controller is</p>
+<p>\[ v = k e, \]</p>
+<p>where:</p>
+<ul>
+<li>\(v\) is commanded forward speed, in metres per second \((\text{m/s})\);</li>
+<li>\(e\) is error, in centimetres \((\text{cm})\);</li>
+<li>\(k\) is a chosen controller gain, in \(\text{m}/(\text{s}\cdot\text{cm})\).</li>
+</ul>
+<p>If</p>
+<p>\[ k = 0.01\ \frac{\text{m}}{\text{s}\cdot\text{cm}}, \]</p>
+<p>then</p>
+<p>\[ v = 0.01\ \frac{\text{m}}{\text{s}\cdot\text{cm}} \times 12\ \text{cm} = 0.12\ \text{m/s}. \]</p>
+<p>Interpretation: the larger the distance error, the faster RoboRover is commanded to move forward. As the error becomes smaller, the commanded speed becomes smaller. This proportional controller is a preview concept; the Python lab below does not implement it.</p>
+<p>The worked example and Python lab use a deliberately simpler <strong>fixed-speed threshold controller</strong>, not this proportional law. Both are feedback controllers because both use measured distance to choose an action. The proportional controller changes speed continuously with error; the threshold controller selects a fixed forward speed whenever the error exceeds a tolerance. We use the threshold version here to make the sense → think → act logic easier to inspect.</p>
+<p>Real controllers also impose limits. If a proportional calculation produces \(0.40\ \text{m/s}\), but the motor system is limited to \(0.20\ \text{m/s}\), the command is <strong>saturated</strong> at \(0.20\ \text{m/s}\). A robot cannot obey a command beyond its physical limits.</p>
+<h2>Worked Robotics Example</h2>
+<figure><img src="inline_03.png" alt="A two-wheel rover is shown approaching a wall, with measurement and motion arrows illustrating three fixed-speed forward steps toward a 0.30 metre target distance followed by a stop."></figure>
+<p><strong>Figure:</strong> In the simplified model, three 0.10 metre movements reduce the distance from 0.60 m to the 0.30 m target, where the rover stops.</p>
+<p>RoboRover starts 0.60 m from a wall. Its target is 0.30 m. The controller uses a fixed-speed threshold rule:</p>
+<ul>
+<li>time step: \(\Delta t = 1.0\ \text{s}\);</li>
+<li>forward speed: \(v = 0.10\ \text{m/s}\) whenever the measured distance is more than 0.02 m above the target;</li>
+<li>stop condition: stop when measured distance is within \(0.02\ \text{m}\) of the target or is below the target.</li>
+</ul>
+<p>This is a hand-worked fixed-speed model. The Python code repeats the same fixed-speed logic while adding imperfect measurements.</p>
+<p>During one forward step, the distance changes by</p>
+<p>\[ \Delta d = v\Delta t, \]</p>
+<p>where:</p>
+<ul>
+<li>\(\Delta d\) is distance travelled toward the wall, in metres;</li>
+<li>\(v\) is forward speed, in metres per second;</li>
+<li>\(\Delta t\) is elapsed time, in seconds.</li>
+</ul>
+<p>Thus,</p>
+<p>\[ \Delta d = 0.10\ \text{m/s} \times 1.0\ \text{s} = 0.10\ \text{m}. \]</p>
+<p>The distance sequence is:</p>
+<p>| Step | Distance before action | Action | Distance after action | |---:|---:|---|---:| | 0 | 0.60 m | drive forward | 0.50 m | | 1 | 0.50 m | drive forward | 0.40 m | | 2 | 0.40 m | drive forward | 0.30 m | | 3 | 0.30 m | stop | 0.30 m |</p>
+<p>After three forward steps, RoboRover has travelled</p>
+<p>\[ 3 \times 0.10\ \text{m} = 0.30\ \text{m}. \]</p>
+<p>It reaches the target in this simplified model. The interpretation is important: this is a model, not a guarantee for a physical rover. Real wheels may slip, the sensor may be angled, and the motor may take time to respond.</p>
+<h2>Python Lab</h2>
+<figure><img src="inline_04.png" alt="A diagram links simulated sensor readings to a Python threshold-controller decision and shows the rover&#x27;s modeled distance decreasing toward its target."></figure>
+<p><strong>Figure:</strong> The simulation keeps true distance separate from the imperfect measured distance used by the fixed-speed threshold controller.</p>
+<p>This program simulates the same fixed-speed threshold controller as the worked example. The sensor readings include small, deliberately chosen measurement errors. The controller does not use the true distance directly; it uses the sensor reading. In this model, the sensor-error sequence is the only imperfection represented: motion is otherwise instantaneous, exact, and free of latency, wheel slip, and actuator lag.</p>
+<p>The conceptual visual associated with this lab may show a plotted-style distance sequence, but that sequence is an explanatory illustration rather than a plot generated by the supplied code.</p>
+<p><strong>Predict before you run it:</strong> Will RoboRover drive forward exactly three times? Will the small sensor errors prevent it from stopping near 0.30 m?</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7-compatible RoboRover feedback simulation
+
+target_distance = 0.30       # metres
+distance = 0.60               # metres; true starting distance
+time_step = 1.0               # seconds
+forward_speed = 0.10          # metres per second
+tolerance = 0.02              # metres
+
+# A simple, repeatable sensor-error sequence.
+sensor_errors = [0.00, 0.01, -0.01, 0.01, 0.00, -0.01]
+
+move_count = 0
+history = []
+
+for step in range(len(sensor_errors)):
+    measured_distance = distance + sensor_errors[step]
+    error = measured_distance - target_distance
+
+    if error &gt; tolerance:
+        command = &quot;FORWARD&quot;
+        distance -= forward_speed * time_step
+        move_count += 1
+    else:
+        command = &quot;STOP&quot;
+
+    history.append((step, distance, measured_distance, error, command))
+
+print(&quot;step | true_m | measured_m | error_m | command&quot;)
+for record in history:
+    step, true_distance, measured, error, command = record
+    print(&quot;{:4d} | {:6.2f} | {:10.2f} | {:7.2f} | {}&quot;.format(
+        step, true_distance, measured, error, command
+    ))
+
+print(&quot;forward commands:&quot;, move_count)
+print(&quot;final true distance: {:.2f} m&quot;.format(distance))
+
+# Executable checks for the claims made by this simulation.
+assert move_count == 3
+assert abs(distance - 0.30) &lt; 1e-9
+assert history[3][4] == &quot;STOP&quot;
+assert abs(history[3][2] - 0.31) &lt; 1e-9</code></pre></div>
+<p>The final assertions are ordinary Boolean checks: each comparison produces <code>True</code> or <code>False</code>, and <code>assert</code> verifies that the result is <code>True</code>.</p>
+<p>Important lines:</p>
+<ul>
+<li><code>measured_distance = distance + sensor_errors[step]</code> creates an imperfect sensor reading.</li>
+<li><code>error = measured_distance - target_distance</code> calculates how far the reading is from the goal.</li>
+<li>The <code>if</code> statement is the controller’s decision rule.</li>
+<li><code>distance -= ...</code> models the actuator changing RoboRover’s position.</li>
+<li><code>assert</code> checks exact claims made by the simulation.</li>
+</ul>
+<p>The model separates the <strong>true distance</strong> from the <strong>measured distance</strong>. A real controller usually cannot access the true distance directly. For example, at step 3 the true distance is 0.30 m, while the controller uses the measured value 0.31 m.</p>
+<h2>Mini Simulation or Game</h2>
+<p>Try changing one value at a time:</p>
+<p>1. Set <code>tolerance = 0.00</code>. 2. Set the first sensor error to <code>0.05</code>. 3. Set <code>forward_speed = 0.20</code>. 4. Add a second action, such as <code>"REVERSE"</code>, when the error is less than <code>-tolerance</code>.</p>
+<p>Before each run, write down:</p>
+<ul>
+<li>how many forward commands you expect;</li>
+<li>whether the final distance will be above, below, or near the target;</li>
+<li>whether the rover might overshoot.</li>
+</ul>
+<p>This is a small experiment in <strong>model-based thinking</strong>: predict, run, compare, and explain the difference.</p>
+<h2>What Should Happen?</h2>
+<p>With the code as provided:</p>
+<ul>
+<li>RoboRover begins at 0.60 m.</li>
+<li>It drives forward three times.</li>
+<li>Each forward command changes the true distance by 0.10 m.</li>
+<li>The true final distance is 0.30 m.</li>
+<li>At step 3, the true distance is 0.30 m and the measured distance is 0.31 m. The error is \(0.01\ \text{m}\), which is within \(0.02\ \text{m}\) of the target, so the controller stops.</li>
+<li>The assertions verify three forward commands, a final true distance of 0.30 m, a <code>STOP</code> command at step 3, and the 0.31 m measured reading at that step.</li>
+</ul>
+<p>If you set the tolerance to zero, a reading slightly above 0.30 m may cause another forward command. That can make the rover move too close to the wall. A real robot needs a carefully chosen stopping region, sensor filtering, or a slower approach.</p>
+<h2>Common Mistakes</h2>
+<h3>Mistake 1: Calling every sensor-triggered action feedback</h3>
+<p>A sensor can start a sequence without controlling the sequence afterward. Ask:</p>
+<p>&gt; Does a later measurement change the current or future command?</p>
+<p>If not, do not describe that behavior as sustained feedback regulation.</p>
+<h3>Mistake 2: Confusing a sensor with a controller</h3>
+<p>A distance sensor reports a distance. It does not decide whether to move unless additional control logic uses its reading.</p>
+<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
+<p>A command to drive at a particular speed is not the same as guaranteed motion. Friction, battery voltage, wheel size, and payload affect the result.</p>
+<h3>Mistake 4: Ignoring units</h3>
+<p>Subtracting 30 cm from 0.60 m without converting units produces a meaningless calculation. Use either centimetres or metres consistently.</p>
+<h3>Mistake 5: Forgetting delay</h3>
+<p>If the sensor reports an old distance, RoboRover may continue driving after it should have stopped. Latency can cause overshoot.</p>
+<h3>Mistake 6: Treating the model as the robot</h3>
+<p>The program updates a number called <code>distance</code>. A real rover must move through mechanics, receive sensor data, and deal with uncertainty. Simulation is useful because it lets us test logic safely, but it is not the physical system.</p>
+<h2>Try It Yourself</h2>
+<h3>Challenge: RoboRover’s cautious approach</h3>
+<p>Modify the program so RoboRover uses two speeds:</p>
+<ul>
+<li>if the error is greater than 0.10 m, drive at 0.10 m/s;</li>
+<li>if the error is greater than the tolerance but no more than 0.10 m, drive at 0.05 m/s;</li>
+<li>otherwise, stop.</li>
+</ul>
+<p>Record the distance and command at every step. Explain why the slower speed may reduce overshoot.</p>
+<p><strong>Self-check for the original sensor-error sequence and a 1.0-second time step:</strong> the rover should issue four forward commands. It should use the slower speed on the third and fourth forward commands, ending at a modeled true distance of 0.30 m and then stopping. This outcome is specific to the stated sequence and idealized model; changing the errors or timing can change it.</p>
+<h3>Optional extension</h3>
+<p>Add a maximum speed of 0.12 m/s. If a calculated command would be faster than that, replace it with 0.12 m/s. This models actuator saturation.</p>
+<p>Do not claim that the slower rule is always better. It may improve precision but take longer, and a noisy sensor may still cause unwanted switching.</p>
+<h2>Quick Quiz</h2>
+<p>1. What is the job of a sensor in RoboRover? 2. A controller commands a motor to turn, but the robot never measures its movement afterward. Is that action automatically feedback control? Explain. 3. Convert \(30\ \text{cm}\) to metres. 4. RoboRover measures 0.48 m from a wall and wants to be 0.30 m away. Using \[ e = d_{\text{measured}} - d_{\text{target}}, \] what is the error, and what does its sign mean? 5. Can a preprogrammed robot use feedback? Give a reason.</p>
+<h2>Answers</h2>
+<p>1. A sensor measures a physical quantity and provides information related to the robot or its environment. 2. No. It is not automatically feedback control. The measured result must influence a current or future action. A one-time sensor trigger followed by a fixed sequence is not sustained feedback regulation. 3. \[ 30\ \text{cm} = 0.30\ \text{m}. \] 4. \[ e = 0.48\ \text{m} - 0.30\ \text{m} = 0.18\ \text{m}. \] The positive sign means RoboRover is 0.18 m too far from the wall, so it should move toward the wall under the stated orientation. 5. Yes. “Preprogrammed” describes how a task or rule was selected. Feedback describes whether measurements influence actions. An industrial robot may execute a preprogrammed task while local controllers use sensor feedback.</p>
+<h2>Real Robot Connection</h2>
+<p>Before any physical testing, test the accessible stop control or power disconnect before enabling autonomous motion. Keep the rover away from edges, stairs, fragile objects, people, and other hazards. Secure the rover, keep its wheels clear during initial motor tests, keep people and obstacles away, use a low battery or current-limited supply where appropriate, and provide an accessible stop control or power disconnect.</p>
+<p>On a real RoboRover, the sensor might be an ultrasonic or infrared distance sensor, while the actuators might be two geared motors. The controller could run many times per second.</p>
+<p>Several engineering problems appear immediately:</p>
+<ul>
+<li><strong>Calibration:</strong> the sensor’s reported 30 cm may actually correspond to a slightly different physical distance.</li>
+<li><strong>Noise:</strong> readings may jump between 29 cm and 32 cm even when the rover is stationary.</li>
+<li><strong>Latency:</strong> commands and measurements take time to travel through software and electronics.</li>
+<li><strong>Saturation:</strong> motors cannot exceed their available speed or torque.</li>
+<li><strong>Mechanical limits:</strong> wheels may slip, stall, or turn at different speeds.</li>
+<li><strong>Model assumptions:</strong> the simulation assumes a flat path, a straight wall, and instant motion at exactly 0.10 m/s.</li>
+</ul>
+<p>Engineers test each part separately. They may first print sensor readings while holding the rover still. Then they test one motor at a low, safe speed. Then they combine sensor, controller, and actuator tests.</p>
+<p>Next class will focus on the controller as software. RoboRover will no longer be only a block diagram: we will write a small Python “brain” that reads information, makes a decision, and produces an action.</p>
+<h2>Vocabulary</h2>
+<ul>
+<li><strong>Actuator:</strong> A device that produces a physical effect, such as motor motion.</li>
+<li><strong>Controller:</strong> Hardware or software that converts goals and measured information into commands.</li>
+<li><strong>Feedback:</strong> A control arrangement in which measured state or output influences a current or future control action.</li>
+<li><strong>Gain:</strong> A factor that determines how strongly a controller responds to an error.</li>
+<li><strong>Latency:</strong> A delay between an event, its measurement, its computation, or the resulting action.</li>
+<li><strong>Measurement:</strong> A value produced by a sensor, usually representing a physical quantity.</li>
+<li><strong>Noise:</strong> Unwanted variation or uncertainty in a measurement or signal.</li>
+<li><strong>Robot:</strong> For this course, a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software.</li>
+<li><strong>Sensor:</strong> A device that measures a physical property and produces information about it.</li>
+<li><strong>Saturation:</strong> Limiting a command because an actuator or system cannot physically produce values beyond a maximum or minimum.</li>
+<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time, using measured state to adjust behavior.</li>
+<li><strong>Target:</strong> The desired value or condition a controller is trying to reach.</li>
+</ul>
+<h2>Further Learning</h2>
+<p>To deepen this class, investigate these topics in this order:</p>
+<p>1. Sensor calibration using known distances. 2. Measurement noise and simple averaging. 3. Motor command limits and saturation. 4. Threshold control and hysteresis. 5. Discrete-time feedback loops, where a controller updates at separate time steps.</p>
+<p>These topics extend today’s sense → think → act loop without changing its basic structure.</p>
+<h2>Next Class</h2>
+<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
+<p>We will turn today’s controller idea into a clearer Python program. RoboRover will receive simulated sensor data, apply a decision rule, and produce motor commands. You will practice separating <strong>input</strong>, <strong>decision</strong>, and <strong>output</strong>—the software structure behind many real robot controllers.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+</div></main>
+<div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
+<script>
+(function(){var CLASS_NO=2,KEY='professorOSStudentProgressV1';function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}function save(s){localStorage.setItem(KEY,JSON.stringify(s))}function done(){return norm(read()).completed.indexOf(CLASS_NO)>=0}function paintDone(){var d=done();['completeBtn','mobileCompleteBtn'].forEach(function(id){var e=document.getElementById(id);if(e){e.textContent=id==='mobileCompleteBtn'?(d?'Done ✓':'Complete'):(d?'Completed ✓':'Mark class complete');e.classList.toggle('done',d)}});var h=document.getElementById('headerProgressState');if(h)h.textContent=d?'Completed':'In progress'}function toggle(){var s=norm(read()),i=s.completed.indexOf(CLASS_NO);if(i<0)s.completed.push(CLASS_NO);else s.completed.splice(i,1);s.lastOpened=CLASS_NO;s.lastUrl=location.pathname;s.lastTitle=document.title;save(s);paintDone()}function reading(){var h=document.documentElement,total=Math.max(1,h.scrollHeight-h.clientHeight),pct=Math.max(0,Math.min(100,Math.round(h.scrollTop/total*100)));document.documentElement.style.setProperty('--reading',pct+'%');['sideReadingBar','mobileReadingBar'].forEach(function(id){var e=document.getElementById(id);if(e)e.style.width=pct+'%'});['readingPct','mobilePct'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=pct+'%'});var s=norm(read());s.reading[String(CLASS_NO)]=pct;s.lastOpened=CLASS_NO;s.lastUrl=location.pathname;s.lastTitle=document.title;save(s)}var timer=null;addEventListener('scroll',function(){if(timer)return;timer=setTimeout(function(){timer=null;reading()},120)},{passive:true});function toc(){var root=document.getElementById('toc'),heads=[].slice.call(document.querySelectorAll('#lessonContent h2,#lessonContent h3'));heads.forEach(function(h,i){h.id='section-'+(i+1);var a=document.createElement('a');a.href='#'+h.id;a.textContent=h.textContent;a.dataset.target=h.id;if(h.tagName==='H3')a.style.paddingLeft='18px';root.appendChild(a)});if('IntersectionObserver' in window){var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){[].slice.call(document.querySelectorAll('#toc a')).forEach(function(a){a.classList.toggle('active',a.dataset.target===e.target.id)})}})},{rootMargin:'-18% 0px -68% 0px'});heads.forEach(function(h){o.observe(h)})}}function resume(){var s=norm(read()),pct=Number(s.reading[String(CLASS_NO)]||0),note=document.getElementById('resumeNote');if(pct>5&&pct<96&&!done()){note.style.display='block';note.textContent='You previously reached '+pct+'%. Continue from the academy Home app.'}if(new URLSearchParams(location.search).get('resume')==='1'&&pct>5&&pct<98){setTimeout(function(){var total=Math.max(1,document.documentElement.scrollHeight-document.documentElement.clientHeight);scrollTo(0,total*pct/100)},260)}}document.getElementById('completeBtn').addEventListener('click',toggle);document.getElementById('mobileCompleteBtn').addEventListener('click',toggle);paintDone();reading();toc();resume();})();
+</script></body></html>
