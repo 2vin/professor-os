@@ -20,3 +20,10 @@ services:
         value: "false"
       - key: TIMEZONE
         value: Asia/Kolkata
+      # Zero-cost chapter tutor: inference runs locally in the student's browser.
+      # No tutor API key, remote inference service, or paid fallback is used.
+      - key: LESSON_CHAT_ENABLED
+        value: "true"
+      - key: LESSON_CHAT_PROVIDER
+        value: qwen_on_device
+

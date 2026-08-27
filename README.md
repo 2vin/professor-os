@@ -19,7 +19,7 @@ A sequential autonomous robotics teacher for Python 3.7. It generates one curric
 - Added a per-run lock so two classes cannot execute concurrently.
 - Added persistent runtime state and `teacher_agent.log`.
 - Added a built-in Python 3.7 HTTP dashboard with no Flask dependency.
-- Added a built-in 4:30 PM IST scheduler with no APScheduler dependency.
+- Added a built-in 9:00 PM IST scheduler with no APScheduler dependency.
 - Added `pytest.ini` so `teacher_agent` imports correctly when running tests from the project root.
 - Expanded tests for retry behavior, progress/migration, validator, and dashboard state.
 
@@ -40,7 +40,7 @@ It shows:
 - persistent event stream;
 - last error;
 - preview/publish course memory;
-- next scheduled 4:30 PM IST run;
+- next scheduled 9:00 PM IST run;
 - a **Run Class Now** control.
 
 ## Python 3.7 installation
@@ -81,7 +81,7 @@ Then open:
 http://127.0.0.1:8765
 ```
 
-By default the dashboard also activates the daily **4:30 PM IST** scheduler.
+By default the dashboard also activates the daily **9:00 PM IST** scheduler.
 
 To run the dashboard without its scheduler:
 
@@ -113,7 +113,7 @@ preview/
 python -m teacher_agent.main --scheduler
 ```
 
-This process must remain running. It triggers at 16:30 IST every day.
+This process must remain running. It triggers at 21:00 IST every day.
 
 ## Publishing
 
@@ -279,3 +279,49 @@ The v18 Learning OS interaction model is unchanged, but its visual system now in
 ## v18.1 Cloud Deployment
 
 See `FREE_CLOUD_DEPLOY.md` for the free Render + GitHub Actions architecture.
+
+
+## v18.2 — Zero-Cost On-Device Chapter Tutor
+
+Every major lesson chapter now exposes **Ask Professor OS**. Student questions are
+answered by an open Qwen3 0.6B model running inside the student's browser through
+Transformers.js. Professor OS does not call OpenAI, Gemini, Groq, OpenRouter, or
+another hosted inference API for chapter chat.
+
+- Tutor provider: `qwen_on_device`
+- Default browser model: Qwen3 0.6B ONNX q4
+- Preferred execution: WebGPU
+- Fallback execution: CPU/WASM
+- No tutor API key
+- No server-side tutor inference
+- No paid tutor fallback
+- Chapter-local retrieval keeps answers grounded in the released class.
+- Unsafe hardware requests are redirected toward simulation, low-voltage training
+  hardware, manufacturer documentation, and qualified supervision.
+- The first use downloads the open model/runtime; subsequent use can benefit from
+  browser caching.
+
+The server keeps `/api/lesson-chat` disabled as a compatibility/safety endpoint so
+older clients cannot accidentally create a paid inference path.
+
+## Course Restart / Clean Regeneration
+
+The course memory is reset with:
+
+```json
+{
+  "last_generated_class": 0,
+  "last_published_class": 0
+}
+```
+
+Browser learning state uses `professorOSStudentProgressV2`.
+
+When a class is generated again, Professor OS now deletes that class's previous
+`preview/<slug>/` package before generating the replacement. This prevents stale
+code labs, old visual assets, previous failure diagnostics, or an old podcast from
+being mixed into the regenerated class.
+
+The durable GitHub lesson mirror now includes `.mp3` podcast audio and `.txt`
+podcast transcripts in addition to the existing lesson, code, image, HTML, and
+JSON artifacts.
