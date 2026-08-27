@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 3317,
+    "code_blocks": 6,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 89,
+      "clarity": 91,
+      "depth": 88,
+      "examples": 90,
+      "interactivity": 87,
+      "code_alignment": 93,
+      "visual_teaching_plan": 91,
+      "originality": 84,
+      "consistency": 94,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is exceptionally consistent with the Foundation Contract and carefully separates robot identity, decision authority, autonomy, and feedback.",
+      "The lesson is substantially longer than necessary for Class 1. Several distinctions are repeated in the opening, core concept, worked example, common mistakes, quiz answers, and vocabulary. Consolidating repeated caveats would improve cognitive load and lesson pacing.",
+      "The Python lab strongly teaches decision authority and simple kinematics, but it does not give students a concrete experiment involving feedback despite feedback being a stated learning objective. Add a very small contrasting exercise, such as a repeated threshold controller that adjusts motion from a simulated distance measurement, while clearly labeling it as introductory rather than sustained motor regulation.",
+      "The opening section titled '2-Minute Recap' is technically appropriate because there is no prior class, but the label may confuse students. Rename it 'Start Here' or 'Opening Questions.'",
+      "The lesson could distinguish more explicitly between position and displacement before the optional extension. The current explanation is correct, but beginners may benefit from stating that the signed final position is relative to the starting point, whereas total distance is nonnegative.",
+      "The phrase 'the measured average speed is 0.60 m/s' is sound, but the code treats speed as an exact constant during every command interval. Add one sentence directly connecting this idealization to the code model so students do not infer that the simulation uses measured feedback or realistic motor dynamics.",
+      "The visual plan is strong and purposeful. The inline images would be more instructionally effective if each were paired with a one-sentence learner task or question rather than serving primarily as explanatory figures.",
+      "The lesson appropriately avoids invented sources. The Further Learning section could be improved later with a small set of vetted, stable references, but the current wording correctly does not present search prompts as citations.",
+      "The media plan should use one restrained real photograph of a small mobile robot after '## Real Robot Connection' to ground the machine/environment boundary and the component vocabulary. Avoid adding additional decorative media."
+    ],
+    "linkedin": {
+      "title": "Class 1: What Is a Robot? Separating Robot Identity from Autonomy",
+      "description": "A foundational robotics lesson using RoboRover, simple kinematics, and Python to distinguish physical robot identity, decision authority, autonomy, and feedback control.",
+      "commentary": "What makes a machine a robot\u2014and does a robot have to be autonomous?\n\nProfessor OS Class 1 begins with a distinction that students will use throughout robotics:\n\n\u2022 Robot identity concerns the physical machine, its controlled actuators, and the physical task it performs.\n\u2022 Decision authority identifies whether immediate actions come from a human, a stored program, or autonomous software.\n\u2022 Autonomy is task-level action selection, not independence from people.\n\u2022 Feedback is a separate control concept: measured state can influence current or future action.\n\u2022 A compact Python simulation lets students compare the same RoboRover hardware under three decision modes.\n\nThe lesson also introduces system boundaries, idealized motion modeling, actuator saturation, final position, and total distance traveled without pretending that a simple simulation is a physical robot.\n\nTry the lab by changing the simulated marker distance, predicting the autonomous command sequence, and checking the resulting position. Then ask: which parts of the robot changed, and which part of the system changed only in terms of decision authority?\n\n#RoboticsEducation #Robotics #Python #ControlSystems",
+      "thumbnail_alt_text": "RoboRover diagram comparing human, preprogrammed, and autonomous control"
+    },
+    "media_query": "small mobile robotics rover chassis sensors motors battery laboratory photograph engineering education",
+    "image_query": "educational photograph of a wheeled mobile robot showing chassis wheels sensors battery and onboard computer in a laboratory",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would give beginners a concrete reference for the chassis, actuators, sensors, battery, and environment boundary after the abstract definitions and simulation. One carefully captioned image is sufficient; the existing generated diagrams already cover the conceptual relationships.",
+    "media_would_help": true
+  }
+}
