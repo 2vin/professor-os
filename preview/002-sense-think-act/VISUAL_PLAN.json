@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration of a small wheeled educational rover named RoboRover facing a plain indoor wall, with a forward-facing distance sensor emitting a subtle measurement beam, two drive wheels, a compact onboard computer, and a clean visual sense-think-act loop suggested through restrained illuminated arrows: sensor measurement to controller to motors to changed distance. Technically plausible beginner robotics hardware, realistic materials and lighting, uncluttered editorial composition, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover repeatedly measures its distance from the wall, chooses a motor command, and measures again.",
+    "alt_text": "Small wheeled rover facing a wall with a distance sensor, onboard controller, motors, and arrows showing a repeated sense-think-act feedback loop."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear premium technical diagram for a robotics textbook showing a closed feedback loop for RoboRover maintaining distance from a wall. Include four large labeled stages arranged in a loop: desired distance, sensor measurement, controller comparison, and motor command. Show the rover and wall as the physical system, with an arrow returning from changed rover position to the sensor. Use restrained modern colors, precise arrows, high legibility, and only essential labels.",
+      "caption": "The measured result returns to the controller, so the next action depends on what actually happened.",
+      "alt_text": "Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically accurate educational illustration of RoboRover at two moments while approaching a wall. In the first moment, label a measured distance of 0.68 m and show a forward command because the target is 0.50 m. In the second moment, label a measured distance of 0.52 m inside a shaded acceptable zone around 0.50 m and show the stop command. Use a side view, clear measurement arrows, realistic small rover hardware, restrained textbook styling, and minimal readable labels.",
+      "caption": "The same target produces different commands because the measured distance changes.",
+      "alt_text": "Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium instructional diagram explaining a beginner Python simulation of RoboRover feedback control. Show a plotted distance-versus-time graph with a blue true-distance curve approaching a red dashed target line, a small inset of noisy sensor readings around the true distance, and a compact code-to-robot mapping: measured distance, error, controller condition, velocity, updated distance. Use technically precise graph axes and restrained modern colors; avoid dense paragraphs and decorative imagery.",
+      "caption": "The simulation separates imperfect measurement from the rover\u2019s true distance and shows the feedback response over time.",
+      "alt_text": "Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."
+    }
+  ]
+}

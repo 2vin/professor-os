@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 1: What Is a Robot? · Professor OS</title>
+<title>Class 2: Sense → Think → Act · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,9 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -38,491 +35,458 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="1">
+<body data-class="2">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_01</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_01</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 01 · Foundations</div><h1>What Is a Robot?</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~21 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>robot, autonomy, machine, environment</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · What Is a Robot?</h2>
+      <h2>Class podcast · Sense → Think → Act</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-01-what-is-a-robot.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 1: What Is a Robot?</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>Welcome to the robotics course. This is Class 1, so we begin with a question that sounds simple but has surprising depth:</p>
-<p><strong>What makes a machine a robot?</strong></p>
-<p>You will meet our course companion, <strong>RoboRover</strong>. RoboRover is a small wheeled machine with motors, a battery, sensors, and a computer. Today, we will not build advanced navigation or control systems. Instead, we will learn how to describe RoboRover accurately.</p>
-<p>There is no single universally accepted binary boundary for the word <strong>robot</strong>. Engineers, industries, museums, and textbooks may use the word slightly differently. Therefore, this course uses a clear teaching convention:</p>
-<p><strong>For this course, a robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.</strong></p>
-<p>A robot does not need to be fully autonomous. Robot identity and decision authority are separate questions.</p>
+<p>In Class 1, we asked, “What is a robot?” We learned that a robot is a physical machine whose controlled actuators perform a physical task. The action may be selected by a human, a preprogrammed controller, or autonomous software.</p>
+<p>We also separated two ideas that are often mixed together:</p>
+<ul>
+<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
+<li><strong>Decision authority:</strong> who or what selects its immediate actions.</li>
+</ul>
+<p>A teleoperated rover can be a robot even when a human chooses its movements. An autonomous vacuum can be a robot because software selects its task-level actions. A thermostat can use feedback without normally being called a robot.</p>
+<p>Today we open the robot’s “body and brain” and study the repeating pattern behind many robotic systems:</p>
+<blockquote><strong>Sense → Think → Act</strong></blockquote>
+<p>RoboRover will use this pattern to keep a safe distance from a wall.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ul>
-<li>describe a robot using the course working description;</li>
-<li>distinguish a <strong>machine</strong> from a robot;</li>
-<li>identify the physical boundary between a robot and its <strong>environment</strong>;</li>
-<li>distinguish robot identity from <strong>decision authority</strong>;</li>
-<li>compare teleoperation, preprogrammed action, and task-level autonomy;</li>
-<li>preview how <strong>feedback control</strong> uses measurements;</li>
-<li>run a small Python experiment using the same RoboRover hardware in different control modes.</li>
-</ul>
+<ol>
+<li>Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do.</li>
+<li>Trace information through a robot from measurement to movement.</li>
+<li>Explain feedback as measurement that changes a current or future control action.</li>
+<li>Calculate a simple distance error with units.</li>
+<li>Recognize why real robots struggle with noise, delay, calibration, and mechanical limits.</li>
+<li>Build and run a small Python simulation of RoboRover’s feedback behavior.</li>
+</ol>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>There is no previous class. This is the foundation of the course.</p>
-<p>Before reading further, make a quick prediction:</p>
-<blockquote>A human uses a handheld controller to drive RoboRover across a room. Is RoboRover a robot?</blockquote>
-<p>The answer is <strong>yes, under this course convention</strong>. A human selects the immediate motion, but RoboRover is still a physical machine whose controlled actuators perform a physical task.</p>
-<p>Now make a second prediction:</p>
-<blockquote>A thermostat measures room temperature and switches a heater on or off. Is it normally called a robot?</blockquote>
-<p>The answer is <strong>no, not normally</strong>, although it uses feedback control.</p>
-<p>These examples establish two separate questions:</p>
-<ol>
-<li>Is the physical system commonly treated as a robot whose controlled actuators perform a physical task?</li>
-<li>Who or what selects the immediate action, and does measured state influence that action?</li>
-</ol>
+<p>Imagine a robot arm picking up a cup.</p>
+<ul>
+<li>The arm is a <strong>physical machine</strong>.</li>
+<li>Its motors create controlled movement.</li>
+<li>A human, a stored program, or autonomous software may choose the task.</li>
+<li>Sensors may measure joint angle, force, or the cup’s location.</li>
+<li>The robot’s status and its control mode are separate questions.</li>
+</ul>
+<p>Last class, we previewed <strong>feedback</strong>:</p>
+<blockquote>A measured state or output influences a current or future control action in relation to a desired state.</blockquote>
+<p>For example, a thermostat measures room temperature and changes heating behavior when the measured temperature differs from the desired temperature. Feedback does not have to mean smooth or continuous adjustment. A threshold rule can also be feedback if a measurement changes what happens next.</p>
+<p>Today we will place these ideas into a complete robot loop.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="A labeled rover diagram shows motors, sensors, battery, and computer inside a machine boundary, with a floor, wall, box, and operator outside."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The machine boundary separates RoboRover’s physical components from the environment while allowing commands, measurements, energy, and forces to cross.</p>
-<p>Use three layers to analyze a robotic system:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The measured result returns to the controller, so the next action depends on what actually happened.</p>
+<p>RoboRover is facing a wall. It should stop about 0.50 metres away.</p>
+<p>An illustrator could draw four blocks:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>        desired distance
+             0.50 m
+                |
+                v
+Wall &lt;--- sensor measurement &lt;--- RoboRover
+                                      |
+                                      v
+                              Controller compares
+                              desired and measured
+                                      |
+                                      v
+                              Motor command
+                                      |
+                                      v
+                              Wheels move rover
+                                      |
+                                      +---- new distance ----&gt; sensor</code></pre></div>
+<p>The loop is:</p>
 <ol>
-<li><strong>The machine</strong></li>
-<p>The physical object: chassis, wheels, motors, battery, sensors, and computer.</p>
+<li><strong>Sense:</strong> a distance sensor estimates how far RoboRover is from the wall.</li>
+<li><strong>Think:</strong> the controller compares the measurement with the desired distance.</li>
+<li><strong>Act:</strong> motors turn the wheels forward, backward, or not at all.</li>
+<li><strong>Sense again:</strong> the new position is measured.</li>
 </ol>
-<ol>
-<li><strong>The decision authority</strong></li>
-<p>The person, stored controller, or software that selects what the machine should do next.</p>
-</ol>
-<ol>
-<li><strong>The environment</strong></li>
-<p>Relevant parts of the world outside the machine that can affect it or be affected by it: floors, walls, objects, light, people, temperature, and air.</p>
-</ol>
-<p>Inspect the figure by tracing what crosses the bold boundary:</p>
-<ul>
-<li>energy travels from the battery to the motors;</li>
-<li>measurements travel from the environment through the sensors;</li>
-<li>forces and motion travel from the motors and wheels into the environment;</li>
-<li>commands may arrive from a human or another computer.</li>
-</ul>
-<p>The machine boundary is a <strong>modeling boundary</strong>, not necessarily a visible physical line. It tells us which components we are analyzing as the robot and which outside conditions are part of the environment.</p>
-<p>A <strong>component boundary</strong> answers a different question: which physical parts belong to the machine itself. A camera mounted on RoboRover is a robot component. A remote operator is outside the robot, even though the operator’s commands influence it. Wireless communication may cross the modeling boundary without making the transmitter part of the rover. Similarly, wireless power can cross the boundary while the power source remains outside it. Environmental forces, such as friction from the floor or contact with a wall, also cross the boundary without becoming robot components.</p>
-<p>A machine is commonly treated as a robot under this course convention when its controlled actuators perform a physical task. An <strong>actuator</strong> is a device that creates physical action, such as a motor turning a wheel or a gripper closing.</p>
-<p>A calculator performs computation, but it does not usually perform a physical task through controlled actuators. A motorized robotic arm does.</p>
+<p>The fourth step matters. Without measuring again, the robot cannot tell whether its action worked.</p>
+<p>This is a simple <strong>feedback control loop</strong>. The word “control” here means choosing an action to influence a physical system, not merely issuing a one-time command.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Use the visual to locate four elements:</p>
+<p>Picture RoboRover as a small wheeled platform with:</p>
 <ul>
-<li><strong>machine components:</strong> actuators, sensors, battery, and computer;</li>
-<li><strong>decision authority:</strong> the source that selects commands;</li>
-<li><strong>environment:</strong> objects and surfaces outside the machine;</li>
-<li><strong>cross-boundary flows:</strong> commands, measurements, energy, and physical forces.</li>
+<li>a forward-facing distance sensor,</li>
+<li>two powered wheels,</li>
+<li>a small computer,</li>
+<li>a battery,</li>
+<li>and a wall several centimetres away.</li>
 </ul>
-<p>Picture RoboRover beside a red storage box:</p>
-<ul>
-<li>RoboRover’s left and right wheels are actuators.</li>
-<li>A distance sensor measures how far the box is away.</li>
-<li>A small computer receives commands.</li>
-<li>The box and floor belong to the environment.</li>
-<li>The robot may be driven by a person, follow a stored sequence, or choose actions using software.</li>
-</ul>
-<p>Now freeze the hardware and change only the decision authority:</p>
-<ul>
-<li><strong>Teleoperated RoboRover:</strong> a human presses forward, left, or stop.</li>
-<li><strong>Preprogrammed RoboRover:</strong> a stored sequence selects the actions.</li>
-<li><strong>Autonomous RoboRover:</strong> software selects task-level actions from available information.</li>
-</ul>
-<p>The physical machine remains the same. The control mode changes, but RoboRover’s robot identity does not automatically disappear.</p>
-<blockquote>Keep the chassis, motors, battery, and sensors unchanged. Change only who chooses the next command. Describe what changed—and what did not.</blockquote>
-<p>What changed is the <strong>decision authority</strong>. What did not change is the physical machine performing the task.</p>
+<p>Suppose RoboRover is too far from the wall. The controller might command both wheels to turn forward.</p>
+<p>Now suppose it is too close. The controller might command both wheels to turn backward.</p>
+<p>If it is within an acceptable zone, the controller stops the wheels.</p>
+<p>The desired distance is not a command such as “drive forward for three seconds.” It is a condition the robot tries to maintain.</p>
+<p>A useful visual detail is to draw a shaded <strong>acceptable zone</strong> around the target:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>too far          acceptable zone          too close
+------|-----------------|-----------------|------
+     0.56 m            0.50 m             0.44 m
+       forward             stop              reverse</code></pre></div>
+<p>The boundaries in this drawing are examples. The exact values depend on the robot, sensor, and task.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Three panels show identical rover hardware controlled respectively by a human, a stored program, and onboard autonomous software."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same physical rover can be teleoperated, preprogrammed, or autonomous depending on who or what selects its immediate actions.</p>
-<h3>Machine</h3>
-<p>A <strong>machine</strong> is a physical system designed to transform energy and information into useful action. A washing machine, electric drill, elevator, and robot arm are all machines.</p>
-<p>Not every machine is commonly called a robot. Under this course convention, robot identity focuses on a physical machine, controlled physical action, and a physical task. Sensing, computation, and command selection may be present in different forms; they do not by themselves determine the classification.</p>
-<p>Real engineering language contains boundary cases, so this description is a teaching convention rather than a universal test.</p>
-<h3>Environment</h3>
-<p>A robot’s environment is the relevant world outside the machine boundary. For RoboRover, it might include:</p>
+<h3>Sensors: the robot’s measuring instruments</h3>
+<p>A <strong>sensor</strong> measures some property of the robot or its environment and produces information that the controller can use.</p>
+<p>Examples include:</p>
 <ul>
-<li>the floor that supports its wheels;</li>
-<li>a box that it must approach;</li>
-<li>a wall that can block motion;</li>
-<li>lighting that affects a camera;</li>
-<li>a person who operates it.</li>
+<li>a distance sensor measuring separation from an object,</li>
+<li>a wheel encoder measuring wheel rotation,</li>
+<li>a camera measuring patterns of light,</li>
+<li>a temperature sensor measuring thermal conditions,</li>
+<li>a bumper switch reporting contact.</li>
 </ul>
-<p>Ask:</p>
-<blockquote>What crosses the machine boundary, and which side contains the component being analyzed?</blockquote>
-<p>Information can cross through sensors and communication. Energy can cross through contact or wireless power. Forces can cross through wheels, arms, tools, or collisions. These flows do not automatically change which physical components belong to the machine.</p>
-<h3>Autonomy</h3>
-<p>In ordinary robotics usage, <strong>autonomy</strong> means that software selects task-level actions without a human choosing every immediate motion.</p>
-<p>Autonomy is not the same as intelligence, consciousness, or independence from all humans. An autonomous vacuum may still have a human-set schedule and charging station. Its autonomy concerns how it selects task-level actions during operation.</p>
-<p>A teleoperated robot can be a robot without task-level autonomy. An autonomous system can also be limited: it may operate only in a mapped room, at a restricted speed, or under a human emergency-stop system.</p>
-<h3>Feedback: an introductory preview</h3>
-<p><strong>Feedback control</strong> broadly means that a measured state or output influences the current or a future control action in relation to a desired behavior or state.</p>
-<p>A thermostat provides a simple example:</p>
+<p>A sensor does not automatically “understand” its surroundings. It produces a signal or value. Software and electronics interpret that value.</p>
+<h3>Controller: the decision-making mechanism</h3>
+<p>A <strong>controller</strong> receives measurements and selects commands.</p>
+<p>For RoboRover, the controller could follow this rule:</p>
 <ul>
-<li>desired room temperature: the setpoint;</li>
-<li>measured room temperature: the sensor reading;</li>
-<li>action: switch heating on or off.</li>
+<li>If the wall is farther than the target zone, drive forward.</li>
+<li>If the wall is closer than the target zone, drive backward.</li>
+<li>Otherwise, stop.</li>
 </ul>
-<p>If the measured temperature is below the setpoint, the heater may turn on. If it is above the setpoint, the heater may turn off. The rule is predetermined, but the action responds to a measurement.</p>
-<p>Threshold and hysteresis controllers can therefore be feedback controllers. Feedback does not have to be continuous or proportional.</p>
-<p>In this course, we will use <strong>sustained feedback regulation</strong> when we specifically mean repeated measurement-and-correction over time.</p>
-<p>A one-shot sensor event is different. If a sensor detects an object once and starts a fixed five-second motor sequence, but later measurements do not alter that sequence, the event is not sustained feedback regulation merely because a sensor started it.</p>
-<h3>One compact comparison</h3>
-<div class="table-scroll"><table><thead><tr><th>System</th><th>Commonly called a robot?</th><th>Immediate decision authority</th><th>Feedback in the described behavior?</th></tr></thead><tbody><tr><td>Timer-controlled traffic signal</td><td>Not normally</td><td>Preprogrammed timer</td><td>No; timing follows the stored schedule</td></tr><tr><td>Thermostat</td><td>Not normally</td><td>Preprogrammed feedback rule</td><td>Yes; measured temperature affects heating</td></tr><tr><td>Teleoperated rover</td><td>Yes</td><td>Human operator</td><td>Local feedback may or may not exist</td></tr><tr><td>Industrial robot arm</td><td>Yes</td><td>Often a preprogrammed task sequence</td><td>Local feedback is common</td></tr><tr><td>Autonomous vacuum</td><td>Yes</td><td>Software selects task-level actions</td><td>Feedback is commonly used</td></tr></tbody></table></div>
-<p>A preprogrammed task can include feedback in a subsystem. For example, an industrial arm may follow a stored sequence while its joint controllers use motor-position measurements. “Preprogrammed” and “feedback” are not mutually exclusive categories.</p>
-<p>Automatic doors are a boundary case. They share sensing, computation, and actuation with some robots, but terminology varies by context. We will not use them as a scored yes-or-no classification test.</p>
+<p>This is a threshold controller. It is simple, but it is still feedback because new measurements affect later motor commands.</p>
+<h3>Actuators: the parts that create physical change</h3>
+<p>An <strong>actuator</strong> converts a command into physical action.</p>
+<p>Examples include:</p>
+<ul>
+<li>electric motors turning wheels,</li>
+<li>a servo moving a joint,</li>
+<li>a pump moving liquid,</li>
+<li>a gripper motor closing fingers,</li>
+<li>a solenoid moving a latch.</li>
+</ul>
+<p>A controller may request “motor speed = 40%,” but the physical actuator may not produce exactly that result. Friction, battery voltage, load, and mechanical wear all matter.</p>
+<h3>Feedback: action informed by results</h3>
+<p>In feedback control, the robot acts, measures the result, and uses that result to decide what to do next.</p>
+<p>This differs from a one-shot sensor trigger. Suppose a sensor detects an obstacle and starts a fixed three-second turn. If the robot does not use later measurements to adjust that turn, many engineers would describe this as a sensor-triggered sequence, not sustained feedback regulation.</p>
+<p>In this course, <strong>sustained feedback regulation</strong> means repeated measurement-and-correction over time.</p>
+<h3>A compact comparison</h3>
+<p>These ideas are related but not identical:</p>
+<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th><th>Example</th></tr></thead><tbody><tr><td>Preprogrammed automation</td><td>Is the sequence specified in advance?</td><td>RoboRover drives forward for 2 seconds, then stops</td></tr><tr><td>Feedback control</td><td>Does measured output or state change the control action?</td><td>RoboRover changes direction based on measured wall distance</td></tr><tr><td>Autonomy</td><td>Does software select task-level actions without immediate human choice?</td><td>RoboRover decides how to approach and inspect several locations</td></tr></tbody></table></div>
+<p>A system can combine these. A preprogrammed robot arm can execute a stored task while its joint motors use feedback. Feedback does not automatically mean autonomy, and autonomy does not require a particular sensor or algorithm.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>A physical task involves quantities such as distance, time, and speed.</p>
-<p>Suppose RoboRover travels at a constant speed of:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 0.20\ \text{m/s}\]</span></div>
+<p>To reason about RoboRover’s distance, define the <strong>distance error</strong>:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = d_{\text{measured}} - d_{\text{target}}\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(v\) is speed, measured in metres per second;</li>
-<li>\(t\) is time, measured in seconds;</li>
-<li>\(d\) is distance, measured in metres.</li>
+<li>\(e\) is the distance error, in metres (m);</li>
+<li>\(d_{\text{measured}}\) is the current measured distance from RoboRover to the wall, in metres (m);</li>
+<li>\(d_{\text{target}}\) is the desired distance from RoboRover to the wall, in metres (m).</li>
 </ul>
-<p>For constant speed:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = vt\]</span></div>
-<p>If RoboRover travels for:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = 15\ \text{s}\]</span></div>
-<p>then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = (0.20\ \text{m/s})(15\ \text{s}) = 3.0\ \text{m}\]</span></div>
-<p>The seconds cancel:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{\text{m}}{\text{s}}\times \text{s}=\text{m}\]</span></div>
-<p><strong>Interpretation:</strong> RoboRover’s controlled actuators have produced physical motion through a 3.0-metre distance. This is a physical task, even if a human selected every movement.</p>
-<p>Real robots rarely move at exactly constant speed. Floors, battery voltage, wheel slip, motor variation, and load can change the actual distance. The equation is a model: useful, but not perfect.</p>
+<p>Suppose:</p>
+<ul>
+<li>\(d_{\text{measured}} = 0.82\ \text{m}\)</li>
+<li>\(d_{\text{target}} = 0.50\ \text{m}\)</li>
+</ul>
+<p>Then:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.82\ \text{m} - 0.50\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.32\ \text{m}\]</span></div>
+<p>The positive sign means RoboRover is too far from the wall. If the rover is facing the wall, it should move forward.</p>
+<p>If instead the measured distance were \(0.41\ \text{m}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.41\ \text{m} - 0.50\ \text{m} = -0.09\ \text{m}\]</span></div>
+<p>The negative sign means RoboRover is too close. It should move backward or otherwise increase its distance.</p>
+<p>A simple travel estimate is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{\Delta d}{v}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(t\) is time, in seconds (s);</li>
+<li>\(\Delta d\) is the distance to travel, in metres (m);</li>
+<li>\(v\) is speed, in metres per second (m/s).</li>
+</ul>
+<p>If RoboRover must travel \(0.32\ \text{m}\) at a constant \(0.20\ \text{m/s}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{0.32\ \text{m}}{0.20\ \text{m/s}} = 1.6\ \text{s}\]</span></div>
+<p>This is an ideal estimate. It assumes perfect measurement, immediate motor response, constant speed, and no slipping. Real robots rarely satisfy all those assumptions.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="A wheeled rover with an inspection camera travels from a start line to a work area 3 metres away in a laboratory test scene."></figure>
-<p class="figure-caption"><strong>Figure:</strong> At a simplified constant speed of 0.20 m/s for 15 s, the modeled travel distance is 3.0 m; real robots may differ because of slip, battery changes, and calibration errors.</p>
-<p>RoboRover must move a lightweight inspection camera from a starting mark to a work area 3.0 metres away.</p>
-<p>Its wheel motors are commanded to produce an approximate speed of \(0.20\ \text{m/s}\). If the command remains active for \(15\ \text{s}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = vt\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = (0.20\ \text{m/s})(15\ \text{s}) = 3.0\ \text{m}\]</span></div>
-<p>The controlled actuators perform a physical task: they move the machine and its camera.</p>
-<p>Now compare three ways of selecting the command:</p>
-<ol>
-<li>A person holds the forward button for 15 seconds.</li>
-<p>RoboRover is teleoperated.</p>
-</ol>
-<ol>
-<li>A controller stores “drive forward for 15 seconds.”</li>
-<p>RoboRover performs a preprogrammed task.</p>
-</ol>
-<ol>
-<li>Software measures position and decides when to stop near 3.0 metres.</li>
-<p>RoboRover uses task-level autonomy.</p>
-</ol>
-<p>The numerical motion model is similar, but the decision authority differs.</p>
-<h3>Engineering caveat: calibration and drift</h3>
-<p>The command “0.20 m/s” may not produce exactly \(0.20\ \text{m/s}\). One wheel may be slightly faster than the other. The floor may be slippery. The battery voltage may fall during operation. If the wheels slip, the motors can turn without producing the expected movement.</p>
-<p>This is why real robots need measurements, testing, and calibration. A controller that assumes perfect motion may stop too early, too late, or at an angle.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The same target produces different commands because the measured distance changes.</p>
+<p>RoboRover uses a distance sensor aimed at a wall.</p>
+<ul>
+<li>Desired distance: \(0.50\ \text{m}\)</li>
+<li>Measured distance: \(0.68\ \text{m}\)</li>
+<li>Acceptable error magnitude: \(0.04\ \text{m}\)</li>
+</ul>
+<p>First calculate the error:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.68\ \text{m} - 0.50\ \text{m} = 0.18\ \text{m}\]</span></div>
+<p>Because \(0.18\ \text{m}\) is greater than the acceptable \(0.04\ \text{m}\), RoboRover is too far away. The controller commands forward motion.</p>
+<p>Later, the sensor reads \(0.52\ \text{m}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.52\ \text{m} - 0.50\ \text{m} = 0.02\ \text{m}\]</span></div>
+<p>The error is now within the acceptable zone because \(0.02\ \text{m} &lt; 0.04\ \text{m}\). The controller commands stop.</p>
+<p>Notice what happened:</p>
+<ul>
+<li>The target did not change.</li>
+<li>The sensor measurement changed.</li>
+<li>The controller selected a different actuator command because of that measurement.</li>
+</ul>
+<p>That is the essential feedback pattern.</p>
+<p>An engineering caveat appears immediately: the sensor may report \(0.52\ \text{m}\) even when the true distance is \(0.50\ \text{m}\). Sensor noise can cause the controller to switch commands unnecessarily. A deadband, such as the \(0.04\ \text{m}\) acceptable zone, helps prevent constant forward-backward switching.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_04.png" alt="A horizontal track compares three simulated rover position traces for teleoperated, preprogrammed, and autonomous command selection."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation keeps hardware and speed constant while changing only the source of the motion commands.</p>
-<p>This Python 3.7 program uses one simple RoboRover model in three modes:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The simulation separates imperfect measurement from the rover’s true distance and shows the feedback response over time.</p>
+<p>This program simulates RoboRover approaching a wall. It uses:</p>
 <ul>
-<li><code>teleoperated</code>: a human’s command list represents immediate choices;</li>
-<li><code>preprogrammed</code>: a stored command sequence runs;</li>
-<li><code>autonomous</code>: software chooses forward or stop using a measured simulated position.</li>
+<li>a simulated distance sensor with small random noise;</li>
+<li>a threshold controller;</li>
+<li>a motor command represented by velocity;</li>
+<li>a plot of true distance over time.</li>
 </ul>
-<p>The sensor in this first model is <strong>idealized</strong>: it reports the rover’s internal simulated position exactly. It is included to preview the structure of feedback without modeling noise or delay.</p>
-<p>The command values mean:</p>
-<ul>
-<li><code>1</code>: drive forward;</li>
-<li><code>0</code>: stop;</li>
-<li><code>-1</code>: drive backward.</li>
-</ul>
-<h3>Predict before running</h3>
-<p>Complete the final-position cells before running the program:</p>
-<div class="table-scroll"><table><thead><tr><th>Mode</th><th>Command sequence or rule</th><th>Predicted final position (m)</th></tr></thead><tbody><tr><td>Teleoperated</td><td><code>[1, 0, -1, 0]</code></td><td></td></tr><tr><td>Preprogrammed</td><td><code>[1, 1, 1, 0]</code></td><td></td></tr><tr><td>Autonomous</td><td>Move forward while measured position is below \(2.0\ \text{m}\)</td><td></td></tr></tbody></table></div>
-<p>The program is deliberately small. It does not model a real motor, battery, or noisy sensor. It is a learning model for separating hardware from decision authority.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7-compatible RoboRover Class 1 experiment
+<p>The simulated rover starts \(1.20\ \text{m}\) from the wall and tries to maintain \(0.50\ \text{m}\).</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>import random
+import matplotlib.pyplot as plt
 
-class RoboRover:
-    def __init__(self, speed_m_per_s=0.5):
-        self.position_m = 0.0
-        self.speed_m_per_s = speed_m_per_s
+# Desired distance from RoboRover to the wall, in metres.
+target_distance = 0.50
 
-    def step(self, command, duration_s):
-        &quot;&quot;&quot;Move according to a command for a specified time.&quot;&quot;&quot;
-        if command not in (-1, 0, 1):
-            raise ValueError(&quot;command must be -1, 0, or 1&quot;)
+# The rover is allowed to be this far above or below the target.
+deadband = 0.03
 
-        self.position_m += command * self.speed_m_per_s * duration_s
-        return self.position_m
+# Simulation time step, in seconds.
+dt = 0.10
 
-    def read_position_sensor(self):
-        &quot;&quot;&quot;Return an idealized position measurement.&quot;&quot;&quot;
-        return self.position_m
+# Maximum forward or backward speed, in metres per second.
+speed = 0.25
 
+# Starting true distance from the wall, in metres.
+distance = 1.20
 
-def run_rover(mode, target_m=2.0):
-    rover = RoboRover(speed_m_per_s=0.5)
-    positions_m = []
+# A local random generator makes the experiment repeatable.
+rng = random.Random(4)
 
-    if mode == &quot;teleoperated&quot;:
-        # Imagine a human pressing buttons during four one-second intervals.
-        commands = [1, 0, -1, 0]
-        for command in commands:
-            positions_m.append(rover.step(command, 1.0))
+times = []
+distances = []
+commands = []
 
-    elif mode == &quot;preprogrammed&quot;:
-        # A stored sequence runs without a human choosing each step.
-        commands = [1, 1, 1, 0]
-        for command in commands:
-            positions_m.append(rover.step(command, 1.0))
+for step in range(120):
+    time = step * dt
 
-    elif mode == &quot;autonomous&quot;:
-        # Software uses the idealized measured position to choose each command.
-        for unused_step in range(4):
-            measured_position_m = rover.read_position_sensor()
-            if measured_position_m &lt; target_m:
-                command = 1
-            else:
-                command = 0
-            positions_m.append(rover.step(command, 1.0))
+    # Simulate an imperfect distance sensor.
+    noise = rng.uniform(-0.015, 0.015)
+    measured_distance = distance + noise
 
+    error = measured_distance - target_distance
+
+    # Feedback controller:
+    # positive velocity moves toward the wall,
+    # negative velocity moves away from the wall.
+    if error &gt; deadband:
+        velocity = speed
+        command = &quot;forward&quot;
+    elif error &lt; -deadband:
+        velocity = -speed
+        command = &quot;backward&quot;
     else:
-        raise ValueError(&quot;unknown mode&quot;)
+        velocity = 0.0
+        command = &quot;stop&quot;
 
-    return positions_m
+    # Update the true distance using velocity and time.
+    distance = distance - velocity * dt
 
+    # Do not allow the simulated rover to pass through the wall.
+    if distance &lt; 0.05:
+        distance = 0.05
 
-def main():
-    print(&quot;RoboRover Class 1 experiment&quot;)
-    print(&quot;Choose: teleoperated, preprogrammed, or autonomous&quot;)
+    times.append(time)
+    distances.append(distance)
+    commands.append(command)
 
-    try:
-        selected_mode = input(&quot;Mode: &quot;).strip().lower()
-    except EOFError:
-        selected_mode = &quot;autonomous&quot;
+# Executable verification of the experiment&#x27;s exact structural claims.
+assert len(times) == 120
+assert len(distances) == 120
+assert len(commands) == 120
+assert min(distances) &gt;= 0.05
+assert abs(distances[-1] - target_distance) &lt;= 0.10
 
-    if selected_mode not in (&quot;teleoperated&quot;, &quot;preprogrammed&quot;, &quot;autonomous&quot;):
-        print(&quot;Unknown choice; running autonomous mode.&quot;)
-        selected_mode = &quot;autonomous&quot;
+print(&quot;Simulation completed.&quot;)
+print(&quot;Final true distance: {:.3f} m&quot;.format(distances[-1]))
+print(&quot;Final error from target: {:.3f} m&quot;.format(
+    distances[-1] - target_distance
+))
 
-    selected_positions = run_rover(selected_mode)
-    print(&quot;Selected mode:&quot;, selected_mode)
-    print(&quot;Positions after each 1-second step:&quot;, selected_positions)
-    print(&quot;Final position: {:.1f} m&quot;.format(selected_positions[-1]))
-
-    # Verification checks for the experiment&#x27;s exact claims.
-    teleoperated_positions = run_rover(&quot;teleoperated&quot;)
-    preprogrammed_positions = run_rover(&quot;preprogrammed&quot;)
-    autonomous_positions = run_rover(&quot;autonomous&quot;)
-
-    assert teleoperated_positions == [0.5, 0.5, 0.0, 0.0]
-    assert preprogrammed_positions == [0.5, 1.0, 1.5, 1.5]
-    assert autonomous_positions == [0.5, 1.0, 1.5, 2.0]
-
-    assert teleoperated_positions[-1] == 0.0
-    assert preprogrammed_positions[-1] == 1.5
-    assert autonomous_positions[-1] == 2.0
-
-    print(&quot;All verification checks passed.&quot;)
-
-
-if __name__ == &quot;__main__&quot;:
-    main()</code></pre></div>
+plt.plot(times, distances, label=&quot;true distance&quot;)
+plt.axhline(target_distance, color=&quot;red&quot;, linestyle=&quot;--&quot;,
+            label=&quot;target distance&quot;)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;Distance from wall (m)&quot;)
+plt.title(&quot;RoboRover feedback simulation&quot;)
+plt.legend()
+plt.grid(True)
+plt.show()</code></pre></div>
 <p>Important lines:</p>
 <ul>
-<li><code>self.position_m</code> represents RoboRover’s simulated position in metres.</li>
-<li><code>self.speed_m_per_s</code> represents the simplified forward speed.</li>
-<li><code>step()</code> models an actuator command changing the physical position.</li>
-<li><code>read_position_sensor()</code> represents a separate, idealized measurement.</li>
-<li>The teleoperated list represents a human’s immediate choices.</li>
-<li>The preprogrammed list is selected before the run.</li>
-<li>The autonomous mode reads the measured position before choosing forward or stop.</li>
-<li>The <code>assert</code> statements automatically test the exact traces and final positions.</li>
+<li><code>measured_distance = distance + noise</code> separates the true simulated distance from what the sensor reports.</li>
+<li><code>error = measured_distance - target_distance</code> computes the signed error.</li>
+<li>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are the controller.</li>
+<li><code>distance = distance - velocity * dt</code> models the physical result of the motor command.</li>
+<li><code>assert</code> statements check structural and safety claims while the program runs.</li>
 </ul>
-<p>The autonomous model is intentionally modest. It does not understand the whole world. It simply selects a task-level action using an idealized position measurement.</p>
+<p>This is not a complete motor controller. It is a teaching model. It ignores acceleration, wheel slip, sensor delay, and the time needed for a motor to start or stop.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play “control-room operator” with the code.</p>
+<p>Try a human version before changing the code.</p>
+<p>Choose a target distance from a wall, such as 50 centimetres. One person is RoboRover, one is the sensor, and one is the controller.</p>
 <ol>
-<li>Complete the prediction table.</li>
-<li>Run the program once in each mode.</li>
-<li>Compare the printed position lists with your predictions.</li>
-<li>Change the teleoperated command list.</li>
-<li>Predict how the final position will change before running again.</li>
-<li>Change <code>target_m=2.0</code> to <code>1.0</code> in the autonomous call and update the assertions only after reasoning about the result.</li>
+<li>The “sensor” secretly chooses a measurement that is slightly inaccurate.</li>
+<li>The controller announces only one command: <strong>forward</strong>, <strong>backward</strong>, or <strong>stop</strong>.</li>
+<li>RoboRover takes one small step in the commanded direction.</li>
+<li>Measure again and repeat.</li>
 </ol>
-<p>The same simulated chassis, sensor model, and speed are used in every mode. Only the source of the commands changes.</p>
-<p>This is a useful robotics habit:</p>
-<blockquote>When comparing two robot systems, identify which physical components changed and which decision process changed.</blockquote>
+<p>Now play two rounds:</p>
+<ul>
+<li><strong>Round A:</strong> the controller must react to every tiny difference.</li>
+<li><strong>Round B:</strong> the controller uses a deadband: stop when within 4 centimetres of the target.</li>
+</ul>
+<p>Discuss which round produces more unnecessary switching. The second round should usually feel calmer because small measurement differences do not immediately change the command.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>The verification checks show:</p>
-<ul>
-<li>teleoperated RoboRover ends at \(0.0\ \text{m}\);</li>
-<li>preprogrammed RoboRover ends at \(1.5\ \text{m}\);</li>
-<li>autonomous RoboRover ends at \(2.0\ \text{m}\).</li>
-</ul>
-<p>These values follow directly from the commands and the speed of \(0.5\ \text{m/s}\):</p>
-<ul>
-<li>forward for one second changes position by \(+0.5\ \text{m}\);</li>
-<li>stopped for one second changes position by \(0\ \text{m}\);</li>
-<li>backward for one second changes position by \(-0.5\ \text{m}\).</li>
-</ul>
-<p>The important lesson is not that autonomy always gives the “best” result. It is that <strong>decision authority can change while robot identity and hardware remain the same</strong>.</p>
+<p>Predict before you run the Python program:</p>
+<ol>
+<li>RoboRover begins too far from the wall. What should its first movement command be?</li>
+<li>As it approaches the target, should the distance generally increase or decrease?</li>
+<li>Once it enters the deadband, should it keep driving continuously?</li>
+<li>Why might the plotted line not end at exactly \(0.50\ \text{m}\)?</li>
+</ol>
+<p>Expected reasoning:</p>
+<ol>
+<li>The first command should be <strong>forward</strong>, because the measured distance is greater than the target plus the deadband.</li>
+<li>The distance should generally <strong>decrease</strong>.</li>
+<li>It should usually command <strong>stop</strong>, although noisy measurements near the boundary may occasionally cause another movement command.</li>
+<li>The result may differ from exactly \(0.50\ \text{m}\) because the controller acts in time steps, the sensor is noisy, and the rover moves at a fixed speed rather than slowing smoothly.</li>
+</ol>
+<p>Run the program and inspect the graph. Look for the red target line and the changing blue distance line.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: “A robot must be autonomous.”</h3>
-<p>Not under this course convention. A teleoperated rover is still a robot.</p>
-<h3>Mistake 2: “Anything with a sensor is a robot.”</h3>
-<p>Sensors are common in many machines and appliances. A sensor alone does not settle robot identity.</p>
-<h3>Mistake 3: “Preprogrammed means no feedback.”</h3>
-<p>A preprogrammed task can include feedback in a subsystem. An industrial robot arm may follow a stored sequence while its joint controllers use position measurements.</p>
-<h3>Mistake 4: “A sensor trigger always means closed-loop feedback.”</h3>
-<p>A one-shot sensor event that starts a fixed timed sequence is not sustained feedback regulation merely because a sensor was involved. Ask whether later measured state affects the current or a future action.</p>
-<h3>Mistake 5: “The mathematical model is reality.”</h3>
-<p>The Python model assumes constant speed and an idealized position measurement. Real robots experience noise, delay, wheel slip, limited motor torque, calibration errors, and mechanical stops.</p>
+<h3>Mistake 1: Calling every sensor trigger feedback</h3>
+<p>A sensor can start a sequence without creating a continuing feedback loop. Feedback requires that measured information influence a current or future control action. If the robot starts a fixed sequence and ignores later measurements, it is not using sustained feedback regulation for that behavior.</p>
+<h3>Mistake 2: Confusing a sensor with a controller</h3>
+<p>A sensor measures. It does not necessarily decide. The controller interprets measurements and chooses commands.</p>
+<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
+<p>A command such as “move forward” does not guarantee a precise distance. Wheels can slip, motors can differ, and battery voltage can change.</p>
+<h3>Mistake 4: Forgetting units</h3>
+<p>A distance of \(50\) could mean 50 millimetres, centimetres, or metres. Always write the unit. In the Python simulation, distances are in metres.</p>
+<h3>Mistake 5: Using the wrong sign</h3>
+<p>For a wall directly ahead, increasing distance error means the rover is too far away. But the correct movement direction depends on the robot’s geometry and coordinate convention. Define the convention before writing the rule.</p>
+<h3>Mistake 6: Ignoring delay</h3>
+<p>If the sensor reports an old position, RoboRover may continue forward after it has already reached the target. Delays can cause overshoot or oscillation.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
 <h3>Challenge</h3>
-<p>Modify the program so RoboRover has a fourth mode called <code>manual_reverse</code>.</p>
-<p>In this mode, use four commands:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>[1, 1, -1, 0]</code></pre></div>
-<p>Predict the position after each one-second step, then add an assertion that verifies your prediction.</p>
-<p>Explain in one sentence:</p>
-<blockquote>Is <code>manual_reverse</code> a different robot, or the same robot with a different sequence of immediate commands?</blockquote>
+<p>Modify the Python program so that RoboRover has two speed levels:</p>
+<ul>
+<li>use a faster speed when it is far from the wall;</li>
+<li>use a slower speed when it is close to the target but outside the deadband;</li>
+<li>stop inside the deadband.</li>
+</ul>
+<p>Keep the sensor noise and plot. Add an assertion that the final distance is within \(0.10\ \text{m}\) of the target.</p>
+<p>Explain in a comment why slower motion near the target might reduce overshoot.</p>
 <h3>Optional extension</h3>
-<p>Keep the original <code>RoboRover</code> class unchanged and create a separate miniature example of sensor error:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>class SensorErrorExample:
-    def __init__(self, actual_position_m=0.0, error_m=0.1):
-        self.actual_position_m = actual_position_m
-        self.error_m = error_m
-
-    def read_position_sensor(self):
-        return self.actual_position_m + self.error_m
-
-
-example = SensorErrorExample(actual_position_m=1.5, error_m=0.1)
-
-print(&quot;Actual position:&quot;, example.actual_position_m)
-print(&quot;Measured position:&quot;, example.read_position_sensor())
-
-assert example.read_position_sensor() == 1.6</code></pre></div>
-<p>This example separates the actual position from the measured position. A real autonomous controller would use the measurement, not direct access to the actual value.</p>
-<p>Discuss how a measurement error could cause software to stop too early or continue too long. This is only a preview; later classes will address more realistic sensor models.</p>
+<p>Add a simulated sensor failure. For example, once every 40 steps, make the sensor return <code>None</code>. Decide what a cautious controller should do when it has no valid measurement.</p>
+<p>One reasonable beginner policy is to stop the motors until a valid measurement returns. This is not the only possible policy, but it makes the safety assumption explicit.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>Under the course working description, can a teleoperated rover be a robot?</li>
-</ol>
-<ol>
-<li>What is the environment for RoboRover?</li>
-</ol>
-<ol>
-<li>Which system is normally not called a robot but clearly uses feedback: a timer-controlled traffic signal or a thermostat?</li>
-</ol>
-<ol>
-<li>What is the difference between robot identity and decision authority?</li>
+<li>What is the main job of a sensor in a robot?</li>
+<li>RoboRover’s target distance is \(0.60\ \text{m}\), and its measured distance is \(0.45\ \text{m}\). Calculate the signed distance error and state whether the rover is too far or too close.</li>
+<li>Why does RoboRover’s repeated measurement make its wall-distance behavior feedback control?</li>
+<li>Which statement is correct?</li>
+<p>A. Feedback always means the robot is autonomous. B. A robot can use feedback while following a preprogrammed task. C. An actuator only stores measurements. D. A sensor directly supplies mechanical power.</p>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li><strong>Yes.</strong> RoboRover is a physical machine whose controlled actuators perform a physical task. A human selects the immediate motion, but that does not remove its robot identity.</li>
+<li>A sensor measures a property of the robot or its environment and produces information for the controller.</li>
+<li>Using \(e = d_{\text{measured}} - d_{\text{target}}\):</li>
 </ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.45\ \text{m} - 0.60\ \text{m} = -0.15\ \text{m}\]</span></div>
+<p>The negative error means RoboRover is \(0.15\ \text{m}\) too close.</p>
 <ol>
-<li>The environment includes relevant things outside the machine boundary, such as the floor, walls, boxes, lighting, people, and other objects. The exact boundary is a modeling choice for analyzing the system; it does not imply that every communication, power, or force source is part of the robot.</li>
-</ol>
-<ol>
-<li><strong>The thermostat.</strong> Its measured temperature affects whether heating turns on or off. The timer-controlled traffic signal follows its timing schedule in the behavior described.</li>
-</ol>
-<ol>
-<li>Robot identity describes the physical machine and its controlled physical task. Decision authority describes who or what selects the immediate action: a human operator, a preprogrammed controller, or autonomous software.</li>
+<li>The rover measures its distance, changes its motor command based on that measurement, moves, and measures again. The result affects future action.</li>
+<li><strong>B</strong> is correct. A preprogrammed task can contain feedback control.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>In a real RoboRover, the command “drive forward” might pass through several layers:</p>
-<ol>
-<li>a human, stored task, or autonomous program selects a desired action;</li>
-<li>a motor controller sends electrical power to the wheel motors;</li>
-<li>the wheels produce force against the floor;</li>
-<li>sensors may measure wheel rotation, position, distance, or obstacles;</li>
-<li>later commands may be adjusted using those measurements.</li>
-</ol>
-<p>The exact system boundary depends on the engineering question. For example, the rover’s onboard computer and sensors may be included as robot components, while a remote operator, communication link, or external power source may be modeled as outside the robot. Commands, measurements, energy, and environmental forces can still cross that boundary.</p>
-<p>Even this simple chain has failure modes:</p>
+<p>A real robot often contains several nested Sense → Think → Act loops.</p>
+<p>For example, a mobile rover might have:</p>
 <ul>
-<li>a motor may not start at low power;</li>
-<li>left and right wheels may rotate at different speeds;</li>
-<li>a sensor may report noisy or delayed measurements;</li>
-<li>a battery may provide less voltage as it discharges;</li>
-<li>a wheel may slip on a smooth floor;</li>
-<li>a physical bumper may limit motion.</li>
+<li>a high-level program deciding where to go;</li>
+<li>a distance controller keeping away from obstacles;</li>
+<li>wheel-speed controllers using encoder feedback;</li>
+<li>motor electronics converting commands into electrical power.</li>
 </ul>
-<p>Robotics engineering is the practice of making useful physical behavior despite these imperfections.</p>
-<p>Before moving on, retrieve the three questions from this class:</p>
+<p>These loops can operate at different speeds. A high-level decision might change once per second, while a motor controller may update much more frequently.</p>
+<p>The same basic pattern appears in a robotic arm, but the measured quantity may be joint angle instead of wall distance. The controller compares a desired joint angle with a measured angle and commands a motor.</p>
+<p>Important engineering realities include:</p>
 <ul>
-<li>What physical machine and task are we analyzing?</li>
-<li>What is inside the machine boundary, and what is in the environment?</li>
-<li>Who or what selects the next action, and what measurements can influence it?</li>
+<li><strong>Noise:</strong> measurements fluctuate even when the robot is still.</li>
+<li><strong>Calibration:</strong> a sensor’s reported 0.50 m may not equal the true 0.50 m.</li>
+<li><strong>Latency:</strong> information and commands take time to travel through electronics and software.</li>
+<li><strong>Saturation:</strong> a motor cannot exceed its physical speed or torque limit.</li>
+<li><strong>Mechanical limits:</strong> wheels, joints, and linkages cannot move through walls or beyond their stops.</li>
+<li><strong>Model assumptions:</strong> a simulation may assume perfect straight motion, while a real rover may curve because its motors differ.</li>
 </ul>
+<p>Next class, we will focus on the “think” part by writing RoboRover’s first simple robot brain in Python. We will turn sensor-like inputs into decisions using variables, conditions, and functions.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Robot:</strong> For this course, a robot is a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.</p>
-<p><strong>Machine:</strong> A physical system designed to transform energy and information into useful action.</p>
-<p><strong>Environment:</strong> The relevant world outside the robot’s machine boundary that can affect the robot or be affected by it.</p>
-<p><strong>Actuator:</strong> A device that creates physical action, such as a motor, wheel drive, or gripper mechanism.</p>
-<p><strong>Decision authority:</strong> The person, stored controller, or software that selects the robot’s immediate action.</p>
-<p><strong>Teleoperation:</strong> Operation in which a human selects immediate commands for a robot, usually through a remote controller or interface.</p>
-<p><strong>Preprogrammed task execution:</strong> Operation in which a stored sequence or rule selects actions according to instructions prepared in advance.</p>
-<p><strong>Autonomy:</strong> The ability of software to select task-level actions without a human choosing every immediate motion.</p>
-<p><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future control action in relation to a desired behavior or state.</p>
-<p><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</p>
-<p><strong>Sensor:</strong> A device that measures some aspect of the robot or environment.</p>
+<ul>
+<li><strong>Actuator:</strong> A device that converts a control command into physical action, such as a motor moving a wheel.</li>
+<li><strong>Controller:</strong> The hardware, software, or combined system that uses measurements and rules to select actuator commands.</li>
+<li><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future action in relation to desired behavior.</li>
+<li><strong>Deadband:</strong> An acceptable range around a target in which the controller does not change or continue an action.</li>
+<li><strong>Distance error:</strong> The difference between measured distance and target distance, calculated here as \(e = d_{\text{measured}} - d_{\text{target}}\).</li>
+<li><strong>Sensor:</strong> A device that measures a property of the robot or its environment.</li>
+<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
+<li><strong>Autonomy:</strong> The ability of software or a robot system to select task-level actions without immediate human selection of each action.</li>
+</ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>To deepen this class, investigate these topics in this order:</p>
+<p>Useful search-friendly topics for later study include:</p>
+<ul>
+<li>“robot sensors and actuators introduction”</li>
+<li>“feedback control block diagram”</li>
+<li>“deadband threshold controller robotics”</li>
+<li>“wheel encoder fundamentals”</li>
+<li>“Python matplotlib beginner plotting”</li>
+</ul>
+<p>When studying examples, always ask three questions:</p>
 <ol>
-<li>Read an introductory explanation of <strong>robot sensors, actuators, and controllers</strong>.</li>
-<li>Look for engineering demonstrations of <strong>teleoperated mobile robots</strong>.</li>
-<li>Compare a <strong>thermostat feedback loop</strong> with a timer-controlled device.</li>
-<li>Sketch the machine boundary around RoboRover and label every signal, force, and energy flow you can identify.</li>
+<li>What is being measured?</li>
+<li>What decision uses the measurement?</li>
+<li>What physical action changes as a result?</li>
 </ol>
-<p>As you study, keep asking:</p>
-<blockquote>What is the physical task, and who or what chooses the next action?</blockquote>
-<p>Those questions will remain useful throughout the course.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 2, <strong>Sense → Think → Act</strong>, we will examine the basic cycle inside many robotic systems:</p>
-<ul>
-<li><strong>Sense:</strong> gather information with sensors;</li>
-<li><strong>Think:</strong> interpret information and choose an action;</li>
-<li><strong>Act:</strong> use actuators to affect the environment.</li>
-</ul>
-<p>This cycle will build directly on today’s machine–environment boundary and decision-authority ideas. We will begin examining how information moves through a robot, without yet needing advanced algorithms.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 02 · Sense → Think → Act</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
+<p>RoboRover will move from a simulated control loop to a small program that makes explicit decisions. You will practice variables, conditions, and reusable functions while keeping the same Sense → Think → Act structure.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -535,7 +499,7 @@ assert example.read_position_sensor() == 1.6</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=1,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=2,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

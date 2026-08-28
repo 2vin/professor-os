@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small wheeled educational robot rover with ultrasonic or time-of-flight distance sensor facing wall, robotics lab photograph",
+  "media_style": "photo",
+  "reason": "The lesson already provides strong generated diagrams for the abstract loop, but a restrained real photograph of a small rover, distance sensor, wheels, and wall would ground the hardware vocabulary and help students connect the simulation to an actual robotic system. It should be used as contextual evidence rather than decoration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
