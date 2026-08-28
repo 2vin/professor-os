@@ -1,0 +1,7 @@
+{
+  "title": "Sense \u2192 Think \u2192 Act: Build RoboRover\u2019s First Feedback Control Loop",
+  "description": "A beginner-friendly robotics lesson connecting sensors, controllers, actuators, signed error, deadband, and a Python simulation of wall-distance control.",
+  "commentary": "A robot does not simply receive a command and move. It measures what happened, compares that result with a goal, and chooses what to do next.\n\nIn this Professor OS lesson, students:\n\n\u2022 Trace the Sense \u2192 Think \u2192 Act loop through a mobile rover\n\u2022 Distinguish sensors, controllers, actuators, feedback, autonomy, and preprogrammed behavior\n\u2022 Calculate signed distance error with units\n\u2022 See how a deadband reduces unnecessary switching\n\u2022 Run and modify a noisy Python simulation\n\nThe lesson also introduces real engineering complications\u2014noise, delay, calibration, saturation, wheel slip, and mechanical limits\u2014without losing the beginner-friendly core idea.\n\nTry the lab, then change the noise level, deadband, or speed and observe how the rover\u2019s behavior changes. What would your controller do if the sensor failed?\n\n#Robotics #ControlSystems #Python #STEMEducation",
+  "thumbnail_alt_text": "RoboRover feedback loop with sensor, controller, motor, and wall",
+  "source": "https://professor-os.onrender.com/lessons/002-sense-think-act/"
+}
