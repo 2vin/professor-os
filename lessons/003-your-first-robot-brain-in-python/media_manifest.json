@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational mobile robot rover with front ultrasonic or infrared distance sensor on an indoor testing lane",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the simulation in plausible hardware and help students connect the abstract sensor-variable-decision-actuator pipeline to an actual rover. It should be documentary and technically clear rather than decorative.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
