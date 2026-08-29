@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration of a small wheeled educational rover named RoboRover traveling along a precisely marked laboratory track from 0 m to 5 m, with clear physical distance markers, a stopwatch concept, directional motion arrow, and restrained technical annotation showing distance, time, and velocity as separate ideas. Technically plausible differential-drive robot, realistic materials and lighting, clean modern engineering publication style, no decorative sci-fi elements, no clutter, no watermarks, minimal readable labels.",
+    "caption": "RoboRover\u2019s motion connects position, distance, speed, direction, and elapsed time.",
+    "alt_text": "A small wheeled rover moves along a meter-marked test track beside a stopwatch and a directional arrow, illustrating distance, timing, speed, and velocity."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical educational diagram showing the relationship distance equals speed multiplied by time using one RoboRover traveling on a straight track. Divide the composition into three coordinated visual panels: a measuring tape for distance in meters, a stopwatch for time in seconds, and a motion arrow labeled with speed in meters per second. Include a simple triangular relationship layout without excessive text. Premium robotics textbook style, precise geometry, high visual clarity, restrained colors.",
+      "caption": "Distance, speed, and time are three views of the same motion event.",
+      "alt_text": "A technical diagram links distance, speed, and time using a rover, a measuring tape, a stopwatch, and a motion arrow."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Realistic engineering illustration of RoboRover on a straight coordinate track, beginning at x = 1.2 m and ending at x = 4.8 m, with a clearly indicated positive x-direction arrow and a four-second stopwatch interval. Show the 3.6 m traveled segment as a highlighted dimension line. Technically plausible small differential-drive rover, clean laboratory floor, premium educational robotics publication, labels limited to essential coordinate and distance information.",
+      "caption": "The positive coordinate change is 3.6 m, and dividing by 4.0 s gives an average velocity of +0.9 m/s.",
+      "alt_text": "A rover travels rightward on an x-axis from 1.2 meters to 4.8 meters while a four-second interval and a 3.6-meter distance are highlighted."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional technical visualization of a position-versus-time simulation for RoboRover. Show a straight rising line made from regularly spaced circular sample points at half-second intervals, beginning at position 0 m and ending at 4.5 m at 6 s. Include a small inset of Python-style loop concepts represented visually by a clock and repeated sampling markers, but avoid dense code text. Premium robotics textbook diagram, precise axes, clear units, restrained modern styling.",
+      "caption": "Equal time steps produce regularly spaced position samples when the simulated speed is constant.",
+      "alt_text": "A position-time graph shows RoboRover\u2019s position increasing along a straight line from zero meters at zero seconds to 4.5 meters at six seconds, with evenly spaced sample points."
+    }
+  ]
+}
