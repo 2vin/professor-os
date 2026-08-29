@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real educational mobile robot on meter-marked test track with stopwatch and wheel encoder, robotics classroom laboratory",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract equations in physical hardware and make wheel slip, unequal motors, track markings, and timing measurement easier to recognize. It should support the explanation rather than replace the planned diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
