@@ -1,0 +1,8 @@
+{
+  "title": "Teach a Robot Brain in Python: Variables, Decisions, Loops, and Sensor Feedback",
+  "description": "A beginner robotics lesson that turns Sense\u2013Think\u2013Act into executable Python through threshold decisions, battery state, prediction, tracing, and simulation experiments.",
+  "commentary": "A robot brain does not begin with advanced AI. It can begin with a variable, a decision, and a loop.\n\nThis Professor OS lesson introduces robotics programming through a deterministic RoboRover simulation. Students learn to:\n\n\u2022 store sensor readings and changing battery state;\n\u2022 distinguish assignment from comparison;\n\u2022 map distance thresholds to drive, slow, and clean actions;\n\u2022 trace loop iterations and verify predictions with assertions;\n\u2022 recognize real-world limits such as noise, calibration, latency, and actuator saturation.\n\nThe strongest teaching move is to have learners predict the action sequence and battery estimate before running the code. That turns execution into an experiment rather than a passive demonstration.\n\nTry the lab with a new sensor list, calculate the result by hand, then compare the prediction with the trace. What rule would you add first for low battery or noisy measurements?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Python #STEM #Education",
+  "thumbnail_alt_text": "Mobile robot rover connected to a Python sensor-decision-actuator workflow",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
