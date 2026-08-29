@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 2: Sense → Think → Act · Professor OS</title>
+<title>Class 3: Your First Robot Brain in Python · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,9 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -38,461 +35,547 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="2">
+<body data-class="3">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_03</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_03</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 03 · Foundations</div><h1>Your First Robot Brain in Python</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>variables, decisions, loops</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Sense → Think → Act</h2>
+      <h2>Class podcast · Your First Robot Brain in Python</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-03-your-first-robot-brain-in-python.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 3: Your First Robot Brain in Python</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we asked, “What is a robot?” We learned that a robot is a physical machine whose controlled actuators perform a physical task. The action may be selected by a human, a preprogrammed controller, or autonomous software.</p>
-<p>We also separated two ideas that are often mixed together:</p>
-<ul>
-<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
-<li><strong>Decision authority:</strong> who or what selects its immediate actions.</li>
-</ul>
-<p>A teleoperated rover can be a robot even when a human chooses its movements. An autonomous vacuum can be a robot because software selects its task-level actions. A thermostat can use feedback without normally being called a robot.</p>
-<p>Today we open the robot’s “body and brain” and study the repeating pattern behind many robotic systems:</p>
+<p>In Class 1, we explored what engineers commonly mean by a <strong>robot</strong>: a physical machine whose controlled actuators perform a physical task. In Class 2, RoboRover followed the basic cycle:</p>
 <blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover will use this pattern to keep a safe distance from a wall.</p>
+<p>RoboRover sensed something in its environment, selected a response, and used motors or another actuator to change the world.</p>
+<p>Today we begin writing the <strong>think</strong> part.</p>
+<p>A robot brain does not need to begin with advanced artificial intelligence. It can start with three powerful programming ideas:</p>
+<ol>
+<li><strong>Variables</strong> store changing information.</li>
+<li><strong>Decisions</strong> choose an action.</li>
+<li><strong>Loops</strong> repeat the robot’s behavior.</li>
+</ol>
+<p>Together, these ideas let RoboRover respond differently to different sensor readings instead of performing exactly the same action every time.</p>
+<p>In the next class, we will study <strong>coordinates</strong>: a formal way for robots to describe where objects and places are in space. Today we will use simple quantities such as battery level, dust amount, and sensor readings without building a complete map.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ol>
-<li>Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do.</li>
-<li>Trace information through a robot from measurement to movement.</li>
-<li>Explain feedback as measurement that changes a current or future control action.</li>
-<li>Calculate a simple distance error with units.</li>
-<li>Recognize why real robots struggle with noise, delay, calibration, and mechanical limits.</li>
-<li>Build and run a small Python simulation of RoboRover’s feedback behavior.</li>
-</ol>
+<ul>
+<li>explain a variable as a named storage place for a value;</li>
+<li>distinguish assignment from comparison;</li>
+<li>use <code>if</code>, <code>elif</code>, and <code>else</code> to make decisions;</li>
+<li>use a <code>for</code> loop to repeat a behavior;</li>
+<li>trace a short robot program by hand;</li>
+<li>explain why real robot programs must handle low battery, noisy sensors, and limited actuators;</li>
+<li>modify a small RoboRover simulation and predict its behavior before running it.</li>
+</ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine a robot arm picking up a cup.</p>
+<p>Imagine RoboRover has an infrared sensor pointed toward an obstacle.</p>
 <ul>
-<li>The arm is a <strong>physical machine</strong>.</li>
-<li>Its motors create controlled movement.</li>
-<li>A human, a stored program, or autonomous software may choose the task.</li>
-<li>Sensors may measure joint angle, force, or the cup’s location.</li>
-<li>The robot’s status and its control mode are separate questions.</li>
+<li><strong>Sense:</strong> the sensor reports a distance.</li>
+<li><strong>Think:</strong> the controller decides whether to continue or stop.</li>
+<li><strong>Act:</strong> the motors move or halt the wheels.</li>
 </ul>
-<p>Last class, we previewed <strong>feedback</strong>:</p>
-<blockquote>A measured state or output influences a current or future control action in relation to a desired state.</blockquote>
-<p>For example, a thermostat measures room temperature and changes heating behavior when the measured temperature differs from the desired temperature. Feedback does not have to mean smooth or continuous adjustment. A threshold rule can also be feedback if a measurement changes what happens next.</p>
-<p>Today we will place these ideas into a complete robot loop.</p>
+<p>The important point is that “think” is not mysterious. It is a sequence of instructions operating on information.</p>
+<p>A simple controller might say:</p>
+<ul>
+<li>if the obstacle is far away, drive;</li>
+<li>otherwise, stop.</li>
+</ul>
+<p>That is already a decision-making system. It is small, but it has the same basic structure as much larger robot software.</p>
+<p>One distinction matters:</p>
+<ul>
+<li>A <strong>sensor reading</strong> describes something measured.</li>
+<li>A <strong>variable</strong> is the program’s named storage location for that information.</li>
+<li>A <strong>decision</strong> uses the stored value to select an action.</li>
+<li>An <strong>actuator command</strong> tells a motor, gripper, light, or other device what to do.</li>
+</ul>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The measured result returns to the controller, so the next action depends on what actually happened.</p>
-<p>RoboRover is facing a wall. It should stop about 0.50 metres away.</p>
-<p>An illustrator could draw four blocks:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>        desired distance
-             0.50 m
-                |
-                v
-Wall &lt;--- sensor measurement &lt;--- RoboRover
-                                      |
-                                      v
-                              Controller compares
-                              desired and measured
-                                      |
-                                      v
-                              Motor command
-                                      |
-                                      v
-                              Wheels move rover
-                                      |
-                                      +---- new distance ----&gt; sensor</code></pre></div>
-<p>The loop is:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Flow diagram showing sensor reading to variables to conditional decision to robot action and updated battery state."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Notice how stored information flows through a decision and produces an action that changes the robot's state.</p>
+<p>A robot program is like a lab notebook that can update itself.</p>
+<p>Suppose RoboRover begins with 30 battery percentage points. After driving, the amount changes. A variable called <code>battery</code> can hold the current estimate:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
+print(battery)</code></pre></div>
+<p>The equals sign here means:</p>
+<blockquote>Put the value on the right into the named storage place on the left.</blockquote>
+<p>It does <strong>not</strong> mean that <code>battery</code> and <code>30.0</code> are permanently identical.</p>
+<p>Later, the program can update it:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
+battery = battery - 4.0
+print(battery)</code></pre></div>
+<p>This means:</p>
 <ol>
-<li><strong>Sense:</strong> a distance sensor estimates how far RoboRover is from the wall.</li>
-<li><strong>Think:</strong> the controller compares the measurement with the desired distance.</li>
-<li><strong>Act:</strong> motors turn the wheels forward, backward, or not at all.</li>
-<li><strong>Sense again:</strong> the new position is measured.</li>
+<li>look up the current value of <code>battery</code>;</li>
+<li>subtract <code>4.0</code>;</li>
+<li>store the new result back in <code>battery</code>.</li>
 </ol>
-<p>The fourth step matters. Without measuring again, the robot cannot tell whether its action worked.</p>
-<p>This is a simple <strong>feedback control loop</strong>. The word “control” here means choosing an action to influence a physical system, not merely issuing a one-time command.</p>
+<p>A decision is a fork in the robot’s reasoning:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>                 obstacle distance
+                        |
+             ┌──────────┴──────────┐
+        distance &gt;= 50 cm       otherwise
+             |                       |
+          drive                    stop</code></pre></div>
+<p>A loop is the robot returning to the same instructions repeatedly:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>sense → decide → act
+  ↑               |
+  └──── repeat ───┘</code></pre></div>
+<p>This repeated cycle is the first practical form of a robot controller.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover as a small wheeled platform with:</p>
+<p>Picture RoboRover inside a narrow testing lane.</p>
 <ul>
-<li>a forward-facing distance sensor,</li>
-<li>two powered wheels,</li>
-<li>a small computer,</li>
-<li>a battery,</li>
-<li>and a wall several centimetres away.</li>
+<li>On the left is a battery gauge.</li>
+<li>In front of RoboRover is a sensor pointing down the lane.</li>
+<li>A small display shows the current sensor reading.</li>
+<li>Each loop iteration is one “thinking moment.”</li>
+<li>At the end of each iteration, RoboRover either drives, slows, or cleans.</li>
 </ul>
-<p>Suppose RoboRover is too far from the wall. The controller might command both wheels to turn forward.</p>
-<p>Now suppose it is too close. The controller might command both wheels to turn backward.</p>
-<p>If it is within an acceptable zone, the controller stops the wheels.</p>
-<p>The desired distance is not a command such as “drive forward for three seconds.” It is a condition the robot tries to maintain.</p>
-<p>A useful visual detail is to draw a shaded <strong>acceptable zone</strong> around the target:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>too far          acceptable zone          too close
-------|-----------------|-----------------|------
-     0.56 m            0.50 m             0.44 m
-       forward             stop              reverse</code></pre></div>
-<p>The boundaries in this drawing are examples. The exact values depend on the robot, sensor, and task.</p>
+<p>An illustrator could show four snapshots arranged left to right:</p>
+<ol>
+<li>The sensor reads <code>72</code>.</li>
+<li>RoboRover decides “drive.”</li>
+<li>Battery decreases.</li>
+<li>The loop returns to take the next reading.</li>
+</ol>
+<p>Then show a second snapshot where the sensor reads <code>18</code>. RoboRover decides “clean” rather than “drive.”</p>
+<p>The important visual feature is not a human-like robot face. It is the changing information:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>sensor reading → decision rule → action → updated battery</code></pre></div>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Sensors: the robot’s measuring instruments</h3>
-<p>A <strong>sensor</strong> measures some property of the robot or its environment and produces information that the controller can use.</p>
-<p>Examples include:</p>
+<h3>1. Variables: named information</h3>
+<p>A variable can contain a number, a word, or a true/false value.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
+mode = &quot;patrol&quot;
+obstacle_detected = False
+
+print(battery, mode, obstacle_detected)</code></pre></div>
+<p>Here:</p>
 <ul>
-<li>a distance sensor measuring separation from an object,</li>
-<li>a wheel encoder measuring wheel rotation,</li>
-<li>a camera measuring patterns of light,</li>
-<li>a temperature sensor measuring thermal conditions,</li>
-<li>a bumper switch reporting contact.</li>
+<li><code>battery</code> contains a number;</li>
+<li><code>mode</code> contains text;</li>
+<li><code>obstacle_detected</code> contains a Boolean value, either <code>True</code> or <code>False</code>.</li>
 </ul>
-<p>A sensor does not automatically “understand” its surroundings. It produces a signal or value. Software and electronics interpret that value.</p>
-<h3>Controller: the decision-making mechanism</h3>
-<p>A <strong>controller</strong> receives measurements and selects commands.</p>
-<p>For RoboRover, the controller could follow this rule:</p>
+<p>Good variable names make robot code easier to inspect:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
+motor_power_percent = 40
+
+print(distance_cm, motor_power_percent)</code></pre></div>
+<p>The suffix <code>_cm</code> reminds us that the distance is measured in centimetres. A number without a unit can be dangerous in engineering.</p>
+<h3>2. Decisions: selecting an action</h3>
+<p>Python uses a conditional statement:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
+
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+else:
+    action = &quot;stop&quot;
+
+print(action)</code></pre></div>
+<p>The indented lines belong to the decision.</p>
+<p>Common comparison operators include:</p>
+<div class="table-scroll"><table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>&gt;</code></td><td>greater than</td></tr><tr><td><code>&lt;</code></td><td>less than</td></tr><tr><td><code>&gt;=</code></td><td>greater than or equal to</td></tr><tr><td><code>&lt;=</code></td><td>less than or equal to</td></tr><tr><td><code>==</code></td><td>equal to</td></tr><tr><td><code>!=</code></td><td>not equal to</td></tr></tbody></table></div>
+<p>A frequent beginner error is confusing <code>=</code> with <code>==</code>.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery = 25.0       # assignment: store a value
+is_full = battery == 25.0  # comparison: ask whether they are equal
+
+print(battery, is_full)</code></pre></div>
+<p>A robot often needs more than two choices:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
+
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
+
+print(action)</code></pre></div>
+<p>Python tests the conditions from top to bottom and uses the first true branch.</p>
+<h3>3. Loops: repeating the controller</h3>
+<p>A <code>for</code> loop repeats instructions a known number of times or once for each item in a collection:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>for cycle in range(3):
+    print(&quot;Sense, think, act&quot;, cycle)</code></pre></div>
+<p>The values produced by <code>range(3)</code> are <code>0</code>, <code>1</code>, and <code>2</code>, so the body runs three times.</p>
+<p>A loop does not automatically make a robot intelligent. It simply gives the controller repeated opportunities to sense and respond. The quality of the behavior still depends on:</p>
 <ul>
-<li>If the wall is farther than the target zone, drive forward.</li>
-<li>If the wall is closer than the target zone, drive backward.</li>
-<li>Otherwise, stop.</li>
+<li>the sensor data;</li>
+<li>the decision rules;</li>
+<li>the actuator commands;</li>
+<li>safety limits;</li>
+<li>timing and calibration.</li>
 </ul>
-<p>This is a threshold controller. It is simple, but it is still feedback because new measurements affect later motor commands.</p>
-<h3>Actuators: the parts that create physical change</h3>
-<p>An <strong>actuator</strong> converts a command into physical action.</p>
-<p>Examples include:</p>
-<ul>
-<li>electric motors turning wheels,</li>
-<li>a servo moving a joint,</li>
-<li>a pump moving liquid,</li>
-<li>a gripper motor closing fingers,</li>
-<li>a solenoid moving a latch.</li>
-</ul>
-<p>A controller may request “motor speed = 40%,” but the physical actuator may not produce exactly that result. Friction, battery voltage, load, and mechanical wear all matter.</p>
-<h3>Feedback: action informed by results</h3>
-<p>In feedback control, the robot acts, measures the result, and uses that result to decide what to do next.</p>
-<p>This differs from a one-shot sensor trigger. Suppose a sensor detects an obstacle and starts a fixed three-second turn. If the robot does not use later measurements to adjust that turn, many engineers would describe this as a sensor-triggered sequence, not sustained feedback regulation.</p>
-<p>In this course, <strong>sustained feedback regulation</strong> means repeated measurement-and-correction over time.</p>
-<h3>A compact comparison</h3>
-<p>These ideas are related but not identical:</p>
-<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th><th>Example</th></tr></thead><tbody><tr><td>Preprogrammed automation</td><td>Is the sequence specified in advance?</td><td>RoboRover drives forward for 2 seconds, then stops</td></tr><tr><td>Feedback control</td><td>Does measured output or state change the control action?</td><td>RoboRover changes direction based on measured wall distance</td></tr><tr><td>Autonomy</td><td>Does software select task-level actions without immediate human choice?</td><td>RoboRover decides how to approach and inspect several locations</td></tr></tbody></table></div>
-<p>A system can combine these. A preprogrammed robot arm can execute a stored task while its joint motors use feedback. Feedback does not automatically mean autonomy, and autonomy does not require a particular sensor or algorithm.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>To reason about RoboRover’s distance, define the <strong>distance error</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = d_{\text{measured}} - d_{\text{target}}\]</span></div>
+<p>Suppose RoboRover has:</p>
+<ul>
+<li>initial battery estimate: \(B_0 = 30.0\) percentage points;</li>
+<li>drive cost: \(4.0\) percentage points per drive action;</li>
+<li>slow cost: \(2.0\) percentage points per slow action;</li>
+<li>clean cost: \(1.0\) percentage point per clean action.</li>
+</ul>
+<p>For four actions—drive, slow, clean, drive—the final battery estimate is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}} = B_0 - 2C_d - 1C_s - 1C_c\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(e\) is the distance error, in metres (m);</li>
-<li>\(d_{\text{measured}}\) is the current measured distance from RoboRover to the wall, in metres (m);</li>
-<li>\(d_{\text{target}}\) is the desired distance from RoboRover to the wall, in metres (m).</li>
+<li>\(B_{\text{final}}\) is the final battery estimate in percentage points;</li>
+<li>\(B_0\) is the initial battery estimate in percentage points;</li>
+<li>\(C_d = 4.0\) percentage points is the cost of one drive action;</li>
+<li>\(C_s = 2.0\) percentage points is the cost of one slow action;</li>
+<li>\(C_c = 1.0\) percentage point is the cost of one clean action;</li>
+<li>the coefficients <code>2</code>, <code>1</code>, and <code>1</code> count how many times each action occurs.</li>
 </ul>
-<p>Suppose:</p>
-<ul>
-<li>\(d_{\text{measured}} = 0.82\ \text{m}\)</li>
-<li>\(d_{\text{target}} = 0.50\ \text{m}\)</li>
-</ul>
-<p>Then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.82\ \text{m} - 0.50\ \text{m}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.32\ \text{m}\]</span></div>
-<p>The positive sign means RoboRover is too far from the wall. If the rover is facing the wall, it should move forward.</p>
-<p>If instead the measured distance were \(0.41\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.41\ \text{m} - 0.50\ \text{m} = -0.09\ \text{m}\]</span></div>
-<p>The negative sign means RoboRover is too close. It should move backward or otherwise increase its distance.</p>
-<p>A simple travel estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{\Delta d}{v}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(t\) is time, in seconds (s);</li>
-<li>\(\Delta d\) is the distance to travel, in metres (m);</li>
-<li>\(v\) is speed, in metres per second (m/s).</li>
-</ul>
-<p>If RoboRover must travel \(0.32\ \text{m}\) at a constant \(0.20\ \text{m/s}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{0.32\ \text{m}}{0.20\ \text{m/s}} = 1.6\ \text{s}\]</span></div>
-<p>This is an ideal estimate. It assumes perfect measurement, immediate motor response, constant speed, and no slipping. Real robots rarely satisfy all those assumptions.</p>
+<p>Therefore:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}}
+= 30.0 - 2(4.0) - 1(2.0) - 1(1.0)
+= 19.0\]</span></div>
+<p>The unit is <strong>percentage points of the program’s battery estimate</strong>, not necessarily a directly measured physical battery percentage. A real battery monitor would need calibration and electrical measurements.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same target produces different commands because the measured distance changes.</p>
-<p>RoboRover uses a distance sensor aimed at a wall.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Four-panel illustration tracing RoboRover through sensor readings and corresponding drive, slow, clean, and drive actions while its battery estimate decreases."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The same decision rules produce different actions as the sensor reading changes from cycle to cycle.</p>
+<p>RoboRover receives four sensor readings from a front-facing object sensor:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>72, 40, 18, 55</code></pre></div>
+<p>For this teaching simulation:</p>
 <ul>
-<li>Desired distance: \(0.50\ \text{m}\)</li>
-<li>Measured distance: \(0.68\ \text{m}\)</li>
-<li>Acceptable error magnitude: \(0.04\ \text{m}\)</li>
+<li>a reading of at least <code>50 cm</code> means <strong>drive</strong>;</li>
+<li>a reading from <code>20 cm</code> up to but not including <code>50 cm</code> means <strong>slow</strong>;</li>
+<li>a reading below <code>20 cm</code> means <strong>clean</strong>;</li>
+<li>drive costs <code>4.0</code> battery percentage points;</li>
+<li>slow costs <code>2.0</code> battery percentage points;</li>
+<li>clean costs <code>1.0</code> percentage point.</li>
 </ul>
-<p>First calculate the error:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.68\ \text{m} - 0.50\ \text{m} = 0.18\ \text{m}\]</span></div>
-<p>Because \(0.18\ \text{m}\) is greater than the acceptable \(0.04\ \text{m}\), RoboRover is too far away. The controller commands forward motion.</p>
-<p>Later, the sensor reads \(0.52\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.52\ \text{m} - 0.50\ \text{m} = 0.02\ \text{m}\]</span></div>
-<p>The error is now within the acceptable zone because \(0.02\ \text{m} &lt; 0.04\ \text{m}\). The controller commands stop.</p>
-<p>Notice what happened:</p>
-<ul>
-<li>The target did not change.</li>
-<li>The sensor measurement changed.</li>
-<li>The controller selected a different actuator command because of that measurement.</li>
-</ul>
-<p>That is the essential feedback pattern.</p>
-<p>An engineering caveat appears immediately: the sensor may report \(0.52\ \text{m}\) even when the true distance is \(0.50\ \text{m}\). Sensor noise can cause the controller to switch commands unnecessarily. A deadband, such as the \(0.04\ \text{m}\) acceptable zone, helps prevent constant forward-backward switching.</p>
+<p>The reasoning table is:</p>
+<div class="table-scroll"><table><thead><tr><th>Cycle</th><th>Reading</th><th>Decision</th><th>Battery after action</th></tr></thead><tbody><tr><td>1</td><td>72 cm</td><td>drive</td><td>26.0 percentage points</td></tr><tr><td>2</td><td>40 cm</td><td>slow</td><td>24.0 percentage points</td></tr><tr><td>3</td><td>18 cm</td><td>clean</td><td>23.0 percentage points</td></tr><tr><td>4</td><td>55 cm</td><td>drive</td><td>19.0 percentage points</td></tr></tbody></table></div>
+<p>Notice the pattern:</p>
+<ol>
+<li>the loop selects one sensor reading;</li>
+<li>the decisions compare that reading with thresholds;</li>
+<li>the action changes the battery variable;</li>
+<li>the next loop begins with a new reading.</li>
+</ol>
+<p>This is a small example of <strong>state</strong>: information about the robot that changes over time. Battery level is state because later decisions could depend on it.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation separates imperfect measurement from the rover’s true distance and shows the feedback response over time.</p>
-<p>This program simulates RoboRover approaching a wall. It uses:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Instructional loop diagram showing four repeated Python controller iterations with sensor readings, branch choices, actions, and battery updates."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Each loop iteration reads one measurement, selects one branch, performs an action, and updates stored information.</p>
+<p>Before running the program, predict:</p>
 <ul>
-<li>a simulated distance sensor with small random noise;</li>
-<li>a threshold controller;</li>
-<li>a motor command represented by velocity;</li>
-<li>a plot of true distance over time.</li>
+<li>Which action will happen on each cycle?</li>
+<li>How many times will RoboRover drive?</li>
+<li>What will the final battery estimate be?</li>
+<li>How many cleaning actions will occur?</li>
 </ul>
-<p>The simulated rover starts \(1.20\ \text{m}\) from the wall and tries to maintain \(0.50\ \text{m}\).</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import random
-import matplotlib.pyplot as plt
+<div class="code-card"><div class="code-label">python</div><pre><code>def run_rover():
+    sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
 
-# Desired distance from RoboRover to the wall, in metres.
-target_distance = 0.50
+    battery_points = 30.0
+    drive_cost_points = 4.0
+    slow_cost_points = 2.0
+    clean_cost_points = 1.0
 
-# The rover is allowed to be this far above or below the target.
-deadband = 0.03
+    drive_count = 0
+    clean_count = 0
 
-# Simulation time step, in seconds.
-dt = 0.10
+    for cycle_number in range(1, len(sensor_readings_cm) + 1):
+        distance_cm = sensor_readings_cm[cycle_number - 1]
 
-# Maximum forward or backward speed, in metres per second.
-speed = 0.25
+        if distance_cm &gt;= 50.0:
+            action = &quot;drive&quot;
+            battery_points = battery_points - drive_cost_points
+            drive_count = drive_count + 1
+        elif distance_cm &gt;= 20.0:
+            action = &quot;slow&quot;
+            battery_points = battery_points - slow_cost_points
+        else:
+            action = &quot;clean&quot;
+            battery_points = battery_points - clean_cost_points
+            clean_count = clean_count + 1
 
-# Starting true distance from the wall, in metres.
-distance = 1.20
+        print(
+            &quot;Cycle {}: sensor = {:.1f} cm, action = {}, &quot;
+            &quot;battery = {:.1f} percentage points&quot;.format(
+                cycle_number, distance_cm, action, battery_points
+            )
+        )
 
-# A local random generator makes the experiment repeatable.
-rng = random.Random(4)
+    print(&quot;Final battery: {:.1f} percentage points&quot;.format(battery_points))
+    print(&quot;Drive actions:&quot;, drive_count)
+    print(&quot;Clean actions:&quot;, clean_count)
 
-times = []
-distances = []
-commands = []
+    # Executable checks verify the numerical claims for this input.
+    assert round(battery_points, 1) == 19.0
+    assert drive_count == 2
+    assert clean_count == 1
 
-for step in range(120):
-    time = step * dt
 
-    # Simulate an imperfect distance sensor.
-    noise = rng.uniform(-0.015, 0.015)
-    measured_distance = distance + noise
+if __name__ == &quot;__main__&quot;:
+    run_rover()</code></pre></div>
+<h3>Important lines</h3>
+<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
+print(sensor_readings_cm)</code></pre></div>
+<p>This list represents four measurements collected earlier. In a physical robot, a sensor-reading function might replace the list.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
 
-    error = measured_distance - target_distance
+for cycle_number in range(1, len(sensor_readings_cm) + 1):
+    print(&quot;Running cycle&quot;, cycle_number)</code></pre></div>
+<p>This repeats once for every reading. The <code>+ 1</code> is needed because the stop value of <code>range</code> is not included.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
+cycle_number = 1
+distance_cm = sensor_readings_cm[cycle_number - 1]
 
-    # Feedback controller:
-    # positive velocity moves toward the wall,
-    # negative velocity moves away from the wall.
-    if error &gt; deadband:
-        velocity = speed
-        command = &quot;forward&quot;
-    elif error &lt; -deadband:
-        velocity = -speed
-        command = &quot;backward&quot;
-    else:
-        velocity = 0.0
-        command = &quot;stop&quot;
+print(distance_cm)</code></pre></div>
+<p>Python list positions begin at zero. During cycle 1, the program reads position 0.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
 
-    # Update the true distance using velocity and time.
-    distance = distance - velocity * dt
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
 
-    # Do not allow the simulated rover to pass through the wall.
-    if distance &lt; 0.05:
-        distance = 0.05
+print(action)</code></pre></div>
+<p>These branches convert a measurement into an action.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
+battery_points = battery_points - 4.0
 
-    times.append(time)
-    distances.append(distance)
-    commands.append(command)
-
-# Executable verification of the experiment&#x27;s exact structural claims.
-assert len(times) == 120
-assert len(distances) == 120
-assert len(commands) == 120
-assert min(distances) &gt;= 0.05
-assert abs(distances[-1] - target_distance) &lt;= 0.10
-
-print(&quot;Simulation completed.&quot;)
-print(&quot;Final true distance: {:.3f} m&quot;.format(distances[-1]))
-print(&quot;Final error from target: {:.3f} m&quot;.format(
-    distances[-1] - target_distance
-))
-
-plt.plot(times, distances, label=&quot;true distance&quot;)
-plt.axhline(target_distance, color=&quot;red&quot;, linestyle=&quot;--&quot;,
-            label=&quot;target distance&quot;)
-plt.xlabel(&quot;Time (s)&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover feedback simulation&quot;)
-plt.legend()
-plt.grid(True)
-plt.show()</code></pre></div>
-<p>Important lines:</p>
-<ul>
-<li><code>measured_distance = distance + noise</code> separates the true simulated distance from what the sensor reports.</li>
-<li><code>error = measured_distance - target_distance</code> computes the signed error.</li>
-<li>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are the controller.</li>
-<li><code>distance = distance - velocity * dt</code> models the physical result of the motor command.</li>
-<li><code>assert</code> statements check structural and safety claims while the program runs.</li>
-</ul>
-<p>This is not a complete motor controller. It is a teaching model. It ignores acceleration, wheel slip, sensor delay, and the time needed for a motor to start or stop.</p>
+assert round(battery_points, 1) == 26.0
+print(&quot;Battery update passed:&quot;, battery_points)</code></pre></div>
+<p>An assertion is a built-in check. If the program produces a different result, Python reports an error instead of quietly accepting a changed behavior.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Try a human version before changing the code.</p>
-<p>Choose a target distance from a wall, such as 50 centimetres. One person is RoboRover, one is the sensor, and one is the controller.</p>
-<ol>
-<li>The “sensor” secretly chooses a measurement that is slightly inaccurate.</li>
-<li>The controller announces only one command: <strong>forward</strong>, <strong>backward</strong>, or <strong>stop</strong>.</li>
-<li>RoboRover takes one small step in the commanded direction.</li>
-<li>Measure again and repeat.</li>
-</ol>
-<p>Now play two rounds:</p>
+<p>Turn the lab into a prediction game.</p>
+<p>Change only this line:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]</code></pre></div>
+<p>Try:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [15.0, 65.0, 22.0, 49.0]
+print(sensor_readings_cm)</code></pre></div>
+<p>Before running it, write a four-word action prediction.</p>
+<p>Remember the thresholds:</p>
 <ul>
-<li><strong>Round A:</strong> the controller must react to every tiny difference.</li>
-<li><strong>Round B:</strong> the controller uses a deadband: stop when within 4 centimetres of the target.</li>
+<li><code>65.0</code> means drive;</li>
+<li><code>49.0</code> means slow, not drive;</li>
+<li><code>22.0</code> means slow;</li>
+<li><code>15.0</code> means clean.</li>
 </ul>
-<p>Discuss which round produces more unnecessary switching. The second round should usually feel calmer because small measurement differences do not immediately change the command.</p>
+<p>The existing assertions will fail because they verify the original input. That is useful: the assertions are telling you that the expected result must be updated when the experiment changes.</p>
+<p>For a fair experiment:</p>
+<ol>
+<li>predict the action sequence;</li>
+<li>calculate the battery change by hand;</li>
+<li>run the program;</li>
+<li>compare your prediction with the printed trace;</li>
+<li>update the assertions only after you understand the new result.</li>
+</ol>
+<p>You are not merely checking whether Python works. You are testing whether your mental model of the robot brain is correct.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Predict before you run the Python program:</p>
-<ol>
-<li>RoboRover begins too far from the wall. What should its first movement command be?</li>
-<li>As it approaches the target, should the distance generally increase or decrease?</li>
-<li>Once it enters the deadband, should it keep driving continuously?</li>
-<li>Why might the plotted line not end at exactly \(0.50\ \text{m}\)?</li>
-</ol>
-<p>Expected reasoning:</p>
-<ol>
-<li>The first command should be <strong>forward</strong>, because the measured distance is greater than the target plus the deadband.</li>
-<li>The distance should generally <strong>decrease</strong>.</li>
-<li>It should usually command <strong>stop</strong>, although noisy measurements near the boundary may occasionally cause another movement command.</li>
-<li>The result may differ from exactly \(0.50\ \text{m}\) because the controller acts in time steps, the sensor is noisy, and the rover moves at a fixed speed rather than slowing smoothly.</li>
-</ol>
-<p>Run the program and inspect the graph. Look for the red target line and the changing blue distance line.</p>
+<p>For the original readings, the action sequence should be:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>drive → slow → clean → drive</code></pre></div>
+<p>The final battery estimate should be <code>19.0</code> percentage points, with two drive actions and one clean action. These claims are verified by the assertions in the Python program.</p>
+<p>For the modified readings:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>[15.0, 65.0, 22.0, 49.0]</code></pre></div>
+<p>the action sequence should be:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>clean → drive → slow → slow</code></pre></div>
+<p>Work out the new battery estimate before running. Do not rely on the original assertions, because they were written for the original sensor list.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Calling every sensor trigger feedback</h3>
-<p>A sensor can start a sequence without creating a continuing feedback loop. Feedback requires that measured information influence a current or future control action. If the robot starts a fixed sequence and ignores later measurements, it is not using sustained feedback regulation for that behavior.</p>
-<h3>Mistake 2: Confusing a sensor with a controller</h3>
-<p>A sensor measures. It does not necessarily decide. The controller interprets measurements and chooses commands.</p>
-<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
-<p>A command such as “move forward” does not guarantee a precise distance. Wheels can slip, motors can differ, and battery voltage can change.</p>
-<h3>Mistake 4: Forgetting units</h3>
-<p>A distance of \(50\) could mean 50 millimetres, centimetres, or metres. Always write the unit. In the Python simulation, distances are in metres.</p>
-<h3>Mistake 5: Using the wrong sign</h3>
-<p>For a wall directly ahead, increasing distance error means the rover is too far away. But the correct movement direction depends on the robot’s geometry and coordinate convention. Define the convention before writing the rule.</p>
-<h3>Mistake 6: Ignoring delay</h3>
-<p>If the sensor reports an old position, RoboRover may continue forward after it has already reached the target. Delays can cause overshoot or oscillation.</p>
+<h3>Mistake 1: Treating <code>=</code> as a question</h3>
+<p>This is assignment:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
+print(battery_points)</code></pre></div>
+<p>This is comparison:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
+same_value = battery_points == 30.0
+print(same_value)</code></pre></div>
+<p>Using the wrong one can produce a syntax error or a decision that does not mean what you intended.</p>
+<h3>Mistake 2: Misreading threshold boundaries</h3>
+<p>The condition:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
+
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
+
+print(action)</code></pre></div>
+<p>includes exactly <code>50.0</code>.</p>
+<p>The next condition:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 20.0
+
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
+
+print(action)</code></pre></div>
+<p>includes exactly <code>20.0</code>, but it is reached only when the first condition was false. Therefore:</p>
+<ul>
+<li><code>50.0</code> means drive;</li>
+<li><code>20.0</code> means slow;</li>
+<li><code>19.9</code> means clean.</li>
+</ul>
+<p>Boundary values deserve deliberate tests.</p>
+<h3>Mistake 3: Forgetting indentation</h3>
+<p>Python uses indentation to show which instructions belong to a branch or loop. A line at the wrong indentation level may change the robot’s behavior.</p>
+<h3>Mistake 4: Assuming the sensor is perfect</h3>
+<p>A real distance sensor may report:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>49 cm, 51 cm, 49 cm, 50 cm</code></pre></div>
+<p>even when the object has barely moved. RoboRover could switch rapidly between drive and slow. This is a practical failure mode caused by <strong>sensor noise</strong>—small unwanted variations in measurements.</p>
+<p>Later, we will study techniques such as filtering and hysteresis. For now, notice the engineering question: what happens when the reading is near a decision boundary?</p>
+<h3>Mistake 5: Treating a battery estimate as a battery measurement</h3>
+<p>The program subtracts fixed costs for teaching. Real energy use depends on motor load, floor friction, acceleration, voltage, temperature, and battery condition.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge</h3>
-<p>Modify the Python program so that RoboRover has two speed levels:</p>
-<ul>
-<li>use a faster speed when it is far from the wall;</li>
-<li>use a slower speed when it is close to the target but outside the deadband;</li>
-<li>stop inside the deadband.</li>
-</ul>
-<p>Keep the sensor noise and plot. Add an assertion that the final distance is within \(0.10\ \text{m}\) of the target.</p>
-<p>Explain in a comment why slower motion near the target might reduce overshoot.</p>
-<h3>Optional extension</h3>
-<p>Add a simulated sensor failure. For example, once every 40 steps, make the sensor return <code>None</code>. Decide what a cautious controller should do when it has no valid measurement.</p>
-<p>One reasonable beginner policy is to stop the motors until a valid measurement returns. This is not the only possible policy, but it makes the safety assumption explicit.</p>
+<h3>Challenge: add a low-battery rule</h3>
+<p>Modify the program so that RoboRover stops instead of driving when its battery estimate is below <code>10.0</code> percentage points.</p>
+<p>Use this decision structure:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 8.0
+distance_cm = 72.0
+
+if battery_points &lt; 10.0:
+    action = &quot;stop and recharge&quot;
+elif distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
+
+print(action)</code></pre></div>
+<p>Your challenge is to decide where the battery test belongs and how the battery should change for the recharge action.</p>
+<p>Test your program with a longer sensor list and trace every cycle by hand first.</p>
+<p><strong>Optional extension:</strong> add a <code>stop_count</code> variable. Count how many cycles RoboRover chooses <code>"stop and recharge"</code>.</p>
+<p>Do not add random behavior yet. Deterministic inputs make it easier to understand the exact effect of each programming change.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What is the main job of a sensor in a robot?</li>
-<li>RoboRover’s target distance is \(0.60\ \text{m}\), and its measured distance is \(0.45\ \text{m}\). Calculate the signed distance error and state whether the rover is too far or too close.</li>
-<li>Why does RoboRover’s repeated measurement make its wall-distance behavior feedback control?</li>
-<li>Which statement is correct?</li>
-<p>A. Feedback always means the robot is autonomous. B. A robot can use feedback while following a preprogrammed task. C. An actuator only stores measurements. D. A sensor directly supplies mechanical power.</p>
+<li>What is the difference between assignment with <code>=</code> and comparison with <code>==</code>?</li>
+</ol>
+<ol>
+<li>For this code, what action occurs when <code>distance_cm</code> is exactly <code>50.0</code>?</li>
+</ol>
+<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
+
+if distance_cm &gt;= 50.0:
+    action = &quot;drive&quot;
+elif distance_cm &gt;= 20.0:
+    action = &quot;slow&quot;
+else:
+    action = &quot;clean&quot;
+
+print(action)</code></pre></div>
+<ol>
+<li>Why does a robot controller commonly use a loop?</li>
+</ol>
+<ol>
+<li>Why might a real robot behave inconsistently when a sensor reading is close to a decision threshold?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>A sensor measures a property of the robot or its environment and produces information for the controller.</li>
-<li>Using \(e = d_{\text{measured}} - d_{\text{target}}\):</li>
+<li><code>=</code> stores a value in a variable. <code>==</code> asks whether two values are equal.</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.45\ \text{m} - 0.60\ \text{m} = -0.15\ \text{m}\]</span></div>
-<p>The negative error means RoboRover is \(0.15\ \text{m}\) too close.</p>
 <ol>
-<li>The rover measures its distance, changes its motor command based on that measurement, moves, and measures again. The result affects future action.</li>
-<li><strong>B</strong> is correct. A preprogrammed task can contain feedback control.</li>
+<li>The action is <code>"drive"</code> because <code>50.0 &gt;= 50.0</code> is true.</li>
+</ol>
+<ol>
+<li>A loop lets the controller repeatedly sense, decide, and act as the robot operates.</li>
+</ol>
+<ol>
+<li>Sensor noise can make nearby readings change from one loop to the next. The robot may then cross the threshold repeatedly and switch actions.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>A real robot often contains several nested Sense → Think → Act loops.</p>
-<p>For example, a mobile rover might have:</p>
+<p>The Python program is a simplified controller, but its architecture is recognizable in real robotics:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>sensor interface → variables/state → decision logic → actuator command</code></pre></div>
+<p>A physical RoboRover might obtain distance from an ultrasonic or infrared sensor, then send a speed command to motor drivers. The motor drivers would control electrical power to the motors.</p>
+<p>Several engineering realities appear immediately:</p>
 <ul>
-<li>a high-level program deciding where to go;</li>
-<li>a distance controller keeping away from obstacles;</li>
-<li>wheel-speed controllers using encoder feedback;</li>
-<li>motor electronics converting commands into electrical power.</li>
+<li><strong>Latency:</strong> time passes between measuring a distance and commanding a motor.</li>
+<li><strong>Calibration:</strong> a reported <code>50 cm</code> may not equal a true <code>50 cm</code>.</li>
+<li><strong>Saturation:</strong> a motor cannot exceed its physical maximum speed.</li>
+<li><strong>Mechanical limits:</strong> wheels may slip, jam, or fail to turn equally.</li>
+<li><strong>Timing:</strong> a loop that runs too slowly may react late.</li>
+<li><strong>Safety:</strong> stopping should be designed as a safe behavior, not treated as an afterthought.</li>
 </ul>
-<p>These loops can operate at different speeds. A high-level decision might change once per second, while a motor controller may update much more frequently.</p>
-<p>The same basic pattern appears in a robotic arm, but the measured quantity may be joint angle instead of wall distance. The controller compares a desired joint angle with a measured angle and commands a motor.</p>
-<p>Important engineering realities include:</p>
+<p>The program’s <code>battery_points</code> variable is also an example of an internal estimate. It is useful for decisions, but it is not automatically truth. Good robotics software distinguishes measured values, estimated values, and commanded values.</p>
+<p>This class also separates three ideas that are often confused:</p>
 <ul>
-<li><strong>Noise:</strong> measurements fluctuate even when the robot is still.</li>
-<li><strong>Calibration:</strong> a sensor’s reported 0.50 m may not equal the true 0.50 m.</li>
-<li><strong>Latency:</strong> information and commands take time to travel through electronics and software.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical speed or torque limit.</li>
-<li><strong>Mechanical limits:</strong> wheels, joints, and linkages cannot move through walls or beyond their stops.</li>
-<li><strong>Model assumptions:</strong> a simulation may assume perfect straight motion, while a real rover may curve because its motors differ.</li>
+<li><strong>Identity:</strong> RoboRover is a physical robot performing a task.</li>
+<li><strong>Decision authority:</strong> in this simulation, software selects each action.</li>
+<li><strong>Feedback:</strong> the sensor reading influences the current action.</li>
 </ul>
-<p>Next class, we will focus on the “think” part by writing RoboRover’s first simple robot brain in Python. We will turn sensor-like inputs into decisions using variables, conditions, and functions.</p>
+<p>The loop is using a simple threshold-based feedback pattern because a measured distance affects what RoboRover does next. This is not yet advanced control mathematics; it is an introductory decision rule.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Actuator:</strong> A device that converts a control command into physical action, such as a motor moving a wheel.</li>
-<li><strong>Controller:</strong> The hardware, software, or combined system that uses measurements and rules to select actuator commands.</li>
-<li><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future action in relation to desired behavior.</li>
-<li><strong>Deadband:</strong> An acceptable range around a target in which the controller does not change or continue an action.</li>
-<li><strong>Distance error:</strong> The difference between measured distance and target distance, calculated here as \(e = d_{\text{measured}} - d_{\text{target}}\).</li>
-<li><strong>Sensor:</strong> A device that measures a property of the robot or its environment.</li>
-<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
-<li><strong>Autonomy:</strong> The ability of software or a robot system to select task-level actions without immediate human selection of each action.</li>
+<li><strong>Variable:</strong> A named place in a program that stores a value.</li>
+<li><strong>Assignment:</strong> Storing a value in a variable, using <code>=</code>.</li>
+<li><strong>Comparison:</strong> Testing a relationship between values, such as equality or “greater than.”</li>
+<li><strong>Conditional statement:</strong> Code that chooses among actions based on a condition.</li>
+<li><strong>Branch:</strong> One possible path through a conditional statement.</li>
+<li><strong>Loop:</strong> Code that repeats.</li>
+<li><strong>Iteration:</strong> One pass through a loop.</li>
+<li><strong>Boolean:</strong> A value with one of two states: <code>True</code> or <code>False</code>.</li>
+<li><strong>Threshold:</strong> A boundary value used to trigger a decision.</li>
+<li><strong>Sensor noise:</strong> Unwanted variation in a sensor’s reported measurements.</li>
+<li><strong>State:</strong> Information about a system that can change over time and affect later behavior.</li>
+<li><strong>Actuator command:</strong> An instruction sent to a device that produces physical motion or another physical effect.</li>
+<li><strong>Feedback:</strong> A measured state or output influences a current or future control action.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search-friendly topics for later study include:</p>
+<p>Useful search terms for reinforcing today’s ideas:</p>
 <ul>
-<li>“robot sensors and actuators introduction”</li>
-<li>“feedback control block diagram”</li>
-<li>“deadband threshold controller robotics”</li>
-<li>“wheel encoder fundamentals”</li>
-<li>“Python matplotlib beginner plotting”</li>
+<li>Python 3 <code>if</code>, <code>elif</code>, and <code>else</code></li>
+<li>Python 3 <code>for</code> loops and <code>range</code></li>
+<li>Python Boolean expressions</li>
+<li>beginner robotics sense think act</li>
+<li>sensor threshold robot controller</li>
+<li>robotics sensor noise demonstration</li>
 </ul>
-<p>When studying examples, always ask three questions:</p>
+<p>When reading examples, ask three questions:</p>
 <ol>
-<li>What is being measured?</li>
-<li>What decision uses the measurement?</li>
-<li>What physical action changes as a result?</li>
+<li>What information is stored?</li>
+<li>What condition selects the action?</li>
+<li>What repeats, and when does it stop?</li>
 </ol>
+<p>Those questions are more valuable than memorizing individual code fragments.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
-<p>RoboRover will move from a simulated control loop to a small program that makes explicit decisions. You will practice variables, conditions, and reusable functions while keeping the same Sense → Think → Act structure.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>RoboRover can now store sensor information, make threshold-based decisions, and repeat its behavior.</p>
+<p>But a new problem appears: how should the program describe <strong>where</strong> RoboRover is?</p>
+<p>In Class 4, <strong>Coordinates: How Robots Describe Space</strong>, we will introduce positions such as <code>(x, y)</code>. You will learn how a robot can describe a location on a floor, how a coordinate system has an origin and directions, and how sensor observations can be connected to places in the environment.</p>
+<p>Today’s variables hold quantities such as distance and battery. Next class, variables will begin representing <strong>locations in space</strong>.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/002-sense-think-act/"><span>Previous stream</span><b>Class 02 · Sense → Think → Act</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 04 · Coordinates: How Robots Describe Space</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -505,7 +588,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=2,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=3,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
