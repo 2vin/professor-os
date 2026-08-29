@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational mobile robot on a taped x-y floor grid, overhead laboratory photograph, coordinate mapping robotics",
+  "media_style": "photo",
+  "reason": "A restrained real photograph of a rover on a taped floor grid would ground the abstract map-frame discussion and help students distinguish a fixed world frame from the robot's moving body frame. It should supplement, not replace, the precise generated diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
