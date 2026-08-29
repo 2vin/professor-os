@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 3: Your First Robot Brain in Python · Professor OS</title>
+<title>Class 4: Coordinates: How Robots Describe Space · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,9 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -38,550 +35,488 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="3">
+<body data-class="4">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_03</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_04</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_03</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 03 · Foundations</div><h1>Your First Robot Brain in Python</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>variables, decisions, loops</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_04</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 04 · Foundations</div><h1>Coordinates: How Robots Describe Space</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~20 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>x-y plane, origin, distance</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Your First Robot Brain in Python</h2>
+      <h2>Class podcast · Coordinates: How Robots Describe Space</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-03-your-first-robot-brain-in-python.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-04-coordinates-how-robots-describe-space.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 3: Your First Robot Brain in Python</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 4: Coordinates: How Robots Describe Space</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we explored what engineers commonly mean by a <strong>robot</strong>: a physical machine whose controlled actuators perform a physical task. In Class 2, RoboRover followed the basic cycle:</p>
-<blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover sensed something in its environment, selected a response, and used motors or another actuator to change the world.</p>
-<p>Today we begin writing the <strong>think</strong> part.</p>
-<p>A robot brain does not need to begin with advanced artificial intelligence. It can start with three powerful programming ideas:</p>
-<ol>
-<li><strong>Variables</strong> store changing information.</li>
-<li><strong>Decisions</strong> choose an action.</li>
-<li><strong>Loops</strong> repeat the robot’s behavior.</li>
-</ol>
-<p>Together, these ideas let RoboRover respond differently to different sensor readings instead of performing exactly the same action every time.</p>
-<p>In the next class, we will study <strong>coordinates</strong>: a formal way for robots to describe where objects and places are in space. Today we will use simple quantities such as battery level, dust amount, and sensor readings without building a complete map.</p>
+<p>In Class 1, we described what makes a machine commonly count as a robot. In Class 2, RoboRover met sensors, actuators, and controllers. In Class 3, you wrote RoboRover’s first simple Python “brain”: a program that could receive information and choose an action.</p>
+<p>But a robot needs more than the instruction “move over there.”</p>
+<p>Where is “there”? How far away is it? Is the target in front of RoboRover, behind it, or to one side?</p>
+<p>Robots answer these questions using <strong>coordinates</strong>. Coordinates are numbers that describe location. Today we will give RoboRover a simple map: a flat <strong>x-y plane</strong>.</p>
+<p>The next class will build directly on this one. Once RoboRover can describe where it is and how far away something is, we can study <strong>distance and speed</strong> in more detail.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>explain a variable as a named storage place for a value;</li>
-<li>distinguish assignment from comparison;</li>
-<li>use <code>if</code>, <code>elif</code>, and <code>else</code> to make decisions;</li>
-<li>use a <code>for</code> loop to repeat a behavior;</li>
-<li>trace a short robot program by hand;</li>
-<li>explain why real robot programs must handle low battery, noisy sensors, and limited actuators;</li>
-<li>modify a small RoboRover simulation and predict its behavior before running it.</li>
+<li>explain the purpose of an origin and coordinate axes;</li>
+<li>describe a point using an ordered pair \((x, y)\);</li>
+<li>distinguish positive and negative directions;</li>
+<li>calculate distance from the origin;</li>
+<li>calculate the straight-line Euclidean distance between two points on a flat Cartesian map;</li>
+<li>plot RoboRover and targets on a simple coordinate map;</li>
+<li>recognize practical problems such as incorrect scale, drifting position, and confusing robot-relative directions with map directions.</li>
 </ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine RoboRover has an infrared sensor pointed toward an obstacle.</p>
-<ul>
-<li><strong>Sense:</strong> the sensor reports a distance.</li>
-<li><strong>Think:</strong> the controller decides whether to continue or stop.</li>
-<li><strong>Act:</strong> the motors move or halt the wheels.</li>
-</ul>
-<p>The important point is that “think” is not mysterious. It is a sequence of instructions operating on information.</p>
-<p>A simple controller might say:</p>
-<ul>
-<li>if the obstacle is far away, drive;</li>
-<li>otherwise, stop.</li>
-</ul>
-<p>That is already a decision-making system. It is small, but it has the same basic structure as much larger robot software.</p>
-<p>One distinction matters:</p>
-<ul>
-<li>A <strong>sensor reading</strong> describes something measured.</li>
-<li>A <strong>variable</strong> is the program’s named storage location for that information.</li>
-<li>A <strong>decision</strong> uses the stored value to select an action.</li>
-<li>An <strong>actuator command</strong> tells a motor, gripper, light, or other device what to do.</li>
-</ul>
+<p>A program is a sequence of instructions. A robot controller uses instructions and information from the robot’s environment to select actions.</p>
+<p>Imagine this short decision:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>IF the target is close:
+    stop
+ELSE:
+    move</code></pre></div>
+<p>The word <strong>close</strong> requires a measurement. A distance measurement might be supplied by a sensor, calculated from a map, or estimated from previous movement.</p>
+<p>Today we will represent location with numbers so that a program can reason about space instead of using vague words such as “near,” “left,” or “over there.”</p>
+<p><strong>Prediction:</strong> If RoboRover is at location \((3, 4)\) on a map, which number tells us its horizontal position: 3 or 4?</p>
+<p>The answer is 3. In an ordered pair \((x, y)\), the first number is \(x\), the horizontal coordinate. The second number is \(y\), the vertical coordinate.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Flow diagram showing sensor reading to variables to conditional decision to robot action and updated battery state."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Notice how stored information flows through a decision and produces an action that changes the robot's state.</p>
-<p>A robot program is like a lab notebook that can update itself.</p>
-<p>Suppose RoboRover begins with 30 battery percentage points. After driving, the amount changes. A variable called <code>battery</code> can hold the current estimate:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-print(battery)</code></pre></div>
-<p>The equals sign here means:</p>
-<blockquote>Put the value on the right into the named storage place on the left.</blockquote>
-<p>It does <strong>not</strong> mean that <code>battery</code> and <code>30.0</code> are permanently identical.</p>
-<p>Later, the program can update it:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-battery = battery - 4.0
-print(battery)</code></pre></div>
-<p>This means:</p>
-<ol>
-<li>look up the current value of <code>battery</code>;</li>
-<li>subtract <code>4.0</code>;</li>
-<li>store the new result back in <code>battery</code>.</li>
-</ol>
-<p>A decision is a fork in the robot’s reasoning:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>                 obstacle distance
-                        |
-             ┌──────────┴──────────┐
-        distance &gt;= 50 cm       otherwise
-             |                       |
-          drive                    stop</code></pre></div>
-<p>A loop is the robot returning to the same instructions repeatedly:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sense → decide → act
-  ↑               |
-  └──── repeat ───┘</code></pre></div>
-<p>This repeated cycle is the first practical form of a robot controller.</p>
+<figure><img loading="lazy" src="inline_01.png" alt="A labelled two-dimensional coordinate plane showing the origin, x-axis, y-axis, positive and negative directions, and example points."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The first coordinate tells horizontal position; the second tells vertical position.</p>
+<p>Think of a coordinate map as a tiled floor with two rulers crossing at one special point.</p>
+<p>That special point is the <strong>origin</strong>. We write it as:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(0, 0)\]</span></div>
+<p>The horizontal ruler is the <strong>x-axis</strong>.</p>
+<ul>
+<li>Positive \(x\) points to the right.</li>
+<li>Negative \(x\) points to the left.</li>
+</ul>
+<p>The vertical ruler is the <strong>y-axis</strong>.</p>
+<ul>
+<li>Positive \(y\) points upward.</li>
+<li>Negative \(y\) points downward.</li>
+</ul>
+<p>A location is written as an ordered pair:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(x, y)\]</span></div>
+<p>The order matters. The point \((4, 2)\) is not the same as \((2, 4)\).</p>
+<p>For this lesson, treat RoboRover as a <strong>point location</strong> on the map. In a physical system, the coordinates might instead refer to the rover’s centre, a defined reference point, or a sensor location. We will specify the point being modelled when that distinction matters.</p>
+<p>Suppose one coordinate unit represents one metre. Then:</p>
+<ul>
+<li>\((4, 2)\) means 4 metres right and 2 metres up from the origin.</li>
+<li>\((-3, 1)\) means 3 metres left and 1 metre up.</li>
+<li>\((0, -2)\) means directly 2 metres below the origin.</li>
+</ul>
+<p>An illustrator could show this as a large cross-shaped map, with arrows on the positive axes, evenly spaced grid lines, a labelled origin, and RoboRover drawn at several possible points.</p>
+<p>Coordinates do not automatically tell us which way RoboRover’s physical body is facing. A map coordinate is a location in the chosen map. RoboRover may be facing north, east, or some other direction while still occupying the same coordinate.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover inside a narrow testing lane.</p>
-<ul>
-<li>On the left is a battery gauge.</li>
-<li>In front of RoboRover is a sensor pointing down the lane.</li>
-<li>A small display shows the current sensor reading.</li>
-<li>Each loop iteration is one “thinking moment.”</li>
-<li>At the end of each iteration, RoboRover either drives, slows, or cleans.</li>
-</ul>
-<p>An illustrator could show four snapshots arranged left to right:</p>
+<p>Picture a warehouse floor viewed from above.</p>
+<p>Place a small blue sticker at the origin. Draw a red tape line horizontally through it and label that the x-axis. Draw a green tape line vertically through it and label that the y-axis.</p>
+<p>Now imagine RoboRover at \((-2, 3)\):</p>
 <ol>
-<li>The sensor reads <code>72</code>.</li>
-<li>RoboRover decides “drive.”</li>
-<li>Battery decreases.</li>
-<li>The loop returns to take the next reading.</li>
+<li>Start at the origin.</li>
+<li>Move 2 grid squares left.</li>
+<li>Move 3 grid squares up.</li>
+<li>Mark that position.</li>
 </ol>
-<p>Then show a second snapshot where the sensor reads <code>18</code>. RoboRover decides “clean” rather than “drive.”</p>
-<p>The important visual feature is not a human-like robot face. It is the changing information:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sensor reading → decision rule → action → updated battery</code></pre></div>
+<p>The movement description “left 2, up 3” is useful for finding the point, but the coordinate \((-2, 3)\) is the compact mathematical description.</p>
+<p>Now imagine the target at \((1, 7)\). RoboRover and the target are separated by:</p>
+<ul>
+<li>3 metres horizontally, because \(1 - (-2) = 3\);</li>
+<li>4 metres vertically, because \(7 - 3 = 4\).</li>
+</ul>
+<p>Those two differences form a right triangle. The direct distance between the two locations is the triangle’s diagonal.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>1. Variables: named information</h3>
-<p>A variable can contain a number, a word, or a true/false value.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-mode = &quot;patrol&quot;
-obstacle_detected = False
-
-print(battery, mode, obstacle_detected)</code></pre></div>
+<h3>Coordinates describe location</h3>
+<p>A coordinate system needs four choices:</p>
+<ol>
+<li><strong>Origin:</strong> where \((0,0)\) is placed;</li>
+<li><strong>x direction:</strong> which way counts as positive horizontally;</li>
+<li><strong>y direction:</strong> which way counts as positive vertically;</li>
+<li><strong>scale:</strong> how much physical distance one coordinate unit represents.</li>
+</ol>
+<p>If the scale is 1 metre per unit, then the coordinate \((5, 2)\) represents 5 metres right and 2 metres up. If the scale is 10 centimetres per unit, the same numbers represent 50 centimetres right and 20 centimetres up.</p>
+<p>The numbers alone are not enough. RoboRover’s software must know the map’s units and orientation.</p>
+<h3>Distance is not the same as a coordinate</h3>
+<p>A coordinate can be negative because it describes a direction relative to the origin. Distance is a size: it tells us how far apart two locations are. It is never negative.</p>
+<p>For a point \((x,y)\), the straight-line distance from the origin is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \sqrt{x^2+y^2}\]</span></div>
 <p>Here:</p>
 <ul>
-<li><code>battery</code> contains a number;</li>
-<li><code>mode</code> contains text;</li>
-<li><code>obstacle_detected</code> contains a Boolean value, either <code>True</code> or <code>False</code>.</li>
+<li>\(d\) is distance from the origin, in the same length unit as \(x\) and \(y\);</li>
+<li>\(x\) is the horizontal coordinate;</li>
+<li>\(y\) is the vertical coordinate;</li>
+<li>\(\sqrt{\phantom{x}}\) means square root.</li>
 </ul>
-<p>Good variable names make robot code easier to inspect:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
-motor_power_percent = 40
-
-print(distance_cm, motor_power_percent)</code></pre></div>
-<p>The suffix <code>_cm</code> reminds us that the distance is measured in centimetres. A number without a unit can be dangerous in engineering.</p>
-<h3>2. Decisions: selecting an action</h3>
-<p>Python uses a conditional statement:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-else:
-    action = &quot;stop&quot;
-
-print(action)</code></pre></div>
-<p>The indented lines belong to the decision.</p>
-<p>Common comparison operators include:</p>
-<div class="table-scroll"><table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>&gt;</code></td><td>greater than</td></tr><tr><td><code>&lt;</code></td><td>less than</td></tr><tr><td><code>&gt;=</code></td><td>greater than or equal to</td></tr><tr><td><code>&lt;=</code></td><td>less than or equal to</td></tr><tr><td><code>==</code></td><td>equal to</td></tr><tr><td><code>!=</code></td><td>not equal to</td></tr></tbody></table></div>
-<p>A frequent beginner error is confusing <code>=</code> with <code>==</code>.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 25.0       # assignment: store a value
-is_full = battery == 25.0  # comparison: ask whether they are equal
-
-print(battery, is_full)</code></pre></div>
-<p>A robot often needs more than two choices:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>Python tests the conditions from top to bottom and uses the first true branch.</p>
-<h3>3. Loops: repeating the controller</h3>
-<p>A <code>for</code> loop repeats instructions a known number of times or once for each item in a collection:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>for cycle in range(3):
-    print(&quot;Sense, think, act&quot;, cycle)</code></pre></div>
-<p>The values produced by <code>range(3)</code> are <code>0</code>, <code>1</code>, and <code>2</code>, so the body runs three times.</p>
-<p>A loop does not automatically make a robot intelligent. It simply gives the controller repeated opportunities to sense and respond. The quality of the behavior still depends on:</p>
+<p>This is the Pythagorean theorem applied to a coordinate map.</p>
+<h3>Distance between two points</h3>
+<p>For point \(A=(x_1,y_1)\) and point \(B=(x_2,y_2)\), the straight-line distance is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{AB}=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}\]</span></div>
+<p>The symbols mean:</p>
 <ul>
-<li>the sensor data;</li>
-<li>the decision rules;</li>
-<li>the actuator commands;</li>
-<li>safety limits;</li>
-<li>timing and calibration.</li>
+<li>\(d_{AB}\): distance from point \(A\) to point \(B\);</li>
+<li>\(x_1,y_1\): coordinates of point \(A\);</li>
+<li>\(x_2,y_2\): coordinates of point \(B\);</li>
+<li>all coordinates use the same unit, such as metres.</li>
 </ul>
+<p>The subtraction finds the <strong>signed</strong> horizontal and vertical coordinate differences:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x=x_2-x_1,\qquad \Delta y=y_2-y_1\]</span></div>
+<p>A signed difference can be negative because it also records direction. The <strong>nonnegative horizontal separation</strong> is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[|\Delta x|=|x_2-x_1|\]</span></div>
+<p>Similarly, the nonnegative vertical separation is \(|\Delta y|\). The distance formula squares these differences, so the signs do not affect the final distance.</p>
+<p>This formula gives <strong>Euclidean straight-line distance</strong> on a flat Cartesian map. It does not necessarily give the distance a robot can drive if walls, shelves, safety zones, or other obstacles require a detour. Finding a feasible route is a later path-planning problem.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose RoboRover has:</p>
-<ul>
-<li>initial battery estimate: \(B_0 = 30.0\) percentage points;</li>
-<li>drive cost: \(4.0\) percentage points per drive action;</li>
-<li>slow cost: \(2.0\) percentage points per slow action;</li>
-<li>clean cost: \(1.0\) percentage point per clean action.</li>
-</ul>
-<p>For four actions—drive, slow, clean, drive—the final battery estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}} = B_0 - 2C_d - 1C_s - 1C_c\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(B_{\text{final}}\) is the final battery estimate in percentage points;</li>
-<li>\(B_0\) is the initial battery estimate in percentage points;</li>
-<li>\(C_d = 4.0\) percentage points is the cost of one drive action;</li>
-<li>\(C_s = 2.0\) percentage points is the cost of one slow action;</li>
-<li>\(C_c = 1.0\) percentage point is the cost of one clean action;</li>
-<li>the coefficients <code>2</code>, <code>1</code>, and <code>1</code> count how many times each action occurs.</li>
-</ul>
-<p>Therefore:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}}
-= 30.0 - 2(4.0) - 1(2.0) - 1(1.0)
-= 19.0\]</span></div>
-<p>The unit is <strong>percentage points of the program’s battery estimate</strong>, not necessarily a directly measured physical battery percentage. A real battery monitor would need calibration and electrical measurements.</p>
+<p>Let us use a small, physical example.</p>
+<p>RoboRover is at:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[A=(1.2\text{ m}, -0.5\text{ m})\]</span></div>
+<p>A charging station is at:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B=(4.2\text{ m}, 1.5\text{ m})\]</span></div>
+<p>Here, each ordered pair represents the rover’s centre or the charging station’s designated reference point in the map frame.</p>
+<p>First calculate the signed horizontal difference:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x = 4.2\text{ m} - 1.2\text{ m}=3.0\text{ m}\]</span></div>
+<p>The horizontal separation is \(|\Delta x|=3.0\text{ m}\). The symbol \(\Delta\), pronounced “delta,” means “change in” or “difference.”</p>
+<p>Now calculate the signed vertical difference:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta y = 1.5\text{ m} - (-0.5\text{ m})=2.0\text{ m}\]</span></div>
+<p>The vertical separation is \(|\Delta y|=2.0\text{ m}\). The negative sign matters in the calculation: the station is 2 metres higher than RoboRover.</p>
+<p>Now apply the distance formula:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{AB}=\sqrt{(3.0\text{ m})^2+(2.0\text{ m})^2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{AB}=\sqrt{9.0\text{ m}^2+4.0\text{ m}^2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{AB}=\sqrt{13.0\text{ m}^2}\approx3.61\text{ m}\]</span></div>
+<p>The interpretation is more important than the arithmetic: the charging station is about 3.61 metres away in a straight line on the map. A real driving route could be longer if obstacles block that direct segment.</p>
+<p>Notice the units. When metres are squared, we get square metres inside the square root. The square root returns metres, which is the correct unit for distance.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Four-panel illustration tracing RoboRover through sensor readings and corresponding drive, slow, clean, and drive actions while its battery estimate decreases."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same decision rules produce different actions as the sensor reading changes from cycle to cycle.</p>
-<p>RoboRover receives four sensor readings from a front-facing object sensor:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>72, 40, 18, 55</code></pre></div>
-<p>For this teaching simulation:</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Top-down coordinate map showing RoboRover and two targets with right-triangle separation lines used to calculate straight-line distances."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Comparing both horizontal and vertical separation reveals which target is truly closer.</p>
+<p>RoboRover is checking three marked floor locations. The map uses metres, and the origin is the centre of the test area. RoboRover’s coordinate represents its centre point.</p>
 <ul>
-<li>a reading of at least <code>50 cm</code> means <strong>drive</strong>;</li>
-<li>a reading from <code>20 cm</code> up to but not including <code>50 cm</code> means <strong>slow</strong>;</li>
-<li>a reading below <code>20 cm</code> means <strong>clean</strong>;</li>
-<li>drive costs <code>4.0</code> battery percentage points;</li>
-<li>slow costs <code>2.0</code> battery percentage points;</li>
-<li>clean costs <code>1.0</code> percentage point.</li>
+<li>RoboRover: \(R=(-1, 2)\text{ m}\)</li>
+<li>blue marker: \(B=(2, 6)\text{ m}\)</li>
+<li>yellow marker: \(Y=(3, 3)\text{ m}\)</li>
 </ul>
-<p>The reasoning table is:</p>
-<div class="table-scroll"><table><thead><tr><th>Cycle</th><th>Reading</th><th>Decision</th><th>Battery after action</th></tr></thead><tbody><tr><td>1</td><td>72 cm</td><td>drive</td><td>26.0 percentage points</td></tr><tr><td>2</td><td>40 cm</td><td>slow</td><td>24.0 percentage points</td></tr><tr><td>3</td><td>18 cm</td><td>clean</td><td>23.0 percentage points</td></tr><tr><td>4</td><td>55 cm</td><td>drive</td><td>19.0 percentage points</td></tr></tbody></table></div>
-<p>Notice the pattern:</p>
-<ol>
-<li>the loop selects one sensor reading;</li>
-<li>the decisions compare that reading with thresholds;</li>
-<li>the action changes the battery variable;</li>
-<li>the next loop begins with a new reading.</li>
-</ol>
-<p>This is a small example of <strong>state</strong>: information about the robot that changes over time. Battery level is state because later decisions could depend on it.</p>
+<p>Which marker is closer to RoboRover?</p>
+<p>For the blue marker:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{RB}=\sqrt{(2-(-1))^2+(6-2)^2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{RB}=\sqrt{3^2+4^2}=\sqrt{25}=5\text{ m}\]</span></div>
+<p>For the yellow marker:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{RY}=\sqrt{(3-(-1))^2+(3-2)^2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_{RY}=\sqrt{4^2+1^2}=\sqrt{17}\text{ m}\approx4.12\text{ m}\]</span></div>
+<p>Therefore, the yellow marker is closer. The difference is not because it has the smaller x-coordinate or the smaller y-coordinate. Distance depends on both coordinates together.</p>
+<p>These are straight-line map distances. A robot might need to travel farther around an obstacle to reach either marker.</p>
+<p>A top-down diagram should show RoboRover, both markers, a horizontal separation line, a vertical separation line, and the diagonal distance to each marker. The two right triangles make the calculation visible without overlapping RoboRover or obscuring the coordinate labels.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Instructional loop diagram showing four repeated Python controller iterations with sensor readings, branch choices, actions, and battery updates."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Each loop iteration reads one measurement, selects one branch, performs an action, and updates stored information.</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Educational illustration of a plotted coordinate map with four labelled points and a mobile rover test setup, emphasizing equal axis scale and equal distances from RoboRover for points A and C."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A program can calculate distances and draw the same coordinate relationships RoboRover uses in its map.</p>
+<p>The program below defines RoboRover separately from four target points. It treats each coordinate as a point location in map units, calculates each target’s Euclidean straight-line distance from RoboRover, and verifies the exact values expected for the chosen coordinates.</p>
+<p>The coordinates are map values supplied by the program; they are not automatically measurements collected from a physical robot. In a real system, sensors or localization software would estimate these values and could introduce error.</p>
+<p>This lab uses the third-party <code>matplotlib</code> library. If it is not already installed, install it in a terminal with:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>python -m pip install matplotlib</code></pre></div>
+<p>If your learning environment already provides <code>matplotlib</code>, no installation is needed.</p>
 <p>Before running the program, predict:</p>
-<ul>
-<li>Which action will happen on each cycle?</li>
-<li>How many times will RoboRover drive?</li>
-<li>What will the final battery estimate be?</li>
-<li>How many cleaning actions will occur?</li>
-</ul>
-<div class="code-card"><div class="code-label">python</div><pre><code>def run_rover():
-    sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
+<ol>
+<li>Which target is closest to RoboRover?</li>
+<li>Which target is farthest?</li>
+<li>Which two targets are exactly 5 units from RoboRover?</li>
+</ol>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
+import matplotlib.pyplot as plt
+from matplotlib.patches import Circle
 
-    battery_points = 30.0
-    drive_cost_points = 4.0
-    slow_cost_points = 2.0
-    clean_cost_points = 1.0
+# Each coordinate represents a point location in the map frame.
+# For RoboRover, this point is its modelled centre.
+rover = (1, -1)
 
-    drive_count = 0
-    clean_count = 0
+targets = {
+    &quot;A&quot;: (4, 3),
+    &quot;B&quot;: (-1, 1),
+    &quot;C&quot;: (1, -6),
+    &quot;D&quot;: (7, 7)
+}
 
-    for cycle_number in range(1, len(sensor_readings_cm) + 1):
-        distance_cm = sensor_readings_cm[cycle_number - 1]
+distances = {}
 
-        if distance_cm &gt;= 50.0:
-            action = &quot;drive&quot;
-            battery_points = battery_points - drive_cost_points
-            drive_count = drive_count + 1
-        elif distance_cm &gt;= 20.0:
-            action = &quot;slow&quot;
-            battery_points = battery_points - slow_cost_points
-        else:
-            action = &quot;clean&quot;
-            battery_points = battery_points - clean_cost_points
-            clean_count = clean_count + 1
+for name, (x, y) in targets.items():
+    horizontal_difference = x - rover[0]
+    vertical_difference = y - rover[1]
+    distance = math.sqrt(
+        horizontal_difference ** 2 + vertical_difference ** 2
+    )
+    distances[name] = distance
+    print(&quot;{}: ({}, {}) -&gt; {:.3f} units from RoboRover&quot;.format(
+        name, x, y, distance
+    ))
 
-        print(
-            &quot;Cycle {}: sensor = {:.1f} cm, action = {}, &quot;
-            &quot;battery = {:.1f} percentage points&quot;.format(
-                cycle_number, distance_cm, action, battery_points
-            )
-        )
+assert math.isclose(distances[&quot;A&quot;], 5.0)
+assert math.isclose(distances[&quot;B&quot;], math.sqrt(8.0))
+assert math.isclose(distances[&quot;C&quot;], 5.0)
+assert math.isclose(distances[&quot;D&quot;], 10.0)
 
-    print(&quot;Final battery: {:.1f} percentage points&quot;.format(battery_points))
-    print(&quot;Drive actions:&quot;, drive_count)
-    print(&quot;Clean actions:&quot;, clean_count)
+closest_name = min(distances, key=distances.get)
+farthest_name = max(distances, key=distances.get)
 
-    # Executable checks verify the numerical claims for this input.
-    assert round(battery_points, 1) == 19.0
-    assert drive_count == 2
-    assert clean_count == 1
+print(&quot;Closest target: {}&quot;.format(closest_name))
+print(&quot;Farthest target: {}&quot;.format(farthest_name))
+print(&quot;Verified: A and C are exactly 5 units from RoboRover.&quot;)
 
+assert closest_name == &quot;B&quot;
+assert farthest_name == &quot;D&quot;
 
-if __name__ == &quot;__main__&quot;:
-    run_rover()</code></pre></div>
-<h3>Important lines</h3>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
-print(sensor_readings_cm)</code></pre></div>
-<p>This list represents four measurements collected earlier. In a physical robot, a sensor-reading function might replace the list.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
+fig, ax = plt.subplots()
+ax.axhline(0, color=&quot;black&quot;, linewidth=0.8)
+ax.axvline(0, color=&quot;black&quot;, linewidth=0.8)
 
-for cycle_number in range(1, len(sensor_readings_cm) + 1):
-    print(&quot;Running cycle&quot;, cycle_number)</code></pre></div>
-<p>This repeats once for every reading. The <code>+ 1</code> is needed because the stop value of <code>range</code> is not included.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
-cycle_number = 1
-distance_cm = sensor_readings_cm[cycle_number - 1]
+for name, (x, y) in targets.items():
+    ax.scatter(x, y, marker=&quot;o&quot;, s=80)
+    ax.text(x + 0.15, y + 0.15, name)
 
-print(distance_cm)</code></pre></div>
-<p>Python list positions begin at zero. During cycle 1, the program reads position 0.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
+rover_x, rover_y = rover
+ax.scatter(
+    rover_x, rover_y, color=&quot;red&quot;, marker=&quot;X&quot;, s=120,
+    label=&quot;RoboRover&quot;
+)
+ax.text(rover_x + 0.15, rover_y + 0.15, &quot;RoboRover&quot;)
 
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
+ax.scatter(0, 0, color=&quot;black&quot;, marker=&quot;+&quot;, s=100, label=&quot;origin&quot;)
+ax.text(0.15, 0.15, &quot;origin&quot;)
 
-print(action)</code></pre></div>
-<p>These branches convert a measurement into an action.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-battery_points = battery_points - 4.0
+# A and C are both exactly 5 units from RoboRover.
+# Draw their shared distance boundary to make that equality visible.
+distance_boundary = Circle(
+    (rover_x, rover_y),
+    radius=5.0,
+    fill=False,
+    linestyle=&quot;--&quot;,
+    linewidth=1.2,
+    color=&quot;tab:purple&quot;,
+    label=&quot;5-unit boundary&quot;
+)
+ax.add_patch(distance_boundary)
 
-assert round(battery_points, 1) == 26.0
-print(&quot;Battery update passed:&quot;, battery_points)</code></pre></div>
-<p>An assertion is a built-in check. If the program produces a different result, Python reports an error instead of quietly accepting a changed behavior.</p>
+ax.set_title(&quot;RoboRover&#x27;s Coordinate Map&quot;)
+ax.set_xlabel(&quot;x coordinate (units)&quot;)
+ax.set_ylabel(&quot;y coordinate (units)&quot;)
+ax.set_aspect(&quot;equal&quot;, adjustable=&quot;box&quot;)
+ax.set_xlim(-5, 8)
+ax.set_ylim(-7, 8)
+ax.grid(True)
+ax.legend()
+plt.show()</code></pre></div>
+<p>The <code>targets</code> dictionary stores each target label with an \((x,y)\) pair. The loop unpacks each pair into <code>x</code> and <code>y</code>. The expressions</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>rover = (1, -3)
+target = (5, 0)
+
+horizontal_difference = target[0] - rover[0]
+vertical_difference = target[1] - rover[1]</code></pre></div>
+<p>implement the two coordinate differences in the distance-between-points equation. This short fragment illustrates the calculation separately; it does not replace the <code>rover</code> and <code>targets</code> values used by the main plotted example.</p>
+<p><code>math.isclose</code> is used because square roots often produce decimal approximations. The <code>assert</code> statements act as built-in checks: if the program reaches the later print statements, the calculated values passed the tests.</p>
+<p>The <code>Circle</code> patch is centred on RoboRover and has radius 5 map units. Because A and C both have distance 5, their plotted points lie on this circle. The stable x and y limits make repeated experiments easier to compare; the equal aspect ratio ensures that the circle is displayed as a circle rather than an ellipse.</p>
+<p>The graph uses <code>axhline</code> and <code>axvline</code> to draw the axes. <code>set_aspect("equal")</code> is important: one unit horizontally should look the same size as one unit vertically. Without it, the picture could stretch the geometry and mislead your eyes. RoboRover uses an <code>X</code> marker, while targets use circular markers and text labels, so the plotted identities do not depend on color alone.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Turn the lab into a prediction game.</p>
-<p>Change only this line:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]</code></pre></div>
-<p>Try:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [15.0, 65.0, 22.0, 49.0]
-print(sensor_readings_cm)</code></pre></div>
-<p>Before running it, write a four-word action prediction.</p>
-<p>Remember the thresholds:</p>
+<p>Turn the Python lab into a coordinate guessing game.</p>
+<p>Before changing the code, choose a new point for RoboRover, such as:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>experiment_rover = (1, -3)</code></pre></div>
+<p>Then choose a target:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>experiment_target = (5, 0)</code></pre></div>
+<p>Calculate the distance by hand before running a program:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\sqrt{(5-1)^2+(0-(-3))^2}
+=\sqrt{4^2+3^2}
+=5\]</span></div>
+<p>Now add this short experiment below the original calculations, before <code>plt.show()</code>. The distinct variable names keep this experiment separate from the main plotted example:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
+
+experiment_rover = (1, -3)
+experiment_target = (5, 0)
+
+horizontal_difference = (
+    experiment_target[0] - experiment_rover[0]
+)
+vertical_difference = (
+    experiment_target[1] - experiment_rover[1]
+)
+
+experiment_distance = math.sqrt(
+    horizontal_difference ** 2 + vertical_difference ** 2
+)
+
+print(&quot;Experiment distance: {:.3f} units&quot;.format(
+    experiment_distance
+))
+
+assert math.isclose(experiment_distance, 5.0)</code></pre></div>
+<p>Change <code>experiment_rover</code> and <code>experiment_target</code> to other integer coordinates. Predict first, calculate second, and run third.</p>
+<p>Try points with:</p>
 <ul>
-<li><code>65.0</code> means drive;</li>
-<li><code>49.0</code> means slow, not drive;</li>
-<li><code>22.0</code> means slow;</li>
-<li><code>15.0</code> means clean.</li>
+<li>the same x-coordinate;</li>
+<li>the same y-coordinate;</li>
+<li>one negative coordinate;</li>
+<li>both coordinates negative.</li>
 </ul>
-<p>The existing assertions will fail because they verify the original input. That is useful: the assertions are telling you that the expected result must be updated when the experiment changes.</p>
-<p>For a fair experiment:</p>
-<ol>
-<li>predict the action sequence;</li>
-<li>calculate the battery change by hand;</li>
-<li>run the program;</li>
-<li>compare your prediction with the printed trace;</li>
-<li>update the assertions only after you understand the new result.</li>
-</ol>
-<p>You are not merely checking whether Python works. You are testing whether your mental model of the robot brain is correct.</p>
+<p>For a particularly useful test, swap the two points. The signs of the differences will change, but the distance should remain the same. This is a mathematical property of distance, not a special feature of Python.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>For the original readings, the action sequence should be:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>drive → slow → clean → drive</code></pre></div>
-<p>The final battery estimate should be <code>19.0</code> percentage points, with two drive actions and one clean action. These claims are verified by the assertions in the Python program.</p>
-<p>For the modified readings:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>[15.0, 65.0, 22.0, 49.0]</code></pre></div>
-<p>the action sequence should be:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>clean → drive → slow → slow</code></pre></div>
-<p>Work out the new battery estimate before running. Do not rely on the original assertions, because they were written for the original sensor list.</p>
+<p>For the four targets and the separately defined RoboRover:</p>
+<ul>
+<li>RoboRover is at \((1,-1)\).</li>
+<li>A is at \((4,3)\), so its distance from RoboRover is 5 units.</li>
+<li>B is at \((-1,1)\), so its distance from RoboRover is \(\sqrt{8}\), approximately 2.828 units.</li>
+<li>C is at \((1,-6)\), so its distance from RoboRover is 5 units.</li>
+<li>D is at \((7,7)\), so its distance from RoboRover is 10 units.</li>
+</ul>
+<p>The closest target should be B, and the farthest should be D. A and C should be exactly the same distance from RoboRover.</p>
+<p>The graph should show a circle centred on RoboRover with radius 5 units. A and C should lie on that circle, providing a visual indication that they are equally distant from RoboRover. They are not in the same direction, but they are equally far away. D lies farther out, while B lies closest.</p>
+<p>If your plotted axes look stretched, check whether <code>ax.set_aspect("equal")</code> is present. The program also sets fixed axis limits so that repeated runs use a comparable viewing area.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Treating <code>=</code> as a question</h3>
-<p>This is assignment:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-print(battery_points)</code></pre></div>
-<p>This is comparison:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-same_value = battery_points == 30.0
-print(same_value)</code></pre></div>
-<p>Using the wrong one can produce a syntax error or a decision that does not mean what you intended.</p>
-<h3>Mistake 2: Misreading threshold boundaries</h3>
-<p>The condition:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>includes exactly <code>50.0</code>.</p>
-<p>The next condition:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 20.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>includes exactly <code>20.0</code>, but it is reached only when the first condition was false. Therefore:</p>
-<ul>
-<li><code>50.0</code> means drive;</li>
-<li><code>20.0</code> means slow;</li>
-<li><code>19.9</code> means clean.</li>
-</ul>
-<p>Boundary values deserve deliberate tests.</p>
-<h3>Mistake 3: Forgetting indentation</h3>
-<p>Python uses indentation to show which instructions belong to a branch or loop. A line at the wrong indentation level may change the robot’s behavior.</p>
-<h3>Mistake 4: Assuming the sensor is perfect</h3>
-<p>A real distance sensor may report:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>49 cm, 51 cm, 49 cm, 50 cm</code></pre></div>
-<p>even when the object has barely moved. RoboRover could switch rapidly between drive and slow. This is a practical failure mode caused by <strong>sensor noise</strong>—small unwanted variations in measurements.</p>
-<p>Later, we will study techniques such as filtering and hysteresis. For now, notice the engineering question: what happens when the reading is near a decision boundary?</p>
-<h3>Mistake 5: Treating a battery estimate as a battery measurement</h3>
-<p>The program subtracts fixed costs for teaching. Real energy use depends on motor load, floor friction, acceleration, voltage, temperature, and battery condition.</p>
+<h3>Reversing the order</h3>
+<p>Writing \((y,x)\) instead of \((x,y)\) moves the point to a different location. Always read the first coordinate horizontally and the second vertically.</p>
+<h3>Treating negative as “bad”</h3>
+<p>A negative coordinate is not an error. It simply means the point is on the negative side of an axis.</p>
+<h3>Confusing signed difference with separation</h3>
+<p>A calculation such as:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x=-1-2=-3\text{ m}\]</span></div>
+<p>describes both the horizontal difference and its direction. The horizontal separation is the nonnegative magnitude:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[|\Delta x|=3\text{ m}\]</span></div>
+<p>The negative sign means the target is to the left, not that the separation is negative.</p>
+<h3>Adding coordinate values to find distance</h3>
+<p>For \((3,4)\), \(3+4=7\), but the straight-line distance from the origin is 5. The diagonal distance requires the square-root formula.</p>
+<h3>Confusing straight-line distance with driving distance</h3>
+<p>The distance formula measures the direct Euclidean separation between two point locations on the map. It is not necessarily the distance a robot must drive around obstacles. A route planner may need to find a longer collision-free path.</p>
+<h3>Forgetting parentheses with negative values</h3>
+<p>The vertical difference from \(y=-0.5\) to \(y=1.5\) is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[1.5-(-0.5)=2.0\]</span></div>
+<p>Dropping the parentheses can accidentally turn subtraction of a negative number into subtraction of a positive number.</p>
+<h3>Assuming a map is automatically accurate</h3>
+<p>A real robot may estimate its coordinates by counting wheel rotation. Wheels can slip, surfaces can be uneven, and small errors can accumulate. A robot may believe it is at \((4,2)\) while it is physically at \((3.8,2.2)\). Coordinates are a model of location, not a magical guarantee.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge: add a low-battery rule</h3>
-<p>Modify the program so that RoboRover stops instead of driving when its battery estimate is below <code>10.0</code> percentage points.</p>
-<p>Use this decision structure:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 8.0
-distance_cm = 72.0
-
-if battery_points &lt; 10.0:
-    action = &quot;stop and recharge&quot;
-elif distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>Your challenge is to decide where the battery test belongs and how the battery should change for the recharge action.</p>
-<p>Test your program with a longer sensor list and trace every cycle by hand first.</p>
-<p><strong>Optional extension:</strong> add a <code>stop_count</code> variable. Count how many cycles RoboRover chooses <code>"stop and recharge"</code>.</p>
-<p>Do not add random behavior yet. Deterministic inputs make it easier to understand the exact effect of each programming change.</p>
+<h3>Challenge: RoboRover’s inspection points</h3>
+<p>RoboRover starts at:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=(-2,1)\text{ m}\]</span></div>
+<p>Three inspection points are:</p>
+<ul>
+<li>\(P=(1,5)\text{ m}\)</li>
+<li>\(Q=(2,2)\text{ m}\)</li>
+<li>\(S=(-5,-3)\text{ m}\)</li>
+</ul>
+<p>Calculate the straight-line distance from RoboRover to each point. Identify the nearest point.</p>
+<p>Show:</p>
+<ol>
+<li>\(\Delta x\) and \(\Delta y\) for each point;</li>
+<li>the distance equation;</li>
+<li>the result rounded to two decimal places;</li>
+<li>a sentence interpreting the nearest point.</li>
+</ol>
+<p>For checking, the expected distances are:</p>
+<ul>
+<li>\(RP=\sqrt{3^2+4^2}=5.00\text{ m}\);</li>
+<li>\(RQ=\sqrt{4^2+1^2}=\sqrt{17}\approx4.12\text{ m}\);</li>
+<li>\(RS=\sqrt{(-3)^2+(-4)^2}=5.00\text{ m}\).</li>
+</ul>
+<p>Therefore, \(Q\) is nearest, at \(\sqrt{17}\approx4.12\text{ m}\).</p>
+<p><strong>Optional extension:</strong> Write a Python program that stores the three points in a dictionary, calculates the distances, and uses <code>min()</code> to identify the nearest point. Add an assertion for your nearest-point result after checking your arithmetic.</p>
+<p>Do not worry about deciding the order in which RoboRover should visit the points. That is a later planning topic. Today’s goal is describing locations and measuring straight-line separation.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What is the difference between assignment with <code>=</code> and comparison with <code>==</code>?</li>
+<li>In the coordinate \((-4, 3)\), what do the numbers \(-4\) and \(3\) mean?</li>
 </ol>
 <ol>
-<li>For this code, what action occurs when <code>distance_cm</code> is exactly <code>50.0</code>?</li>
-</ol>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<ol>
-<li>Why does a robot controller commonly use a loop?</li>
+<li>What is the origin, and how is it written?</li>
 </ol>
 <ol>
-<li>Why might a real robot behave inconsistently when a sensor reading is close to a decision threshold?</li>
+<li>RoboRover is at \((0,0)\) and a beacon is at \((6,8)\), with one coordinate unit equal to one metre. What is the beacon’s straight-line distance from RoboRover?</li>
+</ol>
+<ol>
+<li>RoboRover is at \((2,-1)\) and a target is at \((-1,3)\). Is the horizontal separation 1 metre or 3 metres? What is the full straight-line distance?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li><code>=</code> stores a value in a variable. <code>==</code> asks whether two values are equal.</li>
+<li>\(-4\) means 4 units in the negative x direction, or left if positive x points right. \(3\) means 3 units in the positive y direction, or up if positive y points upward.</li>
 </ol>
 <ol>
-<li>The action is <code>"drive"</code> because <code>50.0 &gt;= 50.0</code> is true.</li>
+<li>The origin is the reference point where the axes cross. It is written \((0,0)\).</li>
 </ol>
 <ol>
-<li>A loop lets the controller repeatedly sense, decide, and act as the robot operates.</li>
+<li>Using metres:</li>
 </ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\sqrt{6^2+8^2}\text{ m}
+=\sqrt{36+64}\text{ m}
+=\sqrt{100}\text{ m}
+=10\text{ m}\]</span></div>
 <ol>
-<li>Sensor noise can make nearby readings change from one loop to the next. The robot may then cross the threshold repeatedly and switch actions.</li>
+<li>The signed horizontal difference is:</li>
 </ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x=-1-2=-3\text{ m}\]</span></div>
+<p>Its magnitude, and therefore the horizontal separation, is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[|\Delta x|=3\text{ m}\]</span></div>
+<p>The negative sign tells us the target is to the left. The full distance is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\sqrt{(-3)^2+(3-(-1))^2}\text{ m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\sqrt{9+16}\text{ m}=5\text{ m}\]</span></div>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>The Python program is a simplified controller, but its architecture is recognizable in real robotics:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sensor interface → variables/state → decision logic → actuator command</code></pre></div>
-<p>A physical RoboRover might obtain distance from an ultrasonic or infrared sensor, then send a speed command to motor drivers. The motor drivers would control electrical power to the motors.</p>
-<p>Several engineering realities appear immediately:</p>
+<p>A coordinate map appears in many robotics systems:</p>
 <ul>
-<li><strong>Latency:</strong> time passes between measuring a distance and commanding a motor.</li>
-<li><strong>Calibration:</strong> a reported <code>50 cm</code> may not equal a true <code>50 cm</code>.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical maximum speed.</li>
-<li><strong>Mechanical limits:</strong> wheels may slip, jam, or fail to turn equally.</li>
-<li><strong>Timing:</strong> a loop that runs too slowly may react late.</li>
-<li><strong>Safety:</strong> stopping should be designed as a safe behavior, not treated as an afterthought.</li>
+<li>a mobile robot can record where it believes it is;</li>
+<li>a robotic arm can describe the position of a tool or object;</li>
+<li>a warehouse robot can represent shelves and loading points;</li>
+<li>a vision system can locate an object in an image or mapped workspace.</li>
 </ul>
-<p>The program’s <code>battery_points</code> variable is also an example of an internal estimate. It is useful for decisions, but it is not automatically truth. Good robotics software distinguishes measured values, estimated values, and commanded values.</p>
-<p>This class also separates three ideas that are often confused:</p>
-<ul>
-<li><strong>Identity:</strong> RoboRover is a physical robot performing a task.</li>
-<li><strong>Decision authority:</strong> in this simulation, software selects each action.</li>
-<li><strong>Feedback:</strong> the sensor reading influences the current action.</li>
-</ul>
-<p>The loop is using a simple threshold-based feedback pattern because a measured distance affects what RoboRover does next. This is not yet advanced control mathematics; it is an introductory decision rule.</p>
+<p>However, professional systems must define more than two numbers. They also need a <strong>reference frame</strong>, meaning a clearly defined coordinate system. In this lesson, the fixed room or map coordinate system is a simplified <strong>world frame</strong>. The robot’s own coordinate system, which moves and rotates with the robot, is a simplified <strong>body frame</strong>. A position described in the body frame is relative to the robot; a position described in the world frame is relative to the fixed map. Converting between these frames also requires the robot’s orientation. These two-dimensional examples simplify the three-dimensional and orientation-related details used in professional robotics.</p>
+<p>The coordinates in the lab are map-frame locations. They are not robot-relative directions such as “two metres ahead and one metre to the left.” Converting a robot-relative observation into a world-frame point requires the robot’s orientation and will be treated in a later lesson.</p>
+<p>Sensors and movement introduce uncertainty. A camera may misjudge an object’s position. Wheel motion may not equal actual floor motion. Measurements may arrive late. These issues will matter more when we study movement, speed, and control.</p>
+<p>For now, remember the engineering habit: whenever you see a coordinate, ask, “Relative to which origin, in which direction, and using what units?”</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Variable:</strong> A named place in a program that stores a value.</li>
-<li><strong>Assignment:</strong> Storing a value in a variable, using <code>=</code>.</li>
-<li><strong>Comparison:</strong> Testing a relationship between values, such as equality or “greater than.”</li>
-<li><strong>Conditional statement:</strong> Code that chooses among actions based on a condition.</li>
-<li><strong>Branch:</strong> One possible path through a conditional statement.</li>
-<li><strong>Loop:</strong> Code that repeats.</li>
-<li><strong>Iteration:</strong> One pass through a loop.</li>
-<li><strong>Boolean:</strong> A value with one of two states: <code>True</code> or <code>False</code>.</li>
-<li><strong>Threshold:</strong> A boundary value used to trigger a decision.</li>
-<li><strong>Sensor noise:</strong> Unwanted variation in a sensor’s reported measurements.</li>
-<li><strong>State:</strong> Information about a system that can change over time and affect later behavior.</li>
-<li><strong>Actuator command:</strong> An instruction sent to a device that produces physical motion or another physical effect.</li>
-<li><strong>Feedback:</strong> A measured state or output influences a current or future control action.</li>
+<li><strong>Coordinate:</strong> A number, or set of numbers, used to describe a location.</li>
+<li><strong>x-axis:</strong> The horizontal reference line in a two-dimensional coordinate system.</li>
+<li><strong>y-axis:</strong> The vertical reference line in a two-dimensional coordinate system.</li>
+<li><strong>Origin:</strong> The reference point where the axes meet, written \((0,0)\).</li>
+<li><strong>Ordered pair:</strong> Two values written in a fixed order, \((x,y)\), describing a point.</li>
+<li><strong>Coordinate system:</strong> A chosen origin, directions, and scale used to describe locations.</li>
+<li><strong>Distance:</strong> The nonnegative amount of separation between two locations.</li>
+<li><strong>Euclidean distance:</strong> Straight-line distance between point locations in a flat Cartesian coordinate map.</li>
+<li><strong>Signed difference:</strong> A coordinate difference such as \(\Delta x=x_2-x_1\), whose sign records direction.</li>
+<li><strong>Separation:</strong> The nonnegative magnitude of a coordinate difference, such as \(|\Delta x|\), or the distance between locations.</li>
+<li><strong>Reference frame:</strong> The coordinate system relative to which a position or motion is described.</li>
+<li><strong>World frame:</strong> A reference frame treated as fixed to a room, map, or other environment.</li>
+<li><strong>Body frame:</strong> A reference frame attached to and moving with the robot.</li>
+<li><strong>RoboRover:</strong> Our continuing learning robot, used to connect mathematical ideas to physical machines.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search terms for reinforcing today’s ideas:</p>
+<p>For additional practice, look for learning resources using search terms such as:</p>
 <ul>
-<li>Python 3 <code>if</code>, <code>elif</code>, and <code>else</code></li>
-<li>Python 3 <code>for</code> loops and <code>range</code></li>
-<li>Python Boolean expressions</li>
-<li>beginner robotics sense think act</li>
-<li>sensor threshold robot controller</li>
-<li>robotics sensor noise demonstration</li>
+<li>“Python matplotlib scatter plot coordinates”</li>
+<li>“Pythagorean theorem distance between two points”</li>
+<li>“robot coordinate frames beginner”</li>
+<li>“robotics position and reference frame introduction”</li>
 </ul>
-<p>When reading examples, ask three questions:</p>
-<ol>
-<li>What information is stored?</li>
-<li>What condition selects the action?</li>
-<li>What repeats, and when does it stop?</li>
-</ol>
-<p>Those questions are more valuable than memorizing individual code fragments.</p>
+<p>When reading about robotics, pay attention to whether a source is discussing a robot’s position relative to itself, a room, a map, or a sensor. The same physical point can have different numerical coordinates in different reference frames.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover can now store sensor information, make threshold-based decisions, and repeat its behavior.</p>
-<p>But a new problem appears: how should the program describe <strong>where</strong> RoboRover is?</p>
-<p>In Class 4, <strong>Coordinates: How Robots Describe Space</strong>, we will introduce positions such as <code>(x, y)</code>. You will learn how a robot can describe a location on a floor, how a coordinate system has an origin and directions, and how sensor observations can be connected to places in the environment.</p>
-<p>Today’s variables hold quantities such as distance and battery. Next class, variables will begin representing <strong>locations in space</strong>.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/002-sense-think-act/"><span>Previous stream</span><b>Class 02 · Sense → Think → Act</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 04 · Coordinates: How Robots Describe Space</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>In Class 5, <strong>Distance and Speed</strong>, RoboRover will stop treating distance as only a static separation between two points. We will ask how long a movement takes and how quickly the robot travels.</p>
+<p>Coordinates will provide the “where.” Distance will provide the “how far.” Speed will connect distance with time.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/003-your-first-robot-brain-in-python/"><span>Previous stream</span><b>Class 03 · Your First Robot Brain in Python</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 05 · Distance and Speed</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -594,7 +529,7 @@ print(action)</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=3,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=4,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

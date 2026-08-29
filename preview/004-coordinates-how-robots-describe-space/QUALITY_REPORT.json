@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 3,
+  "static": {
+    "passed": true,
+    "word_count": 3600,
+    "code_blocks": 5,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 90,
+      "clarity": 91,
+      "depth": 93,
+      "examples": 94,
+      "interactivity": 90,
+      "code_alignment": 96,
+      "visual_teaching_plan": 91,
+      "originality": 84,
+      "consistency": 94,
+      "accessibility": 91
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove the sentence beginning \u201cAn illustrator could show this...\u201d because the lesson already provides generated visuals and the sentence reads like an internal production note.",
+      "Reduce repeated explanations of straight-line distance, map accuracy, and coordinate-versus-frame distinctions. The technical caveats are valuable, but several are restated in multiple sections and increase cognitive load.",
+      "Add a brief explicit learning check immediately after the first coordinate examples, such as asking students to plot and label one positive-quadrant and one negative-quadrant point before introducing distance.",
+      "The Python lab is strong, but students would benefit from a short expected-output block showing representative console results before they run the program.",
+      "Clarify that the plotted circle represents a locus of points five units from RoboRover, not a physical sensor range or guaranteed reachable area.",
+      "The real-robot section introduces world and body frames accurately, but a small two-frame diagram or a one-sentence rotation example would make the distinction more concrete without requiring advanced transformation mathematics.",
+      "Consider adding a physical RoboRover activity using tape and floor markers so students can connect coordinate signs, scale, and map-frame location to an actual robot or classroom layout.",
+      "The \u201cFurther Learning\u201d section provides search terms but no curated sources. Either retain it explicitly as an unguided search activity or replace it with verified, stable references before publication."
+    ],
+    "linkedin": {
+      "title": "How Robots Describe Space: Coordinates, Distance, and Reference Frames",
+      "description": "A practical robotics lesson that connects Cartesian coordinates, Euclidean distance, Python plotting, and the difference between world and body frames.",
+      "commentary": "A robot cannot act on \u201cmove over there\u201d until \u201cthere\u201d has a precise meaning.\n\nThis Professor OS lesson introduces coordinate maps through RoboRover and builds from simple ordered pairs to practical robotics reasoning:\n\n\u2022 how origins, axes, signs, and scale define a map;\n\u2022 how to calculate straight-line distance between locations;\n\u2022 why signed coordinate differences preserve direction;\n\u2022 how Python and matplotlib turn the mathematics into a visual experiment;\n\u2022 why world-frame and body-frame coordinates are not interchangeable.\n\nThe lesson also makes an important engineering distinction: Euclidean distance is not always the distance a robot can drive around obstacles. Students test predictions, inspect plotted geometry, and use assertions to verify their calculations.\n\nTry the lab with new rover and target coordinates. Predict first, calculate second, and run the program third.\n\n#RoboticsEducation #Python #MobileRobotics #STEM",
+      "thumbnail_alt_text": "RoboRover plotted on a labelled Cartesian coordinate map with target points and a distance circle"
+    },
+    "media_query": "mobile rover on taped Cartesian floor grid world frame body frame robotics education",
+    "image_query": "educational mobile robot on a taped floor coordinate grid, top-down or three-quarter view, clearly marked world axes",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A restrained real photograph of a rover on a taped floor grid would ground the distinction between a fixed world frame and the robot\u2019s moving body frame. It should supplement the precise generated diagrams rather than replace them.",
+    "media_would_help": true
+  }
+}
