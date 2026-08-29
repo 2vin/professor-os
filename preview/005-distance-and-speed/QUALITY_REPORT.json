@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 4,
+  "static": {
+    "passed": true,
+    "word_count": 5169,
+    "code_blocks": 3,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 5169 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 89,
+      "clarity": 87,
+      "depth": 91,
+      "examples": 93,
+      "interactivity": 92,
+      "code_alignment": 94,
+      "visual_teaching_plan": 88,
+      "originality": 84,
+      "consistency": 94,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is unusually comprehensive for a foundational class, but its length and repeated distinctions between distance, displacement, speed, velocity, modeled velocity, and commanded motor setting may overload beginners. Consolidate repeated caveats and move some advanced precision into an optional note.",
+      "Add a brief explicit distinction between average speed and instantaneous speed, not only average velocity and instantaneous velocity. The lesson implies this distinction but does not name it directly.",
+      "The physical measurement activity should warn that hand-started and hand-stopped stopwatch timing introduces substantial reaction-time error, and should recommend video timestamps, an encoder, or an automatic finish-line sensor when available.",
+      "The route-distance exercise could ask students to calculate average speed before revealing it, strengthening the connection between the definitions and the worked result.",
+      "The Python lab is well aligned, but the introductory explanation could state the expected outputs before the code or provide a short sample output block for learners who cannot run the program.",
+      "The generated visual plan is relevant and specific, but the lesson would benefit from one clearly labeled position-time graph contrasting constant velocity with acceleration or a stop-and-reverse path.",
+      "The Further Learning section provides useful search phrases but not curated references. For a premium public course, add vetted, stable resources or clearly label these as search prompts rather than resource recommendations.",
+      "Clarify that the statement that a longer arrow represents greater speed is valid only when arrow length is explicitly used as a quantitative visual encoding; otherwise, beginners may treat decorative arrow length as data."
+    ],
+    "linkedin": {
+      "title": "Class 5: Distance and Speed in Robotics\u2014From Motion Equations to Real Robot Measurement",
+      "description": "A practical robotics lesson connecting distance, speed, velocity, timing, Python simulation, and the real-world limits of motor commands and wheel motion.",
+      "commentary": "A robot does not move because a program contains a number. It moves through a physical system whose behavior must be measured, modeled, and checked.\n\nIn Class 5, students use RoboRover to connect position with motion and learn to:\n\n\u2022 Calculate average speed from distance and elapsed time.\n\u2022 Distinguish route distance from displacement, especially after turns or reversals.\n\u2022 Interpret velocity as a signed quantity in one dimension.\n\u2022 Build and test a constant-velocity Python simulation.\n\u2022 Compare commanded motor settings with calibrated or measured velocity.\n\u2022 Investigate wheel slip, unequal motors, timing delay, and battery effects.\n\nThe lesson deliberately starts with accessible equations, then shows where the ideal model breaks down on a real robot. Students also predict simulation results, verify them with assertions, and conduct a physical timing experiment.\n\nTry the lab with a marked track and ask one question: how closely does the measured motion match the model?\n\n#Robotics #Python #EngineeringEducation",
+      "thumbnail_alt_text": "RoboRover on a marked track beside a distance, speed, and time schematic"
+    },
+    "media_query": "small differential-drive educational robot measuring a marked track with wheel encoders and stopwatch",
+    "image_query": "educational mobile robot on marked test track wheel encoder measurement wheel slip",
+    "youtube_query": "robot wheel encoder speed measurement calibration experiment educational",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would materially ground the abstract equations by showing track markings, wheel-floor contact, encoder hardware, timing measurement, and the physical causes of mismatch between commanded motor input and measured velocity. It should supplement, not replace, the existing schematic and simulation visuals.",
+    "media_would_help": true
+  }
+}

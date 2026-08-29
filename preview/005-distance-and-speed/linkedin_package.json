@@ -1,0 +1,8 @@
+{
+  "title": "Class 5: Distance and Speed in Robotics\u2014From Motion Equations to Real Robot Measurement",
+  "description": "A practical robotics lesson connecting distance, speed, velocity, timing, Python simulation, and the real-world limits of motor commands and wheel motion.",
+  "commentary": "A robot does not move because a program contains a number. It moves through a physical system whose behavior must be measured, modeled, and checked.\n\nIn Class 5, students use RoboRover to connect position with motion and learn to:\n\n\u2022 Calculate average speed from distance and elapsed time.\n\u2022 Distinguish route distance from displacement, especially after turns or reversals.\n\u2022 Interpret velocity as a signed quantity in one dimension.\n\u2022 Build and test a constant-velocity Python simulation.\n\u2022 Compare commanded motor settings with calibrated or measured velocity.\n\u2022 Investigate wheel slip, unequal motors, timing delay, and battery effects.\n\nThe lesson deliberately starts with accessible equations, then shows where the ideal model breaks down on a real robot. Students also predict simulation results, verify them with assertions, and conduct a physical timing experiment.\n\nTry the lab with a marked track and ask one question: how closely does the measured motion match the model?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Python #EngineeringEducation",
+  "thumbnail_alt_text": "RoboRover on a marked track beside a distance, speed, and time schematic",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
