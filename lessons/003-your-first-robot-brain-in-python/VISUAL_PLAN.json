@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration for a robotics textbook: compact educational wheeled rover named RoboRover on a clean indoor testing lane, front distance sensor aimed down the lane, small visible battery indicator, subtle overlay of a simple programming flow showing sensor reading leading to decision leading to motor action, realistic wheels and sensor placement, restrained modern editorial styling, technically plausible hardware, high visual clarity, no decorative sci-fi elements, no watermark",
+    "caption": "RoboRover repeatedly senses its surroundings, makes a programmed decision, and acts.",
+    "alt_text": "Educational engineering illustration of a small wheeled rover using a front sensor and a programmed decision cycle in a testing lane."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical diagram showing a robot controller pipeline: a sensor reading enters named variables, a decision diamond branches into drive, slow, or clean actions, and an updated battery state returns to the next cycle; use clear sparse labels, arrows, blue and amber engineering colors, white background, textbook diagram style, no clutter",
+      "caption": "Notice how stored information flows through a decision and produces an action that changes the robot's state.",
+      "alt_text": "Flow diagram showing sensor reading to variables to conditional decision to robot action and updated battery state."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical educational illustration with four side-by-side snapshots of RoboRover in a narrow test lane, labeled conceptually by sensor readings 72 cm, 40 cm, 18 cm, and 55 cm; show the corresponding actions drive, slow, clean, and drive using simple arrows and a battery gauge decreasing across snapshots; realistic small rover, precise visual communication, minimal essential text, premium robotics textbook layout",
+      "caption": "The same decision rules produce different actions as the sensor reading changes from cycle to cycle.",
+      "alt_text": "Four-panel illustration tracing RoboRover through sensor readings and corresponding drive, slow, clean, and drive actions while its battery estimate decreases."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean instructional diagram of a Python for-loop controlling RoboRover: four loop iterations arranged vertically, each showing one sensor list value, a conditional branch, an action, and an updated battery value; emphasize indentation and the repeated sense-think-act cycle, use readable labels but very little text, professional technical publication style",
+      "caption": "Each loop iteration reads one measurement, selects one branch, performs an action, and updates stored information.",
+      "alt_text": "Instructional loop diagram showing four repeated Python controller iterations with sensor readings, branch choices, actions, and battery updates."
+    }
+  ]
+}
