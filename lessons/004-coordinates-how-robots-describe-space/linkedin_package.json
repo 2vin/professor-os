@@ -1,0 +1,8 @@
+{
+  "title": "How Robots Describe Space: Coordinates, Distance, and Reference Frames",
+  "description": "A practical robotics lesson that connects Cartesian coordinates, Euclidean distance, Python plotting, and the difference between world and body frames.",
+  "commentary": "A robot cannot act on \u201cmove over there\u201d until \u201cthere\u201d has a precise meaning.\n\nThis Professor OS lesson introduces coordinate maps through RoboRover and builds from simple ordered pairs to practical robotics reasoning:\n\n\u2022 how origins, axes, signs, and scale define a map;\n\u2022 how to calculate straight-line distance between locations;\n\u2022 why signed coordinate differences preserve direction;\n\u2022 how Python and matplotlib turn the mathematics into a visual experiment;\n\u2022 why world-frame and body-frame coordinates are not interchangeable.\n\nThe lesson also makes an important engineering distinction: Euclidean distance is not always the distance a robot can drive around obstacles. Students test predictions, inspect plotted geometry, and use assertions to verify their calculations.\n\nTry the lab with new rover and target coordinates. Predict first, calculate second, and run the program third.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #Python #MobileRobotics #STEM",
+  "thumbnail_alt_text": "RoboRover plotted on a labelled Cartesian coordinate map with target points and a distance circle",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
