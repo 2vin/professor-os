@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration viewed from above: a compact educational mobile rover named RoboRover on a clean warehouse test floor, positioned on a clearly drawn x-y coordinate grid with a marked origin, positive x arrow pointing right, positive y arrow pointing upward, several labelled coordinate points, subtle metre scale marks, realistic wheels and sensors, restrained modern engineering publication style, accurate top-down geometry, uncluttered composition, no decorative sci-fi elements, minimal essential labels only. Use an equal-aspect map grid so one unit has the same visual scale horizontally and vertically.",
+    "caption": "RoboRover uses an origin, axes, and scale to describe where it is on a floor map.",
+    "alt_text": "Top-down engineering illustration of a small mobile rover on an x-y grid, with the origin and positive coordinate axes marked."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear technical coordinate-system diagram for a beginner robotics textbook: a large x-y plane with equal square grid spacing and equal aspect ratio, origin labelled (0,0), positive x direction to the right, positive y direction upward, negative directions shown, and three example points including (4,2), (-3,1), and (0,-2). Use restrained blue, green, and charcoal technical colors, precise arrowheads, high legibility, minimal text, no decorative robot imagery. Make clear that these are map-frame coordinates, not robot-relative directions.",
+      "caption": "The first coordinate tells horizontal position; the second tells vertical position.",
+      "alt_text": "A labelled two-dimensional coordinate plane showing the origin, x-axis, y-axis, positive and negative directions, and example points."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technically precise top-down diagram of RoboRover at coordinate (-1,2) metres and two target markers at (2,6) metres and (3,3) metres. Draw horizontal and vertical right-triangle legs from RoboRover to each target and diagonal straight-line distance segments, with clear coordinate labels and metre units. Premium robotics textbook editorial style, equal aspect ratio with equal x and y scale, uncluttered, realistic small rover icon, essential labels only. Show map-frame positions, not robot-relative directions.",
+      "caption": "Comparing both horizontal and vertical separation reveals which target is truly closer.",
+      "alt_text": "Top-down coordinate map showing RoboRover and two targets with right-triangle separation lines used to calculate straight-line distances."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium educational technical illustration showing a Python-generated coordinate plot beside a small realistic mobile rover test setup. The plot has equal x and y scales and equal aspect ratio, axes crossing at the origin, labelled points A, B, C, and D, and a subtle visual indication that A and C are equally distant from RoboRover at (1,-1), while D is farthest. Do not state or imply that A and C are equally distant from the origin. Keep code representation minimal and abstract, prioritize the coordinate geometry, clean modern robotics textbook styling, no clutter.",
+      "caption": "A program can calculate distances and draw the same coordinate relationships RoboRover uses in its map.",
+      "alt_text": "Educational illustration of a plotted coordinate map with four labelled points and a mobile rover test setup, emphasizing equal axis scale and equal distances from RoboRover for points A and C."
+    }
+  ]
+}
