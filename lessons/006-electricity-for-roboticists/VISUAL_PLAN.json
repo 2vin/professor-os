@@ -1,0 +1,43 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled robot on a clean laboratory workbench, with a visible low-voltage battery pack, neatly routed red and black wires, a motor driver board, and two wheel motors. Show subtle glowing circuit-path highlights from battery through driver to motors, technically plausible components, restrained modern robotics textbook styling, realistic materials and lighting, no decorative sci-fi elements, no clutter, no readable text.",
+    "caption": "RoboRover\u2019s battery, circuit, motor driver, and motors form the electrical-to-motion chain studied in this class.",
+    "alt_text": "Educational engineering illustration of a small wheeled robot with a battery, motor driver, wires, and wheel motors connected as an electrical system."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical textbook diagram comparing an electrical circuit with a water-pipe analogy. On the left, show a battery, closed wire loop, resistor, and arrows for conventional current. On the right, show a pressure difference, pipe loop, narrow section, and water-flow arrows. Clearly distinguish voltage as push or potential difference, current as flow, and resistance as opposition. Include only essential labels, precise engineering linework, white background, restrained blue and red color accents, no cartoon styling. Before publication, verify every rendered equation, symbol, unit, arrow direction, and polarity mark against the lesson.",
+      "caption": "The pipe analogy builds intuition: voltage encourages flow, current is flow, and resistance opposes flow.",
+      "alt_text": "Side-by-side educational diagram of an electrical circuit and a water-pipe analogy showing voltage, current, and resistance."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clearly labeled technical H-bridge schematic for one low-voltage motor-driver channel. Show battery positive connected to VM, battery negative connected to GND, four switched transistor paths between VM, OUT1, OUT2, and GND, and a motor connected between OUT1 and OUT2. Show separate controller PWM or direction connections to logic/control inputs and controller logic ground connected to the driver\u2019s specified logic reference. Highlight one valid current state with arrows: VM through the upper-left switch, OUT1, motor, OUT2, and the lower-right switch to GND. Clearly distinguish VM and GND supply rails from OUT1 and OUT2 motor terminals. Add a warning: follow the specific driver datasheet; do not wire from this simplified diagram alone. Crisp vector-like textbook illustration, minimal labels, no decorative imagery. Before publication, verify all rendered arrows, terminals, polarity marks, labels, and the distinction between supply rails and motor outputs.",
+      "caption": "In an H-bridge, the motor connects between two switched output nodes; VM and GND are the driver\u2019s supply connections.",
+      "alt_text": "Labeled H-bridge diagram showing VM, GND, OUT1, OUT2, motor connections, controller logic connections, and one highlighted current path."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium educational engineering illustration of RoboRover\u2019s 5-volt indicator branch, showing a 5.0 V supply, a red LED with an explicitly labeled assumed forward-voltage drop Vf equals 2.0 V, and a 220-ohm series resistor in a clear circuit path. Add a visual conventional-current arrow and a small unobtrusive calculation panel showing resistor voltage equals 5.0 volts minus 2.0 volts equals 3.0 volts, then I equals 3.0 volts divided by 220 ohms, leading to approximately 13.6 milliamperes. Include a small resistor-power note of approximately 0.0409 watts. Ensure the diagram is technically clear, restrained, and not text-heavy. Before publication, verify every rendered symbol, subscript, unit, arrow, polarity mark, and numerical result.",
+      "caption": "With a 2.0-volt LED forward-drop assumption, the 220-ohm resistor gives an approximate branch current of 13.6 milliamperes.",
+      "alt_text": "Educational circuit illustration of a 5-volt RoboRover indicator branch with a red LED, 220-ohm series resistor, assumed 2.0-volt forward drop, and calculated current of about 13.6 milliamperes."
+    }
+  ],
+  "production_workflow": [
+    "Generate each asset with source set to gemini.",
+    "Before publication, inspect the rendered asset against the prompt and lesson.",
+    "Verify every equation, symbol, unit, polarity mark, terminal label, arrow direction, and numerical result manually.",
+    "Reject or correct any asset whose topology, labels, or rendered mathematics is inaccurate."
+  ]
+}
