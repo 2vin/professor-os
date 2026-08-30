@@ -13,3 +13,10 @@ install_runtime_hooks()
 from .quality_duplicate_guard import install_runtime_hook
 
 install_runtime_hook()
+
+# Full-lesson AI rewrites are not allowed to silently delete generated Gemini
+# teaching visuals. Restore any protected inline_XX.png block deterministically
+# before pipeline.py performs its existing fail-closed visual validation.
+from .visual_integrity import install_runtime_hook as install_visual_integrity_hook
+
+install_visual_integrity_hook()
