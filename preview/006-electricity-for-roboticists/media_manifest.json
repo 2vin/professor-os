@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real educational mobile robot with motor driver board, battery pack, multimeter, and safely arranged low-voltage wiring on a laboratory bench",
+  "media_style": "photo",
+  "reason": "A real, carefully staged photograph would materially ground the abstract circuit diagrams by showing the physical battery, motor-driver board, motor outputs, power-return wiring, and measurement equipment in a plausible robot assembly. It should depict de-energized or clearly low-voltage supervised equipment rather than invite unsupervised wiring.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

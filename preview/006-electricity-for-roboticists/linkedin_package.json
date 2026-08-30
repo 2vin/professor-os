@@ -1,0 +1,8 @@
+{
+  "title": "Class 6: Electricity for Roboticists\u2014From Voltage and Current to Motor Drivers",
+  "description": "A rigorous Professor OS lesson connects voltage, current, resistance, power, LED sizing, H-bridges, meter safety, and motor behavior through calculations and a Python lab.",
+  "commentary": "Robots do not move because \u201celectricity\u201d is mysterious. They move because a source, circuit, driver, and motor transfer energy through a complete and measurable path.\n\nIn Class 6, Professor OS helps learners build that model step by step:\n\n\u2022 Use voltage, current, and resistance without overextending the water-pipe analogy.\n\u2022 Apply Ohm\u2019s law and power equations with units and sanity checks.\n\u2022 Size a resistor for an LED indicator under realistic supply variation.\n\u2022 Understand why motor startup and stall current differ from normal operation.\n\u2022 Practice safer multimeter reasoning and connect simplified calculations to an H-bridge.\n\nThe included Python lab reinforces the resistor model, while the RoboRover challenge asks students to predict outcomes before checking them. Try the simulation first, then complete the low-voltage measurement activity only with appropriate supervision and current-limited equipment.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #EngineeringEducation #Electronics #ProfessorOS",
+  "thumbnail_alt_text": "Professor OS lesson showing a robot motor driver, battery, resistor circuit, and electrical measurements",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

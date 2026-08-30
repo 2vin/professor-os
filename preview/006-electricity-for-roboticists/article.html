@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 2: Sense → Think → Act · Professor OS</title>
+<title>Class 6: Electricity for Roboticists · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,18 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -47,470 +35,521 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="2">
+<body data-class="6">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_06</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_06</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 06 · Hardware &amp; Sensors</div><h1>Electricity for Roboticists</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>voltage, current, resistance</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Sense → Think → Act</h2>
+      <h2>Class podcast · Electricity for Roboticists</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-06-electricity-for-roboticists.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 6: Electricity for Roboticists</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we asked, “What is a robot?” We learned that a robot is a physical machine whose controlled actuators perform a physical task. The action may be selected by a human, a preprogrammed controller, or autonomous software.</p>
-<p>We also separated two ideas that are often mixed together:</p>
+<p>Last class, RoboRover described motion using distance and speed:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{speed}=\frac{\text{distance}}{\text{time}}\]</span></div>
+<p>Motion also requires <strong>energy</strong>, the capacity to cause change or perform work. <strong>Power</strong> is the rate at which energy is transferred. Energy is measured in joules (J) or watt-hours (Wh); power is measured in watts (W). RoboRover moves because a circuit transfers electrical energy from a source to a motor, where it becomes mechanical motion.</p>
+<h3>Prerequisite: charge, circuit, energy, and power</h3>
 <ul>
-<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
-<li><strong>Decision authority:</strong> who or what selects its immediate actions.</li>
+<li><strong>Electric charge</strong> is a property of matter that can move through conductors.</li>
+<li>A <strong>circuit</strong> is a connected path through which charge can move.</li>
+<li><strong>Energy</strong> is transferred to a motor, resistor, or other load.</li>
+<li><strong>Power</strong> is the rate of that energy transfer.</li>
 </ul>
-<p>A teleoperated rover can be a robot even when a human chooses its movements. An autonomous vacuum can be a robot because software selects its task-level actions. A thermostat can use feedback without normally being called a robot.</p>
-<p>Today we open the robot’s “body and brain” and study the repeating pattern behind many robotic systems:</p>
-<blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover will use this pattern to keep a safe distance from a wall.</p>
+<p>This class introduces:</p>
+<ul>
+<li><strong>Voltage:</strong> electrical potential difference that can drive charge.</li>
+<li><strong>Current:</strong> the rate of charge flow.</li>
+<li><strong>Resistance:</strong> opposition to current flow.</li>
+</ul>
+<p>We will use these ideas to reason about indicator circuits, batteries, motor drivers, measurements, and component safety. Next class, we will examine motors in greater detail.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ol>
-<li>Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do.</li>
-<li>Trace information through a robot from measurement to movement.</li>
-<li>Explain feedback as measurement that changes a current or future control action.</li>
-<li>Calculate a simple distance error with units.</li>
-<li>Recognize why real robots struggle with noise, delay, calibration, and mechanical limits.</li>
-<li>Build and run a small Python simulation of RoboRover’s feedback behavior.</li>
+<li>Describe voltage, current, and resistance using a useful, bounded analogy.</li>
+<li>Explain why a circuit needs a complete conducting path.</li>
+<li>Use Ohm’s law to calculate current, voltage, or resistance.</li>
+<li>Calculate electrical power using \(P=VI\), \(P=I^2R\), and \(P=V^2/R\) when appropriate.</li>
+<li>Interpret calculations using correct units.</li>
+<li>Explain why short circuits, excessive current, voltage sag, and component ratings matter.</li>
+<li>Predict how resistance affects current and resistor power.</li>
+<li>Relate simplified calculations to real robot hardware and measurements.</li>
 </ol>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine a robot arm picking up a cup.</p>
-<ul>
-<li>The arm is a <strong>physical machine</strong>.</li>
-<li>Its motors create controlled movement.</li>
-<li>A human, a stored program, or autonomous software may choose the task.</li>
-<li>Sensors may measure joint angle, force, or the cup’s location.</li>
-<li>The robot’s status and its control mode are separate questions.</li>
-</ul>
-<p>Last class, we previewed <strong>feedback</strong>:</p>
-<blockquote>A measured state or output influences a current or future control action in relation to a desired state.</blockquote>
-<p>For example, a thermostat measures room temperature and changes heating behavior when the measured temperature differs from the desired temperature. Feedback does not have to mean smooth or continuous adjustment. A threshold rule can also be feedback if a measurement changes what happens next.</p>
-<p>Today we will place these ideas into a complete robot loop.</p>
+<p>RoboRover’s speed depends on its motors, wheels, load, floor surface, and control commands. Those systems depend partly on electrical power.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{electrical circuit} \rightarrow \text{motor} \rightarrow \text{wheel rotation} \rightarrow \text{distance traveled}\]</span></div>
+<p>Today we focus on the electrical circuit in the middle of that chain.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The measured result returns to the controller, so the next action depends on what actually happened.</p>
-<p>RoboRover is facing a wall. It should stop about 0.50 metres away.</p>
-<p>An illustrator could draw four blocks:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>        desired distance
-             0.50 m
-                |
-                v
-Wall &lt;--- sensor measurement &lt;--- RoboRover
-                                      |
-                                      v
-                              Controller compares
-                              desired and measured
-                                      |
-                                      v
-                              Motor command
-                                      |
-                                      v
-                              Wheels move rover
-                                      |
-                                      +---- new distance ----&gt; sensor</code></pre></div>
-<p>The loop is:</p>
-<ol>
-<li><strong>Sense:</strong> a distance sensor estimates how far RoboRover is from the wall.</li>
-<li><strong>Think:</strong> the controller compares the measurement with the desired distance.</li>
-<li><strong>Act:</strong> motors turn the wheels forward, backward, or not at all.</li>
-<li><strong>Sense again:</strong> the new position is measured.</li>
-</ol>
-<p>The fourth step matters. Without measuring again, the robot cannot tell whether its action worked.</p>
-<p>This is a simple <strong>feedback control loop</strong>. The word “control” here means choosing an action to influence a physical system, not merely issuing a one-time command.</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Side-by-side educational diagram of an electrical circuit and a water-pipe analogy showing voltage, current, and resistance."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The pipe analogy builds intuition: voltage encourages flow, current is flow, and resistance opposes flow.</p>
+<p>Imagine water moving through pipes:</p>
+<ul>
+<li><strong>Voltage</strong> is similar to a pressure difference that encourages water to move.</li>
+<li><strong>Current</strong> is similar to the amount of flow passing a point each second.</li>
+<li><strong>Resistance</strong> is similar to a narrow or rough section that makes flow harder.</li>
+</ul>
+<p>This analogy is only for intuition. Current is a circuit variable; charge motion in a conductor is not the same as bulk water circulation. Electrons are not consumed by a load. A circuit transfers energy while charge continues around the conducting path.</p>
+<p>For RoboRover:</p>
+<ul>
+<li>the battery provides a voltage difference;</li>
+<li>wires provide conducting paths;</li>
+<li>a motor driver controls power delivered to the motor;</li>
+<li>a resistor can limit current;</li>
+<li>a switch or transistor can open, close, or regulate part of a circuit.</li>
+</ul>
+<p>A circuit needs a complete conducting path. If the path is broken, continuous current cannot flow through the intended loop.</p>
+<h3>The simplest complete loop</h3>
+<div class="code-card"><div class="code-label">text</div><pre><code>source positive ───&gt; load ───&gt; source negative
+       |                         ^
+       └────────── source ───────┘</code></pre></div>
+<p><strong>Text description:</strong> A source, conductors, and load form one closed loop. Conventional current leaves the source positive terminal, passes through the load, and returns to the source negative terminal.</p>
+<p><strong>Predict:</strong> If RoboRover’s battery is connected to only one motor terminal and the other motor terminal is disconnected, will the motor turn continuously?</p>
+<p>No. The intended path is open, so continuous current cannot pass through the motor.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover as a small wheeled platform with:</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Labeled H-bridge diagram showing VM, GND, OUT1, OUT2, motor connections, controller logic connections, and one highlighted current path."></figure>
+<p class="figure-caption"><strong>Figure:</strong> In an H-bridge, the motor connects between two switched output nodes; VM and GND are the driver’s supply connections.</p>
+<p>Picture RoboRover from above with a battery pack near its center. A motor driver has separate supply connections and switched output connections. The motor connects <strong>between two output nodes</strong>, not between a battery terminal and an unspecified point in the driver.</p>
+<p>The following is a simplified <strong>H-bridge</strong> diagram. It shows one possible current state.</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>                         motor-driver power stage
+                                  VM
+                                   |
+                         +---------+---------+
+                         |                   |
+                       high-side           high-side
+                       switch              switch
+                         |                   |
+                       OUT1               OUT2
+                         |                   |
+                         +----[  MOTOR  ]---+
+                         |                   |
+                       low-side            low-side
+                       switch              switch
+                         |                   |
+                        GND-----------------+
+
+Battery +  -------------------------------&gt; VM
+Battery -  -------------------------------&gt; GND
+Controller logic GND ---------------------&gt; specified logic reference*
+Controller PWM/direction signals ---------&gt; logic/control inputs</code></pre></div>
+<p><code>VM</code> means the motor-supply positive connection. <code>GND</code> is a label commonly used for a circuit return or reference; it is not automatically earth ground. <code>OUT1</code> and <code>OUT2</code> are switched motor terminals.</p>
+<p>For the illustrated forward-current state:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>VM → upper-left switch → OUT1 → motor → OUT2
+   → lower-right switch → GND → battery negative</code></pre></div>
+<p>The exact pin names, capacitors, enable pins, current limits, and wiring requirements depend on the driver datasheet. <strong>Do not wire a driver from this simplified teaching diagram alone. Connect logic ground only as specified by the driver datasheet.</strong> A shared power and logic ground is a common configuration, not a universal default.</p>
+<p>An H-bridge must also prevent unsafe switch combinations. Turning on both the high-side and low-side switches in the same leg can create a near-short path from VM to GND called <strong>shoot-through</strong>. Real drivers may use interlock logic, dead time, current limiting, or other protection. Treat these details as enrichment; follow the driver’s control requirements rather than manually operating bridge switches.</p>
+<p>The pipe comparison can reinforce the basic analogy:</p>
 <ul>
-<li>a forward-facing distance sensor,</li>
-<li>two powered wheels,</li>
-<li>a small computer,</li>
-<li>a battery,</li>
-<li>and a wall several centimetres away.</li>
+<li>battery beside a pressure source;</li>
+<li>wires beside pipes;</li>
+<li>resistor beside a narrow pipe;</li>
+<li>current arrows beside flow arrows;</li>
+<li>motor beside a water wheel.</li>
 </ul>
-<p>Suppose RoboRover is too far from the wall. The controller might command both wheels to turn forward.</p>
-<p>Now suppose it is too close. The controller might command both wheels to turn backward.</p>
-<p>If it is within an acceptable zone, the controller stops the wheels.</p>
-<p>The desired distance is not a command such as “drive forward for three seconds.” It is a condition the robot tries to maintain.</p>
-<p>A useful visual detail is to draw a shaded <strong>acceptable zone</strong> around the target:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>too far          acceptable zone          too close
-------|-----------------|-----------------|------
-     0.56 m            0.50 m             0.44 m
-       forward             stop              reverse</code></pre></div>
-<p>The boundaries in this drawing are examples. The exact values depend on the robot, sensor, and task.</p>
+<blockquote>Analogy for intuition—not a complete model.</blockquote>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Sensors: the robot’s measuring instruments</h3>
-<p>A <strong>sensor</strong> measures some property of the robot or its environment and produces information that the controller can use.</p>
-<p>Examples include:</p>
+<h3>Voltage: electrical potential difference</h3>
+<p><strong>Voltage</strong> is the difference in electrical potential between two points. It is measured in <strong>volts (V)</strong>. Voltage is measured between points, not as an isolated property of one point.</p>
+<p>A battery labeled 7.4 V has a nominal voltage of approximately 7.4 V under specified conditions. Its actual voltage may differ:</p>
 <ul>
-<li>a distance sensor measuring separation from an object,</li>
-<li>a wheel encoder measuring wheel rotation,</li>
-<li>a camera measuring patterns of light,</li>
-<li>a temperature sensor measuring thermal conditions,</li>
-<li>a bumper switch reporting contact.</li>
+<li><strong>Open-circuit voltage:</strong> measured with no significant load connected.</li>
+<li><strong>Loaded terminal voltage:</strong> measured at the battery terminals while current is drawn.</li>
+<li><strong>Load voltage:</strong> measured across the connected component.</li>
 </ul>
-<p>A sensor does not automatically “understand” its surroundings. It produces a signal or value. Software and electronics interpret that value.</p>
-<h3>Controller: the decision-making mechanism</h3>
-<p>A <strong>controller</strong> receives measurements and selects commands.</p>
-<p>For RoboRover, the controller could follow this rule:</p>
-<ul>
-<li>If the wall is farther than the target zone, drive forward.</li>
-<li>If the wall is closer than the target zone, drive backward.</li>
-<li>Otherwise, stop.</li>
-</ul>
-<p>This is a threshold controller. It is simple, but it is still feedback because new measurements affect later motor commands.</p>
-<h3>Actuators: the parts that create physical change</h3>
-<p>An <strong>actuator</strong> converts a command into physical action.</p>
-<p>Examples include:</p>
-<ul>
-<li>electric motors turning wheels,</li>
-<li>a servo moving a joint,</li>
-<li>a pump moving liquid,</li>
-<li>a gripper motor closing fingers,</li>
-<li>a solenoid moving a latch.</li>
-</ul>
-<p>A controller may request “motor speed = 40%,” but the physical actuator may not produce exactly that result. Friction, battery voltage, load, and mechanical wear all matter.</p>
-<h3>Feedback: action informed by results</h3>
-<p>In feedback control, the robot acts, measures the result, and uses that result to decide what to do next.</p>
-<p>This differs from a one-shot sensor trigger. Suppose a sensor detects an obstacle and starts a fixed three-second turn. If the robot does not use later measurements to adjust that turn, many engineers would describe this as a sensor-triggered sequence, not sustained feedback regulation.</p>
-<p>In this course, <strong>sustained feedback regulation</strong> means repeated measurement-and-correction over time.</p>
-<h3>A compact comparison</h3>
-<p>These ideas are related but not identical:</p>
-<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th><th>Example</th></tr></thead><tbody><tr><td>Preprogrammed automation</td><td>Is the sequence specified in advance?</td><td>RoboRover drives forward for 2 seconds, then stops</td></tr><tr><td>Feedback control</td><td>Does measured output or state change the control action?</td><td>RoboRover changes direction based on measured wall distance</td></tr><tr><td>Autonomy</td><td>Does software select task-level actions without immediate human choice?</td><td>RoboRover decides how to approach and inspect several locations</td></tr></tbody></table></div>
-<p>A system can combine these. A preprogrammed robot arm can execute a stored task while its joint motors use feedback. Feedback does not automatically mean autonomy, and autonomy does not require a particular sensor or algorithm.</p>
+<p>Battery internal resistance, wires, connectors, protection circuits, and battery state can cause voltage to fall under load. This reduction is called <strong>voltage sag</strong>. Every connected component must be suitable for the applied voltage.</p>
+<h3>Current: charge flow</h3>
+<p><strong>Electric current</strong> is the rate at which electric charge passes a point. It is measured in <strong>amperes</strong>, or <strong>amps (A)</strong>:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[1\ \text{A}=1\ \text{C/s}\]</span></div>
+<p>This lesson uses <strong>conventional current</strong>, defined as flowing from a source’s positive terminal through the external circuit toward its negative terminal. Electrons in metal move in the opposite direction.</p>
+<p>Motor current is often higher during startup, acceleration, heavy loading, or stall because the motor’s speed-dependent opposing voltage is then small.</p>
+<h3>Resistance: opposition to current</h3>
+<p><strong>Resistance</strong> describes how strongly a component opposes current. It is measured in <strong>ohms (Ω)</strong>.</p>
+<p>A resistor deliberately provides resistance. Wires also have resistance, usually much less than an intentional resistor. Resistance depends on material, dimensions, temperature, and construction. For introductory calculations, we treat a resistor’s value as approximately constant.</p>
+<h3>Retrieval checkpoint</h3>
+<ol>
+<li>Voltage is measured between what?</li>
+<li>What unit measures current?</li>
+<li>If resistance increases while voltage stays constant, does current increase or decrease?</li>
+</ol>
+<p><strong>Answers:</strong> Voltage is measured between two points. Current is measured in amperes. Current decreases because \(I=V/R\).</p>
+<h3>Ohm’s law</h3>
+<p>For a component that behaves approximately like an ohmic resistor:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V=IR\]</span></div>
+<p>where \(V\) is voltage in volts, \(I\) is current in amperes, and \(R\) is resistance in ohms.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R}
+\qquad\text{and}\qquad
+R=\frac{V}{I}\]</span></div>
+<p>These equations are models, not descriptions of every component. Motors, batteries, LEDs, and electronic controllers have more complex behavior.</p>
+<h3>Electrical power</h3>
+<p><strong>Power</strong> is the rate at which electrical energy is transferred. It is measured in <strong>watts (W)</strong>:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI\]</span></div>
+<p>For a resistor, substituting \(V=IR\) gives:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=I^2R
+\qquad\text{and}\qquad
+P=\frac{V^2}{R}\]</span></div>
+<p>Use these resistor forms for the same component at the same operating point. Compare calculated power with the component’s rated power and leave engineering margin.</p>
+<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Unit</th><th>Typical measurement</th></tr></thead><tbody><tr><td>Voltage \(V\)</td><td>Potential difference</td><td>volts (V)</td><td>Meter in parallel</td></tr><tr><td>Current \(I\)</td><td>Charge flow rate</td><td>amperes (A)</td><td>Meter in series</td></tr><tr><td>Resistance \(R\)</td><td>Opposition to current</td><td>ohms (Ω)</td><td>Unpowered circuit only</td></tr><tr><td>Power \(P\)</td><td>Energy-transfer rate</td><td>watts (W)</td><td>Calculated or measured</td></tr></tbody></table></div>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>To reason about RoboRover’s distance, define the <strong>distance error</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = d_{\text{measured}} - d_{\text{target}}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(e\) is the distance error, in metres (m);</li>
-<li>\(d_{\text{measured}}\) is the current measured distance from RoboRover to the wall, in metres (m);</li>
-<li>\(d_{\text{target}}\) is the desired distance from RoboRover to the wall, in metres (m).</li>
-</ul>
-<p>Suppose:</p>
-<ul>
-<li>\(d_{\text{measured}} = 0.82\ \text{m}\)</li>
-<li>\(d_{\text{target}} = 0.50\ \text{m}\)</li>
-</ul>
-<p>Then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.82\ \text{m} - 0.50\ \text{m}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.32\ \text{m}\]</span></div>
-<p>The positive sign means RoboRover is too far from the wall. If the rover is facing the wall, it should move forward.</p>
-<p>If instead the measured distance were \(0.41\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.41\ \text{m} - 0.50\ \text{m} = -0.09\ \text{m}\]</span></div>
-<p>The negative sign means RoboRover is too close. It should move backward or otherwise increase its distance.</p>
-<p>A simple travel estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{\Delta d}{v}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(t\) is time, in seconds (s);</li>
-<li>\(\Delta d\) is the distance to travel, in metres (m);</li>
-<li>\(v\) is speed, in metres per second (m/s).</li>
-</ul>
-<p>If RoboRover must travel \(0.32\ \text{m}\) at a constant \(0.20\ \text{m/s}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{0.32\ \text{m}}{0.20\ \text{m/s}} = 1.6\ \text{s}\]</span></div>
-<p>This is an ideal estimate. It assumes perfect measurement, immediate motor response, constant speed, and no slipping. Real robots rarely satisfy all those assumptions.</p>
+<p>Suppose a 9 V source is connected across a 300 Ω resistor:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{9\ \text{V}}{300\ \Omega}
+=0.03\ \text{A}=30\ \text{mA}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(9)(0.03)=0.27\ \text{W}\]</span></div>
+<p>or:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{9^2}{300}=0.27\ \text{W}\]</span></div>
+<p>The units confirm \(\text{V}/\Omega=\text{A}\). Estimate first: 9 V divided by 300 Ω should be much less than 1 A. A result of 30 A signals an arithmetic or unit error.</p>
+<p>At fixed voltage, increasing resistance decreases both current and resistor power:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R},\qquad P=\frac{V^2}{R}\]</span></div>
+<h3>Series and parallel preview</h3>
+<p>For two resistors in series:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=R_1+R_2\]</span></div>
+<p>The same current flows through both, and their voltage drops add to the source voltage. For \(100\ \Omega\) and \(200\ \Omega\) across 6.0 V:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=300\ \Omega,\qquad I=\frac{6.0}{300}=0.020\ \text{A}\]</span></div>
+<p>The voltage drops are 2.0 V and 4.0 V.</p>
+<p>In parallel, branches share voltage and their currents add at the source:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{1}{R_{\text{total}}}
+=
+\frac{1}{R_1}+\frac{1}{R_2}\]</span></div>
+<p>A parallel branch can reduce total resistance and increase source current.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same target produces different commands because the measured distance changes.</p>
-<p>RoboRover uses a distance sensor aimed at a wall.</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Educational circuit illustration of a 5-volt RoboRover indicator branch with a red LED, 220-ohm series resistor, assumed 2.0-volt forward drop, and calculated current of about 13.6 milliamperes."></figure>
+<p class="figure-caption"><strong>Figure:</strong> With a 2.0-volt LED forward-drop assumption, the 220-ohm resistor gives an approximate branch current of 13.6 milliamperes.</p>
+<p>RoboRover has a 5.0 V indicator branch containing:</p>
 <ul>
-<li>Desired distance: \(0.50\ \text{m}\)</li>
-<li>Measured distance: \(0.68\ \text{m}\)</li>
-<li>Acceptable error magnitude: \(0.04\ \text{m}\)</li>
+<li>a red LED with an <strong>assumed</strong> forward voltage of \(V_f=2.0\ \text{V}\);</li>
+<li>a 220 Ω series resistor.</li>
 </ul>
-<p>First calculate the error:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.68\ \text{m} - 0.50\ \text{m} = 0.18\ \text{m}\]</span></div>
-<p>Because \(0.18\ \text{m}\) is greater than the acceptable \(0.04\ \text{m}\), RoboRover is too far away. The controller commands forward motion.</p>
-<p>Later, the sensor reads \(0.52\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.52\ \text{m} - 0.50\ \text{m} = 0.02\ \text{m}\]</span></div>
-<p>The error is now within the acceptable zone because \(0.02\ \text{m} &lt; 0.04\ \text{m}\). The controller commands stop.</p>
-<p>Notice what happened:</p>
+<p>An LED is not an ohmic resistor. The resistor receives the remaining voltage:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{220}\approx0.0136\ \text{A}=13.6\ \text{mA}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=I^2R\approx(0.0136)^2(220)\approx0.0409\ \text{W}\]</span></div>
+<p>The forward-voltage assumption depends on current and temperature. Check the LED’s maximum current, the resistor’s power rating, supply tolerance, and thermal conditions.</p>
+<p>For comparison, a 100 Ω resistor would give:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{100}=0.030\ \text{A}=30\ \text{mA}\]</span></div>
+<p>The lower resistance produces more current and may exceed the LED’s safe operating range.</p>
+<h3>Compact motor-driver connection example</h3>
+<p>A driver may provide:</p>
 <ul>
-<li>The target did not change.</li>
-<li>The sensor measurement changed.</li>
-<li>The controller selected a different actuator command because of that measurement.</li>
+<li><strong>VM:</strong> motor-supply positive;</li>
+<li><strong>GND:</strong> motor-supply return;</li>
+<li><strong>OUT1</strong> and <strong>OUT2:</strong> switched motor outputs;</li>
+<li>logic inputs such as PWM or direction.</li>
 </ul>
-<p>That is the essential feedback pattern.</p>
-<p>An engineering caveat appears immediately: the sensor may report \(0.52\ \text{m}\) even when the true distance is \(0.50\ \text{m}\). Sensor noise can cause the controller to switch commands unnecessarily. A deadband, such as the \(0.04\ \text{m}\) acceptable zone, helps prevent constant forward-backward switching.</p>
+<p>For one channel, connect battery positive to VM, battery negative to the driver’s specified power return, and the motor between OUT1 and OUT2. Connect the controller only to the driver’s specified logic reference and control inputs. Motor current flows through the driver’s power stage, not through a controller signal pin.</p>
+<p>A motor is not a fixed resistor. As it spins, it generates <strong>back electromotive force (back EMF)</strong> that opposes the applied voltage. At startup or stall, speed is low or zero, so current can be much higher.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation separates imperfect measurement from the rover’s true distance and shows the feedback response over time.</p>
-<p>This program simulates RoboRover approaching a wall. It uses:</p>
-<ul>
-<li>a simulated distance sensor with small random noise;</li>
-<li>a threshold controller;</li>
-<li>a motor command represented by velocity;</li>
-<li>a plot of true distance over time.</li>
-</ul>
-<p>The simulated rover starts \(1.20\ \text{m}\) from the wall and tries to maintain \(0.50\ \text{m}\).</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import random
-import matplotlib.pyplot as plt
+<p>This program models a <strong>resistor-only branch</strong> at 5.0 V. It includes executable assertions for the numerical checks shown in its output.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
+    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
+    if voltage &lt; 0:
+        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
+    if resistance &lt;= 0:
+        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
+    return voltage / resistance
 
-# Desired distance from RoboRover to the wall, in metres.
-target_distance = 0.50
 
-# The rover is allowed to be this far above or below the target.
-deadband = 0.03
+def resistor_power(voltage, resistance):
+    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
+    if voltage &lt; 0:
+        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
+    if resistance &lt;= 0:
+        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
+    return voltage * voltage / resistance
 
-# Simulation time step, in seconds.
-dt = 0.10
 
-# Maximum forward or backward speed, in metres per second.
-speed = 0.25
+def compare_with_exercise_limit(current, limit=0.05):
+    &quot;&quot;&quot;Compare current with a classroom exercise threshold.&quot;&quot;&quot;
+    if current &gt; limit:
+        return &quot;above the {:.3f} A exercise threshold&quot;.format(limit)
+    return &quot;at or below the {:.3f} A exercise threshold&quot;.format(limit)
 
-# Starting true distance from the wall, in metres.
-distance = 1.20
 
-# A local random generator makes the experiment repeatable.
-rng = random.Random(4)
+def main():
+    voltage = 5.0
+    exercise_threshold = 0.05
+    resistances = [100, 200, 220, 500, 1000, 10000]
 
-times = []
-distances = []
-commands = []
+    assert abs(current_from_resistance(5.0, 100) - 0.05) &lt; 1e-12
+    assert abs(current_from_resistance(5.0, 1000) - 0.005) &lt; 1e-12
+    assert abs(resistor_power(5.0, 100) - 0.25) &lt; 1e-12
 
-for step in range(120):
-    time = step * dt
-
-    # Simulate an imperfect distance sensor.
-    noise = rng.uniform(-0.015, 0.015)
-    measured_distance = distance + noise
-
-    error = measured_distance - target_distance
-
-    # Feedback controller:
-    # positive velocity moves toward the wall,
-    # negative velocity moves away from the wall.
-    if error &gt; deadband:
-        velocity = speed
-        command = &quot;forward&quot;
-    elif error &lt; -deadband:
-        velocity = -speed
-        command = &quot;backward&quot;
+    try:
+        current_from_resistance(-1.0, 100.0)
+    except ValueError:
+        pass
     else:
-        velocity = 0.0
-        command = &quot;stop&quot;
+        raise AssertionError(&quot;Negative voltage must be rejected.&quot;)
 
-    # Update the true distance using velocity and time.
-    distance = distance - velocity * dt
+    print(&quot;RoboRover resistor-branch simulation&quot;)
+    print(&quot;Supply voltage: {:.1f} V&quot;.format(voltage))
+    print(&quot;Exercise threshold: {:.3f} A&quot;.format(exercise_threshold))
+    print()
 
-    # Do not allow the simulated rover to pass through the wall.
-    if distance &lt; 0.05:
-        distance = 0.05
+    for resistance in resistances:
+        current = current_from_resistance(voltage, resistance)
+        power = resistor_power(voltage, resistance)
+        print(&quot;{:&gt;5} ohms -&gt; {:.2f} mA, {:.4f} W: {}&quot;.format(
+            resistance,
+            current * 1000.0,
+            power,
+            compare_with_exercise_limit(current, exercise_threshold)))
 
-    times.append(time)
-    distances.append(distance)
-    commands.append(command)
 
-# Executable verification of the experiment&#x27;s exact structural claims.
-assert len(times) == 120
-assert len(distances) == 120
-assert len(commands) == 120
-assert min(distances) &gt;= 0.05
-assert abs(distances[-1] - target_distance) &lt;= 0.10
-
-print(&quot;Simulation completed.&quot;)
-print(&quot;Final true distance: {:.3f} m&quot;.format(distances[-1]))
-print(&quot;Final error from target: {:.3f} m&quot;.format(
-    distances[-1] - target_distance
-))
-
-plt.plot(times, distances, label=&quot;true distance&quot;)
-plt.axhline(target_distance, color=&quot;red&quot;, linestyle=&quot;--&quot;,
-            label=&quot;target distance&quot;)
-plt.xlabel(&quot;Time (s)&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover feedback simulation&quot;)
-plt.legend()
-plt.grid(True)
-plt.show()</code></pre></div>
-<p>Important lines:</p>
-<ul>
-<li><code>measured_distance = distance + noise</code> separates the true simulated distance from what the sensor reports.</li>
-<li><code>error = measured_distance - target_distance</code> computes the signed error.</li>
-<li>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are the controller.</li>
-<li><code>distance = distance - velocity * dt</code> models the physical result of the motor command.</li>
-<li><code>assert</code> statements check structural and safety claims while the program runs.</li>
-</ul>
-<p>This is not a complete motor controller. It is a teaching model. It ignores acceleration, wheel slip, sensor delay, and the time needed for a motor to start or stop.</p>
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre></div>
+<p>Negative voltage is rejected here because this small teaching model describes a supply magnitude and assumes conventional current in one chosen direction. Signed voltage is meaningful in broader circuit analysis; it is simply outside this function’s stated model.</p>
+<p>Change <code>exercise_threshold</code> and observe the messages. The threshold is a classroom comparison, not a component rating. This model does not simulate LED nonlinearity, motor startup current, battery sag, or motor-driver switching.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Try a human version before changing the code.</p>
-<p>Choose a target distance from a wall, such as 50 centimetres. One person is RoboRover, one is the sensor, and one is the controller.</p>
+<p>Play <strong>Tune RoboRover’s Resistor Branch</strong>. The supply is fixed at 5.0 V. Predict before checking:</p>
+<div class="table-scroll"><table><thead><tr><th>Resistance</th><th>Predicted current</th><th>Predicted power</th><th>Prediction</th></tr></thead><tbody><tr><td>100 Ω</td><td>0.050 A (50 mA)</td><td>0.250 W</td><td></td></tr><tr><td>200 Ω</td><td>0.025 A (25 mA)</td><td>0.125 W</td><td></td></tr><tr><td>1,000 Ω</td><td>0.005 A (5 mA)</td><td>0.025 W</td><td></td></tr><tr><td>10,000 Ω</td><td>0.0005 A (0.5 mA)</td><td>0.0025 W</td><td></td></tr></tbody></table></div>
+<p>Use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{R}
+\qquad\text{and}\qquad
+P=\frac{25}{R}\]</span></div>
 <ol>
-<li>The “sensor” secretly chooses a measurement that is slightly inaccurate.</li>
-<li>The controller announces only one command: <strong>forward</strong>, <strong>backward</strong>, or <strong>stop</strong>.</li>
-<li>RoboRover takes one small step in the commanded direction.</li>
-<li>Measure again and repeat.</li>
+<li>Which resistance produces the largest current?</li>
+<li>Which produces the smallest current?</li>
+<li>When resistance changes from 100 Ω to 200 Ω, does current double or halve?</li>
+<li>Which listed resistance dissipates the greatest power?</li>
+<li>What happens if voltage changes from 5.0 V to 10.0 V while resistance stays constant?</li>
 </ol>
-<p>Now play two rounds:</p>
-<ul>
-<li><strong>Round A:</strong> the controller must react to every tiny difference.</li>
-<li><strong>Round B:</strong> the controller uses a deadband: stop when within 4 centimetres of the target.</li>
-</ul>
-<p>Discuss which round produces more unnecessary switching. The second round should usually feel calmer because small measurement differences do not immediately change the command.</p>
+<p>At fixed resistance, doubling voltage doubles current but quadruples resistor power:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{V^2}{R}\]</span></div>
+<p>This is a parameter-changing model, not a real powered circuit.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Predict before you run the Python program:</p>
-<ol>
-<li>RoboRover begins too far from the wall. What should its first movement command be?</li>
-<li>As it approaches the target, should the distance generally increase or decrease?</li>
-<li>Once it enters the deadband, should it keep driving continuously?</li>
-<li>Why might the plotted line not end at exactly \(0.50\ \text{m}\)?</li>
-</ol>
-<p>Expected reasoning:</p>
-<ol>
-<li>The first command should be <strong>forward</strong>, because the measured distance is greater than the target plus the deadband.</li>
-<li>The distance should generally <strong>decrease</strong>.</li>
-<li>It should usually command <strong>stop</strong>, although noisy measurements near the boundary may occasionally cause another movement command.</li>
-<li>The result may differ from exactly \(0.50\ \text{m}\) because the controller acts in time steps, the sensor is noisy, and the rover moves at a fixed speed rather than slowing smoothly.</li>
-</ol>
-<p>Run the program and inspect the graph. Look for the red target line and the changing blue distance line.</p>
+<p>The table is verified directly by \(I=5/R\) and \(P=25/R\). The 100 Ω resistor has the greatest current and power; the 10,000 Ω resistor has the smallest.</p>
+<p>For 100 Ω:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{100}=0.050\ \text{A},\qquad
+P=\frac{5.0^2}{100}=0.250\ \text{W}\]</span></div>
+<p>For 200 Ω:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{200}=0.025\ \text{A}\]</span></div>
+<p>The current halves.</p>
+<p>If voltage becomes 10.0 V across 100 Ω:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{10.0}{100}=0.10\ \text{A},\qquad
+P=\frac{10.0^2}{100}=1.0\ \text{W}\]</span></div>
+<p>Compare the output with your predictions and revise any incorrect result.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Calling every sensor trigger feedback</h3>
-<p>A sensor can start a sequence without creating a continuing feedback loop. Feedback requires that measured information influence a current or future control action. If the robot starts a fixed sequence and ignores later measurements, it is not using sustained feedback regulation for that behavior.</p>
-<h3>Mistake 2: Confusing a sensor with a controller</h3>
-<p>A sensor measures. It does not necessarily decide. The controller interprets measurements and chooses commands.</p>
-<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
-<p>A command such as “move forward” does not guarantee a precise distance. Wheels can slip, motors can differ, and battery voltage can change.</p>
-<h3>Mistake 4: Forgetting units</h3>
-<p>A distance of \(50\) could mean 50 millimetres, centimetres, or metres. Always write the unit. In the Python simulation, distances are in metres.</p>
-<h3>Mistake 5: Using the wrong sign</h3>
-<p>For a wall directly ahead, increasing distance error means the rover is too far away. But the correct movement direction depends on the robot’s geometry and coordinate convention. Define the convention before writing the rule.</p>
-<h3>Mistake 6: Ignoring delay</h3>
-<p>If the sensor reports an old position, RoboRover may continue forward after it has already reached the target. Delays can cause overshoot or oscillation.</p>
+<h3>Thinking voltage is the same as current</h3>
+<p>A battery can have voltage across its terminals while an open circuit carries no continuous current. Current depends on the complete path and load.</p>
+<h3>Forgetting the return path</h3>
+<p>The path must leave the source, pass through the load and active driver stage, and return through the power-return connection. OUT1 and OUT2 are motor outputs, not replacements for VM and GND.</p>
+<h3>Mixing units</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.02\ \text{A}=20\ \text{mA}\]</span></div>
+<p>Write units throughout each calculation and distinguish Ω from kΩ.</p>
+<h3>Treating a motor as a fixed resistor</h3>
+<p>Motor current changes with speed, torque, and mechanical load. Back EMF generally increases as the motor spins, reducing current compared with startup or stall.</p>
+<h3>Creating a short circuit</h3>
+<p>A short is an unintended very low-resistance path. The ideal \(I=V/R\) equation warns that current could be large, but source resistance, fuses, current limiting, and protection determine the actual result. Never deliberately short an unknown or high-energy battery.</p>
+<h3>Measuring with the wrong meter configuration</h3>
+<p>Voltage is measured in parallel:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>source + ─────── load ─────── source -
+              |       |
+              | meter |
+              └───────┘</code></pre></div>
+<p>Current is measured in series:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>source + ─── meter ─── load ─── source -</code></pre></div>
+<p>Never place a meter configured for current directly across a supply. Before current measurements, an instructor must verify the meter fuse, lead placement, current terminal, and range rating. Current mode introduces burden voltage and can alter the circuit.</p>
+<p>Use resistance mode only on an unpowered, disconnected circuit. Calculations do not replace datasheets, ratings, or supervised procedures.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge</h3>
-<p>Modify the Python program so that RoboRover has two speed levels:</p>
-<ul>
-<li>use a faster speed when it is far from the wall;</li>
-<li>use a slower speed when it is close to the target but outside the deadband;</li>
-<li>stop inside the deadband.</li>
-</ul>
-<p>Keep the sensor noise and plot. Add an assertion that the final distance is within \(0.10\ \text{m}\) of the target.</p>
-<p>Explain in a comment why slower motion near the target might reduce overshoot.</p>
-<h3>Optional extension</h3>
-<p>Add a simulated sensor failure. For example, once every 40 steps, make the sensor return <code>None</code>. Decide what a cautious controller should do when it has no valid measurement.</p>
-<p>One reasonable beginner policy is to stop the motors until a valid measurement returns. This is not the only possible policy, but it makes the safety assumption explicit.</p>
+<p><strong>Challenge:</strong> Design a resistor for a 5.0 V indicator branch with an assumed LED forward drop of 2.0 V and target current of approximately 0.020 A.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{3.0}{0.020}=150\ \Omega\]</span></div>
+<p>The ideal value is 150 Ω, and its resistor power is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=V_RI=(3.0)(0.020)=0.060\ \text{W}\]</span></div>
+<p>Compare standard values:</p>
+<div class="table-scroll"><table><thead><tr><th>Resistor</th><th>Current at 3.0 V</th><th>Relative to 20 mA</th></tr></thead><tbody><tr><td>150 Ω</td><td>20.0 mA</td><td>target</td></tr><tr><td>180 Ω</td><td>16.7 mA</td><td>below target</td></tr><tr><td>220 Ω</td><td>13.6 mA</td><td>below target</td></tr></tbody></table></div>
+<p>For a design check, suppose the supply could reach 5.5 V and the LED forward drop could be as low as 1.8 V. Then the resistor voltage could be \(3.7\ \text{V}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{150}=\frac{3.7}{150}\approx24.7\ \text{mA}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{180}=\frac{3.7}{180}\approx20.6\ \text{mA}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{220}=\frac{3.7}{220}\approx16.8\ \text{mA}\]</span></div>
+<p>If the LED limit is 20 mA, 220 Ω is the only one of these three that remains below that limit under this stated condition. Confirm the actual supply tolerance, LED range, current rating, and resistor power rating before selecting a part.</p>
+<h3>Optional Python extension</h3>
+<p>This independently runnable program accepts a voltage and resistance. It rejects negative voltage and zero or negative resistance.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
+    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
+    if voltage &lt; 0:
+        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
+    if resistance &lt;= 0:
+        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
+    return voltage / resistance
+
+
+def resistor_power(voltage, resistance):
+    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
+    if voltage &lt; 0:
+        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
+    if resistance &lt;= 0:
+        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
+    return voltage * voltage / resistance
+
+
+def interactive_calculation():
+    try:
+        voltage = float(input(&quot;Enter voltage in volts: &quot;))
+        resistance = float(input(&quot;Enter resistance in ohms: &quot;))
+
+        current = current_from_resistance(voltage, resistance)
+        power = resistor_power(voltage, resistance)
+
+        print(&quot;Current: {:.6f} A ({:.2f} mA)&quot;.format(
+            current, current * 1000.0))
+        print(&quot;Resistor power: {:.6f} W&quot;.format(power))
+
+    except EOFError:
+        print(&quot;No input was provided; run this extension interactively.&quot;)
+    except ValueError as error:
+        print(&quot;Input error: {}&quot;.format(error))
+
+
+if __name__ == &quot;__main__&quot;:
+    interactive_calculation()</code></pre></div>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
+<p>Answer in a complete sentence or show the calculation.</p>
 <ol>
-<li>What is the main job of a sensor in a robot?</li>
-<li>RoboRover’s target distance is \(0.60\ \text{m}\), and its measured distance is \(0.45\ \text{m}\). Calculate the signed distance error and state whether the rover is too far or too close.</li>
-<li>Why does RoboRover’s repeated measurement make its wall-distance behavior feedback control?</li>
-<li>Which statement is correct?</li>
-<p>A. Feedback always means the robot is autonomous. B. A robot can use feedback while following a preprogrammed task. C. An actuator only stores measurements. D. A sensor directly supplies mechanical power.</p>
+<li>What electrical quantity is measured in volts?</li>
+<li>If voltage stays constant and resistance increases, what happens to current?</li>
+<li>A 12 V supply is connected to a 600 Ω resistor. Calculate current in amperes and milliamperes.</li>
+<li>Using the result from Question 3, calculate resistor power with \(P=VI\).</li>
+<li>Why might a motor draw more current when starting or mechanically blocked?</li>
+<li>Why is \(V/R\) not always an accurate prediction of short-circuit current?</li>
+<li>Why does an LED indicator normally need a series resistor?</li>
+<li>How should a meter be connected to measure voltage across a resistor and current through it?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>A sensor measures a property of the robot or its environment and produces information for the controller.</li>
-<li>Using \(e = d_{\text{measured}} - d_{\text{target}}\):</li>
+<li>Voltage, or electrical potential difference, is measured in volts and describes the difference between two points.</li>
+<li>Current decreases. From \(I=V/R\), increasing resistance while holding voltage constant reduces current.</li>
+<p>3.</p>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.45\ \text{m} - 0.60\ \text{m} = -0.15\ \text{m}\]</span></div>
-<p>The negative error means RoboRover is \(0.15\ \text{m}\) too close.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{12\ \text{V}}{600\ \Omega}
+   =0.020\ \text{A}=20\ \text{mA}\]</span></div>
+<p>4.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(12)(0.020)=0.24\ \text{W}\]</span></div>
 <ol>
-<li>The rover measures its distance, changes its motor command based on that measurement, moves, and measures again. The result affects future action.</li>
-<li><strong>B</strong> is correct. A preprogrammed task can contain feedback control.</li>
+<li>At startup or stall, speed is low or zero, so back EMF is small or absent. More applied voltage therefore drives current through the motor winding.</li>
+<li>Source and wiring resistance, fuses, current limiting, and protection circuits affect actual short-circuit current. The ideal equation is a warning, not an exact prediction.</li>
+<li>An LED is not a simple ohmic resistor. A series resistor limits current and helps keep it within the LED’s safe operating range.</li>
+<li>Measure voltage in parallel across the resistor. Measure current in series so current passes through the meter. Never place a current-configured meter directly across the supply.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>A real robot often contains several nested Sense → Think → Act loops.</p>
-<p>For example, a mobile rover might have:</p>
+<p>When RoboRover receives a command to drive forward, the controller sends logic signals to motor-driving electronics. The driver switches or regulates power delivered to the motors.</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>battery voltage
+      |
+      v
+motor driver power stage
+      |
+      v
+motor current and voltage
+      |
+      v
+torque and wheel rotation
+      |
+      v
+RoboRover speed and distance</code></pre></div>
+<p><strong>Text description:</strong> Battery voltage enters the driver’s power stage. The driver controls motor voltage and current, which create torque and wheel rotation. Wheel rotation affects RoboRover’s speed and distance.</p>
+<p>The battery positive connection supplies VM. The battery negative connection supplies the driver’s specified power return, often labeled GND. The controller connects to the driver’s specified logic reference. Motor outputs such as OUT1 and OUT2 connect to the motor and are switched by the power stage.</p>
+<p>If battery voltage sags or wiring loses voltage, the motor may receive less effective voltage and RoboRover may move more slowly than expected.</p>
+<p>A practical workflow is:</p>
+<ol>
+<li>Check supply voltage.</li>
+<li>Estimate expected current.</li>
+<li>Estimate power and compare it with ratings.</li>
+<li>Check voltage sag and current limits.</li>
+<li>Use suitable wires, connectors, and protection.</li>
+<li>Secure the robot and keep rotating parts clear.</li>
+<li>Measure actual behavior rather than relying only on calculations.</li>
+</ol>
+<h3>Low-voltage measurement activity</h3>
+<p>This activity requires <strong>explicit instructor supervision</strong>. Use only:</p>
 <ul>
-<li>a high-level program deciding where to go;</li>
-<li>a distance controller keeping away from obstacles;</li>
-<li>wheel-speed controllers using encoder feedback;</li>
-<li>motor electronics converting commands into electrical power.</li>
+<li>a regulated supply set to <strong>5.0 V maximum</strong>;</li>
+<li>a current limit set to <strong>50 mA or less</strong>;</li>
+<li>a 1 kΩ resistor rated for at least 0.25 W;</li>
+<li>a correctly fused multimeter and suitable leads;</li>
+<li>an unpowered circuit for resistance measurements.</li>
 </ul>
-<p>These loops can operate at different speeds. A high-level decision might change once per second, while a motor controller may update much more frequently.</p>
-<p>The same basic pattern appears in a robotic arm, but the measured quantity may be joint angle instead of wall distance. The controller compares a desired joint angle with a measured angle and commands a motor.</p>
-<p>Important engineering realities include:</p>
-<ul>
-<li><strong>Noise:</strong> measurements fluctuate even when the robot is still.</li>
-<li><strong>Calibration:</strong> a sensor’s reported 0.50 m may not equal the true 0.50 m.</li>
-<li><strong>Latency:</strong> information and commands take time to travel through electronics and software.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical speed or torque limit.</li>
-<li><strong>Mechanical limits:</strong> wheels, joints, and linkages cannot move through walls or beyond their stops.</li>
-<li><strong>Model assumptions:</strong> a simulation may assume perfect straight motion, while a real rover may curve because its motors differ.</li>
-</ul>
-<p>Next class, we will focus on the “think” part by writing RoboRover’s first simple robot brain in Python. We will turn sensor-like inputs into decisions using variables, conditions, and functions.</p>
+<p>Before current mode, the instructor must verify the meter fuse, lead placement, current terminal, and range rating.</p>
+<ol>
+<li>Turn the supply off before wiring.</li>
+<li>Connect the 1 kΩ resistor across the supply. At 5.0 V, ideal current is 5 mA and ideal power is 0.025 W.</li>
+<li>For voltage, use correctly configured voltage leads and probes across the resistor in parallel. Keep the circuit intact and follow the instructor-approved probing procedure.</li>
+<li>Power off before changing circuit wiring or moving a lead connected to the current terminal.</li>
+<li>For current, with power off, move the lead to the verified current terminal and insert the meter in series.</li>
+<li>Begin on the highest suitable current range.</li>
+<li><strong>Never reposition a current-configured lead across a live supply, and never place a current-configured meter directly across the supply.</strong></li>
+<li>Use resistance mode only after disconnecting and discharging the circuit as appropriate.</li>
+<li>Compare measurements with \(I=V/R\), allowing for meter accuracy, resistor tolerance, burden voltage, and supply variation.</li>
+<li>Turn the supply off before changing wiring or meter connections.</li>
+</ol>
+<p>If supervised hardware is unavailable, use the simulation-only path. Do not substitute an unverified battery, resistor, or meter.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Actuator:</strong> A device that converts a control command into physical action, such as a motor moving a wheel.</li>
-<li><strong>Controller:</strong> The hardware, software, or combined system that uses measurements and rules to select actuator commands.</li>
-<li><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future action in relation to desired behavior.</li>
-<li><strong>Deadband:</strong> An acceptable range around a target in which the controller does not change or continue an action.</li>
-<li><strong>Distance error:</strong> The difference between measured distance and target distance, calculated here as \(e = d_{\text{measured}} - d_{\text{target}}\).</li>
-<li><strong>Sensor:</strong> A device that measures a property of the robot or its environment.</li>
-<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
-<li><strong>Autonomy:</strong> The ability of software or a robot system to select task-level actions without immediate human selection of each action.</li>
+<li><strong>Voltage:</strong> Electrical potential difference between two points, measured in volts (V).</li>
+<li><strong>Current:</strong> Rate of electric charge flow, measured in amperes (A).</li>
+<li><strong>Resistance:</strong> Opposition to current flow, measured in ohms (Ω).</li>
+<li><strong>Circuit:</strong> A connected electrical path containing a source, conductors, and one or more loads or components.</li>
+<li><strong>Open circuit:</strong> A broken path that prevents continuous current through the intended loop.</li>
+<li><strong>Short circuit:</strong> An unintended very low-resistance path that can allow dangerously large current.</li>
+<li><strong>Ohm’s law:</strong> The relationship \(V=IR\) for a component modeled as an ohmic resistor.</li>
+<li><strong>Electrical power:</strong> The rate of electrical energy transfer, measured in watts (W), commonly calculated with \(P=VI\).</li>
+<li><strong>Battery:</strong> A source of electrical energy that provides a potential difference and has practical voltage and current limits.</li>
+<li><strong>Ground:</strong> A circuit reference or return node in this lesson; it is not automatically earth ground.</li>
+<li><strong>Motor driver:</strong> Electronic hardware with an active power stage that controls electrical power delivered to a motor.</li>
+<li><strong>Voltage sag:</strong> A reduction in actual supply voltage under load.</li>
+<li><strong>Back EMF:</strong> A voltage generated by a spinning motor that opposes the applied voltage.</li>
+<li><strong>Load:</strong> A component or device that receives electrical energy, such as a resistor, LED, controller, or motor.</li>
+<li><strong>Energy:</strong> The capacity to cause change or perform work; electrical energy can become heat, light, or mechanical motion.</li>
+<li><strong>Power:</strong> The rate of energy transfer, measured in watts (W).</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search-friendly topics for later study include:</p>
-<ul>
-<li>“robot sensors and actuators introduction”</li>
-<li>“feedback control block diagram”</li>
-<li>“deadband threshold controller robotics”</li>
-<li>“wheel encoder fundamentals”</li>
-<li>“Python matplotlib beginner plotting”</li>
-</ul>
-<p>When studying examples, always ask three questions:</p>
+<p>Study these topics in order:</p>
 <ol>
-<li>What is being measured?</li>
-<li>What decision uses the measurement?</li>
-<li>What physical action changes as a result?</li>
+<li>Multimeter voltage and resistance measurements.</li>
+<li>Series and parallel resistor circuits.</li>
+<li>Electrical power and component heating.</li>
+<li>Battery internal resistance and voltage sag.</li>
+<li>Motor-driver current limits and protection.</li>
+<li>DC-motor behavior under changing mechanical load.</li>
 </ol>
+<p>Useful search terms include <strong>Ohm’s Law</strong>, <strong>introductory DC circuits</strong>, and <strong>DC motor fundamentals</strong>. Begin with low-voltage, current-limited educational equipment and follow meter instructions carefully.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
-<p>RoboRover will move from a simulated control loop to a small program that makes explicit decisions. You will practice variables, conditions, and reusable functions while keeping the same Sense → Think → Act structure.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>Next class is <strong>Motors: Turning Electricity into Motion</strong>.</p>
+<p>You will learn how current creates torque, why motors draw different currents during startup and normal operation, and how RoboRover’s electrical inputs become wheel rotation, speed, and distance.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/005-distance-and-speed/"><span>Previous stream</span><b>Class 05 · Distance and Speed</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 07 · Motors: Turning Electricity into Motion</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -523,7 +562,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=2,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=6,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
