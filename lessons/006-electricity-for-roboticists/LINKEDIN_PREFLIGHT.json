@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [
+    "Some LinkedIn commentary lines are visually dense; shorter paragraphs would scan better."
+  ],
+  "title_length": 78,
+  "description_length": 171,
+  "commentary_length": 1033,
+  "hashtags": [
+    "#Robotics",
+    "#EngineeringEducation",
+    "#Electronics",
+    "#ProfessorOS"
+  ],
+  "thumbnail_width": 1376,
+  "thumbnail_height": 768,
+  "post_type": "image",
+  "public_source": "https://connect.vin/professor-os"
+}
