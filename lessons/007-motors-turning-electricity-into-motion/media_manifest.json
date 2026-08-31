@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real educational mobile robot chassis with geared DC motors, wheel, gearbox, and motor driver",
+  "media_style": "mixed",
+  "reason": "A real photograph would ground the abstract chain from motor to gearbox to wheel and help students identify the hardware discussed in the calculations. A short engineering demonstration could also make load-dependent speed reduction and wheel slip observable, complementing rather than replacing the planned schematics.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
