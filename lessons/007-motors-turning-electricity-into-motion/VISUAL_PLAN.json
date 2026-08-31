@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration of RoboRover, a compact two-wheel educational rover, shown in a technically plausible cutaway side perspective. Clearly show battery, motor driver, two DC motors, wheel shafts, gears, and wheels. Use subtle glowing arrows to indicate electrical energy becoming motor rotation and wheel motion. Include visual emphasis on torque at the axle and rotational speed at the wheel, with restrained technical labels only where essential. Professional engineering editorial style, realistic materials, clean neutral background, high visual clarity, no childish cartoon styling, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover converts electrical energy into motor rotation, wheel torque, and forward motion.",
+    "alt_text": "Cutaway illustration of RoboRover showing a battery connected to two DC motors through a motor driver, with gears and wheels transmitting rotation to the floor."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram comparing motor torque and rotational speed using two illustrated screwdriver-like shafts and a robotic wheel. On the left, show a strong turning force with a long lever and label torque in newton-metres. On the right, show rapid repeated rotations and label speed in RPM. Add a central visual reminder that torque and speed are different quantities. Premium robotics textbook infographic, restrained blue and orange palette, minimal essential labels, precise arrows, white background.",
+      "caption": "Torque describes turning strength, while RPM describes how quickly the shaft turns.",
+      "alt_text": "Technical comparison diagram showing torque as twisting force around an axis and RPM as the number of complete rotations per minute."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Detailed educational cutaway diagram of a small brushed DC motor connected to a RoboRover wheel. Show permanent magnets in the stator, a rotating coil rotor, brushes, split commutator, motor shaft, gear, wheel, and contact patch with the floor. Use clear arrows for the complete current path from one brush through the rotor coil and commutator to the other brush, magnetic force, shaft rotation, wheel torque, and forward static-friction force. Add a small note: schematic, not to scale; internal geometry varies among motors. Technically plausible proportions, premium engineering textbook illustration, uncluttered white background, labels limited to essential components.",
+      "caption": "The motor\u2019s magnetic forces turn the shaft, and the wheel converts shaft torque into force at the floor.",
+      "alt_text": "Cutaway diagram of a brushed DC motor with magnets, coil, commutator, shaft, gear, and wheel, showing the current path and how rotation creates forward force."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical side-view illustration of RoboRover pushing a small foam box, with two drive wheels and measured dimensions highlighted. Show each motor supplying 0.12 N\u00b7m wheel torque at startup, wheel radius 0.04 m, one-wheel force arrows, combined forward force, and a resisting-force arrow from the box. Present the calculation visually without dense text. Realistic educational rover, smooth test surface, premium robotics textbook style, accurate geometry, restrained modern colors.",
+      "caption": "Wheel torque becomes tangential force, and the two drive wheels combine their ideal pushing forces.",
+      "alt_text": "Side-view engineering illustration of a two-wheel rover pushing a foam box, showing wheel radius, torque, individual wheel forces, and total forward force."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "High-clarity educational graph illustration of a simplified DC motor torque-speed curve. Horizontal axis is load torque in N\u00b7m from zero to stall torque; vertical axis is motor speed in RPM. Show a straight descending line from high no-load speed to zero at stall, with five marked operating points corresponding to 0.00, 0.05, 0.10, 0.15, and 0.20 N\u00b7m. Include a small inset of RoboRover carrying increasing loads. Premium robotics textbook data visualization, clean grid, restrained blue palette, no decorative clutter.",
+      "caption": "In the simplified model, increasing load torque reduces motor speed until the stall point.",
+      "alt_text": "Line graph of predicted motor speed decreasing from 150 RPM at zero load to 0 RPM at 0.20 N\u00b7m stall torque."
+    }
+  ]
+}
