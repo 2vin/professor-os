@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 3: Your First Robot Brain in Python · Professor OS</title>
+<title>Class 7: Motors: Turning Electricity into Motion · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,18 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -47,559 +35,510 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="3">
+<body data-class="7">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_03</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_07</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_03</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 03 · Foundations</div><h1>Your First Robot Brain in Python</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>variables, decisions, loops</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_07</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 07 · Hardware &amp; Sensors</div><h1>Motors: Turning Electricity into Motion</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~24 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>DC motor, torque, RPM</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Your First Robot Brain in Python</h2>
+      <h2>Class podcast · Motors: Turning Electricity into Motion</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-03-your-first-robot-brain-in-python.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-07-motors-turning-electricity-into-motion.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 3: Your First Robot Brain in Python</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 7: Motors: Turning Electricity into Motion</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we explored what engineers commonly mean by a <strong>robot</strong>: a physical machine whose controlled actuators perform a physical task. In Class 2, RoboRover followed the basic cycle:</p>
-<blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover sensed something in its environment, selected a response, and used motors or another actuator to change the world.</p>
-<p>Today we begin writing the <strong>think</strong> part.</p>
-<p>A robot brain does not need to begin with advanced artificial intelligence. It can start with three powerful programming ideas:</p>
-<ol>
-<li><strong>Variables</strong> store changing information.</li>
-<li><strong>Decisions</strong> choose an action.</li>
-<li><strong>Loops</strong> repeat the robot’s behavior.</li>
-</ol>
-<p>Together, these ideas let RoboRover respond differently to different sensor readings instead of performing exactly the same action every time.</p>
-<p>In the next class, we will study <strong>coordinates</strong>: a formal way for robots to describe where objects and places are in space. Today we will use simple quantities such as battery level, dust amount, and sensor readings without building a complete map.</p>
+<p>In Class 6, we learned that electricity can provide energy for a robot. We looked at voltage, current, resistance, power, batteries, switches, and electrical connections.</p>
+<p>Now RoboRover needs to do something with that energy.</p>
+<p>A battery does not make RoboRover move by itself. It provides electrical energy to a <strong>motor</strong>, and the motor changes that energy into rotation. Wheels, gears, belts, fans, pumps, and robotic joints can then use that rotation to perform physical work.</p>
+<p>In the next class, we will learn <strong>motor control with PWM</strong>. PWM, or pulse-width modulation, is a method for controlling the average electrical power delivered to a motor. Before we can control a motor intelligently, we need to understand what its important mechanical quantities mean.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>explain a variable as a named storage place for a value;</li>
-<li>distinguish assignment from comparison;</li>
-<li>use <code>if</code>, <code>elif</code>, and <code>else</code> to make decisions;</li>
-<li>use a <code>for</code> loop to repeat a behavior;</li>
-<li>trace a short robot program by hand;</li>
-<li>explain why real robot programs must handle low battery, noisy sensors, and limited actuators;</li>
-<li>modify a small RoboRover simulation and predict its behavior before running it.</li>
+<li>describe how a DC motor changes electrical energy into rotational motion;</li>
+<li>explain <strong>torque</strong> as a turning effect;</li>
+<li>explain <strong>RPM</strong> as rotational speed;</li>
+<li>distinguish torque from speed;</li>
+<li>distinguish motor-shaft torque, wheel torque after gearing, and force at the wheel–floor contact patch;</li>
+<li>calculate wheel force and rover speed from motor and wheel values;</li>
+<li>calculate the approximate effect of a gearbox ratio and efficiency;</li>
+<li>understand why real motors slow down under load;</li>
+<li>use a simple Python model to explore a motor’s torque–speed relationship;</li>
+<li>make a simple measurement of wheel speed from video.</li>
 </ul>
+<p>Our central question is:</p>
+<blockquote>If RoboRover receives electrical energy, how much turning force and how much rotational speed can its motors produce?</blockquote>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine RoboRover has an infrared sensor pointed toward an obstacle.</p>
+<p>Three electrical quantities from Class 6 are especially useful here:</p>
 <ul>
-<li><strong>Sense:</strong> the sensor reports a distance.</li>
-<li><strong>Think:</strong> the controller decides whether to continue or stop.</li>
-<li><strong>Act:</strong> the motors move or halt the wheels.</li>
+<li><strong>Voltage</strong>, measured in volts (V), is the electrical potential difference that can push charge through a circuit.</li>
+<li><strong>Current</strong>, measured in amperes (A), is the rate at which electric charge flows.</li>
+<li><strong>Power</strong>, measured in watts (W), is the rate of energy transfer.</li>
 </ul>
-<p>The important point is that “think” is not mysterious. It is a sequence of instructions operating on information.</p>
-<p>A simple controller might say:</p>
+<p>For a simple electrical calculation:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P = VI\]</span></div>
+<p>where:</p>
 <ul>
-<li>if the obstacle is far away, drive;</li>
-<li>otherwise, stop.</li>
+<li>\(P\) is electrical power in watts (W);</li>
+<li>\(V\) is voltage in volts (V);</li>
+<li>\(I\) is current in amperes (A).</li>
 </ul>
-<p>That is already a decision-making system. It is small, but it has the same basic structure as much larger robot software.</p>
-<p>One distinction matters:</p>
-<ul>
-<li>A <strong>sensor reading</strong> describes something measured.</li>
-<li>A <strong>variable</strong> is the program’s named storage location for that information.</li>
-<li>A <strong>decision</strong> uses the stored value to select an action.</li>
-<li>An <strong>actuator command</strong> tells a motor, gripper, light, or other device what to do.</li>
-</ul>
+<p>A motor uses electrical power, but not all of it becomes useful motion. Some energy becomes heat, sound, friction, and vibration.</p>
+<p><strong>Prediction:</strong> If RoboRover’s wheels suddenly meet a carpet instead of a smooth floor, will the motors usually spin faster, slower, or at the same speed? Write down your prediction before continuing.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Flow diagram showing sensor reading to variables to conditional decision to robot action and updated battery state."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Notice how stored information flows through a decision and produces an action that changes the robot's state.</p>
-<p>A robot program is like a lab notebook that can update itself.</p>
-<p>Suppose RoboRover begins with 30 battery percentage points. After driving, the amount changes. A variable called <code>battery</code> can hold the current estimate:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-print(battery)</code></pre></div>
-<p>The equals sign here means:</p>
-<blockquote>Put the value on the right into the named storage place on the left.</blockquote>
-<p>It does <strong>not</strong> mean that <code>battery</code> and <code>30.0</code> are permanently identical.</p>
-<p>Later, the program can update it:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-battery = battery - 4.0
-print(battery)</code></pre></div>
-<p>This means:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Technical comparison diagram showing torque as twisting force around an axis and RPM as the number of complete rotations per minute."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Torque describes turning strength, while RPM describes how quickly the shaft turns.</p>
+<p>A motor is like an invisible hand turning a shaft thousands of times.</p>
+<p>Imagine holding a screwdriver:</p>
+<ul>
+<li>pushing hard on the handle while turning gives you more <strong>turning effect</strong>;</li>
+<li>turning the screwdriver rapidly gives you more <strong>rotational speed</strong>.</li>
+</ul>
+<p>Motors have the same two important mechanical properties:</p>
 <ol>
-<li>look up the current value of <code>battery</code>;</li>
-<li>subtract <code>4.0</code>;</li>
-<li>store the new result back in <code>battery</code>.</li>
+<li><strong>Torque</strong>: how strongly the shaft can twist.</li>
+<li><strong>Rotational speed</strong>: how quickly the shaft turns.</li>
 </ol>
-<p>A decision is a fork in the robot’s reasoning:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>                 obstacle distance
-                        |
-             ┌──────────┴──────────┐
-        distance &gt;= 50 cm       otherwise
-             |                       |
-          drive                    stop</code></pre></div>
-<p>A loop is the robot returning to the same instructions repeatedly:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sense → decide → act
-  ↑               |
-  └──── repeat ───┘</code></pre></div>
-<p>This repeated cycle is the first practical form of a robot controller.</p>
+<p>A motor can spin quickly without producing much torque, or produce substantial torque while spinning slowly. A useful robot design must match both properties to the task.</p>
+<p>RoboRover needs enough torque to:</p>
+<ul>
+<li>overcome rolling resistance;</li>
+<li>accelerate its body;</li>
+<li>climb small slopes;</li>
+<li>push through small obstacles.</li>
+</ul>
+<p>It also needs enough speed to travel at a useful rate.</p>
+<p>A motor that spins extremely fast but cannot turn the wheels under load is not useful. A motor with huge torque but extremely slow rotation may move RoboRover, but very slowly.</p>
+<h3>Four quantities to keep separate</h3>
+<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Typical unit</th></tr></thead><tbody><tr><td>Motor torque</td><td>Turning effect at the motor shaft</td><td>N·m</td></tr><tr><td>Wheel torque</td><td>Turning effect at the wheel after gearing and losses</td><td>N·m</td></tr><tr><td>Wheel tangential force</td><td>Ideal force at the wheel edge, \(F=\tau/r\)</td><td>N</td></tr><tr><td>Rover linear speed</td><td>Forward distance traveled per unit time</td><td>m/s</td></tr></tbody></table></div>
+<p>A gearbox can change motor-shaft torque and speed before they reach the wheel. The force calculated from wheel torque is an ideal wheel-edge force. The usable force at the floor may be lower if static friction, tire deformation, or uneven loading limits traction.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
-<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover inside a narrow testing lane.</p>
-<ul>
-<li>On the left is a battery gauge.</li>
-<li>In front of RoboRover is a sensor pointing down the lane.</li>
-<li>A small display shows the current sensor reading.</li>
-<li>Each loop iteration is one “thinking moment.”</li>
-<li>At the end of each iteration, RoboRover either drives, slows, or cleans.</li>
-</ul>
-<p>An illustrator could show four snapshots arranged left to right:</p>
+<p><strong>How to inspect this visual:</strong> Follow the physical energy and force path from left to right, not an electronic signal path. Identify the voltage/current input, motor shaft, gearbox ratio, wheel radius, mechanical power output, and floor reaction force. Then predict which quantities change when the gearbox increases torque and reduces speed.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Cutaway diagram of a brushed DC motor with magnets, coil, commutator, shaft, gear, and wheel, showing the current path and how rotation creates forward force."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The motor’s magnetic forces turn the shaft, and the wheel converts shaft torque into force at the floor.</p>
+<p>Picture a cutaway diagram of RoboRover’s drive system:</p>
 <ol>
-<li>The sensor reads <code>72</code>.</li>
-<li>RoboRover decides “drive.”</li>
-<li>Battery decreases.</li>
-<li>The loop returns to take the next reading.</li>
+<li>A battery sends electrical power through a motor driver toward a motor.</li>
+<li>Inside the motor, a stationary magnetic structure surrounds a rotating part called the <strong>rotor</strong>.</li>
+<li>Magnetic forces push and pull on the rotor, causing its shaft to turn.</li>
+<li>The motor shaft connects to a small gear.</li>
+<li>The small gear turns a larger wheel gear.</li>
+<li>The gearbox reduces rotational speed and can increase wheel torque.</li>
+<li>The wheel turns against the floor.</li>
+<li><strong>Static friction</strong> between the tire and floor provides the forward force on RoboRover without slipping.</li>
 </ol>
-<p>Then show a second snapshot where the sensor reads <code>18</code>. RoboRover decides “clean” rather than “drive.”</p>
-<p>The important visual feature is not a human-like robot face. It is the changing information:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sensor reading → decision rule → action → updated battery</code></pre></div>
+<p>For a brushed DC motor, an illustrator could show:</p>
+<ul>
+<li>permanent magnets on the stationary outer section;</li>
+<li>a coil of wire on the rotating part;</li>
+<li>a split commutator and brushes making electrical contact;</li>
+<li>arrows showing magnetic forces that keep the rotor turning;</li>
+<li>a clearly marked current path from a brush, through the coil, and back through the other brush.</li>
+</ul>
+<p>This is a schematic illustration, not a to-scale or universal representation of every brushed motor. Actual motor geometry varies.</p>
+<p>The commutator repeatedly changes which coil receives current. This keeps the magnetic push acting in a useful direction as the rotor rotates.</p>
+<p>A brushless DC motor performs similar electromagnetic conversion, but electronic switching replaces physical brushes and a commutator. We will use the general term <strong>DC motor</strong> here and focus on the motor’s mechanical behavior rather than its internal construction.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>1. Variables: named information</h3>
-<p>A variable can contain a number, a word, or a true/false value.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 30.0
-mode = &quot;patrol&quot;
-obstacle_detected = False
-
-print(battery, mode, obstacle_detected)</code></pre></div>
-<p>Here:</p>
-<ul>
-<li><code>battery</code> contains a number;</li>
-<li><code>mode</code> contains text;</li>
-<li><code>obstacle_detected</code> contains a Boolean value, either <code>True</code> or <code>False</code>.</li>
-</ul>
-<p>Good variable names make robot code easier to inspect:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
-motor_power_percent = 40
-
-print(distance_cm, motor_power_percent)</code></pre></div>
-<p>The suffix <code>_cm</code> reminds us that the distance is measured in centimetres. A number without a unit can be dangerous in engineering.</p>
-<h3>2. Decisions: selecting an action</h3>
-<p>Python uses a conditional statement:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 72.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-else:
-    action = &quot;stop&quot;
-
-print(action)</code></pre></div>
-<p>The indented lines belong to the decision.</p>
-<p>Common comparison operators include:</p>
-<div class="table-scroll"><table><thead><tr><th>Operator</th><th>Meaning</th></tr></thead><tbody><tr><td><code>&gt;</code></td><td>greater than</td></tr><tr><td><code>&lt;</code></td><td>less than</td></tr><tr><td><code>&gt;=</code></td><td>greater than or equal to</td></tr><tr><td><code>&lt;=</code></td><td>less than or equal to</td></tr><tr><td><code>==</code></td><td>equal to</td></tr><tr><td><code>!=</code></td><td>not equal to</td></tr></tbody></table></div>
-<p>A frequent beginner error is confusing <code>=</code> with <code>==</code>.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery = 25.0       # assignment: store a value
-is_full = battery == 25.0  # comparison: ask whether they are equal
-
-print(battery, is_full)</code></pre></div>
-<p>A robot often needs more than two choices:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>Python tests the conditions from top to bottom and uses the first true branch.</p>
-<h3>3. Loops: repeating the controller</h3>
-<p>A <code>for</code> loop repeats instructions a known number of times or once for each item in a collection:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>for cycle in range(3):
-    print(&quot;Sense, think, act&quot;, cycle)</code></pre></div>
-<p>The values produced by <code>range(3)</code> are <code>0</code>, <code>1</code>, and <code>2</code>, so the body runs three times.</p>
-<p>A loop does not automatically make a robot intelligent. It simply gives the controller repeated opportunities to sense and respond. The quality of the behavior still depends on:</p>
-<ul>
-<li>the sensor data;</li>
-<li>the decision rules;</li>
-<li>the actuator commands;</li>
-<li>safety limits;</li>
-<li>timing and calibration.</li>
-</ul>
-<h2>Math Without Fear</h2>
-<div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose RoboRover has:</p>
-<ul>
-<li>initial battery estimate: \(B_0 = 30.0\) percentage points;</li>
-<li>drive cost: \(4.0\) percentage points per drive action;</li>
-<li>slow cost: \(2.0\) percentage points per slow action;</li>
-<li>clean cost: \(1.0\) percentage point per clean action.</li>
-</ul>
-<p>For four actions—drive, slow, clean, drive—the final battery estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}} = B_0 - 2C_d - 1C_s - 1C_c\]</span></div>
+<h3>Torque: turning effect</h3>
+<p>Torque describes how strongly a force tries to rotate something.</p>
+<p>The basic equation is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau = Fr\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(B_{\text{final}}\) is the final battery estimate in percentage points;</li>
-<li>\(B_0\) is the initial battery estimate in percentage points;</li>
-<li>\(C_d = 4.0\) percentage points is the cost of one drive action;</li>
-<li>\(C_s = 2.0\) percentage points is the cost of one slow action;</li>
-<li>\(C_c = 1.0\) percentage point is the cost of one clean action;</li>
-<li>the coefficients <code>2</code>, <code>1</code>, and <code>1</code> count how many times each action occurs.</li>
+<li>\(\tau\) is torque in newton-metres (N·m);</li>
+<li>\(F\) is force perpendicular to the lever in newtons (N);</li>
+<li>\(r\) is the perpendicular distance from the rotation axis in metres (m).</li>
 </ul>
-<p>Therefore:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[B_{\text{final}}
-= 30.0 - 2(4.0) - 1(2.0) - 1(1.0)
-= 19.0\]</span></div>
-<p>The unit is <strong>percentage points of the program’s battery estimate</strong>, not necessarily a directly measured physical battery percentage. A real battery monitor would need calibration and electrical measurements.</p>
+<p>A 10 N force applied 0.2 m from a hinge produces:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau = (10\ \text{N})(0.2\ \text{m}) = 2\ \text{N·m}\]</span></div>
+<p>The same force applied farther from the hinge produces more torque.</p>
+<p>For a wheel, wheel torque becomes an ideal tangential force at the wheel edge. Rearranging the torque equation gives:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{\tau_{\text{wheel}}}{r}\]</span></div>
+<p>A smaller wheel produces more ideal pushing force for the same wheel torque, but it travels a shorter distance per revolution. The actual force transmitted to the floor may be limited by static friction:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{usable}} \leq \mu_s N\]</span></div>
+<p>where \(\mu_s\) is the coefficient of static friction and \(N\) is the normal force carried by the driven wheel or wheels. Thus, the motor may be capable of more wheel-edge force than the tire–floor contact can transmit without slipping.</p>
+<h3>RPM: rotational speed</h3>
+<p><strong>RPM</strong> means <strong>revolutions per minute</strong>.</p>
+<p>One revolution means one complete turn. A motor speed of 120 RPM means the shaft completes 120 revolutions in one minute.</p>
+<p>RPM is not the same as the forward speed of RoboRover. To find forward speed, we also need the wheel size.</p>
+<p>A wheel with radius \(r\) travels one circumference during one revolution:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi r\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(C\) is circumference in metres (m);</li>
+<li>\(\pi\) is approximately 3.14159;</li>
+<li>\(r\) is wheel radius in metres (m).</li>
+</ul>
+<p>If a wheel rotates at \(n\) revolutions per minute, its ideal rolling speed is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = \frac{nC}{60}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(v\) is linear speed in metres per second (m/s);</li>
+<li>\(n\) is rotational speed in revolutions per minute (RPM);</li>
+<li>\(C\) is wheel circumference in metres (m);</li>
+<li>\(60\) converts minutes to seconds.</li>
+</ul>
+<p>This speed assumes rolling without slip and does not include losses or deformation.</p>
+<h3>Gearboxes trade speed for torque</h3>
+<p>A gearbox ratio \(G\) describes how much slower the output turns than the motor input. With efficiency \(\eta\), a simple estimate is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{n_{\text{motor}}}{G}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx \eta G\tau_{\text{motor}}\]</span></div>
+<p>For example, suppose a motor produces \(0.10\ \text{N·m}\) at \(3000\ \text{RPM}\), and a gearbox has:</p>
+<ul>
+<li>ratio \(G=20\);</li>
+<li>efficiency \(\eta=0.80\).</li>
+</ul>
+<p>Then:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{3000}{20}=150\ \text{RPM}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx (0.80)(20)(0.10)=1.6\ \text{N·m}\]</span></div>
+<p>The gearbox changes the motor output from approximately \(0.10\ \text{N·m}\) and \(3000\ \text{RPM}\) to \(1.6\ \text{N·m}\) and \(150\ \text{RPM}\), according to this simplified model. The increase in torque is not free: output speed decreases, and 20% of the ideal mechanical power is lost in this example.</p>
+<p>If the wheel radius is \(0.04\ \text{m}\), the ideal wheel-edge force is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}}=\frac{1.6}{0.04}=40\ \text{N}\]</span></div>
+<p>The floor may transmit less than 40 N if tire traction or another mechanical limit is insufficient.</p>
+<h3>The motor trade-off</h3>
+<p>A simplified DC motor often has a <strong>torque–speed curve</strong>:</p>
+<ul>
+<li>at no load, the motor spins near its highest speed and produces little useful output torque;</li>
+<li>as the load torque increases, its speed decreases;</li>
+<li>at stall, the shaft is not turning, but the motor may produce its highest starting torque.</li>
+</ul>
+<p>A straight torque–speed line is an approximate <strong>steady-state</strong> relationship for a specified supply voltage and approximate motor temperature. It does not fully describe startup, transient acceleration, sudden changes in load, or rated continuous operation. The plotted load torque represents torque applied at the motor shaft in this simple model. It is not automatically the wheel–ground resistance after a gearbox; gearing and efficiency must be accounted for separately.</p>
+<p>This does not mean stall is safe. A stalled motor can draw high current and heat rapidly.</p>
+<blockquote><strong>Assumptions and limitations:</strong> Equations such as \(F=\tau/r\), \(v=nC/60\), and the straight torque–speed model are useful estimates. They assume clearly defined torque and speed, suitable gearing, rolling without slip, and stated operating conditions. Real results also depend on losses, acceleration, contact friction, tire deformation, battery voltage, driver current limits, heating, and load distribution. Treat calculated force and speed as predictions to test, not guarantees.</blockquote>
+<h2>Math Without Fear</h2>
+<div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
+<p>Suppose a motor shaft provides:</p>
+<ul>
+<li>torque: \(\tau_m = 0.18\ \text{N·m}\);</li>
+<li>speed: \(n_m = 120\ \text{RPM}\).</li>
+</ul>
+<p>RoboRover has two identical drive motors. For this first estimate, assume:</p>
+<ul>
+<li>each motor directly drives one wheel;</li>
+<li>wheel radius: \(r = 0.035\ \text{m}\);</li>
+<li>no gearbox;</li>
+<li>no friction or energy loss;</li>
+<li>both wheels have adequate static-friction traction and operate comparably.</li>
+</ul>
+<p>These assumptions are deliberately ideal. They let us see the structure of the calculation.</p>
+<h3>Step 1: Total pushing force</h3>
+<p>Each wheel receives \(0.18\ \text{N·m}\) of torque.</p>
+<p>Using:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{\tau}{r}\]</span></div>
+<p>the ideal force from one wheel is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} =
+\frac{0.18\ \text{N·m}}{0.035\ \text{m}}
+\approx 5.14\ \text{N}\]</span></div>
+<p>Because both wheels have adequate traction and are operating comparably, their ideal tangential forces add:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{total, ideal}} = 2(5.14\ \text{N}) \approx 10.29\ \text{N}\]</span></div>
+<p>This is the ideal tangential force at the wheel edges. It is not automatically the force RoboRover can use: the tires may slip, and the motors may not maintain that torque at every speed.</p>
+<h3>Step 2: Wheel circumference</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi r\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi(0.035\ \text{m})
+\approx 0.2199\ \text{m}\]</span></div>
+<p>The wheel travels about 0.220 m per revolution.</p>
+<h3>Step 3: Linear speed</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = \frac{nC}{60}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v =
+\frac{(120\ \text{rev/min})(0.2199\ \text{m/rev})}{60\ \text{s/min}}
+\approx 0.440\ \text{m/s}\]</span></div>
+<p>So the ideal no-load-style estimate is about \(0.440\ \text{m/s}\), or 44 cm/s.</p>
+<h3>Hand calculation before coding</h3>
+<p>For the Python model used later, the no-load speed is \(150\ \text{RPM}\), and the stall torque is \(0.20\ \text{N·m}\). At a load of \(0.10\ \text{N·m}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n = 150\left(1-\frac{0.10}{0.20}\right)
+= 150(0.5)
+= 75\ \text{RPM}\]</span></div>
+<p>Before running the code, predict the RPM at \(0.10\ \text{N·m}\). The result should be \(75.0\ \text{RPM}\).</p>
+<h3>Interpretation</h3>
+<p>The two motors can theoretically provide about \(10.29\ \text{N}\) of ideal wheel-edge force at the chosen torque, while the wheels could travel about \(0.440\ \text{m/s}\) at 120 RPM.</p>
+<p>The force and speed are separate operating quantities: a motor’s available torque generally changes with speed, and a gearbox changes both quantities. Acceleration, contact friction, battery voltage, and heat determine whether the robot actually reaches the calculated condition.</p>
+<p>A useful calculation is a model, not a promise.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Four-panel illustration tracing RoboRover through sensor readings and corresponding drive, slow, clean, and drive actions while its battery estimate decreases."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same decision rules produce different actions as the sensor reading changes from cycle to cycle.</p>
-<p>RoboRover receives four sensor readings from a front-facing object sensor:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>72, 40, 18, 55</code></pre></div>
-<p>For this teaching simulation:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Side-view engineering illustration of a two-wheel rover pushing a foam box, showing wheel radius, torque, individual wheel forces, and total forward force."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Wheel torque becomes tangential force, and the two drive wheels combine their ideal pushing forces.</p>
+<p>RoboRover must push a small foam box across a smooth test surface. Each drive motor provides \(0.12\ \text{N·m}\) of <strong>wheel torque at startup and at the stated operating condition</strong>. The wheel radius is \(0.04\ \text{m}\), and there are two drive wheels.</p>
+<p>What ideal wheel force is available?</p>
+<p>For one wheel:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} = \frac{\tau_{\text{wheel}}}{r}\]</span></div>
+<p>where:</p>
 <ul>
-<li>a reading of at least <code>50 cm</code> means <strong>drive</strong>;</li>
-<li>a reading from <code>20 cm</code> up to but not including <code>50 cm</code> means <strong>slow</strong>;</li>
-<li>a reading below <code>20 cm</code> means <strong>clean</strong>;</li>
-<li>drive costs <code>4.0</code> battery percentage points;</li>
-<li>slow costs <code>2.0</code> battery percentage points;</li>
-<li>clean costs <code>1.0</code> percentage point.</li>
+<li>\(\tau_{\text{wheel}} = 0.12\ \text{N·m}\);</li>
+<li>\(r = 0.04\ \text{m}\).</li>
 </ul>
-<p>The reasoning table is:</p>
-<div class="table-scroll"><table><thead><tr><th>Cycle</th><th>Reading</th><th>Decision</th><th>Battery after action</th></tr></thead><tbody><tr><td>1</td><td>72 cm</td><td>drive</td><td>26.0 percentage points</td></tr><tr><td>2</td><td>40 cm</td><td>slow</td><td>24.0 percentage points</td></tr><tr><td>3</td><td>18 cm</td><td>clean</td><td>23.0 percentage points</td></tr><tr><td>4</td><td>55 cm</td><td>drive</td><td>19.0 percentage points</td></tr></tbody></table></div>
-<p>Notice the pattern:</p>
-<ol>
-<li>the loop selects one sensor reading;</li>
-<li>the decisions compare that reading with thresholds;</li>
-<li>the action changes the battery variable;</li>
-<li>the next loop begins with a new reading.</li>
-</ol>
-<p>This is a small example of <strong>state</strong>: information about the robot that changes over time. Battery level is state because later decisions could depend on it.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} =
+\frac{0.12\ \text{N·m}}{0.04\ \text{m}}
+= 3.0\ \text{N}\]</span></div>
+<p>If both wheels have adequate static-friction traction and operate comparably:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{total, ideal}} = 2(3.0\ \text{N}) = 6.0\ \text{N}\]</span></div>
+<p>The ideal available wheel force is \(6.0\ \text{N}\).</p>
+<p>Now suppose the box and its sliding resistance require \(4.5\ \text{N}\) to start moving. Because the stated \(0.12\ \text{N·m}\) is available at startup, the ideal force calculation gives a starting margin of:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[6.0\ \text{N} - 4.5\ \text{N} = 1.5\ \text{N}\]</span></div>
+<p>This \(1.5\ \text{N}\) difference does <strong>not</strong> guarantee that the box will move. Acceleration, contact friction, wheel traction, torque available during the transient, battery voltage, and uneven loading still matter. The margin may disappear on carpet, during a battery voltage drop, or if one wheel carries more load than the other. Static friction at the driven wheels must also be sufficient to transmit the calculated force without slipping.</p>
+<p>This is why engineers do not select motors using only the exact minimum calculated value.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Instructional loop diagram showing four repeated Python controller iterations with sensor readings, branch choices, actions, and battery updates."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Each loop iteration reads one measurement, selects one branch, performs an action, and updates stored information.</p>
-<p>Before running the program, predict:</p>
+<figure><img loading="lazy" src="inline_04.png" alt="Line graph of predicted motor speed decreasing from 150 RPM at zero load to 0 RPM at 0.20 N·m stall torque."></figure>
+<p class="figure-caption"><strong>Figure:</strong> In the simplified model, increasing load torque reduces motor speed until the stall point.</p>
+<p>This program models a simplified motor whose speed decreases linearly as load torque increases.</p>
+<p>The model uses:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n = n_0\left(1-\frac{\tau_L}{\tau_S}\right)\]</span></div>
+<p>for \(0 \leq \tau_L \leq \tau_S\), where:</p>
 <ul>
-<li>Which action will happen on each cycle?</li>
-<li>How many times will RoboRover drive?</li>
-<li>What will the final battery estimate be?</li>
-<li>How many cleaning actions will occur?</li>
+<li>\(n\) is predicted speed in RPM;</li>
+<li>\(n_0\) is no-load speed in RPM;</li>
+<li>\(\tau_L\) is load torque at the motor shaft in N·m;</li>
+<li>\(\tau_S\) is stall torque at the motor shaft in N·m.</li>
 </ul>
-<div class="code-card"><div class="code-label">python</div><pre><code>def run_rover():
-    sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
-
-    battery_points = 30.0
-    drive_cost_points = 4.0
-    slow_cost_points = 2.0
-    clean_cost_points = 1.0
-
-    drive_count = 0
-    clean_count = 0
-
-    for cycle_number in range(1, len(sensor_readings_cm) + 1):
-        distance_cm = sensor_readings_cm[cycle_number - 1]
-
-        if distance_cm &gt;= 50.0:
-            action = &quot;drive&quot;
-            battery_points = battery_points - drive_cost_points
-            drive_count = drive_count + 1
-        elif distance_cm &gt;= 20.0:
-            action = &quot;slow&quot;
-            battery_points = battery_points - slow_cost_points
-        else:
-            action = &quot;clean&quot;
-            battery_points = battery_points - clean_cost_points
-            clean_count = clean_count + 1
-
-        print(
-            &quot;Cycle {}: sensor = {:.1f} cm, action = {}, &quot;
-            &quot;battery = {:.1f} percentage points&quot;.format(
-                cycle_number, distance_cm, action, battery_points
-            )
-        )
-
-    print(&quot;Final battery: {:.1f} percentage points&quot;.format(battery_points))
-    print(&quot;Drive actions:&quot;, drive_count)
-    print(&quot;Clean actions:&quot;, clean_count)
-
-    # Executable checks verify the numerical claims for this input.
-    assert round(battery_points, 1) == 19.0
-    assert drive_count == 2
-    assert clean_count == 1
+<p>This is a teaching model for specified voltage and approximate temperature, not a complete motor-datasheet model. The function clamps loads above stall torque to zero speed so that this simplified model does not report negative RPM. The graph shows <strong>motor-shaft load torque</strong>, not automatically wheel-ground resistance; a gearbox must be included before making that interpretation.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
+import matplotlib.pyplot as plt
 
 
-if __name__ == &quot;__main__&quot;:
-    run_rover()</code></pre></div>
-<h3>Important lines</h3>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
-print(sensor_readings_cm)</code></pre></div>
-<p>This list represents four measurements collected earlier. In a physical robot, a sensor-reading function might replace the list.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
+def motor_rpm(load_torque, no_load_rpm, stall_torque):
+    &quot;&quot;&quot;Return a simple linear torque-speed prediction.&quot;&quot;&quot;
+    if load_torque &lt; 0:
+        raise ValueError(&quot;Load torque cannot be negative.&quot;)
+    if no_load_rpm &lt; 0 or stall_torque &lt;= 0:
+        raise ValueError(&quot;Motor parameters are invalid.&quot;)
 
-for cycle_number in range(1, len(sensor_readings_cm) + 1):
-    print(&quot;Running cycle&quot;, cycle_number)</code></pre></div>
-<p>This repeats once for every reading. The <code>+ 1</code> is needed because the stop value of <code>range</code> is not included.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]
-cycle_number = 1
-distance_cm = sensor_readings_cm[cycle_number - 1]
+    speed = no_load_rpm * (1.0 - load_torque / stall_torque)
 
-print(distance_cm)</code></pre></div>
-<p>Python list positions begin at zero. During cycle 1, the program reads position 0.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 18.0
+    # A stalled motor cannot have negative rotational speed in this model.
+    return max(0.0, speed)
 
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
 
-print(action)</code></pre></div>
-<p>These branches convert a measurement into an action.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-battery_points = battery_points - 4.0
+no_load_rpm = 150.0
+stall_torque = 0.20
+load_torques = [0.00, 0.05, 0.10, 0.15, 0.20]
 
-assert round(battery_points, 1) == 26.0
-print(&quot;Battery update passed:&quot;, battery_points)</code></pre></div>
-<p>An assertion is a built-in check. If the program produces a different result, Python reports an error instead of quietly accepting a changed behavior.</p>
+predicted_rpm = []
+for load in load_torques:
+    speed = motor_rpm(load, no_load_rpm, stall_torque)
+    predicted_rpm.append(speed)
+    print(&quot;Load: {:.2f} N*m -&gt; Speed: {:.1f} RPM&quot;.format(load, speed))
+
+# Verify the hand calculation and another endpoint before displaying the graph.
+assert math.isclose(predicted_rpm[2], 75.0, rel_tol=1e-9)
+assert math.isclose(predicted_rpm[1], 112.5, rel_tol=1e-9)
+assert math.isclose(predicted_rpm[-1], 0.0, rel_tol=1e-9)
+print(&quot;Verified: 0.10 N*m gives 75.0 RPM.&quot;)
+print(&quot;Verified: 0.05 N*m gives 112.5 RPM.&quot;)
+print(&quot;Verified: 0.20 N*m gives 0.0 RPM.&quot;)
+
+plt.plot(load_torques, predicted_rpm, &quot;o-&quot;, color=&quot;darkblue&quot;)
+plt.xlabel(&quot;Load torque (N*m)&quot;)
+plt.ylabel(&quot;Predicted motor speed (RPM)&quot;)
+plt.title(&quot;RoboRover motor: simplified torque-speed model&quot;)
+plt.grid(True)
+plt.tight_layout()
+plt.show()</code></pre></div>
+<p>Important lines:</p>
+<ul>
+<li><code>motor_rpm(...)</code> contains the mathematical model.</li>
+<li><code>max(0.0, speed)</code> prevents the simplified model from predicting negative RPM.</li>
+<li><code>load_torques</code> gives several test loads.</li>
+<li><code>assert</code> checks the exact values claimed by the program.</li>
+<li><code>plt.plot(...)</code> draws the torque–speed relationship.</li>
+</ul>
+<p>The graph should slope downward from high speed at zero load toward zero speed at stall torque.</p>
+<p>If Matplotlib is unavailable, comment out the import, plotting commands, and <code>plt.show()</code> lines. The printed table should be:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Load: 0.00 N*m -&gt; Speed: 150.0 RPM
+Load: 0.05 N*m -&gt; Speed: 112.5 RPM
+Load: 0.10 N*m -&gt; Speed: 75.0 RPM
+Load: 0.15 N*m -&gt; Speed: 37.5 RPM
+Load: 0.20 N*m -&gt; Speed: 0.0 RPM
+Verified: 0.10 N*m gives 75.0 RPM.
+Verified: 0.05 N*m gives 112.5 RPM.
+Verified: 0.20 N*m gives 0.0 RPM.</code></pre></div>
+<p>The table is enough to inspect the model. The graph is an additional visual summary.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Turn the lab into a prediction game.</p>
-<p>Change only this line:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [72.0, 40.0, 18.0, 55.0]</code></pre></div>
-<p>Try:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>sensor_readings_cm = [15.0, 65.0, 22.0, 49.0]
-print(sensor_readings_cm)</code></pre></div>
-<p>Before running it, write a four-word action prediction.</p>
-<p>Remember the thresholds:</p>
-<ul>
-<li><code>65.0</code> means drive;</li>
-<li><code>49.0</code> means slow, not drive;</li>
-<li><code>22.0</code> means slow;</li>
-<li><code>15.0</code> means clean.</li>
-</ul>
-<p>The existing assertions will fail because they verify the original input. That is useful: the assertions are telling you that the expected result must be updated when the experiment changes.</p>
-<p>For a fair experiment:</p>
+<h3>Motor-Matching Game</h3>
+<p>Pretend that RoboRover is carrying different objects. Each object creates a different resisting load torque at the motor shaft.</p>
+<p>Before running the program, predict:</p>
 <ol>
-<li>predict the action sequence;</li>
-<li>calculate the battery change by hand;</li>
-<li>run the program;</li>
-<li>compare your prediction with the printed trace;</li>
-<li>update the assertions only after you understand the new result.</li>
+<li>Which load produces the highest RPM?</li>
+<li>What happens at \(0.20\ \text{N·m}\)?</li>
+<li>What RPM should occur at \(0.10\ \text{N·m}\)?</li>
+<li>Will the graph slope upward or downward?</li>
 </ol>
-<p>You are not merely checking whether Python works. You are testing whether your mental model of the robot brain is correct.</p>
+<p>Use the values in the program:</p>
+<div class="table-scroll"><table><thead><tr><th>Load torque</th><th>Situation</th></tr></thead><tbody><tr><td>0.00 N·m</td><td>Wheel lifted off the ground</td></tr><tr><td>0.05 N·m</td><td>Smooth floor</td></tr><tr><td>0.10 N·m</td><td>Heavier payload</td></tr><tr><td>0.15 N·m</td><td>Carpet or slope</td></tr><tr><td>0.20 N·m</td><td>Stall point in this model</td></tr></tbody></table></div>
+<p>After running it, change <code>stall_torque</code> to <code>0.30</code> and predict how the graph changes. A larger stall torque means the model allows more load before reaching zero speed, although real motor behavior also depends on voltage, current, temperature, and gearing.</p>
+<p>Try changing <code>no_load_rpm</code> instead. This changes the vertical height of the graph but does not change the load torque at which this simple model reaches zero speed.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>For the original readings, the action sequence should be:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>drive → slow → clean → drive</code></pre></div>
-<p>The final battery estimate should be <code>19.0</code> percentage points, with two drive actions and one clean action. These claims are verified by the assertions in the Python program.</p>
-<p>For the modified readings:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>[15.0, 65.0, 22.0, 49.0]</code></pre></div>
-<p>the action sequence should be:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>clean → drive → slow → slow</code></pre></div>
-<p>Work out the new battery estimate before running. Do not rely on the original assertions, because they were written for the original sensor list.</p>
+<p>Your predictions should be:</p>
+<ol>
+<li>The \(0.00\ \text{N·m}\) load produces the highest speed: 150 RPM.</li>
+<li>At \(0.10\ \text{N·m}\), the model predicts 75 RPM.</li>
+<li>At \(0.20\ \text{N·m}\), the model predicts 0 RPM because that is the selected stall torque.</li>
+<li>The graph slopes downward: increasing load torque reduces predicted speed.</li>
+</ol>
+<p>The program verifies these exact points:</p>
+<ul>
+<li>\(0.05\ \text{N·m}\) gives \(112.5\ \text{RPM}\);</li>
+<li>\(0.10\ \text{N·m}\) gives \(75.0\ \text{RPM}\);</li>
+<li>\(0.20\ \text{N·m}\) gives \(0.0\ \text{RPM}\).</li>
+</ul>
+<p>Those values come directly from the stated linear equation and are checked by executable assertions in the code.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Treating <code>=</code> as a question</h3>
-<p>This is assignment:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-print(battery_points)</code></pre></div>
-<p>This is comparison:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 30.0
-same_value = battery_points == 30.0
-print(same_value)</code></pre></div>
-<p>Using the wrong one can produce a syntax error or a decision that does not mean what you intended.</p>
-<h3>Mistake 2: Misreading threshold boundaries</h3>
-<p>The condition:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>includes exactly <code>50.0</code>.</p>
-<p>The next condition:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 20.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>includes exactly <code>20.0</code>, but it is reached only when the first condition was false. Therefore:</p>
-<ul>
-<li><code>50.0</code> means drive;</li>
-<li><code>20.0</code> means slow;</li>
-<li><code>19.9</code> means clean.</li>
-</ul>
-<p>Boundary values deserve deliberate tests.</p>
-<h3>Mistake 3: Forgetting indentation</h3>
-<p>Python uses indentation to show which instructions belong to a branch or loop. A line at the wrong indentation level may change the robot’s behavior.</p>
-<h3>Mistake 4: Assuming the sensor is perfect</h3>
-<p>A real distance sensor may report:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>49 cm, 51 cm, 49 cm, 50 cm</code></pre></div>
-<p>even when the object has barely moved. RoboRover could switch rapidly between drive and slow. This is a practical failure mode caused by <strong>sensor noise</strong>—small unwanted variations in measurements.</p>
-<p>Later, we will study techniques such as filtering and hysteresis. For now, notice the engineering question: what happens when the reading is near a decision boundary?</p>
-<h3>Mistake 5: Treating a battery estimate as a battery measurement</h3>
-<p>The program subtracts fixed costs for teaching. Real energy use depends on motor load, floor friction, acceleration, voltage, temperature, and battery condition.</p>
+<h3>Mistake 1: Treating torque and speed as the same thing</h3>
+<p>Torque measures turning effect. RPM measures how fast rotation occurs. A motor can have high torque at low speed or high speed at low torque.</p>
+<h3>Mistake 2: Forgetting the wheel radius</h3>
+<p>Motor RPM is shaft speed. RoboRover’s forward speed depends on wheel circumference. Changing the wheel size changes both ideal wheel force and travel per revolution.</p>
+<h3>Mistake 3: Confusing motor torque with wheel torque</h3>
+<p>A gearbox can reduce speed and increase wheel torque, but losses mean the output is not ideal. A motor-shaft torque value cannot be inserted into \(F=\tau/r\) as wheel torque unless the motor directly drives the wheel or the gearing has already been included.</p>
+<h3>Mistake 4: Assuming the motor always produces its maximum torque</h3>
+<p>A motor’s torque depends on operating conditions. The torque value used in one calculation may apply only at a particular speed, voltage, and temperature.</p>
+<h3>Mistake 5: Running a motor stalled for too long</h3>
+<p>When the shaft is prevented from turning, the motor can draw a large current. Electrical energy then becomes heat instead of useful rotation. This can damage the motor, driver, wiring, or battery system. Stall current and heating are important safety limits.</p>
+<h3>Mistake 6: Believing the simple graph is a complete datasheet</h3>
+<p>The straight-line model is useful for intuition. Real motors may have nonlinear friction, gearbox losses, voltage changes, heating, brush effects, changing load conditions, startup transients, and continuous-duty limits.</p>
+<h3>Mistake 7: Ignoring traction</h3>
+<p>The motor may produce enough ideal wheel-edge torque to spin the wheel, but the tire may not be able to push against the floor without slipping. Usable ground force is limited by static friction and the normal load on the driven wheels.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge: add a low-battery rule</h3>
-<p>Modify the program so that RoboRover stops instead of driving when its battery estimate is below <code>10.0</code> percentage points.</p>
-<p>Use this decision structure:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>battery_points = 8.0
-distance_cm = 72.0
-
-if battery_points &lt; 10.0:
-    action = &quot;stop and recharge&quot;
-elif distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<p>Your challenge is to decide where the battery test belongs and how the battery should change for the recharge action.</p>
-<p>Test your program with a longer sensor list and trace every cycle by hand first.</p>
-<p><strong>Optional extension:</strong> add a <code>stop_count</code> variable. Count how many cycles RoboRover chooses <code>"stop and recharge"</code>.</p>
-<p>Do not add random behavior yet. Deterministic inputs make it easier to understand the exact effect of each programming change.</p>
+<h3>Challenge: Choose RoboRover’s wheel size</h3>
+<p>RoboRover uses two motors. Each motor provides \(0.10\ \text{N·m}\) of wheel torque. Assume both wheels have adequate static-friction traction and operate comparably. Compare two possible wheel radii:</p>
+<ul>
+<li>Design A: \(r = 0.025\ \text{m}\);</li>
+<li>Design B: \(r = 0.050\ \text{m}\).</li>
+</ul>
+<p>For each design, calculate:</p>
+<ol>
+<li>force from one wheel using \(F_{\text{ideal}} = \tau/r\);</li>
+<li>total ideal force from two wheels;</li>
+<li>circumference using \(C = 2\pi r\).</li>
+</ol>
+<p>Which design gives greater ideal pushing force? Which travels farther per revolution?</p>
+<p><strong>Optional extension:</strong> Add both wheel sizes to a Python program and plot wheel force against radius. Use at least five radius values between \(0.02\ \text{m}\) and \(0.06\ \text{m}\). Include an assertion for one value you calculate by hand.</p>
+<h3>Physical or browser-based measurement: estimate wheel RPM</h3>
+<p>You can perform this activity with a small robot, a motor-and-wheel assembly, or a wheel turned by hand.</p>
+<ol>
+<li>Mark one point on the wheel with removable tape or a visible pen mark.</li>
+<li>Secure the robot so it cannot move into people or objects. If the wheel is powered, use a low speed and a current-limited supply or a driver with appropriate current protection.</li>
+<li>Record a phone video with the wheel visible. Count the marked point’s complete revolutions during a measured time interval, such as 10 seconds.</li>
+<li>Calculate:</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{RPM}=\frac{\text{revolutions}}{\text{time in seconds}}\times 60\]</span></div>
+<ol>
+<li>Measure the wheel radius and estimate ideal rolling speed using \(v=nC/60\).</li>
+<li>Compare the estimate with the robot’s observed travel distance. Differences may result from camera timing, wheel slip, tire deformation, or the wheel not turning at a steady speed.</li>
+</ol>
+<p>For a browser-based version, use a video player that allows frame-by-frame or timestamp inspection. The goal is to estimate RPM from evidence rather than assume that a motor command produces a fixed speed.</p>
+<blockquote><strong>Safety:</strong> Never hold a powered shaft or wheel to force a stall. Secure the robot, keep fingers, hair, and clothing away from gears and rotating parts, and use a current-limited supply or appropriate driver protection. Disconnect power before adjusting the mechanism.</blockquote>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What is the difference between assignment with <code>=</code> and comparison with <code>==</code>?</li>
+<li>What does torque measure in a motor system?</li>
 </ol>
 <ol>
-<li>For this code, what action occurs when <code>distance_cm</code> is exactly <code>50.0</code>?</li>
-</ol>
-<div class="code-card"><div class="code-label">python</div><pre><code>distance_cm = 50.0
-
-if distance_cm &gt;= 50.0:
-    action = &quot;drive&quot;
-elif distance_cm &gt;= 20.0:
-    action = &quot;slow&quot;
-else:
-    action = &quot;clean&quot;
-
-print(action)</code></pre></div>
-<ol>
-<li>Why does a robot controller commonly use a loop?</li>
+<li>A wheel has radius \(0.05\ \text{m}\) and receives \(0.20\ \text{N·m}\) of wheel torque. What ideal tangential force does it produce?</li>
 </ol>
 <ol>
-<li>Why might a real robot behave inconsistently when a sensor reading is close to a decision threshold?</li>
+<li>What usually happens to a DC motor’s speed as its mechanical load increases?</li>
+</ol>
+<ol>
+<li>Why can a stalled motor become dangerously hot even though its shaft is not moving?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li><code>=</code> stores a value in a variable. <code>==</code> asks whether two values are equal.</li>
+<li>Torque measures the turning effect, or twisting strength, around a rotational axis. Its unit is the newton-metre (N·m).</li>
 </ol>
 <ol>
-<li>The action is <code>"drive"</code> because <code>50.0 &gt;= 50.0</code> is true.</li>
+<li>Use \(F_{\text{ideal}} = \tau/r\):</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{0.20\ \text{N·m}}{0.05\ \text{m}} = 4.0\ \text{N}\]</span></div>
+<p>This is the ideal wheel-edge force. The force transmitted to the floor can be lower if static friction limits traction.</p>
+<ol>
+<li>Its speed usually decreases as load torque increases. In the simple model, speed reaches zero at the stall torque.</li>
 </ol>
 <ol>
-<li>A loop lets the controller repeatedly sense, decide, and act as the robot operates.</li>
-</ol>
-<ol>
-<li>Sensor noise can make nearby readings change from one loop to the next. The robot may then cross the threshold repeatedly and switch actions.</li>
+<li>A stalled motor can draw high current while producing no useful rotation. Much of the electrical energy becomes heat in the windings and driver components.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>The Python program is a simplified controller, but its architecture is recognizable in real robotics:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>sensor interface → variables/state → decision logic → actuator command</code></pre></div>
-<p>A physical RoboRover might obtain distance from an ultrasonic or infrared sensor, then send a speed command to motor drivers. The motor drivers would control electrical power to the motors.</p>
-<p>Several engineering realities appear immediately:</p>
+<p>RoboRover’s motors are part of a chain:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{motor driver} \rightarrow \text{motor} \rightarrow \text{gearbox} \rightarrow \text{wheel} \rightarrow \text{floor}\]</span></div>
+<p>Each stage affects the final result.</p>
+<p>A gearbox can reduce motor-shaft speed and increase wheel torque. If a gearbox has ratio \(G\) and efficiency \(\eta\), a simple estimate is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{n_{\text{motor}}}{G}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx \eta G\tau_{\text{motor}}\]</span></div>
+<p>However, gears are not perfect: friction and mechanical losses reduce the output.</p>
+<p>A practical engineer asks:</p>
 <ul>
-<li><strong>Latency:</strong> time passes between measuring a distance and commanding a motor.</li>
-<li><strong>Calibration:</strong> a reported <code>50 cm</code> may not equal a true <code>50 cm</code>.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical maximum speed.</li>
-<li><strong>Mechanical limits:</strong> wheels may slip, jam, or fail to turn equally.</li>
-<li><strong>Timing:</strong> a loop that runs too slowly may react late.</li>
-<li><strong>Safety:</strong> stopping should be designed as a safe behavior, not treated as an afterthought.</li>
+<li>How much torque is needed to start moving?</li>
+<li>How fast should the robot travel?</li>
+<li>Will the tires slip?</li>
+<li>Can the motor survive the current and heat?</li>
+<li>What happens when the battery voltage falls?</li>
+<li>Does the motor driver support the required current?</li>
+<li>Are the gears, axles, and mounts mechanically strong enough?</li>
 </ul>
-<p>The program’s <code>battery_points</code> variable is also an example of an internal estimate. It is useful for decisions, but it is not automatically truth. Good robotics software distinguishes measured values, estimated values, and commanded values.</p>
-<p>This class also separates three ideas that are often confused:</p>
-<ul>
-<li><strong>Identity:</strong> RoboRover is a physical robot performing a task.</li>
-<li><strong>Decision authority:</strong> in this simulation, software selects each action.</li>
-<li><strong>Feedback:</strong> the sensor reading influences the current action.</li>
-</ul>
-<p>The loop is using a simple threshold-based feedback pattern because a measured distance affects what RoboRover does next. This is not yet advanced control mathematics; it is an introductory decision rule.</p>
+<p>In the next class, PWM will let us adjust motor power electronically. But PWM cannot create unlimited torque. If RoboRover is overloaded, changing the command does not remove the physical limits of the motor, battery, driver, gears, and tires.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Variable:</strong> A named place in a program that stores a value.</li>
-<li><strong>Assignment:</strong> Storing a value in a variable, using <code>=</code>.</li>
-<li><strong>Comparison:</strong> Testing a relationship between values, such as equality or “greater than.”</li>
-<li><strong>Conditional statement:</strong> Code that chooses among actions based on a condition.</li>
-<li><strong>Branch:</strong> One possible path through a conditional statement.</li>
-<li><strong>Loop:</strong> Code that repeats.</li>
-<li><strong>Iteration:</strong> One pass through a loop.</li>
-<li><strong>Boolean:</strong> A value with one of two states: <code>True</code> or <code>False</code>.</li>
-<li><strong>Threshold:</strong> A boundary value used to trigger a decision.</li>
-<li><strong>Sensor noise:</strong> Unwanted variation in a sensor’s reported measurements.</li>
-<li><strong>State:</strong> Information about a system that can change over time and affect later behavior.</li>
-<li><strong>Actuator command:</strong> An instruction sent to a device that produces physical motion or another physical effect.</li>
-<li><strong>Feedback:</strong> A measured state or output influences a current or future control action.</li>
+<li><strong>DC motor:</strong> A motor that uses direct-current electrical power to produce rotational mechanical motion. In robotics, the term may include brushed or brushless motor designs.</li>
+<li><strong>Robot:</strong> For this course, a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.</li>
+<li><strong>Torque:</strong> The turning effect of a force around an axis, measured in newton-metres (N·m).</li>
+<li><strong>RPM:</strong> Revolutions per minute; a unit of rotational speed.</li>
+<li><strong>Rotor:</strong> The rotating part of a motor.</li>
+<li><strong>Stator:</strong> The stationary part of a motor that helps create the magnetic field.</li>
+<li><strong>No-load speed:</strong> Approximate motor speed when the shaft provides very little mechanical load.</li>
+<li><strong>Stall:</strong> A condition in which the motor shaft is prevented from rotating.</li>
+<li><strong>Stall torque:</strong> The torque associated with the stall condition in a specified motor model or test condition.</li>
+<li><strong>Gearbox:</strong> A set of gears that changes rotational speed and torque.</li>
+<li><strong>Wheel circumference:</strong> The distance traveled by a wheel in one complete revolution, calculated as \(C = 2\pi r\).</li>
+<li><strong>Torque–speed curve:</strong> A graph showing how a motor’s available torque and rotational speed relate under specified conditions.</li>
+<li><strong>Static friction:</strong> The contact force that can prevent surfaces from sliding relative to each other; at a driven wheel, it can transmit forward force without slipping.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search terms for reinforcing today’s ideas:</p>
-<ul>
-<li>Python 3 <code>if</code>, <code>elif</code>, and <code>else</code></li>
-<li>Python 3 <code>for</code> loops and <code>range</code></li>
-<li>Python Boolean expressions</li>
-<li>beginner robotics sense think act</li>
-<li>sensor threshold robot controller</li>
-<li>robotics sensor noise demonstration</li>
-</ul>
-<p>When reading examples, ask three questions:</p>
+<p>To deepen this topic, investigate these ideas in this order:</p>
 <ol>
-<li>What information is stored?</li>
-<li>What condition selects the action?</li>
-<li>What repeats, and when does it stop?</li>
+<li><strong>Motor datasheet reading:</strong> Compare no-load speed, rated speed, rated torque, stall torque, and stall current.</li>
+<li><strong>Gear ratios:</strong> Explore how a gear train trades rotational speed for torque.</li>
+<li><strong>Motor efficiency:</strong> Compare electrical input power with mechanical output power.</li>
+<li><strong>Brushed and brushless motors:</strong> Identify the mechanical and electronic differences.</li>
+<li><strong>Encoder feedback:</strong> Learn how a sensor can measure shaft rotation for later speed regulation.</li>
 </ol>
-<p>Those questions are more valuable than memorizing individual code fragments.</p>
+<p>Search-friendly resource names include <strong>DC motor torque-speed curve</strong>, <strong>robot gearbox selection</strong>, and <strong>motor datasheet rated torque</strong>.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover can now store sensor information, make threshold-based decisions, and repeat its behavior.</p>
-<p>But a new problem appears: how should the program describe <strong>where</strong> RoboRover is?</p>
-<p>In Class 4, <strong>Coordinates: How Robots Describe Space</strong>, we will introduce positions such as <code>(x, y)</code>. You will learn how a robot can describe a location on a floor, how a coordinate system has an origin and directions, and how sensor observations can be connected to places in the environment.</p>
-<p>Today’s variables hold quantities such as distance and battery. Next class, variables will begin representing <strong>locations in space</strong>.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/002-sense-think-act/"><span>Previous stream</span><b>Class 02 · Sense → Think → Act</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 04 · Coordinates: How Robots Describe Space</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>In Class 8, <strong>Motor Control with PWM</strong>, RoboRover will learn how a controller changes motor behavior without simply treating the motor as an on/off device.</p>
+<p>We will connect:</p>
+<ul>
+<li>electrical power from Class 6;</li>
+<li>motor torque and RPM from this class;</li>
+<li>PWM duty cycle and motor-driver commands in the next class.</li>
+</ul>
+<p>You will see why a motor command is not always equal to a fixed speed, especially when the load, battery voltage, and surface change.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/006-electricity-for-roboticists/"><span>Previous stream</span><b>Class 06 · Electricity for Roboticists</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 08 · Motor Control with PWM</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -612,7 +551,7 @@ print(action)</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=3,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=7,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
