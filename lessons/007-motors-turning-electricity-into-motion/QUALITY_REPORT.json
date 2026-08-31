@@ -1,0 +1,63 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 4465,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4465 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 92,
+      "pedagogy": 89,
+      "clarity": 90,
+      "depth": 91,
+      "examples": 90,
+      "interactivity": 87,
+      "code_alignment": 94,
+      "visual_teaching_plan": 86,
+      "originality": 83,
+      "consistency": 91,
+      "accessibility": 86
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add an explicit distinction between motor torque, motor current, and the torque actually available at a particular operating point; beginners may otherwise interpret every stated torque value as continuously available.",
+      "The worked example's phrase \"at startup and at the stated operating condition\" is technically awkward. State clearly whether 0.12 N\u00b7m is a hypothetical starting torque, a rated operating torque, or simply an assumed torque for calculation.",
+      "The lesson is technically strong but overuses caveats about ideal force, traction, losses, and operating conditions. Consolidate some repeated warnings into one concise assumptions box to improve pacing and reduce cognitive load.",
+      "The opening could introduce a single physical through-line earlier: electrical input power becomes motor torque and speed, then gearbox output, wheel force, and rover motion. This would make the later equations easier to organize.",
+      "The motor-construction explanation is more detailed than necessary for the stated learning objectives and partially repeats the visual instructions. Consider shortening it or adding a clear optional label for students who want the electromagnetic detail.",
+      "Add a short dimensional-analysis check for F = tau/r and v = nC/60. This would reinforce unit reasoning and help students detect calculation mistakes.",
+      "The Python lab would be more interactive if students modified the function or added wheel radius and predicted linear speed, rather than only changing graph parameters.",
+      "The physical RPM activity should recommend recording at least three trials and averaging the result, since a single 10-second measurement can be noticeably affected by timing and inconsistent motion.",
+      "Clarify that the no-load point in the simulation is not literally zero torque in every real motor; it is an approximation in the simplified teaching model.",
+      "The vocabulary entry for DC motor is serviceable but could explicitly note that brushless motors normally require electronic commutation and are not driven like a simple two-terminal brushed motor.",
+      "The visual plan is relevant and coherent, but the four generated visuals are somewhat repetitive. A single annotated force-and-power diagram plus one real hardware photograph could provide stronger contrast between abstraction and physical implementation.",
+      "Add teacher-facing expected observations for the wheel-size challenge, including the numerical answers: 4 N and 8 N for Design A and 2 N and 4 N for Design B, plus the two circumferences.",
+      "The quiz is appropriate but could include one gearbox-ratio question to assess one of the lesson's central quantitative ideas.",
+      "Accessibility would improve with explicit text descriptions of the graph's axes and trend in the Markdown immediately adjacent to the image, rather than relying primarily on image alt text."
+    ],
+    "linkedin": {
+      "title": "Class 7: How Motors Turn Electrical Energy into Robot Motion",
+      "description": "A practical robotics lesson on torque, RPM, gearing, wheel force, motor limits, and a Python torque\u2013speed model, with experiments that connect equations to RoboRover.",
+      "commentary": "A motor command is not the same thing as a fixed robot speed.\n\nIn Class 7, students follow the complete chain from electrical energy to motion:\n\n\u2022 how a DC motor converts electrical power into rotation;\n\u2022 why torque and RPM describe different capabilities;\n\u2022 how gearboxes trade speed for wheel torque;\n\u2022 how wheel radius determines ideal pushing force and travel per revolution;\n\u2022 why load, traction, voltage, and heating limit real performance.\n\nThe lesson combines worked calculations, a Python torque\u2013speed model, prediction questions, a wheel-size design challenge, and a video-based RPM measurement activity. Students learn to treat equations as testable engineering predictions rather than guarantees.\n\nInvite students to run the model, change the assumed motor parameters, and compare the predicted wheel speed with a real measurement from RoboRover.\n\n#Robotics #STEM #Engineering #Python",
+      "thumbnail_alt_text": "Professor OS lesson showing a motor, gearbox, wheel, torque, and RPM concepts"
+    },
+    "media_query": "brushed DC gearmotor gearbox wheel rover drivetrain close-up engineering",
+    "image_query": "robot rover drivetrain motor gearbox wheel labeled hardware photograph",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real photograph would ground the abstract chain of motor, gearbox, wheel, and floor contact after students have learned the equations. It should show identifiable hardware and complement, rather than replace, the existing schematics.",
+    "media_would_help": true
+  }
+}
