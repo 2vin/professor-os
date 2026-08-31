@@ -1,0 +1,8 @@
+{
+  "title": "Class 7: How Motors Turn Electrical Energy into Robot Motion",
+  "description": "A practical robotics lesson on torque, RPM, gearing, wheel force, motor limits, and a Python torque\u2013speed model, with experiments that connect equations to RoboRover.",
+  "commentary": "A motor command is not the same thing as a fixed robot speed.\n\nIn Class 7, students follow the complete chain from electrical energy to motion:\n\n\u2022 how a DC motor converts electrical power into rotation;\n\u2022 why torque and RPM describe different capabilities;\n\u2022 how gearboxes trade speed for wheel torque;\n\u2022 how wheel radius determines ideal pushing force and travel per revolution;\n\u2022 why load, traction, voltage, and heating limit real performance.\n\nThe lesson combines worked calculations, a Python torque\u2013speed model, prediction questions, a wheel-size design challenge, and a video-based RPM measurement activity. Students learn to treat equations as testable engineering predictions rather than guarantees.\n\nInvite students to run the model, change the assumed motor parameters, and compare the predicted wheel speed with a real measurement from RoboRover.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #STEM #Engineering #Python",
+  "thumbnail_alt_text": "Professor OS lesson showing a motor, gearbox, wheel, torque, and RPM concepts",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
