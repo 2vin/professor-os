@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 3,
+  "static": {
+    "passed": true,
+    "word_count": 3430,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 93,
+      "pedagogy": 88,
+      "clarity": 90,
+      "depth": 92,
+      "examples": 89,
+      "interactivity": 89,
+      "code_alignment": 91,
+      "visual_teaching_plan": 88,
+      "originality": 85,
+      "consistency": 92,
+      "accessibility": 91
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is technically strong but substantially longer than necessary for a foundational PWM class. Consolidate repeated warnings that ideal average voltage is not measured motor voltage, torque, current, or speed; state the boundary clearly once, then reference it briefly.",
+      "Clarify the distinction between a low-side driver and an H-bridge earlier with a small schematic or one sentence explaining which motor-terminal states each can produce. The current treatment is accurate but cognitively dense for beginners.",
+      "The Python simulation is well aligned with the equations, but the linear target-speed assumption may still be mistaken for a motor law despite repeated caveats. Rename the output to 'illustrative target' throughout the interface and graph, or add a visible annotation that it is not measured speed.",
+      "Add a short worked prediction before the Python lab showing how changing duty cycle affects waveform average, while changing time constant affects transient response. This would make the later experiment more hypothesis-driven.",
+      "The game prompt about choosing the smallest command that reaches a delivery zone is not executable in the provided simulation because no distance, acceleration, battery, or motion model exists. Reframe it as a discussion challenge or provide a simple distance model.",
+      "The visual plan is relevant and coherent, but the generated schematic should explicitly label controller logic voltage, driver motor-supply voltage, motor-terminal voltage, and current path. This would reinforce the signal-chain distinction more effectively than a generic left-to-right block diagram.",
+      "Add a compact comparison table for coast, brake, low-side freewheel, and bipolar H-bridge drive. The prose mentions these modes but does not give students a usable conceptual map.",
+      "The safety section is commendably cautious. Consider separating 'safe observation of logic PWM' from 'prohibited or advanced motor-side measurements' using stronger visual hierarchy so beginners do not treat the latter as an invitation to experiment.",
+      "The vocabulary definition of 'saturation' is peripheral to the lesson and risks introducing a broad control term without developing it. Remove it or connect it directly to duty-cycle limits and current limiting.",
+      "The frequency discussion could state explicitly that 20 kHz is not automatically inaudible in a complete robot because harmonics, mechanical vibration, and current-control behavior can still create audible noise."
+    ],
+    "linkedin": {
+      "title": "Motor Control with PWM: From Duty Cycle to Real RoboRover Behavior",
+      "description": "A practical PWM lesson that connects duty cycle, idealized voltage, motor-driver topology, simulation, current limits, and the real reasons duty cycle does not guarantee rpm.",
+      "commentary": "PWM is often introduced as a simple speed knob. That shortcut is useful at first, but it can create persistent misconceptions about voltage, current, torque, and rpm.\n\nThis Professor OS lesson uses RoboRover to build the complete signal-chain picture:\n\n\u2022 the controller sends a low-power logic command;\n\u2022 the motor driver switches higher motor current;\n\u2022 duty cycle describes timing, not guaranteed speed;\n\u2022 the ideal average-voltage equation is separated from real motor behavior;\n\u2022 a Python model lets students compare fast switching with slower mechanical response.\n\nThe lesson also addresses load, startup friction, current limits, switching frequency, driver topology, noise, and safe observation practices. Students predict results before running the simulation, vary duty cycle and time constant, and distinguish a teaching model from a physical motor law.\n\nTry the lab with 20%, 60%, and 100% duty cycles, then explain which properties change the final model target and which change response time.\n\n#Robotics #EngineeringEducation #MotorControl #PWM",
+      "thumbnail_alt_text": "RoboRover motor driver schematic showing PWM command, power switching, motor, and wheel"
+    },
+    "media_query": "safe low-voltage brushed DC motor driver PWM educational robotics setup",
+    "image_query": "low-voltage educational brushed DC motor H-bridge driver motor controller wiring bench photo safety enclosure",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A restrained real photograph would ground the abstract controller-driver-motor signal chain in recognizable hardware and reinforce that the controller does not power the motor directly. It should show documented, low-voltage educational equipment without inviting unverified probing or wiring.",
+    "media_would_help": true
+  }
+}
