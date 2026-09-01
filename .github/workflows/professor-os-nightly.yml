@@ -3,8 +3,8 @@ name: Professor OS Nightly Lecture
 on:
   workflow_dispatch:
   schedule:
-    # 21:00 IST = 15:30 UTC
-    - cron: '30 15 * * *'
+    - cron: '0 21 * * *'
+      timezone: 'Asia/Kolkata'
 
 permissions:
   contents: write
