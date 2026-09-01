@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "close-up photograph of a low-voltage brushed DC motor, H-bridge motor driver board, wiring, and small educational robot rover on a laboratory bench",
+  "media_style": "photo",
+  "reason": "A restrained real photograph would ground the abstract signal chain in recognizable hardware and reinforce that the controller does not power the motor directly. It should show safe low-voltage educational equipment without encouraging unverified probing or wiring.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
