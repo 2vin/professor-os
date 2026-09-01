@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 2: Sense → Think → Act · Professor OS</title>
+<title>Class 8: Motor Control with PWM · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,24 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -53,476 +35,533 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="2">
+<body data-class="8">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_08</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_08</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 08 · Hardware &amp; Sensors</div><h1>Motor Control with PWM</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>duty cycle, speed control</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Sense → Think → Act</h2>
+      <h2>Class podcast · Motor Control with PWM</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-08-motor-control-with-pwm.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 8: Motor Control with PWM</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we asked, “What is a robot?” We learned that a robot is a physical machine whose controlled actuators perform a physical task. The action may be selected by a human, a preprogrammed controller, or autonomous software.</p>
-<p>We also separated two ideas that are often mixed together:</p>
-<ul>
-<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
-<li><strong>Decision authority:</strong> who or what selects its immediate actions.</li>
-</ul>
-<p>A teleoperated rover can be a robot even when a human chooses its movements. An autonomous vacuum can be a robot because software selects its task-level actions. A thermostat can use feedback without normally being called a robot.</p>
-<p>Today we open the robot’s “body and brain” and study the repeating pattern behind many robotic systems:</p>
-<blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover will use this pattern to keep a safe distance from a wall.</p>
+<p>In Class 7, RoboRover used a motor to convert electrical energy into motion. A robot still needs to control <strong>how fast</strong> a motor turns and, when required, <strong>which direction</strong> it turns.</p>
+<p>Today we introduce <strong>pulse-width modulation</strong>, or <strong>PWM</strong>. PWM rapidly switches a command between states. <strong>Duty cycle</strong> is the fraction of each period spent in the on, or commanded-drive, state. A \(25\%\) duty cycle means the command is on for one-quarter of every period.</p>
+<h3>Scope of this class</h3>
+<p>This lesson focuses on <strong>brushed DC motors</strong> controlled by an H-bridge or low-side motor driver. Keep the signal chain below in view:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Controller or computer
+  low-power logic command PWM
+            |
+            v
+      Motor driver
+  high-current switching
+            |
+            v
+      Brushed DC motor
+ motor-terminal voltage
+   and winding current
+            |
+            v
+          Wheel</code></pre></div>
+<p>The controller usually does not supply motor power directly. It sends a low-power logic command to the motor driver. The driver switches the larger motor current.</p>
+<p>For the arithmetic in this lesson, we use a <strong>deliberately simplified single-ended switching model</strong>: the assumed power-stage waveform across the motor alternates between \(0\ \text{V}\) and the supply voltage. This model is useful for learning duty cycle, but it is not a universal description of H-bridge outputs. Real H-bridges may produce bipolar voltages, braking states, floating states, or recirculating-current paths.</p>
+<p>Brushless DC motors and hobby servomotors use different commutation and control arrangements. Their PWM signals may have different meanings.</p>
+<p>In the next class, we will connect motor speed to <strong>gears</strong>. PWM changes the requested electrical drive; gears change how motor motion is transformed mechanically.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ol>
-<li>Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do.</li>
-<li>Trace information through a robot from measurement to movement.</li>
-<li>Explain feedback as measurement that changes a current or future control action.</li>
-<li>Calculate a simple distance error with units.</li>
-<li>Recognize why real robots struggle with noise, delay, calibration, and mechanical limits.</li>
-<li>Build and run a small Python simulation of RoboRover’s feedback behavior.</li>
-</ol>
+<ul>
+<li>explain PWM with an on/off switch analogy;</li>
+<li>distinguish logic command PWM, power-stage switching, and motor-terminal voltage;</li>
+<li>calculate duty cycle, period, and frequency;</li>
+<li>calculate the ideal time-average of a \(0\)-to-supply switching waveform;</li>
+<li>distinguish duty cycle, voltage, winding current, torque, and speed;</li>
+<li>explain why duty cycle influences speed without guaranteeing an exact rpm;</li>
+<li>interpret a PWM timing diagram;</li>
+<li>run and modify a Python simulation;</li>
+<li>identify practical concerns including load, startup friction, current limits, noise, switching frequency, and driver topology.</li>
+</ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine a robot arm picking up a cup.</p>
+<p>A brushed DC motor converts electrical energy into rotational motion.</p>
 <ul>
-<li>The arm is a <strong>physical machine</strong>.</li>
-<li>Its motors create controlled movement.</li>
-<li>A human, a stored program, or autonomous software may choose the task.</li>
-<li>Sensors may measure joint angle, force, or the cup’s location.</li>
-<li>The robot’s status and its control mode are separate questions.</li>
+<li><strong>Voltage</strong>, measured in volts (V), is electrical potential difference.</li>
+<li><strong>Current</strong>, measured in amperes (A), is the flow of electric charge.</li>
+<li><strong>Speed</strong>, often measured in revolutions per minute (rpm), describes how quickly the shaft rotates.</li>
+<li><strong>Torque</strong>, measured in newton-metres (N·m), is turning strength.</li>
 </ul>
-<p>Last class, we previewed <strong>feedback</strong>:</p>
-<blockquote>A measured state or output influences a current or future control action in relation to a desired state.</blockquote>
-<p>For example, a thermostat measures room temperature and changes heating behavior when the measured temperature differs from the desired temperature. Feedback does not have to mean smooth or continuous adjustment. A threshold rule can also be feedback if a measurement changes what happens next.</p>
-<p>Today we will place these ideas into a complete robot loop.</p>
+<p>A motor driver sits between the controller and motor because a computer pin normally cannot safely provide the motor’s startup or operating current.</p>
+<p>The distinction between the signal chain is essential:</p>
+<ol>
+<li><strong>Logic command PWM</strong> is the controller’s low-power signal.</li>
+<li><strong>Power-stage PWM</strong> is the driver’s high-current switching action.</li>
+<li><strong>Motor-terminal voltage</strong> is the voltage actually appearing across the motor terminals.</li>
+<li><strong>Winding current</strong> flows through the motor coils and changes gradually because of inductance.</li>
+<li><strong>Torque</strong> depends strongly on winding current.</li>
+<li><strong>Speed</strong> results from torque, load, friction, back EMF, and inertia.</li>
+</ol>
+<blockquote><strong>What PWM does and does not guarantee</strong>  For an idealized power-stage waveform that switches between \(0\ \text{V}\) and \(V_{\text{supply}}\):  \[ V_{\text{avg, ideal}} = D V_{\text{supply}} \]  This is the time-average of the assumed waveform. It is not automatically the motor’s measured terminal voltage, winding-current average, electrical power, torque, or speed.</blockquote>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The measured result returns to the controller, so the next action depends on what actually happened.</p>
-<p>RoboRover is facing a wall. It should stop about 0.50 metres away.</p>
-<p>An illustrator could draw four blocks:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>        desired distance
-             0.50 m
-                |
-                v
-Wall &lt;--- sensor measurement &lt;--- RoboRover
-                                      |
-                                      v
-                              Controller compares
-                              desired and measured
-                                      |
-                                      v
-                              Motor command
-                                      |
-                                      v
-                              Wheels move rover
-                                      |
-                                      +---- new distance ----&gt; sensor</code></pre></div>
-<p>The loop is:</p>
-<ol>
-<li><strong>Sense:</strong> a distance sensor estimates how far RoboRover is from the wall.</li>
-<li><strong>Think:</strong> the controller compares the measurement with the desired distance.</li>
-<li><strong>Act:</strong> motors turn the wheels forward, backward, or not at all.</li>
-<li><strong>Sense again:</strong> the new position is measured.</li>
-</ol>
-<p>The fourth step matters. Without measuring again, the robot cannot tell whether its action worked.</p>
-<p>This is a simple <strong>feedback control loop</strong>. The word “control” here means choosing an action to influence a physical system, not merely issuing a one-time command.</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Three aligned PWM command waveforms with identical amplitudes and different duty cycles of 20, 50, and 80 percent."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The pulse height stays the same; duty cycle changes the fraction of time the command is in its on state.</p>
+<p>Imagine controlling a lamp with a very fast switch:</p>
+<ul>
+<li>on for half of each period: approximately \(50\%\) duty cycle;</li>
+<li>on for one-quarter: \(25\%\) duty cycle;</li>
+<li>on for nearly the entire period: a high duty cycle.</li>
+</ul>
+<p>The lamp analogy demonstrates <strong>time fraction</strong>, not complete motor physics. The switch does not produce a smaller on-state voltage. In the simplified model, the power stage produces the full supply voltage during each on interval; duty cycle changes how long that state lasts.</p>
+<p>For example:</p>
+<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>On-time in a 10 ms period</th><th>Off-time</th></tr></thead><tbody><tr><td>0%</td><td>0 ms</td><td>10 ms</td></tr><tr><td>50%</td><td>5 ms</td><td>5 ms</td></tr><tr><td>100%</td><td>10 ms</td><td>0 ms</td></tr></tbody></table></div>
+<p>The pulse height is unchanged. Only the on-time changes.</p>
+<p>In a real driver, off-time may allow current to circulate through diodes or MOSFETs, or the circuit may coast, brake, or use a particular current-decay mode. Consequently, the motor-terminal voltage may be actively driven, recirculating, or floating. Driver topology determines the details.</p>
+<p>A motor shaft does not normally start and stop once per PWM pulse. Winding inductance resists sudden current changes, and mechanical inertia resists sudden speed changes. These effects often make the motor’s current and speed change more gradually than the switching waveform.</p>
+<h3>Choosing a PWM frequency</h3>
+<p>The \(50\ \text{Hz}\) value used later is selected for easy arithmetic and visualization, not as a universal recommendation. It is audible and may produce torque ripple or current ripple.</p>
+<p>A frequency such as \(20\ \text{kHz}\) may move switching noise above much of the audible range, but it can increase switching losses, heating, electromagnetic interference, and driver demands. The appropriate value depends on the motor, driver topology, inductance, current ripple, and manufacturer limits.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover as a small wheeled platform with:</p>
-<ul>
-<li>a forward-facing distance sensor,</li>
-<li>two powered wheels,</li>
-<li>a small computer,</li>
-<li>a battery,</li>
-<li>and a wall several centimetres away.</li>
-</ul>
-<p>Suppose RoboRover is too far from the wall. The controller might command both wheels to turn forward.</p>
-<p>Now suppose it is too close. The controller might command both wheels to turn backward.</p>
-<p>If it is within an acceptable zone, the controller stops the wheels.</p>
-<p>The desired distance is not a command such as “drive forward for three seconds.” It is a condition the robot tries to maintain.</p>
-<p>A useful visual detail is to draw a shaded <strong>acceptable zone</strong> around the target:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>too far          acceptable zone          too close
-------|-----------------|-----------------|------
-     0.56 m            0.50 m             0.44 m
-       forward             stop              reverse</code></pre></div>
-<p>The boundaries in this drawing are examples. The exact values depend on the robot, sensor, and task.</p>
+<p>The following diagram shows <strong>power-stage PWM representations</strong> with ten equal time slots per period. The adjacent table provides the exact timing values for accessibility; the waveform is not intended to be read by color or image labels alone.</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Shared time axis: |0----|1----|2----|3----|4----|5----|6----|7----|8----|9----|10---|
+                  one complete period, T
+
+20% duty cycle:   |██████|      |      |      |      |      |      |      |      |      |
+50% duty cycle:   |██████|██████|██████|██████|██████|      |      |      |      |      |
+80% duty cycle:   |██████|██████|██████|██████|██████|██████|██████|██████|      |      |
+                  &lt;------ on ------&gt; &lt;------------- off --------------&gt;</code></pre></div>
+<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>On slots</th><th>Off slots</th><th>On-time if \(T=10\) ms</th></tr></thead><tbody><tr><td>20%</td><td>2 of 10</td><td>8 of 10</td><td>2 ms</td></tr><tr><td>50%</td><td>5 of 10</td><td>5 of 10</td><td>5 ms</td></tr><tr><td>80%</td><td>8 of 10</td><td>2 of 10</td><td>8 ms</td></tr></tbody></table></div>
+<p>Each strip has the same <strong>period</strong>, the time from the beginning of one pulse to the beginning of the next. Pulse height remains the same in the simplified representation.</p>
+<p>The controller’s logic waveform and the driver’s power-stage waveform are related but not necessarily identical. The actual motor-terminal voltage depends on the driver’s circuit and PWM mode. Winding current and mechanical speed usually change more slowly than the electrical switching command.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Sensors: the robot’s measuring instruments</h3>
-<p>A <strong>sensor</strong> measures some property of the robot or its environment and produces information that the controller can use.</p>
-<p>Examples include:</p>
+<h3>Duty cycle</h3>
+<p><strong>Duty cycle</strong> is the fraction of each PWM period during which the signal is in its on or commanded-drive state.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D = \frac{t_{\text{on}}}{T}\]</span></div>
+<p>where:</p>
 <ul>
-<li>a distance sensor measuring separation from an object,</li>
-<li>a wheel encoder measuring wheel rotation,</li>
-<li>a camera measuring patterns of light,</li>
-<li>a temperature sensor measuring thermal conditions,</li>
-<li>a bumper switch reporting contact.</li>
+<li>\(D\) is duty cycle, with no units;</li>
+<li>\(t_{\text{on}}\) is on-time, in seconds;</li>
+<li>\(T\) is the period, in seconds.</li>
 </ul>
-<p>A sensor does not automatically “understand” its surroundings. It produces a signal or value. Software and electronics interpret that value.</p>
-<h3>Controller: the decision-making mechanism</h3>
-<p>A <strong>controller</strong> receives measurements and selects commands.</p>
-<p>For RoboRover, the controller could follow this rule:</p>
-<ul>
-<li>If the wall is farther than the target zone, drive forward.</li>
-<li>If the wall is closer than the target zone, drive backward.</li>
-<li>Otherwise, stop.</li>
-</ul>
-<p>This is a threshold controller. It is simple, but it is still feedback because new measurements affect later motor commands.</p>
-<h3>Actuators: the parts that create physical change</h3>
-<p>An <strong>actuator</strong> converts a command into physical action.</p>
-<p>Examples include:</p>
-<ul>
-<li>electric motors turning wheels,</li>
-<li>a servo moving a joint,</li>
-<li>a pump moving liquid,</li>
-<li>a gripper motor closing fingers,</li>
-<li>a solenoid moving a latch.</li>
-</ul>
-<p>A controller may request “motor speed = 40%,” but the physical actuator may not produce exactly that result. Friction, battery voltage, load, and mechanical wear all matter.</p>
-<h3>Feedback: action informed by results</h3>
-<p>In feedback control, the robot acts, measures the result, and uses that result to decide what to do next.</p>
-<p>This differs from a one-shot sensor trigger. Suppose a sensor detects an obstacle and starts a fixed three-second turn. If the robot does not use later measurements to adjust that turn, many engineers would describe this as a sensor-triggered sequence, not sustained feedback regulation.</p>
-<p>In this course, <strong>sustained feedback regulation</strong> means repeated measurement-and-correction over time.</p>
-<h3>A compact comparison</h3>
-<p>These ideas are related but not identical:</p>
-<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th><th>Example</th></tr></thead><tbody><tr><td>Preprogrammed automation</td><td>Is the sequence specified in advance?</td><td>RoboRover drives forward for 2 seconds, then stops</td></tr><tr><td>Feedback control</td><td>Does measured output or state change the control action?</td><td>RoboRover changes direction based on measured wall distance</td></tr><tr><td>Autonomy</td><td>Does software select task-level actions without immediate human choice?</td><td>RoboRover decides how to approach and inspect several locations</td></tr></tbody></table></div>
-<p>A system can combine these. A preprogrammed robot arm can execute a stored task while its joint motors use feedback. Feedback does not automatically mean autonomy, and autonomy does not require a particular sensor or algorithm.</p>
+<p>As a percentage:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_{\%}=100D\]</span></div>
+<p>A duty cycle of \(0.40\) equals \(40\%\).</p>
+<p>Frequency is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f=\frac{1}{T}\]</span></div>
+<p>where \(f\) is measured in hertz (Hz).</p>
+<h3>Ideal average voltage</h3>
+<p>For the explicitly simplified waveform that switches between \(0\ \text{V}\) and \(V_{\text{supply}}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D V_{\text{supply}}\]</span></div>
+<p>This equation describes only the assumed waveform. In a real motor, current also depends on resistance, inductance, back EMF, driver current paths, and switching mode. Torque depends strongly on current. Speed depends on torque balance, load, friction, battery voltage, motor design, and losses.</p>
+<p>Therefore:</p>
+<blockquote>Increasing duty cycle often increases motor speed, but duty cycle is not a direct rpm setting.</blockquote>
+<p>A \(50\%\) command does not guarantee exactly half the maximum speed.</p>
+<h3>Speed control versus direction control</h3>
+<p>PWM commonly controls the magnitude of motor drive. Direction usually requires an H-bridge or another circuit that can reverse the voltage across the motor. In this class, assume direction has already been selected.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>To reason about RoboRover’s distance, define the <strong>distance error</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = d_{\text{measured}} - d_{\text{target}}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(e\) is the distance error, in metres (m);</li>
-<li>\(d_{\text{measured}}\) is the current measured distance from RoboRover to the wall, in metres (m);</li>
-<li>\(d_{\text{target}}\) is the desired distance from RoboRover to the wall, in metres (m).</li>
-</ul>
-<p>Suppose:</p>
-<ul>
-<li>\(d_{\text{measured}} = 0.82\ \text{m}\)</li>
-<li>\(d_{\text{target}} = 0.50\ \text{m}\)</li>
-</ul>
-<p>Then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.82\ \text{m} - 0.50\ \text{m}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.32\ \text{m}\]</span></div>
-<p>The positive sign means RoboRover is too far from the wall. If the rover is facing the wall, it should move forward.</p>
-<p>If instead the measured distance were \(0.41\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.41\ \text{m} - 0.50\ \text{m} = -0.09\ \text{m}\]</span></div>
-<p>The negative sign means RoboRover is too close. It should move backward or otherwise increase its distance.</p>
-<p>A simple travel estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{\Delta d}{v}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(t\) is time, in seconds (s);</li>
-<li>\(\Delta d\) is the distance to travel, in metres (m);</li>
-<li>\(v\) is speed, in metres per second (m/s).</li>
-</ul>
-<p>If RoboRover must travel \(0.32\ \text{m}\) at a constant \(0.20\ \text{m/s}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{0.32\ \text{m}}{0.20\ \text{m/s}} = 1.6\ \text{s}\]</span></div>
-<p>This is an ideal estimate. It assumes perfect measurement, immediate motor response, constant speed, and no slipping. Real robots rarely satisfy all those assumptions.</p>
+<p>Suppose a motor driver uses a \(12\ \text{V}\) supply and the simplified waveform has a \(25\ \text{ms}\) period at \(40\%\) duty cycle.</p>
+<p>Convert the percentage:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D=\frac{40}{100}=0.40\]</span></div>
+<p>Find on-time:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t_{\text{on}}=DT
+=0.40(25\ \text{ms})
+=10\ \text{ms}\]</span></div>
+<p>Off-time is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[25\ \text{ms}-10\ \text{ms}=15\ \text{ms}\]</span></div>
+<p>Find the ideal average of the assumed waveform:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
+=DV_{\text{supply}}
+=0.40(12\ \text{V})
+=4.8\ \text{V}\]</span></div>
+<p>The result means that the assumed \(0\)-to-\(12\ \text{V}\) waveform has a \(4.8\ \text{V}\) time-average. It does <strong>not</strong> claim that the motor measures \(4.8\ \text{V}\) at its terminals or runs at a particular speed.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same target produces different commands because the measured distance changes.</p>
-<p>RoboRover uses a distance sensor aimed at a wall.</p>
-<ul>
-<li>Desired distance: \(0.50\ \text{m}\)</li>
-<li>Measured distance: \(0.68\ \text{m}\)</li>
-<li>Acceptable error magnitude: \(0.04\ \text{m}\)</li>
-</ul>
-<p>First calculate the error:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.68\ \text{m} - 0.50\ \text{m} = 0.18\ \text{m}\]</span></div>
-<p>Because \(0.18\ \text{m}\) is greater than the acceptable \(0.04\ \text{m}\), RoboRover is too far away. The controller commands forward motion.</p>
-<p>Later, the sensor reads \(0.52\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.52\ \text{m} - 0.50\ \text{m} = 0.02\ \text{m}\]</span></div>
-<p>The error is now within the acceptable zone because \(0.02\ \text{m} &lt; 0.04\ \text{m}\). The controller commands stop.</p>
-<p>Notice what happened:</p>
-<ul>
-<li>The target did not change.</li>
-<li>The sensor measurement changed.</li>
-<li>The controller selected a different actuator command because of that measurement.</li>
-</ul>
-<p>That is the essential feedback pattern.</p>
-<p>An engineering caveat appears immediately: the sensor may report \(0.52\ \text{m}\) even when the true distance is \(0.50\ \text{m}\). Sensor noise can cause the controller to switch commands unnecessarily. A deadband, such as the \(0.04\ \text{m}\) acceptable zone, helps prevent constant forward-backward switching.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Annotated idealized PWM timing diagram showing a 20 millisecond period, 8 milliseconds on, 12 milliseconds off, and a labeled 3.6 volt ideal waveform average from a 9 volt supply."></figure>
+<p class="figure-caption"><strong>Figure:</strong> In the idealized example, a 40 percent duty cycle at 50 hertz means 8 milliseconds in the on state during every 20 millisecond period; 3.6 volts is only the assumed waveform average.</p>
+<p>RoboRover carries a small box across a smooth floor. Its battery supply is \(9\ \text{V}\), and the illustrative PWM frequency is \(50\ \text{Hz}\) with a duty cycle of \(40\%\). For arithmetic only, assume the driver creates a \(0\)-to-\(9\ \text{V}\) waveform.</p>
+<h3>Step 1: Find the period</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[T=\frac{1}{f}
+=\frac{1}{50\ \text{s}^{-1}}
+=0.020\ \text{s}
+=20\ \text{ms}\]</span></div>
+<h3>Step 2: Find the on-time</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t_{\text{on}}=DT
+=0.40(20\ \text{ms})
+=8\ \text{ms}\]</span></div>
+<p>The ideal timing model therefore has \(8\ \text{ms}\) on and \(12\ \text{ms}\) off in every period.</p>
+<h3>Step 3: Find the ideal average</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
+=DV_{\text{supply}}
+=0.40(9\ \text{V})
+=3.6\ \text{V}\]</span></div>
+<p>This \(3.6\ \text{V}\) value is only the ideal average of the assumed power-stage waveform. It is not guaranteed motor-terminal voltage, current, torque, or speed.</p>
+<p>The box, floor, battery condition, friction, and motor-driver current limit all affect the real result. If static friction requires more starting torque than the command can produce, RoboRover may not move.</p>
+<blockquote><strong>Hardware-safety box:</strong> Do not intentionally stall a motor or test a starting boost without a current-limited driver, a defined maximum duration, supervision, mechanical clearance, and compliance with motor and driver thermal and current limits. A stronger startup command can produce dangerous acceleration and rapid heating.</blockquote>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation separates imperfect measurement from the rover’s true distance and shows the feedback response over time.</p>
-<p>This program simulates RoboRover approaching a wall. It uses:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Two-panel educational plot showing an idealized PWM command waveform and a gradually rising illustrative motor-speed response approaching a model target."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The simulation separates an idealized fast PWM command from a slower illustrative command-response model.</p>
+<p>This program displays an illustrative logic PWM command and a simple first-order response model. The upper plot is an idealized power-stage voltage representation derived from the command; it is not a guaranteed measurement of a specific driver’s motor-terminal voltage.</p>
+<p>The model assumes:</p>
 <ul>
-<li>a simulated distance sensor with small random noise;</li>
-<li>a threshold controller;</li>
-<li>a motor command represented by velocity;</li>
-<li>a plot of true distance over time.</li>
+<li>target speed is linearly proportional to duty cycle;</li>
+<li>simulated speed approaches that target gradually;</li>
+<li><code>time_constant</code> controls response speed;</li>
+<li>motor resistance, inductance, back EMF, load, friction, current limits, topology, and heating are omitted.</li>
 </ul>
-<p>The simulated rover starts \(1.20\ \text{m}\) from the wall and tries to maintain \(0.50\ \text{m}\).</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import random
+<h3>Setup</h3>
+<p>Use Python 3.7 or newer with <code>matplotlib</code> installed:</p>
+<div class="code-card"><div class="code-label">bash</div><pre><code>python -m pip install matplotlib</code></pre></div>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
 import matplotlib.pyplot as plt
 
-# Desired distance from RoboRover to the wall, in metres.
-target_distance = 0.50
 
-# The rover is allowed to be this far above or below the target.
-deadband = 0.03
+def pwm_average_voltage(supply_voltage, duty_cycle):
+    &quot;&quot;&quot;Return the ideal average of a 0-to-supply PWM waveform.&quot;&quot;&quot;
+    if supply_voltage &lt; 0:
+        raise ValueError(&quot;supply_voltage must not be negative&quot;)
+    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
+        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
+    return supply_voltage * duty_cycle
 
-# Simulation time step, in seconds.
-dt = 0.10
 
-# Maximum forward or backward speed, in metres per second.
-speed = 0.25
+def make_pwm_waveform(supply_voltage, duty_cycle, frequency, duration,
+                      sample_count):
+    &quot;&quot;&quot;Create samples for an idealized power-stage voltage waveform.&quot;&quot;&quot;
+    if frequency &lt;= 0:
+        raise ValueError(&quot;frequency must be positive&quot;)
+    if duration &lt;= 0:
+        raise ValueError(&quot;duration must be positive&quot;)
+    if sample_count &lt;= 1:
+        raise ValueError(&quot;sample_count must be greater than 1&quot;)
+    if supply_voltage &lt; 0:
+        raise ValueError(&quot;supply_voltage must not be negative&quot;)
+    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
+        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
 
-# Starting true distance from the wall, in metres.
-distance = 1.20
+    times = []
+    voltages = []
+    period = 1.0 / frequency
 
-# A local random generator makes the experiment repeatable.
-rng = random.Random(4)
+    for index in range(sample_count):
+        time = duration * index / (sample_count - 1)
+        phase = time % period
+        voltage = (supply_voltage
+                   if phase &lt; duty_cycle * period else 0.0)
+        times.append(time)
+        voltages.append(voltage)
 
-times = []
-distances = []
-commands = []
+    return times, voltages
 
-for step in range(120):
-    time = step * dt
 
-    # Simulate an imperfect distance sensor.
-    noise = rng.uniform(-0.015, 0.015)
-    measured_distance = distance + noise
+def simulate_motor_speed(duty_cycle, duration, dt, maximum_speed,
+                         time_constant):
+    &quot;&quot;&quot;Simulate a stable first-order illustrative response.&quot;&quot;&quot;
+    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
+        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
+    if duration &lt;= 0 or dt &lt;= 0:
+        raise ValueError(&quot;duration and dt must be positive&quot;)
+    if maximum_speed &lt; 0:
+        raise ValueError(&quot;maximum_speed must not be negative&quot;)
+    if time_constant &lt;= 0:
+        raise ValueError(&quot;time_constant must be positive&quot;)
+    if dt &gt; time_constant:
+        raise ValueError(&quot;dt must be no greater than time_constant&quot;)
 
-    error = measured_distance - target_distance
+    times = []
+    speeds = []
+    speed = 0.0
+    target_speed = duty_cycle * maximum_speed
+    steps = int(round(duration / dt))
 
-    # Feedback controller:
-    # positive velocity moves toward the wall,
-    # negative velocity moves away from the wall.
-    if error &gt; deadband:
-        velocity = speed
-        command = &quot;forward&quot;
-    elif error &lt; -deadband:
-        velocity = -speed
-        command = &quot;backward&quot;
-    else:
-        velocity = 0.0
-        command = &quot;stop&quot;
+    for step in range(steps + 1):
+        time = step * dt
+        times.append(time)
+        speeds.append(speed)
+        speed += (target_speed - speed) * dt / time_constant
 
-    # Update the true distance using velocity and time.
-    distance = distance - velocity * dt
+    return times, speeds
 
-    # Do not allow the simulated rover to pass through the wall.
-    if distance &lt; 0.05:
-        distance = 0.05
 
-    times.append(time)
-    distances.append(distance)
-    commands.append(command)
+def main():
+    print(&quot;RoboRover PWM experiment&quot;)
+    print(&quot;Enter a duty cycle from 0 to 100 percent.&quot;)
 
-# Executable verification of the experiment&#x27;s exact structural claims.
-assert len(times) == 120
-assert len(distances) == 120
-assert len(commands) == 120
-assert min(distances) &gt;= 0.05
-assert abs(distances[-1] - target_distance) &lt;= 0.10
+    try:
+        user_text = input(&quot;Duty cycle: &quot;)
+    except EOFError:
+        user_text = &quot;40&quot;
+        print(&quot;No input received; using 40 percent.&quot;)
 
-print(&quot;Simulation completed.&quot;)
-print(&quot;Final true distance: {:.3f} m&quot;.format(distances[-1]))
-print(&quot;Final error from target: {:.3f} m&quot;.format(
-    distances[-1] - target_distance
-))
+    duty_percent = float(user_text)
+    if duty_percent &lt; 0 or duty_percent &gt; 100:
+        raise ValueError(&quot;Enter a percentage from 0 to 100.&quot;)
 
-plt.plot(times, distances, label=&quot;true distance&quot;)
-plt.axhline(target_distance, color=&quot;red&quot;, linestyle=&quot;--&quot;,
-            label=&quot;target distance&quot;)
-plt.xlabel(&quot;Time (s)&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover feedback simulation&quot;)
-plt.legend()
-plt.grid(True)
-plt.show()</code></pre></div>
-<p>Important lines:</p>
+    duty_cycle = duty_percent / 100.0
+    supply_voltage = 9.0
+    frequency = 50.0
+    duration = 1.0
+    dt = 0.01
+    maximum_speed = 3000.0
+    time_constant = 0.20
+
+    average_voltage = pwm_average_voltage(supply_voltage, duty_cycle)
+
+    assert math.isclose(
+        pwm_average_voltage(9.0, 0.40), 3.6,
+        rel_tol=0.0, abs_tol=1e-12
+    )
+    assert math.isclose(
+        0.40 * (1.0 / 50.0), 0.008,
+        rel_tol=0.0, abs_tol=1e-12
+    )
+
+    check_times, check_speeds = simulate_motor_speed(
+        1.0, time_constant, dt, 1.0, time_constant
+    )
+    one_tau_fraction = check_speeds[-1]
+    assert 0.63 &lt; one_tau_fraction &lt; 0.65
+
+    pwm_times, pwm_voltages = make_pwm_waveform(
+        supply_voltage, duty_cycle, frequency, 0.20, 1000
+    )
+    speed_times, speeds = simulate_motor_speed(
+        duty_cycle, duration, dt, maximum_speed, time_constant
+    )
+
+    target_speed = duty_cycle * maximum_speed
+    print(&quot;Ideal average power-stage voltage representation: {:.2f} V&quot;.format(
+        average_voltage
+    ))
+    print(&quot;Model target speed: {:.0f} rpm&quot;.format(target_speed))
+    print(&quot;At one time constant, the normalized model response is {:.1%}.&quot;
+          .format(one_tau_fraction))
+    print(&quot;The graph shows speed approaching the target gradually.&quot;)
+
+    figure, axes = plt.subplots(2, 1, figsize=(9, 6), sharex=False)
+
+    axes[0].plot(pwm_times, pwm_voltages, color=&quot;darkorange&quot;)
+    axes[0].set_title(&quot;Idealized power-stage PWM voltage representation&quot;)
+    axes[0].set_ylabel(&quot;Voltage representation (V)&quot;)
+    axes[0].set_xlabel(&quot;Time (s)&quot;)
+    axes[0].grid(True)
+
+    axes[1].plot(speed_times, speeds, color=&quot;navy&quot;)
+    axes[1].axhline(
+        target_speed, color=&quot;gray&quot;, linestyle=&quot;--&quot;, label=&quot;model target&quot;
+    )
+    axes[1].set_title(&quot;Illustrative command-response model&quot;)
+    axes[1].set_ylabel(&quot;Model speed (rpm)&quot;)
+    axes[1].set_xlabel(&quot;Time (s)&quot;)
+    axes[1].legend()
+    axes[1].grid(True)
+
+    figure.tight_layout()
+
+    try:
+        plt.show()
+    except Exception as error:
+        figure.savefig(&quot;pwm_motor_response.png&quot;, dpi=150)
+        print(&quot;Graphical display unavailable: {}&quot;.format(error))
+        print(&quot;Saved the figure as pwm_motor_response.png&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre></div>
+<h3>Important lines</h3>
 <ul>
-<li><code>measured_distance = distance + noise</code> separates the true simulated distance from what the sensor reports.</li>
-<li><code>error = measured_distance - target_distance</code> computes the signed error.</li>
-<li>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are the controller.</li>
-<li><code>distance = distance - velocity * dt</code> models the physical result of the motor command.</li>
-<li><code>assert</code> statements check structural and safety claims while the program runs.</li>
+<li><code>duty_cycle = duty_percent / 100.0</code> converts a percentage to a decimal.</li>
+<li><code>phase = time % period</code> finds the sample’s position within a repeating period.</li>
+<li>The comparison with <code>duty_cycle * period</code> selects the on portion.</li>
+<li><code>target_speed = duty_cycle * maximum_speed</code> is a teaching assumption, not a motor law.</li>
+<li>The update to <code>speed</code> makes the response gradual.</li>
+<li>The assertions verify the lesson’s \(40\%\), \(9\ \text{V}\), and \(50\ \text{Hz}\) arithmetic.</li>
+<li>The time-constant assertion checks that the model reaches approximately \(63\%\) of a unit target after one time constant.</li>
 </ul>
-<p>This is not a complete motor controller. It is a teaching model. It ignores acceleration, wheel slip, sensor delay, and the time needed for a motor to start or stop.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Try a human version before changing the code.</p>
-<p>Choose a target distance from a wall, such as 50 centimetres. One person is RoboRover, one is the sensor, and one is the controller.</p>
-<ol>
-<li>The “sensor” secretly chooses a measurement that is slightly inaccurate.</li>
-<li>The controller announces only one command: <strong>forward</strong>, <strong>backward</strong>, or <strong>stop</strong>.</li>
-<li>RoboRover takes one small step in the commanded direction.</li>
-<li>Measure again and repeat.</li>
-</ol>
-<p>Now play two rounds:</p>
+<p>Run the program with duty cycles of <code>20</code>, <code>60</code>, and <code>100</code>.</p>
+<p>Before each run, predict:</p>
 <ul>
-<li><strong>Round A:</strong> the controller must react to every tiny difference.</li>
-<li><strong>Round B:</strong> the controller uses a deadband: stop when within 4 centimetres of the target.</li>
+<li>the ideal average representation;</li>
+<li>the model target speed;</li>
+<li>whether the response curve will change its final value, its response time, or both.</li>
 </ul>
-<p>Discuss which round produces more unnecessary switching. The second round should usually feel calmer because small measurement differences do not immediately change the command.</p>
+<p>At \(0\%\), the model target is zero. At \(100\%\), the idealized waveform remains high for the entire period. At intermediate values, the target changes while the configured response time remains the same.</p>
+<p>For the game, imagine RoboRover delivering a fragile cup. Choose the smallest command that reaches the delivery zone quickly, while remembering that this model is not a physical speed guarantee.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Predict before you run the Python program:</p>
+<p><strong>Answer these questions before rerunning the program:</strong></p>
 <ol>
-<li>RoboRover begins too far from the wall. What should its first movement command be?</li>
-<li>As it approaches the target, should the distance generally increase or decrease?</li>
-<li>Once it enters the deadband, should it keep driving continuously?</li>
-<li>Why might the plotted line not end at exactly \(0.50\ \text{m}\)?</li>
+<li>If <code>duty_cycle</code> changes from <code>0.20</code> to <code>0.60</code> while the supply remains \(9\ \text{V}\), does the ideal average increase or decrease?</li>
+<li>Which changes faster: the upper switching waveform or the lower simulated response?</li>
+<li>At \(100\%\) duty cycle, is the idealized waveform mostly high, mostly low, or evenly split?</li>
+<li>If the box becomes heavier, will the real speed remain exactly the same?</li>
+<li>With <code>time_constant = 0.20</code>, what fraction of the final model target should be reached after \(0.20\) seconds?</li>
+<li>Before running the extension, what will happen if <code>time_constant</code> changes to <code>0.05</code>?</li>
 </ol>
-<p>Expected reasoning:</p>
+<p><strong>Expected reasoning:</strong></p>
 <ol>
-<li>The first command should be <strong>forward</strong>, because the measured distance is greater than the target plus the deadband.</li>
-<li>The distance should generally <strong>decrease</strong>.</li>
-<li>It should usually command <strong>stop</strong>, although noisy measurements near the boundary may occasionally cause another movement command.</li>
-<li>The result may differ from exactly \(0.50\ \text{m}\) because the controller acts in time steps, the sensor is noisy, and the rover moves at a fixed speed rather than slowing smoothly.</li>
+<li>It increases from \(0.20(9)=1.8\ \text{V}\) to \(0.60(9)=5.4\ \text{V}\).</li>
+<li>The switching waveform changes rapidly; the simulated response rises gradually.</li>
+<li>It stays high for the whole period.</li>
+<li>No. Load changes the torque and speed relationship.</li>
+<li>Approximately \(63\%\).</li>
+<li>The model responds faster, but its final target remains the same.</li>
 </ol>
-<p>Run the program and inspect the graph. Look for the red target line and the changing blue distance line.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Calling every sensor trigger feedback</h3>
-<p>A sensor can start a sequence without creating a continuing feedback loop. Feedback requires that measured information influence a current or future control action. If the robot starts a fixed sequence and ignores later measurements, it is not using sustained feedback regulation for that behavior.</p>
-<h3>Mistake 2: Confusing a sensor with a controller</h3>
-<p>A sensor measures. It does not necessarily decide. The controller interprets measurements and chooses commands.</p>
-<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
-<p>A command such as “move forward” does not guarantee a precise distance. Wheels can slip, motors can differ, and battery voltage can change.</p>
-<h3>Mistake 4: Forgetting units</h3>
-<p>A distance of \(50\) could mean 50 millimetres, centimetres, or metres. Always write the unit. In the Python simulation, distances are in metres.</p>
-<h3>Mistake 5: Using the wrong sign</h3>
-<p>For a wall directly ahead, increasing distance error means the rover is too far away. But the correct movement direction depends on the robot’s geometry and coordinate convention. Define the convention before writing the rule.</p>
-<h3>Mistake 6: Ignoring delay</h3>
-<p>If the sensor reports an old position, RoboRover may continue forward after it has already reached the target. Delays can cause overshoot or oscillation.</p>
+<h3>Mistake 1: Treating duty cycle as exact speed</h3>
+<p>A \(30\%\) duty cycle is not automatically \(30\%\) of maximum rpm. Load, friction, battery voltage, motor characteristics, driver losses, and current limits matter.</p>
+<h3>Mistake 2: Treating ideal average voltage as measured motor voltage</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D V_{\text{supply}}\]</span></div>
+<p>applies to the explicitly assumed waveform. Driver topology and PWM mode determine actual motor-terminal voltage and current.</p>
+<h3>Mistake 3: Confusing frequency and duty cycle</h3>
+<p>Frequency describes how often the pattern repeats. Duty cycle describes the fraction of each period spent on. Either can change while the other remains constant.</p>
+<h3>Mistake 4: Connecting a motor directly to a computer pin</h3>
+<p>A computer pin is a logic output, not a motor power supply. Use a properly rated motor driver.</p>
+<h3>Mistake 5: Ignoring noise and stalled-current heating</h3>
+<p>Motors can disturb controller power and communication, while a stalled motor can draw high current and heat rapidly. Use suitable suppression, wiring, cooling, fusing, and current limiting.</p>
+<h3>Mistake 6: Assuming low duty cycle must move the robot</h3>
+<p>Static friction and gearbox friction may prevent motion at low commands. The threshold can change with surface, payload, battery state, and motor temperature.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge</h3>
-<p>Modify the Python program so that RoboRover has two speed levels:</p>
+<p>Test \(10\%\), \(30\%\), \(50\%\), \(70\%\), and \(90\%\). Record the result:</p>
+<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>Ideal average representation at \(9\ \text{V}\)</th><th>Model target</th><th>Response observation</th></tr></thead><tbody><tr><td>10%</td><td></td><td></td><td></td></tr><tr><td>30%</td><td></td><td></td><td></td></tr><tr><td>50%</td><td></td><td></td><td></td></tr><tr><td>70%</td><td></td><td></td><td></td></tr><tr><td>90%</td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>Use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D(9\ \text{V})\]</span></div>
+<p><strong>Success criteria:</strong></p>
 <ul>
-<li>use a faster speed when it is far from the wall;</li>
-<li>use a slower speed when it is close to the target but outside the deadband;</li>
-<li>stop inside the deadband.</li>
+<li>all five averages are correct;</li>
+<li>the \(90\%\) value is \(8.1\ \text{V}\);</li>
+<li>model targets differ, but response time is initially the same;</li>
+<li>entries identify the values as idealized model values;</li>
+<li>the explanation distinguishes duty cycle from <code>time_constant</code>.</li>
 </ul>
-<p>Keep the sensor noise and plot. Add an assertion that the final distance is within \(0.10\ \text{m}\) of the target.</p>
-<p>Explain in a comment why slower motion near the target might reduce overshoot.</p>
-<h3>Optional extension</h3>
-<p>Add a simulated sensor failure. For example, once every 40 steps, make the sensor return <code>None</code>. Decide what a cautious controller should do when it has no valid measurement.</p>
-<p>One reasonable beginner policy is to stop the motors until a valid measurement returns. This is not the only possible policy, but it makes the safety assumption explicit.</p>
+<p><strong>Prediction extension:</strong> Change <code>time_constant = 0.20</code> first to <code>0.05</code>, then to <code>0.50</code>. Write down how the curve should change before rerunning the program. A smaller time constant produces a faster response; a larger one produces a slower response. The final target does not change.</p>
+<p>Estimate when the response reaches \(63\%\) of its final model target. This tests the simplified model; it is not a measurement of a real motor’s electrical or mechanical time constant.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
+<p>Write a complete answer for each prompt.</p>
 <ol>
-<li>What is the main job of a sensor in a robot?</li>
-<li>RoboRover’s target distance is \(0.60\ \text{m}\), and its measured distance is \(0.45\ \text{m}\). Calculate the signed distance error and state whether the rover is too far or too close.</li>
-<li>Why does RoboRover’s repeated measurement make its wall-distance behavior feedback control?</li>
-<li>Which statement is correct?</li>
-<p>A. Feedback always means the robot is autonomous. B. A robot can use feedback while following a preprogrammed task. C. An actuator only stores measurements. D. A sensor directly supplies mechanical power.</p>
+<li>Define a \(75\%\) duty cycle in words.</li>
+<li>Calculate the ideal average of an assumed \(0\)-to-\(8\ \text{V}\) waveform at \(25\%\) duty cycle.</li>
+<li>Explain the difference between PWM frequency and duty cycle.</li>
+<li>Give two reasons a real motor may not reach the speed suggested by a duty-cycle model.</li>
+<li>Explain why ideal average waveform voltage is not guaranteed motor-terminal voltage or speed.</li>
+<li>State what the first-order model predicts after one time constant.</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>A sensor measures a property of the robot or its environment and produces information for the controller.</li>
-<li>Using \(e = d_{\text{measured}} - d_{\text{target}}\):</li>
+<li>The signal is in its on or commanded-drive state for \(75\%\) of each period and off for \(25\%\).</li>
+<p>2.</p>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.45\ \text{m} - 0.60\ \text{m} = -0.15\ \text{m}\]</span></div>
-<p>The negative error means RoboRover is \(0.15\ \text{m}\) too close.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
+   =0.25(8\ \text{V})
+   =2\ \text{V}\]</span></div>
+<p>This is the average of the assumed waveform, not necessarily the motor-terminal voltage.</p>
 <ol>
-<li>The rover measures its distance, changes its motor command based on that measurement, moves, and measures again. The result affects future action.</li>
-<li><strong>B</strong> is correct. A preprogrammed task can contain feedback control.</li>
+<li>Frequency is the number of complete periods per second, measured in hertz. Duty cycle is the fraction of each period spent in the on state.</li>
+<li>Load, friction, low battery voltage, driver voltage loss, insufficient starting torque, current limiting, and motor behavior omitted from the model can all matter.</li>
+<li>The driver’s topology and PWM mode determine current paths and terminal voltage. Real speed also depends on current, torque balance, back EMF, load, friction, and mechanical dynamics.</li>
+<li>The model reaches approximately \(63.2\%\) of the final change after one time constant. The discrete simulation produces a nearby value.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>A real robot often contains several nested Sense → Think → Act loops.</p>
-<p>For example, a mobile rover might have:</p>
+<p>A real RoboRover control chain may look like this:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Robot controller
+       |
+       v
+Logic PWM command
+       |
+       v
+Motor driver
+power switching
+       |
+       v
+Brushed DC motor
+       |
+       v
+Wheel</code></pre></div>
+<p>The driver must be rated for the motor’s supply voltage, continuous current, startup current, and stall current. A practical setup may also require:</p>
 <ul>
-<li>a high-level program deciding where to go;</li>
-<li>a distance controller keeping away from obstacles;</li>
-<li>wheel-speed controllers using encoder feedback;</li>
-<li>motor electronics converting commands into electrical power.</li>
+<li>a suitable motor supply;</li>
+<li>a defined common-ground or isolated interface;</li>
+<li>fuse or electronic current limiting;</li>
+<li>manufacturer-specified flyback paths, snubbers, or suppression;</li>
+<li>safe wiring and cooling;</li>
+<li>mechanical clearance and an emergency disconnect.</li>
 </ul>
-<p>These loops can operate at different speeds. A high-level decision might change once per second, while a motor controller may update much more frequently.</p>
-<p>The same basic pattern appears in a robotic arm, but the measured quantity may be joint angle instead of wall distance. The controller compares a desired joint angle with a measured angle and commands a motor.</p>
-<p>Important engineering realities include:</p>
-<ul>
-<li><strong>Noise:</strong> measurements fluctuate even when the robot is still.</li>
-<li><strong>Calibration:</strong> a sensor’s reported 0.50 m may not equal the true 0.50 m.</li>
-<li><strong>Latency:</strong> information and commands take time to travel through electronics and software.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical speed or torque limit.</li>
-<li><strong>Mechanical limits:</strong> wheels, joints, and linkages cannot move through walls or beyond their stops.</li>
-<li><strong>Model assumptions:</strong> a simulation may assume perfect straight motion, while a real rover may curve because its motors differ.</li>
-</ul>
-<p>Next class, we will focus on the “think” part by writing RoboRover’s first simple robot brain in Python. We will turn sensor-like inputs into decisions using variables, conditions, and functions.</p>
+<p>Real behavior varies with battery discharge, payload, floor surface, left-right motor mismatch, wheel slip, command latency, current limits, and PWM mode. Coast, brake, and recirculation modes can change current ripple, noise, torque, and measured terminal voltage.</p>
+<h3>Instructor-approved low-voltage observation</h3>
+<p>For an actionable and safe observation, use a documented, isolated, current-limited low-voltage training rig. With the motor disconnected, students may observe the controller’s <strong>logic command PWM</strong> using a logic analyzer or oscilloscope. Verify the instrument’s voltage and ground limits first.</p>
+<p>Do not probe an unknown battery pack, H-bridge output, switching node, or motor terminal. Do not attach an oscilloscope ground clip to a switching node unless the driver documentation and measurement method explicitly permit it. Power down before changing wiring, secure moving parts, and follow the instrument and driver instructions.</p>
+<p>Later, wheel sensors can measure actual motion and support feedback control. For now, the central idea is that PWM requests different drive levels; it does not directly specify exact speed.</p>
+<p>Next class, gears will show how mechanical transmission changes the relationship between speed and torque.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Actuator:</strong> A device that converts a control command into physical action, such as a motor moving a wheel.</li>
-<li><strong>Controller:</strong> The hardware, software, or combined system that uses measurements and rules to select actuator commands.</li>
-<li><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future action in relation to desired behavior.</li>
-<li><strong>Deadband:</strong> An acceptable range around a target in which the controller does not change or continue an action.</li>
-<li><strong>Distance error:</strong> The difference between measured distance and target distance, calculated here as \(e = d_{\text{measured}} - d_{\text{target}}\).</li>
-<li><strong>Sensor:</strong> A device that measures a property of the robot or its environment.</li>
-<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
-<li><strong>Autonomy:</strong> The ability of software or a robot system to select task-level actions without immediate human selection of each action.</li>
+<li><strong>PWM (pulse-width modulation):</strong> A method of controlling a switching command by changing the fraction of each period spent in the on or commanded-drive state.</li>
+<li><strong>Logic command PWM:</strong> A low-power digital signal from a controller to a motor driver requesting a switching pattern.</li>
+<li><strong>Power-stage PWM:</strong> The motor driver’s switching of the higher-power motor circuit in response to a command.</li>
+<li><strong>Brushed DC motor:</strong> A motor using brushes and a commutator to switch current through its windings as the rotor turns.</li>
+<li><strong>Duty cycle:</strong> The fraction of one PWM period for which the signal is in its on state, commonly expressed as a percentage.</li>
+<li><strong>Period:</strong> The time required for one complete repeating PWM pattern, measured in seconds.</li>
+<li><strong>Frequency:</strong> The number of complete periods per second, measured in hertz (Hz).</li>
+<li><strong>On-time:</strong> The portion of a period during which the PWM signal is in its on or commanded-drive state.</li>
+<li><strong>Ideal average voltage:</strong> The ideal time-average of a specified power-stage waveform; for an assumed \(0\)-to-\(V_{\text{supply}}\) waveform, it is \(D V_{\text{supply}}\).</li>
+<li><strong>Motor-terminal voltage:</strong> The voltage measured across the motor terminals; its switching behavior depends on driver topology and PWM mode.</li>
+<li><strong>Winding current:</strong> Current through the motor coils. Inductance causes it to change over time rather than instantaneously.</li>
+<li><strong>Motor driver:</strong> An electronic circuit that allows a low-power controller to command the larger voltage and current required by a motor.</li>
+<li><strong>Saturation:</strong> A limit beyond which a system cannot increase its output, such as a maximum duty cycle of \(100\%\).</li>
+<li><strong>Torque:</strong> A turning effect that causes or resists rotation, measured in newton-metres (N·m).</li>
+<li><strong>Speed control:</strong> Changing a motor’s rotational speed by changing its drive command. PWM can influence speed under a given load and control arrangement, but it does not guarantee a particular speed directly.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search-friendly topics for later study include:</p>
+<p>Useful search terms include:</p>
 <ul>
-<li>“robot sensors and actuators introduction”</li>
-<li>“feedback control block diagram”</li>
-<li>“deadband threshold controller robotics”</li>
-<li>“wheel encoder fundamentals”</li>
-<li>“Python matplotlib beginner plotting”</li>
+<li>“PWM duty cycle brushed DC motor driver beginner”</li>
+<li>“brushed DC motor torque speed curve”</li>
+<li>“motor driver current limit PWM”</li>
+<li>“oscilloscope PWM waveform freewheel current”</li>
+<li>“brushed DC motor electrical noise suppression”</li>
+<li>“PWM frequency switching losses motor driver”</li>
 </ul>
-<p>When studying examples, always ask three questions:</p>
-<ol>
-<li>What is being measured?</li>
-<li>What decision uses the measurement?</li>
-<li>What physical action changes as a result?</li>
-</ol>
+<p>For hardware work, study the driver documentation for voltage range, continuous and startup current, current-decay mode, PWM-frequency range, thermal limits, and protection requirements.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
-<p>RoboRover will move from a simulated control loop to a small program that makes explicit decisions. You will practice variables, conditions, and reusable functions while keeping the same Sense → Think → Act structure.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p><strong>Class 9: Gears: Trading Speed for Strength</strong></p>
+<p>RoboRover’s motor may spin quickly, while its wheel needs greater turning strength. Next class, we will use gear ratios to examine the trade-off:</p>
+<ul>
+<li>fewer wheel revolutions can produce more torque;</li>
+<li>more wheel revolutions can produce more speed;</li>
+<li>real gears lose energy through friction.</li>
+</ul>
+<p>PWM adjusts electrical drive. Gears transform motor motion mechanically.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/007-motors-turning-electricity-into-motion/"><span>Previous stream</span><b>Class 07 · Motors: Turning Electricity into Motion</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 09 · Gears: Trading Speed for Strength</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -535,7 +574,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=2,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=8,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

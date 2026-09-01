@@ -1,0 +1,8 @@
+{
+  "title": "Motor Control with PWM: From Duty Cycle to Real RoboRover Behavior",
+  "description": "A practical PWM lesson that connects duty cycle, idealized voltage, motor-driver topology, simulation, current limits, and the real reasons duty cycle does not guarantee rpm.",
+  "commentary": "PWM is often introduced as a simple speed knob. That shortcut is useful at first, but it can create persistent misconceptions about voltage, current, torque, and rpm.\n\nThis Professor OS lesson uses RoboRover to build the complete signal-chain picture:\n\n\u2022 the controller sends a low-power logic command;\n\u2022 the motor driver switches higher motor current;\n\u2022 duty cycle describes timing, not guaranteed speed;\n\u2022 the ideal average-voltage equation is separated from real motor behavior;\n\u2022 a Python model lets students compare fast switching with slower mechanical response.\n\nThe lesson also addresses load, startup friction, current limits, switching frequency, driver topology, noise, and safe observation practices. Students predict results before running the simulation, vary duty cycle and time constant, and distinguish a teaching model from a physical motor law.\n\nTry the lab with 20%, 60%, and 100% duty cycles, then explain which properties change the final model target and which change response time.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #EngineeringEducation #MotorControl #PWM",
+  "thumbnail_alt_text": "RoboRover motor driver schematic showing PWM command, power switching, motor, and wheel",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

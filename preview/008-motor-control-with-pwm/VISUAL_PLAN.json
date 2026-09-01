@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact two-wheel educational rover, moving across a test floor while a technically plausible motor driver and DC motor are shown in a clean cutaway overlay. Show the controller sending a PWM command to the motor driver, and show the driver separately switching power to the motor; do not depict a computer pin directly powering the motor. Include a restrained visual representation of pulse-width modulation: a rectangular command waveform with clearly different on-time proportions suggesting low, medium, and high duty cycle, without relying on large text. Modern engineering editorial style, realistic materials, precise wiring, soft studio lighting, high visual clarity, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover controls motor drive through a driver by changing the duration of rapid command pulses.",
+    "alt_text": "Educational engineering illustration of a small wheeled rover with a controller, motor driver, DC motor, and rectangular PWM command waveform showing different on-time proportions."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram explaining PWM with three aligned rectangular command waveforms over equal time windows: 20 percent duty cycle, 50 percent duty cycle, and 80 percent duty cycle. Use consistent voltage axes, distinct ON and OFF regions, and simple visual labels. Show that the pulse height remains the same while the ON duration changes. Distinguish the controller command waveform from an actual motor-terminal voltage, which depends on driver topology and PWM mode. Premium robotics textbook diagram, white background, restrained blue and orange palette, technically accurate, minimal essential text.",
+      "caption": "The pulse height stays the same; duty cycle changes the fraction of time the command is in its on state.",
+      "alt_text": "Three aligned PWM command waveforms with identical amplitudes and different duty cycles of 20, 50, and 80 percent."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical explanatory diagram for an illustrative rover motor example using a 9 volt supply, 50 hertz PWM, and 40 percent duty cycle. Show one 20 millisecond idealized waveform period divided into 8 milliseconds ON and 12 milliseconds OFF, followed by an equation-style visual indicating an ideal waveform average of 3.6 volts. Clearly label 3.6 volts as the ideal average of the assumed waveform, not the measured motor-terminal voltage. Include a small motor-driver and wheel context, with accurate proportions and uncluttered labels. Premium engineering textbook layout, no decorative imagery.",
+      "caption": "In the idealized example, a 40 percent duty cycle at 50 hertz means 8 milliseconds in the on state during every 20 millisecond period; 3.6 volts is only the assumed waveform average.",
+      "alt_text": "Annotated idealized PWM timing diagram showing a 20 millisecond period, 8 milliseconds on, 12 milliseconds off, and a labeled 3.6 volt ideal waveform average from a 9 volt supply."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical illustration of a computer simulation screen with two clear plots: an idealized rapid rectangular PWM command waveform on top and a smooth illustrative motor-speed response curve gradually approaching a dashed model target below. Include a small plausible RoboRover icon beside the plots. Focus on the educational contrast between fast switching command and slow mechanical response, and avoid suggesting that the graph is a measured physical motor law. Modern robotics textbook/editorial styling, high legibility, no unnecessary interface clutter, no watermark.",
+      "caption": "The simulation separates an idealized fast PWM command from a slower illustrative command-response model.",
+      "alt_text": "Two-panel educational plot showing an idealized PWM command waveform and a gradually rising illustrative motor-speed response approaching a model target."
+    }
+  ]
+}
