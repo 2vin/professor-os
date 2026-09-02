@@ -1,0 +1,8 @@
+{
+  "title": "Robotics Class 9: How Gears Trade Speed for Strength",
+  "description": "A practical lesson on gear ratios, torque, efficiency, wheel force, and Python-based gear selection for RoboRover\u2019s next design challenge.",
+  "commentary": "A robot motor may spin quickly and still struggle to move a wheel up a ramp. The transmission between them changes the trade.\n\nIn Professor OS Class 9, students use RoboRover to investigate:\n\n\u2022 How tooth counts determine a reduction ratio\n\u2022 Why reducing speed can increase output torque\n\u2022 How efficiency changes an ideal calculation\n\u2022 Why wheel radius and traction limit real force\n\u2022 How Python can compare competing gear choices\n\nThe lesson moves from a 12-tooth driver and 36-tooth driven gear to a practical climbing decision. Students calculate speed, torque, and wheel-rim force, then test their reasoning in an interactive gear-selection challenge.\n\nTry the lab: choose a transmission for a rover that must climb while remaining fast enough for useful movement. Then ask what the simplified model leaves out\u2014motor heating, current limits, slipping, and gearbox losses.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #EngineeringEducation #Python #STEM",
+  "thumbnail_alt_text": "RoboRover transmission showing a small driver gear and larger driven gear",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
