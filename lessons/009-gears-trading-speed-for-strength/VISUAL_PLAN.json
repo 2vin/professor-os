@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled rover, shown in three-quarter view with one side panel opened to reveal a small DC motor, a 12-tooth driver gear meshing with a larger 36-tooth driven gear connected to a wheel. Clearly show the mechanical transmission, realistic plastic and metal materials, clean studio lighting, restrained modern robotics textbook style, technically plausible proportions, no decorative sci-fi elements, minimal labels.",
+    "caption": "RoboRover uses a small fast motor and a gear reduction to trade rotational speed for wheel torque.",
+    "alt_text": "Educational engineering illustration of a wheeled rover with an exposed motor, small driver gear, large driven gear, and wheel transmission."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical textbook diagram showing a 12-tooth small driver gear connected to a motor and meshing with a 36-tooth large driven gear connected to a rover wheel. Use clear rotation arrows in opposite directions, three small-gear revolutions corresponding to one large-gear revolution, and restrained blue and orange colors. Keep labels sparse and technically accurate.",
+      "caption": "A 3:1 reduction makes the driven gear turn one-third as fast while ideally multiplying torque by three.",
+      "alt_text": "Diagram of a small 12-tooth driver gear and large 36-tooth driven gear with opposite rotation arrows and a 3:1 reduction relationship."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean educational calculation diagram for a rover gear train: motor speed 180 rpm and motor torque 0.08 N m enter a 3:1 gear reduction with 0.85 efficiency, producing 60 rpm and 0.204 N m at a wheel of radius 0.03 m, then approximately 6.8 N tangential tire force. Use a visual flow from motor to gears to wheel, with units clearly typeset and no extra text.",
+      "caption": "The numerical example tracks speed, torque, efficiency, and wheel force through RoboRover\u2019s transmission.",
+      "alt_text": "Calculation flow diagram showing a motor\u2019s speed and torque transformed by a 3:1 gear reduction into wheel speed, torque, and tire force."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of RoboRover climbing a short cardboard ramp while carrying a small sensor box, with a cutaway side view showing the motor and interchangeable 1:1, 2:1, and 3:1 gear options represented as three compact transmission modules nearby. Emphasize the design trade between speed and climbing strength, realistic educational laboratory setting, premium robotics textbook composition, no clutter.",
+      "caption": "RoboRover\u2019s best gear choice depends on the task: climbing strength matters, but excessive reduction can make flat-ground motion too slow.",
+      "alt_text": "Educational rover climbing a ramp with a visible geared motor transmission and three alternative gear reduction modules."
+    }
+  ]
+}
