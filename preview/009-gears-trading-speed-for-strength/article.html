@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 6: Electricity for Roboticists · Professor OS</title>
+<title>Class 9: Gears: Trading Speed for Strength · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,15 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -44,530 +35,542 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="6">
+<body data-class="9">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_06</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_09</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_06</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 06 · Hardware &amp; Sensors</div><h1>Electricity for Roboticists</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>voltage, current, resistance</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_09</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 09 · Hardware &amp; Sensors</div><h1>Gears: Trading Speed for Strength</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>gear ratio, torque</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Electricity for Roboticists</h2>
+      <h2>Class podcast · Gears: Trading Speed for Strength</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-06-electricity-for-roboticists.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-09-gears-trading-speed-for-strength.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 6: Electricity for Roboticists</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 9: Gears: Trading Speed for Strength</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>Last class, RoboRover described motion using distance and speed:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{speed}=\frac{\text{distance}}{\text{time}}\]</span></div>
-<p>Motion also requires <strong>energy</strong>, the capacity to cause change or perform work. <strong>Power</strong> is the rate at which energy is transferred. Energy is measured in joules (J) or watt-hours (Wh); power is measured in watts (W). RoboRover moves because a circuit transfers electrical energy from a source to a motor, where it becomes mechanical motion.</p>
-<h3>Prerequisite: charge, circuit, energy, and power</h3>
+<p>In Class 8, RoboRover used <strong>PWM</strong>, or pulse-width modulation, to control the average electrical power sent to its motor. Increasing the PWM command could usually make the motor turn faster or push harder—up to the motor’s limits.</p>
+<p>But a motor’s shaft is often not connected directly to a robot’s wheel. Between the motor and the wheel, engineers may place <strong>gears</strong>.</p>
+<p>Gears let RoboRover trade one mechanical quantity for another:</p>
 <ul>
-<li><strong>Electric charge</strong> is a property of matter that can move through conductors.</li>
-<li>A <strong>circuit</strong> is a connected path through which charge can move.</li>
-<li><strong>Energy</strong> is transferred to a motor, resistor, or other load.</li>
-<li><strong>Power</strong> is the rate of that energy transfer.</li>
+<li>less rotational speed can produce more turning strength;</li>
+<li>more rotational speed usually produces less turning strength.</li>
 </ul>
-<p>This class introduces:</p>
-<ul>
-<li><strong>Voltage:</strong> electrical potential difference that can drive charge.</li>
-<li><strong>Current:</strong> the rate of charge flow.</li>
-<li><strong>Resistance:</strong> opposition to current flow.</li>
-</ul>
-<p>We will use these ideas to reason about indicator circuits, batteries, motor drivers, measurements, and component safety. Next class, we will examine motors in greater detail.</p>
+<p>Today we will connect motor behavior to wheel behavior. In the next class, <strong>Sensors: Giving Robots Senses</strong>, RoboRover will measure the world instead of moving through it “blind.”</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ol>
-<li>Describe voltage, current, and resistance using a useful, bounded analogy.</li>
-<li>Explain why a circuit needs a complete conducting path.</li>
-<li>Use Ohm’s law to calculate current, voltage, or resistance.</li>
-<li>Calculate electrical power using \(P=VI\), \(P=I^2R\), and \(P=V^2/R\) when appropriate.</li>
-<li>Interpret calculations using correct units.</li>
-<li>Explain why short circuits, excessive current, voltage sag, and component ratings matter.</li>
-<li>Predict how resistance affects current and resistor power.</li>
-<li>Relate simplified calculations to real robot hardware and measurements.</li>
+<li>Explain what two meshing gears do.</li>
+<li>Calculate a gear ratio from gear tooth counts.</li>
+<li>Predict how gearing changes speed and torque.</li>
+<li>Include efficiency in a realistic calculation.</li>
+<li>Explain why a robot may need reduction gears.</li>
+<li>Use Python to compare gear choices for RoboRover.</li>
+<li>Recognize practical problems such as friction, slipping, and motor overload.</li>
 </ol>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover’s speed depends on its motors, wheels, load, floor surface, and control commands. Those systems depend partly on electrical power.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{electrical circuit} \rightarrow \text{motor} \rightarrow \text{wheel rotation} \rightarrow \text{distance traveled}\]</span></div>
-<p>Today we focus on the electrical circuit in the middle of that chain.</p>
+<p>Imagine sending a PWM signal to a small DC motor.</p>
+<ul>
+<li>A higher duty cycle usually gives the motor more average electrical power.</li>
+<li>The motor converts electrical power into rotation.</li>
+<li>The motor’s speed and torque are not independent. When the motor is heavily loaded, it often slows down.</li>
+<li>PWM controls the motor’s input, but it does not magically create unlimited mechanical strength.</li>
+</ul>
+<p>A useful mental model is:</p>
+<blockquote>PWM chooses how strongly we ask the motor to work. Gears choose how that work is exchanged between speed and turning strength.</blockquote>
+<p>RoboRover’s motor may spin quickly but have difficulty turning a large wheel against a ramp. Gears can make the wheel turn more slowly while increasing its torque.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Side-by-side educational diagram of an electrical circuit and a water-pipe analogy showing voltage, current, and resistance."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The pipe analogy builds intuition: voltage encourages flow, current is flow, and resistance opposes flow.</p>
-<p>Imagine water moving through pipes:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Diagram of a small 12-tooth driver gear and large 36-tooth driven gear with opposite rotation arrows and a 3:1 reduction relationship."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A 3:1 reduction makes the driven gear turn one-third as fast while ideally multiplying torque by three.</p>
+<p>A gear is a wheel with teeth that transfer rotation to another toothed wheel.</p>
+<p>When a small gear drives a larger gear:</p>
 <ul>
-<li><strong>Voltage</strong> is similar to a pressure difference that encourages water to move.</li>
-<li><strong>Current</strong> is similar to the amount of flow passing a point each second.</li>
-<li><strong>Resistance</strong> is similar to a narrow or rough section that makes flow harder.</li>
+<li>the larger gear turns more slowly;</li>
+<li>the larger gear produces more torque under the ideal model;</li>
+<li>the two gears rotate in opposite directions.</li>
 </ul>
-<p>This analogy is only for intuition. Current is a circuit variable; charge motion in a conductor is not the same as bulk water circulation. Electrons are not consumed by a load. A circuit transfers energy while charge continues around the conducting path.</p>
-<p>For RoboRover:</p>
-<ul>
-<li>the battery provides a voltage difference;</li>
-<li>wires provide conducting paths;</li>
-<li>a motor driver controls power delivered to the motor;</li>
-<li>a resistor can limit current;</li>
-<li>a switch or transistor can open, close, or regulate part of a circuit.</li>
-</ul>
-<p>A circuit needs a complete conducting path. If the path is broken, continuous current cannot flow through the intended loop.</p>
-<h3>The simplest complete loop</h3>
-<div class="code-card"><div class="code-label">text</div><pre><code>source positive ───&gt; load ───&gt; source negative
-       |                         ^
-       └────────── source ───────┘</code></pre></div>
-<p><strong>Text description:</strong> A source, conductors, and load form one closed loop. Conventional current leaves the source positive terminal, passes through the load, and returns to the source negative terminal.</p>
-<p><strong>Predict:</strong> If RoboRover’s battery is connected to only one motor terminal and the other motor terminal is disconnected, will the motor turn continuously?</p>
-<p>No. The intended path is open, so continuous current cannot pass through the motor.</p>
+<p>The small gear is commonly called the <strong>driver gear</strong> because it receives motion from the motor. The larger gear is the <strong>driven gear</strong> because it receives motion from the driver.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
-<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<figure><img loading="lazy" src="inline_02.png" alt="Labeled H-bridge diagram showing VM, GND, OUT1, OUT2, motor connections, controller logic connections, and one highlighted current path."></figure>
-<p class="figure-caption"><strong>Figure:</strong> In an H-bridge, the motor connects between two switched output nodes; VM and GND are the driver’s supply connections.</p>
-<p>Picture RoboRover from above with a battery pack near its center. A motor driver has separate supply connections and switched output connections. The motor connects <strong>between two output nodes</strong>, not between a battery terminal and an unspecified point in the driver.</p>
-<p>The following is a simplified <strong>H-bridge</strong> diagram. It shows one possible current state.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>                         motor-driver power stage
-                                  VM
-                                   |
-                         +---------+---------+
-                         |                   |
-                       high-side           high-side
-                       switch              switch
-                         |                   |
-                       OUT1               OUT2
-                         |                   |
-                         +----[  MOTOR  ]---+
-                         |                   |
-                       low-side            low-side
-                       switch              switch
-                         |                   |
-                        GND-----------------+
-
-Battery +  -------------------------------&gt; VM
-Battery -  -------------------------------&gt; GND
-Controller logic GND ---------------------&gt; specified logic reference*
-Controller PWM/direction signals ---------&gt; logic/control inputs</code></pre></div>
-<p><code>VM</code> means the motor-supply positive connection. <code>GND</code> is a label commonly used for a circuit return or reference; it is not automatically earth ground. <code>OUT1</code> and <code>OUT2</code> are switched motor terminals.</p>
-<p>For the illustrated forward-current state:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>VM → upper-left switch → OUT1 → motor → OUT2
-   → lower-right switch → GND → battery negative</code></pre></div>
-<p>The exact pin names, capacitors, enable pins, current limits, and wiring requirements depend on the driver datasheet. <strong>Do not wire a driver from this simplified teaching diagram alone. Connect logic ground only as specified by the driver datasheet.</strong> A shared power and logic ground is a common configuration, not a universal default.</p>
-<p>An H-bridge must also prevent unsafe switch combinations. Turning on both the high-side and low-side switches in the same leg can create a near-short path from VM to GND called <strong>shoot-through</strong>. Real drivers may use interlock logic, dead time, current limiting, or other protection. Treat these details as enrichment; follow the driver’s control requirements rather than manually operating bridge switches.</p>
-<p>The pipe comparison can reinforce the basic analogy:</p>
+<p><strong>How to read this visual:</strong> Trace the mechanical transmission from left to right. Identify the driver and driven gears, read their tooth counts, compare their rotation directions, and predict the output speed and torque.</p>
+<p>Picture RoboRover from the side:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Motor shaft
+    |
+    v
+ [12-tooth driver]  meshes with  [36-tooth driven] ---&gt; wheel
+       small gear                       large gear</code></pre></div>
+<p>The driver must go around three times for the 36-tooth driven gear to go around once. This is a <strong>3:1 reduction</strong>.</p>
+<p>That means:</p>
 <ul>
-<li>battery beside a pressure source;</li>
-<li>wires beside pipes;</li>
-<li>resistor beside a narrow pipe;</li>
-<li>current arrows beside flow arrows;</li>
-<li>motor beside a water wheel.</li>
+<li>output speed is one-third of input speed;</li>
+<li>output torque is about three times input torque before losses, under the ideal gear model.</li>
 </ul>
-<blockquote>Analogy for intuition—not a complete model.</blockquote>
+<p>The word “about” matters. Real gears lose some energy through friction, tooth deformation, bearing friction, and imperfect alignment.</p>
+<p><strong>Observation prompt:</strong> Follow the arrows in the diagram. The gear with fewer teeth turns more quickly, the gear with more teeth turns more slowly, and two external gears rotate in opposite directions. Check that three driver rotations correspond to one driven-gear rotation.</p>
+<h3>Physical or virtual measurement activity</h3>
+<p>Mark one tooth on each gear, or use a simulation that displays marked teeth. Rotate the 12-tooth driver exactly three turns and count the turns of the 36-tooth driven gear. The driven gear should complete one turn, while its rotation direction is opposite to the driver’s.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Voltage: electrical potential difference</h3>
-<p><strong>Voltage</strong> is the difference in electrical potential between two points. It is measured in <strong>volts (V)</strong>. Voltage is measured between points, not as an isolated property of one point.</p>
-<p>A battery labeled 7.4 V has a nominal voltage of approximately 7.4 V under specified conditions. Its actual voltage may differ:</p>
+<h3>Gear ratio from tooth count</h3>
+<p>The common reduction-ratio convention used in this class is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = \frac{N_{\text{driven}}}{N_{\text{driver}}}\]</span></div>
+<p>where:</p>
 <ul>
-<li><strong>Open-circuit voltage:</strong> measured with no significant load connected.</li>
-<li><strong>Loaded terminal voltage:</strong> measured at the battery terminals while current is drawn.</li>
-<li><strong>Load voltage:</strong> measured across the connected component.</li>
+<li>\(R\) is the gear ratio, with no units;</li>
+<li>\(N_{\text{driven}}\) is the number of teeth on the driven gear;</li>
+<li>\(N_{\text{driver}}\) is the number of teeth on the driver gear.</li>
 </ul>
-<p>Battery internal resistance, wires, connectors, protection circuits, and battery state can cause voltage to fall under load. This reduction is called <strong>voltage sag</strong>. Every connected component must be suitable for the applied voltage.</p>
-<h3>Current: charge flow</h3>
-<p><strong>Electric current</strong> is the rate at which electric charge passes a point. It is measured in <strong>amperes</strong>, or <strong>amps (A)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[1\ \text{A}=1\ \text{C/s}\]</span></div>
-<p>This lesson uses <strong>conventional current</strong>, defined as flowing from a source’s positive terminal through the external circuit toward its negative terminal. Electrons in metal move in the opposite direction.</p>
-<p>Motor current is often higher during startup, acceleration, heavy loading, or stall because the motor’s speed-dependent opposing voltage is then small.</p>
-<h3>Resistance: opposition to current</h3>
-<p><strong>Resistance</strong> describes how strongly a component opposes current. It is measured in <strong>ohms (Ω)</strong>.</p>
-<p>A resistor deliberately provides resistance. Wires also have resistance, usually much less than an intentional resistor. Resistance depends on material, dimensions, temperature, and construction. For introductory calculations, we treat a resistor’s value as approximately constant.</p>
-<h3>Retrieval checkpoint</h3>
-<ol>
-<li>Voltage is measured between what?</li>
-<li>What unit measures current?</li>
-<li>If resistance increases while voltage stays constant, does current increase or decrease?</li>
-</ol>
-<p><strong>Answers:</strong> Voltage is measured between two points. Current is measured in amperes. Current decreases because \(I=V/R\).</p>
-<h3>Ohm’s law</h3>
-<p>For a component that behaves approximately like an ohmic resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V=IR\]</span></div>
-<p>where \(V\) is voltage in volts, \(I\) is current in amperes, and \(R\) is resistance in ohms.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R}
-\qquad\text{and}\qquad
-R=\frac{V}{I}\]</span></div>
-<p>These equations are models, not descriptions of every component. Motors, batteries, LEDs, and electronic controllers have more complex behavior.</p>
-<h3>Electrical power</h3>
-<p><strong>Power</strong> is the rate at which electrical energy is transferred. It is measured in <strong>watts (W)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI\]</span></div>
-<p>For a resistor, substituting \(V=IR\) gives:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=I^2R
-\qquad\text{and}\qquad
-P=\frac{V^2}{R}\]</span></div>
-<p>Use these resistor forms for the same component at the same operating point. Compare calculated power with the component’s rated power and leave engineering margin.</p>
-<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Unit</th><th>Typical measurement</th></tr></thead><tbody><tr><td>Voltage \(V\)</td><td>Potential difference</td><td>volts (V)</td><td>Meter in parallel</td></tr><tr><td>Current \(I\)</td><td>Charge flow rate</td><td>amperes (A)</td><td>Meter in series</td></tr><tr><td>Resistance \(R\)</td><td>Opposition to current</td><td>ohms (Ω)</td><td>Unpowered circuit only</td></tr><tr><td>Power \(P\)</td><td>Energy-transfer rate</td><td>watts (W)</td><td>Calculated or measured</td></tr></tbody></table></div>
+<p>If \(R &gt; 1\), this is a speed reduction and torque increase under the ideal model.</p>
+<p>For ideal gears, using \(n\) for rotational speed:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{out}} = \frac{n_{\text{in}}}{R}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(n_{\text{in}}\) is input rotational speed, measured here in revolutions per minute (rpm);</li>
+<li>\(n_{\text{out}}\) is output rotational speed in rpm;</li>
+<li>\(R\) is the gear ratio.</li>
+</ul>
+<p>The speed-ratio equation works with any consistent rotational-speed unit, such as rpm, revolutions per second, or rad/s. The units used for input and output must be the same.</p>
+<p>Ideal output torque is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{out, ideal}} = R \tau_{\text{in}}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(\tau_{\text{in}}\) is motor-shaft torque in N·m;</li>
+<li>\(\tau_{\text{out, ideal}}\) is output torque without losses in N·m.</li>
+</ul>
+<h3>Efficiency</h3>
+<p>Real gears are not perfect. Let \(\eta\) represent mechanical efficiency:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0 &lt; \eta \leq 1\]</span></div>
+<p>The realistic output torque, assuming the same gear ratio and the stated motor operating point, is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{out}} = \eta R \tau_{\text{in}}\]</span></div>
+<p>For example, \(\eta = 0.85\) means that 85% of the ideal mechanical output power is available after losses. Equivalently, for this fixed-ratio calculation, the output torque is 85% of the ideal output torque at the corresponding output speed:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_{\text{out}} = \eta P_{\text{in}}\]</span></div>
+<p>A gear train does not create energy. If it increases torque, it reduces speed enough to keep power approximately balanced:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P = \tau \omega\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(P\) is rotational power in watts (W);</li>
+<li>\(\tau\) is torque in N·m;</li>
+<li>\(\omega\) is angular speed in radians per second (rad/s).</li>
+</ul>
+<p>If speed is given in rpm, convert it before using this power equation:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\omega = \frac{2\pi n}{60}\]</span></div>
+<p>where \(n\) is speed in rpm. For example, \(60\ \text{rpm}\) equals \(2\pi\ \text{rad/s}\). We will not use power calculations as the main activity today, but this equation explains why “more strength” always has a speed cost.</p>
+<h3>More than one gear pair</h3>
+<p>If RoboRover uses two reduction stages, their ratios multiply:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}} = R_1 R_2\]</span></div>
+<p>A 2:1 stage followed by a 3:1 stage gives:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}} = 2 \times 3 = 6\]</span></div>
+<p>This is useful when one very large gear would not fit. However, every extra stage can add friction, noise, weight, and alignment problems.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose a 9 V source is connected across a 300 Ω resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{9\ \text{V}}{300\ \Omega}
-=0.03\ \text{A}=30\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(9)(0.03)=0.27\ \text{W}\]</span></div>
-<p>or:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{9^2}{300}=0.27\ \text{W}\]</span></div>
-<p>The units confirm \(\text{V}/\Omega=\text{A}\). Estimate first: 9 V divided by 300 Ω should be much less than 1 A. A result of 30 A signals an arithmetic or unit error.</p>
-<p>At fixed voltage, increasing resistance decreases both current and resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R},\qquad P=\frac{V^2}{R}\]</span></div>
-<h3>Series and parallel preview</h3>
-<p>For two resistors in series:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=R_1+R_2\]</span></div>
-<p>The same current flows through both, and their voltage drops add to the source voltage. For \(100\ \Omega\) and \(200\ \Omega\) across 6.0 V:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=300\ \Omega,\qquad I=\frac{6.0}{300}=0.020\ \text{A}\]</span></div>
-<p>The voltage drops are 2.0 V and 4.0 V.</p>
-<p>In parallel, branches share voltage and their currents add at the source:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{1}{R_{\text{total}}}
-=
-\frac{1}{R_1}+\frac{1}{R_2}\]</span></div>
-<p>A parallel branch can reduce total resistance and increase source current.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Calculation flow diagram showing a motor’s speed and torque transformed by a 3:1 gear reduction into wheel speed, torque, and tire force."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The numerical example tracks speed, torque, efficiency, and wheel force through RoboRover’s transmission.</p>
+<p>Suppose the motor is assumed to operate at \(180\ \text{rpm}\) with a motor-shaft torque of \(0.08\ \text{N·m}\), and it drives a 12-tooth gear. The driven gear has 36 teeth. These are assumed operating-point values for this simplified calculation; real motor speed, torque, current, voltage, and PWM are coupled.</p>
+<p>First calculate the ratio:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = \frac{36}{12} = 3\]</span></div>
+<p>So the output speed is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{out}} = \frac{180\ \text{rpm}}{3}
+= 60\ \text{rpm}\]</span></div>
+<p>With an efficiency of \(0.85\), the output torque at the driven gear is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{out}}
+= 0.85 \times 3 \times 0.08\ \text{N·m}
+= 0.204\ \text{N·m}\]</span></div>
+<p>The driven gear is rigidly attached to the wheel, so this is also the simplified wheel-shaft torque in this model. It is not motor-shaft torque: the motor-shaft torque is \(0.08\ \text{N·m}\), the gearbox output or driven-gear torque is \(0.204\ \text{N·m}\), and the rigidly attached wheel receives the same \(0.204\ \text{N·m}\) before any additional wheel-hub losses.</p>
+<p>Now suppose the wheel radius is \(0.03\ \text{m}\). The available tangential force at the wheel rim is estimated by:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{rim}} = \frac{\tau_{\text{wheel}}}{r}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(F_{\text{rim}}\) is available tangential wheel-rim force in N;</li>
+<li>\(\tau_{\text{wheel}}\) is wheel-shaft torque in N·m;</li>
+<li>\(r\) is wheel radius in m.</li>
+</ul>
+<p>Therefore:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{rim}} = \frac{0.204\ \text{N·m}}{0.03\ \text{m}}
+= 6.8\ \text{N}\]</span></div>
+<p>Interpretation:</p>
+<ul>
+<li>RoboRover’s wheel turns at 60 rpm rather than 180 rpm.</li>
+<li>The available wheel torque is approximately 0.204 N·m rather than the motor-shaft torque of 0.08 N·m.</li>
+<li>The simplified available tangential wheel-rim force is approximately 6.8 N.</li>
+<li>This does not guarantee that the ground can receive 6.8 N. Tire traction, motor operating point, drivetrain dynamics, gear strength, and other limits may reduce the actual force.</li>
+</ul>
+<p>This is the model boundary for today’s calculations: the equations estimate an operating point and available wheel-rim force. They do not provide a complete vehicle, traction, or motor simulation. In particular, the predicted output torque may not be available continuously if the motor slows, current limits are reached, or the gearbox overheats.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational circuit illustration of a 5-volt RoboRover indicator branch with a red LED, 220-ohm series resistor, assumed 2.0-volt forward drop, and calculated current of about 13.6 milliamperes."></figure>
-<p class="figure-caption"><strong>Figure:</strong> With a 2.0-volt LED forward-drop assumption, the 220-ohm resistor gives an approximate branch current of 13.6 milliamperes.</p>
-<p>RoboRover has a 5.0 V indicator branch containing:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Educational rover climbing a ramp with a visible geared motor transmission and three alternative gear reduction modules."></figure>
+<p class="figure-caption"><strong>Figure:</strong> RoboRover’s best gear choice depends on the task: climbing strength matters, but excessive reduction can make flat-ground motion too slow.</p>
+<p>RoboRover must climb a short cardboard ramp while carrying a small sensor box. With a 1:1 gear pair, its motor spins the wheel quickly, but the robot struggles near the steepest part.</p>
+<p>The design team considers three gear pairs:</p>
+<div class="table-scroll"><table><thead><tr><th>Driver teeth</th><th>Driven teeth</th><th>Ratio</th><th>Main effect</th></tr></thead><tbody><tr><td>24</td><td>24</td><td>1:1</td><td>No ideal speed change</td></tr><tr><td>18</td><td>36</td><td>2:1</td><td>Half speed, about double ideal torque</td></tr><tr><td>12</td><td>36</td><td>3:1</td><td>One-third speed, about triple ideal torque</td></tr></tbody></table></div>
+<p>The 3:1 pair gives the greatest torque multiplication, but it may make RoboRover too slow for flat ground. Whether the 2:1 pair is sufficient depends on the required wheel force.</p>
+<p>This is an important engineering decision:</p>
+<blockquote>The “strongest” gear ratio is not automatically the best gear ratio.</blockquote>
+<p>A robot must satisfy the task. If RoboRover needs to climb, carry, and maneuver, engineers consider:</p>
 <ul>
-<li>a red LED with an <strong>assumed</strong> forward voltage of \(V_f=2.0\ \text{V}\);</li>
-<li>a 220 Ω series resistor.</li>
+<li>required wheel torque;</li>
+<li>desired top speed;</li>
+<li>motor heating;</li>
+<li>available battery power;</li>
+<li>wheel traction;</li>
+<li>physical space for gears;</li>
+<li>gear noise and wear.</li>
 </ul>
-<p>An LED is not an ohmic resistor. The resistor receives the remaining voltage:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{220}\approx0.0136\ \text{A}=13.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=I^2R\approx(0.0136)^2(220)\approx0.0409\ \text{W}\]</span></div>
-<p>The forward-voltage assumption depends on current and temperature. Check the LED’s maximum current, the resistor’s power rating, supply tolerance, and thermal conditions.</p>
-<p>For comparison, a 100 Ω resistor would give:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{100}=0.030\ \text{A}=30\ \text{mA}\]</span></div>
-<p>The lower resistance produces more current and may exceed the LED’s safe operating range.</p>
-<h3>Compact motor-driver connection example</h3>
-<p>A driver may provide:</p>
-<ul>
-<li><strong>VM:</strong> motor-supply positive;</li>
-<li><strong>GND:</strong> motor-supply return;</li>
-<li><strong>OUT1</strong> and <strong>OUT2:</strong> switched motor outputs;</li>
-<li>logic inputs such as PWM or direction.</li>
-</ul>
-<p>For one channel, connect battery positive to VM, battery negative to the driver’s specified power return, and the motor between OUT1 and OUT2. Connect the controller only to the driver’s specified logic reference and control inputs. Motor current flows through the driver’s power stage, not through a controller signal pin.</p>
-<p>A motor is not a fixed resistor. As it spins, it generates <strong>back electromotive force (back EMF)</strong> that opposes the applied voltage. At startup or stall, speed is low or zero, so current can be much higher.</p>
+<h3>Practical caveat: stalling</h3>
+<p>If the wheel cannot turn, the motor may enter a <strong>stall condition</strong>. A stalled motor can draw high current and heat quickly. A large reduction ratio can make it easier for the wheel to resist motion, but it does not make the motor immune to overload.</p>
+<p>RoboRover should not simply keep increasing PWM when its wheel is stuck. A safer design uses current limiting, temperature monitoring, a mechanical fuse, or software that detects an abnormal condition. Those topics will appear later in the course.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>This program models a <strong>resistor-only branch</strong> at 5.0 V. It includes executable assertions for the numerical checks shown in its output.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
+<p>This program compares three possible gear choices for RoboRover. It calculates ratio, output speed, realistic output torque, and simplified available tangential wheel-rim force.</p>
+<p>The motor speed and torque are assumed operating-point values for this model, not universally independent specifications.</p>
+<p>It also contains assertions. An assertion is a built-in check that stops the program if a calculated relationship is not true.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7-compatible gear comparison for RoboRover
+
+MOTOR_SPEED_RPM = 180.0
+MOTOR_TORQUE_NM = 0.08
+EFFICIENCY = 0.85
+WHEEL_RADIUS_M = 0.03
+
+GEAR_CHOICES = [
+    (&quot;1:1 gear pair&quot;, 24, 24),
+    (&quot;Moderate reduction&quot;, 18, 36),
+    (&quot;Strong reduction&quot;, 12, 36),
+]
+
+def calculate_gear_result(driver_teeth, driven_teeth):
+    &quot;&quot;&quot;Return ratio, output speed, output torque, and wheel-rim force.&quot;&quot;&quot;
+    ratio = float(driven_teeth) / float(driver_teeth)
+    output_speed_rpm = MOTOR_SPEED_RPM / ratio
+    output_torque_nm = EFFICIENCY * ratio * MOTOR_TORQUE_NM
+    wheel_force_n = output_torque_nm / WHEEL_RADIUS_M
+
+    return ratio, output_speed_rpm, output_torque_nm, wheel_force_n
 
 
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
+print(&quot;RoboRover gear comparison&quot;)
+print(&quot;-&quot; * 72)
+print(&quot;{:&lt;20s} {:&gt;8s} {:&gt;12s} {:&gt;16s} {:&gt;16s}&quot;.format(
+    &quot;Choice&quot;, &quot;Ratio&quot;, &quot;Speed (rpm)&quot;, &quot;Torque (N m)&quot;, &quot;Wheel-rim force (N)&quot;
+))
 
+results = {}
 
-def compare_with_exercise_limit(current, limit=0.05):
-    &quot;&quot;&quot;Compare current with a classroom exercise threshold.&quot;&quot;&quot;
-    if current &gt; limit:
-        return &quot;above the {:.3f} A exercise threshold&quot;.format(limit)
-    return &quot;at or below the {:.3f} A exercise threshold&quot;.format(limit)
+for name, driver_teeth, driven_teeth in GEAR_CHOICES:
+    ratio, speed, torque, force = calculate_gear_result(
+        driver_teeth, driven_teeth
+    )
+    results[name] = (ratio, speed, torque, force)
 
+    print(&quot;{:&lt;20s} {:&gt;8.2f} {:&gt;12.2f} {:&gt;16.3f} {:&gt;16.2f}&quot;.format(
+        name, ratio, speed, torque, force
+    ))
 
-def main():
-    voltage = 5.0
-    exercise_threshold = 0.05
-    resistances = [100, 200, 220, 500, 1000, 10000]
+# Verification checks for the numerical relationships used in this lesson.
+assert abs(results[&quot;1:1 gear pair&quot;][0] - 1.0) &lt; 1e-9
+assert abs(results[&quot;Moderate reduction&quot;][0] - 2.0) &lt; 1e-9
+assert abs(results[&quot;Strong reduction&quot;][0] - 3.0) &lt; 1e-9
 
-    assert abs(current_from_resistance(5.0, 100) - 0.05) &lt; 1e-12
-    assert abs(current_from_resistance(5.0, 1000) - 0.005) &lt; 1e-12
-    assert abs(resistor_power(5.0, 100) - 0.25) &lt; 1e-12
+assert abs(results[&quot;1:1 gear pair&quot;][3] - 2.2666666667) &lt; 1e-9
+assert abs(results[&quot;Moderate reduction&quot;][3] - 4.5333333333) &lt; 1e-9
+assert abs(results[&quot;Strong reduction&quot;][1] - 60.0) &lt; 1e-9
+assert abs(results[&quot;Strong reduction&quot;][2] - 0.204) &lt; 1e-9
+assert abs(results[&quot;Strong reduction&quot;][3] - 6.8) &lt; 1e-9
 
-    try:
-        current_from_resistance(-1.0, 100.0)
-    except ValueError:
-        pass
-    else:
-        raise AssertionError(&quot;Negative voltage must be rejected.&quot;)
-
-    print(&quot;RoboRover resistor-branch simulation&quot;)
-    print(&quot;Supply voltage: {:.1f} V&quot;.format(voltage))
-    print(&quot;Exercise threshold: {:.3f} A&quot;.format(exercise_threshold))
-    print()
-
-    for resistance in resistances:
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-        print(&quot;{:&gt;5} ohms -&gt; {:.2f} mA, {:.4f} W: {}&quot;.format(
-            resistance,
-            current * 1000.0,
-            power,
-            compare_with_exercise_limit(current, exercise_threshold)))
-
-
-if __name__ == &quot;__main__&quot;:
-    main()</code></pre></div>
-<p>Negative voltage is rejected here because this small teaching model describes a supply magnitude and assumes conventional current in one chosen direction. Signed voltage is meaningful in broader circuit analysis; it is simply outside this function’s stated model.</p>
-<p>Change <code>exercise_threshold</code> and observe the messages. The threshold is a classroom comparison, not a component rating. This model does not simulate LED nonlinearity, motor startup current, battery sag, or motor-driver switching.</p>
+print(&quot;-&quot; * 72)
+print(&quot;Verification passed: the 3:1 choice gives 60 rpm,&quot;)
+print(&quot;0.204 N m output torque, and 6.8 N simplified wheel-rim force.&quot;)</code></pre></div>
+<p>Important lines:</p>
+<ul>
+<li><code>ratio = driven_teeth / driver_teeth</code> applies the tooth-count definition.</li>
+<li><code>output_speed_rpm = MOTOR_SPEED_RPM / ratio</code> shows the speed trade.</li>
+<li><code>output_torque_nm = EFFICIENCY * ratio * MOTOR_TORQUE_NM</code> includes the stated efficiency.</li>
+<li><code>wheel_force_n = output_torque_nm / WHEEL_RADIUS_M</code> estimates available tangential force at the wheel rim.</li>
+<li>The <code>assert</code> statements verify the exact values used in the lesson.</li>
+</ul>
+<p>Do not confuse wheel-rim force with guaranteed ground force. The tire and ground must transmit the force without slipping, and the motor and drivetrain must actually supply the assumed operating-point torque.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play <strong>Tune RoboRover’s Resistor Branch</strong>. The supply is fixed at 5.0 V. Predict before checking:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistance</th><th>Predicted current</th><th>Predicted power</th><th>Prediction</th></tr></thead><tbody><tr><td>100 Ω</td><td>0.050 A (50 mA)</td><td>0.250 W</td><td></td></tr><tr><td>200 Ω</td><td>0.025 A (25 mA)</td><td>0.125 W</td><td></td></tr><tr><td>1,000 Ω</td><td>0.005 A (5 mA)</td><td>0.025 W</td><td></td></tr><tr><td>10,000 Ω</td><td>0.0005 A (0.5 mA)</td><td>0.0025 W</td><td></td></tr></tbody></table></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{R}
-\qquad\text{and}\qquad
-P=\frac{25}{R}\]</span></div>
+<h3>Choose RoboRover’s climbing gear</h3>
+<p>RoboRover has a simple mission:</p>
+<ul>
+<li>It must produce at least <strong>5.0 N</strong> of simplified wheel-rim force to meet the model’s climbing threshold.</li>
+<li>It should travel as fast as possible among the choices that meet the threshold.</li>
+<li>The three gear choices are the same as in the Python program.</li>
+</ul>
+<p>Before running the program, predict:</p>
 <ol>
-<li>Which resistance produces the largest current?</li>
-<li>Which produces the smallest current?</li>
-<li>When resistance changes from 100 Ω to 200 Ω, does current double or halve?</li>
-<li>Which listed resistance dissipates the greatest power?</li>
-<li>What happens if voltage changes from 5.0 V to 10.0 V while resistance stays constant?</li>
+<li>Which gear choices meet the 5.0 N requirement?</li>
+<li>Which qualifying choice is fastest?</li>
+<li>What happens to speed when the ratio changes from 2:1 to 3:1?</li>
 </ol>
-<p>At fixed resistance, doubling voltage doubles current but quadruples resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{V^2}{R}\]</span></div>
-<p>This is a parameter-changing model, not a real powered circuit.</p>
+<p>Add this code below the previous program, or run this complete second program separately:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7-compatible gear-selection game
+
+MOTOR_SPEED_RPM = 180.0
+MOTOR_TORQUE_NM = 0.08
+EFFICIENCY = 0.85
+WHEEL_RADIUS_M = 0.03
+REQUIRED_FORCE_N = 5.0
+
+GEARS = {
+    &quot;1&quot;: (&quot;1:1 gear pair&quot;, 24, 24),
+    &quot;2&quot;: (&quot;Moderate reduction&quot;, 18, 36),
+    &quot;3&quot;: (&quot;Strong reduction&quot;, 12, 36),
+}
+
+def result_for(driver_teeth, driven_teeth):
+    ratio = float(driven_teeth) / float(driver_teeth)
+    speed_rpm = MOTOR_SPEED_RPM / ratio
+    torque_nm = EFFICIENCY * ratio * MOTOR_TORQUE_NM
+    force_n = torque_nm / WHEEL_RADIUS_M
+    return ratio, speed_rpm, torque_nm, force_n
+
+print(&quot;RoboRover&#x27;s Ramp Challenge&quot;)
+print(&quot;Required simplified wheel-rim force: {:.1f} N&quot;.format(
+    REQUIRED_FORCE_N
+))
+print()
+
+qualifying_choices = []
+
+for key in sorted(GEARS.keys()):
+    name, driver, driven = GEARS[key]
+    ratio, speed, torque, force = result_for(driver, driven)
+    qualifies = force &gt;= REQUIRED_FORCE_N
+
+    if qualifies:
+        qualifying_choices.append(key)
+
+    print(&quot;{}: {:20s} | ratio {:.1f}:1 | speed {:6.1f} rpm | &quot;
+          &quot;force {:4.2f} N | qualifies: {}&quot;.format(
+              key, name, ratio, speed, force, qualifies
+          ))
+
+try:
+    choice = input(&quot;\nChoose gear 1, 2, or 3: &quot;).strip()
+except EOFError:
+    choice = &quot;2&quot;
+    print(&quot;\nNo interactive input was available; demonstrating choice 2.&quot;)
+
+if choice not in GEARS:
+    print(&quot;Please run the program again and choose 1, 2, or 3.&quot;)
+else:
+    name, driver, driven = GEARS[choice]
+    ratio, speed, torque, force = result_for(driver, driven)
+
+    if force &gt;= REQUIRED_FORCE_N:
+        print(&quot;RoboRover meets the simplified force requirement.&quot;)
+        print(&quot;Its predicted speed is {:.1f} rpm.&quot;.format(speed))
+    else:
+        print(&quot;RoboRover does not meet the simplified force requirement.&quot;)
+        print(&quot;Its predicted wheel-rim force is {:.2f} N.&quot;.format(force))
+
+# Check the calculations and the selection conclusion.
+assert abs(result_for(24, 24)[3] - 2.2666666667) &lt; 1e-9
+assert abs(result_for(18, 36)[0] - 2.0) &lt; 1e-9
+assert abs(result_for(18, 36)[3] - 4.5333333333) &lt; 1e-9
+assert abs(result_for(12, 36)[0] - 3.0) &lt; 1e-9
+assert abs(result_for(12, 36)[1] - 60.0) &lt; 1e-9
+assert abs(result_for(12, 36)[2] - 0.204) &lt; 1e-9
+assert abs(result_for(12, 36)[3] - 6.8) &lt; 1e-9
+
+# Only choice 3 reaches 5.0 N in this simplified model.
+assert qualifying_choices == [&quot;3&quot;]
+assert result_for(12, 36)[1] &gt; 0.0</code></pre></div>
+<p>The final assertions verify both the numerical force values and the conclusion that only the 3:1 choice qualifies. If the default demonstration choice of <code>2</code> is used when interactive input is unavailable, the program correctly reports that it does <strong>not</strong> meet the 5.0 N requirement.</p>
+<p>The game uses a simplified requirement, not a complete ramp model. A real ramp requirement depends on robot mass, ramp angle, gravity, rolling resistance, and traction. For example, the component of the robot’s weight parallel to a ramp is \(mg\sin(\theta)\), where \(m\) is mass, \(g\) is gravitational acceleration, and \(\theta\) is ramp angle.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>The table is verified directly by \(I=5/R\) and \(P=25/R\). The 100 Ω resistor has the greatest current and power; the 10,000 Ω resistor has the smallest.</p>
-<p>For 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{100}=0.050\ \text{A},\qquad
-P=\frac{5.0^2}{100}=0.250\ \text{W}\]</span></div>
-<p>For 200 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{200}=0.025\ \text{A}\]</span></div>
-<p>The current halves.</p>
-<p>If voltage becomes 10.0 V across 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{10.0}{100}=0.10\ \text{A},\qquad
-P=\frac{10.0^2}{100}=1.0\ \text{W}\]</span></div>
-<p>Compare the output with your predictions and revise any incorrect result.</p>
+<p>Before looking at the calculation, reason it out.</p>
+<div class="table-scroll"><table><thead><tr><th>Choice</th><th>Ratio</th><th>Predicted speed</th><th>Simplified wheel-rim force</th><th>Meets 5.0 N?</th></tr></thead><tbody><tr><td>1:1 gear pair</td><td>1:1</td><td>180 rpm</td><td>\(0.85 \times 1 \times 0.08 / 0.03 \approx 2.27\ \text{N}\)</td><td>No</td></tr><tr><td>Moderate reduction</td><td>2:1</td><td>90 rpm</td><td>\(0.85 \times 2 \times 0.08 / 0.03 \approx 4.53\ \text{N}\)</td><td>No</td></tr><tr><td>Strong reduction</td><td>3:1</td><td>60 rpm</td><td>\(0.85 \times 3 \times 0.08 / 0.03 = 6.80\ \text{N}\)</td><td>Yes</td></tr></tbody></table></div>
+<p>Therefore:</p>
+<ul>
+<li>The 1:1 gear pair has no ideal speed change. It keeps the highest ideal speed but produces the least torque multiplication.</li>
+<li>The 2:1 reduction cuts ideal speed in half and approximately doubles torque before efficiency losses, but its predicted 4.53 N is below the 5.0 N requirement.</li>
+<li>The 3:1 reduction cuts ideal speed to one-third and provides the largest torque multiplication.</li>
+<li>Only the 3:1 choice meets the 5.0 N simplified requirement.</li>
+<li>Because it is the only qualifying choice, the 3:1 choice is also the fastest qualifying choice in this particular game.</li>
+</ul>
+<p>The Python assertions verify these values and the qualification result.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Thinking voltage is the same as current</h3>
-<p>A battery can have voltage across its terminals while an open circuit carries no continuous current. Current depends on the complete path and load.</p>
-<h3>Forgetting the return path</h3>
-<p>The path must leave the source, pass through the load and active driver stage, and return through the power-return connection. OUT1 and OUT2 are motor outputs, not replacements for VM and GND.</p>
-<h3>Mixing units</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.02\ \text{A}=20\ \text{mA}\]</span></div>
-<p>Write units throughout each calculation and distinguish Ω from kΩ.</p>
-<h3>Treating a motor as a fixed resistor</h3>
-<p>Motor current changes with speed, torque, and mechanical load. Back EMF generally increases as the motor spins, reducing current compared with startup or stall.</p>
-<h3>Creating a short circuit</h3>
-<p>A short is an unintended very low-resistance path. The ideal \(I=V/R\) equation warns that current could be large, but source resistance, fuses, current limiting, and protection determine the actual result. Never deliberately short an unknown or high-energy battery.</p>
-<h3>Measuring with the wrong meter configuration</h3>
-<p>Voltage is measured in parallel:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─────── load ─────── source -
-              |       |
-              | meter |
-              └───────┘</code></pre></div>
-<p>Current is measured in series:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─── meter ─── load ─── source -</code></pre></div>
-<p>Never place a meter configured for current directly across a supply. Before current measurements, an instructor must verify the meter fuse, lead placement, current terminal, and range rating. Current mode introduces burden voltage and can alter the circuit.</p>
-<p>Use resistance mode only on an unpowered, disconnected circuit. Calculations do not replace datasheets, ratings, or supervised procedures.</p>
+<h3>Mistake 1: Reversing the ratio</h3>
+<p>For a reduction, use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = \frac{\text{driven teeth}}{\text{driver teeth}}\]</span></div>
+<p>A 12-tooth driver and 36-tooth driven gear produce \(R=3\), not \(R=1/3\), under this class convention.</p>
+<h3>Mistake 2: Expecting both more speed and more torque</h3>
+<p>Gears trade speed for torque. A gear train cannot multiply both indefinitely because it does not create free energy.</p>
+<h3>Mistake 3: Ignoring efficiency</h3>
+<p>The ideal torque for the 3:1 example is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[3 \times 0.08\ \text{N·m} = 0.24\ \text{N·m}\]</span></div>
+<p>The simplified estimate with 85% efficiency is \(0.204\ \text{N·m}\), which is lower.</p>
+<h3>Mistake 4: Treating motor torque as constant</h3>
+<p>A real motor’s torque changes with speed, current, voltage, temperature, and load. Our calculation uses stated motor speed and torque as simplified operating-point assumptions, not as universally independent specifications.</p>
+<h3>Mistake 5: Forgetting direction</h3>
+<p>Two ordinary external gears rotate in opposite directions. An even number of gear meshes can restore the original direction; an odd number reverses it. This matters when the wheel must rotate forward.</p>
+<h3>Mistake 6: Thinking a stronger gear ratio fixes every problem</h3>
+<p>RoboRover may still fail because:</p>
+<ul>
+<li>the tire slips;</li>
+<li>the motor overheats;</li>
+<li>gear teeth skip;</li>
+<li>shafts bend;</li>
+<li>the gear spacing is misaligned;</li>
+<li>the wheel hits the chassis;</li>
+<li>the motor cannot supply enough electrical power.</li>
+</ul>
+<p>The force equation estimates available tangential force at the wheel rim. Actual ground force can be lower because of traction limits, drivetrain dynamics, and changes in the motor’s operating point.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Challenge:</strong> Design a resistor for a 5.0 V indicator branch with an assumed LED forward drop of 2.0 V and target current of approximately 0.020 A.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{3.0}{0.020}=150\ \Omega\]</span></div>
-<p>The ideal value is 150 Ω, and its resistor power is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=V_RI=(3.0)(0.020)=0.060\ \text{W}\]</span></div>
-<p>Compare standard values:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistor</th><th>Current at 3.0 V</th><th>Relative to 20 mA</th></tr></thead><tbody><tr><td>150 Ω</td><td>20.0 mA</td><td>target</td></tr><tr><td>180 Ω</td><td>16.7 mA</td><td>below target</td></tr><tr><td>220 Ω</td><td>13.6 mA</td><td>below target</td></tr></tbody></table></div>
-<p>For a design check, suppose the supply could reach 5.5 V and the LED forward drop could be as low as 1.8 V. Then the resistor voltage could be \(3.7\ \text{V}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{150}=\frac{3.7}{150}\approx24.7\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{180}=\frac{3.7}{180}\approx20.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{220}=\frac{3.7}{220}\approx16.8\ \text{mA}\]</span></div>
-<p>If the LED limit is 20 mA, 220 Ω is the only one of these three that remains below that limit under this stated condition. Confirm the actual supply tolerance, LED range, current rating, and resistor power rating before selecting a part.</p>
-<h3>Optional Python extension</h3>
-<p>This independently runnable program accepts a voltage and resistance. It rejects negative voltage and zero or negative resistance.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
-
-
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
-
-
-def interactive_calculation():
-    try:
-        voltage = float(input(&quot;Enter voltage in volts: &quot;))
-        resistance = float(input(&quot;Enter resistance in ohms: &quot;))
-
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-
-        print(&quot;Current: {:.6f} A ({:.2f} mA)&quot;.format(
-            current, current * 1000.0))
-        print(&quot;Resistor power: {:.6f} W&quot;.format(power))
-
-    except EOFError:
-        print(&quot;No input was provided; run this extension interactively.&quot;)
-    except ValueError as error:
-        print(&quot;Input error: {}&quot;.format(error))
-
-
-if __name__ == &quot;__main__&quot;:
-    interactive_calculation()</code></pre></div>
+<h3>Challenge: design a useful gear choice</h3>
+<p>RoboRover’s motor has these simplified specifications:</p>
+<ul>
+<li>motor speed: \(240\ \text{rpm}\);</li>
+<li>motor torque: \(0.06\ \text{N·m}\);</li>
+<li>efficiency: \(0.80\);</li>
+<li>wheel radius: \(0.025\ \text{m}\).</li>
+</ul>
+<p>Treat these as assumed operating-point values for the exercise.</p>
+<p>Compare these gear pairs:</p>
+<ul>
+<li>20-tooth driver with 20-tooth driven;</li>
+<li>20-tooth driver with 40-tooth driven;</li>
+<li>15-tooth driver with 45-tooth driven.</li>
+</ul>
+<p>For each pair, calculate:</p>
+<ol>
+<li>gear ratio;</li>
+<li>output speed in rpm;</li>
+<li>output torque in N·m;</li>
+<li>simplified available tangential wheel-rim force in N.</li>
+</ol>
+<p>Then choose one ratio for a robot that must climb but still move reasonably quickly. Explain your choice in one paragraph.</p>
+<p><strong>Optional extension:</strong> Add a fourth choice using two stages: a 2:1 reduction followed by a 3:1 reduction. Compare its total ratio with the single-stage choices. Discuss why two stages might be useful even though they introduce additional losses and mechanical complexity.</p>
+<h3>Direction check</h3>
+<p>A transmission has two stages of ordinary external gears. The first gear mesh reverses rotation, and the second gear mesh reverses it again. Does the final output rotate in the same direction as the motor or the opposite direction? Explain why.</p>
+<h3>Self-check and instructor key</h3>
+<p>Using</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{N_{\text{driven}}}{N_{\text{driver}}},
+\qquad
+n_{\text{out}}=\frac{240}{R},
+\qquad
+\tau_{\text{out}}=0.80R(0.06),
+\qquad
+F_{\text{rim}}=\frac{\tau_{\text{out}}}{0.025},\]</span></div>
+<p>the results are:</p>
+<div class="table-scroll"><table><thead><tr><th>Driver/driven teeth</th><th>Ratio</th><th>Output speed</th><th>Output torque</th><th>Wheel-rim force</th></tr></thead><tbody><tr><td>20 / 20</td><td>1:1</td><td>240 rpm</td><td>\(0.048\ \text{N·m}\)</td><td>\(1.92\ \text{N}\)</td></tr><tr><td>20 / 40</td><td>2:1</td><td>120 rpm</td><td>\(0.096\ \text{N·m}\)</td><td>\(3.84\ \text{N}\)</td></tr><tr><td>15 / 45</td><td>3:1</td><td>80 rpm</td><td>\(0.144\ \text{N·m}\)</td><td>\(5.76\ \text{N}\)</td></tr></tbody></table></div>
+<p>Under these simplified assumptions, the 3:1 choice provides the greatest climbing force while still turning at 80 rpm. The 1:1 choice is fastest but provides the least force, and the 2:1 choice is a compromise. A real choice would also require mass, slope, traction, motor limits, and desired vehicle speed.</p>
+<p>For the optional two-stage extension:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=2\times3=6\]</span></div>
+<p>The ideal output speed is \(240/6=40\ \text{rpm}\). With one combined efficiency value of \(0.80\), the simplified output torque is \(0.80\times6\times0.06=0.288\ \text{N·m}\), and the corresponding wheel-rim force is \(0.288/0.025=11.52\ \text{N}\). If each stage has its own efficiency, multiply the stage efficiencies rather than using \(0.80\) unchanged.</p>
+<p>Two ordinary external gear meshes reverse rotation twice, so the final output rotates in the same direction as the motor.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
-<p>Answer in a complete sentence or show the calculation.</p>
 <ol>
-<li>What electrical quantity is measured in volts?</li>
-<li>If voltage stays constant and resistance increases, what happens to current?</li>
-<li>A 12 V supply is connected to a 600 Ω resistor. Calculate current in amperes and milliamperes.</li>
-<li>Using the result from Question 3, calculate resistor power with \(P=VI\).</li>
-<li>Why might a motor draw more current when starting or mechanically blocked?</li>
-<li>Why is \(V/R\) not always an accurate prediction of short-circuit current?</li>
-<li>Why does an LED indicator normally need a series resistor?</li>
-<li>How should a meter be connected to measure voltage across a resistor and current through it?</li>
+<li>A 10-tooth driver gear turns a 30-tooth driven gear. What is the reduction ratio under this class convention?</li>
+</ol>
+<ol>
+<li>A gear ratio changes from 1:1 to 4:1. In the ideal model, what happens to output speed and output torque?</li>
+</ol>
+<ol>
+<li>Why is realistic output torque lower than ideal output torque?</li>
+</ol>
+<ol>
+<li>RoboRover has a wheel torque of \(0.15\ \text{N·m}\) and a wheel radius of \(0.05\ \text{m}\). What approximate tangential force acts at the tire?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>Voltage, or electrical potential difference, is measured in volts and describes the difference between two points.</li>
-<li>Current decreases. From \(I=V/R\), increasing resistance while holding voltage constant reduces current.</li>
-<p>3.</p>
+<li>The ratio is:</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{12\ \text{V}}{600\ \Omega}
-   =0.020\ \text{A}=20\ \text{mA}\]</span></div>
-<p>4.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(12)(0.020)=0.24\ \text{W}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = \frac{30}{10} = 3\]</span></div>
+<p>This is a 3:1 reduction.</p>
 <ol>
-<li>At startup or stall, speed is low or zero, so back EMF is small or absent. More applied voltage therefore drives current through the motor winding.</li>
-<li>Source and wiring resistance, fuses, current limiting, and protection circuits affect actual short-circuit current. The ideal equation is a warning, not an exact prediction.</li>
-<li>An LED is not a simple ohmic resistor. A series resistor limits current and helps keep it within the LED’s safe operating range.</li>
-<li>Measure voltage in parallel across the resistor. Measure current in series so current passes through the meter. Never place a current-configured meter directly across the supply.</li>
+<li>Output speed becomes one-quarter as large, while ideal output torque becomes four times as large.</li>
 </ol>
+<ol>
+<li>Friction, gear-tooth deformation, bearing losses, air resistance, and imperfect alignment remove some mechanical energy. Efficiency accounts for these losses.</li>
+</ol>
+<ol>
+<li>Use:</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F = \frac{\tau}{r}
+= \frac{0.15\ \text{N·m}}{0.05\ \text{m}}
+= 3.0\ \text{N}\]</span></div>
+<p>The approximate tangential tire force is 3.0 N, assuming the tire does not slip and the torque is actually available.</p>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>When RoboRover receives a command to drive forward, the controller sends logic signals to motor-driving electronics. The driver switches or regulates power delivered to the motors.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>battery voltage
-      |
-      v
-motor driver power stage
-      |
-      v
-motor current and voltage
-      |
-      v
-torque and wheel rotation
-      |
-      v
-RoboRover speed and distance</code></pre></div>
-<p><strong>Text description:</strong> Battery voltage enters the driver’s power stage. The driver controls motor voltage and current, which create torque and wheel rotation. Wheel rotation affects RoboRover’s speed and distance.</p>
-<p>The battery positive connection supplies VM. The battery negative connection supplies the driver’s specified power return, often labeled GND. The controller connects to the driver’s specified logic reference. Motor outputs such as OUT1 and OUT2 connect to the motor and are switched by the power stage.</p>
-<p>If battery voltage sags or wiring loses voltage, the motor may receive less effective voltage and RoboRover may move more slowly than expected.</p>
-<p>A practical workflow is:</p>
-<ol>
-<li>Check supply voltage.</li>
-<li>Estimate expected current.</li>
-<li>Estimate power and compare it with ratings.</li>
-<li>Check voltage sag and current limits.</li>
-<li>Use suitable wires, connectors, and protection.</li>
-<li>Secure the robot and keep rotating parts clear.</li>
-<li>Measure actual behavior rather than relying only on calculations.</li>
-</ol>
-<h3>Low-voltage measurement activity</h3>
-<p>This activity requires <strong>explicit instructor supervision</strong>. Use only:</p>
+<p>Gears are part of a robot’s <strong>transmission</strong>: the mechanical system that transfers motor motion to wheels, arms, belts, or tools.</p>
+<p>In a real mobile robot, engineers choose gearing together with:</p>
 <ul>
-<li>a regulated supply set to <strong>5.0 V maximum</strong>;</li>
-<li>a current limit set to <strong>50 mA or less</strong>;</li>
-<li>a 1 kΩ resistor rated for at least 0.25 W;</li>
-<li>a correctly fused multimeter and suitable leads;</li>
-<li>an unpowered circuit for resistance measurements.</li>
+<li>wheel diameter;</li>
+<li>robot mass;</li>
+<li>expected slopes;</li>
+<li>floor traction;</li>
+<li>desired speed;</li>
+<li>motor current limits;</li>
+<li>battery voltage;</li>
+<li>gearbox size and weight.</li>
 </ul>
-<p>Before current mode, the instructor must verify the meter fuse, lead placement, current terminal, and range rating.</p>
-<ol>
-<li>Turn the supply off before wiring.</li>
-<li>Connect the 1 kΩ resistor across the supply. At 5.0 V, ideal current is 5 mA and ideal power is 0.025 W.</li>
-<li>For voltage, use correctly configured voltage leads and probes across the resistor in parallel. Keep the circuit intact and follow the instructor-approved probing procedure.</li>
-<li>Power off before changing circuit wiring or moving a lead connected to the current terminal.</li>
-<li>For current, with power off, move the lead to the verified current terminal and insert the meter in series.</li>
-<li>Begin on the highest suitable current range.</li>
-<li><strong>Never reposition a current-configured lead across a live supply, and never place a current-configured meter directly across the supply.</strong></li>
-<li>Use resistance mode only after disconnecting and discharging the circuit as appropriate.</li>
-<li>Compare measurements with \(I=V/R\), allowing for meter accuracy, resistor tolerance, burden voltage, and supply variation.</li>
-<li>Turn the supply off before changing wiring or meter connections.</li>
-</ol>
-<p>If supervised hardware is unavailable, use the simulation-only path. Do not substitute an unverified battery, resistor, or meter.</p>
+<p>Wheel diameter creates another important trade. For the same wheel torque, a smaller wheel produces greater tire force because:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F = \frac{\tau}{r}\]</span></div>
+<p>But a smaller wheel travels a shorter distance per revolution. A larger wheel travels farther per revolution but requires more torque to push with the same force.</p>
+<p>Gearing also affects control. In Class 8, PWM was an input command to the motor. After adding gears, the same PWM command no longer directly tells us the wheel speed. The transmission changes the relationship between motor rotation and wheel rotation.</p>
+<p>In the next class, sensors will help RoboRover measure facts such as:</p>
+<ul>
+<li>whether a wheel is actually turning;</li>
+<li>whether the robot is near an obstacle;</li>
+<li>whether it is moving as expected.</li>
+</ul>
+<p>This distinction is important: a gear model predicts behavior, while a sensor provides evidence about actual behavior.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Voltage:</strong> Electrical potential difference between two points, measured in volts (V).</li>
-<li><strong>Current:</strong> Rate of electric charge flow, measured in amperes (A).</li>
-<li><strong>Resistance:</strong> Opposition to current flow, measured in ohms (Ω).</li>
-<li><strong>Circuit:</strong> A connected electrical path containing a source, conductors, and one or more loads or components.</li>
-<li><strong>Open circuit:</strong> A broken path that prevents continuous current through the intended loop.</li>
-<li><strong>Short circuit:</strong> An unintended very low-resistance path that can allow dangerously large current.</li>
-<li><strong>Ohm’s law:</strong> The relationship \(V=IR\) for a component modeled as an ohmic resistor.</li>
-<li><strong>Electrical power:</strong> The rate of electrical energy transfer, measured in watts (W), commonly calculated with \(P=VI\).</li>
-<li><strong>Battery:</strong> A source of electrical energy that provides a potential difference and has practical voltage and current limits.</li>
-<li><strong>Ground:</strong> A circuit reference or return node in this lesson; it is not automatically earth ground.</li>
-<li><strong>Motor driver:</strong> Electronic hardware with an active power stage that controls electrical power delivered to a motor.</li>
-<li><strong>Voltage sag:</strong> A reduction in actual supply voltage under load.</li>
-<li><strong>Back EMF:</strong> A voltage generated by a spinning motor that opposes the applied voltage.</li>
-<li><strong>Load:</strong> A component or device that receives electrical energy, such as a resistor, LED, controller, or motor.</li>
-<li><strong>Energy:</strong> The capacity to cause change or perform work; electrical energy can become heat, light, or mechanical motion.</li>
-<li><strong>Power:</strong> The rate of energy transfer, measured in watts (W).</li>
+<li><strong>Gear:</strong> A toothed wheel that transfers rotational motion and force to another toothed wheel.</li>
+<li><strong>Driver gear:</strong> The gear that supplies motion to a gear mesh, often connected to the motor.</li>
+<li><strong>Driven gear:</strong> The gear that receives motion from the driver.</li>
+<li><strong>Gear ratio:</strong> In this class, \(R=N_{\text{driven}}/N_{\text{driver}}\). A ratio greater than 1 is a reduction that lowers speed and increases ideal torque.</li>
+<li><strong>Reduction:</strong> A transmission arrangement in which the output rotates more slowly than the input.</li>
+<li><strong>Torque:</strong> A turning effect, measured in newton-metres (N·m).</li>
+<li><strong>Efficiency:</strong> The fraction of input mechanical power that remains available at the output. It is represented here by \(\eta\), a number between 0 and 1.</li>
+<li><strong>Transmission:</strong> The mechanical system that transfers motor motion to a robot’s output, such as a wheel or arm.</li>
+<li><strong>Stall:</strong> A condition in which a motor is unable to rotate despite receiving electrical power. A stalled motor can heat rapidly.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Study these topics in order:</p>
+<p>To continue building this topic, investigate these subjects in order:</p>
 <ol>
-<li>Multimeter voltage and resistance measurements.</li>
-<li>Series and parallel resistor circuits.</li>
-<li>Electrical power and component heating.</li>
-<li>Battery internal resistance and voltage sag.</li>
-<li>Motor-driver current limits and protection.</li>
-<li>DC-motor behavior under changing mechanical load.</li>
+<li>angular speed in radians per second;</li>
+<li>mechanical power and energy;</li>
+<li>compound gear trains;</li>
+<li>belt and chain transmissions;</li>
+<li>motor torque-speed curves;</li>
+<li>wheel traction and rolling resistance.</li>
 </ol>
-<p>Useful search terms include <strong>Ohm’s Law</strong>, <strong>introductory DC circuits</strong>, and <strong>DC motor fundamentals</strong>. Begin with low-voltage, current-limited educational equipment and follow meter instructions carefully.</p>
+<p>When studying a real gearbox, look for its rated torque, speed range, efficiency, backlash, and allowable operating temperature. <strong>Backlash</strong> is small unwanted movement caused by clearance between mating gear teeth; it will become important when RoboRover needs accurate positioning.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>Next class is <strong>Motors: Turning Electricity into Motion</strong>.</p>
-<p>You will learn how current creates torque, why motors draw different currents during startup and normal operation, and how RoboRover’s electrical inputs become wheel rotation, speed, and distance.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/005-distance-and-speed/"><span>Previous stream</span><b>Class 05 · Distance and Speed</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 07 · Motors: Turning Electricity into Motion</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<h1>Class 10: Sensors: Giving Robots Senses</h1>
+<p>RoboRover has now learned how PWM and gears influence its motion. But it still does not know whether it is near a wall, whether its wheel is slipping, or whether the ramp is clear.</p>
+<p>Next class, we will study <strong>sensors</strong>—devices that measure parts of the robot or its environment. We will connect measurements to decisions and begin asking a crucial robotics question:</p>
+<blockquote>How can RoboRover tell the difference between what it was commanded to do and what actually happened?</blockquote></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/008-motor-control-with-pwm/"><span>Previous stream</span><b>Class 08 · Motor Control with PWM</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 10 · Sensors: Giving Robots Senses</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -580,7 +583,7 @@ RoboRover speed and distance</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=6,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=9,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
