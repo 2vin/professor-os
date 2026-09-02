@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "robotics education DC motor gearbox reduction gears exposed wheel transmission",
+  "media_style": "photo",
+  "reason": "A real photograph of a compact robot gearbox or exposed motor-to-wheel transmission would ground the abstract tooth-count diagrams in recognizable hardware and help students connect calculated ratios with physical packaging, shafts, bearings, and wheel placement. The existing diagrams are sufficient for the mathematics, so a short hardware photo is more valuable than an additional conceptual video.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
