@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 3012,
+    "code_blocks": 4,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 92,
+      "pedagogy": 89,
+      "clarity": 90,
+      "depth": 88,
+      "examples": 91,
+      "interactivity": 84,
+      "code_alignment": 96,
+      "visual_teaching_plan": 91,
+      "originality": 84,
+      "consistency": 93,
+      "accessibility": 87
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "State that averaging is most effective when noise is approximately zero-mean and not strongly correlated between samples; repeated vibration or interference can persist through averaging.",
+      "Define or briefly distinguish uncertainty from error when introducing the question \u201cwith what uncertainty?\u201d The lesson later discusses spread but does not formally connect it to uncertainty.",
+      "The lesson is substantially longer than necessary for a foundational class. The repeated calibration explanation across \u201cSee It in Your Head,\u201d \u201cCore Concept,\u201d \u201cWorked Robotics Example,\u201d and \u201cWhat Should Happen?\u201d could be compressed while preserving the worked reasoning.",
+      "Add a small, concrete physical or browser-based activity that does not require Python and matplotlib. The current interactivity is prediction-oriented but remains primarily computational.",
+      "Clarify that a camera does not directly measure distance in the same simple sense as the listed distance and temperature sensors; it measures image intensity or color patterns from which software may infer other quantities.",
+      "The visual sequence is strong, but diagram.png is introduced as a schematic and then followed by instructions to draw a similar four-layer picture, creating some redundancy. Either make the diagram explicitly interactive or remove the duplicate drawing instruction.",
+      "The Python lab would benefit from a dependency note or a no-install alternative, since matplotlib may be unavailable in beginner environments.",
+      "In the calibration challenge, provide a known true value for the new test location or explicitly frame the learner\u2019s conclusion as a prediction based on an assumed constant bias. Without that, \u201ccloser to the likely true value\u201d cannot be verified from the supplied data alone.",
+      "The further-learning section provides search phrases rather than curated references. For a premium public course, add vetted links, authors, or source organizations before publication."
+    ],
+    "linkedin": {
+      "title": "How Robot Sensors Turn Physical Reality into Useful Measurements",
+      "description": "A practical robotics lesson on measurement, noise, bias, averaging, and calibration, with a Python simulation that helps learners test sensor corrections.",
+      "commentary": "A robot does not receive perfect truth from a sensor. It receives a signal that must be interpreted, checked, and sometimes corrected.\n\nThis Professor OS lesson introduces the foundations behind reliable robotic perception:\n\n\u2022 the difference between a physical quantity and a sensor reading;\n\u2022 how noise creates variation between repeated measurements;\n\u2022 why averaging can reduce changing noise but not constant bias;\n\u2022 how a known reference can support a simple offset calibration;\n\u2022 why vibration, mounting geometry, target surfaces, and temperature matter on real robots.\n\nThe included Python lab lets learners predict the result, calculate a calibration offset, compare raw and corrected readings, and inspect the remaining variation in a plot. The lesson also emphasizes an important engineering habit: calibration improves a model of the sensor under particular conditions; it does not make the sensor infallible.\n\nTry the lab with a new reference distance and decide whether the same correction should still be trusted. Then consider what would change while RoboRover is moving.\n\n#RoboticsEducation #Sensors #Calibration #Python",
+      "thumbnail_alt_text": "RoboRover sensor calibration diagram showing raw readings, bias correction, and a reference target"
+    },
+    "media_query": "real educational rover sensor calibration test bench distance sensor wall reference measurement",
+    "image_query": "robotics rover sensor calibration test bench distance sensor wall ruler reference measurement",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the measurement pipeline, bias, and calibration effectively. A carefully selected real photograph would add physical grounding by showing sensor mounting angle, a reference target, vibration-isolation considerations, and the practical geometry of calibration without duplicating the existing mathematical visuals.",
+    "media_would_help": true
+  }
+}

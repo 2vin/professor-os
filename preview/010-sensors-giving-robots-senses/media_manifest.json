@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "robotics education rover sensor calibration test bench distance sensor wall encoder motor vibration photograph",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph of a rover on a calibration test bench would ground the abstract pipeline in recognizable hardware and make mounting angle, target surface, vibration, and reference measurement easier to understand. The planned diagrams already teach the mathematics well, so a photograph is more valuable than another explanatory video.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
