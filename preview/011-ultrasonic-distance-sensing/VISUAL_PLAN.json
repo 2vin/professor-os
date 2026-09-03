@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of a small educational wheeled robot named RoboRover facing a flat wall in a clean robotics laboratory, with a technically plausible ultrasonic sensor mounted on its front. Show subtle blue sound-wave arcs travelling from the sensor to the wall and returning, with restrained technical annotation showing outgoing pulse, reflected echo, and one-way range. Premium robotics textbook editorial style, realistic materials and lighting, uncluttered composition, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover estimates range by timing an ultrasonic pulse as it travels to a wall and returns as an echo.",
+    "alt_text": "Small wheeled robot with a front ultrasonic sensor facing a wall, with illustrated sound waves travelling outward and reflecting back."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram for a robotics textbook showing top-down view of RoboRover on the left and a vertical wall on the right. Draw an outgoing ultrasonic pulse arrow from the sensor to the wall and a returning echo arrow back to the receiver. Clearly distinguish one-way distance d from round-trip travel path 2d, using minimal labels and precise arrows. Modern restrained color palette, high visual clarity, white background, no unnecessary text.",
+      "caption": "The sensor measures the round-trip path, so the one-way range is half of v times t.",
+      "alt_text": "Top-down diagram of a robot sending an ultrasonic pulse to a wall and receiving the reflected echo, with one-way and round-trip distances marked."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium educational engineering illustration showing RoboRover measuring a cardboard box approximately one metre away with a front ultrasonic sensor. Include a visual timing trace or compact inset showing a transmitted pulse followed by a returning echo after several milliseconds, plus a clear distance bracket between robot and box. Technically plausible robot and sensor, realistic laboratory setting, restrained textbook styling, minimal essential labels only.",
+      "caption": "A measured echo time is converted into range using the assumed speed of sound and the round-trip correction.",
+      "alt_text": "Educational illustration of a small robot measuring the distance to a cardboard box, with a pulse timing inset and a one-metre distance bracket."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical comparison diagram of three ultrasonic sensing situations for a small wheeled robot: a broad flat wall producing a strong return echo, a soft fabric surface producing a weak or absent echo, and an angled hard surface reflecting sound away from the receiver. Use simple wave arrows and a compact robot silhouette, with clear visual distinction among reliable echo, weak echo, and missed echo. Premium robotics textbook diagram, realistic geometry, uncluttered, no decorative imagery.",
+      "caption": "Surface material and angle affect whether the receiver obtains a useful echo.",
+      "alt_text": "Three-panel technical diagram showing strong ultrasonic reflection from a flat wall, weak reflection from soft fabric, and a missed echo from an angled surface."
+    }
+  ]
+}

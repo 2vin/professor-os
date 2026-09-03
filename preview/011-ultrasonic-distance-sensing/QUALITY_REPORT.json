@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2817,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 91,
+      "clarity": 90,
+      "depth": 89,
+      "examples": 91,
+      "interactivity": 88,
+      "code_alignment": 94,
+      "visual_teaching_plan": 87,
+      "originality": 84,
+      "consistency": 90,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove or substantially shorten the duplicated visual-planning prose in \u201cSee It in Your Head.\u201d The finished diagram is already present, so the later \u201cPicture a top-down diagram\u201d and \u201cAn illustrator could show\u201d passages read like production notes rather than student-facing instruction.",
+      "Add a brief explicit safety note for physical testing: use low speed, keep hands and loose objects clear of moving parts, and provide an accessible emergency stop or power-disconnect procedure.",
+      "Clarify that the exact beam width, minimum range, maximum range, trigger timing, and echo behavior depend on the specific module. The lesson mentions documented specifications, but a short hardware-specification checklist would make this more actionable.",
+      "The simulation adds fixed offsets after converting ideal distance to echo time, which is pedagogically valid but does not model timing noise, missed echoes, or out-of-range readings. Label these explicitly as measurement-error offsets and optionally invite students to add missing-echo cases.",
+      "Introduce one short limitation before the main equation: the calculation assumes the first useful echo corresponds to the intended target and that the sound path is approximately straight. This would prevent beginners from treating d=vt/2 as universally valid.",
+      "The lesson contains several repeated caveats about estimates, surface behavior, and real-world imperfections. Consolidating some of them would improve pacing without reducing technical depth.",
+      "The generated schematic and inline diagrams are useful, but the lesson would benefit from a real hardware photograph showing transducer orientation, mounting height, wiring, and scale on a robot."
+    ],
+    "linkedin": {
+      "title": "Class 11: How Ultrasonic Sensors Turn Echo Time Into Robot Range",
+      "description": "A practical robotics lesson on time of flight, the d=vt/2 equation, Python simulation, measurement error, and why real surfaces can defeat ultrasonic sensing.",
+      "commentary": "How does a robot estimate distance using sound it cannot hear?\n\nProfessor OS Class 11 develops the answer from a simple echo analogy to a working Python simulation. Students learn that an ultrasonic sensor measures round-trip echo time, then applies an assumed speed of sound and divides by two to estimate one-way range.\n\nThe lesson includes:\n\n\u2022 A step-by-step derivation of d = vt/2\n\u2022 Unit conversion between milliseconds and seconds\n\u2022 A worked robot-to-wall calculation\n\u2022 Executable Python checks and a distance plot\n\u2022 Prediction activities using STOP/GO thresholds\n\u2022 Real-world limitations involving soft materials, angled surfaces, vibration, beam spread, temperature, and old echoes\n\nTry the cardboard checkpoint challenge: change the stopping threshold, predict the robot\u2019s behavior, then verify it in code. It is a compact way to connect physics, programming, and robot safety decisions.\n\n#Robotics #STEMEducation #Python #Sensors",
+      "thumbnail_alt_text": "Small mobile robot using an ultrasonic sensor to measure distance to a wall"
+    },
+    "media_query": "ultrasonic distance sensor mounted on mobile robot measuring distance to wall, engineering lab photograph",
+    "image_query": "HC-SR04 or industrial ultrasonic distance sensor mounted on a small mobile robot facing a flat wall, visible wiring and scale, neutral engineering lab, educational documentation photo",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the abstract time-of-flight diagrams by showing sensor placement, orientation, wiring, mounting height, and the practical scale of a robot-to-wall measurement. It should supplement the existing generated schematics rather than replace them.",
+    "media_would_help": true
+  }
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 8: Motor Control with PWM · Professor OS</title>
+<title>Class 11: Ultrasonic Distance Sensing · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,15 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -44,542 +35,431 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="8">
+<body data-class="11">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_08</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_11</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_08</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 08 · Hardware &amp; Sensors</div><h1>Motor Control with PWM</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>duty cycle, speed control</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_11</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 11 · Hardware &amp; Sensors</div><h1>Ultrasonic Distance Sensing</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>time of flight, range</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Motor Control with PWM</h2>
+      <h2>Class podcast · Ultrasonic Distance Sensing</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-08-motor-control-with-pwm.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-11-ultrasonic-distance-sensing.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 8: Motor Control with PWM</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 11: Ultrasonic Distance Sensing</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 7, RoboRover used a motor to convert electrical energy into motion. A robot still needs to control <strong>how fast</strong> a motor turns and, when required, <strong>which direction</strong> it turns.</p>
-<p>Today we introduce <strong>pulse-width modulation</strong>, or <strong>PWM</strong>. PWM rapidly switches a command between states. <strong>Duty cycle</strong> is the fraction of each period spent in the on, or commanded-drive, state. A \(25\%\) duty cycle means the command is on for one-quarter of every period.</p>
-<h3>Scope of this class</h3>
-<p>This lesson focuses on <strong>brushed DC motors</strong> controlled by an H-bridge or low-side motor driver. Keep the signal chain below in view:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Controller or computer
-  low-power logic command PWM
-            |
-            v
-      Motor driver
-  high-current switching
-            |
-            v
-      Brushed DC motor
- motor-terminal voltage
-   and winding current
-            |
-            v
-          Wheel</code></pre></div>
-<p>The controller usually does not supply motor power directly. It sends a low-power logic command to the motor driver. The driver switches the larger motor current.</p>
-<p>For the arithmetic in this lesson, we use a <strong>deliberately simplified single-ended switching model</strong>: the assumed power-stage waveform across the motor alternates between \(0\ \text{V}\) and the supply voltage. This model is useful for learning duty cycle, but it is not a universal description of H-bridge outputs. Real H-bridges may produce bipolar voltages, braking states, floating states, or recirculating-current paths.</p>
-<p>Brushless DC motors and hobby servomotors use different commutation and control arrangements. Their PWM signals may have different meanings.</p>
-<p>In the next class, we will connect motor speed to <strong>gears</strong>. PWM changes the requested electrical drive; gears change how motor motion is transformed mechanically.</p>
+<p>In the previous class, <strong>Sensors: Giving Robots Senses</strong>, RoboRover learned that sensors convert parts of the physical world into measurable signals. A light sensor responds to brightness, a switch reports contact, and a temperature sensor reports thermal conditions.</p>
+<p>Today we study one particular sensor: the <strong>ultrasonic distance sensor</strong>. It helps RoboRover estimate how far away an object is by sending out a sound pulse and timing its echo.</p>
+<p>Next class, <strong>Infrared Sensors</strong>, will introduce another way to detect distance or nearby objects. Ultrasonic and infrared sensors can both help a robot avoid obstacles, but they behave differently around shiny, soft, narrow, transparent, or oddly shaped objects.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>explain PWM with an on/off switch analogy;</li>
-<li>distinguish logic command PWM, power-stage switching, and motor-terminal voltage;</li>
-<li>calculate duty cycle, period, and frequency;</li>
-<li>calculate the ideal time-average of a \(0\)-to-supply switching waveform;</li>
-<li>distinguish duty cycle, voltage, winding current, torque, and speed;</li>
-<li>explain why duty cycle influences speed without guaranteeing an exact rpm;</li>
-<li>interpret a PWM timing diagram;</li>
-<li>run and modify a Python simulation;</li>
-<li>identify practical concerns including load, startup friction, current limits, noise, switching frequency, and driver topology.</li>
+<li>explain <strong>time of flight</strong> using an echo analogy;</li>
+<li>calculate distance from the travel time of an ultrasonic pulse;</li>
+<li>explain why the distance equation divides by two;</li>
+<li>distinguish <strong>range</strong> from a simple “object detected” signal;</li>
+<li>simulate an ultrasonic sensor in Python;</li>
+<li>identify practical problems such as soft surfaces, angled objects, temperature changes, and false echoes.</li>
 </ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>A brushed DC motor converts electrical energy into rotational motion.</p>
-<ul>
-<li><strong>Voltage</strong>, measured in volts (V), is electrical potential difference.</li>
-<li><strong>Current</strong>, measured in amperes (A), is the flow of electric charge.</li>
-<li><strong>Speed</strong>, often measured in revolutions per minute (rpm), describes how quickly the shaft rotates.</li>
-<li><strong>Torque</strong>, measured in newton-metres (N·m), is turning strength.</li>
-</ul>
-<p>A motor driver sits between the controller and motor because a computer pin normally cannot safely provide the motor’s startup or operating current.</p>
-<p>The distinction between the signal chain is essential:</p>
+<p>A sensor is a device that measures something about the robot’s surroundings or internal condition.</p>
+<p>A sensor reading is not the same thing as perfect knowledge. For example, if a distance sensor reports 80 centimetres, the real object might be slightly closer or farther away because of electrical noise, calibration error, or the way sound reflected from the object.</p>
+<p>A useful sensor has three parts:</p>
 <ol>
-<li><strong>Logic command PWM</strong> is the controller’s low-power signal.</li>
-<li><strong>Power-stage PWM</strong> is the driver’s high-current switching action.</li>
-<li><strong>Motor-terminal voltage</strong> is the voltage actually appearing across the motor terminals.</li>
-<li><strong>Winding current</strong> flows through the motor coils and changes gradually because of inductance.</li>
-<li><strong>Torque</strong> depends strongly on winding current.</li>
-<li><strong>Speed</strong> results from torque, load, friction, back EMF, and inertia.</li>
+<li><strong>Physical interaction</strong> — something happens in the world, such as light arriving or sound reflecting.</li>
+<li><strong>Measurement</strong> — the sensor turns that interaction into a number or signal.</li>
+<li><strong>Interpretation</strong> — the robot uses the measurement to decide what the number means.</li>
 </ol>
-<blockquote><strong>What PWM does and does not guarantee</strong>  For an idealized power-stage waveform that switches between \(0\ \text{V}\) and \(V_{\text{supply}}\):  \[ V_{\text{avg, ideal}} = D V_{\text{supply}} \]  This is the time-average of the assumed waveform. It is not automatically the motor’s measured terminal voltage, winding-current average, electrical power, torque, or speed.</blockquote>
+<p>Today’s sensor measures distance by using reflected sound.</p>
+<p><strong>Predict before reading on:</strong> If RoboRover sends a sound pulse toward a wall and receives its echo 0.010 seconds later, has the sound travelled 1 metre, 2 metres, or some other distance? Remember that the sound travels to the wall and then back.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Three aligned PWM command waveforms with identical amplitudes and different duty cycles of 20, 50, and 80 percent."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The pulse height stays the same; duty cycle changes the fraction of time the command is in its on state.</p>
-<p>Imagine controlling a lamp with a very fast switch:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Top-down diagram of a robot sending an ultrasonic pulse to a wall and receiving the reflected echo, with one-way and round-trip distances marked."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The sensor measures the round-trip path, so the one-way range is half of v times t.</p>
+<p>Imagine shouting in a canyon. Your voice travels outward, hits a surface, and returns as an echo. If you know:</p>
 <ul>
-<li>on for half of each period: approximately \(50\%\) duty cycle;</li>
-<li>on for one-quarter: \(25\%\) duty cycle;</li>
-<li>on for nearly the entire period: a high duty cycle.</li>
+<li>how fast sound travels, and</li>
+<li>how long the round trip takes,</li>
 </ul>
-<p>The lamp analogy demonstrates <strong>time fraction</strong>, not complete motor physics. The switch does not produce a smaller on-state voltage. In the simplified model, the power stage produces the full supply voltage during each on interval; duty cycle changes how long that state lasts.</p>
-<p>For example:</p>
-<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>On-time in a 10 ms period</th><th>Off-time</th></tr></thead><tbody><tr><td>0%</td><td>0 ms</td><td>10 ms</td></tr><tr><td>50%</td><td>5 ms</td><td>5 ms</td></tr><tr><td>100%</td><td>10 ms</td><td>0 ms</td></tr></tbody></table></div>
-<p>The pulse height is unchanged. Only the on-time changes.</p>
-<p>In a real driver, off-time may allow current to circulate through diodes or MOSFETs, or the circuit may coast, brake, or use a particular current-decay mode. Consequently, the motor-terminal voltage may be actively driven, recirculating, or floating. Driver topology determines the details.</p>
-<p>A motor shaft does not normally start and stop once per PWM pulse. Winding inductance resists sudden current changes, and mechanical inertia resists sudden speed changes. These effects often make the motor’s current and speed change more gradually than the switching waveform.</p>
-<h3>Choosing a PWM frequency</h3>
-<p>The \(50\ \text{Hz}\) value used later is selected for easy arithmetic and visualization, not as a universal recommendation. It is audible and may produce torque ripple or current ripple.</p>
-<p>A frequency such as \(20\ \text{kHz}\) may move switching noise above much of the audible range, but it can increase switching losses, heating, electromagnetic interference, and driver demands. The appropriate value depends on the motor, driver topology, inductance, current ripple, and manufacturer limits.</p>
+<p>you can estimate how far away the surface is.</p>
+<p>An ultrasonic distance sensor performs a similar experiment, but with a sound frequency above the normal human hearing range. “Ultrasonic” means <strong>above human hearing</strong>. Many common ultrasonic modules send a short burst near 40,000 hertz, or 40 kilohertz. The exact hardware varies, so a robot program should use the sensor’s documented specifications rather than assuming every module is identical.</p>
+<p>The sensor usually has two visible parts:</p>
+<ul>
+<li>a <strong>transmitter</strong>, which sends the sound pulse;</li>
+<li>a <strong>receiver</strong>, which detects the returning echo.</li>
+</ul>
+<p>The robot does not directly measure distance. It measures a time interval and converts that interval into distance.</p>
+<p>That distinction matters. A sensor reading such as “0.73 metres” is already the result of a model:</p>
+<blockquote>measured echo time + assumed sound speed → estimated range</blockquote>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>The following diagram shows <strong>power-stage PWM representations</strong> with ten equal time slots per period. The adjacent table provides the exact timing values for accessibility; the waveform is not intended to be read by color or image labels alone.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Shared time axis: |0----|1----|2----|3----|4----|5----|6----|7----|8----|9----|10---|
-                  one complete period, T
+<p>Picture a top-down diagram:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>RoboRover                  Wall
+ [sensor]  ───────►         │
+            outgoing pulse │
+ [sensor]  ◄───────         │
+            returning echo  │
 
-20% duty cycle:   |██████|      |      |      |      |      |      |      |      |      |
-50% duty cycle:   |██████|██████|██████|██████|██████|      |      |      |      |      |
-80% duty cycle:   |██████|██████|██████|██████|██████|██████|██████|██████|      |      |
-                  &lt;------ on ------&gt; &lt;------------- off --------------&gt;</code></pre></div>
-<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>On slots</th><th>Off slots</th><th>On-time if \(T=10\) ms</th></tr></thead><tbody><tr><td>20%</td><td>2 of 10</td><td>8 of 10</td><td>2 ms</td></tr><tr><td>50%</td><td>5 of 10</td><td>5 of 10</td><td>5 ms</td></tr><tr><td>80%</td><td>8 of 10</td><td>2 of 10</td><td>8 ms</td></tr></tbody></table></div>
-<p>Each strip has the same <strong>period</strong>, the time from the beginning of one pulse to the beginning of the next. Pulse height remains the same in the simplified representation.</p>
-<p>The controller’s logic waveform and the driver’s power-stage waveform are related but not necessarily identical. The actual motor-terminal voltage depends on the driver’s circuit and PWM mode. Winding current and mechanical speed usually change more slowly than the electrical switching command.</p>
+          one-way distance = d
+          round-trip distance = 2d</code></pre></div>
+<p>The outgoing and returning paths form two equal sections if the pulse travels straight to a flat wall and back.</p>
+<p>An illustrator could show:</p>
+<ul>
+<li>RoboRover on the left;</li>
+<li>a vertical wall on the right;</li>
+<li>blue wavefronts expanding from the sensor;</li>
+<li>a blue reflected wave travelling back;</li>
+<li>arrows labelled “outgoing” and “returning”;</li>
+<li>a timer labelled \(t\);</li>
+<li>a bracket from the sensor to the wall labelled “range \(d\).”</li>
+</ul>
+<p>The sensor’s “field of view” is not a perfect laser-thin line. Sound spreads into a cone. A nearby object at an angle may reflect the pulse before a more distant wall does.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Duty cycle</h3>
-<p><strong>Duty cycle</strong> is the fraction of each PWM period during which the signal is in its on or commanded-drive state.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D = \frac{t_{\text{on}}}{T}\]</span></div>
+<h3>Time of flight</h3>
+<p><strong>Time of flight</strong>, often abbreviated TOF, is the time required for a signal to travel from a transmitter to a target and, in echo sensing, return to a receiver.</p>
+<p>For an ultrasonic echo sensor:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{round-trip distance} = v t\]</span></div>
+<p>The sound travels twice the one-way range, so:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[2d = vt\]</span></div>
+<p>Solving for range:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(D\) is duty cycle, with no units;</li>
-<li>\(t_{\text{on}}\) is on-time, in seconds;</li>
-<li>\(T\) is the period, in seconds.</li>
+<li>\(d\) is the one-way distance from sensor to object, in metres \((\text{m})\);</li>
+<li>\(v\) is the speed of sound, in metres per second \((\text{m/s})\);</li>
+<li>\(t\) is the measured round-trip echo time, in seconds \((\text{s})\).</li>
 </ul>
-<p>As a percentage:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_{\%}=100D\]</span></div>
-<p>A duty cycle of \(0.40\) equals \(40\%\).</p>
-<p>Frequency is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f=\frac{1}{T}\]</span></div>
-<p>where \(f\) is measured in hertz (Hz).</p>
-<h3>Ideal average voltage</h3>
-<p>For the explicitly simplified waveform that switches between \(0\ \text{V}\) and \(V_{\text{supply}}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D V_{\text{supply}}\]</span></div>
-<p>This equation describes only the assumed waveform. In a real motor, current also depends on resistance, inductance, back EMF, driver current paths, and switching mode. Torque depends strongly on current. Speed depends on torque balance, load, friction, battery voltage, motor design, and losses.</p>
-<p>Therefore:</p>
-<blockquote>Increasing duty cycle often increases motor speed, but duty cycle is not a direct rpm setting.</blockquote>
-<p>A \(50\%\) command does not guarantee exactly half the maximum speed.</p>
-<h3>Speed control versus direction control</h3>
-<p>PWM commonly controls the magnitude of motor drive. Direction usually requires an H-bridge or another circuit that can reverse the voltage across the motor. In this class, assume direction has already been selected.</p>
+<p>The division by 2 is essential. Without it, RoboRover would mistake the round-trip path for the one-way distance and report a value approximately twice as large.</p>
+<h3>Range</h3>
+<p><strong>Range</strong> is the estimated distance from a sensor to a detected object or surface.</p>
+<p>This is different from a simple proximity switch:</p>
+<ul>
+<li>“Object present” is a categorical result.</li>
+<li>“Object is approximately 0.62 metres away” is a range measurement.</li>
+</ul>
+<p>A real sensor may have a <strong>minimum range</strong> and a <strong>maximum range</strong>. Very close objects may be difficult to measure because the echo returns before the electronics are ready. Very distant objects may return an echo too weak to detect.</p>
+<h3>Why sound speed matters</h3>
+<p>At room temperature, a useful teaching approximation is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v \approx 343\ \text{m/s}\]</span></div>
+<p>The speed of sound changes with air temperature and, to a smaller degree in ordinary classroom situations, humidity and air conditions. Therefore, the equation gives an estimate, not magical certainty.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose a motor driver uses a \(12\ \text{V}\) supply and the simplified waveform has a \(25\ \text{ms}\) period at \(40\%\) duty cycle.</p>
-<p>Convert the percentage:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D=\frac{40}{100}=0.40\]</span></div>
-<p>Find on-time:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t_{\text{on}}=DT
-=0.40(25\ \text{ms})
-=10\ \text{ms}\]</span></div>
-<p>Off-time is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[25\ \text{ms}-10\ \text{ms}=15\ \text{ms}\]</span></div>
-<p>Find the ideal average of the assumed waveform:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
-=DV_{\text{supply}}
-=0.40(12\ \text{V})
-=4.8\ \text{V}\]</span></div>
-<p>The result means that the assumed \(0\)-to-\(12\ \text{V}\) waveform has a \(4.8\ \text{V}\) time-average. It does <strong>not</strong> claim that the motor measures \(4.8\ \text{V}\) at its terminals or runs at a particular speed.</p>
+<p>Suppose an ultrasonic sensor receives an echo after:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = 0.0085\ \text{s}\]</span></div>
+<p>Use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
+<p>Substitute:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0085\ \text{s})}{2}\]</span></div>
+<p>The units simplify:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{m/s} \times \text{s} = \text{m}\]</span></div>
+<p>So:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{2.9155\ \text{m}}{2}
+= 1.45775\ \text{m}\]</span></div>
+<p>RoboRover’s estimated range is therefore approximately:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{1.46\ \text{m}}\]</span></div>
+<p>Interpretation: the sound travelled about 2.92 metres in total—1.46 metres outward and 1.46 metres back.</p>
+<p>A useful rearrangement is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2d}{v}\]</span></div>
+<p>For a target 0.50 metres away:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2(0.50\ \text{m})}{343\ \text{m/s}}
+\approx 0.00292\ \text{s}\]</span></div>
+<p>That is about 2.92 milliseconds. Ultrasonic sensors must measure very short time intervals accurately.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Annotated idealized PWM timing diagram showing a 20 millisecond period, 8 milliseconds on, 12 milliseconds off, and a labeled 3.6 volt ideal waveform average from a 9 volt supply."></figure>
-<p class="figure-caption"><strong>Figure:</strong> In the idealized example, a 40 percent duty cycle at 50 hertz means 8 milliseconds in the on state during every 20 millisecond period; 3.6 volts is only the assumed waveform average.</p>
-<p>RoboRover carries a small box across a smooth floor. Its battery supply is \(9\ \text{V}\), and the illustrative PWM frequency is \(50\ \text{Hz}\) with a duty cycle of \(40\%\). For arithmetic only, assume the driver creates a \(0\)-to-\(9\ \text{V}\) waveform.</p>
-<h3>Step 1: Find the period</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[T=\frac{1}{f}
-=\frac{1}{50\ \text{s}^{-1}}
-=0.020\ \text{s}
-=20\ \text{ms}\]</span></div>
-<h3>Step 2: Find the on-time</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t_{\text{on}}=DT
-=0.40(20\ \text{ms})
-=8\ \text{ms}\]</span></div>
-<p>The ideal timing model therefore has \(8\ \text{ms}\) on and \(12\ \text{ms}\) off in every period.</p>
-<h3>Step 3: Find the ideal average</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
-=DV_{\text{supply}}
-=0.40(9\ \text{V})
-=3.6\ \text{V}\]</span></div>
-<p>This \(3.6\ \text{V}\) value is only the ideal average of the assumed power-stage waveform. It is not guaranteed motor-terminal voltage, current, torque, or speed.</p>
-<p>The box, floor, battery condition, friction, and motor-driver current limit all affect the real result. If static friction requires more starting torque than the command can produce, RoboRover may not move.</p>
-<blockquote><strong>Hardware-safety box:</strong> Do not intentionally stall a motor or test a starting boost without a current-limited driver, a defined maximum duration, supervision, mechanical clearance, and compliance with motor and driver thermal and current limits. A stronger startup command can produce dangerous acceleration and rapid heating.</blockquote>
+<figure><img loading="lazy" src="inline_02.png" alt="Educational illustration of a small robot measuring the distance to a cardboard box, with a pulse timing inset and a one-metre distance bracket."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A measured echo time is converted into range using the assumed speed of sound and the round-trip correction.</p>
+<p>RoboRover is moving toward a cardboard box. Its ultrasonic sensor measures an echo time of \(5.8\) milliseconds.</p>
+<p>First convert milliseconds to seconds:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[5.8\ \text{ms}
+= 5.8 \times 0.001\ \text{s}
+= 0.0058\ \text{s}\]</span></div>
+<p>Assume the speed of sound is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
+<p>Now calculate:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0058\ \text{s})}{2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{1.9894\ \text{m}}{2}
+= 0.9947\ \text{m}\]</span></div>
+<p>So the box is approximately:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{0.995\ \text{m away}}\]</span></div>
+<p>or about \(99.5\) centimetres.</p>
+<p>If RoboRover’s safety rule is “stop when the range is below \(0.60\) metres,” it should not stop because of this reading alone. However, a real robot should not rely on one perfect measurement. It should consider noisy readings, braking distance, and whether the box is actually large enough to reflect sound reliably.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Two-panel educational plot showing an idealized PWM command waveform and a gradually rising illustrative motor-speed response approaching a model target."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation separates an idealized fast PWM command from a slower illustrative command-response model.</p>
-<p>This program displays an illustrative logic PWM command and a simple first-order response model. The upper plot is an idealized power-stage voltage representation derived from the command; it is not a guaranteed measurement of a specific driver’s motor-terminal voltage.</p>
-<p>The model assumes:</p>
-<ul>
-<li>target speed is linearly proportional to duty cycle;</li>
-<li>simulated speed approaches that target gradually;</li>
-<li><code>time_constant</code> controls response speed;</li>
-<li>motor resistance, inductance, back EMF, load, friction, current limits, topology, and heating are omitted.</li>
-</ul>
-<h3>Setup</h3>
-<p>Use Python 3.7 or newer with <code>matplotlib</code> installed:</p>
-<div class="code-card"><div class="code-label">bash</div><pre><code>python -m pip install matplotlib</code></pre></div>
+<p>This program simulates RoboRover approaching a wall. It converts echo time into range and displays a simple stop-or-go rule.</p>
+<p>The simulation includes small, deliberately chosen measurement offsets. These represent sensor imperfections. The <code>true_distances</code> list describes the actual distance, while <code>measured_distances</code> represents what the sensor estimates after small errors.</p>
 <div class="code-card"><div class="code-label">python</div><pre><code>import math
 import matplotlib.pyplot as plt
 
+# Approximate speed of sound in air at room temperature.
+SPEED_OF_SOUND_M_PER_S = 343.0
 
-def pwm_average_voltage(supply_voltage, duty_cycle):
-    &quot;&quot;&quot;Return the ideal average of a 0-to-supply PWM waveform.&quot;&quot;&quot;
-    if supply_voltage &lt; 0:
-        raise ValueError(&quot;supply_voltage must not be negative&quot;)
-    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
-        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
-    return supply_voltage * duty_cycle
+# RoboRover&#x27;s actual distance from the wall at several moments.
+true_distances = [2.00, 1.50, 1.00, 0.75, 0.50, 0.25]
 
+# Small measurement offsets imitate sensor noise or calibration error.
+measurement_offsets = [0.00, 0.03, -0.02, 0.02, -0.03, 0.03]
 
-def make_pwm_waveform(supply_voltage, duty_cycle, frequency, duration,
-                      sample_count):
-    &quot;&quot;&quot;Create samples for an idealized power-stage voltage waveform.&quot;&quot;&quot;
-    if frequency &lt;= 0:
-        raise ValueError(&quot;frequency must be positive&quot;)
-    if duration &lt;= 0:
-        raise ValueError(&quot;duration must be positive&quot;)
-    if sample_count &lt;= 1:
-        raise ValueError(&quot;sample_count must be greater than 1&quot;)
-    if supply_voltage &lt; 0:
-        raise ValueError(&quot;supply_voltage must not be negative&quot;)
-    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
-        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
+# Convert the actual one-way distance into a round-trip echo time.
+echo_times = []
+for distance in true_distances:
+    time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S
+    echo_times.append(time_seconds)
 
-    times = []
-    voltages = []
-    period = 1.0 / frequency
-
-    for index in range(sample_count):
-        time = duration * index / (sample_count - 1)
-        phase = time % period
-        voltage = (supply_voltage
-                   if phase &lt; duty_cycle * period else 0.0)
-        times.append(time)
-        voltages.append(voltage)
-
-    return times, voltages
-
-
-def simulate_motor_speed(duty_cycle, duration, dt, maximum_speed,
-                         time_constant):
-    &quot;&quot;&quot;Simulate a stable first-order illustrative response.&quot;&quot;&quot;
-    if duty_cycle &lt; 0 or duty_cycle &gt; 1:
-        raise ValueError(&quot;duty_cycle must be between 0 and 1&quot;)
-    if duration &lt;= 0 or dt &lt;= 0:
-        raise ValueError(&quot;duration and dt must be positive&quot;)
-    if maximum_speed &lt; 0:
-        raise ValueError(&quot;maximum_speed must not be negative&quot;)
-    if time_constant &lt;= 0:
-        raise ValueError(&quot;time_constant must be positive&quot;)
-    if dt &gt; time_constant:
-        raise ValueError(&quot;dt must be no greater than time_constant&quot;)
-
-    times = []
-    speeds = []
-    speed = 0.0
-    target_speed = duty_cycle * maximum_speed
-    steps = int(round(duration / dt))
-
-    for step in range(steps + 1):
-        time = step * dt
-        times.append(time)
-        speeds.append(speed)
-        speed += (target_speed - speed) * dt / time_constant
-
-    return times, speeds
-
-
-def main():
-    print(&quot;RoboRover PWM experiment&quot;)
-    print(&quot;Enter a duty cycle from 0 to 100 percent.&quot;)
-
-    try:
-        user_text = input(&quot;Duty cycle: &quot;)
-    except EOFError:
-        user_text = &quot;40&quot;
-        print(&quot;No input received; using 40 percent.&quot;)
-
-    duty_percent = float(user_text)
-    if duty_percent &lt; 0 or duty_percent &gt; 100:
-        raise ValueError(&quot;Enter a percentage from 0 to 100.&quot;)
-
-    duty_cycle = duty_percent / 100.0
-    supply_voltage = 9.0
-    frequency = 50.0
-    duration = 1.0
-    dt = 0.01
-    maximum_speed = 3000.0
-    time_constant = 0.20
-
-    average_voltage = pwm_average_voltage(supply_voltage, duty_cycle)
-
-    assert math.isclose(
-        pwm_average_voltage(9.0, 0.40), 3.6,
-        rel_tol=0.0, abs_tol=1e-12
+# Convert each simulated echo time back into an estimated range.
+measured_distances = []
+for index in range(len(echo_times)):
+    estimated_range = (
+        SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0
+        + measurement_offsets[index]
     )
-    assert math.isclose(
-        0.40 * (1.0 / 50.0), 0.008,
-        rel_tol=0.0, abs_tol=1e-12
+    measured_distances.append(estimated_range)
+
+# RoboRover stops if its estimated range is below this threshold.
+STOP_DISTANCE_M = 0.60
+actions = []
+for distance in measured_distances:
+    if distance &lt; STOP_DISTANCE_M:
+        actions.append(&quot;STOP&quot;)
+    else:
+        actions.append(&quot;GO&quot;)
+
+# Executable checks verify the important numerical claims.
+assert math.isclose(echo_times[0], 4.0 / 343.0, rel_tol=1e-12)
+assert math.isclose(measured_distances[0], 2.00, rel_tol=1e-12)
+assert math.isclose(measured_distances[1], 1.53, rel_tol=1e-12)
+assert actions.count(&quot;STOP&quot;) == 2
+assert actions[-1] == &quot;STOP&quot;
+
+print(&quot;Distance (m) | Echo time (ms) | Estimated range (m) | Action&quot;)
+for index in range(len(true_distances)):
+    print(
+        &quot;{:12.2f} | {:14.3f} | {:19.2f} | {}&quot;.format(
+            true_distances[index],
+            echo_times[index] * 1000.0,
+            measured_distances[index],
+            actions[index]
+        )
     )
 
-    check_times, check_speeds = simulate_motor_speed(
-        1.0, time_constant, dt, 1.0, time_constant
-    )
-    one_tau_fraction = check_speeds[-1]
-    assert 0.63 &lt; one_tau_fraction &lt; 0.65
+print(&quot;All numerical checks passed.&quot;)
+print(&quot;STOP actions:&quot;, actions.count(&quot;STOP&quot;))
 
-    pwm_times, pwm_voltages = make_pwm_waveform(
-        supply_voltage, duty_cycle, frequency, 0.20, 1000
-    )
-    speed_times, speeds = simulate_motor_speed(
-        duty_cycle, duration, dt, maximum_speed, time_constant
-    )
+# Plot actual and estimated distances.
+time_step_numbers = list(range(1, len(true_distances) + 1))
 
-    target_speed = duty_cycle * maximum_speed
-    print(&quot;Ideal average power-stage voltage representation: {:.2f} V&quot;.format(
-        average_voltage
-    ))
-    print(&quot;Model target speed: {:.0f} rpm&quot;.format(target_speed))
-    print(&quot;At one time constant, the normalized model response is {:.1%}.&quot;
-          .format(one_tau_fraction))
-    print(&quot;The graph shows speed approaching the target gradually.&quot;)
+plt.plot(
+    time_step_numbers,
+    true_distances,
+    marker=&quot;o&quot;,
+    label=&quot;Actual distance&quot;
+)
+plt.plot(
+    time_step_numbers,
+    measured_distances,
+    marker=&quot;s&quot;,
+    label=&quot;Estimated range&quot;
+)
+plt.axhline(
+    STOP_DISTANCE_M,
+    color=&quot;red&quot;,
+    linestyle=&quot;--&quot;,
+    label=&quot;Stop threshold&quot;
+)
 
-    figure, axes = plt.subplots(2, 1, figsize=(9, 6), sharex=False)
-
-    axes[0].plot(pwm_times, pwm_voltages, color=&quot;darkorange&quot;)
-    axes[0].set_title(&quot;Idealized power-stage PWM voltage representation&quot;)
-    axes[0].set_ylabel(&quot;Voltage representation (V)&quot;)
-    axes[0].set_xlabel(&quot;Time (s)&quot;)
-    axes[0].grid(True)
-
-    axes[1].plot(speed_times, speeds, color=&quot;navy&quot;)
-    axes[1].axhline(
-        target_speed, color=&quot;gray&quot;, linestyle=&quot;--&quot;, label=&quot;model target&quot;
-    )
-    axes[1].set_title(&quot;Illustrative command-response model&quot;)
-    axes[1].set_ylabel(&quot;Model speed (rpm)&quot;)
-    axes[1].set_xlabel(&quot;Time (s)&quot;)
-    axes[1].legend()
-    axes[1].grid(True)
-
-    figure.tight_layout()
-
-    try:
-        plt.show()
-    except Exception as error:
-        figure.savefig(&quot;pwm_motor_response.png&quot;, dpi=150)
-        print(&quot;Graphical display unavailable: {}&quot;.format(error))
-        print(&quot;Saved the figure as pwm_motor_response.png&quot;)
-
-
-if __name__ == &quot;__main__&quot;:
-    main()</code></pre></div>
-<h3>Important lines</h3>
+plt.xlabel(&quot;Measurement number&quot;)
+plt.ylabel(&quot;Distance from wall (m)&quot;)
+plt.title(&quot;RoboRover Ultrasonic Range Simulation&quot;)
+plt.legend()
+plt.grid(True)
+plt.tight_layout()
+plt.show()</code></pre></div>
+<p>Important lines:</p>
 <ul>
-<li><code>duty_cycle = duty_percent / 100.0</code> converts a percentage to a decimal.</li>
-<li><code>phase = time % period</code> finds the sample’s position within a repeating period.</li>
-<li>The comparison with <code>duty_cycle * period</code> selects the on portion.</li>
-<li><code>target_speed = duty_cycle * maximum_speed</code> is a teaching assumption, not a motor law.</li>
-<li>The update to <code>speed</code> makes the response gradual.</li>
-<li>The assertions verify the lesson’s \(40\%\), \(9\ \text{V}\), and \(50\ \text{Hz}\) arithmetic.</li>
-<li>The time-constant assertion checks that the model reaches approximately \(63\%\) of a unit target after one time constant.</li>
+<li><code>time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S</code> uses the round-trip equation rearranged as \(t=2d/v\).</li>
+<li><code>estimated_range = SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0</code> uses \(d=vt/2\).</li>
+<li><code>measurement_offsets</code> shows that a real sensor may not report the exact physical distance.</li>
+<li><code>plt.axhline(...)</code> draws the decision boundary, not a physical wall. It shows where the software changes from “GO” to “STOP.”</li>
+<li>The <code>assert</code> statements automatically check the numerical results instead of relying on visual inspection.</li>
 </ul>
+<p>The plotted estimated line will not exactly match the actual line because of the offsets. It should follow the same general trend and drop as RoboRover approaches the wall.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Run the program with duty cycles of <code>20</code>, <code>60</code>, and <code>100</code>.</p>
-<p>Before each run, predict:</p>
+<p>Play “<strong>Predict RoboRover’s action</strong>” before running the program.</p>
+<p>The stop threshold is \(0.60\) metres. Use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
+<p>Predict the action for these echo times:</p>
+<ol>
+<li>\(t=2.9\ \text{ms}\)</li>
+<li>\(t=4.4\ \text{ms}\)</li>
+<li>\(t=6.0\ \text{ms}\)</li>
+</ol>
+<p>Use \(v=343\ \text{m/s}\).</p>
+<p>For the first one:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0029\ \text{s})}{2}
+\approx 0.498\ \text{m}\]</span></div>
+<p>That is below \(0.60\) metres, so predict <strong>STOP</strong>.</p>
+<p>Now predict the other two before checking:</p>
 <ul>
-<li>the ideal average representation;</li>
-<li>the model target speed;</li>
-<li>whether the response curve will change its final value, its response time, or both.</li>
+<li>A \(4.4\) millisecond round trip should correspond to a distance a little below \(0.76\) metres.</li>
+<li>A \(6.0\) millisecond round trip should correspond to a distance slightly above \(1.0\) metre.</li>
 </ul>
-<p>At \(0\%\), the model target is zero. At \(100\%\), the idealized waveform remains high for the entire period. At intermediate values, the target changes while the configured response time remains the same.</p>
-<p>For the game, imagine RoboRover delivering a fragile cup. Choose the smallest command that reaches the delivery zone quickly, while remembering that this model is not a physical speed guarantee.</p>
+<p>The important pattern is:</p>
+<blockquote>longer echo time means farther object; shorter echo time means nearer object.</blockquote>
+<p>You can turn the Python lab into your own game by changing <code>measurement_offsets</code>, <code>STOP_DISTANCE_M</code>, or the entries in <code>true_distances</code>. Before running it, predict how the graph and the number of “STOP” actions will change.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Answer these questions before rerunning the program:</strong></p>
+<p>Before you run the program, predict these observations:</p>
 <ol>
-<li>If <code>duty_cycle</code> changes from <code>0.20</code> to <code>0.60</code> while the supply remains \(9\ \text{V}\), does the ideal average increase or decrease?</li>
-<li>Which changes faster: the upper switching waveform or the lower simulated response?</li>
-<li>At \(100\%\) duty cycle, is the idealized waveform mostly high, mostly low, or evenly split?</li>
-<li>If the box becomes heavier, will the real speed remain exactly the same?</li>
-<li>With <code>time_constant = 0.20</code>, what fraction of the final model target should be reached after \(0.20\) seconds?</li>
-<li>Before running the extension, what will happen if <code>time_constant</code> changes to <code>0.05</code>?</li>
+<li>The echo time should become shorter as RoboRover approaches the wall.</li>
+<li>The estimated range should generally decrease from the first measurement to the last.</li>
+<li>The estimated line should differ slightly from the actual line.</li>
+<li>Only the closest measurements should produce <code>STOP</code>.</li>
+<li>The graph’s stop threshold should appear as a horizontal line at \(0.60\) metres.</li>
 </ol>
-<p><strong>Expected reasoning:</strong></p>
-<ol>
-<li>It increases from \(0.20(9)=1.8\ \text{V}\) to \(0.60(9)=5.4\ \text{V}\).</li>
-<li>The switching waveform changes rapidly; the simulated response rises gradually.</li>
-<li>It stays high for the whole period.</li>
-<li>No. Load changes the torque and speed relationship.</li>
-<li>Approximately \(63\%\).</li>
-<li>The model responds faster, but its final target remains the same.</li>
-</ol>
+<p>The program’s built-in checks verify that:</p>
+<ul>
+<li>the first simulated echo time corresponds to a 2.00 metre range;</li>
+<li>the second estimated range is 1.53 metres;</li>
+<li>exactly two simulated actions are <code>STOP</code>;</li>
+<li>the final action is <code>STOP</code>.</li>
+</ul>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Treating duty cycle as exact speed</h3>
-<p>A \(30\%\) duty cycle is not automatically \(30\%\) of maximum rpm. Load, friction, battery voltage, motor characteristics, driver losses, and current limits matter.</p>
-<h3>Mistake 2: Treating ideal average voltage as measured motor voltage</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D V_{\text{supply}}\]</span></div>
-<p>applies to the explicitly assumed waveform. Driver topology and PWM mode determine actual motor-terminal voltage and current.</p>
-<h3>Mistake 3: Confusing frequency and duty cycle</h3>
-<p>Frequency describes how often the pattern repeats. Duty cycle describes the fraction of each period spent on. Either can change while the other remains constant.</p>
-<h3>Mistake 4: Connecting a motor directly to a computer pin</h3>
-<p>A computer pin is a logic output, not a motor power supply. Use a properly rated motor driver.</p>
-<h3>Mistake 5: Ignoring noise and stalled-current heating</h3>
-<p>Motors can disturb controller power and communication, while a stalled motor can draw high current and heat rapidly. Use suitable suppression, wiring, cooling, fusing, and current limiting.</p>
-<h3>Mistake 6: Assuming low duty cycle must move the robot</h3>
-<p>Static friction and gearbox friction may prevent motion at low commands. The threshold can change with surface, payload, battery state, and motor temperature.</p>
+<h3>Forgetting the return journey</h3>
+<p>Using \(d=vt\) treats the measured time as if the sound travelled only one way. An echo sensor measures the outward and return journey, so use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{vt}{2}\]</span></div>
+<h3>Mixing milliseconds and seconds</h3>
+<p>The speed \(343\ \text{m/s}\) requires time in seconds. A value of \(5.8\) milliseconds must become \(0.0058\) seconds.</p>
+<h3>Treating range as exact truth</h3>
+<p>An ultrasonic reading is an estimate. Sound may reflect from the nearest part of an object, a side surface, the floor, or another obstacle.</p>
+<h3>Assuming every surface gives a strong echo</h3>
+<p>Hard, broad surfaces usually reflect sound more effectively than soft materials. Thick fabric, foam, or an object with an angled surface may absorb or redirect much of the pulse.</p>
+<h3>Measuring while the robot is vibrating</h3>
+<p>Motor vibration can shake the sensor and change its angle. A small angle change can cause a large difference in the reflected echo.</p>
+<h3>Expecting a narrow beam</h3>
+<p>Ultrasonic sound spreads. The sensor may detect an object that is not directly in front of the robot, especially if that object is large or close.</p>
+<h3>Triggering measurements too quickly</h3>
+<p>The robot should allow enough time for an old echo to finish before sending another pulse. Otherwise, echoes from different pulses may be confused.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<p>Test \(10\%\), \(30\%\), \(50\%\), \(70\%\), and \(90\%\). Record the result:</p>
-<div class="table-scroll"><table><thead><tr><th>Duty cycle</th><th>Ideal average representation at \(9\ \text{V}\)</th><th>Model target</th><th>Response observation</th></tr></thead><tbody><tr><td>10%</td><td></td><td></td><td></td></tr><tr><td>30%</td><td></td><td></td><td></td></tr><tr><td>50%</td><td></td><td></td><td></td></tr><tr><td>70%</td><td></td><td></td><td></td></tr><tr><td>90%</td><td></td><td></td><td></td></tr></tbody></table></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}=D(9\ \text{V})\]</span></div>
-<p><strong>Success criteria:</strong></p>
+<h3>Challenge: RoboRover’s cardboard checkpoint</h3>
+<p>Modify the Python program so that RoboRover uses a stop threshold of \(0.80\) metres instead of \(0.60\) metres.</p>
+<p>Before running it:</p>
+<ol>
+<li>Predict how many simulated readings will produce <code>STOP</code>.</li>
+<li>Identify which measurement numbers will stop the robot.</li>
+<li>Explain why a larger threshold causes an earlier stop.</li>
+</ol>
+<p>Then run the program and verify your prediction.</p>
+<h3>Optional extension</h3>
+<p>Add a second rule:</p>
 <ul>
-<li>all five averages are correct;</li>
-<li>the \(90\%\) value is \(8.1\ \text{V}\);</li>
-<li>model targets differ, but response time is initially the same;</li>
-<li>entries identify the values as idealized model values;</li>
-<li>the explanation distinguishes duty cycle from <code>time_constant</code>.</li>
+<li><code>STOP</code> if the estimated range is below \(0.80\) metres;</li>
+<li><code>CHECK SENSOR</code> if the estimated range is above \(2.0\) metres;</li>
+<li><code>GO</code> otherwise.</li>
 </ul>
-<p><strong>Prediction extension:</strong> Change <code>time_constant = 0.20</code> first to <code>0.05</code>, then to <code>0.50</code>. Write down how the curve should change before rerunning the program. A smaller time constant produces a faster response; a larger one produces a slower response. The final target does not change.</p>
-<p>Estimate when the response reaches \(63\%\) of its final model target. This tests the simplified model; it is not a measurement of a real motor’s electrical or mechanical time constant.</p>
+<p>Use a new list of distances that includes at least one value above \(2.0\) metres. Be careful to keep the comparison order clear.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
-<p>Write a complete answer for each prompt.</p>
 <ol>
-<li>Define a \(75\%\) duty cycle in words.</li>
-<li>Calculate the ideal average of an assumed \(0\)-to-\(8\ \text{V}\) waveform at \(25\%\) duty cycle.</li>
-<li>Explain the difference between PWM frequency and duty cycle.</li>
-<li>Give two reasons a real motor may not reach the speed suggested by a duty-cycle model.</li>
-<li>Explain why ideal average waveform voltage is not guaranteed motor-terminal voltage or speed.</li>
-<li>State what the first-order model predicts after one time constant.</li>
+<li>What does an ultrasonic distance sensor measure directly: distance or echo time?</li>
+</ol>
+<ol>
+<li>Why does the equation \(d=vt/2\) divide by two?</li>
+</ol>
+<ol>
+<li>An echo returns after \(0.0040\) seconds. Using \(v=343\ \text{m/s}\), what is the estimated range?</li>
+</ol>
+<ol>
+<li>Name one physical situation that can make an ultrasonic range reading unreliable.</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>The signal is in its on or commanded-drive state for \(75\%\) of each period and off for \(25\%\).</li>
-<p>2.</p>
+<li>It measures <strong>echo time</strong> directly. The robot calculates range from that time using an assumed speed of sound.</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_{\text{avg, ideal}}
-   =0.25(8\ \text{V})
-   =2\ \text{V}\]</span></div>
-<p>This is the average of the assumed waveform, not necessarily the motor-terminal voltage.</p>
 <ol>
-<li>Frequency is the number of complete periods per second, measured in hertz. Duty cycle is the fraction of each period spent in the on state.</li>
-<li>Load, friction, low battery voltage, driver voltage loss, insufficient starting torque, current limiting, and motor behavior omitted from the model can all matter.</li>
-<li>The driver’s topology and PWM mode determine current paths and terminal voltage. Real speed also depends on current, torque balance, back EMF, load, friction, and mechanical dynamics.</li>
-<li>The model reaches approximately \(63.2\%\) of the final change after one time constant. The discrete simulation produces a nearby value.</li>
+<li>The sound travels from the sensor to the object and then back to the sensor. The measured path is twice the one-way distance.</li>
+</ol>
+<p>3.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{(343\ \text{m/s})(0.0040\ \text{s})}{2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{1.372\ \text{m}}{2}
+=0.686\ \text{m}\]</span></div>
+<p>The estimated range is \(0.686\) metres, or \(68.6\) centimetres.</p>
+<ol>
+<li>Acceptable answers include a soft surface, an angled object, a narrow object, strong motor vibration, temperature different from the assumed value, an object outside the useful range, or echoes from multiple surfaces.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>A real RoboRover control chain may look like this:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Robot controller
-       |
-       v
-Logic PWM command
-       |
-       v
-Motor driver
-power switching
-       |
-       v
-Brushed DC motor
-       |
-       v
-Wheel</code></pre></div>
-<p>The driver must be rated for the motor’s supply voltage, continuous current, startup current, and stall current. A practical setup may also require:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Three-panel technical diagram showing strong ultrasonic reflection from a flat wall, weak reflection from soft fabric, and a missed echo from an angled surface."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Surface material and angle affect whether the receiver obtains a useful echo.</p>
+<p>On a real RoboRover, an ultrasonic sensor might be mounted at the front bumper. The software could repeatedly:</p>
+<ol>
+<li>trigger a sound pulse;</li>
+<li>measure the echo duration;</li>
+<li>calculate estimated range;</li>
+<li>compare the range with a safety threshold;</li>
+<li>command the motors to slow or stop.</li>
+</ol>
+<p>That is a sensing-and-action loop, but the range measurement itself is not automatically perfect feedback control. The quality of the result depends on the whole engineering system: sensor timing, mounting, wiring, software delays, motor stopping distance, and the shape of the environment.</p>
+<p>A practical failure mode is the <strong>angled wall</strong>. If the sound strikes a smooth wall at a steep angle, the echo may bounce away from the receiver. The sensor may report no echo or may detect a farther object instead. A robot designer might respond by:</p>
 <ul>
-<li>a suitable motor supply;</li>
-<li>a defined common-ground or isolated interface;</li>
-<li>fuse or electronic current limiting;</li>
-<li>manufacturer-specified flyback paths, snubbers, or suppression;</li>
-<li>safe wiring and cooling;</li>
-<li>mechanical clearance and an emergency disconnect.</li>
+<li>mounting several sensors at different angles;</li>
+<li>taking repeated readings;</li>
+<li>rejecting impossible sudden jumps;</li>
+<li>combining ultrasonic readings with another sensor type.</li>
 </ul>
-<p>Real behavior varies with battery discharge, payload, floor surface, left-right motor mismatch, wheel slip, command latency, current limits, and PWM mode. Coast, brake, and recirculation modes can change current ripple, noise, torque, and measured terminal voltage.</p>
-<h3>Instructor-approved low-voltage observation</h3>
-<p>For an actionable and safe observation, use a documented, isolated, current-limited low-voltage training rig. With the motor disconnected, students may observe the controller’s <strong>logic command PWM</strong> using a logic analyzer or oscilloscope. Verify the instrument’s voltage and ground limits first.</p>
-<p>Do not probe an unknown battery pack, H-bridge output, switching node, or motor terminal. Do not attach an oscilloscope ground clip to a switching node unless the driver documentation and measurement method explicitly permit it. Power down before changing wiring, secure moving parts, and follow the instrument and driver instructions.</p>
-<p>Later, wheel sensors can measure actual motion and support feedback control. For now, the central idea is that PWM requests different drive levels; it does not directly specify exact speed.</p>
-<p>Next class, gears will show how mechanical transmission changes the relationship between speed and torque.</p>
+<p>Another caveat is temperature. Since sound speed changes with air temperature, a robot operating in a cold room and one operating in a warm room can calculate slightly different ranges from the same echo time. For basic obstacle avoidance, this error may be acceptable. For precise measurement, compensation and calibration become more important.</p>
+<p>Next class’s infrared sensors use electromagnetic radiation rather than sound. Infrared sensing can be faster or more compact in some designs, but it has its own difficulties, including surface reflectivity and interference from surrounding light. No single sensor is reliable in every environment.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>PWM (pulse-width modulation):</strong> A method of controlling a switching command by changing the fraction of each period spent in the on or commanded-drive state.</li>
-<li><strong>Logic command PWM:</strong> A low-power digital signal from a controller to a motor driver requesting a switching pattern.</li>
-<li><strong>Power-stage PWM:</strong> The motor driver’s switching of the higher-power motor circuit in response to a command.</li>
-<li><strong>Brushed DC motor:</strong> A motor using brushes and a commutator to switch current through its windings as the rotor turns.</li>
-<li><strong>Duty cycle:</strong> The fraction of one PWM period for which the signal is in its on state, commonly expressed as a percentage.</li>
-<li><strong>Period:</strong> The time required for one complete repeating PWM pattern, measured in seconds.</li>
-<li><strong>Frequency:</strong> The number of complete periods per second, measured in hertz (Hz).</li>
-<li><strong>On-time:</strong> The portion of a period during which the PWM signal is in its on or commanded-drive state.</li>
-<li><strong>Ideal average voltage:</strong> The ideal time-average of a specified power-stage waveform; for an assumed \(0\)-to-\(V_{\text{supply}}\) waveform, it is \(D V_{\text{supply}}\).</li>
-<li><strong>Motor-terminal voltage:</strong> The voltage measured across the motor terminals; its switching behavior depends on driver topology and PWM mode.</li>
-<li><strong>Winding current:</strong> Current through the motor coils. Inductance causes it to change over time rather than instantaneously.</li>
-<li><strong>Motor driver:</strong> An electronic circuit that allows a low-power controller to command the larger voltage and current required by a motor.</li>
-<li><strong>Saturation:</strong> A limit beyond which a system cannot increase its output, such as a maximum duty cycle of \(100\%\).</li>
-<li><strong>Torque:</strong> A turning effect that causes or resists rotation, measured in newton-metres (N·m).</li>
-<li><strong>Speed control:</strong> Changing a motor’s rotational speed by changing its drive command. PWM can influence speed under a given load and control arrangement, but it does not guarantee a particular speed directly.</li>
+<li><strong>Ultrasonic</strong> — involving sound above the normal human hearing range.</li>
+<li><strong>Echo</strong> — a reflected sound wave detected after it travels to a surface and returns.</li>
+<li><strong>Time of flight (TOF)</strong> — the travel time of a signal from transmission to reception; for an echo sensor, this is usually the round-trip time.</li>
+<li><strong>Range</strong> — the estimated distance from a sensor to a detected object or surface.</li>
+<li><strong>Transmitter</strong> — the sensor part that sends the ultrasonic pulse.</li>
+<li><strong>Receiver</strong> — the sensor part that detects the returning echo.</li>
+<li><strong>Speed of sound</strong> — the rate at which sound travels through a medium such as air; this lesson uses \(343\ \text{m/s}\) as an approximate room-temperature value.</li>
+<li><strong>Round trip</strong> — travel from the sensor to the object and back to the sensor.</li>
+<li><strong>Measurement error</strong> — the difference between a reported value and the physical quantity being estimated.</li>
+<li><strong>Field of view</strong> — the region in which a sensor is likely to detect objects; for an ultrasonic sensor, it is generally a spread-out sound region rather than a perfectly narrow line.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search terms include:</p>
+<p>For further study, explore these search-friendly resource topics:</p>
 <ul>
-<li>“PWM duty cycle brushed DC motor driver beginner”</li>
-<li>“brushed DC motor torque speed curve”</li>
-<li>“motor driver current limit PWM”</li>
-<li>“oscilloscope PWM waveform freewheel current”</li>
-<li>“brushed DC motor electrical noise suppression”</li>
-<li>“PWM frequency switching losses motor driver”</li>
+<li>“ultrasonic sensor time of flight laboratory”</li>
+<li>“speed of sound temperature experiment”</li>
+<li>“ultrasonic sensor minimum range maximum range”</li>
+<li>“robot sensor fusion ultrasonic infrared”</li>
+<li>“echo reflection angle sound experiment”</li>
 </ul>
-<p>For hardware work, study the driver documentation for voltage range, continuous and startup current, current-decay mode, PWM-frequency range, thermal limits, and protection requirements.</p>
+<p>A useful hands-on experiment is to place a large flat book at several measured distances from a sensor and compare calculated range with a ruler measurement. Repeat each measurement several times and record the spread of the readings. That spread is an introduction to practical sensor uncertainty.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Class 9: Gears: Trading Speed for Strength</strong></p>
-<p>RoboRover’s motor may spin quickly, while its wheel needs greater turning strength. Next class, we will use gear ratios to examine the trade-off:</p>
-<ul>
-<li>fewer wheel revolutions can produce more torque;</li>
-<li>more wheel revolutions can produce more speed;</li>
-<li>real gears lose energy through friction.</li>
-</ul>
-<p>PWM adjusts electrical drive. Gears transform motor motion mechanically.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/007-motors-turning-electricity-into-motion/"><span>Previous stream</span><b>Class 07 · Motors: Turning Electricity into Motion</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 09 · Gears: Trading Speed for Strength</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>In <strong>Class 12: Infrared Sensors</strong>, RoboRover will compare sound-based distance sensing with infrared sensing. You will investigate how reflected light can reveal nearby objects, why dark and shiny surfaces can behave differently, and why sensor choice depends on the environment.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/010-sensors-giving-robots-senses/"><span>Previous stream</span><b>Class 10 · Sensors: Giving Robots Senses</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 12 · Infrared Sensors</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -592,7 +472,7 @@ Wheel</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=8,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=11,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
