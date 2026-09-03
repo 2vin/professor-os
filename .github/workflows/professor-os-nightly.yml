@@ -3,7 +3,7 @@ name: Professor OS Nightly Lecture
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 20 * * *'
+    - cron: '20 18 * * *'
       timezone: 'Asia/Kolkata'
 
 permissions:
