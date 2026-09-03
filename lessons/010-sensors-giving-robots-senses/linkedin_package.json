@@ -1,0 +1,8 @@
+{
+  "title": "How Robot Sensors Turn Physical Reality into Useful Measurements",
+  "description": "A practical robotics lesson on measurement, noise, bias, averaging, and calibration, with a Python simulation that helps learners test sensor corrections.",
+  "commentary": "A robot does not receive perfect truth from a sensor. It receives a signal that must be interpreted, checked, and sometimes corrected.\n\nThis Professor OS lesson introduces the foundations behind reliable robotic perception:\n\n\u2022 the difference between a physical quantity and a sensor reading;\n\u2022 how noise creates variation between repeated measurements;\n\u2022 why averaging can reduce changing noise but not constant bias;\n\u2022 how a known reference can support a simple offset calibration;\n\u2022 why vibration, mounting geometry, target surfaces, and temperature matter on real robots.\n\nThe included Python lab lets learners predict the result, calculate a calibration offset, compare raw and corrected readings, and inspect the remaining variation in a plot. The lesson also emphasizes an important engineering habit: calibration improves a model of the sensor under particular conditions; it does not make the sensor infallible.\n\nTry the lab with a new reference distance and decide whether the same correction should still be trusted. Then consider what would change while RoboRover is moving.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #Sensors #Calibration #Python",
+  "thumbnail_alt_text": "RoboRover sensor calibration diagram showing raw readings, bias correction, and a reference target",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
