@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "HC-SR04 ultrasonic sensor mounted on small educational robot front bumper real hardware photograph",
+  "media_style": "photo",
+  "reason": "A real hardware photograph would ground the otherwise highly diagrammatic lesson by showing transducer placement, mounting height, wiring context, and the practical scale of a robot-to-wall measurement. It should supplement rather than replace the excellent generated diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
