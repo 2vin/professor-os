@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled rover with visible geared drive motors and several clearly mounted sensors, facing a wall while translucent measurement rays and labeled numerical readings suggest imperfect sensing. Show a clean robotics laboratory environment, realistic materials, restrained modern textbook styling, precise hardware, soft studio lighting, and strong visual emphasis on the idea that sensors convert physical conditions into measurements. Avoid decorative sci-fi elements, clutter, and unnecessary text.",
+    "caption": "RoboRover uses sensors to estimate conditions in the physical world; every reading may contain noise and bias.",
+    "alt_text": "A small wheeled rover with geared motors and sensors faces a wall in a laboratory, with visual measurement rays indicating that the robot is estimating distance."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical diagram showing the sensor measurement pipeline from left to right: physical wall at a known distance, sensor interaction, electrical or digital signal, software calculation, calibrated estimated measurement, and robot decision. Include a second compact comparison showing raw readings clustered above the true value and corrected readings clustered around it. Use minimal essential labels, clear arrows, professional robotics textbook linework, restrained colors, and no decorative imagery.",
+      "caption": "A sensor does not transmit perfect truth; it converts a physical condition into a signal that software interprets.",
+      "alt_text": "A labeled flow diagram shows a physical target becoming a sensor signal, then a calculated and calibrated estimate used by a robot."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible cutaway illustration of RoboRover facing a flat wall, with a sensor beam aimed at the wall and five nearby numerical distance readings displayed as a visual cluster. Show the actual distance marked as 1.00 meters, raw readings slightly above it, and a calibration box indicating subtraction of a 0.05 meter bias. Make precision, bias, and noise visually distinguishable using alignment and spread rather than heavy text. Premium engineering editorial style, realistic rover, clean background.",
+      "caption": "The readings are close together but shifted high: this illustrates precision with bias and measurement noise.",
+      "alt_text": "RoboRover measures a wall with repeated readings clustered above the true 1.00 meter distance, followed by an offset calibration correction."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear educational calibration diagram with two stages. Stage one shows RoboRover 0.50 meters from a reference board and five sensor readings averaging 0.55 meters, producing an estimated positive bias of 0.05 meters. Stage two shows a new group of readings around 1.06 meters being corrected to an average of 1.01 meters. Use a ruler-like distance marker, compact arithmetic labels, arrows, units in meters, and precise professional technical illustration style.",
+      "caption": "Calibration estimates a repeatable offset from a known reference and subtracts it from later readings.",
+      "alt_text": "A two-stage diagram shows a known 0.50 meter calibration target, a 0.05 meter estimated bias, and corrected later distance readings."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of RoboRover mounted on a test platform, comparing a stationary sensor setup with a driving setup. Show gears and wheels creating vibration, a slightly tilted distance sensor, and environmental factors such as a dark angled target and temperature indicator. Use subtle callout lines for vibration, mounting angle, target surface, and range limit. Premium robotics textbook composition, realistic materials, uncluttered laboratory background, no meaningless labels.",
+      "caption": "Real robots change the sensing conditions through vibration, motion, mounting geometry, target surfaces, and environmental changes.",
+      "alt_text": "A rover test scene illustrates how motor vibration, sensor angle, target surface, and operating conditions can affect measurements."
+    }
+  ]
+}
