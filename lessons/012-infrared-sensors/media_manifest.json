@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational robot with front-mounted reflective infrared sensor testing pale cardboard dark material and angled surface laboratory photograph",
+  "media_style": "photo",
+  "reason": "The lesson already has strong explanatory diagrams, but a real photograph of a reflective IR module mounted on a robot would ground the emitter-receiver arrangement, wiring context, and physical calibration process. This is especially useful because the lesson distinguishes a simplified simulation from real hardware.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
