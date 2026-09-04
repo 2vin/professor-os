@@ -1,0 +1,8 @@
+{
+  "title": "How Reflective Infrared Sensors Help Robots Detect Nearby Objects",
+  "description": "A practical robotics lesson on reflective IR sensing, calibration, surface reflectivity, threshold decisions, simulation, and why proximity is not the same as exact distance.",
+  "commentary": "A robot\u2019s infrared sensor does not directly measure distance in the way an ultrasonic sensor measures echo time. It measures returned light\u2014and that signal depends on distance, surface reflectivity, angle, lighting, and sensor geometry.\n\nThis Professor OS lesson helps students:\n\n\u2022 compare reflective IR sensing with ultrasonic time-of-flight;\n\u2022 understand why a dark and pale object can produce different readings at the same distance;\n\u2022 use a deliberately simplified model, S = KR/d2, without mistaking it for a universal sensor law;\n\u2022 choose and test a threshold for a practical robot decision;\n\u2022 explore calibration and noise with a Python simulation.\n\nThe central engineering habit is simple: do not trust a precise-looking sensor number until you have tested what it means in the real environment.\n\nTry the lab by changing reflectivity and threshold, then predict when RoboRover will report CLOSE. What changes when the same threshold is applied to two different surfaces?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #Sensors #Python #Engineering",
+  "thumbnail_alt_text": "Wheeled robot using a reflective infrared sensor to detect a nearby wall",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

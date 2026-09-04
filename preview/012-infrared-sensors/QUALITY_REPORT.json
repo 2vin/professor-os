@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 3118,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 93,
+      "clarity": 92,
+      "depth": 91,
+      "examples": 93,
+      "interactivity": 91,
+      "code_alignment": 96,
+      "visual_teaching_plan": 91,
+      "originality": 87,
+      "consistency": 89,
+      "accessibility": 92
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove the sentence beginning \"An illustrator could show three panels\" because the lesson already contains the corresponding visual; it reads like leftover production direction rather than published instruction.",
+      "Clarify that the inverse-square equation is a deliberately simplified classroom model and may not even approximate some short-range reflective modules; the existing caveat is good but could appear before the equation\u2019s interpretation to prevent overgeneralization.",
+      "The phrase \"feedback-related decision\" is unnecessarily ambiguous. Say that a threshold action uses sensor-based feedback, while a single threshold trigger is not continuous regulation or closed-loop distance control.",
+      "Consider removing or explaining the sensor height detail in the worked robotics example. It is not used in the calculation and may distract beginners from the stated sensor-to-wall distance.",
+      "Add one compact note that some common IR modules estimate proximity indirectly through photodiode intensity, while others use triangulation or onboard signal processing. This would prevent students from assuming all IR sensors follow the same signal-distance behavior.",
+      "The lesson is strong but slightly long for a foundational sensor class. The repeated warnings about calibration, surface properties, and exact distance could be consolidated in one or two places without losing rigor.",
+      "In the optional noise extension, specify a reproducible disturbance range or example implementation so students can complete the activity without inventing the noise model themselves."
+    ],
+    "linkedin": {
+      "title": "How Reflective Infrared Sensors Help Robots Detect Nearby Objects",
+      "description": "A practical robotics lesson on reflective IR sensing, calibration, surface reflectivity, threshold decisions, simulation, and why proximity is not the same as exact distance.",
+      "commentary": "A robot\u2019s infrared sensor does not directly measure distance in the way an ultrasonic sensor measures echo time. It measures returned light\u2014and that signal depends on distance, surface reflectivity, angle, lighting, and sensor geometry.\n\nThis Professor OS lesson helps students:\n\n\u2022 compare reflective IR sensing with ultrasonic time-of-flight;\n\u2022 understand why a dark and pale object can produce different readings at the same distance;\n\u2022 use a deliberately simplified model, S = KR/d\u00b2, without mistaking it for a universal sensor law;\n\u2022 choose and test a threshold for a practical robot decision;\n\u2022 explore calibration and noise with a Python simulation.\n\nThe central engineering habit is simple: do not trust a precise-looking sensor number until you have tested what it means in the real environment.\n\nTry the lab by changing reflectivity and threshold, then predict when RoboRover will report CLOSE. What changes when the same threshold is applied to two different surfaces?\n\n#RoboticsEducation #Sensors #Python #Engineering",
+      "thumbnail_alt_text": "Wheeled robot using a reflective infrared sensor to detect a nearby wall"
+    },
+    "media_query": "reflective infrared proximity sensor module mounted on small mobile robot calibration test",
+    "image_query": "real reflective IR sensor emitter receiver module mounted on wheeled robot facing white and dark test surfaces",
+    "youtube_query": "reflective infrared proximity sensor robot calibration ambient light surface reflectivity",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the optical concept effectively, but a real engineering photograph would ground the emitter-receiver arrangement, wiring, module mounting, and physical calibration process. It would also reinforce the distinction between the simplified Python simulation and measurements from real hardware.",
+    "media_would_help": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled robot, approaching a pale cardboard wall in a clean robotics lab. Show a front-mounted reflective infrared sensor emitting invisible infrared rays toward the wall, with subtle technical ray visualization and a small sensor-readout concept indicating stronger returned light at close range. Technically plausible sensor placement, realistic wheels and chassis, restrained modern textbook styling, clear lighting, no decorative sci-fi elements, no watermark, minimal labels.",
+    "caption": "RoboRover uses a front-mounted reflective infrared sensor to detect light returned from a nearby surface.",
+    "alt_text": "Educational engineering illustration of a small wheeled robot facing a cardboard wall, with infrared light emitted and reflected back to a front-mounted sensor."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram for a robotics textbook showing a reflective infrared proximity sensor with an IR emitter and receiver side by side, infrared rays traveling toward a nearby object and some rays reflecting back into the receiver. Include a second faint comparison showing weaker returned light at greater distance. Use precise arrows, restrained colors, white background, minimal essential labels, no clutter.",
+      "caption": "A reflective IR sensor estimates proximity from the strength of light returning to its receiver.",
+      "alt_text": "Diagram of an infrared emitter and receiver sending light toward an object and detecting reflected light, with stronger return shown for the closer object."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Three-panel premium technical illustration comparing reflective infrared sensing cases: a close pale surface returning strong infrared light, a farther pale surface returning weaker light, and a close dark or angled surface returning unexpectedly weak light. Show the same sensor geometry in each panel, subtle infrared ray paths, clear visual contrast, realistic materials, suitable for an engineering textbook.",
+      "caption": "Distance is only one influence on a reflective IR reading; surface reflectivity and angle matter too.",
+      "alt_text": "Three-panel illustration showing how a reflective infrared sensor responds differently to distance, surface color, and object angle."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical calibration diagram of RoboRover approaching a pale cardboard wall, with a table-like visual progression at 12 cm, 8 cm, and 6 cm. Show sensor readings increasing from low to above a threshold of 2.0 sensor units, with the 6 cm position marked as the slow-down decision. Include a clean distance ruler and sensor ray geometry, minimal labels, premium robotics textbook design.",
+      "caption": "A threshold is chosen from measured behavior: in this example, the 6 cm reading crosses the slow-down boundary.",
+      "alt_text": "Calibration diagram of a robot at several distances from a wall, showing infrared readings and a threshold crossing at 6 centimeters."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a small educational robot platform in a controlled test area using a front reflective infrared sensor beside an ultrasonic sensor, with separate visual callouts showing infrared returned-light sensing and ultrasonic echo timing. Include a pale wall, dark material sample, and angled shiny sample as test targets. Professional laboratory composition, realistic hardware, restrained modern styling, no clutter or watermark.",
+      "caption": "Testing several materials and sensor types reveals why sensor readings must be calibrated in the real environment.",
+      "alt_text": "Robotics laboratory scene with a small wheeled robot testing reflective infrared and ultrasonic sensors against pale, dark, and angled surfaces."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 7: Motors: Turning Electricity into Motion · Professor OS</title>
+<title>Class 12: Infrared Sensors · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,21 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -50,525 +35,432 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="7">
+<body data-class="12">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_07</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_12</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_07</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 07 · Hardware &amp; Sensors</div><h1>Motors: Turning Electricity into Motion</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~24 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>DC motor, torque, RPM</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_12</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 12 · Hardware &amp; Sensors</div><h1>Infrared Sensors</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 91/100</b></div><div class="meta"><span>Concepts</span><b>reflection, proximity</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Motors: Turning Electricity into Motion</h2>
+      <h2>Class podcast · Infrared Sensors</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-07-motors-turning-electricity-into-motion.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-12-infrared-sensors.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 7: Motors: Turning Electricity into Motion</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 12: Infrared Sensors</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 6, we learned that electricity can provide energy for a robot. We looked at voltage, current, resistance, power, batteries, switches, and electrical connections.</p>
-<p>Now RoboRover needs to do something with that energy.</p>
-<p>A battery does not make RoboRover move by itself. It provides electrical energy to a <strong>motor</strong>, and the motor changes that energy into rotation. Wheels, gears, belts, fans, pumps, and robotic joints can then use that rotation to perform physical work.</p>
-<p>In the next class, we will learn <strong>motor control with PWM</strong>. PWM, or pulse-width modulation, is a method for controlling the average electrical power delivered to a motor. Before we can control a motor intelligently, we need to understand what its important mechanical quantities mean.</p>
+<p>RoboRover has just learned to measure distance with an <strong>ultrasonic sensor</strong>. It sends out a sound pulse, waits for an echo, and estimates distance from the echo’s travel time.</p>
+<p>Today RoboRover will use a different kind of invisible wave: <strong>infrared light</strong>, often shortened to <strong>IR</strong>. An infrared proximity sensor sends out light, observes how much returns, and uses that returned light to notice nearby objects.</p>
+<p>The two sensors answer related questions in different ways:</p>
+<div class="table-scroll"><table><thead><tr><th>Sensor</th><th>Sends</th><th>Measures</th><th>Main clue</th></tr></thead><tbody><tr><td>Ultrasonic</td><td>Sound pulse</td><td>Echo travel time</td><td>“How long did the echo take?”</td></tr><tr><td>Infrared reflective sensor</td><td>Infrared light</td><td>Returned light strength</td><td>“How much light came back?”</td></tr></tbody></table></div>
+<p>Next class, RoboRover will measure <strong>wheel motion with encoders</strong>. That will shift our attention from “What is near the robot?” to “How far have the wheels turned?”</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>describe how a DC motor changes electrical energy into rotational motion;</li>
-<li>explain <strong>torque</strong> as a turning effect;</li>
-<li>explain <strong>RPM</strong> as rotational speed;</li>
-<li>distinguish torque from speed;</li>
-<li>distinguish motor-shaft torque, wheel torque after gearing, and force at the wheel–floor contact patch;</li>
-<li>calculate wheel force and rover speed from motor and wheel values;</li>
-<li>calculate the approximate effect of a gearbox ratio and efficiency;</li>
-<li>understand why real motors slow down under load;</li>
-<li>use a simple Python model to explore a motor’s torque–speed relationship;</li>
-<li>make a simple measurement of wheel speed from video.</li>
+<li>explain how a reflective infrared sensor detects a nearby object;</li>
+<li>distinguish light reflection from ultrasonic echo timing;</li>
+<li>describe why surface color, texture, angle, and sunlight affect an IR reading;</li>
+<li>use a simple calibration model to estimate proximity;</li>
+<li>choose a threshold for an “object detected” decision;</li>
+<li>identify why an IR sensor is usually a proximity detector rather than a perfect distance ruler.</li>
 </ul>
-<p>Our central question is:</p>
-<blockquote>If RoboRover receives electrical energy, how much turning force and how much rotational speed can its motors produce?</blockquote>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Three electrical quantities from Class 6 are especially useful here:</p>
-<ul>
-<li><strong>Voltage</strong>, measured in volts (V), is the electrical potential difference that can push charge through a circuit.</li>
-<li><strong>Current</strong>, measured in amperes (A), is the rate at which electric charge flows.</li>
-<li><strong>Power</strong>, measured in watts (W), is the rate of energy transfer.</li>
-</ul>
-<p>For a simple electrical calculation:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P = VI\]</span></div>
+<p>An ultrasonic sensor sends a sound pulse and measures the time until an echo returns. If the round-trip time is \(t\), the estimated distance \(d\) can be modeled as</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{v t}{2}\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(P\) is electrical power in watts (W);</li>
-<li>\(V\) is voltage in volts (V);</li>
-<li>\(I\) is current in amperes (A).</li>
+<li>\(d\) is the distance to the object, in metres \((\text{m})\);</li>
+<li>\(v\) is the speed of sound, in metres per second \((\text{m/s})\);</li>
+<li>\(t\) is the round-trip travel time, in seconds \((\text{s})\);</li>
+<li>the factor \(2\) appears because the sound travels to the object and back.</li>
 </ul>
-<p>A motor uses electrical power, but not all of it becomes useful motion. Some energy becomes heat, sound, friction, and vibration.</p>
-<p><strong>Prediction:</strong> If RoboRover’s wheels suddenly meet a carpet instead of a smooth floor, will the motors usually spin faster, slower, or at the same speed? Write down your prediction before continuing.</p>
+<p>The ultrasonic measurement depends mainly on <strong>time</strong>. Infrared reflection depends mainly on <strong>returned light strength</strong>, so its behavior is affected more strongly by the object’s surface and angle.</p>
+<p><strong>Predict before reading on:</strong> If a black object and a white object are placed at exactly the same distance from a reflective IR sensor, will the sensor necessarily produce the same reading?</p>
+<p>The answer is no. Dark surfaces often return less infrared light than pale, reflective surfaces, although the exact behavior depends on the material and sensor design.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Technical comparison diagram showing torque as twisting force around an axis and RPM as the number of complete rotations per minute."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Torque describes turning strength, while RPM describes how quickly the shaft turns.</p>
-<p>A motor is like an invisible hand turning a shaft thousands of times.</p>
-<p>Imagine holding a screwdriver:</p>
-<ul>
-<li>pushing hard on the handle while turning gives you more <strong>turning effect</strong>;</li>
-<li>turning the screwdriver rapidly gives you more <strong>rotational speed</strong>.</li>
-</ul>
-<p>Motors have the same two important mechanical properties:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Diagram of an infrared emitter and receiver sending light toward an object and detecting reflected light, with stronger return shown for the closer object."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A reflective IR sensor estimates proximity from the strength of light returning to its receiver.</p>
+<p>A reflective IR sensor is like a tiny flashlight and light detector mounted together.</p>
 <ol>
-<li><strong>Torque</strong>: how strongly the shaft can twist.</li>
-<li><strong>Rotational speed</strong>: how quickly the shaft turns.</li>
+<li>An <strong>IR emitter</strong> sends out infrared light.</li>
+<li>The light strikes a nearby surface.</li>
+<li>Some light is absorbed, scattered, or reflected.</li>
+<li>An <strong>IR receiver</strong> measures some of the returned light.</li>
+<li>The robot uses the measurement to infer whether something is nearby.</li>
 </ol>
-<p>A motor can spin quickly without producing much torque, or produce substantial torque while spinning slowly. A useful robot design must match both properties to the task.</p>
-<p>RoboRover needs enough torque to:</p>
-<ul>
-<li>overcome rolling resistance;</li>
-<li>accelerate its body;</li>
-<li>climb small slopes;</li>
-<li>push through small obstacles.</li>
-</ul>
-<p>It also needs enough speed to travel at a useful rate.</p>
-<p>A motor that spins extremely fast but cannot turn the wheels under load is not useful. A motor with huge torque but extremely slow rotation may move RoboRover, but very slowly.</p>
-<h3>Four quantities to keep separate</h3>
-<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Typical unit</th></tr></thead><tbody><tr><td>Motor torque</td><td>Turning effect at the motor shaft</td><td>N·m</td></tr><tr><td>Wheel torque</td><td>Turning effect at the wheel after gearing and losses</td><td>N·m</td></tr><tr><td>Wheel tangential force</td><td>Ideal force at the wheel edge, \(F=\tau/r\)</td><td>N</td></tr><tr><td>Rover linear speed</td><td>Forward distance traveled per unit time</td><td>m/s</td></tr></tbody></table></div>
-<p>A gearbox can change motor-shaft torque and speed before they reach the wheel. The force calculated from wheel torque is an ideal wheel-edge force. The usable force at the floor may be lower if static friction, tire deformation, or uneven loading limits traction.</p>
+<p>Infrared light is electromagnetic radiation beyond the red end of visible light. Humans usually cannot see it, but electronic receivers can detect it.</p>
+<p>A simple mental picture:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>             returned IR light
+                  ↖   ↑   ↗
+                   \  |  /
+                    \ | /
+              [IR receiver]
+              [IR emitter]  →→→  object
+                              ↗
+                           reflection</code></pre></div>
+<p>The sensor does not usually “see distance” directly. It sees a light signal that tends to change with distance and surface properties.</p>
+<p>That distinction matters. A reflective IR sensor may be excellent for detecting whether RoboRover is close to a white strip, wall, or object. It may be unreliable as a universal measuring tape.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
-<p><strong>How to inspect this visual:</strong> Follow the physical energy and force path from left to right, not an electronic signal path. Identify the voltage/current input, motor shaft, gearbox ratio, wheel radius, mechanical power output, and floor reaction force. Then predict which quantities change when the gearbox increases torque and reduces speed.</p>
-<figure><img loading="lazy" src="inline_02.png" alt="Cutaway diagram of a brushed DC motor with magnets, coil, commutator, shaft, gear, and wheel, showing the current path and how rotation creates forward force."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The motor’s magnetic forces turn the shaft, and the wheel converts shaft torque into force at the floor.</p>
-<p>Picture a cutaway diagram of RoboRover’s drive system:</p>
-<ol>
-<li>A battery sends electrical power through a motor driver toward a motor.</li>
-<li>Inside the motor, a stationary magnetic structure surrounds a rotating part called the <strong>rotor</strong>.</li>
-<li>Magnetic forces push and pull on the rotor, causing its shaft to turn.</li>
-<li>The motor shaft connects to a small gear.</li>
-<li>The small gear turns a larger wheel gear.</li>
-<li>The gearbox reduces rotational speed and can increase wheel torque.</li>
-<li>The wheel turns against the floor.</li>
-<li><strong>Static friction</strong> between the tire and floor provides the forward force on RoboRover without slipping.</li>
-</ol>
-<p>For a brushed DC motor, an illustrator could show:</p>
+<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Three-panel illustration showing how a reflective infrared sensor responds differently to distance, surface color, and object angle."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Distance is only one influence on a reflective IR reading; surface reflectivity and angle matter too.</p>
+<p>Imagine RoboRover approaching a cardboard box.</p>
+<p>At a large distance, only a small amount of the emitted infrared light returns to the receiver. As RoboRover moves closer, the returning signal often becomes stronger.</p>
+<p>Now imagine two boxes:</p>
 <ul>
-<li>permanent magnets on the stationary outer section;</li>
-<li>a coil of wire on the rotating part;</li>
-<li>a split commutator and brushes making electrical contact;</li>
-<li>arrows showing magnetic forces that keep the rotor turning;</li>
-<li>a clearly marked current path from a brush, through the coil, and back through the other brush.</li>
+<li>Box A has a pale, rough surface.</li>
+<li>Box B has a very dark surface.</li>
 </ul>
-<p>This is a schematic illustration, not a to-scale or universal representation of every brushed motor. Actual motor geometry varies.</p>
-<p>The commutator repeatedly changes which coil receives current. This keeps the magnetic push acting in a useful direction as the rotor rotates.</p>
-<p>A brushless DC motor performs similar electromagnetic conversion, but electronic switching replaces physical brushes and a commutator. We will use the general term <strong>DC motor</strong> here and focus on the motor’s mechanical behavior rather than its internal construction.</p>
+<p>At the same distance, Box A may return more infrared light. The sensor could interpret Box A as “closer” even when both boxes are equally far away.</p>
+<p>Now tilt the sensor:</p>
+<ul>
+<li>If it faces the box directly, much of the reflected light may return toward the receiver.</li>
+<li>If it points at a sharp angle, the light may reflect away from the receiver.</li>
+</ul>
+<p>An illustrator could show three panels:</p>
+<ol>
+<li><strong>Close pale object:</strong> strong reflected rays and a high sensor reading.</li>
+<li><strong>Far pale object:</strong> weaker reflected rays and a lower reading.</li>
+<li><strong>Close dark or angled object:</strong> unexpectedly weak returned light.</li>
+</ol>
+<p>The important lesson is that IR readings depend on both <strong>distance</strong> and <strong>reflectivity</strong>.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Torque: turning effect</h3>
-<p>Torque describes how strongly a force tries to rotate something.</p>
-<p>The basic equation is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau = Fr\]</span></div>
-<p>where:</p>
+<h3>Reflection and proximity</h3>
+<p>When infrared light reaches a surface, it can be:</p>
 <ul>
-<li>\(\tau\) is torque in newton-metres (N·m);</li>
-<li>\(F\) is force perpendicular to the lever in newtons (N);</li>
-<li>\(r\) is the perpendicular distance from the rotation axis in metres (m).</li>
+<li>absorbed by the material;</li>
+<li>scattered in many directions;</li>
+<li>reflected in a more organized direction;</li>
+<li>partially returned toward the sensor.</li>
 </ul>
-<p>A 10 N force applied 0.2 m from a hinge produces:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau = (10\ \text{N})(0.2\ \text{m}) = 2\ \text{N·m}\]</span></div>
-<p>The same force applied farther from the hinge produces more torque.</p>
-<p>For a wheel, wheel torque becomes an ideal tangential force at the wheel edge. Rearranging the torque equation gives:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{\tau_{\text{wheel}}}{r}\]</span></div>
-<p>A smaller wheel produces more ideal pushing force for the same wheel torque, but it travels a shorter distance per revolution. The actual force transmitted to the floor may be limited by static friction:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{usable}} \leq \mu_s N\]</span></div>
-<p>where \(\mu_s\) is the coefficient of static friction and \(N\) is the normal force carried by the driven wheel or wheels. Thus, the motor may be capable of more wheel-edge force than the tire–floor contact can transmit without slipping.</p>
-<h3>RPM: rotational speed</h3>
-<p><strong>RPM</strong> means <strong>revolutions per minute</strong>.</p>
-<p>One revolution means one complete turn. A motor speed of 120 RPM means the shaft completes 120 revolutions in one minute.</p>
-<p>RPM is not the same as the forward speed of RoboRover. To find forward speed, we also need the wheel size.</p>
-<p>A wheel with radius \(r\) travels one circumference during one revolution:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi r\]</span></div>
-<p>where:</p>
+<p>A reflective sensor is usually arranged so that the emitter and receiver face the same general area. It is not measuring an echo’s travel time. Instead, it measures the intensity of returned light.</p>
+<p>A stronger reading often means one or more of these things:</p>
 <ul>
-<li>\(C\) is circumference in metres (m);</li>
-<li>\(\pi\) is approximately 3.14159;</li>
-<li>\(r\) is wheel radius in metres (m).</li>
+<li>the object is closer;</li>
+<li>the surface reflects more IR light;</li>
+<li>the sensor is aimed more directly at the surface;</li>
+<li>the environment contains extra infrared light.</li>
 </ul>
-<p>If a wheel rotates at \(n\) revolutions per minute, its ideal rolling speed is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = \frac{nC}{60}\]</span></div>
-<p>where:</p>
+<p>A weaker reading may mean:</p>
 <ul>
-<li>\(v\) is linear speed in metres per second (m/s);</li>
-<li>\(n\) is rotational speed in revolutions per minute (RPM);</li>
-<li>\(C\) is wheel circumference in metres (m);</li>
-<li>\(60\) converts minutes to seconds.</li>
+<li>the object is farther away;</li>
+<li>the surface absorbs more IR;</li>
+<li>the sensor is angled away;</li>
+<li>sunlight or nearby lighting has disturbed the receiver;</li>
+<li>the object is outside the sensor’s useful range.</li>
 </ul>
-<p>This speed assumes rolling without slip and does not include losses or deformation.</p>
-<h3>Gearboxes trade speed for torque</h3>
-<p>A gearbox ratio \(G\) describes how much slower the output turns than the motor input. With efficiency \(\eta\), a simple estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{n_{\text{motor}}}{G}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx \eta G\tau_{\text{motor}}\]</span></div>
-<p>For example, suppose a motor produces \(0.10\ \text{N·m}\) at \(3000\ \text{RPM}\), and a gearbox has:</p>
+<h3>Reflective sensor versus break-beam sensor</h3>
+<p>A <strong>reflective IR sensor</strong> places the emitter and receiver on the same side. It detects light returning from an object.</p>
+<p>A <strong>break-beam IR sensor</strong> places an emitter on one side and a receiver on the other. It detects whether an object interrupts the beam.</p>
+<p>Both use infrared light, but they answer different questions:</p>
 <ul>
-<li>ratio \(G=20\);</li>
-<li>efficiency \(\eta=0.80\).</li>
+<li>Reflective: “Is something reflecting light back near me?”</li>
+<li>Break-beam: “Has something crossed between these two points?”</li>
 </ul>
-<p>Then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{3000}{20}=150\ \text{RPM}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx (0.80)(20)(0.10)=1.6\ \text{N·m}\]</span></div>
-<p>The gearbox changes the motor output from approximately \(0.10\ \text{N·m}\) and \(3000\ \text{RPM}\) to \(1.6\ \text{N·m}\) and \(150\ \text{RPM}\), according to this simplified model. The increase in torque is not free: output speed decreases, and 20% of the ideal mechanical power is lost in this example.</p>
-<p>If the wheel radius is \(0.04\ \text{m}\), the ideal wheel-edge force is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}}=\frac{1.6}{0.04}=40\ \text{N}\]</span></div>
-<p>The floor may transmit less than 40 N if tire traction or another mechanical limit is insufficient.</p>
-<h3>The motor trade-off</h3>
-<p>A simplified DC motor often has a <strong>torque–speed curve</strong>:</p>
+<p>This class focuses on reflective proximity sensing.</p>
+<h3>Threshold decisions</h3>
+<p>RoboRover often does not need an exact distance. It may only need a decision:</p>
+<blockquote>“Is the object close enough to slow down?”</blockquote>
+<p>Suppose a sensor reading above 2.0 sensor units means “probably close.” Then the controller can use:</p>
 <ul>
-<li>at no load, the motor spins near its highest speed and produces little useful output torque;</li>
-<li>as the load torque increases, its speed decreases;</li>
-<li>at stall, the shaft is not turning, but the motor may produce its highest starting torque.</li>
+<li>reading \(&lt;2.0\): continue;</li>
+<li>reading \(\geq 2.0\): slow or stop.</li>
 </ul>
-<p>A straight torque–speed line is an approximate <strong>steady-state</strong> relationship for a specified supply voltage and approximate motor temperature. It does not fully describe startup, transient acceleration, sudden changes in load, or rated continuous operation. The plotted load torque represents torque applied at the motor shaft in this simple model. It is not automatically the wheel–ground resistance after a gearbox; gearing and efficiency must be accounted for separately.</p>
-<p>This does not mean stall is safe. A stalled motor can draw high current and heat rapidly.</p>
-<blockquote><strong>Assumptions and limitations:</strong> Equations such as \(F=\tau/r\), \(v=nC/60\), and the straight torque–speed model are useful estimates. They assume clearly defined torque and speed, suitable gearing, rolling without slip, and stated operating conditions. Real results also depend on losses, acceleration, contact friction, tire deformation, battery voltage, driver current limits, heating, and load distribution. Treat calculated force and speed as predictions to test, not guarantees.</blockquote>
+<p>This is a <strong>threshold decision</strong>. It is useful, but the threshold must be tested on real materials.</p>
+<p>A sensor-triggered stop is not automatically a complete distance-control system. If RoboRover simply stops when one reading crosses a threshold, it has made a feedback-related decision from a measurement, but it is not continuously adjusting its motion to maintain a chosen distance. Later classes will study more detailed control behavior.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose a motor shaft provides:</p>
-<ul>
-<li>torque: \(\tau_m = 0.18\ \text{N·m}\);</li>
-<li>speed: \(n_m = 120\ \text{RPM}\).</li>
-</ul>
-<p>RoboRover has two identical drive motors. For this first estimate, assume:</p>
-<ul>
-<li>each motor directly drives one wheel;</li>
-<li>wheel radius: \(r = 0.035\ \text{m}\);</li>
-<li>no gearbox;</li>
-<li>no friction or energy loss;</li>
-<li>both wheels have adequate static-friction traction and operate comparably.</li>
-</ul>
-<p>These assumptions are deliberately ideal. They let us see the structure of the calculation.</p>
-<h3>Step 1: Total pushing force</h3>
-<p>Each wheel receives \(0.18\ \text{N·m}\) of torque.</p>
-<p>Using:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{\tau}{r}\]</span></div>
-<p>the ideal force from one wheel is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} =
-\frac{0.18\ \text{N·m}}{0.035\ \text{m}}
-\approx 5.14\ \text{N}\]</span></div>
-<p>Because both wheels have adequate traction and are operating comparably, their ideal tangential forces add:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{total, ideal}} = 2(5.14\ \text{N}) \approx 10.29\ \text{N}\]</span></div>
-<p>This is the ideal tangential force at the wheel edges. It is not automatically the force RoboRover can use: the tires may slip, and the motors may not maintain that torque at every speed.</p>
-<h3>Step 2: Wheel circumference</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi r\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi(0.035\ \text{m})
-\approx 0.2199\ \text{m}\]</span></div>
-<p>The wheel travels about 0.220 m per revolution.</p>
-<h3>Step 3: Linear speed</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = \frac{nC}{60}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v =
-\frac{(120\ \text{rev/min})(0.2199\ \text{m/rev})}{60\ \text{s/min}}
-\approx 0.440\ \text{m/s}\]</span></div>
-<p>So the ideal no-load-style estimate is about \(0.440\ \text{m/s}\), or 44 cm/s.</p>
-<h3>Hand calculation before coding</h3>
-<p>For the Python model used later, the no-load speed is \(150\ \text{RPM}\), and the stall torque is \(0.20\ \text{N·m}\). At a load of \(0.10\ \text{N·m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n = 150\left(1-\frac{0.10}{0.20}\right)
-= 150(0.5)
-= 75\ \text{RPM}\]</span></div>
-<p>Before running the code, predict the RPM at \(0.10\ \text{N·m}\). The result should be \(75.0\ \text{RPM}\).</p>
-<h3>Interpretation</h3>
-<p>The two motors can theoretically provide about \(10.29\ \text{N}\) of ideal wheel-edge force at the chosen torque, while the wheels could travel about \(0.440\ \text{m/s}\) at 120 RPM.</p>
-<p>The force and speed are separate operating quantities: a motor’s available torque generally changes with speed, and a gearbox changes both quantities. Acceleration, contact friction, battery voltage, and heat determine whether the robot actually reaches the calculated condition.</p>
-<p>A useful calculation is a model, not a promise.</p>
-<h2>Worked Robotics Example</h2>
-<div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Side-view engineering illustration of a two-wheel rover pushing a foam box, showing wheel radius, torque, individual wheel forces, and total forward force."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Wheel torque becomes tangential force, and the two drive wheels combine their ideal pushing forces.</p>
-<p>RoboRover must push a small foam box across a smooth test surface. Each drive motor provides \(0.12\ \text{N·m}\) of <strong>wheel torque at startup and at the stated operating condition</strong>. The wheel radius is \(0.04\ \text{m}\), and there are two drive wheels.</p>
-<p>What ideal wheel force is available?</p>
-<p>For one wheel:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} = \frac{\tau_{\text{wheel}}}{r}\]</span></div>
+<p>A simple teaching model for a reflective IR sensor is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[S = \frac{K R}{d^2}\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(\tau_{\text{wheel}} = 0.12\ \text{N·m}\);</li>
-<li>\(r = 0.04\ \text{m}\).</li>
+<li>\(S\) is the modeled sensor signal, in arbitrary sensor units;</li>
+<li>\(K\) is a scale constant for the sensor and setup;</li>
+<li>\(R\) is a dimensionless relative reflectivity value;</li>
+<li>\(d\) is distance, measured in centimetres \((\text{cm})\).</li>
 </ul>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{one}} =
-\frac{0.12\ \text{N·m}}{0.04\ \text{m}}
-= 3.0\ \text{N}\]</span></div>
-<p>If both wheels have adequate static-friction traction and operate comparably:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{total, ideal}} = 2(3.0\ \text{N}) = 6.0\ \text{N}\]</span></div>
-<p>The ideal available wheel force is \(6.0\ \text{N}\).</p>
-<p>Now suppose the box and its sliding resistance require \(4.5\ \text{N}\) to start moving. Because the stated \(0.12\ \text{N·m}\) is available at startup, the ideal force calculation gives a starting margin of:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[6.0\ \text{N} - 4.5\ \text{N} = 1.5\ \text{N}\]</span></div>
-<p>This \(1.5\ \text{N}\) difference does <strong>not</strong> guarantee that the box will move. Acceleration, contact friction, wheel traction, torque available during the transient, battery voltage, and uneven loading still matter. The margin may disappear on carpet, during a battery voltage drop, or if one wheel carries more load than the other. Static friction at the driven wheels must also be sufficient to transmit the calculated force without slipping.</p>
-<p>This is why engineers do not select motors using only the exact minimum calculated value.</p>
+<p>This equation is useful for intuition:</p>
+<ul>
+<li>increasing \(R\) makes the returned signal stronger;</li>
+<li>increasing \(d\) makes the signal weaker;</li>
+<li>doubling \(d\) reduces the modeled signal by a factor of four.</li>
+</ul>
+<p>However, this is <strong>not a universal IR sensor law</strong>. Real sensors may contain lenses, filtering, nonlinear electronics, automatic gain, saturation, and geometry that do not match this simple equation.</p>
+<h3>Worked numerical example</h3>
+<p>Suppose RoboRover’s classroom simulation uses:</p>
+<ul>
+<li>\(K=100\) sensor-unit-centimetres-squared;</li>
+<li>relative reflectivity \(R=0.80\);</li>
+<li>distance \(d=8.0\ \text{cm}\).</li>
+</ul>
+<p>Then</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[S=\frac{(100)(0.80)}{(8.0)^2}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[S=\frac{80}{64}=1.25\]</span></div>
+<p>So the modeled reading is <strong>1.25 sensor units</strong>.</p>
+<p>If RoboRover’s “close object” threshold is \(S=2.0\) sensor units, this object would not yet be classified as close.</p>
+<p>Now at \(d=6.0\ \text{cm}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[S=\frac{(100)(0.80)}{(6.0)^2}
+=\frac{80}{36}
+\approx 2.22\]</span></div>
+<p>The modeled reading is approximately <strong>2.22 sensor units</strong>, so it crosses the 2.0 threshold.</p>
+<p>Interpretation: under this simplified model, the same surface changes from “not close” at \(8.0\ \text{cm}\) to “close” at \(6.0\ \text{cm}\).</p>
+<p>Real engineering practice would replace the model with a calibration table or curve made from actual measurements.</p>
+<h2>Worked Robotics Example</h2>
+<div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
+<figure><img loading="lazy" src="inline_03.png" alt="Calibration diagram of a robot at several distances from a wall, showing infrared readings and a threshold crossing at 6 centimeters."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A threshold is chosen from measured behavior: in this example, the 6 cm reading crosses the slow-down boundary.</p>
+<p>RoboRover is carrying a fragile paper tower. It should slow down when a reflective IR sensor suggests that a wall is close.</p>
+<p>The sensor is mounted at the front, \(4.0\ \text{cm}\) above the floor. The wall is pale cardboard, and testing gives these approximate readings:</p>
+<div class="table-scroll"><table><thead><tr><th>Distance from sensor to wall</th><th>Reading</th></tr></thead><tbody><tr><td>\(12\ \text{cm}\)</td><td>\(0.8\) units</td></tr><tr><td>\(10\ \text{cm}\)</td><td>\(1.0\) units</td></tr><tr><td>\(8\ \text{cm}\)</td><td>\(1.4\) units</td></tr><tr><td>\(6\ \text{cm}\)</td><td>\(2.1\) units</td></tr><tr><td>\(4\ \text{cm}\)</td><td>\(3.0\) units</td></tr></tbody></table></div>
+<p>The team chooses a threshold of \(2.0\) units.</p>
+<p>At \(8\ \text{cm}\), the reading is \(1.4\), so RoboRover continues at normal speed.</p>
+<p>At \(6\ \text{cm}\), the reading is \(2.1\), so RoboRover enters slow mode.</p>
+<p>This threshold is not a magical distance detector. It was selected for a particular:</p>
+<ul>
+<li>sensor;</li>
+<li>wall material;</li>
+<li>sensor angle;</li>
+<li>mounting height;</li>
+<li>lighting environment;</li>
+<li>robot speed and stopping distance.</li>
+</ul>
+<p>If the wall is black tape instead of pale cardboard, the same \(2.0\) threshold may be crossed much later—or not at all.</p>
+<p>A practical design should leave room for uncertainty. If readings fluctuate around 2.0, RoboRover might repeatedly switch between normal and slow modes. A later control lesson can address this with filtering or hysteresis. For now, record several readings and choose a threshold with a safety margin.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_04.png" alt="Line graph of predicted motor speed decreasing from 150 RPM at zero load to 0 RPM at 0.20 N·m stall torque."></figure>
-<p class="figure-caption"><strong>Figure:</strong> In the simplified model, increasing load torque reduces motor speed until the stall point.</p>
-<p>This program models a simplified motor whose speed decreases linearly as load torque increases.</p>
-<p>The model uses:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n = n_0\left(1-\frac{\tau_L}{\tau_S}\right)\]</span></div>
-<p>for \(0 \leq \tau_L \leq \tau_S\), where:</p>
-<ul>
-<li>\(n\) is predicted speed in RPM;</li>
-<li>\(n_0\) is no-load speed in RPM;</li>
-<li>\(\tau_L\) is load torque at the motor shaft in N·m;</li>
-<li>\(\tau_S\) is stall torque at the motor shaft in N·m.</li>
-</ul>
-<p>This is a teaching model for specified voltage and approximate temperature, not a complete motor-datasheet model. The function clamps loads above stall torque to zero speed so that this simplified model does not report negative RPM. The graph shows <strong>motor-shaft load torque</strong>, not automatically wheel-ground resistance; a gearbox must be included before making that interpretation.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import math
-import matplotlib.pyplot as plt
+<p>This program is a small, intentionally simplified IR proximity simulation. It models RoboRover moving toward a pale object.</p>
+<p>The robot begins \(12\ \text{cm}\) away and moves \(1\ \text{cm}\) closer per step. The program uses:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[S=\frac{K R}{d^2}\]</span></div>
+<p>with \(K=100\), \(R=0.80\), and a detection threshold of \(2.0\) units.</p>
+<p><strong>Predict before you run it:</strong> At what distance will the simulation first report <code>CLOSE</code>?</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Class 12: simplified infrared proximity simulation
+# Compatible with Python 3.7
+
+def infrared_signal(distance_cm, reflectivity, scale):
+    &quot;&quot;&quot;Return a simplified reflected-IR signal.&quot;&quot;&quot;
+    return scale * reflectivity / (distance_cm ** 2)
 
 
-def motor_rpm(load_torque, no_load_rpm, stall_torque):
-    &quot;&quot;&quot;Return a simple linear torque-speed prediction.&quot;&quot;&quot;
-    if load_torque &lt; 0:
-        raise ValueError(&quot;Load torque cannot be negative.&quot;)
-    if no_load_rpm &lt; 0 or stall_torque &lt;= 0:
-        raise ValueError(&quot;Motor parameters are invalid.&quot;)
+def main():
+    scale = 100.0
+    reflectivity = 0.80
+    threshold = 2.0
 
-    speed = no_load_rpm * (1.0 - load_torque / stall_torque)
+    distance_cm = 12.0
+    step_cm = 1.0
+    first_close_distance = None
+    steps_taken = 0
 
-    # A stalled motor cannot have negative rotational speed in this model.
-    return max(0.0, speed)
+    print(&quot;distance_cm  signal  decision&quot;)
+
+    while distance_cm &gt;= 1.0:
+        signal = infrared_signal(distance_cm, reflectivity, scale)
+
+        if signal &gt;= threshold:
+            decision = &quot;CLOSE&quot;
+            if first_close_distance is None:
+                first_close_distance = distance_cm
+        else:
+            decision = &quot;clear&quot;
+
+        print(&quot;{:10.1f}  {:6.2f}  {}&quot;.format(
+            distance_cm, signal, decision
+        ))
+
+        if first_close_distance is not None:
+            break
+
+        distance_cm -= step_cm
+        steps_taken += 1
+
+    print()
+    print(&quot;First CLOSE distance: {:.1f} cm&quot;.format(first_close_distance))
+    print(&quot;Steps taken: {}&quot;.format(steps_taken))
+
+    # Executable checks for the exact claims made by this simulation.
+    assert first_close_distance == 6.0
+    assert steps_taken == 6
+    assert round(infrared_signal(8.0, reflectivity, scale), 2) == 1.25
+    assert round(infrared_signal(6.0, reflectivity, scale), 2) == 2.22
 
 
-no_load_rpm = 150.0
-stall_torque = 0.20
-load_torques = [0.00, 0.05, 0.10, 0.15, 0.20]
-
-predicted_rpm = []
-for load in load_torques:
-    speed = motor_rpm(load, no_load_rpm, stall_torque)
-    predicted_rpm.append(speed)
-    print(&quot;Load: {:.2f} N*m -&gt; Speed: {:.1f} RPM&quot;.format(load, speed))
-
-# Verify the hand calculation and another endpoint before displaying the graph.
-assert math.isclose(predicted_rpm[2], 75.0, rel_tol=1e-9)
-assert math.isclose(predicted_rpm[1], 112.5, rel_tol=1e-9)
-assert math.isclose(predicted_rpm[-1], 0.0, rel_tol=1e-9)
-print(&quot;Verified: 0.10 N*m gives 75.0 RPM.&quot;)
-print(&quot;Verified: 0.05 N*m gives 112.5 RPM.&quot;)
-print(&quot;Verified: 0.20 N*m gives 0.0 RPM.&quot;)
-
-plt.plot(load_torques, predicted_rpm, &quot;o-&quot;, color=&quot;darkblue&quot;)
-plt.xlabel(&quot;Load torque (N*m)&quot;)
-plt.ylabel(&quot;Predicted motor speed (RPM)&quot;)
-plt.title(&quot;RoboRover motor: simplified torque-speed model&quot;)
-plt.grid(True)
-plt.tight_layout()
-plt.show()</code></pre></div>
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre></div>
 <p>Important lines:</p>
 <ul>
-<li><code>motor_rpm(...)</code> contains the mathematical model.</li>
-<li><code>max(0.0, speed)</code> prevents the simplified model from predicting negative RPM.</li>
-<li><code>load_torques</code> gives several test loads.</li>
-<li><code>assert</code> checks the exact values claimed by the program.</li>
-<li><code>plt.plot(...)</code> draws the torque–speed relationship.</li>
+<li><code>infrared_signal(...)</code> keeps the sensor model separate from the robot’s decision.</li>
+<li><code>distance_cm ** 2</code> represents the squared-distance term in the teaching model.</li>
+<li><code>signal &gt;= threshold</code> turns a numerical measurement into a proximity decision.</li>
+<li><code>first_close_distance is None</code> ensures the program records the first crossing, not every later reading.</li>
+<li>The <code>assert</code> statements verify the exact simulation results.</li>
 </ul>
-<p>The graph should slope downward from high speed at zero load toward zero speed at stall torque.</p>
-<p>If Matplotlib is unavailable, comment out the import, plotting commands, and <code>plt.show()</code> lines. The printed table should be:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Load: 0.00 N*m -&gt; Speed: 150.0 RPM
-Load: 0.05 N*m -&gt; Speed: 112.5 RPM
-Load: 0.10 N*m -&gt; Speed: 75.0 RPM
-Load: 0.15 N*m -&gt; Speed: 37.5 RPM
-Load: 0.20 N*m -&gt; Speed: 0.0 RPM
-Verified: 0.10 N*m gives 75.0 RPM.
-Verified: 0.05 N*m gives 112.5 RPM.
-Verified: 0.20 N*m gives 0.0 RPM.</code></pre></div>
-<p>The table is enough to inspect the model. The graph is an additional visual summary.</p>
+<p>This program is not a hardware driver. A real robot would replace the calculated signal with a voltage or digital value read from an actual sensor.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<h3>Motor-Matching Game</h3>
-<p>Pretend that RoboRover is carrying different objects. Each object creates a different resisting load torque at the motor shaft.</p>
-<p>Before running the program, predict:</p>
+<p>Change one value at a time and observe how the detection point changes.</p>
 <ol>
-<li>Which load produces the highest RPM?</li>
-<li>What happens at \(0.20\ \text{N·m}\)?</li>
-<li>What RPM should occur at \(0.10\ \text{N·m}\)?</li>
-<li>Will the graph slope upward or downward?</li>
+<li>Set <code>reflectivity = 0.40</code>.</li>
+<li>Run the program.</li>
+<li>Predict whether the object will be detected closer or farther away.</li>
+<li>Restore <code>reflectivity = 0.80</code>.</li>
+<li>Change <code>threshold = 1.0</code>.</li>
+<li>Predict whether detection happens closer or farther away.</li>
 </ol>
-<p>Use the values in the program:</p>
-<div class="table-scroll"><table><thead><tr><th>Load torque</th><th>Situation</th></tr></thead><tbody><tr><td>0.00 N·m</td><td>Wheel lifted off the ground</td></tr><tr><td>0.05 N·m</td><td>Smooth floor</td></tr><tr><td>0.10 N·m</td><td>Heavier payload</td></tr><tr><td>0.15 N·m</td><td>Carpet or slope</td></tr><tr><td>0.20 N·m</td><td>Stall point in this model</td></tr></tbody></table></div>
-<p>After running it, change <code>stall_torque</code> to <code>0.30</code> and predict how the graph changes. A larger stall torque means the model allows more load before reaching zero speed, although real motor behavior also depends on voltage, current, temperature, and gearing.</p>
-<p>Try changing <code>no_load_rpm</code> instead. This changes the vertical height of the graph but does not change the load torque at which this simple model reaches zero speed.</p>
+<p>You can turn this into a simple challenge:</p>
+<blockquote>Make RoboRover detect the pale object at \(8\ \text{cm}\) without changing <code>scale</code> or <code>reflectivity</code>.</blockquote>
+<p>A threshold of \(1.25\) would classify the \(8\ \text{cm}\) reading as close, because the signal there is exactly \(1.25\) units. In the program, change:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>threshold = 1.25</code></pre></div>
+<p>The program’s <code>&gt;=</code> comparison means equality counts as detection.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Your predictions should be:</p>
-<ol>
-<li>The \(0.00\ \text{N·m}\) load produces the highest speed: 150 RPM.</li>
-<li>At \(0.10\ \text{N·m}\), the model predicts 75 RPM.</li>
-<li>At \(0.20\ \text{N·m}\), the model predicts 0 RPM because that is the selected stall torque.</li>
-<li>The graph slopes downward: increasing load torque reduces predicted speed.</li>
-</ol>
-<p>The program verifies these exact points:</p>
+<p>For the original settings:</p>
 <ul>
-<li>\(0.05\ \text{N·m}\) gives \(112.5\ \text{RPM}\);</li>
-<li>\(0.10\ \text{N·m}\) gives \(75.0\ \text{RPM}\);</li>
-<li>\(0.20\ \text{N·m}\) gives \(0.0\ \text{RPM}\).</li>
+<li>at \(8\ \text{cm}\), the modeled signal is \(1.25\) units;</li>
+<li>at \(6\ \text{cm}\), the modeled signal is approximately \(2.22\) units;</li>
+<li>the first <code>CLOSE</code> decision occurs at \(6.0\ \text{cm}\);</li>
+<li>the robot takes 6 one-centimetre steps from \(12\ \text{cm}\) to \(6\ \text{cm}\).</li>
 </ul>
-<p>Those values come directly from the stated linear equation and are checked by executable assertions in the code.</p>
+<p>The assertions in the Python program verify these values.</p>
+<p>If you changed the reflectivity from \(0.80\) to \(0.40\), every signal would be half as large. Detection would therefore occur closer to the object, or possibly not occur before the simulation’s minimum distance.</p>
+<p>If you lowered the threshold from \(2.0\) to \(1.0\), RoboRover would classify more situations as close. That can make detection earlier, but it can also create false alarms.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Treating torque and speed as the same thing</h3>
-<p>Torque measures turning effect. RPM measures how fast rotation occurs. A motor can have high torque at low speed or high speed at low torque.</p>
-<h3>Mistake 2: Forgetting the wheel radius</h3>
-<p>Motor RPM is shaft speed. RoboRover’s forward speed depends on wheel circumference. Changing the wheel size changes both ideal wheel force and travel per revolution.</p>
-<h3>Mistake 3: Confusing motor torque with wheel torque</h3>
-<p>A gearbox can reduce speed and increase wheel torque, but losses mean the output is not ideal. A motor-shaft torque value cannot be inserted into \(F=\tau/r\) as wheel torque unless the motor directly drives the wheel or the gearing has already been included.</p>
-<h3>Mistake 4: Assuming the motor always produces its maximum torque</h3>
-<p>A motor’s torque depends on operating conditions. The torque value used in one calculation may apply only at a particular speed, voltage, and temperature.</p>
-<h3>Mistake 5: Running a motor stalled for too long</h3>
-<p>When the shaft is prevented from turning, the motor can draw a large current. Electrical energy then becomes heat instead of useful rotation. This can damage the motor, driver, wiring, or battery system. Stall current and heating are important safety limits.</p>
-<h3>Mistake 6: Believing the simple graph is a complete datasheet</h3>
-<p>The straight-line model is useful for intuition. Real motors may have nonlinear friction, gearbox losses, voltage changes, heating, brush effects, changing load conditions, startup transients, and continuous-duty limits.</p>
-<h3>Mistake 7: Ignoring traction</h3>
-<p>The motor may produce enough ideal wheel-edge torque to spin the wheel, but the tire may not be able to push against the floor without slipping. Usable ground force is limited by static friction and the normal load on the driven wheels.</p>
+<h3>Treating IR as exact distance</h3>
+<p>A reflective IR sensor does not automatically know distance. Its reading also depends on surface reflectivity, angle, lighting, and sensor geometry.</p>
+<h3>Assuming black means “invisible”</h3>
+<p>Some dark materials absorb visible light but may reflect infrared differently. Material behavior must be measured rather than guessed.</p>
+<h3>Ignoring sunlight</h3>
+<p>Sunlight contains infrared energy. Strong ambient IR can add noise or overwhelm a receiver, especially outdoors.</p>
+<h3>Mounting the sensor at a poor angle</h3>
+<p>A sensor pointed toward a shiny or angled surface may receive very little returned light even when the object is close.</p>
+<h3>Using one calibration for every surface</h3>
+<p>A calibration made on pale cardboard may not work on black foam, glossy plastic, carpet, or metal.</p>
+<h3>Forgetting saturation</h3>
+<p>At very short distances, the receiver or electronics may reach a maximum reading. Moving even closer then produces little or no additional numerical change.</p>
+<h3>Confusing a trigger with continuous control</h3>
+<p>A sensor crossing a threshold can start a fixed action. That is different from repeatedly measuring distance and continuously adjusting speed to maintain a target gap.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge: Choose RoboRover’s wheel size</h3>
-<p>RoboRover uses two motors. Each motor provides \(0.10\ \text{N·m}\) of wheel torque. Assume both wheels have adequate static-friction traction and operate comparably. Compare two possible wheel radii:</p>
+<h3>Challenge</h3>
+<p>Create a second version of the simulation that compares two objects:</p>
 <ul>
-<li>Design A: \(r = 0.025\ \text{m}\);</li>
-<li>Design B: \(r = 0.050\ \text{m}\).</li>
+<li>Object A: reflectivity \(R=0.80\);</li>
+<li>Object B: reflectivity \(R=0.40\).</li>
 </ul>
-<p>For each design, calculate:</p>
+<p>Use the same scale and threshold for both. For distances from \(12\ \text{cm}\) down to \(1\ \text{cm}\), print whether each object is classified as <code>CLOSE</code>.</p>
+<p>Then answer:</p>
 <ol>
-<li>force from one wheel using \(F_{\text{ideal}} = \tau/r\);</li>
-<li>total ideal force from two wheels;</li>
-<li>circumference using \(C = 2\pi r\).</li>
+<li>Which object is detected first?</li>
+<li>Why can equal physical distances produce different decisions?</li>
+<li>Is the result evidence that the darker object is farther away? Why not?</li>
 </ol>
-<p>Which design gives greater ideal pushing force? Which travels farther per revolution?</p>
-<p><strong>Optional extension:</strong> Add both wheel sizes to a Python program and plot wheel force against radius. Use at least five radius values between \(0.02\ \text{m}\) and \(0.06\ \text{m}\). Include an assertion for one value you calculate by hand.</p>
-<h3>Physical or browser-based measurement: estimate wheel RPM</h3>
-<p>You can perform this activity with a small robot, a motor-and-wheel assembly, or a wheel turned by hand.</p>
-<ol>
-<li>Mark one point on the wheel with removable tape or a visible pen mark.</li>
-<li>Secure the robot so it cannot move into people or objects. If the wheel is powered, use a low speed and a current-limited supply or a driver with appropriate current protection.</li>
-<li>Record a phone video with the wheel visible. Count the marked point’s complete revolutions during a measured time interval, such as 10 seconds.</li>
-<li>Calculate:</li>
-</ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{RPM}=\frac{\text{revolutions}}{\text{time in seconds}}\times 60\]</span></div>
-<ol>
-<li>Measure the wheel radius and estimate ideal rolling speed using \(v=nC/60\).</li>
-<li>Compare the estimate with the robot’s observed travel distance. Differences may result from camera timing, wheel slip, tire deformation, or the wheel not turning at a steady speed.</li>
-</ol>
-<p>For a browser-based version, use a video player that allows frame-by-frame or timestamp inspection. The goal is to estimate RPM from evidence rather than assume that a motor command produces a fixed speed.</p>
-<blockquote><strong>Safety:</strong> Never hold a powered shaft or wheel to force a stall. Secure the robot, keep fingers, hair, and clothing away from gears and rotating parts, and use a current-limited supply or appropriate driver protection. Disconnect power before adjusting the mechanism.</blockquote>
+<h3>Optional extension</h3>
+<p>Add a small random disturbance to the sensor signal using Python’s <code>random</code> library. Run the simulation several times and look for readings that fall just above or below the threshold.</p>
+<p>Then improve the decision rule:</p>
+<blockquote>Declare <code>CLOSE</code> only if at least two of the last three readings are above the threshold.</blockquote>
+<p>This is an introduction to making decisions more resistant to noise. It is not yet a full distance controller.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What does torque measure in a motor system?</li>
+<li>What does a reflective IR sensor measure directly: travel time or returned light strength?</li>
 </ol>
 <ol>
-<li>A wheel has radius \(0.05\ \text{m}\) and receives \(0.20\ \text{N·m}\) of wheel torque. What ideal tangential force does it produce?</li>
+<li>Why might a pale surface and a dark surface produce different readings at the same distance?</li>
 </ol>
 <ol>
-<li>What usually happens to a DC motor’s speed as its mechanical load increases?</li>
+<li>In the teaching model \(S=KR/d^2\), what happens to \(S\) if distance \(d\) doubles while \(K\) and \(R\) stay the same?</li>
 </ol>
 <ol>
-<li>Why can a stalled motor become dangerously hot even though its shaft is not moving?</li>
+<li>RoboRover repeatedly switches between <code>clear</code> and <code>CLOSE</code> while sitting still. Name one likely cause.</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>Torque measures the turning effect, or twisting strength, around a rotational axis. Its unit is the newton-metre (N·m).</li>
+<li>It measures the strength of infrared light returning to the receiver.</li>
 </ol>
 <ol>
-<li>Use \(F_{\text{ideal}} = \tau/r\):</li>
-</ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[F_{\text{ideal}} = \frac{0.20\ \text{N·m}}{0.05\ \text{m}} = 4.0\ \text{N}\]</span></div>
-<p>This is the ideal wheel-edge force. The force transmitted to the floor can be lower if static friction limits traction.</p>
-<ol>
-<li>Its speed usually decreases as load torque increases. In the simple model, speed reaches zero at the stall torque.</li>
+<li>Their materials may reflect or absorb different amounts of infrared light. Angle and texture can also change the returned signal.</li>
 </ol>
 <ol>
-<li>A stalled motor can draw high current while producing no useful rotation. Much of the electrical energy becomes heat in the windings and driver components.</li>
+<li>The modeled signal becomes one quarter as large because \(d^2\) becomes four times as large.</li>
+</ol>
+<ol>
+<li>Sensor noise, changing lighting, mechanical vibration, or a threshold that is too close to the normal reading could cause the switching.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover’s motors are part of a chain:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{motor driver} \rightarrow \text{motor} \rightarrow \text{gearbox} \rightarrow \text{wheel} \rightarrow \text{floor}\]</span></div>
-<p>Each stage affects the final result.</p>
-<p>A gearbox can reduce motor-shaft speed and increase wheel torque. If a gearbox has ratio \(G\) and efficiency \(\eta\), a simple estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[n_{\text{wheel}} \approx \frac{n_{\text{motor}}}{G}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\tau_{\text{wheel}} \approx \eta G\tau_{\text{motor}}\]</span></div>
-<p>However, gears are not perfect: friction and mechanical losses reduce the output.</p>
-<p>A practical engineer asks:</p>
+<figure><img loading="lazy" src="inline_04.png" alt="Robotics laboratory scene with a small wheeled robot testing reflective infrared and ultrasonic sensors against pale, dark, and angled surfaces."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Testing several materials and sensor types reveals why sensor readings must be calibrated in the real environment.</p>
+<p>A real reflective IR module may provide:</p>
 <ul>
-<li>How much torque is needed to start moving?</li>
-<li>How fast should the robot travel?</li>
-<li>Will the tires slip?</li>
-<li>Can the motor survive the current and heat?</li>
-<li>What happens when the battery voltage falls?</li>
-<li>Does the motor driver support the required current?</li>
-<li>Are the gears, axles, and mounts mechanically strong enough?</li>
+<li>an analog output that changes with returned light strength;</li>
+<li>a digital output that switches when an onboard comparator crosses a threshold;</li>
+<li>both outputs, depending on the module.</li>
 </ul>
-<p>In the next class, PWM will let us adjust motor power electronically. But PWM cannot create unlimited torque. If RoboRover is overloaded, changing the command does not remove the physical limits of the motor, battery, driver, gears, and tires.</p>
+<p>For serious use, an engineer would test the sensor in the actual environment. The test might record readings for several distances and surfaces, then create a calibration table.</p>
+<p>RoboRover could use an IR sensor for:</p>
+<ul>
+<li>detecting the edge of a table or a line on the floor;</li>
+<li>noticing a nearby wall;</li>
+<li>confirming that an object is present in a gripper area;</li>
+<li>counting objects crossing a reflective sensing region;</li>
+<li>slowing before a close obstacle.</li>
+</ul>
+<p>Ultrasonic and IR sensors can complement one another. Ultrasonic sensing is based on sound travel time and may behave differently around dark surfaces. IR sensing can be compact and fast, but it is more sensitive to optical conditions and surface appearance.</p>
+<p>Next class, wheel encoders will measure rotation rather than reflected energy. An encoder reading can tell RoboRover how much a wheel has turned, but it also has practical issues: missed counts, wheel slip, mechanical backlash, and calibration. The common engineering habit is the same in both classes:</p>
+<blockquote>Do not trust a sensor because its number looks precise. Test what the number means.</blockquote>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>DC motor:</strong> A motor that uses direct-current electrical power to produce rotational mechanical motion. In robotics, the term may include brushed or brushless motor designs.</li>
-<li><strong>Robot:</strong> For this course, a physical machine commonly treated as a robot in engineering practice whose controlled actuators perform a physical task. Its immediate actions may be selected by a human operator, a preprogrammed controller, or autonomous software. This is a working description for teaching, not a universal necessary-and-sufficient test.</li>
-<li><strong>Torque:</strong> The turning effect of a force around an axis, measured in newton-metres (N·m).</li>
-<li><strong>RPM:</strong> Revolutions per minute; a unit of rotational speed.</li>
-<li><strong>Rotor:</strong> The rotating part of a motor.</li>
-<li><strong>Stator:</strong> The stationary part of a motor that helps create the magnetic field.</li>
-<li><strong>No-load speed:</strong> Approximate motor speed when the shaft provides very little mechanical load.</li>
-<li><strong>Stall:</strong> A condition in which the motor shaft is prevented from rotating.</li>
-<li><strong>Stall torque:</strong> The torque associated with the stall condition in a specified motor model or test condition.</li>
-<li><strong>Gearbox:</strong> A set of gears that changes rotational speed and torque.</li>
-<li><strong>Wheel circumference:</strong> The distance traveled by a wheel in one complete revolution, calculated as \(C = 2\pi r\).</li>
-<li><strong>Torque–speed curve:</strong> A graph showing how a motor’s available torque and rotational speed relate under specified conditions.</li>
-<li><strong>Static friction:</strong> The contact force that can prevent surfaces from sliding relative to each other; at a driven wheel, it can transmit forward force without slipping.</li>
+<li><strong>Infrared (IR):</strong> Electromagnetic radiation beyond visible red light that can be emitted and detected by electronic devices.</li>
+<li><strong>IR emitter:</strong> The component that produces infrared light.</li>
+<li><strong>IR receiver:</strong> The component that detects infrared light arriving from the environment.</li>
+<li><strong>Reflection:</strong> The return or redirection of light from a surface.</li>
+<li><strong>Reflective IR sensor:</strong> A sensor with an emitter and receiver on the same side that detects light returned from a nearby surface.</li>
+<li><strong>Proximity:</strong> Nearness; in robotics, a proximity sensor usually indicates that an object is nearby rather than reporting a perfect distance.</li>
+<li><strong>Reflectivity:</strong> A relative description of how strongly a surface returns light toward the sensor.</li>
+<li><strong>Sensor signal:</strong> A numerical representation of what the sensor detects.</li>
+<li><strong>Threshold:</strong> A chosen boundary used to convert a measurement into a decision.</li>
+<li><strong>Calibration:</strong> Measuring a real sensor under known conditions so its readings can be interpreted.</li>
+<li><strong>Break-beam sensor:</strong> An IR arrangement in which an object is detected by interrupting a beam between a separate emitter and receiver.</li>
+<li><strong>Saturation:</strong> A condition in which a sensor or electronic circuit reaches its output limit and cannot represent larger or smaller inputs accurately.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>To deepen this topic, investigate these ideas in this order:</p>
-<ol>
-<li><strong>Motor datasheet reading:</strong> Compare no-load speed, rated speed, rated torque, stall torque, and stall current.</li>
-<li><strong>Gear ratios:</strong> Explore how a gear train trades rotational speed for torque.</li>
-<li><strong>Motor efficiency:</strong> Compare electrical input power with mechanical output power.</li>
-<li><strong>Brushed and brushless motors:</strong> Identify the mechanical and electronic differences.</li>
-<li><strong>Encoder feedback:</strong> Learn how a sensor can measure shaft rotation for later speed regulation.</li>
-</ol>
-<p>Search-friendly resource names include <strong>DC motor torque-speed curve</strong>, <strong>robot gearbox selection</strong>, and <strong>motor datasheet rated torque</strong>.</p>
+<p>Useful search terms for continued study:</p>
+<ul>
+<li>“reflective infrared sensor calibration”</li>
+<li>“infrared proximity sensor ambient light”</li>
+<li>“analog versus digital IR sensor output”</li>
+<li>“robot line following infrared reflectance”</li>
+<li>“sensor threshold and hysteresis”</li>
+<li>“wheel encoder robotics fundamentals”</li>
+</ul>
+<p>When studying a particular module, use its manufacturer’s datasheet to check its electrical connections, sensing range, output behavior, and recommended operating conditions. Do not assume that two modules with similar names have identical readings.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 8, <strong>Motor Control with PWM</strong>, RoboRover will learn how a controller changes motor behavior without simply treating the motor as an on/off device.</p>
-<p>We will connect:</p>
-<ul>
-<li>electrical power from Class 6;</li>
-<li>motor torque and RPM from this class;</li>
-<li>PWM duty cycle and motor-driver commands in the next class.</li>
-</ul>
-<p>You will see why a motor command is not always equal to a fixed speed, especially when the load, battery voltage, and surface change.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/006-electricity-for-roboticists/"><span>Previous stream</span><b>Class 06 · Electricity for Roboticists</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 08 · Motor Control with PWM</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p><strong>Class 13: Encoders: Measuring Wheel Motion</strong></p>
+<p>RoboRover will learn how rotating wheels can generate countable electrical signals. We will connect encoder counts to wheel rotation and distance traveled, while examining practical problems such as missed pulses and wheel slip.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/011-ultrasonic-distance-sensing/"><span>Previous stream</span><b>Class 11 · Ultrasonic Distance Sensing</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 13 · Encoders: Measuring Wheel Motion</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -581,7 +473,7 @@ Verified: 0.20 N*m gives 0.0 RPM.</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=7,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=12,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
