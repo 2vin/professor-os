@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2584,
+    "code_blocks": 4,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 92,
+      "pedagogy": 90,
+      "clarity": 91,
+      "depth": 88,
+      "examples": 91,
+      "interactivity": 88,
+      "code_alignment": 94,
+      "visual_teaching_plan": 89,
+      "originality": 84,
+      "consistency": 93,
+      "accessibility": 84
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify near the beginning that an encoder may be mounted on the wheel, motor shaft, or gearbox output; if it is not directly on the wheel, the gear ratio must be included in the ticks-to-wheel-motion conversion.",
+      "State explicitly that the midpoint-heading pose update is an approximation for short intervals, and optionally show the exact differential-drive arc update for advanced learners. The current implementation is pedagogically appropriate but should not be mistaken for an exact general solution.",
+      "Add a brief installation or execution note for matplotlib so beginners know how to run the Python lab in a standard environment.",
+      "Define whether a 'tick' means a pulse, edge, or decoded quadrature count before using the terms interchangeably. The lesson acknowledges counting-method variation, but a single concrete example would reduce residual ambiguity.",
+      "The lesson is strong but lengthy for a foundational class. The illustrator guidance under 'See It in Your Head' partially repeats the generated diagrams and could be shortened or moved into an instructor note.",
+      "The square challenge would be more actionable if it supplied one worked 90-degree turn calculation, such as equal-and-opposite wheel distances of B\u03c0/4 for an in-place turn.",
+      "The visual plan is relevant and well placed, but the hardware concept would benefit from one clearly labeled photograph showing an encoder, wheel, shaft, and counting pattern."
+    ],
+    "linkedin": {
+      "title": "How Robot Encoders Turn Wheel Motion into an Estimated Pose",
+      "description": "A practical robotics lesson on encoder ticks, wheel distance, differential-drive odometry, Python simulation, and why wheel-based position estimates drift.",
+      "commentary": "A robot cannot navigate reliably by sensing the outside world alone. It also needs to estimate what its wheels have done.\n\nThis Professor OS lesson introduces that bridge from measurement to motion:\n\n\u2022 Convert encoder ticks into wheel angle and distance.\n\u2022 Compare left and right wheel travel to estimate straight motion, turning, and rotation in place.\n\u2022 Use a midpoint-heading update to simulate differential-drive odometry in Python.\n\u2022 Investigate why slip, unequal wheels, backlash, timing, and calibration errors cause drift.\n\nThe lesson combines equations, a worked RoboRover example, executable assertions, a plotted simulation, prediction questions, and a square-path challenge. Students are asked to predict each motion before running the code, making the simulation a test of reasoning rather than a decorative output.\n\nTry the lab, change one wheel\u2019s tick count, and observe how a small asymmetry changes the estimated path.\n\n#Robotics #Python #Odometry #STEM",
+      "thumbnail_alt_text": "Differential-drive rover diagram showing encoder ticks becoming wheel distance and robot motion."
+    },
+    "media_query": "robot wheel encoder mounted hardware labeled quadrature encoder differential drive rover",
+    "image_query": "differential drive robot wheel encoder mounted close-up labeled wheel shaft encoder disk",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the mathematical model effectively, but a real labeled photograph would ground the abstraction in physical hardware. It would make encoder mounting location, shaft coupling, wheel geometry, and practical sources of slip or backlash easier to understand without adding another conceptual diagram.",
+    "media_would_help": true
+  }
+}
