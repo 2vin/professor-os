@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of a small two-wheel educational rover named RoboRover on a clean measurement mat, with visible left and right drive wheels, subtle encoder disks and sensor boards near the wheel axles, faint circular tick markers around each wheel, and a plotted odometry path on the floor showing a straight segment, an in-place rotation, and a second straight segment at a new heading. Premium robotics textbook composition, realistic materials, restrained modern styling, clear technical lighting, no decorative sci-fi elements, minimal labels.",
+    "caption": "RoboRover estimates its motion by counting wheel rotation and comparing the left and right wheel distances.",
+    "alt_text": "A small two-wheel rover with encoder-equipped wheels sits on a measurement mat beside an estimated path made of a straight segment, a turn, and another straight segment."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram showing the measurement chain from encoder ticks to wheel angle to wheel distance to robot motion. Include a wheel with a patterned encoder disk, counted pulses represented as evenly spaced tick marks, a quarter-turn angle arc, the wheel circumference, and a two-wheel rover with equal and unequal wheel distances. Use sparse essential labels only, professional robotics textbook styling, high visual clarity.",
+      "caption": "The central conversion is ticks to angle, angle to wheel distance, and wheel distances to robot motion.",
+      "alt_text": "A technical diagram connects encoder pulse counts to wheel rotation angle, circumference distance, and two-wheel rover movement."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Top-down engineering diagram of RoboRover with left and right wheels, track width marked between wheel contact points, and three sequential motion panels: equal forward wheel distances for straight travel, equal opposite wheel distances for rotation in place, and equal forward distances after the new heading. Show wheel distance arrows and a heading-change arc, with only essential mathematical labels and units.",
+      "caption": "Equal wheel distances create straight motion; opposite wheel distances create rotation in place; the track width determines the turning amount.",
+      "alt_text": "Three top-down panels show a differential-drive rover moving straight, rotating in place with opposite wheel directions, and moving forward after turning."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium instructional diagram matching a Python odometry simulation: coordinate axes with an estimated RoboRover path consisting of a horizontal first segment, a point rotation, and a second segment angled upward, plus small inset callouts for left ticks, right ticks, forward distance average, and heading change from wheel-distance difference. Minimal text, precise geometry, modern technical publication style.",
+      "caption": "The simulation turns encoder tick pairs into successive estimated poses and plots the resulting path.",
+      "alt_text": "A coordinate plot shows a rover path with a horizontal segment, an in-place turn, and an angled second segment, accompanied by encoder and odometry callouts."
+    }
+  ]
+}
