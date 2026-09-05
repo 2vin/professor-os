@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 2: Sense → Think → Act · Professor OS</title>
+<title>Class 13: Encoders: Measuring Wheel Motion · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,39 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -68,491 +35,506 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="2">
+<body data-class="13">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_02</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_13</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_02</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 02 · Foundations</div><h1>Sense → Think → Act</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>sensors, controller, actuators, feedback</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_13</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 13 · Hardware &amp; Sensors</div><h1>Encoders: Measuring Wheel Motion</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>ticks, angle, odometry</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Sense → Think → Act</h2>
+      <h2>Class podcast · Encoders: Measuring Wheel Motion</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-02-sense-think-act.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-13-encoders-measuring-wheel-motion.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 2: Sense → Think → Act</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 13: Encoders: Measuring Wheel Motion</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In Class 1, we asked, “What is a robot?” We learned that a robot is a physical machine whose controlled actuators perform a physical task. The action may be selected by a human, a preprogrammed controller, or autonomous software.</p>
-<p>We also separated two ideas that are often mixed together:</p>
+<p>RoboRover has already learned to use infrared sensors to notice nearby objects and differences in reflected light. An infrared sensor can answer questions such as:</p>
 <ul>
-<li><strong>Robot identity:</strong> what kind of physical machine it is.</li>
-<li><strong>Decision authority:</strong> who or what selects its immediate actions.</li>
+<li>“Is something close to me?”</li>
+<li>“Does this surface reflect more or less infrared light?”</li>
+<li>“Am I near the edge of a line?”</li>
 </ul>
-<p>A teleoperated rover can be a robot even when a human chooses its movements. An autonomous vacuum can be a robot because software selects its task-level actions. A thermostat can use feedback without normally being called a robot.</p>
-<p>Today we open the robot’s “body and brain” and study the repeating pattern behind many robotic systems:</p>
-<blockquote><strong>Sense → Think → Act</strong></blockquote>
-<p>RoboRover will use this pattern to keep a safe distance from a wall.</p>
+<p>But sensing the outside world is only half of navigation. RoboRover also needs to estimate what its wheels have done.</p>
+<p>A wheel encoder is a sensor that counts wheel rotation. From those counts, we can estimate:</p>
+<ol>
+<li>how far a wheel turned;</li>
+<li>how far the robot traveled;</li>
+<li>how much the robot rotated;</li>
+<li>where the robot probably is now.</li>
+</ol>
+<p>The word <strong>probably</strong> matters. Wheel measurements are useful, but they are not perfect. This class introduces the basic method called <strong>odometry</strong>.</p>
+<p>Next class, RoboRover will use infrared sensors and wheel motion together in a virtual line follower.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ol>
-<li>Explain what <strong>sensors</strong>, a <strong>controller</strong>, and <strong>actuators</strong> do.</li>
-<li>Trace information through a robot from measurement to movement.</li>
-<li>Explain feedback as measurement that changes a current or future control action.</li>
-<li>Calculate a simple distance error with units.</li>
-<li>Recognize why real robots struggle with noise, delay, calibration, and mechanical limits.</li>
-<li>Build and run a small Python simulation of RoboRover’s feedback behavior.</li>
-</ol>
+<ul>
+<li>explain what an encoder tick is;</li>
+<li>convert ticks into wheel angle;</li>
+<li>convert wheel angle into distance;</li>
+<li>explain how two wheel encoders estimate a robot’s motion;</li>
+<li>calculate a simple odometry update;</li>
+<li>recognize why odometry gradually becomes inaccurate;</li>
+<li>use Python to simulate encoder-based movement.</li>
+</ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>Imagine a robot arm picking up a cup.</p>
+<p>An infrared sensor measures infrared light. Its reading is not a magical label such as “wall” or “line.” Instead, the robot interprets a measurement using a rule or program.</p>
+<p>For example, RoboRover might compare an infrared reading with a threshold:</p>
 <ul>
-<li>The arm is a <strong>physical machine</strong>.</li>
-<li>Its motors create controlled movement.</li>
-<li>A human, a stored program, or autonomous software may choose the task.</li>
-<li>Sensors may measure joint angle, force, or the cup’s location.</li>
-<li>The robot’s status and its control mode are separate questions.</li>
+<li>reading below threshold: “surface appears dark”;</li>
+<li>reading above threshold: “surface appears bright.”</li>
 </ul>
-<p>Last class, we previewed <strong>feedback</strong>:</p>
-<blockquote>A measured state or output influences a current or future control action in relation to a desired state.</blockquote>
-<p>For example, a thermostat measures room temperature and changes heating behavior when the measured temperature differs from the desired temperature. Feedback does not have to mean smooth or continuous adjustment. A threshold rule can also be feedback if a measurement changes what happens next.</p>
-<p>Today we will place these ideas into a complete robot loop.</p>
+<p>That decision can help RoboRover steer toward a line. However, an infrared sensor does not directly report how far the wheels moved.</p>
+<p>Today’s sensor measures a different part of the robot: <strong>wheel rotation</strong>.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Feedback-loop diagram connecting desired distance, sensor measurement, controller decision, motor command, rover movement, and a return measurement."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The measured result returns to the controller, so the next action depends on what actually happened.</p>
-<p>RoboRover is facing a wall. It should stop about 0.50 metres away.</p>
-<p>An illustrator could draw four blocks:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>        desired distance
-             0.50 m
-                |
-                v
-Wall &lt;--- sensor measurement &lt;--- RoboRover
-                                      |
-                                      v
-                              Controller compares
-                              desired and measured
-                                      |
-                                      v
-                              Motor command
-                                      |
-                                      v
-                              Wheels move rover
-                                      |
-                                      +---- new distance ----&gt; sensor</code></pre></div>
-<p>The loop is:</p>
-<ol>
-<li><strong>Sense:</strong> a distance sensor estimates how far RoboRover is from the wall.</li>
-<li><strong>Think:</strong> the controller compares the measurement with the desired distance.</li>
-<li><strong>Act:</strong> motors turn the wheels forward, backward, or not at all.</li>
-<li><strong>Sense again:</strong> the new position is measured.</li>
-</ol>
-<p>The fourth step matters. Without measuring again, the robot cannot tell whether its action worked.</p>
-<p>This is a simple <strong>feedback control loop</strong>. The word “control” here means choosing an action to influence a physical system, not merely issuing a one-time command.</p>
+<figure><img loading="lazy" src="inline_01.png" alt="A technical diagram connects encoder pulse counts to wheel rotation angle, circumference distance, and two-wheel rover movement."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The central conversion is ticks to angle, angle to wheel distance, and wheel distances to robot motion.</p>
+<p>Imagine placing a small flag on a bicycle wheel. Each time the flag passes a fixed mark, you count one event. More events mean more wheel rotation.</p>
+<p>A real encoder does something similar, although it usually uses a patterned disk, magnetic markings, or another rotating measurement pattern. The sensor produces electrical pulses. The controller counts those pulses, often called <strong>ticks</strong> or <strong>counts</strong>.</p>
+<p>The chain of reasoning is:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>encoder ticks
+      ↓
+wheel rotation angle
+      ↓
+distance traveled by wheel circumference
+      ↓
+robot motion estimate</code></pre></div>
+<p>For a two-wheeled robot, compare the left and right wheels:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>left wheel distance  ≈ right wheel distance
+        → RoboRover moves mostly straight
+
+left wheel distance  &gt; right wheel distance
+        → RoboRover curves toward the right
+
+left wheel distance  &lt; right wheel distance
+        → RoboRover curves toward the left
+
+left wheel moves forward, right wheel backward
+        → RoboRover rotates in place</code></pre></div>
+<p>This is a measurement-based estimate, not a perfect record of reality.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture RoboRover as a small wheeled platform with:</p>
+<p>Picture RoboRover from above:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>                 forward direction
+                       ↑
+             left wheel     right wheel
+                  O-----------O
+                    axle width</code></pre></div>
+<p>The distance between the wheel contact points is called the <strong>track width</strong>. We will call it \(B\), measured in meters.</p>
+<p>Now imagine each wheel leaving a faint chalk trail. If both trails have the same length, the robot probably traveled straight. If one trail is longer, the robot followed a curved path.</p>
+<p>For an illustrator, the key visual is a rotating encoder disk beside a wheel:</p>
 <ul>
-<li>a forward-facing distance sensor,</li>
-<li>two powered wheels,</li>
-<li>a small computer,</li>
-<li>a battery,</li>
-<li>and a wall several centimetres away.</li>
+<li>the wheel turns;</li>
+<li>dark and light or magnetic regions pass a sensor;</li>
+<li>each detected transition creates a tick;</li>
+<li>arrows show tick count increasing;</li>
+<li>a second diagram shows unequal left and right distances creating a turn.</li>
 </ul>
-<p>Suppose RoboRover is too far from the wall. The controller might command both wheels to turn forward.</p>
-<p>Now suppose it is too close. The controller might command both wheels to turn backward.</p>
-<p>If it is within an acceptable zone, the controller stops the wheels.</p>
-<p>The desired distance is not a command such as “drive forward for three seconds.” It is a condition the robot tries to maintain.</p>
-<p>A useful visual detail is to draw a shaded <strong>acceptable zone</strong> around the target:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>too far          acceptable zone          too close
-------|-----------------|-----------------|------
-     0.56 m            0.50 m             0.44 m
-       forward             stop              reverse</code></pre></div>
-<p>The boundaries in this drawing are examples. The exact values depend on the robot, sensor, and task.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Sensors: the robot’s measuring instruments</h3>
-<p>A <strong>sensor</strong> measures some property of the robot or its environment and produces information that the controller can use.</p>
-<p>Examples include:</p>
+<h3>Ticks measure rotation</h3>
+<p>Suppose an encoder reports \(N\) ticks for one complete wheel revolution. If the wheel produces \(n\) ticks, then the fraction of a revolution is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{fraction of revolution} = \frac{n}{N}\]</span></div>
+<p>A full revolution is \(360^\circ\), or \(2\pi\) radians.</p>
+<p>The wheel angle is therefore:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta = \frac{n}{N} \times 2\pi\]</span></div>
+<p>where:</p>
 <ul>
-<li>a distance sensor measuring separation from an object,</li>
-<li>a wheel encoder measuring wheel rotation,</li>
-<li>a camera measuring patterns of light,</li>
-<li>a temperature sensor measuring thermal conditions,</li>
-<li>a bumper switch reporting contact.</li>
+<li>\(\theta\) is wheel rotation in radians;</li>
+<li>\(n\) is the measured number of ticks;</li>
+<li>\(N\) is ticks per revolution;</li>
+<li>\(2\pi\) radians is one complete revolution.</li>
 </ul>
-<p>A sensor does not automatically “understand” its surroundings. It produces a signal or value. Software and electronics interpret that value.</p>
-<h3>Controller: the decision-making mechanism</h3>
-<p>A <strong>controller</strong> receives measurements and selects commands.</p>
-<p>For RoboRover, the controller could follow this rule:</p>
+<p>Some systems count only one signal transition. Others count several transitions from two encoder signals. Therefore, “ticks per revolution” must be defined for the particular encoder and counting method being used.</p>
+<h3>Angle becomes distance</h3>
+<p>A wheel’s outer edge travels one circumference during one revolution:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi r\]</span></div>
+<p>where:</p>
 <ul>
-<li>If the wall is farther than the target zone, drive forward.</li>
-<li>If the wall is closer than the target zone, drive backward.</li>
-<li>Otherwise, stop.</li>
+<li>\(C\) is circumference in meters;</li>
+<li>\(r\) is wheel radius in meters.</li>
 </ul>
-<p>This is a threshold controller. It is simple, but it is still feedback because new measurements affect later motor commands.</p>
-<h3>Actuators: the parts that create physical change</h3>
-<p>An <strong>actuator</strong> converts a command into physical action.</p>
-<p>Examples include:</p>
+<p>The distance corresponding to \(n\) ticks is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{n}{N} \times 2\pi r\]</span></div>
+<p>where:</p>
 <ul>
-<li>electric motors turning wheels,</li>
-<li>a servo moving a joint,</li>
-<li>a pump moving liquid,</li>
-<li>a gripper motor closing fingers,</li>
-<li>a solenoid moving a latch.</li>
+<li>\(d\) is wheel travel in meters;</li>
+<li>\(n\) is measured ticks;</li>
+<li>\(N\) is ticks per revolution;</li>
+<li>\(r\) is wheel radius in meters.</li>
 </ul>
-<p>A controller may request “motor speed = 40%,” but the physical actuator may not produce exactly that result. Friction, battery voltage, load, and mechanical wear all matter.</p>
-<h3>Feedback: action informed by results</h3>
-<p>In feedback control, the robot acts, measures the result, and uses that result to decide what to do next.</p>
-<p>This differs from a one-shot sensor trigger. Suppose a sensor detects an obstacle and starts a fixed three-second turn. If the robot does not use later measurements to adjust that turn, many engineers would describe this as a sensor-triggered sequence, not sustained feedback regulation.</p>
-<p>In this course, <strong>sustained feedback regulation</strong> means repeated measurement-and-correction over time.</p>
-<h3>A compact comparison</h3>
-<p>These ideas are related but not identical:</p>
-<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th><th>Example</th></tr></thead><tbody><tr><td>Preprogrammed automation</td><td>Is the sequence specified in advance?</td><td>RoboRover drives forward for 2 seconds, then stops</td></tr><tr><td>Feedback control</td><td>Does measured output or state change the control action?</td><td>RoboRover changes direction based on measured wall distance</td></tr><tr><td>Autonomy</td><td>Does software select task-level actions without immediate human choice?</td><td>RoboRover decides how to approach and inspect several locations</td></tr></tbody></table></div>
-<p>A system can combine these. A preprogrammed robot arm can execute a stored task while its joint motors use feedback. Feedback does not automatically mean autonomy, and autonomy does not require a particular sensor or algorithm.</p>
+<p>The sign matters:</p>
+<ul>
+<li>positive ticks may mean forward;</li>
+<li>negative ticks may mean backward.</li>
+</ul>
+<p>The robot must know this direction convention from its wiring and software.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>To reason about RoboRover’s distance, define the <strong>distance error</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = d_{\text{measured}} - d_{\text{target}}\]</span></div>
-<p>where:</p>
+<p>Suppose RoboRover has:</p>
 <ul>
-<li>\(e\) is the distance error, in metres (m);</li>
-<li>\(d_{\text{measured}}\) is the current measured distance from RoboRover to the wall, in metres (m);</li>
-<li>\(d_{\text{target}}\) is the desired distance from RoboRover to the wall, in metres (m).</li>
+<li>wheel diameter \(= 0.10\ \text{m}\);</li>
+<li>wheel radius \(r = 0.05\ \text{m}\);</li>
+<li>\(N = 360\) ticks per revolution;</li>
+<li>measured ticks \(n = 90\).</li>
 </ul>
-<p>Suppose:</p>
-<ul>
-<li>\(d_{\text{measured}} = 0.82\ \text{m}\)</li>
-<li>\(d_{\text{target}} = 0.50\ \text{m}\)</li>
-</ul>
-<p>Then:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.82\ \text{m} - 0.50\ \text{m}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.32\ \text{m}\]</span></div>
-<p>The positive sign means RoboRover is too far from the wall. If the rover is facing the wall, it should move forward.</p>
-<p>If instead the measured distance were \(0.41\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.41\ \text{m} - 0.50\ \text{m} = -0.09\ \text{m}\]</span></div>
-<p>The negative sign means RoboRover is too close. It should move backward or otherwise increase its distance.</p>
-<p>A simple travel estimate is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{\Delta d}{v}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(t\) is time, in seconds (s);</li>
-<li>\(\Delta d\) is the distance to travel, in metres (m);</li>
-<li>\(v\) is speed, in metres per second (m/s).</li>
-</ul>
-<p>If RoboRover must travel \(0.32\ \text{m}\) at a constant \(0.20\ \text{m/s}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{0.32\ \text{m}}{0.20\ \text{m/s}} = 1.6\ \text{s}\]</span></div>
-<p>This is an ideal estimate. It assumes perfect measurement, immediate motor response, constant speed, and no slipping. Real robots rarely satisfy all those assumptions.</p>
+<p>First calculate the angle:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta = \frac{90}{360} \times 2\pi\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta = 0.25 \times 2\pi = \frac{\pi}{2}\ \text{rad}\]</span></div>
+<p>So the wheel turned one quarter of a revolution, or \(90^\circ\).</p>
+<p>Now calculate circumference:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = 2\pi(0.05\ \text{m}) = 0.1\pi\ \text{m}\]</span></div>
+<p>The distance is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{90}{360} \times 0.1\pi\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = 0.025\pi\ \text{m} \approx 0.0785\ \text{m}\]</span></div>
+<p>Interpretation: the wheel’s contact point traveled approximately \(7.85\ \text{cm}\).</p>
+<p>This is a wheel-distance estimate. If the wheel slipped across the floor, the robot’s body might not have moved exactly \(7.85\ \text{cm}\).</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Two-panel side-view illustration of a rover first too far from a wall and moving forward, then within the target zone and stopped."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The same target produces different commands because the measured distance changes.</p>
-<p>RoboRover uses a distance sensor aimed at a wall.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Three top-down panels show a differential-drive rover moving straight, rotating in place with opposite wheel directions, and moving forward after turning."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Equal wheel distances create straight motion; opposite wheel distances create rotation in place; the track width determines the turning amount.</p>
+<p>RoboRover has two driven wheels:</p>
 <ul>
-<li>Desired distance: \(0.50\ \text{m}\)</li>
-<li>Measured distance: \(0.68\ \text{m}\)</li>
-<li>Acceptable error magnitude: \(0.04\ \text{m}\)</li>
+<li>left and right wheel radius: \(r = 0.05\ \text{m}\);</li>
+<li>encoder resolution: \(N = 360\) ticks per revolution;</li>
+<li>track width: \(B = 0.16\ \text{m}\).</li>
 </ul>
-<p>First calculate the error:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.68\ \text{m} - 0.50\ \text{m} = 0.18\ \text{m}\]</span></div>
-<p>Because \(0.18\ \text{m}\) is greater than the acceptable \(0.04\ \text{m}\), RoboRover is too far away. The controller commands forward motion.</p>
-<p>Later, the sensor reads \(0.52\ \text{m}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.52\ \text{m} - 0.50\ \text{m} = 0.02\ \text{m}\]</span></div>
-<p>The error is now within the acceptable zone because \(0.02\ \text{m} &lt; 0.04\ \text{m}\). The controller commands stop.</p>
-<p>Notice what happened:</p>
+<p>During a short time interval, the encoders report:</p>
 <ul>
-<li>The target did not change.</li>
-<li>The sensor measurement changed.</li>
-<li>The controller selected a different actuator command because of that measurement.</li>
+<li>left wheel: \(180\) ticks;</li>
+<li>right wheel: \(180\) ticks.</li>
 </ul>
-<p>That is the essential feedback pattern.</p>
-<p>An engineering caveat appears immediately: the sensor may report \(0.52\ \text{m}\) even when the true distance is \(0.50\ \text{m}\). Sensor noise can cause the controller to switch commands unnecessarily. A deadband, such as the \(0.04\ \text{m}\) acceptable zone, helps prevent constant forward-backward switching.</p>
+<p>Each wheel moves:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_L = d_R
+= \frac{180}{360} \times 2\pi(0.05\ \text{m})\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_L = d_R = 0.05\pi\ \text{m}
+\approx 0.1571\ \text{m}\]</span></div>
+<p>Because the distances are equal, RoboRover estimates that it moved straight forward by approximately:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta s = \frac{d_L+d_R}{2}
+= 0.1571\ \text{m}\]</span></div>
+<p>Now consider a second interval:</p>
+<ul>
+<li>left wheel: \(90\) ticks;</li>
+<li>right wheel: \(-90\) ticks.</li>
+</ul>
+<p>The wheels move equal distances in opposite directions:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_L \approx 0.0785\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d_R \approx -0.0785\ \text{m}\]</span></div>
+<p>The average forward motion is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta s = \frac{d_L+d_R}{2}=0\ \text{m}\]</span></div>
+<p>So RoboRover estimates no translation. It rotates in place.</p>
+<p>The estimated heading change is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\phi = \frac{d_R-d_L}{B}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(\Delta\phi\) is change in robot heading in radians;</li>
+<li>\(d_R\) is right wheel distance in meters;</li>
+<li>\(d_L\) is left wheel distance in meters;</li>
+<li>\(B\) is track width in meters.</li>
+</ul>
+<p>Using the values:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\phi
+=
+\frac{-0.0785\ \text{m}-0.0785\ \text{m}}
+{0.16\ \text{m}}
+\approx -0.9817\ \text{rad}\]</span></div>
+<p>The negative sign indicates a clockwise turn under our chosen coordinate convention. The magnitude is approximately \(56.25^\circ\).</p>
+<p>This is the central odometry idea: <strong>the average wheel distance estimates forward motion, while the difference between wheel distances estimates turning.</strong></p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram with a distance-versus-time plot, noisy sensor inset, and labeled mapping from Python controller code to rover motion."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The simulation separates imperfect measurement from the rover’s true distance and shows the feedback response over time.</p>
-<p>This program simulates RoboRover approaching a wall. It uses:</p>
-<ul>
-<li>a simulated distance sensor with small random noise;</li>
-<li>a threshold controller;</li>
-<li>a motor command represented by velocity;</li>
-<li>a plot of true distance over time.</li>
-</ul>
-<p>The simulated rover starts \(1.20\ \text{m}\) from the wall and tries to maintain \(0.50\ \text{m}\).</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import random
+<figure><img loading="lazy" src="inline_03.png" alt="A coordinate plot shows a rover path with a horizontal segment, an in-place turn, and an angled second segment, accompanied by encoder and odometry callouts."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The simulation turns encoder tick pairs into successive estimated poses and plots the resulting path.</p>
+<p>The program below simulates RoboRover’s encoder readings. It performs three motion steps:</p>
+<ol>
+<li>both wheels move one revolution, so RoboRover travels straight;</li>
+<li>the wheels turn equal amounts in opposite directions, so RoboRover rotates in place;</li>
+<li>both wheels move half a revolution, so RoboRover travels forward in its new direction.</li>
+</ol>
+<p>The program plots the estimated path. It also includes assertions that verify the important numerical results.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
 import matplotlib.pyplot as plt
 
-# Desired distance from RoboRover to the wall, in metres.
-target_distance = 0.50
 
-# The rover is allowed to be this far above or below the target.
-deadband = 0.03
+WHEEL_RADIUS_M = 0.05
+TICKS_PER_REV = 360.0
+TRACK_WIDTH_M = 0.16
 
-# Simulation time step, in seconds.
-dt = 0.10
 
-# Maximum forward or backward speed, in metres per second.
-speed = 0.25
+def ticks_to_distance(ticks):
+    &quot;&quot;&quot;Convert encoder ticks to signed wheel distance in meters.&quot;&quot;&quot;
+    return (ticks / TICKS_PER_REV) * 2.0 * math.pi * WHEEL_RADIUS_M
 
-# Starting true distance from the wall, in metres.
-distance = 1.20
 
-# A local random generator makes the experiment repeatable.
-rng = random.Random(4)
+def update_pose(x, y, heading, left_ticks, right_ticks):
+    &quot;&quot;&quot;
+    Update a differential-drive robot pose.
 
-times = []
-distances = []
-commands = []
+    x and y are meters.
+    heading is radians, measured counterclockwise from the positive x-axis.
+    &quot;&quot;&quot;
+    left_distance = ticks_to_distance(left_ticks)
+    right_distance = ticks_to_distance(right_ticks)
 
-for step in range(120):
-    time = step * dt
+    forward_distance = (left_distance + right_distance) / 2.0
+    heading_change = (right_distance - left_distance) / TRACK_WIDTH_M
 
-    # Simulate an imperfect distance sensor.
-    noise = rng.uniform(-0.015, 0.015)
-    measured_distance = distance + noise
+    # Use the midpoint heading for this short motion interval.
+    midpoint_heading = heading + heading_change / 2.0
 
-    error = measured_distance - target_distance
+    new_x = x + forward_distance * math.cos(midpoint_heading)
+    new_y = y + forward_distance * math.sin(midpoint_heading)
+    new_heading = heading + heading_change
 
-    # Feedback controller:
-    # positive velocity moves toward the wall,
-    # negative velocity moves away from the wall.
-    if error &gt; deadband:
-        velocity = speed
-        command = &quot;forward&quot;
-    elif error &lt; -deadband:
-        velocity = -speed
-        command = &quot;backward&quot;
-    else:
-        velocity = 0.0
-        command = &quot;stop&quot;
+    return new_x, new_y, new_heading
 
-    # Update the true distance using velocity and time.
-    distance = distance - velocity * dt
 
-    # Do not allow the simulated rover to pass through the wall.
-    if distance &lt; 0.05:
-        distance = 0.05
+def main():
+    # Each tuple contains (left encoder ticks, right encoder ticks).
+    motion_steps = [
+        (360, 360),    # One wheel revolution: straight forward.
+        (90, -90),     # Rotate in place.
+        (180, 180)     # Half a revolution: forward in the new direction.
+    ]
 
-    times.append(time)
-    distances.append(distance)
-    commands.append(command)
+    x = 0.0
+    y = 0.0
+    heading = 0.0
 
-# Executable verification of the experiment&#x27;s exact structural claims.
-assert len(times) == 120
-assert len(distances) == 120
-assert len(commands) == 120
-assert min(distances) &gt;= 0.05
-assert abs(distances[-1] - target_distance) &lt;= 0.10
+    path_x = [x]
+    path_y = [y]
 
-print(&quot;Simulation completed.&quot;)
-print(&quot;Final true distance: {:.3f} m&quot;.format(distances[-1]))
-print(&quot;Final error from target: {:.3f} m&quot;.format(
-    distances[-1] - target_distance
-))
+    for left_ticks, right_ticks in motion_steps:
+        x, y, heading = update_pose(
+            x, y, heading, left_ticks, right_ticks
+        )
+        path_x.append(x)
+        path_y.append(y)
 
-plt.plot(times, distances, label=&quot;true distance&quot;)
-plt.axhline(target_distance, color=&quot;red&quot;, linestyle=&quot;--&quot;,
-            label=&quot;target distance&quot;)
-plt.xlabel(&quot;Time (s)&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover feedback simulation&quot;)
-plt.legend()
-plt.grid(True)
-plt.show()</code></pre></div>
+    expected_distance_first_step = 2.0 * math.pi * WHEEL_RADIUS_M
+    expected_turn = (
+        -2.0 * ticks_to_distance(90) / TRACK_WIDTH_M
+    )
+    expected_final_x = (
+        expected_distance_first_step
+        + 0.5 * expected_distance_first_step * math.cos(expected_turn)
+    )
+    expected_final_y = (
+        0.5 * expected_distance_first_step * math.sin(expected_turn)
+    )
+
+    # Executable checks for the numerical claims.
+    assert math.isclose(
+        path_x[1], expected_distance_first_step, rel_tol=1e-9
+    )
+    assert math.isclose(path_y[1], 0.0, abs_tol=1e-12)
+    assert math.isclose(heading, expected_turn, rel_tol=1e-9)
+    assert math.isclose(x, expected_final_x, rel_tol=1e-9)
+    assert math.isclose(y, expected_final_y, rel_tol=1e-9)
+
+    print(&quot;First straight distance: {:.6f} m&quot;.format(path_x[1]))
+    print(&quot;Final estimated pose: x={:.6f} m, y={:.6f} m, heading={:.6f} rad&quot;.format(
+        x, y, heading
+    ))
+    print(&quot;All odometry checks passed.&quot;)
+
+    plt.figure(figsize=(7, 5))
+    plt.plot(path_x, path_y, &quot;o-&quot;, label=&quot;estimated RoboRover path&quot;)
+    plt.scatter([0.0], [0.0], marker=&quot;s&quot;, s=80, label=&quot;start&quot;)
+    plt.xlabel(&quot;x position (m)&quot;)
+    plt.ylabel(&quot;y position (m)&quot;)
+    plt.title(&quot;Encoder Odometry Simulation&quot;)
+    plt.axis(&quot;equal&quot;)
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre></div>
 <p>Important lines:</p>
 <ul>
-<li><code>measured_distance = distance + noise</code> separates the true simulated distance from what the sensor reports.</li>
-<li><code>error = measured_distance - target_distance</code> computes the signed error.</li>
-<li>The <code>if</code>, <code>elif</code>, and <code>else</code> statements are the controller.</li>
-<li><code>distance = distance - velocity * dt</code> models the physical result of the motor command.</li>
-<li><code>assert</code> statements check structural and safety claims while the program runs.</li>
+<li><code>ticks_to_distance</code> applies the ticks-to-circumference equation.</li>
+<li><code>forward_distance</code> averages the two wheel distances.</li>
+<li><code>heading_change</code> uses the wheel-distance difference divided by track width.</li>
+<li><code>midpoint_heading</code> gives a reasonable heading for the short interval.</li>
+<li><code>assert</code> checks prevent the program from silently disagreeing with the stated model.</li>
 </ul>
-<p>This is not a complete motor controller. It is a teaching model. It ignores acceleration, wheel slip, sensor delay, and the time needed for a motor to start or stop.</p>
+<p>The plot is an estimate of RoboRover’s path, not a camera recording of the true path.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Try a human version before changing the code.</p>
-<p>Choose a target distance from a wall, such as 50 centimetres. One person is RoboRover, one is the sensor, and one is the controller.</p>
+<h3>Encoder detective</h3>
+<p>Before running the program, predict the result of each motion step.</p>
+<p>Write down:</p>
+<div class="table-scroll"><table><thead><tr><th>Step</th><th>Left ticks</th><th>Right ticks</th><th>What should happen?</th></tr></thead><tbody><tr><td>1</td><td>360</td><td>360</td><td>?</td></tr><tr><td>2</td><td>90</td><td>-90</td><td>?</td></tr><tr><td>3</td><td>180</td><td>180</td><td>?</td></tr></tbody></table></div>
+<p>Predict:</p>
 <ol>
-<li>The “sensor” secretly chooses a measurement that is slightly inaccurate.</li>
-<li>The controller announces only one command: <strong>forward</strong>, <strong>backward</strong>, or <strong>stop</strong>.</li>
-<li>RoboRover takes one small step in the commanded direction.</li>
-<li>Measure again and repeat.</li>
+<li>Does Step 1 change heading?</li>
+<li>Does Step 2 change position?</li>
+<li>After Step 2, is the robot facing its original direction?</li>
+<li>Does Step 3 move along the original horizontal direction or a new direction?</li>
 </ol>
-<p>Now play two rounds:</p>
-<ul>
-<li><strong>Round A:</strong> the controller must react to every tiny difference.</li>
-<li><strong>Round B:</strong> the controller uses a deadband: stop when within 4 centimetres of the target.</li>
-</ul>
-<p>Discuss which round produces more unnecessary switching. The second round should usually feel calmer because small measurement differences do not immediately change the command.</p>
+<p>Now run the program and inspect the plotted points.</p>
+<p>For an experiment, change only the second step from:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>(90, -90)</code></pre></div>
+<p>to:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>(90, 0)</code></pre></div>
+<p>Predict again. The robot should now both move forward and turn, because only one wheel is moving.</p>
+<p>Then try:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>(180, 360)</code></pre></div>
+<p>The right wheel travels farther than the left wheel. The path should curve rather than remain straight.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Predict before you run the Python program:</p>
+<p>The expected reasoning is:</p>
 <ol>
-<li>RoboRover begins too far from the wall. What should its first movement command be?</li>
-<li>As it approaches the target, should the distance generally increase or decrease?</li>
-<li>Once it enters the deadband, should it keep driving continuously?</li>
-<li>Why might the plotted line not end at exactly \(0.50\ \text{m}\)?</li>
+<li><strong>Step 1:</strong> both wheels move one revolution, so RoboRover travels straight forward.</li>
+<li><strong>Step 2:</strong> the wheels move in opposite directions, so the average forward distance is zero. RoboRover rotates in place.</li>
+<li><strong>Step 3:</strong> both wheels move forward equally, so RoboRover travels straight relative to its new heading.</li>
+<li>The final path is not one horizontal line. It consists of a straight segment, a rotation in place, and a straight segment at a new angle.</li>
 </ol>
-<p>Expected reasoning:</p>
-<ol>
-<li>The first command should be <strong>forward</strong>, because the measured distance is greater than the target plus the deadband.</li>
-<li>The distance should generally <strong>decrease</strong>.</li>
-<li>It should usually command <strong>stop</strong>, although noisy measurements near the boundary may occasionally cause another movement command.</li>
-<li>The result may differ from exactly \(0.50\ \text{m}\) because the controller acts in time steps, the sensor is noisy, and the rover moves at a fixed speed rather than slowing smoothly.</li>
-</ol>
-<p>Run the program and inspect the graph. Look for the red target line and the changing blue distance line.</p>
+<p>The assertions in the program verify the numerical pose calculated by this model. If you change the motion steps, the original assertions may no longer describe the new experiment, so update the expected values carefully.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Calling every sensor trigger feedback</h3>
-<p>A sensor can start a sequence without creating a continuing feedback loop. Feedback requires that measured information influence a current or future control action. If the robot starts a fixed sequence and ignores later measurements, it is not using sustained feedback regulation for that behavior.</p>
-<h3>Mistake 2: Confusing a sensor with a controller</h3>
-<p>A sensor measures. It does not necessarily decide. The controller interprets measurements and chooses commands.</p>
-<h3>Mistake 3: Assuming an actuator obeys perfectly</h3>
-<p>A command such as “move forward” does not guarantee a precise distance. Wheels can slip, motors can differ, and battery voltage can change.</p>
-<h3>Mistake 4: Forgetting units</h3>
-<p>A distance of \(50\) could mean 50 millimetres, centimetres, or metres. Always write the unit. In the Python simulation, distances are in metres.</p>
-<h3>Mistake 5: Using the wrong sign</h3>
-<p>For a wall directly ahead, increasing distance error means the rover is too far away. But the correct movement direction depends on the robot’s geometry and coordinate convention. Define the convention before writing the rule.</p>
-<h3>Mistake 6: Ignoring delay</h3>
-<p>If the sensor reports an old position, RoboRover may continue forward after it has already reached the target. Delays can cause overshoot or oscillation.</p>
+<h3>Mistake 1: confusing ticks with centimeters</h3>
+<p>A tick is not automatically one centimeter. The distance per tick depends on:</p>
+<ul>
+<li>wheel radius;</li>
+<li>encoder resolution;</li>
+<li>counting method.</li>
+</ul>
+<h3>Mistake 2: forgetting the sign</h3>
+<p>If one wheel moves backward, its tick distance should be negative under the chosen convention. Replacing \(-90\) with \(90\) changes a rotation into forward motion.</p>
+<h3>Mistake 3: using diameter where radius is required</h3>
+<p>The circumference equation is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C=2\pi r\]</span></div>
+<p>If you are given diameter \(D\), first use:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[r=\frac{D}{2}\]</span></div>
+<p>Using \(D\) directly in \(2\pi r\) doubles the estimated distance.</p>
+<h3>Mistake 4: assuming odometry is exact</h3>
+<p>Real robots experience:</p>
+<ul>
+<li>wheel slip during turns;</li>
+<li>unequal wheel diameters;</li>
+<li>encoder quantization, where small motions produce no new tick;</li>
+<li>loose wheels or gear backlash;</li>
+<li>incorrect track-width calibration;</li>
+<li>missed or extra electrical counts;</li>
+<li>a robot body that flexes.</li>
+</ul>
+<p>These errors accumulate. Odometry is often excellent over a short interval but can drift over a long journey.</p>
+<h3>Mistake 5: ignoring timing</h3>
+<p>If the controller reads encoders slowly, several wheel movements may occur between measurements. The estimate then describes an interval rather than a continuous path. Later classes will study how sensors and control decisions interact over time.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge</h3>
-<p>Modify the Python program so that RoboRover has two speed levels:</p>
-<ul>
-<li>use a faster speed when it is far from the wall;</li>
-<li>use a slower speed when it is close to the target but outside the deadband;</li>
-<li>stop inside the deadband.</li>
-</ul>
-<p>Keep the sensor noise and plot. Add an assertion that the final distance is within \(0.10\ \text{m}\) of the target.</p>
-<p>Explain in a comment why slower motion near the target might reduce overshoot.</p>
-<h3>Optional extension</h3>
-<p>Add a simulated sensor failure. For example, once every 40 steps, make the sensor return <code>None</code>. Decide what a cautious controller should do when it has no valid measurement.</p>
-<p>One reasonable beginner policy is to stop the motors until a valid measurement returns. This is not the only possible policy, but it makes the safety assumption explicit.</p>
+<h3>Challenge: RoboRover’s square estimate</h3>
+<p>Modify the motion list so that RoboRover attempts to drive a square using encoder measurements.</p>
+<p>Use this simplified plan:</p>
+<ol>
+<li>drive forward;</li>
+<li>rotate in place by approximately \(90^\circ\);</li>
+<li>drive forward;</li>
+<li>rotate again;</li>
+<li>repeat until four sides are attempted.</li>
+</ol>
+<p>Choose tick counts for the straight segments and turn segments. Use the relationship:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\phi=\frac{d_R-d_L}{B}\]</span></div>
+<p>to calculate a pair of wheel distances for a \(90^\circ\) turn, then convert those distances into ticks.</p>
+<p><strong>Optional extension:</strong> introduce a small error into one wheel’s distance on every straight segment. Observe whether the estimated path closes perfectly. Explain why repeated small errors can become a large position error.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What is the main job of a sensor in a robot?</li>
-<li>RoboRover’s target distance is \(0.60\ \text{m}\), and its measured distance is \(0.45\ \text{m}\). Calculate the signed distance error and state whether the rover is too far or too close.</li>
-<li>Why does RoboRover’s repeated measurement make its wall-distance behavior feedback control?</li>
-<li>Which statement is correct?</li>
-<p>A. Feedback always means the robot is autonomous. B. A robot can use feedback while following a preprogrammed task. C. An actuator only stores measurements. D. A sensor directly supplies mechanical power.</p>
+<li>What does an encoder tick represent?</li>
+</ol>
+<ol>
+<li>A wheel has \(400\) ticks per revolution. How many revolutions does \(100\) ticks represent?</li>
+</ol>
+<ol>
+<li>RoboRover’s left and right wheels move equal distances forward. What motion does the basic differential-drive model predict?</li>
+</ol>
+<ol>
+<li>Why can encoder odometry drift even when the encoder is counting correctly?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>A sensor measures a property of the robot or its environment and produces information for the controller.</li>
-<li>Using \(e = d_{\text{measured}} - d_{\text{target}}\):</li>
+<li>An encoder tick is one counted encoder event or count. It represents a known portion of wheel rotation according to the encoder’s counting specification.</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0.45\ \text{m} - 0.60\ \text{m} = -0.15\ \text{m}\]</span></div>
-<p>The negative error means RoboRover is \(0.15\ \text{m}\) too close.</p>
+<p>2.</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{100}{400}=0.25\]</span></div>
+<p>So the wheel turned one quarter of a revolution.</p>
 <ol>
-<li>The rover measures its distance, changes its motor command based on that measurement, moves, and measures again. The result affects future action.</li>
-<li><strong>B</strong> is correct. A preprogrammed task can contain feedback control.</li>
+<li>The robot is estimated to move straight, because the wheel-distance difference is zero.</li>
+</ol>
+<ol>
+<li>The wheel may slip, the wheel sizes may differ, the track width may be inaccurate, counts may be missed, or the motion model may not match the real robot. These errors accumulate over time.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>A real robot often contains several nested Sense → Think → Act loops.</p>
-<p>For example, a mobile rover might have:</p>
+<p>A physical RoboRover would typically read encoder counts repeatedly while its motors run. At each update, software would compare the new count with the previous count:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta n = n_{\text{new}}-n_{\text{old}}\]</span></div>
+<p>where:</p>
 <ul>
-<li>a high-level program deciding where to go;</li>
-<li>a distance controller keeping away from obstacles;</li>
-<li>wheel-speed controllers using encoder feedback;</li>
-<li>motor electronics converting commands into electrical power.</li>
+<li>\(\Delta n\) is the number of new ticks during the update;</li>
+<li>\(n_{\text{new}}\) is the current cumulative count;</li>
+<li>\(n_{\text{old}}\) is the previous cumulative count.</li>
 </ul>
-<p>These loops can operate at different speeds. A high-level decision might change once per second, while a motor controller may update much more frequently.</p>
-<p>The same basic pattern appears in a robotic arm, but the measured quantity may be joint angle instead of wall distance. The controller compares a desired joint angle with a measured angle and commands a motor.</p>
-<p>Important engineering realities include:</p>
-<ul>
-<li><strong>Noise:</strong> measurements fluctuate even when the robot is still.</li>
-<li><strong>Calibration:</strong> a sensor’s reported 0.50 m may not equal the true 0.50 m.</li>
-<li><strong>Latency:</strong> information and commands take time to travel through electronics and software.</li>
-<li><strong>Saturation:</strong> a motor cannot exceed its physical speed or torque limit.</li>
-<li><strong>Mechanical limits:</strong> wheels, joints, and linkages cannot move through walls or beyond their stops.</li>
-<li><strong>Model assumptions:</strong> a simulation may assume perfect straight motion, while a real rover may curve because its motors differ.</li>
-</ul>
-<p>Next class, we will focus on the “think” part by writing RoboRover’s first simple robot brain in Python. We will turn sensor-like inputs into decisions using variables, conditions, and functions.</p>
+<p>That difference is converted into wheel distance and then used to update the estimated pose.</p>
+<p>Encoders answer, “How much did the wheels rotate?” They do not directly answer, “Where is the robot relative to the room?” A wheel can spin while the robot remains nearly stationary on a slippery surface. This is why practical robots combine odometry with other sensors, such as infrared sensors, cameras, range sensors, or inertial sensors.</p>
+<p>For next class, infrared sensors will help RoboRover observe a line. Encoders can add motion information: the robot can estimate how far it has traveled while attempting to keep the line centered. The infrared readings provide environmental evidence; the encoders provide wheel-motion evidence.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Actuator:</strong> A device that converts a control command into physical action, such as a motor moving a wheel.</li>
-<li><strong>Controller:</strong> The hardware, software, or combined system that uses measurements and rules to select actuator commands.</li>
-<li><strong>Feedback control:</strong> Control in which a measured state or output influences a current or future action in relation to desired behavior.</li>
-<li><strong>Deadband:</strong> An acceptable range around a target in which the controller does not change or continue an action.</li>
-<li><strong>Distance error:</strong> The difference between measured distance and target distance, calculated here as \(e = d_{\text{measured}} - d_{\text{target}}\).</li>
-<li><strong>Sensor:</strong> A device that measures a property of the robot or its environment.</li>
-<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
-<li><strong>Autonomy:</strong> The ability of software or a robot system to select task-level actions without immediate human selection of each action.</li>
+<li><strong>Encoder:</strong> A sensor that measures rotation, commonly by producing countable electrical signals.</li>
+<li><strong>Tick:</strong> One encoder count or detected event representing a small amount of rotation.</li>
+<li><strong>Ticks per revolution:</strong> The number of counted encoder events associated with one complete wheel revolution.</li>
+<li><strong>Wheel angle:</strong> The amount a wheel has rotated, usually measured in degrees or radians.</li>
+<li><strong>Circumference:</strong> The distance around a circle. For a wheel, \(C=2\pi r\).</li>
+<li><strong>Track width:</strong> The distance between the effective contact points of the left and right drive wheels, measured in meters.</li>
+<li><strong>Odometry:</strong> Estimating a robot’s position and orientation from its motion measurements, especially wheel motion.</li>
+<li><strong>Pose:</strong> A robot’s position and orientation. In this lesson, pose is represented by \(x\), \(y\), and heading.</li>
+<li><strong>Heading:</strong> The direction the robot faces, measured here in radians from the positive \(x\)-axis.</li>
+<li><strong>Drift:</strong> Growing difference between an estimated state and the robot’s actual state.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Useful search-friendly topics for later study include:</p>
+<p>Useful search terms and topics include:</p>
 <ul>
-<li>“robot sensors and actuators introduction”</li>
-<li>“feedback control block diagram”</li>
-<li>“deadband threshold controller robotics”</li>
-<li>“wheel encoder fundamentals”</li>
-<li>“Python matplotlib beginner plotting”</li>
+<li>“quadrature encoder direction”</li>
+<li>“differential drive odometry”</li>
+<li>“wheel circumference calibration”</li>
+<li>“encoder tick resolution”</li>
+<li>“robot wheel slip experiment”</li>
 </ul>
-<p>When studying examples, always ask three questions:</p>
-<ol>
-<li>What is being measured?</li>
-<li>What decision uses the measurement?</li>
-<li>What physical action changes as a result?</li>
-</ol>
+<p>A useful physical experiment is to mark a wheel, push the robot exactly one meter along a straight surface, and compare the encoder-based distance with a tape-measured distance. Repeat several times and look for consistent calibration error.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Class 3: Your First Robot Brain in Python</strong></p>
-<p>RoboRover will move from a simulated control loop to a small program that makes explicit decisions. You will practice variables, conditions, and reusable functions while keeping the same Sense → Think → Act structure.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/001-what-is-a-robot/"><span>Previous stream</span><b>Class 01 · What Is a Robot?</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 03 · Your First Robot Brain in Python</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<h1>Class 14: Build a Virtual Line Follower</h1>
+<p>RoboRover will combine its infrared sensors with motor decisions in a virtual line-following environment.</p>
+<p>You will explore:</p>
+<ul>
+<li>how multiple infrared readings reveal the line’s position;</li>
+<li>how wheel commands change the robot’s path;</li>
+<li>how encoder measurements can help track movement;</li>
+<li>why sensor noise and imperfect timing affect steering.</li>
+</ul>
+<p>Today’s encoders measure what the wheels did. Next class’s infrared sensors help RoboRover decide what the environment looks like.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/012-infrared-sensors/"><span>Previous stream</span><b>Class 12 · Infrared Sensors</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 14 · Build a Virtual Line Follower</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -565,7 +547,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=2,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=13,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "close-up engineering photograph of a quadrature encoder and encoder disk mounted beside a small robot drive wheel",
+  "media_style": "photo",
+  "reason": "A real, clearly labeled photograph of an encoder mounted to a wheel would connect the abstract tick-counting model to physical hardware and make the limitations of slip, backlash, and mounting geometry more tangible. The existing generated diagrams already cover the abstract motion model, so a photograph is more valuable than another conceptual illustration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
