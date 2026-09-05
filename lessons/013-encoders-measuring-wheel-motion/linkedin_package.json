@@ -1,0 +1,8 @@
+{
+  "title": "How Robot Encoders Turn Wheel Motion into an Estimated Pose",
+  "description": "A practical robotics lesson on encoder ticks, wheel distance, differential-drive odometry, Python simulation, and why wheel-based position estimates drift.",
+  "commentary": "A robot cannot navigate reliably by sensing the outside world alone. It also needs to estimate what its wheels have done.\n\nThis Professor OS lesson introduces that bridge from measurement to motion:\n\n\u2022 Convert encoder ticks into wheel angle and distance.\n\u2022 Compare left and right wheel travel to estimate straight motion, turning, and rotation in place.\n\u2022 Use a midpoint-heading update to simulate differential-drive odometry in Python.\n\u2022 Investigate why slip, unequal wheels, backlash, timing, and calibration errors cause drift.\n\nThe lesson combines equations, a worked RoboRover example, executable assertions, a plotted simulation, prediction questions, and a square-path challenge. Students are asked to predict each motion before running the code, making the simulation a test of reasoning rather than a decorative output.\n\nTry the lab, change one wheel\u2019s tick count, and observe how a small asymmetry changes the estimated path.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Python #Odometry #STEM",
+  "thumbnail_alt_text": "Differential-drive rover diagram showing encoder ticks becoming wheel distance and robot motion.",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
