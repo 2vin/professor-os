@@ -1,0 +1,8 @@
+{
+  "title": "Build a Virtual Line Follower: From Sensor Thresholds to Closed-Loop Steering",
+  "description": "A practical robotics lesson that connects reflectance sensing, calibration, thresholding, steering policies, simulation, and tracking error through a testable Python lab.",
+  "commentary": "A line follower is a compact lesson in feedback: measure the path, classify the sensor readings, choose a correction, and measure again.\n\nIn this Professor OS class, students:\n\n\u2022 calibrate a threshold from representative floor and line readings;\n\u2022 convert ADC counts into binary sensor decisions;\n\u2022 define deterministic behavior for all three-sensor combinations;\n\u2022 simulate a curved track and compare robot position with line position;\n\u2022 investigate starting position, sensor spacing, threshold choice, and noise.\n\nThe simulation deliberately avoids pretending to be a complete vehicle model. It uses a direct sideways-position update so learners can isolate the sensing and decision logic before studying wheel dynamics, delay, oscillation, and controller design.\n\nTry the lab by predicting the first steering commands and position updates before running the code. Then change one parameter at a time and compare mean and maximum tracking error.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #Python #FeedbackControl #STEM",
+  "thumbnail_alt_text": "Virtual line-following robot simulation with three sensors and a curved track",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

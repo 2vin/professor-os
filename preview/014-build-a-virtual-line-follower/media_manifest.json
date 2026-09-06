@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "close-up photograph of a small differential-drive line-following robot with three downward-facing reflectance sensors over black tape on a light test surface",
+  "media_style": "photo",
+  "reason": "A real hardware photograph would ground the virtual model by showing the physical sensor placement, wheel arrangement, and tape-track geometry. The generated diagrams already explain the abstractions, so a photograph is more useful than another conceptual illustration here.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
