@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of a small two-wheel educational robot named RoboRover following a dark curved tape line on a light test surface, with three clearly visible downward-facing reflectance sensors labeled left, center, and right through subtle technical callouts, clean robotics laboratory setting, premium textbook editorial composition, realistic materials and lighting, no decorative sci-fi elements, no watermark",
+    "caption": "RoboRover uses three downward-facing sensors to locate a dark path and steer toward it.",
+    "alt_text": "Small two-wheel robot with three underside sensors positioned over a curved dark line on a light floor."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram showing a top-down view of RoboRover with left, center, and right sensors crossing a dark guide line, three separate sensor positions, arrows indicating the line detected on the left, center, or right, restrained modern robotics textbook styling, minimal essential labels, high visual clarity",
+      "caption": "The sensor that sees the line tells RoboRover which way to correct.",
+      "alt_text": "Top-down diagram of a robot with three sensors and examples of the line under the left, center, and right sensor."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational threshold diagram showing a horizontal sensor-reading scale from dark low values to bright high values, with a clearly marked threshold at 500 separating line detected from floor, numerical examples 220, 430, 620, and 780, professional technical illustration with sparse labels",
+      "caption": "A threshold converts a continuous sensor value into a simple line-or-floor decision.",
+      "alt_text": "Sensor reading scale with a threshold at 500 separating dark line readings from bright floor readings."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Three-panel technical illustration of the same small line-following robot in three positions: center sensor over the line driving straight, left sensor over the line steering left, and right sensor over the line steering right; include subtle wheel-speed arrows, realistic educational robotics hardware, clean white background, premium textbook style",
+      "caption": "Different sensor locations produce different small steering corrections.",
+      "alt_text": "Three views of a line-following robot showing straight, left, and right steering based on which sensor detects the line."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional explanatory diagram of a virtual line-follower simulation: a sinusoidal dark line plotted alongside RoboRover's centre path, with a small inset showing three virtual sensors and a threshold decision pipeline from readings to steering command, no unnecessary text, precise graph-like composition",
+      "caption": "The simulation compares the desired line path with RoboRover\u2019s simulated centre position.",
+      "alt_text": "Simulation diagram showing a curved line, the robot centre trajectory, and a three-sensor threshold-to-steering pipeline."
+    }
+  ]
+}
