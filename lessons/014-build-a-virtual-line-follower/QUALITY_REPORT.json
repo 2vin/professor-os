@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 5,
+  "static": {
+    "passed": true,
+    "word_count": 5090,
+    "code_blocks": 16,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 5090 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 93,
+      "pedagogy": 88,
+      "clarity": 86,
+      "depth": 92,
+      "examples": 91,
+      "interactivity": 94,
+      "code_alignment": 92,
+      "visual_teaching_plan": 91,
+      "originality": 88,
+      "consistency": 90,
+      "accessibility": 80
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is technically sound and unusually well aligned with its simulation, but it is substantially longer than necessary for a foundational class. Consolidate repeated explanations of direct sideways motion, arbitrary search direction, threshold dependence, and feedback terminology.",
+      "Add automated tests for all eight entries in the steering table. The policy is specified clearly in prose and implemented correctly, but the code currently verifies only selected trajectory behavior rather than the complete decision table.",
+      "Introduce a short visual or tabular explanation of why the initial sensor geometry produces left detection, then defer some of the detailed caveats about physical differential-drive behavior to the Real Robot Connection section.",
+      "The vocabulary section is accurate but overextended for this class. Remove generic definitions such as Robot unless they are needed for assessment, and reduce repeated qualifications about terminology.",
+      "Make the simulation limitation more prominent before the first graph: the plot is sideways position versus forward distance, not a physical chassis trajectory. This is explained later, but beginners may initially misread the axes.",
+      "The noise extension would be stronger with a complete runnable comparison between raw and averaged readings, including a fixed test set and an explicit expected observation.",
+      "Accessibility is weakened by the lesson's total length and density. Add short recap boxes or checkpoints after the core model, thresholding, and control sections, and consider splitting the Python Lab into required and extension material more aggressively."
+    ],
+    "linkedin": {
+      "title": "Build a Virtual Line Follower: From Sensor Thresholds to Closed-Loop Steering",
+      "description": "A practical robotics lesson that connects reflectance sensing, calibration, thresholding, steering policies, simulation, and tracking error through a testable Python lab.",
+      "commentary": "A line follower is a compact lesson in feedback: measure the path, classify the sensor readings, choose a correction, and measure again.\n\nIn this Professor OS class, students:\n\n\u2022 calibrate a threshold from representative floor and line readings;\n\u2022 convert ADC counts into binary sensor decisions;\n\u2022 define deterministic behavior for all three-sensor combinations;\n\u2022 simulate a curved track and compare robot position with line position;\n\u2022 investigate starting position, sensor spacing, threshold choice, and noise.\n\nThe simulation deliberately avoids pretending to be a complete vehicle model. It uses a direct sideways-position update so learners can isolate the sensing and decision logic before studying wheel dynamics, delay, oscillation, and controller design.\n\nTry the lab by predicting the first steering commands and position updates before running the code. Then change one parameter at a time and compare mean and maximum tracking error.\n\n#RoboticsEducation #Python #FeedbackControl #STEM",
+      "thumbnail_alt_text": "Virtual line-following robot simulation with three sensors and a curved track"
+    },
+    "media_query": "line following robot reflectance sensors tape track top view engineering hardware",
+    "image_query": "educational differential drive line follower robot underside reflectance sensor array black tape track",
+    "youtube_query": "line follower robot reflectance sensor calibration motor steering demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the virtual abstraction by showing the physical sensor spacing, wheel arrangement, motor direction, and tape-track geometry. The generated diagrams already cover the conceptual pipeline, so another schematic would add less value than a clearly labelled engineering photograph.",
+    "media_would_help": true
+  }
+}
