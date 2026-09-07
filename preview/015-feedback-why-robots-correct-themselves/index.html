@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 11: Ultrasonic Distance Sensing · Professor OS</title>
+<title>Class 15: Feedback: Why Robots Correct Themselves · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,18 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -47,443 +35,401 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="11">
+<body data-class="15">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_11</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_15</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_11</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 11 · Hardware &amp; Sensors</div><h1>Ultrasonic Distance Sensing</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>time of flight, range</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_15</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 15 · Control &amp; Motion</div><h1>Feedback: Why Robots Correct Themselves</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>error, correction</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Ultrasonic Distance Sensing</h2>
+      <h2>Class podcast · Feedback: Why Robots Correct Themselves</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-11-ultrasonic-distance-sensing.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-15-feedback-why-robots-correct-themselves.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 11: Ultrasonic Distance Sensing</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 15: Feedback: Why Robots Correct Themselves</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In the previous class, <strong>Sensors: Giving Robots Senses</strong>, RoboRover learned that sensors convert parts of the physical world into measurable signals. A light sensor responds to brightness, a switch reports contact, and a temperature sensor reports thermal conditions.</p>
-<p>Today we study one particular sensor: the <strong>ultrasonic distance sensor</strong>. It helps RoboRover estimate how far away an object is by sending out a sound pulse and timing its echo.</p>
-<p>Next class, <strong>Infrared Sensors</strong>, will introduce another way to detect distance or nearby objects. Ultrasonic and infrared sensors can both help a robot avoid obstacles, but they behave differently around shiny, soft, narrow, transparent, or oddly shaped objects.</p>
+<p>Imagine RoboRover drifting right of a black line. It measures the drift, steers left, measures again, and changes its response as the situation changes.</p>
+<p>In the previous class, RoboRover followed a virtual line. Today we name that repeated process: <strong>feedback</strong>.</p>
+<p>In the next class, we will turn this simple correction rule into <strong>P control</strong>, where correction size depends on error size.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>explain <strong>time of flight</strong> using an echo analogy;</li>
-<li>calculate distance from the travel time of an ultrasonic pulse;</li>
-<li>explain why the distance equation divides by two;</li>
-<li>distinguish <strong>range</strong> from a simple “object detected” signal;</li>
-<li>simulate an ultrasonic sensor in Python;</li>
-<li>identify practical problems such as soft surfaces, angled objects, temperature changes, and false echoes.</li>
+<li>define <strong>error</strong> as the difference between desired and measured state;</li>
+<li>explain how error selects a correction;</li>
+<li>distinguish open-loop action from feedback;</li>
+<li>trace a feedback loop and its state-update equation;</li>
+<li>run and modify a deterministic Python simulation;</li>
+<li>recognize the effects of noise, delay, disturbances, and deadbands.</li>
 </ul>
+<p>The central pattern is:</p>
+<blockquote><strong>Measure → compare → correct → measure again</strong></blockquote>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>A sensor is a device that measures something about the robot’s surroundings or internal condition.</p>
-<p>A sensor reading is not the same thing as perfect knowledge. For example, if a distance sensor reports 80 centimetres, the real object might be slightly closer or farther away because of electrical noise, calibration error, or the way sound reflected from the object.</p>
-<p>A useful sensor has three parts:</p>
-<ol>
-<li><strong>Physical interaction</strong> — something happens in the world, such as light arriving or sound reflecting.</li>
-<li><strong>Measurement</strong> — the sensor turns that interaction into a number or signal.</li>
-<li><strong>Interpretation</strong> — the robot uses the measurement to decide what the number means.</li>
-</ol>
-<p>Today’s sensor measures distance by using reflected sound.</p>
-<p><strong>Predict before reading on:</strong> If RoboRover sends a sound pulse toward a wall and receives its echo 0.010 seconds later, has the sound travelled 1 metre, 2 metres, or some other distance? Remember that the sound travels to the wall and then back.</p>
+<p>For this lesson, RoboRover uses a simplified <strong>abstract position sensor</strong>. It reports a signed estimate of lateral position relative to the desired line. This is a model variable, not a claim that one ordinary light sensor directly measures signed position. Physical line-following robots commonly infer position from two or more reflectance sensors.</p>
+<p>Our reference frame is:</p>
+<ul>
+<li>right of the line: positive position; steer left;</li>
+<li>left of the line: negative position; steer right;</li>
+<li>centered: zero position; drive straight.</li>
+</ul>
+<p>The difference between where RoboRover wants to be and where it measures itself to be is its <strong>error</strong>.</p>
+<h3>Modeling note</h3>
+<p>The one-dimensional model isolates feedback from other vehicle behavior. A real controller may estimate lateral position from several readings, chassis geometry, and calibration. It may also include heading, velocity, delay, and actuator limits; those are outside this introductory model.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Top-down diagram of a robot sending an ultrasonic pulse to a wall and receiving the reflected echo, with one-way and round-trip distances marked."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The sensor measures the round-trip path, so the one-way range is half of v times t.</p>
-<p>Imagine shouting in a canyon. Your voice travels outward, hits a surface, and returns as an echo. If you know:</p>
-<ul>
-<li>how fast sound travels, and</li>
-<li>how long the round trip takes,</li>
-</ul>
-<p>you can estimate how far away the surface is.</p>
-<p>An ultrasonic distance sensor performs a similar experiment, but with a sound frequency above the normal human hearing range. “Ultrasonic” means <strong>above human hearing</strong>. Many common ultrasonic modules send a short burst near 40,000 hertz, or 40 kilohertz. The exact hardware varies, so a robot program should use the sensor’s documented specifications rather than assuming every module is identical.</p>
-<p>The sensor usually has two visible parts:</p>
-<ul>
-<li>a <strong>transmitter</strong>, which sends the sound pulse;</li>
-<li>a <strong>receiver</strong>, which detects the returning echo.</li>
-</ul>
-<p>The robot does not directly measure distance. It measures a time interval and converts that interval into distance.</p>
-<p>That distinction matters. A sensor reading such as “0.73 metres” is already the result of a model:</p>
-<blockquote>measured echo time + assumed sound speed → estimated range</blockquote>
+<figure><img loading="lazy" src="inline_01.png" alt="A four-stage circular feedback diagram connecting desired position, comparison, correction choice, robot motion, and sensor measurement."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Feedback sends information about the robot's measured result back into its next control decision.</p>
+<p>Suppose the desired lateral position is \(0\) cm and RoboRover measures \(+6\) cm. The robot is not “wrong” in isolation; it is offset relative to a desired state.</p>
+<p>A feedback system has four useful parts:</p>
+<ol>
+<li><strong>Desired state:</strong> What should happen?</li>
+<li><strong>Measurement:</strong> What is happening now?</li>
+<li><strong>Error:</strong> How different are those states?</li>
+<li><strong>Correction:</strong> What action should reduce the difference?</li>
+</ol>
+<div class="code-card"><div class="code-label">text</div><pre><code>desired position
+       │
+       ▼
+   [compare] ── error ──► [choose correction] ──► robot motion
+       ▲                                             │
+       │                                             ▼
+       └──────────── sensor measurement ◄────────────┘</code></pre></div>
+<p>This is a feedback loop because information about the result returns to a later decision.</p>
+<h3>Feedback is not the same as autonomy</h3>
+<div class="table-scroll"><table><thead><tr><th>Idea</th><th>Main question</th></tr></thead><tbody><tr><td>Preprogrammed task sequence</td><td>Was the task sequence written in advance?</td></tr><tr><td>Feedback control</td><td>Does a measurement influence a current or future action?</td></tr><tr><td>Task-level autonomy</td><td>Does software choose task-level actions without continuous human direction?</td></tr></tbody></table></div>
+<p>A teleoperated robot can use local feedback in its motor controllers. An industrial robot can execute a preprogrammed task while its joints use feedback. These properties describe different aspects of a system.</p>
+<p>A sensor that starts a fixed five-second sequence is not <strong>sustained feedback regulation</strong> if the measured state is not used to adjust the current or a later action. Feedback terminology can vary with the chosen system boundary, but this course uses sustained feedback regulation for repeated measurement-and-correction.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
-<figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
-<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture a top-down diagram:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>RoboRover                  Wall
- [sensor]  ───────►         │
-            outgoing pulse │
- [sensor]  ◄───────         │
-            returning echo  │
-
-          one-way distance = d
-          round-trip distance = 2d</code></pre></div>
-<p>The outgoing and returning paths form two equal sections if the pulse travels straight to a flat wall and back.</p>
-<p>An illustrator could show:</p>
+<figure><img loading="lazy" src="diagram.png" alt="Signal-flow schematic showing desired position compared with measured position, a correction sent to RoboRover, and sensor measurement returned to the comparison step."></figure>
+<p><strong>How to read this visual:</strong> This block diagram emphasizes signal flow: desired state, comparison, correction, motion, and measurement.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Three-panel sequence of RoboRover moving from far right of a line toward the line with progressively smaller correction arrows."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Repeated measurements let the correction become smaller as RoboRover approaches the desired line.</p>
+<p>The two visuals have different jobs:</p>
 <ul>
-<li>RoboRover on the left;</li>
-<li>a vertical wall on the right;</li>
-<li>blue wavefronts expanding from the sensor;</li>
-<li>a blue reflected wave travelling back;</li>
-<li>arrows labelled “outgoing” and “returning”;</li>
-<li>a timer labelled \(t\);</li>
-<li>a bracket from the sensor to the wall labelled “range \(d\).”</li>
+<li><code>diagram.png</code> shows the information path through the loop;</li>
+<li><code>inline_02.png</code> shows a time sequence as the robot approaches the line.</li>
 </ul>
-<p>The sensor’s “field of view” is not a perfect laser-thin line. Sound spreads into a cone. A nearby object at an angle may reflect the pulse before a more distant wall does.</p>
+<p>The second visual previews proportional control, which comes next. Today’s controller chooses one of three abstract lateral corrections: <code>left</code>, <code>right</code>, or <code>straight</code>. These labels do not necessarily mean literal differential-drive wheel commands; they represent the direction of the modeled lateral correction.</p>
+<p>Picture RoboRover starting 6 cm right of the line. A left correction changes its position. A later measurement reports a smaller offset. Once the measured position enters the deadband, the controller selects <code>straight</code>.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Time of flight</h3>
-<p><strong>Time of flight</strong>, often abbreviated TOF, is the time required for a signal to travel from a transmitter to a target and, in echo sensing, return to a receiver.</p>
-<p>For an ultrasonic echo sensor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{round-trip distance} = v t\]</span></div>
-<p>The sound travels twice the one-way range, so:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[2d = vt\]</span></div>
-<p>Solving for range:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<p>where:</p>
+<h3>Error has direction</h3>
+<p>We use:</p>
 <ul>
-<li>\(d\) is the one-way distance from sensor to object, in metres \((\text{m})\);</li>
-<li>\(v\) is the speed of sound, in metres per second \((\text{m/s})\);</li>
-<li>\(t\) is the measured round-trip echo time, in seconds \((\text{s})\).</li>
+<li>right of target = positive position;</li>
+<li>left of target = negative position;</li>
+<li>target = \(0\) cm.</li>
 </ul>
-<p>The division by 2 is essential. Without it, RoboRover would mistake the round-trip path for the one-way distance and report a value approximately twice as large.</p>
-<h3>Range</h3>
-<p><strong>Range</strong> is the estimated distance from a sensor to a detected object or surface.</p>
-<p>This is different from a simple proximity switch:</p>
+<p>The error equation is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = x_{\text{target}} - x_{\text{measured}}\]</span></div>
+<p>If \(x_{\text{measured}}=+6\) cm and the target is zero:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e = 0 - 6 = -6\text{ cm}\]</span></div>
+<p>The negative sign indicates that the robot is right of the target under this convention, so it should choose a leftward correction.</p>
+<h3>Error is not automatically a correction</h3>
+<p>Error describes a condition. A controller turns that description into an action:</p>
 <ul>
-<li>“Object present” is a categorical result.</li>
-<li>“Object is approximately 0.62 metres away” is a range measurement.</li>
+<li>measured position \(&gt;+2\) cm: left;</li>
+<li>measured position \(&lt;-2\) cm: right;</li>
+<li>otherwise: straight.</li>
 </ul>
-<p>A real sensor may have a <strong>minimum range</strong> and a <strong>maximum range</strong>. Very close objects may be difficult to measure because the echo returns before the electronics are ready. Very distant objects may return an echo too weak to detect.</p>
-<h3>Why sound speed matters</h3>
-<p>At room temperature, a useful teaching approximation is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v \approx 343\ \text{m/s}\]</span></div>
-<p>The speed of sound changes with air temperature and, to a smaller degree in ordinary classroom situations, humidity and air conditions. Therefore, the equation gives an estimate, not magical certainty.</p>
+<p>The interval \(|e|\leq 2\) cm is a <strong>deadband</strong>. It prevents reactions to small changes, but it can leave the robot slightly offset.</p>
+<p>This threshold controller uses a fixed correction magnitude. It is not a position-stabilizing controller: once the noisy measurement enters the deadband, <code>straight</code> leaves the modeled lateral position unchanged. P control will later make correction size depend on error size.</p>
+<h3>Boundary check</h3>
+<p>The comparisons are strict:</p>
+<ul>
+<li>\(+2.1\) cm: left;</li>
+<li>\(+2.0\) cm: straight;</li>
+<li>\(+1.9\) cm: straight.</li>
+</ul>
+<p>A value exactly at the threshold is inside the deadband because the code uses <code>&gt;</code> and <code>&lt;</code>.</p>
+<h3>Open-loop versus feedback</h3>
+<p>Open-loop action does not use the result to change what happens next:</p>
+<blockquote>Drive both motors for three seconds, then stop.</blockquote>
+<p>A feedback action repeatedly measures and adjusts:</p>
+<blockquote>Measure position, steer to reduce error, measure again, and choose again.</blockquote>
+<p>Feedback improves responsiveness but does not guarantee perfect tracking.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose an ultrasonic sensor receives an echo after:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = 0.0085\ \text{s}\]</span></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
-<p>Substitute:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0085\ \text{s})}{2}\]</span></div>
-<p>The units simplify:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{m/s} \times \text{s} = \text{m}\]</span></div>
-<p>So:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{2.9155\ \text{m}}{2}
-= 1.45775\ \text{m}\]</span></div>
-<p>RoboRover’s estimated range is therefore approximately:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{1.46\ \text{m}}\]</span></div>
-<p>Interpretation: the sound travelled about 2.92 metres in total—1.46 metres outward and 1.46 metres back.</p>
-<p>A useful rearrangement is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2d}{v}\]</span></div>
-<p>For a target 0.50 metres away:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2(0.50\ \text{m})}{343\ \text{m/s}}
-\approx 0.00292\ \text{s}\]</span></div>
-<p>That is about 2.92 milliseconds. Ultrasonic sensors must measure very short time intervals accurately.</p>
+<p>Let:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[x_{\text{target}}=0.0\text{ cm}\]</span></div>
+<p>If the measured position is \(+6.0\) cm:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e=0.0-6.0=-6.0\text{ cm}\]</span></div>
+<p>After a correction, suppose the next measurement is \(+2.4\) cm:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e=0.0-2.4=-2.4\text{ cm}\]</span></div>
+<p>The sign remains negative, so the robot is still right of the line. The magnitude decreases from \(6.0\) cm to \(2.4\) cm, so the robot is closer.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Educational illustration of a small robot measuring the distance to a cardboard box, with a pulse timing inset and a one-metre distance bracket."></figure>
-<p class="figure-caption"><strong>Figure:</strong> A measured echo time is converted into range using the assumed speed of sound and the round-trip correction.</p>
-<p>RoboRover is moving toward a cardboard box. Its ultrasonic sensor measures an echo time of \(5.8\) milliseconds.</p>
-<p>First convert milliseconds to seconds:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[5.8\ \text{ms}
-= 5.8 \times 0.001\ \text{s}
-= 0.0058\ \text{s}\]</span></div>
-<p>Assume the speed of sound is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
-<p>Now calculate:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0058\ \text{s})}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{1.9894\ \text{m}}{2}
-= 0.9947\ \text{m}\]</span></div>
-<p>So the box is approximately:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{0.995\ \text{m away}}\]</span></div>
-<p>or about \(99.5\) centimetres.</p>
-<p>If RoboRover’s safety rule is “stop when the range is below \(0.60\) metres,” it should not stop because of this reading alone. However, a real robot should not rely on one perfect measurement. It should consider noisy readings, braking distance, and whether the box is actually large enough to reflect sound reliably.</p>
+<figure><img loading="lazy" src="inline_03.png" alt="RoboRover offset to the right of a floor line, with sensor measurement, desired center marker, deadband region, and leftward correction arrow."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The signed error identifies both how far RoboRover is from the line and which direction the correction should take.</p>
+<p>With a target of \(0\) cm:</p>
+<div class="table-scroll"><table><thead><tr><th>Measurement</th><th>Error \(0-x_{\text{measured}}\)</th><th>Action</th></tr></thead><tbody><tr><td>\(+6.0\) cm</td><td>\(-6.0\) cm</td><td>left</td></tr><tr><td>\(+3.5\) cm</td><td>\(-3.5\) cm</td><td>left</td></tr><tr><td>\(+1.5\) cm</td><td>\(-1.5\) cm</td><td>straight</td></tr><tr><td>\(-2.5\) cm</td><td>\(+2.5\) cm</td><td>right</td></tr></tbody></table></div>
+<p>The final row shows why the sign matters. After crossing to the left side, the correction direction changes.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>This program simulates RoboRover approaching a wall. It converts echo time into range and displays a simple stop-or-go rule.</p>
-<p>The simulation includes small, deliberately chosen measurement offsets. These represent sensor imperfections. The <code>true_distances</code> list describes the actual distance, while <code>measured_distances</code> represents what the sensor estimates after small errors.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>import math
-import matplotlib.pyplot as plt
-
-# Approximate speed of sound in air at room temperature.
-SPEED_OF_SOUND_M_PER_S = 343.0
-
-# RoboRover&#x27;s actual distance from the wall at several moments.
-true_distances = [2.00, 1.50, 1.00, 0.75, 0.50, 0.25]
-
-# Small measurement offsets imitate sensor noise or calibration error.
-measurement_offsets = [0.00, 0.03, -0.02, 0.02, -0.03, 0.03]
-
-# Convert the actual one-way distance into a round-trip echo time.
-echo_times = []
-for distance in true_distances:
-    time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S
-    echo_times.append(time_seconds)
-
-# Convert each simulated echo time back into an estimated range.
-measured_distances = []
-for index in range(len(echo_times)):
-    estimated_range = (
-        SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0
-        + measurement_offsets[index]
-    )
-    measured_distances.append(estimated_range)
-
-# RoboRover stops if its estimated range is below this threshold.
-STOP_DISTANCE_M = 0.60
-actions = []
-for distance in measured_distances:
-    if distance &lt; STOP_DISTANCE_M:
-        actions.append(&quot;STOP&quot;)
-    else:
-        actions.append(&quot;GO&quot;)
-
-# Executable checks verify the important numerical claims.
-assert math.isclose(echo_times[0], 4.0 / 343.0, rel_tol=1e-12)
-assert math.isclose(measured_distances[0], 2.00, rel_tol=1e-12)
-assert math.isclose(measured_distances[1], 1.53, rel_tol=1e-12)
-assert actions.count(&quot;STOP&quot;) == 2
-assert actions[-1] == &quot;STOP&quot;
-
-print(&quot;Distance (m) | Echo time (ms) | Estimated range (m) | Action&quot;)
-for index in range(len(true_distances)):
-    print(
-        &quot;{:12.2f} | {:14.3f} | {:19.2f} | {}&quot;.format(
-            true_distances[index],
-            echo_times[index] * 1000.0,
-            measured_distances[index],
-            actions[index]
-        )
-    )
-
-print(&quot;All numerical checks passed.&quot;)
-print(&quot;STOP actions:&quot;, actions.count(&quot;STOP&quot;))
-
-# Plot actual and estimated distances.
-time_step_numbers = list(range(1, len(true_distances) + 1))
-
-plt.plot(
-    time_step_numbers,
-    true_distances,
-    marker=&quot;o&quot;,
-    label=&quot;Actual distance&quot;
-)
-plt.plot(
-    time_step_numbers,
-    measured_distances,
-    marker=&quot;s&quot;,
-    label=&quot;Estimated range&quot;
-)
-plt.axhline(
-    STOP_DISTANCE_M,
-    color=&quot;red&quot;,
-    linestyle=&quot;--&quot;,
-    label=&quot;Stop threshold&quot;
-)
-
-plt.xlabel(&quot;Measurement number&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover Ultrasonic Range Simulation&quot;)
-plt.legend()
-plt.grid(True)
-plt.tight_layout()
-plt.show()</code></pre></div>
-<p>Important lines:</p>
+<figure><img loading="lazy" src="inline_04.png" alt="Technical diagram showing simulated RoboRover positions approaching a zero-centimeter target while measurements include small noise and corrections stop inside a deadband."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The simulation records actual position, noisy measured position, error, and the selected action at every feedback step.</p>
+<p>The model uses:</p>
 <ul>
-<li><code>time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S</code> uses the round-trip equation rearranged as \(t=2d/v\).</li>
-<li><code>estimated_range = SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0</code> uses \(d=vt/2\).</li>
-<li><code>measurement_offsets</code> shows that a real sensor may not report the exact physical distance.</li>
-<li><code>plt.axhline(...)</code> draws the decision boundary, not a physical wall. It shows where the software changes from “GO” to “STOP.”</li>
-<li>The <code>assert</code> statements automatically check the numerical results instead of relying on visual inspection.</li>
+<li>target position \(0.0\) cm;</li>
+<li>starting position \(6.0\) cm;</li>
+<li>predetermined sensor noise;</li>
+<li>a \(0.8\) cm movement for each left or right command;</li>
+<li>no lateral movement for <code>straight</code>.</li>
 </ul>
-<p>The plotted estimated line will not exactly match the actual line because of the offsets. It should follow the same general trend and drop as RoboRover approaches the wall.</p>
+<p>The state update is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[x_{\text{actual,next}} =
+x_{\text{actual}}+\text{step\_size}\times\text{command}\]</span></div>
+<p>Here, <code>command</code> is <code>-1</code> for left, <code>+1</code> for right, and <code>0</code> for straight.</p>
+<h3>One control-flow trace</h3>
+<p>The first iteration does this:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>actual = 6.00
+noise = +0.40
+measured = 6.40
+error = 0.00 - 6.40 = -6.40
+6.40 &gt; 2.00, so action = left
+command = -1
+next actual = 6.00 + (0.80 × -1) = 5.20</code></pre></div>
+<p>The next measurement uses \(5.20\), the updated state.</p>
+<h3>Predict before you run it</h3>
+<p>Predict the action sequence, final position, and whether measured values equal actual values. The supplied data produce five <code>left</code> actions followed by five <code>straight</code> actions. The final actual position is \(2.00\) cm; noise makes measured position different from actual position.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7
+TARGET = 0.0
+THRESHOLD = 2.0
+STEP_SIZE = 0.8
+
+sensor_noise = [0.4, -0.4, -0.4, -0.4, -0.4,
+                -0.4, -0.4, -0.4, -0.4, -0.4]
+
+actual_position = 6.0
+history = []
+
+for step_number, noise in enumerate(sensor_noise):
+    measured_position = actual_position + noise
+    error = TARGET - measured_position
+
+    if measured_position &gt; THRESHOLD:
+        steering_command = -1
+        action = &quot;left&quot;
+    elif measured_position &lt; -THRESHOLD:
+        steering_command = 1
+        action = &quot;right&quot;
+    else:
+        steering_command = 0
+        action = &quot;straight&quot;
+
+    history.append({
+        &quot;step&quot;: step_number,
+        &quot;actual&quot;: actual_position,
+        &quot;measured&quot;: measured_position,
+        &quot;error&quot;: error,
+        &quot;action&quot;: action
+    })
+
+    actual_position += STEP_SIZE * steering_command
+
+print(&quot;step | actual | measured | error  | action&quot;)
+print(&quot;-------------------------------------------&quot;)
+for row in history:
+    print(&quot;{:&gt;4} | {:&gt;6.2f} | {:&gt;8.2f} | {:&gt;6.2f} | {}&quot;.format(
+        row[&quot;step&quot;], row[&quot;actual&quot;], row[&quot;measured&quot;],
+        row[&quot;error&quot;], row[&quot;action&quot;]
+    ))
+
+print(&quot;Final position: {:.2f} cm&quot;.format(actual_position))
+
+assert len(history) == 10
+assert [row[&quot;action&quot;] for row in history] == [&quot;left&quot;] * 5 + [&quot;straight&quot;] * 5
+assert abs(actual_position - 2.0) &lt; 1e-9
+assert abs(actual_position - TARGET) &lt; abs(6.0 - TARGET)
+
+print(&quot;Verified: 10 measurements, 5 left, 5 straight, final = 2.00 cm.&quot;)</code></pre></div>
+<p>The generated table is the useful record: it connects actual state, measured state, error, and action at every feedback step.</p>
+<h3>Important lines</h3>
+<ul>
+<li><code>error = TARGET - measured_position</code> applies the signed convention.</li>
+<li>The conditional block converts measurement into action.</li>
+<li><code>actual_position += ...</code> connects one decision to the next measurement.</li>
+<li><code>history</code> makes the loop inspectable.</li>
+<li>Assertions verify every exact numerical claim made above.</li>
+</ul>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play “<strong>Predict RoboRover’s action</strong>” before running the program.</p>
-<p>The stop threshold is \(0.60\) metres. Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<p>Predict the action for these echo times:</p>
-<ol>
-<li>\(t=2.9\ \text{ms}\)</li>
-<li>\(t=4.4\ \text{ms}\)</li>
-<li>\(t=6.0\ \text{ms}\)</li>
-</ol>
-<p>Use \(v=343\ \text{m/s}\).</p>
-<p>For the first one:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0029\ \text{s})}{2}
-\approx 0.498\ \text{m}\]</span></div>
-<p>That is below \(0.60\) metres, so predict <strong>STOP</strong>.</p>
-<p>Now predict the other two before checking:</p>
-<ul>
-<li>A \(4.4\) millisecond round trip should correspond to a distance a little below \(0.76\) metres.</li>
-<li>A \(6.0\) millisecond round trip should correspond to a distance slightly above \(1.0\) metre.</li>
-</ul>
-<p>The important pattern is:</p>
-<blockquote>longer echo time means farther object; shorter echo time means nearer object.</blockquote>
-<p>You can turn the Python lab into your own game by changing <code>measurement_offsets</code>, <code>STOP_DISTANCE_M</code>, or the entries in <code>true_distances</code>. Before running it, predict how the graph and the number of “STOP” actions will change.</p>
+<p>Change one input at a time.</p>
+<h3>Experiment A: Remove correction</h3>
+<p>Inside the existing loop, replace only the conditional block with:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>    steering_command = 0
+    action = &quot;straight&quot;</code></pre></div>
+<p>Keep the surrounding <code>history.append(...)</code> and state update. Update the original assertions. The expected final position is \(6.00\) cm and every action is <code>straight</code>.</p>
+<h3>Experiment B: Make the deadband larger</h3>
+<p>Change <code>THRESHOLD = 2.0</code> to <code>THRESHOLD = 5.0</code>. The first measurement is \(6.4\) cm, so RoboRover moves to \(5.2\) cm. The next measurement is \(4.8\) cm and enters the wider deadband. The expected final position is \(5.20\) cm.</p>
+<h3>Experiment C: Add a measurement disturbance</h3>
+<p>Change the eighth noise value to <code>5.0</code>. The controller sees a falsely large positive position and selects an extra left correction. The expected final position is \(1.20\) cm. The correction magnitude remains \(0.8\) cm; the disturbance changes timing, not strength.</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7
+def run_experiment(threshold, noise_values, correct=True):
+    actual = 6.0
+    actions = []
+
+    for noise in noise_values:
+        measured = actual + noise
+
+        if not correct:
+            command, action = 0, &quot;straight&quot;
+        elif measured &gt; threshold:
+            command, action = -1, &quot;left&quot;
+        elif measured &lt; -threshold:
+            command, action = 1, &quot;right&quot;
+        else:
+            command, action = 0, &quot;straight&quot;
+
+        actions.append(action)
+        actual += 0.8 * command
+
+    return actual, actions
+
+
+original_noise = [0.4, -0.4, -0.4, -0.4, -0.4,
+                  -0.4, -0.4, -0.4, -0.4, -0.4]
+
+position_a, actions_a = run_experiment(2.0, original_noise, False)
+position_b, actions_b = run_experiment(5.0, original_noise)
+
+disturbed_noise = original_noise[:]
+disturbed_noise[7] = 5.0
+position_c, actions_c = run_experiment(2.0, disturbed_noise)
+
+assert abs(position_a - 6.0) &lt; 1e-9
+assert abs(position_b - 5.2) &lt; 1e-9
+assert abs(position_c - 1.2) &lt; 1e-9
+assert actions_c.count(&quot;left&quot;) == 6
+
+print(&quot;A final: {:.2f} cm&quot;.format(position_a))
+print(&quot;B final: {:.2f} cm&quot;.format(position_b))
+print(&quot;C final: {:.2f} cm; left commands: {}&quot;.format(
+    position_c, actions_c.count(&quot;left&quot;)
+))</code></pre></div>
+<div class="table-scroll"><table><thead><tr><th>Experiment</th><th>Expected final position</th><th>Meaning</th></tr></thead><tbody><tr><td>Original</td><td>\(2.00\) cm</td><td>Five corrections, then deadband</td></tr><tr><td>A</td><td>\(6.00\) cm</td><td>No physical correction</td></tr><tr><td>B</td><td>\(5.20\) cm</td><td>Wider deadband stops earlier</td></tr><tr><td>C</td><td>\(1.20\) cm</td><td>Disturbance causes an extra correction</td></tr></tbody></table></div>
+<p><strong>Measurement noise</strong> changes the report. A <strong>process disturbance</strong>, such as wheel slip, changes the physical state itself.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Before you run the program, predict these observations:</p>
-<ol>
-<li>The echo time should become shorter as RoboRover approaches the wall.</li>
-<li>The estimated range should generally decrease from the first measurement to the last.</li>
-<li>The estimated line should differ slightly from the actual line.</li>
-<li>Only the closest measurements should produce <code>STOP</code>.</li>
-<li>The graph’s stop threshold should appear as a horizontal line at \(0.60\) metres.</li>
-</ol>
-<p>The program’s built-in checks verify that:</p>
+<p>The original run starts at \(6.0\) cm, commands left for five steps, and reaches \(2.0\) cm. The sixth measured value is \(1.6\) cm, inside the deadband, so the remaining commands are <code>straight</code>.</p>
+<p>The important distinction is:</p>
 <ul>
-<li>the first simulated echo time corresponds to a 2.00 metre range;</li>
-<li>the second estimated range is 1.53 metres;</li>
-<li>exactly two simulated actions are <code>STOP</code>;</li>
-<li>the final action is <code>STOP</code>.</li>
+<li>decisions use <code>measured_position</code>;</li>
+<li>assertions evaluate <code>actual_position</code>.</li>
 </ul>
+<p>Noise can therefore change a decision even when actual and measured positions differ.</p>
+<p>This controller does not guarantee exact target tracking. Its deadband and fixed movement can leave an offset. A more realistic robot may also coast, turn gradually, slip, or overshoot. Those effects can produce repeated left-right corrections.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Forgetting the return journey</h3>
-<p>Using \(d=vt\) treats the measured time as if the sound travelled only one way. An echo sensor measures the outward and return journey, so use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{vt}{2}\]</span></div>
-<h3>Mixing milliseconds and seconds</h3>
-<p>The speed \(343\ \text{m/s}\) requires time in seconds. A value of \(5.8\) milliseconds must become \(0.0058\) seconds.</p>
-<h3>Treating range as exact truth</h3>
-<p>An ultrasonic reading is an estimate. Sound may reflect from the nearest part of an object, a side surface, the floor, or another obstacle.</p>
-<h3>Assuming every surface gives a strong echo</h3>
-<p>Hard, broad surfaces usually reflect sound more effectively than soft materials. Thick fabric, foam, or an object with an angled surface may absorb or redirect much of the pulse.</p>
-<h3>Measuring while the robot is vibrating</h3>
-<p>Motor vibration can shake the sensor and change its angle. A small angle change can cause a large difference in the reflected echo.</p>
-<h3>Expecting a narrow beam</h3>
-<p>Ultrasonic sound spreads. The sensor may detect an object that is not directly in front of the robot, especially if that object is large or close.</p>
-<h3>Triggering measurements too quickly</h3>
-<p>The robot should allow enough time for an old echo to finish before sending another pulse. Otherwise, echoes from different pulses may be confused.</p>
+<h3>Mistake 1: Reversing the error sign</h3>
+<p>Either \(x_{\text{target}}-x_{\text{measured}}\) or its reverse can work, but the action rules must match the choice.</p>
+<h3>Mistake 2: Treating a measurement as a correction</h3>
+<p>“Six centimeters right” is information. The controller still must select an action.</p>
+<h3>Mistake 3: Correcting only once</h3>
+<p>One action cannot guarantee a correct result. Measure again.</p>
+<h3>Mistake 4: Reacting to every tiny change</h3>
+<p>Noise can cause chatter. A deadband, filtering, or smoother controller can reduce unnecessary switching.</p>
+<h3>Mistake 5: Assuming the simulation is reality</h3>
+<p>The fixed \(0.8\) cm movement ignores battery voltage, friction, wheel mismatch, heading, and delay.</p>
+<h3>Mistake 6: Ignoring delay</h3>
+<p>A delayed measurement describes an earlier state. At high speed, delayed feedback can cause overshoot or oscillation.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge: RoboRover’s cardboard checkpoint</h3>
-<p>Modify the Python program so that RoboRover uses a stop threshold of \(0.80\) metres instead of \(0.60\) metres.</p>
-<p>Before running it:</p>
-<ol>
-<li>Predict how many simulated readings will produce <code>STOP</code>.</li>
-<li>Identify which measurement numbers will stop the robot.</li>
-<li>Explain why a larger threshold causes an earlier stop.</li>
-</ol>
-<p>Then run the program and verify your prediction.</p>
-<h3>Optional extension</h3>
-<p>Add a second rule:</p>
+<h3>Challenge: Compare correction rules</h3>
+<p>Using the same starting position, noise list, and step size, change the threshold to \(1.0\) cm. Predict the action sequence before running the program.</p>
+<p>For the supplied data:</p>
 <ul>
-<li><code>STOP</code> if the estimated range is below \(0.80\) metres;</li>
-<li><code>CHECK SENSOR</code> if the estimated range is above \(2.0\) metres;</li>
-<li><code>GO</code> otherwise.</li>
+<li>sequence: six <code>left</code>, then four <code>straight</code>;</li>
+<li>final position: \(1.20\) cm;</li>
+<li>left commands: 6;</li>
+<li>right commands: 0;</li>
+<li>straight commands: 4.</li>
 </ul>
-<p>Use a new list of distances that includes at least one value above \(2.0\) metres. Be careful to keep the comparison order clear.</p>
+<p>The sixth left command occurs at actual position \(2.0\) cm, where the noisy measurement is \(1.6\) cm, still outside the \(1.0\) cm deadband. The next measurement is \(0.8\) cm, so the controller selects <code>straight</code>.</p>
+<h3>Optional extension</h3>
+<p>Average two estimates of the same quantity:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code># Python 3.7
+measurement_a = 5.8
+measurement_b = 6.2
+average_measurement = (measurement_a + measurement_b) / 2.0
+
+assert abs(average_measurement - 6.0) &lt; 1e-9
+print(&quot;Average measurement: {:.1f} cm&quot;.format(average_measurement))</code></pre></div>
+<p>Averaging may reduce random noise when both readings represent the same quantity, but it does not automatically remove calibration bias. Averaging raw reflectance values is not necessarily the same as averaging lateral-position estimates.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What does an ultrasonic distance sensor measure directly: distance or echo time?</li>
-</ol>
-<ol>
-<li>Why does the equation \(d=vt/2\) divide by two?</li>
-</ol>
-<ol>
-<li>An echo returns after \(0.0040\) seconds. Using \(v=343\ \text{m/s}\), what is the estimated range?</li>
-</ol>
-<ol>
-<li>Name one physical situation that can make an ultrasonic range reading unreliable.</li>
+<li>With target \(0\) cm and measured position \(+4\) cm, what are the error and correction direction?</li>
+<li>What makes a process feedback rather than open-loop?</li>
+<li>Why use a deadband?</li>
+<li>A sensor starts a fixed five-second motor sequence, and its measurement is not used again. Is this sustained feedback regulation?</li>
+<li>With threshold \(2.0\) cm, what actions correspond to \(+2.1\), \(+2.0\), and \(+1.9\) cm?</li>
+<li>If actual position is \(3.2\), step size is \(0.8\), and command is \(-1\), what is the next position?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>It measures <strong>echo time</strong> directly. The robot calculates range from that time using an assumed speed of sound.</li>
-</ol>
-<ol>
-<li>The sound travels from the sensor to the object and then back to the sensor. The measured path is twice the one-way distance.</li>
-</ol>
-<p>3.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{(343\ \text{m/s})(0.0040\ \text{s})}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{1.372\ \text{m}}{2}
-=0.686\ \text{m}\]</span></div>
-<p>The estimated range is \(0.686\) metres, or \(68.6\) centimetres.</p>
-<ol>
-<li>Acceptable answers include a soft surface, an angled object, a narrow object, strong motor vibration, temperature different from the assumed value, an object outside the useful range, or echoes from multiple surfaces.</li>
+<li>\(e=0-4=-4\) cm; correct left.</li>
+<li>A measurement influences the current or a future action.</li>
+<li>It prevents reactions to insignificant changes, though it may permit some remaining offset.</li>
+<li>No. Under this course convention, it is a sensor-triggered fixed sequence, not sustained feedback regulation.</li>
+<li><code>left</code>, <code>straight</code>, <code>straight</code>; equality is inside the deadband.</li>
+<li>\(3.2+0.8(-1)=2.4\) cm.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Three-panel technical diagram showing strong ultrasonic reflection from a flat wall, weak reflection from soft fabric, and a missed echo from an angled surface."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Surface material and angle affect whether the receiver obtains a useful echo.</p>
-<p>On a real RoboRover, an ultrasonic sensor might be mounted at the front bumper. The software could repeatedly:</p>
-<ol>
-<li>trigger a sound pulse;</li>
-<li>measure the echo duration;</li>
-<li>calculate estimated range;</li>
-<li>compare the range with a safety threshold;</li>
-<li>command the motors to slow or stop.</li>
-</ol>
-<p>That is a sensing-and-action loop, but the range measurement itself is not automatically perfect feedback control. The quality of the result depends on the whole engineering system: sensor timing, mounting, wiring, software delays, motor stopping distance, and the shape of the environment.</p>
-<p>A practical failure mode is the <strong>angled wall</strong>. If the sound strikes a smooth wall at a steep angle, the echo may bounce away from the receiver. The sensor may report no echo or may detect a farther object instead. A robot designer might respond by:</p>
-<ul>
-<li>mounting several sensors at different angles;</li>
-<li>taking repeated readings;</li>
-<li>rejecting impossible sudden jumps;</li>
-<li>combining ultrasonic readings with another sensor type.</li>
-</ul>
-<p>Another caveat is temperature. Since sound speed changes with air temperature, a robot operating in a cold room and one operating in a warm room can calculate slightly different ranges from the same echo time. For basic obstacle avoidance, this error may be acceptable. For precise measurement, compensation and calibration become more important.</p>
-<p>Next class’s infrared sensors use electromagnetic radiation rather than sound. Infrared sensing can be faster or more compact in some designs, but it has its own difficulties, including surface reflectivity and interference from surrounding light. No single sensor is reliable in every environment.</p>
+<p>A physical line follower may use two or more reflectance sensors. If the left sensor sees dark tape more strongly than the right sensor, software can infer that the line is toward the left side of the chassis and select a leftward correction. The sensors do not directly measure centimeters; calibration, spacing, height, and chassis geometry help create a lateral estimate like <code>measured_position</code>.</p>
+<p>Correction direction depends on motor wiring, sensor placement, and coordinate convention. Test the mapping at very low speed before normal operation.</p>
+<p><strong>Hardware safety:</strong> Test with the robot on a raised stand when wheels can spin freely, or on a clear floor at very low speed. Keep hands, hair, clothing, and cables away from wheels. Make sure every learner knows and can reach the stop command or power-disconnect procedure before enabling motion.</p>
+<p>Real systems add calibration error, lighting variation, wheel slip, latency, actuator limits, and overshoot. Feedback responds to these differences but does not eliminate them. Poorly chosen corrections can produce oscillation.</p>
+<p>Next class introduces P control, where correction strength is related to error size.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Ultrasonic</strong> — involving sound above the normal human hearing range.</li>
-<li><strong>Echo</strong> — a reflected sound wave detected after it travels to a surface and returns.</li>
-<li><strong>Time of flight (TOF)</strong> — the travel time of a signal from transmission to reception; for an echo sensor, this is usually the round-trip time.</li>
-<li><strong>Range</strong> — the estimated distance from a sensor to a detected object or surface.</li>
-<li><strong>Transmitter</strong> — the sensor part that sends the ultrasonic pulse.</li>
-<li><strong>Receiver</strong> — the sensor part that detects the returning echo.</li>
-<li><strong>Speed of sound</strong> — the rate at which sound travels through a medium such as air; this lesson uses \(343\ \text{m/s}\) as an approximate room-temperature value.</li>
-<li><strong>Round trip</strong> — travel from the sensor to the object and back to the sensor.</li>
-<li><strong>Measurement error</strong> — the difference between a reported value and the physical quantity being estimated.</li>
-<li><strong>Field of view</strong> — the region in which a sensor is likely to detect objects; for an ultrasonic sensor, it is generally a spread-out sound region rather than a perfectly narrow line.</li>
+<li><strong>Feedback:</strong> Using a measured state or output to influence a current or future action in relation to a desired state.</li>
+<li><strong>Feedback loop:</strong> The repeated cycle of measuring, comparing, choosing, and measuring again.</li>
+<li><strong>Error:</strong> The difference between desired and measured values.</li>
+<li><strong>Correction:</strong> An action selected to reduce error.</li>
+<li><strong>Open-loop control:</strong> Control in which an action’s result does not adjust the next action.</li>
+<li><strong>Deadband:</strong> A range in which the controller makes little or no correction.</li>
+<li><strong>Sensor noise:</strong> Unwanted variation in a measurement.</li>
+<li><strong>Process disturbance:</strong> A physical effect that changes actual state or motion, such as wheel slip.</li>
+<li><strong>Calibration:</strong> Characterizing or adjusting a sensor so readings better represent physical quantities.</li>
+<li><strong>Sustained feedback regulation:</strong> Repeated measurement-and-correction over time.</li>
+<li><strong>P control:</strong> Feedback in which correction strength relates to error size; the next class’s topic.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>For further study, explore these search-friendly resource topics:</p>
+<p>Suggested search vocabulary:</p>
 <ul>
-<li>“ultrasonic sensor time of flight laboratory”</li>
-<li>“speed of sound temperature experiment”</li>
-<li>“ultrasonic sensor minimum range maximum range”</li>
-<li>“robot sensor fusion ultrasonic infrared”</li>
-<li>“echo reflection angle sound experiment”</li>
+<li>“robotics feedback loop beginner”</li>
+<li>“line follower sensor calibration”</li>
+<li>“open-loop and closed-loop control robotics”</li>
+<li>“deadband motor control”</li>
+<li>“sensor noise and robot control”</li>
 </ul>
-<p>A useful hands-on experiment is to place a large flat book at several measured distances from a sensor and compare calculated range with a ruler measurement. Repeat each measurement several times and record the spread of the readings. That spread is an introduction to practical sensor uncertainty.</p>
+<p>For every resource, ask: What is measured? What is the desired state? How does the measurement change the next action?</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>In <strong>Class 12: Infrared Sensors</strong>, RoboRover will compare sound-based distance sensing with infrared sensing. You will investigate how reflected light can reveal nearby objects, why dark and shiny surfaces can behave differently, and why sensor choice depends on the environment.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/010-sensors-giving-robots-senses/"><span>Previous stream</span><b>Class 10 · Sensors: Giving Robots Senses</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 12 · Infrared Sensors</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p><strong>Class 16: P Control</strong></p>
+<p>RoboRover currently chooses left, right, or straight. Next, correction becomes responsive to error size: a large error usually produces a larger correction, while a small error produces a gentler one. This proportional idea is the foundation of <strong>P control</strong>.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/014-build-a-virtual-line-follower/"><span>Previous stream</span><b>Class 14 · Build a Virtual Line Follower</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 16 · P Control</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -496,7 +442,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=11,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=15,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
