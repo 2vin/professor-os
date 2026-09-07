@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a small wheeled educational rover, following a black line on a light laboratory floor. Show the rover slightly to the right of the line with a subtle leftward correction arrow, sensor beams aimed at the line, and a clean visual suggestion of repeated measure-compare-correct behavior. Technically plausible wheels, line sensors, chassis, restrained modern editorial styling, realistic materials and lighting, no decorative sci-fi elements, minimal labels.",
+    "caption": "RoboRover measures its position relative to the line and corrects its motion instead of relying on one fixed command.",
+    "alt_text": "Small wheeled RoboRover positioned to the right of a black floor line, with sensors observing the line and a leftward correction arrow."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical control-loop diagram for a beginner robotics textbook. Show four labeled stages arranged in a loop: desired position, compare with sensor measurement, choose correction, robot motion. Use arrows to show the measurement returning from the robot to the comparison stage. Include a small line-following RoboRover icon and clearly distinguish desired state, measured state, error, and correction. Professional vector-style engineering diagram, restrained colors, high visual clarity, minimal text.",
+      "caption": "Feedback sends information about the robot's measured result back into its next control decision.",
+      "alt_text": "A four-stage circular feedback diagram connecting desired position, comparison, correction choice, robot motion, and sensor measurement."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational sequential diagram showing RoboRover correcting lateral position relative to a straight black line. Three panels: first the rover is 6 centimeters right of the line with a large left arrow, second it is 3 centimeters right with a smaller left arrow, third it is close to the line with a tiny correction or straight motion. Use a clean floor coordinate convention with right positive and left negative, limited essential labels, premium robotics textbook styling.",
+      "caption": "Repeated measurements let the correction become smaller as RoboRover approaches the desired line.",
+      "alt_text": "Three-panel sequence of RoboRover moving from far right of a line toward the line with progressively smaller correction arrows."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible close-up engineering illustration of RoboRover's line-following sensors and lateral position. Show a straight black tape line on a pale floor, the rover center offset to the right, sensor footprint near the line, a coordinate marker at the desired center, and a clear leftward correction arrow. Include subtle measurement annotations for 6.0 centimeters and 2.0 centimeter deadband without making the image text-heavy. Premium robotics educational editorial style, realistic materials and lighting.",
+      "caption": "The signed error identifies both how far RoboRover is from the line and which direction the correction should take.",
+      "alt_text": "RoboRover offset to the right of a floor line, with sensor measurement, desired center marker, deadband region, and leftward correction arrow."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean educational visualization of a discrete feedback simulation: a horizontal position axis centered on a target line at zero centimeters, a sequence of RoboRover positions moving from plus 6 centimeters toward plus 1.2 centimeters, small alternating sensor-noise markers, and arrows indicating repeated left corrections followed by straight motion inside a deadband. Professional technical textbook graphic, restrained palette, no clutter, labels only where essential.",
+      "caption": "The simulation records actual position, noisy measured position, error, and the selected action at every feedback step.",
+      "alt_text": "Technical diagram showing simulated RoboRover positions approaching a zero-centimeter target while measurements include small noise and corrections stop inside a deadband."
+    }
+  ]
+}
