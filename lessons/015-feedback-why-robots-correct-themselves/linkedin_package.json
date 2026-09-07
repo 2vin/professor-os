@@ -1,0 +1,8 @@
+{
+  "title": "Teach Robot Feedback with a Measurable, Testable RoboRover Simulation",
+  "description": "A beginner-friendly robotics lesson connecting signed error, deadbands, sensor noise, and feedback control to an inspectable Python simulation and safe hardware practice.",
+  "commentary": "A robot does not correct itself by magic. It measures, compares, acts, and measures again.\n\nThis Professor OS lesson makes that loop concrete through RoboRover:\n\n\u2022 Define signed error and connect its sign to correction direction.\n\u2022 Distinguish open-loop action from measurement-driven feedback.\n\u2022 Use a deadband to examine the tradeoff between stability and residual offset.\n\u2022 Run a deterministic Python simulation with noise, assertions, and inspectable history.\n\u2022 Experiment with missing correction, a wider deadband, and faulty measurements.\n\nThe lesson also keeps the simulation honest: a fixed-step threshold controller is not proportional control, and a model is not a physical robot. Students can see exactly how sensor readings influence decisions before moving to P control.\n\nTry the lab by predicting the action sequence and final position before running the code. Then change one parameter at a time and explain what changed in the robot\u2019s behavior.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #FeedbackControl #Python #STEM",
+  "thumbnail_alt_text": "RoboRover feedback loop showing measurement, signed error, correction, and simulated motion",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
