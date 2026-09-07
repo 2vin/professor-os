@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 8,
+  "static": {
+    "passed": true,
+    "word_count": 2475,
+    "code_blocks": 3,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 89,
+      "clarity": 91,
+      "depth": 90,
+      "examples": 94,
+      "interactivity": 93,
+      "code_alignment": 96,
+      "visual_teaching_plan": 90,
+      "originality": 88,
+      "consistency": 94,
+      "accessibility": 87
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is substantially longer than necessary for an introductory feedback class. Consolidate the repeated modeling caveats, physical-system limitations, and feedback definitions so the central learning path remains prominent.",
+      "Add a short sample output table or a partially completed trace before the full code. This would help beginners connect the assertions to the printed history without requiring them to infer the complete output.",
+      "Make the distinction between measurement disturbance and process disturbance more explicit in Experiment C: the changed noise value is a measurement fault, not a physical disturbance, despite the experiment heading using the broader word 'disturbance'.",
+      "The phrase 'the second visual previews proportional control' is useful, but explain that progressively smaller arrows are an illustrative preview rather than behavior produced by the current fixed-step threshold controller.",
+      "Consider adding one short learner checkpoint immediately after the sign convention, asking students to predict the action for a negative measurement before revealing the rule.",
+      "The safety guidance is sound, but the hardware section could place the stop-command requirement before any instruction to enable motion so the sequence is operationally unambiguous.",
+      "The optional averaging example is technically careful but somewhat disconnected from the main simulation. Either connect it to a modified sensor-reading experiment or move it to an extension section."
+    ],
+    "linkedin": {
+      "title": "Teach Robot Feedback with a Measurable, Testable RoboRover Simulation",
+      "description": "A beginner-friendly robotics lesson connecting signed error, deadbands, sensor noise, and feedback control to an inspectable Python simulation and safe hardware practice.",
+      "commentary": "A robot does not correct itself by magic. It measures, compares, acts, and measures again.\n\nThis Professor OS lesson makes that loop concrete through RoboRover:\n\n\u2022 Define signed error and connect its sign to correction direction.\n\u2022 Distinguish open-loop action from measurement-driven feedback.\n\u2022 Use a deadband to examine the tradeoff between stability and residual offset.\n\u2022 Run a deterministic Python simulation with noise, assertions, and inspectable history.\n\u2022 Experiment with missing correction, a wider deadband, and faulty measurements.\n\nThe lesson also keeps the simulation honest: a fixed-step threshold controller is not proportional control, and a model is not a physical robot. Students can see exactly how sensor readings influence decisions before moving to P control.\n\nTry the lab by predicting the action sequence and final position before running the code. Then change one parameter at a time and explain what changed in the robot\u2019s behavior.\n\n#RoboticsEducation #FeedbackControl #Python #STEM",
+      "thumbnail_alt_text": "RoboRover feedback loop showing measurement, signed error, correction, and simulated motion"
+    },
+    "media_query": "real two-sensor line-following robot on black tape track reflectance sensors chassis feedback control",
+    "image_query": "close-up engineering photograph of a small two-sensor line-following robot following black tape on a light floor, visible reflectance sensors and chassis",
+    "youtube_query": "robot line follower reflectance sensors feedback control demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the abstract signal flow and simulation well, but a real hardware photograph would ground the modeled lateral-position variable in reflectance sensors, chassis geometry, floor markings, and calibration. It would add physical context without replacing the schematic explanation.",
+    "media_would_help": true
+  }
+}
