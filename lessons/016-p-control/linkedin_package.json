@@ -1,0 +1,8 @@
+{
+  "title": "Professor OS Class 16: Understanding P Control Through RoboRover",
+  "description": "Learn how proportional gain turns position error into a robot command, then test saturation, gain selection, and steady-state error in a runnable RoboRover simulation.",
+  "commentary": "A proportional controller is one of the simplest ways to turn feedback into robot motion: measure the error, multiply it by a gain, and send the result toward the actuator.\n\nIn this Professor OS lesson, students:\n\n\u2022 calculate P-control commands with physically meaningful units;\n\u2022 see why larger gain produces stronger responses;\n\u2022 model actuator saturation with a real command limit;\n\u2022 compare gains in an executable RoboRover simulation;\n\u2022 investigate why practical systems may retain a small steady error.\n\nThe lesson also makes an important modeling distinction: an ideal velocity-command simulation can show convergence and saturation, but it cannot prove that a real robot will overshoot or oscillate. Those behaviors require actuator dynamics, inertia, delay, or other plant effects.\n\nTry the paper-based gain-and-saturation lab before running the Python program, then change the starting position and predict the first command. What would you add to the model to make its behavior more like a physical robot?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #ControlSystems #Python #EngineeringEducation",
+  "thumbnail_alt_text": "RoboRover approaching a target marker while a proportional controller reduces its speed command",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
