@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium editorial robotics textbook illustration of a small wheeled RoboRover approaching a clearly marked target line on a laboratory floor, with a visual metaphor of a long control arrow when far from the target becoming shorter near the target, technically plausible wheels, distance sensor, motor housing, clean engineering lab, restrained modern colors, realistic materials and lighting, no decorative sci-fi elements, no text except a simple target marker",
+    "caption": "RoboRover uses the size of its current position error to choose the strength of its motor command.",
+    "alt_text": "A wheeled RoboRover approaches a target line, with a large motion arrow far away and a smaller motion arrow near the target."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical control-loop diagram for a robotics textbook showing desired target position entering a subtract block, measured position entering the other side, error flowing into a proportional gain block labeled Kp, then a motor command driving RoboRover motion, with a sensor measurement returning to the comparison point; use simple arrows, clear labels, professional blue and orange palette, minimal text, precise educational layout",
+      "caption": "A P controller multiplies the current error by a gain before sending a command to the robot.",
+      "alt_text": "Block diagram showing target and measured position being subtracted, the error multiplied by Kp, and the resulting command sent to RoboRover with sensor feedback."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically accurate side-view engineering illustration of RoboRover on a marked one-dimensional test track approaching a charging marker, with three ghosted positions at 0.00 meters, 0.75 meters, and 0.95 meters, showing progressively shorter forward command arrows, subtle measurement annotations as part of the diagram, realistic mobile robot hardware, clean textbook composition, no clutter",
+      "caption": "As RoboRover approaches the marker, the position error and proportional speed command become smaller.",
+      "alt_text": "Three positions of a wheeled robot approaching a target marker, with large, medium, and small forward arrows representing decreasing P-control commands."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium educational plot-style illustration showing two smooth position-versus-time curves for RoboRover under low and high proportional gains, both approaching a horizontal target line, with a second small inset indicating actuator speed saturation at a maximum limit; use technically plausible axes and restrained textbook styling, avoid excessive labels and decorative elements",
+      "caption": "The simulation compares proportional gains while showing that the actuator speed is capped by saturation.",
+      "alt_text": "A position-time graph shows two RoboRover trajectories approaching a target line, with an inset illustrating a maximum speed limit."
+    }
+  ]
+}

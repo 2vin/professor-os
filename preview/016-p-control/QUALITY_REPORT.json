@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 3757,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 92,
+      "clarity": 91,
+      "depth": 93,
+      "examples": 94,
+      "interactivity": 91,
+      "code_alignment": 95,
+      "visual_teaching_plan": 89,
+      "originality": 86,
+      "consistency": 94,
+      "accessibility": 90
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is technically careful, but it is substantially longer than necessary for a foundational P-control class. Several caveats about ideal models, force disturbances, saturation, and real-robot dynamics recur across multiple sections; consolidate them into one clearly labeled model-boundary section and retain only the most important reminders elsewhere.",
+      "The opening distance-from-wall sign-convention example introduces a different physical quantity and interpretation before the main position-on-track example. Consider replacing it with a short same-domain position example or moving the wall example into a dedicated sign-convention note.",
+      "The Python lab verifies final position and command magnitude but does not explicitly verify saturation behavior or compare the two gains quantitatively. Add an assertion or printed metric for the initial limited command and convergence time so the code more directly tests the lesson's stated claims.",
+      "The low-gain and high-gain simulation curves are both ideal monotonic approaches. The lesson correctly states that the simulation cannot demonstrate overshoot or instability, but a small optional second-order or delayed-actuator extension would make the gain discussion more experimentally meaningful.",
+      "The phrase 'At the target: the command is zero' should be consistently framed as 'the P-controller output is zero' because a real robot may coast, have an inner velocity loop, or require a hold command to remain stationary.",
+      "The visual plan is relevant and well captioned, but the inline Python visual appears to show only actual limited commands rather than a direct requested-versus-limited comparison. Revise the figure or caption so students can clearly see what saturation removes.",
+      "The vocabulary entry on feedback control introduces a course-specific terminology distinction that is not needed for this lesson and slightly interrupts the otherwise focused ending. Consider shortening it or moving it to the earlier feedback lesson.",
+      "The challenge provides the answer immediately after the prompt. Place the worked prediction in a collapsible answer area or after a stronger student-attempt boundary if the publishing system supports it."
+    ],
+    "linkedin": {
+      "title": "Professor OS Class 16: Understanding P Control Through RoboRover",
+      "description": "Learn how proportional gain turns position error into a robot command, then test saturation, gain selection, and steady-state error in a runnable RoboRover simulation.",
+      "commentary": "A proportional controller is one of the simplest ways to turn feedback into robot motion: measure the error, multiply it by a gain, and send the result toward the actuator.\n\nIn this Professor OS lesson, students:\n\n\u2022 calculate P-control commands with physically meaningful units;\n\u2022 see why larger gain produces stronger responses;\n\u2022 model actuator saturation with a real command limit;\n\u2022 compare gains in an executable RoboRover simulation;\n\u2022 investigate why practical systems may retain a small steady error.\n\nThe lesson also makes an important modeling distinction: an ideal velocity-command simulation can show convergence and saturation, but it cannot prove that a real robot will overshoot or oscillate. Those behaviors require actuator dynamics, inertia, delay, or other plant effects.\n\nTry the paper-based gain-and-saturation lab before running the Python program, then change the starting position and predict the first command. What would you add to the model to make its behavior more like a physical robot?\n\n#Robotics #ControlSystems #Python #EngineeringEducation",
+      "thumbnail_alt_text": "RoboRover approaching a target marker while a proportional controller reduces its speed command"
+    },
+    "media_query": "documentary photo of a small differential-drive robot approaching a floor target marker, visible distance sensor and wheels, robotics lab",
+    "image_query": "small mobile robot approaching a marked stopping line with visible sensor, wheels, and actuator hardware",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A documentary hardware photograph would materially ground the idealized position-to-speed model after students have learned the equations and simulation. It could make the sensor, target marker, wheels, actuator limits, and practical stopping behavior visible without replacing the generated schematics.",
+    "media_would_help": true
+  }
+}
