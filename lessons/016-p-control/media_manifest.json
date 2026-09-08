@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational wheeled mobile robot approaching a marked target line in a robotics laboratory, distance sensor visible, realistic engineering hardware",
+  "media_style": "photo",
+  "reason": "A real hardware photograph would ground the abstract controller in visible sensors, wheels, target markers, and actuator limitations after students have learned the idealized model. It should be documentary and technically clear rather than decorative.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
