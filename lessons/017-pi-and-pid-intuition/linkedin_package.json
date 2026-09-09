@@ -1,0 +1,8 @@
+{
+  "title": "PI and PID Intuition for Robotics: From Error Signals to Safe Simulation",
+  "description": "A practical robotics lesson on P, I, and D terms, discrete implementation, windup, noisy derivatives, simulation, settling time, and safe rover testing.",
+  "commentary": "A PID controller is not automatically better because it has three terms. It is better understood when each term is connected to a physical question:\n\nP asks how wrong the robot is now.\nI remembers error that persists.\nD responds to how quickly that error is changing.\n\nThis Professor OS lesson turns those ideas into a discrete-time simulation of a one-dimensional rover. Students inspect individual contributions, actuator saturation, integral windup, noisy derivative estimates, settling time, and the difference between true and measured position.\n\nThe hand-calculation activity then separates intuition from implementation, while the real-robot section emphasizes command limits, emergency stops, sensor polarity, and low-gain testing.\n\nTry the lab with the supplied gains, predict the plots first, and then investigate what changes when the target steps or anti-windup is removed.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #ControlSystems #PID #EngineeringEducation",
+  "thumbnail_alt_text": "RoboRover PID lesson showing P, I, and D contributions beside a control-loop schematic",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
