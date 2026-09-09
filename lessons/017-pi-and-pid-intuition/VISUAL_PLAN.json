@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact wheeled educational rover, approaching a marked workshop-floor target line. Use three clearly separated labeled callouts, arranged so they cannot be confused: P = present distance, I = accumulated error history shown only as an abstract timeline graphic, and D = measured approach trend shown as a short braking-like arrow. Do not imply that integral history or derivative state is physically visible on the rover. Premium robotics textbook composition, technically plausible wheels, encoder housings, and sensor module, restrained modern colors, realistic materials and lighting, uncluttered background, no decorative sci-fi elements.",
+    "caption": "RoboRover approaches a target while P reacts to present error, I represents accumulated error history, and D responds to the measured approach trend.",
+    "alt_text": "Engineering illustration of a small wheeled rover approaching a floor target line with three separated labels for present error, accumulated error history, and braking-like action from changing error."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical control diagram for a robotics textbook showing three clearly separated parallel panels labeled P, I, and D: P as a spring-like arrow based on current distance to target, I as accumulated shaded error strips over time, and D as braking-like action based on the measured rate of approach. Include a simple RoboRover silhouette and target marker, precise arrows, white background, restrained blue-orange palette, premium editorial infographic style. Do not depict integral history or derivative state as physical objects on the rover.",
+      "caption": "The three controller terms answer different questions: current error, accumulated error, and changing error.",
+      "alt_text": "Three-panel instructional diagram showing proportional action from present distance, integral action from accumulated error, and derivative action from the measured rate of approach."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical perspective illustration of RoboRover approaching a painted target line on a workshop floor, with a transparent overlay showing current position error of 0.40 metres, previous error of 0.50 metres, a negative error-rate arrow indicating the error is shrinking, and three color-coded command contributions: P forward, I forward, D braking-like. Use clearly separated minimal labels, realistic rover hardware, premium robotics textbook style, no clutter.",
+      "caption": "The worked example combines forward P and I contributions with a negative D contribution because the remaining error is shrinking.",
+      "alt_text": "A small rover approaching a target line with separated labels for current error, shrinking error trend, and color-coded proportional, integral, and derivative command contributions."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "High-clarity educational plot-style diagram showing three simulated RoboRover position traces labeled P, PI, and PID approaching a horizontal target line, with separate lower panels for individual P, I, and D contributions, raw versus actuator-limited command, and a noisy PI-versus-PID command comparison. Include a small inset showing actuator saturation and anti-windup preventing excessive integral accumulation. Use technically plausible illustrative curves without fabricated exact numerical claims, clear axes, restrained modern colors, and premium robotics textbook infographic design.",
+      "caption": "A simulation makes it possible to compare position response, individual controller contributions, settling, oscillation, saturation, and noisy-command sensitivity.",
+      "alt_text": "Instructional multi-panel graph comparing P, PI, and PID position responses, controller contributions, actuator saturation, and noisy PI-versus-PID command sensitivity."
+    }
+  ]
+}
