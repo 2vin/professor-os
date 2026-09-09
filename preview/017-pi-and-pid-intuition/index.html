@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 11: Ultrasonic Distance Sensing · Professor OS</title>
+<title>Class 17: PI and PID Intuition · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,24 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -53,449 +35,639 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="11">
+<body data-class="17">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_11</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_17</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_11</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 11 · Hardware &amp; Sensors</div><h1>Ultrasonic Distance Sensing</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>time of flight, range</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_17</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 17 · Control &amp; Motion</div><h1>PI and PID Intuition</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~23 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 92/100</b></div><div class="meta"><span>Concepts</span><b>integral, derivative</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Ultrasonic Distance Sensing</h2>
+      <h2>Class podcast · PI and PID Intuition</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-11-ultrasonic-distance-sensing.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-17-pi-and-pid-intuition.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 11: Ultrasonic Distance Sensing</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 17: PI and PID Intuition</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>In the previous class, <strong>Sensors: Giving Robots Senses</strong>, RoboRover learned that sensors convert parts of the physical world into measurable signals. A light sensor responds to brightness, a switch reports contact, and a temperature sensor reports thermal conditions.</p>
-<p>Today we study one particular sensor: the <strong>ultrasonic distance sensor</strong>. It helps RoboRover estimate how far away an object is by sending out a sound pulse and timing its echo.</p>
-<p>Next class, <strong>Infrared Sensors</strong>, will introduce another way to detect distance or nearby objects. Ultrasonic and infrared sensors can both help a robot avoid obstacles, but they behave differently around shiny, soft, narrow, transparent, or oddly shaped objects.</p>
+<p>In Class 16, RoboRover used <strong>P control</strong>: it measured the current error, multiplied that error by a gain, and produced a motor command.</p>
+<p>If RoboRover was \(0.4\ \text{m}\) short of its target, P control produced a command proportional to \(0.4\ \text{m}\). This approach is simple and useful, but it has two important limitations:</p>
+<ul>
+<li>a small steady error may remain when the robot must oppose friction, a slope, or a load;</li>
+<li>P control responds to present error, but it does not accumulate past error or directly respond to how quickly the error is changing.</li>
+</ul>
+<p>Today we add two terms:</p>
+<ul>
+<li><strong>I, or integral control</strong>, accumulates error over time;</li>
+<li><strong>D, or derivative control</strong>, responds to the measured rate at which error changes.</li>
+</ul>
+<p>Together with P, they form <strong>PID control</strong>.</p>
+<p>In the next class, we will begin robot kinematics: describing position, orientation, and geometry rather than motor commands and forces. Today’s controller tells RoboRover <em>how strongly to act</em>. Kinematics will help us describe <em>where the robot is and how its parts move</em>.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ul>
-<li>explain <strong>time of flight</strong> using an echo analogy;</li>
-<li>calculate distance from the travel time of an ultrasonic pulse;</li>
-<li>explain why the distance equation divides by two;</li>
-<li>distinguish <strong>range</strong> from a simple “object detected” signal;</li>
-<li>simulate an ultrasonic sensor in Python;</li>
-<li>identify practical problems such as soft surfaces, angled objects, temperature changes, and false echoes.</li>
-</ul>
+<ol>
+<li>explain integral control using accumulated error;</li>
+<li>explain derivative control using error trend;</li>
+<li>calculate a PI or PID command with units;</li>
+<li>describe integral windup and noisy derivative estimates;</li>
+<li>distinguish a conceptual controller equation from a discrete-time, saturated implementation;</li>
+<li>run a simulation comparing P, PI, and PID behavior;</li>
+<li>define and measure settling time using a stated tolerance;</li>
+<li>interpret controller plots without relying on color alone.</li>
+</ol>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>A sensor is a device that measures something about the robot’s surroundings or internal condition.</p>
-<p>A sensor reading is not the same thing as perfect knowledge. For example, if a distance sensor reports 80 centimetres, the real object might be slightly closer or farther away because of electrical noise, calibration error, or the way sound reflected from the object.</p>
-<p>A useful sensor has three parts:</p>
-<ol>
-<li><strong>Physical interaction</strong> — something happens in the world, such as light arriving or sound reflecting.</li>
-<li><strong>Measurement</strong> — the sensor turns that interaction into a number or signal.</li>
-<li><strong>Interpretation</strong> — the robot uses the measurement to decide what the number means.</li>
-</ol>
-<p>Today’s sensor measures distance by using reflected sound.</p>
-<p><strong>Predict before reading on:</strong> If RoboRover sends a sound pulse toward a wall and receives its echo 0.010 seconds later, has the sound travelled 1 metre, 2 metres, or some other distance? Remember that the sound travels to the wall and then back.</p>
+<p>Suppose RoboRover should stop at \(2.0\ \text{m}\), but it is currently at \(1.6\ \text{m}\).</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e=r-y\]</span></div>
+<p>where \(e\) is error, \(r\) is the desired position, and \(y\) is measured position. Therefore,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e=2.0\ \text{m}-1.6\ \text{m}=0.4\ \text{m}.\]</span></div>
+<p>P control uses</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_P=K_Pe.\]</span></div>
+<p>P control is like a spring: the farther RoboRover is from the target, the stronger the command.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Top-down diagram of a robot sending an ultrasonic pulse to a wall and receiving the reflected echo, with one-way and round-trip distances marked."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The sensor measures the round-trip path, so the one-way range is half of v times t.</p>
-<p>Imagine shouting in a canyon. Your voice travels outward, hits a surface, and returns as an echo. If you know:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Three-panel instructional diagram showing proportional action from present distance, integral action from accumulated error, and derivative action from the measured rate of approach."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The three controller terms answer different questions: current error, accumulated error, and changing error.</p>
+<p>Imagine pushing a small cart up a gentle ramp. With only P control, the cart may stop slightly below the desired height. At the exact target, the error is zero, so P requests zero command—even though the ramp still pulls the cart downhill. A small remaining error may be necessary to create the command that opposes the ramp.</p>
+<div class="table-scroll"><table><thead><tr><th>Term</th><th>Question it asks</th><th>Useful behavior</th></tr></thead><tbody><tr><td>P</td><td>“How wrong are we now?”</td><td>Corrects present error</td></tr><tr><td>I</td><td>“How much error has accumulated?”</td><td>Reduces persistent error</td></tr><tr><td>D</td><td>“How quickly is the error changing?”</td><td>Can add braking-like action and reduce overshoot</td></tr></tbody></table></div>
+<p>For a rover approaching a painted stopping line:</p>
 <ul>
-<li>how fast sound travels, and</li>
-<li>how long the round trip takes,</li>
+<li><strong>P</strong> measures the current distance to the line.</li>
+<li><strong>I</strong> keeps a running tally of error that has persisted.</li>
+<li><strong>D</strong> responds to whether the remaining error is shrinking quickly or slowly.</li>
 </ul>
-<p>you can estimate how far away the surface is.</p>
-<p>An ultrasonic distance sensor performs a similar experiment, but with a sound frequency above the normal human hearing range. “Ultrasonic” means <strong>above human hearing</strong>. Many common ultrasonic modules send a short burst near 40,000 hertz, or 40 kilohertz. The exact hardware varies, so a robot program should use the sensor’s documented specifications rather than assuming every module is identical.</p>
-<p>The sensor usually has two visible parts:</p>
+<p>Derivative action does not literally predict the future. It responds to measured error rate. When the error is shrinking quickly, the derivative contribution can act like braking.</p>
+<h3>Reflection before the equation</h3>
+<p>RoboRover is \(0.20\ \text{m}\) short of its target and moving toward it quickly. Using \(e=r-y\), predict the signs:</p>
 <ul>
-<li>a <strong>transmitter</strong>, which sends the sound pulse;</li>
-<li>a <strong>receiver</strong>, which detects the returning echo.</li>
+<li>P should be positive.</li>
+<li>I should be positive if the rover has been short of the target for several seconds.</li>
+<li>D should be negative because the error is shrinking.</li>
 </ul>
-<p>The robot does not directly measure distance. It measures a time interval and converts that interval into distance.</p>
-<p>That distinction matters. A sensor reading such as “0.73 metres” is already the result of a model:</p>
-<blockquote>measured echo time + assumed sound speed → estimated range</blockquote>
+<p>The objective is not to make every gain large. Excessive gains can cause overshoot, oscillation, actuator saturation, or strong responses to measurement noise.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<p>Picture a top-down diagram:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>RoboRover                  Wall
- [sensor]  ───────►         │
-            outgoing pulse │
- [sensor]  ◄───────         │
-            returning echo  │
-
-          one-way distance = d
-          round-trip distance = 2d</code></pre></div>
-<p>The outgoing and returning paths form two equal sections if the pulse travels straight to a flat wall and back.</p>
-<p>An illustrator could show:</p>
-<ul>
-<li>RoboRover on the left;</li>
-<li>a vertical wall on the right;</li>
-<li>blue wavefronts expanding from the sensor;</li>
-<li>a blue reflected wave travelling back;</li>
-<li>arrows labelled “outgoing” and “returning”;</li>
-<li>a timer labelled \(t\);</li>
-<li>a bracket from the sensor to the wall labelled “range \(d\).”</li>
-</ul>
-<p>The sensor’s “field of view” is not a perfect laser-thin line. Sound spreads into a cone. A nearby object at an angle may reflect the pulse before a more distant wall does.</p>
+<p>Draw three panels:</p>
+<ol>
+<li><strong>P:</strong> RoboRover is far from a target marker, so a large arrow points toward the marker. Near the marker, the arrow is shorter.</li>
+<li><strong>I:</strong> Small error strips accumulate beneath RoboRover’s path. The growing shaded area represents accumulated error.</li>
+<li><strong>D:</strong> Two paths approach the target at different rates. The rapidly approaching path receives a stronger braking-like contribution.</li>
+</ol>
+<p>Do not draw integral history or derivative state as physical objects on the rover. They are controller calculations.</p>
+<p>A control-loop diagram is also useful:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>target position
+      |
+      v
+   subtract &lt;--------- measured position
+      |
+    error
+      |
+   PID controller ---&gt; motor command ---&gt; RoboRover ---&gt; position sensor</code></pre></div>
+<p>The sensor measurement returns to the subtraction step. This repeated comparison and correction is feedback.</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Time of flight</h3>
-<p><strong>Time of flight</strong>, often abbreviated TOF, is the time required for a signal to travel from a transmitter to a target and, in echo sensing, return to a receiver.</p>
-<p>For an ultrasonic echo sensor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{round-trip distance} = v t\]</span></div>
-<p>The sound travels twice the one-way range, so:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[2d = vt\]</span></div>
-<p>Solving for range:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<p>where:</p>
-<ul>
-<li>\(d\) is the one-way distance from sensor to object, in metres \((\text{m})\);</li>
-<li>\(v\) is the speed of sound, in metres per second \((\text{m/s})\);</li>
-<li>\(t\) is the measured round-trip echo time, in seconds \((\text{s})\).</li>
-</ul>
-<p>The division by 2 is essential. Without it, RoboRover would mistake the round-trip path for the one-way distance and report a value approximately twice as large.</p>
-<h3>Range</h3>
-<p><strong>Range</strong> is the estimated distance from a sensor to a detected object or surface.</p>
-<p>This is different from a simple proximity switch:</p>
-<ul>
-<li>“Object present” is a categorical result.</li>
-<li>“Object is approximately 0.62 metres away” is a range measurement.</li>
-</ul>
-<p>A real sensor may have a <strong>minimum range</strong> and a <strong>maximum range</strong>. Very close objects may be difficult to measure because the echo returns before the electronics are ready. Very distant objects may return an echo too weak to detect.</p>
-<h3>Why sound speed matters</h3>
-<p>At room temperature, a useful teaching approximation is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v \approx 343\ \text{m/s}\]</span></div>
-<p>The speed of sound changes with air temperature and, to a smaller degree in ordinary classroom situations, humidity and air conditions. Therefore, the equation gives an estimate, not magical certainty.</p>
+<h3>Integral: remembering persistent error</h3>
+<p>In continuous mathematics,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I(t)=\int_0^t e(\tau)\,d\tau.\]</span></div>
+<p>For position error in metres, \(I(t)\) has units of metre-seconds (m·s).</p>
+<p>A digital controller uses a running sum:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_k=I_{k-1}+e_k\Delta t.\]</span></div>
+<p>If RoboRover is \(0.1\ \text{m}\) short for \(5\ \text{s}\),</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I\approx(0.1\ \text{m})(5\ \text{s})=0.5\ \text{m·s}.\]</span></div>
+<p>The integral term grows while the error persists. It can eventually provide the command needed to oppose a constant disturbance such as friction or a slope.</p>
+<h3>Derivative: noticing the trend</h3>
+<p>Derivative action estimates how quickly error changes:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_k=\frac{e_k-e_{k-1}}{\Delta t}.\]</span></div>
+<p>If error decreases from \(0.50\ \text{m}\) to \(0.40\ \text{m}\) in \(0.10\ \text{s}\),</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_k=\frac{0.40-0.50}{0.10}=-1.0\ \text{m/s}.\]</span></div>
+<p>The negative sign means that the remaining error is shrinking. With a positive derivative gain, this produces a negative, braking-like contribution.</p>
+<p>This lesson differentiates <strong>error</strong>. Some controllers differentiate measured position instead:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_y=\frac{y_k-y_{k-1}}{\Delta t}.\]</span></div>
+<p>For a fixed target, the two forms are closely related with opposite signs. During a sudden target change, derivative-on-error can create a large <strong>derivative kick</strong>. Derivative-on-measurement avoids that particular reference-step kick, but still requires careful filtering and tuning.</p>
+<p>Derivative action can provide damping-like behavior in a suitably tuned closed loop. It does not guarantee damping: excessive gain, delay, filtering delay, or an incorrect sign can increase oscillation or cause instability.</p>
+<h3>Combining the terms</h3>
+<p>A PID command is commonly written as</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u=K_Pe+K_II+K_DD.\]</span></div>
+<p>A PI controller omits the derivative term:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u=K_Pe+K_II.\]</span></div>
+<p>The often-heard statement that PI “eliminates steady-state error” has conditions. The actuator must have enough authority to oppose the disturbance, the disturbance must be within the controller’s practical operating range, and the closed loop must remain stable. Integral action cannot overcome a physically incapable actuator or repair an unstable design.</p>
+<h3>From the equation to the implementation</h3>
+<p>The equation above is a conceptual continuous-time description. The Python lab implements a specific discrete-time approximation:</p>
+<ol>
+<li>the loop runs every \(\Delta t=0.02\ \text{s}\);</li>
+<li>the integral is updated using \(I_k=I_{k-1}+e_k\Delta t\);</li>
+<li>the derivative is estimated from two consecutive measured errors;</li>
+<li>the requested command is saturated to \([-1,+1]\);</li>
+<li>conditional integration provides one simple anti-windup strategy;</li>
+<li>the plant updates velocity and position after the command is applied.</li>
+</ol>
+<p>Consequently, the simulation results apply to this sampled, saturated model and its stated gains. They are not universal properties of every PI or PID controller.</p>
+<h3>Units at a glance</h3>
+<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Worked calculation</th><th>Python simulation</th></tr></thead><tbody><tr><td>Position and error</td><td>metres (m)</td><td>metres (m)</td></tr><tr><td>Integral</td><td>metre-seconds (m·s)</td><td>metre-seconds (m·s)</td></tr><tr><td>Derivative</td><td>metres per second (m/s)</td><td>metres per second (m/s)</td></tr><tr><td>Command</td><td>percent, \(-100\%\) to \(+100\%\)</td><td>normalized, \(-1\) to \(+1\)</td></tr><tr><td>Gains</td><td>scaled for percent command</td><td>scaled for normalized command</td></tr></tbody></table></div>
+<p>Do not transfer numerical gains from one column to the other.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose an ultrasonic sensor receives an echo after:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = 0.0085\ \text{s}\]</span></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
-<p>Substitute:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0085\ \text{s})}{2}\]</span></div>
-<p>The units simplify:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{m/s} \times \text{s} = \text{m}\]</span></div>
-<p>So:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{2.9155\ \text{m}}{2}
-= 1.45775\ \text{m}\]</span></div>
-<p>RoboRover’s estimated range is therefore approximately:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{1.46\ \text{m}}\]</span></div>
-<p>Interpretation: the sound travelled about 2.92 metres in total—1.46 metres outward and 1.46 metres back.</p>
-<p>A useful rearrangement is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2d}{v}\]</span></div>
-<p>For a target 0.50 metres away:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[t = \frac{2(0.50\ \text{m})}{343\ \text{m/s}}
-\approx 0.00292\ \text{s}\]</span></div>
-<p>That is about 2.92 milliseconds. Ultrasonic sensors must measure very short time intervals accurately.</p>
+<p>Suppose:</p>
+<ul>
+<li>\(r=2.0\ \text{m}\);</li>
+<li>\(y_k=1.6\ \text{m}\);</li>
+<li>\(e_{k-1}=0.50\ \text{m}\);</li>
+<li>\(I_{k-1}=0.12\ \text{m·s}\);</li>
+<li>\(\Delta t=0.10\ \text{s}\).</li>
+</ul>
+<p>The current error is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e_k=2.0-1.6=0.40\ \text{m}.\]</span></div>
+<p>The updated integral is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_k=0.12+(0.40)(0.10)=0.16\ \text{m·s}.\]</span></div>
+<p>The derivative is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_k=\frac{0.40-0.50}{0.10}=-1.0\ \text{m/s}.\]</span></div>
+<p>Choose:</p>
+<ul>
+<li>\(K_P=20\ \%\!/\text{m}\);</li>
+<li>\(K_I=4\ \%\!/\text{(m·s)}\);</li>
+<li>\(K_D=2\ \%\!/(\text{m/s})\).</li>
+</ul>
+<p>Then</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_P=(20)(0.40)=8.0\%,\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_I=(4)(0.16)=0.64\%,\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_D=(2)(-1.0)=-2.0\%.\]</span></div>
+<p>Therefore,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u=8.0+0.64-2.0=6.64\%.\]</span></div>
+<p>P and I push forward because the rover is short of the target. D subtracts command because the error is shrinking.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_02.png" alt="Educational illustration of a small robot measuring the distance to a cardboard box, with a pulse timing inset and a one-metre distance bracket."></figure>
-<p class="figure-caption"><strong>Figure:</strong> A measured echo time is converted into range using the assumed speed of sound and the round-trip correction.</p>
-<p>RoboRover is moving toward a cardboard box. Its ultrasonic sensor measures an echo time of \(5.8\) milliseconds.</p>
-<p>First convert milliseconds to seconds:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[5.8\ \text{ms}
-= 5.8 \times 0.001\ \text{s}
-= 0.0058\ \text{s}\]</span></div>
-<p>Assume the speed of sound is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v = 343\ \text{m/s}\]</span></div>
-<p>Now calculate:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0058\ \text{s})}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{1.9894\ \text{m}}{2}
-= 0.9947\ \text{m}\]</span></div>
-<p>So the box is approximately:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\boxed{0.995\ \text{m away}}\]</span></div>
-<p>or about \(99.5\) centimetres.</p>
-<p>If RoboRover’s safety rule is “stop when the range is below \(0.60\) metres,” it should not stop because of this reading alone. However, a real robot should not rely on one perfect measurement. It should consider noisy readings, braking distance, and whether the box is actually large enough to reflect sound reliably.</p>
+<figure><img loading="lazy" src="inline_02.png" alt="A small rover approaching a target line with separated labels for current error, shrinking error trend, and color-coded proportional, integral, and derivative command contributions."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The worked example combines forward P and I contributions with a negative D contribution because the remaining error is shrinking.</p>
+<p>RoboRover carries a sensor package across a workshop floor toward a line \(1.0\ \text{m}\) ahead. A slight slope creates a constant backward disturbance.</p>
+<ul>
+<li><strong>P</strong> reacts to current position error.</li>
+<li><strong>PI</strong> adds accumulated error.</li>
+<li><strong>PID</strong> adds a trend-based contribution that may make the approach smoother.</li>
+</ul>
+<p>P may settle with a small offset because it needs nonzero error to produce the command opposing the slope. PI continues adding correction while the error persists, allowing the rover to remain closer to the line once the disturbance is balanced.</p>
+<p>PID can improve the transient response when the derivative estimate is clean. If the position sensor jitters by a few millimetres between rapid samples, however, the derivative may respond more to sensor noise than to real motion.</p>
+<p>This is the central trade-off:</p>
+<ul>
+<li>integral improves accuracy against persistent disturbances;</li>
+<li>derivative can improve settling when correctly tuned;</li>
+<li>integral can wind up during saturation;</li>
+<li>derivative can amplify measurement noise.</li>
+</ul>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>This program simulates RoboRover approaching a wall. It converts echo time into range and displays a simple stop-or-go rule.</p>
-<p>The simulation includes small, deliberately chosen measurement offsets. These represent sensor imperfections. The <code>true_distances</code> list describes the actual distance, while <code>measured_distances</code> represents what the sensor estimates after small errors.</p>
+<figure><img loading="lazy" src="inline_03.png" alt="Instructional multi-panel graph comparing P, PI, and PID position responses, controller contributions, actuator saturation, and noisy PI-versus-PID command sensitivity."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A simulation makes it possible to compare position response, individual controller contributions, settling, oscillation, saturation, and noisy-command sensitivity.</p>
+<p>The following program simulates a one-dimensional RoboRover. Its simplified model includes:</p>
+<ul>
+<li>position \(x\) in metres;</li>
+<li>velocity \(v\) in metres per second;</li>
+<li>acceleration in metres per second squared;</li>
+<li>a command limited to \(-1\) through \(+1\);</li>
+<li>a constant backward disturbance;</li>
+<li>velocity drag;</li>
+<li>optional deterministic measurement noise.</li>
+</ul>
+<p>The physics are intentionally educational rather than complete. Real motors also have dead zones, delays, voltage limits, friction changes, and nonlinear behavior.</p>
+<p><strong>Predict first:</strong> Which controller should finish closest to the target under a constant backward disturbance? Which controller should be most sensitive to noisy measurements?</p>
 <div class="code-card"><div class="code-label">python</div><pre><code>import math
 import matplotlib.pyplot as plt
 
-# Approximate speed of sound in air at room temperature.
-SPEED_OF_SOUND_M_PER_S = 343.0
 
-# RoboRover&#x27;s actual distance from the wall at several moments.
-true_distances = [2.00, 1.50, 1.00, 0.75, 0.50, 0.25]
+def clamp(value, low, high):
+    return max(low, min(high, value))
 
-# Small measurement offsets imitate sensor noise or calibration error.
-measurement_offsets = [0.00, 0.03, -0.02, 0.02, -0.03, 0.03]
 
-# Convert the actual one-way distance into a round-trip echo time.
-echo_times = []
-for distance in true_distances:
-    time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S
-    echo_times.append(time_seconds)
+def settling_time(time_values, position_values, target,
+                  tolerance=0.02, minimum_dwell=0.5):
+    &quot;&quot;&quot;Return first entry into the band that lasts for minimum_dwell seconds.&quot;&quot;&quot;
+    band = tolerance * abs(target)
+    if band == 0.0:
+        raise ValueError(&quot;This helper requires a nonzero target.&quot;)
 
-# Convert each simulated echo time back into an estimated range.
-measured_distances = []
-for index in range(len(echo_times)):
-    estimated_range = (
-        SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0
-        + measurement_offsets[index]
+    required_samples = max(
+        1,
+        int(math.ceil(minimum_dwell /
+                      (time_values[1] - time_values[0])))
     )
-    measured_distances.append(estimated_range)
 
-# RoboRover stops if its estimated range is below this threshold.
-STOP_DISTANCE_M = 0.60
-actions = []
-for distance in measured_distances:
-    if distance &lt; STOP_DISTANCE_M:
-        actions.append(&quot;STOP&quot;)
-    else:
-        actions.append(&quot;GO&quot;)
+    for index in range(len(position_values)):
+        end = min(index + required_samples, len(position_values))
+        window = position_values[index:end]
+        if len(window) &lt; required_samples:
+            continue
+        if all(abs(position - target) &lt;= band for position in window):
+            return time_values[index]
 
-# Executable checks verify the important numerical claims.
-assert math.isclose(echo_times[0], 4.0 / 343.0, rel_tol=1e-12)
-assert math.isclose(measured_distances[0], 2.00, rel_tol=1e-12)
-assert math.isclose(measured_distances[1], 1.53, rel_tol=1e-12)
-assert actions.count(&quot;STOP&quot;) == 2
-assert actions[-1] == &quot;STOP&quot;
+    return None
 
-print(&quot;Distance (m) | Echo time (ms) | Estimated range (m) | Action&quot;)
-for index in range(len(true_distances)):
-    print(
-        &quot;{:12.2f} | {:14.3f} | {:19.2f} | {}&quot;.format(
-            true_distances[index],
-            echo_times[index] * 1000.0,
-            measured_distances[index],
-            actions[index]
+
+def simulate(controller_name, kp, ki, kd, measurement_noise=0.0,
+             anti_windup=True):
+    dt = 0.02
+    duration = 12.0
+    target = 1.0
+    disturbance = -0.12
+    drag = 0.35
+    command_limit = 1.0
+
+    position = 0.0
+    velocity = 0.0
+    integral = 0.0
+    previous_error = target
+
+    data = {
+        &quot;name&quot;: controller_name,
+        &quot;time&quot;: [], &quot;position&quot;: [], &quot;error&quot;: [],
+        &quot;p&quot;: [], &quot;i&quot;: [], &quot;d&quot;: [],
+        &quot;raw_command&quot;: [], &quot;command&quot;: [], &quot;integral&quot;: [],
+        &quot;saturated&quot;: []
+    }
+
+    steps = int(duration / dt)
+
+    for step in range(steps + 1):
+        current_time = step * dt
+        measured_position = (
+            position + measurement_noise *
+            math.sin(40.0 * current_time)
         )
+        error = target - measured_position
+
+        trial_integral = integral + error * dt
+        derivative = (error - previous_error) / dt
+
+        p_contribution = kp * error
+        trial_i_contribution = ki * trial_integral
+        d_contribution = kd * derivative
+        trial_raw = (
+            p_contribution + trial_i_contribution + d_contribution
+        )
+
+        same_direction_saturation = (
+            abs(trial_raw) &gt; command_limit
+            and trial_raw * error &gt; 0.0
+        )
+
+        if not anti_windup or not same_direction_saturation:
+            integral = trial_integral
+
+        i_contribution = ki * integral
+        raw_command = p_contribution + i_contribution + d_contribution
+        command = clamp(raw_command, -command_limit, command_limit)
+
+        data[&quot;time&quot;].append(current_time)
+        data[&quot;position&quot;].append(position)
+        data[&quot;error&quot;].append(error)
+        data[&quot;p&quot;].append(p_contribution)
+        data[&quot;i&quot;].append(i_contribution)
+        data[&quot;d&quot;].append(d_contribution)
+        data[&quot;raw_command&quot;].append(raw_command)
+        data[&quot;command&quot;].append(command)
+        data[&quot;integral&quot;].append(integral)
+        data[&quot;saturated&quot;].append(abs(raw_command) &gt; command_limit)
+
+        if step == steps:
+            break
+
+        acceleration = command + disturbance - drag * velocity
+        velocity += acceleration * dt
+        position += velocity * dt
+        previous_error = error
+
+    return data
+
+
+controllers = {
+    &quot;P&quot;: (1.8, 0.0, 0.0),
+    &quot;PI&quot;: (1.8, 0.8, 0.0),
+    &quot;PID&quot;: (1.8, 0.8, 0.35),
+}
+
+results = {}
+for name, gains in controllers.items():
+    results[name] = simulate(name, *gains)
+
+noisy_results = {}
+for name in (&quot;PI&quot;, &quot;PID&quot;):
+    noisy_results[name + &quot; noisy&quot;] = simulate(
+        name + &quot; noisy&quot;, *controllers[name], measurement_noise=0.005
     )
 
-print(&quot;All numerical checks passed.&quot;)
-print(&quot;STOP actions:&quot;, actions.count(&quot;STOP&quot;))
+# Controlled comparison: PI with and without anti-windup.
+windup_results = {
+    &quot;PI anti-windup&quot;: simulate(
+        &quot;PI anti-windup&quot;, 1.8, 0.8, 0.0, anti_windup=True
+    ),
+    &quot;PI no anti-windup&quot;: simulate(
+        &quot;PI no anti-windup&quot;, 1.8, 0.8, 0.0, anti_windup=False
+    ),
+}
 
-# Plot actual and estimated distances.
-time_step_numbers = list(range(1, len(true_distances) + 1))
+expected_points = int(12.0 / 0.02) + 1
+for collection in (results, noisy_results, windup_results):
+    for data in collection.values():
+        assert len(data[&quot;time&quot;]) == expected_points
+        for key in (&quot;position&quot;, &quot;error&quot;, &quot;p&quot;, &quot;i&quot;, &quot;d&quot;,
+                    &quot;raw_command&quot;, &quot;command&quot;, &quot;integral&quot;):
+            assert all(math.isfinite(value) for value in data[key])
 
-plt.plot(
-    time_step_numbers,
-    true_distances,
-    marker=&quot;o&quot;,
-    label=&quot;Actual distance&quot;
-)
-plt.plot(
-    time_step_numbers,
-    measured_distances,
-    marker=&quot;s&quot;,
-    label=&quot;Estimated range&quot;
-)
-plt.axhline(
-    STOP_DISTANCE_M,
-    color=&quot;red&quot;,
-    linestyle=&quot;--&quot;,
-    label=&quot;Stop threshold&quot;
-)
+print(&quot;Final errors and 2% settling times:&quot;)
+for name, data in results.items():
+    settling = settling_time(
+        data[&quot;time&quot;], data[&quot;position&quot;], target=1.0
+    )
+    print(&quot;{}: measured_error={:.4f} m, settling={}&quot;.format(
+        name, data[&quot;error&quot;][-1], settling
+    ))
 
-plt.xlabel(&quot;Measurement number&quot;)
-plt.ylabel(&quot;Distance from wall (m)&quot;)
-plt.title(&quot;RoboRover Ultrasonic Range Simulation&quot;)
-plt.legend()
+print(&quot;\nMaximum absolute raw commands:&quot;)
+for name, data in results.items():
+    maximum = max(abs(value) for value in data[&quot;raw_command&quot;])
+    print(&quot;{}: {:.3f}&quot;.format(name, maximum))
+
+# The noisy-command plot directly exposes the PI-versus-PID comparison.
+plt.figure(figsize=(10, 5))
+for name, data in noisy_results.items():
+    plt.plot(data[&quot;time&quot;], data[&quot;command&quot;], label=name)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;Applied command (-1 to +1)&quot;)
+plt.title(&quot;Noisy PI and PID commands&quot;)
 plt.grid(True)
+plt.legend()
+plt.tight_layout()
+
+# A numerical roughness measure supplements the plot. It is the mean
+# absolute change between consecutive applied commands.
+print(&quot;\nNoisy command roughness:&quot;)
+roughness = {}
+for name, data in noisy_results.items():
+    changes = [
+        abs(current - previous)
+        for previous, current in zip(
+            data[&quot;command&quot;][:-1], data[&quot;command&quot;][1:]
+        )
+    ]
+    roughness[name] = sum(changes) / len(changes)
+    print(&quot;{}: mean step change={:.6f}&quot;.format(name, roughness[name]))
+
+# With these fixed gains and deterministic noise, derivative action should
+# produce the larger command variation. Verify that stated comparison.
+assert roughness[&quot;PID noisy&quot;] &gt; roughness[&quot;PI noisy&quot;]
+
+plt.figure(figsize=(12, 10))
+
+plt.subplot(2, 2, 1)
+for name, data in results.items():
+    plt.plot(data[&quot;time&quot;], data[&quot;position&quot;], label=name)
+plt.axhline(1.0, color=&quot;black&quot;, linestyle=&quot;--&quot;, label=&quot;target&quot;)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;True position (m)&quot;)
+plt.title(&quot;Clean true-position responses&quot;)
+plt.grid(True)
+plt.legend()
+
+plt.subplot(2, 2, 2)
+for name, data in results.items():
+    plt.plot(data[&quot;time&quot;], data[&quot;p&quot;], label=name + &quot; P&quot;)
+    plt.plot(data[&quot;time&quot;], data[&quot;i&quot;], &quot;--&quot;, label=name + &quot; I&quot;)
+    plt.plot(data[&quot;time&quot;], data[&quot;d&quot;], &quot;:&quot;, label=name + &quot; D&quot;)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;Contribution&quot;)
+plt.title(&quot;Individual controller contributions&quot;)
+plt.grid(True)
+plt.legend(fontsize=8)
+
+plt.subplot(2, 2, 3)
+for name, data in results.items():
+    plt.plot(data[&quot;time&quot;], data[&quot;raw_command&quot;],
+             label=name + &quot; raw&quot;)
+    plt.plot(data[&quot;time&quot;], data[&quot;command&quot;], &quot;--&quot;,
+             label=name + &quot; limited&quot;)
+plt.axhline(1.0, color=&quot;black&quot;, linestyle=&quot;:&quot;)
+plt.axhline(-1.0, color=&quot;black&quot;, linestyle=&quot;:&quot;)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;Command (-1 to +1)&quot;)
+plt.title(&quot;Raw and actuator-limited commands&quot;)
+plt.grid(True)
+plt.legend(fontsize=8)
+
+plt.subplot(2, 2, 4)
+for name, data in windup_results.items():
+    plt.plot(data[&quot;time&quot;], data[&quot;integral&quot;], label=name)
+plt.xlabel(&quot;Time (s)&quot;)
+plt.ylabel(&quot;Integral state (m·s)&quot;)
+plt.title(&quot;Anti-windup comparison&quot;)
+plt.grid(True)
+plt.legend()
+
 plt.tight_layout()
 plt.show()</code></pre></div>
 <p>Important lines:</p>
 <ul>
-<li><code>time_seconds = (2.0 * distance) / SPEED_OF_SOUND_M_PER_S</code> uses the round-trip equation rearranged as \(t=2d/v\).</li>
-<li><code>estimated_range = SPEED_OF_SOUND_M_PER_S * echo_times[index] / 2.0</code> uses \(d=vt/2\).</li>
-<li><code>measurement_offsets</code> shows that a real sensor may not report the exact physical distance.</li>
-<li><code>plt.axhline(...)</code> draws the decision boundary, not a physical wall. It shows where the software changes from “GO” to “STOP.”</li>
-<li>The <code>assert</code> statements automatically check the numerical results instead of relying on visual inspection.</li>
+<li><code>trial_integral = integral + error * dt</code> implements discrete integration.</li>
+<li><code>derivative = (error - previous_error) / dt</code> estimates error trend.</li>
+<li><code>p</code>, <code>i</code>, and <code>d</code> expose the individual contributions.</li>
+<li><code>raw_command</code> is the requested command before actuator limits.</li>
+<li><code>command</code> is the command actually applied after limiting.</li>
+<li><code>integral</code> makes windup visible directly.</li>
+<li><code>anti_windup=False</code> provides a controlled comparison with the same gains and plant.</li>
+<li><code>measurement_noise</code> affects the measured position used by the controller, not the true physics.</li>
+<li>The conditional-integration rule prevents further accumulation when saturation is driven in the same direction as the current error. It is one strategy, not a universal solution.</li>
+<li><code>settling_time</code> requires the response to remain inside the \(\pm2\%\) band for at least \(0.5\ \text{s}\). Without this dwell requirement, the final sample could count as settling even if there were not enough data to observe sustained behavior.</li>
+<li>The assertions check sample counts, finite numerical values, and the stated noisy-command comparison.</li>
+<li>The first position plot uses true simulated position. The printed <code>measured_error</code> uses the final measured position, which can differ slightly from the true final position when measurement noise is enabled. In the clean <code>results</code> collection, the measurement noise is zero, so the two agree.</li>
 </ul>
-<p>The plotted estimated line will not exactly match the actual line because of the offsets. It should follow the same general trend and drop as RoboRover approaches the wall.</p>
+<p>The sinusoidal noise is deterministic:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
+
+noise = 0.005 * math.sin(40.0 * 1.0)
+expected_noise = 0.005 * math.sin(40.0)
+assert abs(noise - expected_noise) &lt; 1e-15
+print(&quot;Repeatable measurement disturbance: {:.6f} m&quot;.format(noise))</code></pre></div>
+<p>Real sensors may also have random noise, bias, quantization, delay, dropouts, and electrical interference.</p>
+<h3>Expected-results check</h3>
+<p>The table below gives qualitative checks for the supplied model and gains. It is not a substitute for the program’s printed values.</p>
+<div class="table-scroll"><table><thead><tr><th>Case</th><th>Expected qualitative outcome</th></tr></thead><tbody><tr><td>P</td><td>A visible positive final position offset is likely because P must create command to oppose the disturbance.</td></tr><tr><td>PI</td><td>The final error should generally be smaller than P after the integral builds.</td></tr><tr><td>PID</td><td>The transient differs from PI; overshoot may decrease or increase depending on the gains and plant.</td></tr><tr><td>Noisy PI</td><td>The applied command varies because measured error contains sinusoidal disturbance.</td></tr><tr><td>Noisy PID</td><td>The command should be more visibly jagged than noisy PI; the code plots this and asserts that its mean step change is larger for these fixed gains.</td></tr><tr><td>PI with anti-windup</td><td>Integral growth is restricted while saturation is driven in the same direction as the error.</td></tr><tr><td>PI without anti-windup</td><td>The integral generally grows farther during saturation and can produce more delayed overshoot.</td></tr><tr><td>Raw command</td><td>It may exceed \(\pm1\) during the initial approach.</td></tr><tr><td>Limited command</td><td>It never exceeds \(-1\) or \(+1\).</td></tr><tr><td>Settling time</td><td>It is a number only if the true position remains in the required band for the dwell interval; otherwise it is <code>None</code>.</td></tr></tbody></table></div>
+<p>Use line labels, line styles, axis values, and printed output—not color alone. If Python is unavailable, inspect the table above and manually sketch the expected trends. An interactive plotting tool can provide an alternative, provided it uses the same equations and gains.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play “<strong>Predict RoboRover’s action</strong>” before running the program.</p>
-<p>The stop threshold is \(0.60\) metres. Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{vt}{2}\]</span></div>
-<p>Predict the action for these echo times:</p>
-<ol>
-<li>\(t=2.9\ \text{ms}\)</li>
-<li>\(t=4.4\ \text{ms}\)</li>
-<li>\(t=6.0\ \text{ms}\)</li>
-</ol>
-<p>Use \(v=343\ \text{m/s}\).</p>
-<p>For the first one:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = \frac{(343\ \text{m/s})(0.0029\ \text{s})}{2}
-\approx 0.498\ \text{m}\]</span></div>
-<p>That is below \(0.60\) metres, so predict <strong>STOP</strong>.</p>
-<p>Now predict the other two before checking:</p>
+<p>This is a <strong>PI-focused hand-calculation exercise</strong>, not an equivalent model of the Python plant. It has no velocity state and no derivative term. Play it as a qualitative role-play or use the specified update rule for comparable calculations.</p>
+<p>Each round lasts one second. At the end of each round, update position by</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[y_{\text{new}}=y_{\text{old}}+0.5u-0.1,\]</span></div>
+<p>where \(u\) is the <strong>applied</strong> command after limiting it to \([-1,1]\). The \(-0.1\) term represents a backward disturbance.</p>
+<p>Start with:</p>
 <ul>
-<li>A \(4.4\) millisecond round trip should correspond to a distance a little below \(0.76\) metres.</li>
-<li>A \(6.0\) millisecond round trip should correspond to a distance slightly above \(1.0\) metre.</li>
+<li>target position: \(5\ \text{m}\);</li>
+<li>current position: \(3\ \text{m}\);</li>
+<li>accumulated error: \(1\ \text{m·s}\);</li>
+<li>\(K_P=0.5\ \text{command}/\text{m}\);</li>
+<li>\(K_I=0.2\ \text{command}/(\text{m·s})\).</li>
 </ul>
-<p>The important pattern is:</p>
-<blockquote>longer echo time means farther object; shorter echo time means nearer object.</blockquote>
-<p>You can turn the Python lab into your own game by changing <code>measurement_offsets</code>, <code>STOP_DISTANCE_M</code>, or the entries in <code>true_distances</code>. Before running it, predict how the graph and the number of “STOP” actions will change.</p>
+<h3>Worked Round 1</h3>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[e=5-3=2\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{\text{new}}=1+(2)(1)=3\ \text{m·s}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_P=(0.5)(2)=1.0\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u_I=(0.2)(3)=0.6\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[u=1.0+0.6=1.6.\]</span></div>
+<p>The actuator limit changes the applied command to \(+1.0\). The updated position is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[y_{\text{new}}=3+0.5(1.0)-0.1=3.4\ \text{m}.\]</span></div>
+<p>Repeat the calculation. Discuss whether the integral should continue accumulating during saturation. Then reverse the error by placing the rover beyond the target and observe how the stored integral affects the next command.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>Before you run the program, predict these observations:</p>
-<ol>
-<li>The echo time should become shorter as RoboRover approaches the wall.</li>
-<li>The estimated range should generally decrease from the first measurement to the last.</li>
-<li>The estimated line should differ slightly from the actual line.</li>
-<li>Only the closest measurements should produce <code>STOP</code>.</li>
-<li>The graph’s stop threshold should appear as a horizontal line at \(0.60\) metres.</li>
-</ol>
-<p>The program’s built-in checks verify that:</p>
+<p>Before running the program, predict:</p>
 <ul>
-<li>the first simulated echo time corresponds to a 2.00 metre range;</li>
-<li>the second estimated range is 1.53 metres;</li>
-<li>exactly two simulated actions are <code>STOP</code>;</li>
-<li>the final action is <code>STOP</code>.</li>
+<li>P may leave a small final error because it needs error to oppose the disturbance.</li>
+<li>PI should reduce persistent error as its integral builds.</li>
+<li>PID may alter overshoot and settling, but its result depends on tuning and the simplified physics.</li>
+<li>Noisy PID should show more command variation than noisy PI for the supplied gains because the derivative term responds to rapid measurement changes.</li>
+<li>Anti-windup should limit unnecessary integral growth during saturation.</li>
 </ul>
+<p>Inspect more than final position:</p>
+<ul>
+<li><strong>overshoot:</strong> distance past the target;</li>
+<li><strong>settling time:</strong> entry into and continued residence within \(\pm2\%\);</li>
+<li><strong>oscillation:</strong> repeated motion around the target;</li>
+<li><strong>saturation:</strong> time spent at a command limit;</li>
+<li><strong>individual contributions:</strong> P, I, and D;</li>
+<li><strong>raw versus limited command;</strong></li>
+<li><strong>integral state:</strong> especially with and without anti-windup;</li>
+<li><strong>measured versus true position:</strong> the controller uses measured position, while the plant stores true position.</li>
+</ul>
+<p>These results describe the supplied gains, sample interval, disturbance, and model. They do not prove that one controller is universally better.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Forgetting the return journey</h3>
-<p>Using \(d=vt\) treats the measured time as if the sound travelled only one way. An echo sensor measures the outward and return journey, so use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{vt}{2}\]</span></div>
-<h3>Mixing milliseconds and seconds</h3>
-<p>The speed \(343\ \text{m/s}\) requires time in seconds. A value of \(5.8\) milliseconds must become \(0.0058\) seconds.</p>
-<h3>Treating range as exact truth</h3>
-<p>An ultrasonic reading is an estimate. Sound may reflect from the nearest part of an object, a side surface, the floor, or another obstacle.</p>
-<h3>Assuming every surface gives a strong echo</h3>
-<p>Hard, broad surfaces usually reflect sound more effectively than soft materials. Thick fabric, foam, or an object with an angled surface may absorb or redirect much of the pulse.</p>
-<h3>Measuring while the robot is vibrating</h3>
-<p>Motor vibration can shake the sensor and change its angle. A small angle change can cause a large difference in the reflected echo.</p>
-<h3>Expecting a narrow beam</h3>
-<p>Ultrasonic sound spreads. The sensor may detect an object that is not directly in front of the robot, especially if that object is large or close.</p>
-<h3>Triggering measurements too quickly</h3>
-<p>The robot should allow enough time for an old echo to finish before sending another pulse. Otherwise, echoes from different pulses may be confused.</p>
+<h3>Treating integral as instant correction</h3>
+<p>Integral action is not a second proportional term. It grows over time. A small error held for a long time can matter more than a large error lasting briefly.</p>
+<h3>Forgetting the sample interval</h3>
+<p>The discrete integral uses \(e_k\Delta t\), not merely \(e_k\). Changing loop frequency without updating \(\Delta t\) changes the controller behavior.</p>
+<h3>Letting the integral wind up</h3>
+<p>If the motor is already at maximum command, the integral can continue growing. When the rover finally approaches the target, stored integral may drive it forward and cause severe overshoot.</p>
+<p>Possible protections include:</p>
+<ul>
+<li>stopping or reducing integration during saturation;</li>
+<li>limiting the integral state;</li>
+<li>resetting it when a task begins;</li>
+<li>using back-calculation.</li>
+</ul>
+<p>The lab’s conditional-integration rule is one simple method. It must still be tested during error reversals, target changes, and changing disturbances.</p>
+<h3>Believing derivative always improves control</h3>
+<p>Derivative action uses measurement differences. Sensor noise and quantization can become large apparent rates, producing twitchy commands. Filtering can help, but filtering also introduces delay.</p>
+<h3>Mixing derivative definitions</h3>
+<p>State whether the derivative uses error or measured output. The two are related but behave differently during reference changes.</p>
+<h3>Mixing units</h3>
+<p>A gain tuned for millimetres cannot be used unchanged with metres. Record the units of sensor values, gains, integral, derivative, and output. Also distinguish percent command in the worked example from normalized command in the simulation.</p>
+<blockquote><strong>Design note:</strong> Real controllers require decisions about sample time, output limits, filtering, dead zones, reference changes, and failure behavior. The central intuition remains: P responds now, I accumulates history, and D responds to measured trend.</blockquote>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<h3>Challenge: RoboRover’s cardboard checkpoint</h3>
-<p>Modify the Python program so that RoboRover uses a stop threshold of \(0.80\) metres instead of \(0.60\) metres.</p>
-<p>Before running it:</p>
+<p>Modify the program so the target changes from \(1.0\ \text{m}\) to \(0.5\ \text{m}\) halfway through the simulation.</p>
+<p>Predict:</p>
 <ol>
-<li>Predict how many simulated readings will produce <code>STOP</code>.</li>
-<li>Identify which measurement numbers will stop the robot.</li>
-<li>Explain why a larger threshold causes an earlier stop.</li>
+<li>Which term reacts immediately to the new error?</li>
+<li>Which controller carries accumulated error from the first target?</li>
+<li>What may happen if the target changes while the actuator is saturated?</li>
+<li>What derivative kick may occur when differentiating error?</li>
 </ol>
-<p>Then run the program and verify your prediction.</p>
-<h3>Optional extension</h3>
-<p>Add a second rule:</p>
-<ul>
-<li><code>STOP</code> if the estimated range is below \(0.80\) metres;</li>
-<li><code>CHECK SENSOR</code> if the estimated range is above \(2.0\) metres;</li>
-<li><code>GO</code> otherwise.</li>
-</ul>
-<p>Use a new list of distances that includes at least one value above \(2.0\) metres. Be careful to keep the comparison order clear.</p>
+<p>Compare the result with derivative-on-measurement. Then compare the anti-windup and no-anti-windup integral plots.</p>
+<p>For an additional sampling activity, record three consecutive error samples \(e_{k-2}\), \(e_{k-1}\), and \(e_k\). Compute two successive derivative estimates,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[D_{k-1}=\frac{e_{k-1}-e_{k-2}}{\Delta t},
+\qquad
+D_k=\frac{e_k-e_{k-1}}{\Delta t},\]</span></div>
+<p>and discuss how a single noisy sample affects both estimates.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What does an ultrasonic distance sensor measure directly: distance or echo time?</li>
-</ol>
-<ol>
-<li>Why does the equation \(d=vt/2\) divide by two?</li>
-</ol>
-<ol>
-<li>An echo returns after \(0.0040\) seconds. Using \(v=343\ \text{m/s}\), what is the estimated range?</li>
-</ol>
-<ol>
-<li>Name one physical situation that can make an ultrasonic range reading unreliable.</li>
+<li>What does the integral term remember?</li>
+<li>If error changes from \(0.30\ \text{m}\) to \(0.20\ \text{m}\) in \(0.10\ \text{s}\), what is the derivative?</li>
+<li>Why can integral windup occur during saturation?</li>
+<li>Why can derivative control react badly to noisy sensors?</li>
+<li>In the Python lab, what is the difference between the true position plotted by the plant and the measured position used by the controller?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>It measures <strong>echo time</strong> directly. The robot calculates range from that time using an assumed speed of sound.</li>
-</ol>
-<ol>
-<li>The sound travels from the sensor to the object and then back to the sensor. The measured path is twice the one-way distance.</li>
-</ol>
-<p>3.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{(343\ \text{m/s})(0.0040\ \text{s})}{2}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d=\frac{1.372\ \text{m}}{2}
-=0.686\ \text{m}\]</span></div>
-<p>The estimated range is \(0.686\) metres, or \(68.6\) centimetres.</p>
-<ol>
-<li>Acceptable answers include a soft surface, an angled object, a narrow object, strong motor vibration, temperature different from the assumed value, an object outside the useful range, or echoes from multiple surfaces.</li>
+<li>It remembers accumulated error over time.</li>
+<li>\[</li>
+<p>D=\frac{0.20-0.30}{0.10}=-1.0\ \text{m/s}. \] The negative value means the error is shrinking.</p>
+<li>The controller may continue adding error even though the actuator cannot provide more command. Stored integral can later cause overshoot.</li>
+<li>Small noisy changes divided by a short sample interval can look like large rates of change, creating jittery commands.</li>
+<li>The plant stores and plots its noise-free simulated position. The controller computes error from a measured position that may include deterministic noise. Therefore, a printed measured error can differ from the true position error when noise is enabled.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Three-panel technical diagram showing strong ultrasonic reflection from a flat wall, weak reflection from soft fabric, and a missed echo from an angled surface."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Surface material and angle affect whether the receiver obtains a useful echo.</p>
-<p>On a real RoboRover, an ultrasonic sensor might be mounted at the front bumper. The software could repeatedly:</p>
-<ol>
-<li>trigger a sound pulse;</li>
-<li>measure the echo duration;</li>
-<li>calculate estimated range;</li>
-<li>compare the range with a safety threshold;</li>
-<li>command the motors to slow or stop.</li>
-</ol>
-<p>That is a sensing-and-action loop, but the range measurement itself is not automatically perfect feedback control. The quality of the result depends on the whole engineering system: sensor timing, mounting, wiring, software delays, motor stopping distance, and the shape of the environment.</p>
-<p>A practical failure mode is the <strong>angled wall</strong>. If the sound strikes a smooth wall at a steep angle, the echo may bounce away from the receiver. The sensor may report no echo or may detect a farther object instead. A robot designer might respond by:</p>
+<p>PI control is often attractive for wheel-speed regulation because it can compensate for load and friction without depending heavily on a noisy position derivative.</p>
+<p>Before using PID on a real RoboRover, consider:</p>
 <ul>
-<li>mounting several sensors at different angles;</li>
-<li>taking repeated readings;</li>
-<li>rejecting impossible sudden jumps;</li>
-<li>combining ultrasonic readings with another sensor type.</li>
+<li>encoder resolution;</li>
+<li>sampling frequency;</li>
+<li>sensor delay;</li>
+<li>motor limits and dead zones;</li>
+<li>wheel slip;</li>
+<li>battery voltage;</li>
+<li>mechanical backlash;</li>
+<li>sensor-failure behavior.</li>
 </ul>
-<p>Another caveat is temperature. Since sound speed changes with air temperature, a robot operating in a cold room and one operating in a warm room can calculate slightly different ranges from the same echo time. For basic obstacle avoidance, this error may be acceptable. For precise measurement, compensation and calibration become more important.</p>
-<p>Next class’s infrared sensors use electromagnetic radiation rather than sound. Infrared sensing can be faster or more compact in some designs, but it has its own difficulties, including surface reflectivity and interference from surrounding light. No single sensor is reliable in every environment.</p>
+<p>Before hardware tuning:</p>
+<ol>
+<li>test with wheels lifted or on a low-energy fixture;</li>
+<li>use a reachable physical emergency stop;</li>
+<li>impose software and, where possible, hardware command limits;</li>
+<li>begin with low gains;</li>
+<li>verify sensor polarity and motor direction;</li>
+<li>keep people, cables, and obstacles outside the motion area.</li>
+</ol>
+<p>A controller is not better merely because it has three terms. A well-tuned P or PI controller can outperform a poorly tuned PID controller.</p>
+<p>In the next class, we will separate “What command should the controller produce?” from “How does the robot’s position and orientation change?” That geometric description is robot kinematics.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Ultrasonic</strong> — involving sound above the normal human hearing range.</li>
-<li><strong>Echo</strong> — a reflected sound wave detected after it travels to a surface and returns.</li>
-<li><strong>Time of flight (TOF)</strong> — the travel time of a signal from transmission to reception; for an echo sensor, this is usually the round-trip time.</li>
-<li><strong>Range</strong> — the estimated distance from a sensor to a detected object or surface.</li>
-<li><strong>Transmitter</strong> — the sensor part that sends the ultrasonic pulse.</li>
-<li><strong>Receiver</strong> — the sensor part that detects the returning echo.</li>
-<li><strong>Speed of sound</strong> — the rate at which sound travels through a medium such as air; this lesson uses \(343\ \text{m/s}\) as an approximate room-temperature value.</li>
-<li><strong>Round trip</strong> — travel from the sensor to the object and back to the sensor.</li>
-<li><strong>Measurement error</strong> — the difference between a reported value and the physical quantity being estimated.</li>
-<li><strong>Field of view</strong> — the region in which a sensor is likely to detect objects; for an ultrasonic sensor, it is generally a spread-out sound region rather than a perfectly narrow line.</li>
+<li><strong>Proportional control (P):</strong> Control based on current error.</li>
+<li><strong>Integral control (I):</strong> Control based on error accumulated over time.</li>
+<li><strong>Derivative control (D):</strong> Control based on the measured rate at which error changes.</li>
+<li><strong>PID controller:</strong> A controller combining proportional, integral, and derivative terms.</li>
+<li><strong>PI controller:</strong> A controller combining proportional and integral terms.</li>
+<li><strong>Gain:</strong> A scaling factor that determines how strongly a controller term affects output.</li>
+<li><strong>Integral windup:</strong> Excessive integral accumulation while the actuator cannot provide the requested command.</li>
+<li><strong>Saturation:</strong> A limit preventing an actuator or controller output from exceeding a maximum or minimum.</li>
+<li><strong>Derivative estimate:</strong> A numerical approximation of how quickly measured error or output changes.</li>
+<li><strong>Settling time:</strong> The time required for a response to enter and remain within a chosen range around its target; here, the response must remain within \(\pm2\%\) for at least \(0.5\ \text{s}\).</li>
+<li><strong>Damping:</strong> A tendency for oscillation to decrease; derivative action can contribute damping-like behavior when correctly tuned but does not guarantee it.</li>
+<li><strong>Derivative kick:</strong> A large derivative-on-error response caused by a sudden reference change.</li>
+<li><strong>Anti-windup:</strong> A strategy for managing integral accumulation when the actuator is saturated.</li>
+<li><strong>True position:</strong> The simulated physical position maintained by the plant model, without measurement noise.</li>
+<li><strong>Measured position:</strong> The position value supplied to the controller; it may include noise or other sensor imperfections.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>For further study, explore these search-friendly resource topics:</p>
+<p>Useful search terms include:</p>
 <ul>
-<li>“ultrasonic sensor time of flight laboratory”</li>
-<li>“speed of sound temperature experiment”</li>
-<li>“ultrasonic sensor minimum range maximum range”</li>
-<li>“robot sensor fusion ultrasonic infrared”</li>
-<li>“echo reflection angle sound experiment”</li>
+<li>“discrete-time PI controller”</li>
+<li>“PID anti-windup”</li>
+<li>“derivative measurement filtering”</li>
+<li>“step response overshoot settling time”</li>
+<li>“robot wheel velocity control”</li>
+<li>“control system actuator saturation”</li>
 </ul>
-<p>A useful hands-on experiment is to place a large flat book at several measured distances from a sensor and compare calculated range with a ruler measurement. Repeat each measurement several times and record the spread of the readings. That spread is an introduction to practical sensor uncertainty.</p>
+<p>When studying a controller, ask: What is measured? What is the error? What are the units? What physical limitation could make the mathematical design fail?</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>In <strong>Class 12: Infrared Sensors</strong>, RoboRover will compare sound-based distance sensing with infrared sensing. You will investigate how reflected light can reveal nearby objects, why dark and shiny surfaces can behave differently, and why sensor choice depends on the environment.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/010-sensors-giving-robots-senses/"><span>Previous stream</span><b>Class 10 · Sensors: Giving Robots Senses</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 12 · Infrared Sensors</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p><strong>Class 18: Robot Kinematics: Motion Without Forces</strong></p>
+<p>RoboRover will move from controller signals to geometry. We will describe position, orientation, and motion using coordinates and relationships between robot parts before adding more complicated dynamics or planning.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/016-p-control/"><span>Previous stream</span><b>Class 16 · P Control</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 18 · Robot Kinematics: Motion Without Forces</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -508,7 +680,7 @@ plt.show()</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=11,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=17,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

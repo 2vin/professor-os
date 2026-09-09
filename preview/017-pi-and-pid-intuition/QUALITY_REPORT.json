@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 4,
+  "static": {
+    "passed": true,
+    "word_count": 3613,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 92,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 94,
+      "clarity": 91,
+      "depth": 94,
+      "examples": 92,
+      "interactivity": 91,
+      "code_alignment": 92,
+      "visual_teaching_plan": 88,
+      "originality": 84,
+      "consistency": 94,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add a short expected-output snapshot for the supplied Python gains, including approximate final errors, settling times, and roughness values, so students can distinguish a successful run from an implementation mistake.",
+      "The lesson is exceptionally thorough but very long for a foundational class. Consider moving some implementation caveats, extended safety details, and secondary derivative discussion into an optional sidebar or expandable section.",
+      "Clarify that the hand-calculation game uses a kinematic position update rather than the acceleration-and-velocity plant used in the Python lab; this distinction is stated, but a one-line comparison table would make it more visible.",
+      "The contribution plot overlays nine traces in one panel and may become difficult to read. Consider separate P, I, and D panels or a selectable plotting version while retaining the current compact plot.",
+      "Add a brief note that the \u001772% settling band is relative to the target magnitude and that absolute tolerances may be preferable when targets can be near zero.",
+      "The visual plan is strong, but the generated schematic and inline illustrations could use more explicit axis labels, sign conventions, and units in their captions or surrounding text."
+    ],
+    "linkedin": {
+      "title": "PI and PID Intuition for Robotics: From Error Signals to Safe Simulation",
+      "description": "A practical robotics lesson on P, I, and D terms, discrete implementation, windup, noisy derivatives, simulation, settling time, and safe rover testing.",
+      "commentary": "A PID controller is not automatically better because it has three terms. It is better understood when each term is connected to a physical question:\n\nP asks how wrong the robot is now.\nI remembers error that persists.\nD responds to how quickly that error is changing.\n\nThis Professor OS lesson turns those ideas into a discrete-time simulation of a one-dimensional rover. Students inspect individual contributions, actuator saturation, integral windup, noisy derivative estimates, settling time, and the difference between true and measured position.\n\nThe hand-calculation activity then separates intuition from implementation, while the real-robot section emphasizes command limits, emergency stops, sensor polarity, and low-gain testing.\n\nTry the lab with the supplied gains, predict the plots first, and then investigate what changes when the target steps or anti-windup is removed.\n\n#Robotics #ControlSystems #PID #EngineeringEducation",
+      "thumbnail_alt_text": "RoboRover PID lesson showing P, I, and D contributions beside a control-loop schematic"
+    },
+    "media_query": "small educational differential-drive rover with wheel encoders, motor hardware, emergency stop, and labeled control components",
+    "image_query": "educational mobile robot rover visible wheel encoders motor controllers emergency stop engineering laboratory photograph",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A technically labeled real-hardware photograph would connect the abstract P, I, and D signals to encoders, motors, command limits, and emergency-stop practice. It would complement the existing generated schematics and simulation plots rather than replace them.",
+    "media_would_help": true
+  }
+}

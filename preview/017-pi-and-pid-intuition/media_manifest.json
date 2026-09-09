@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational mobile robot with wheel encoders and motor controllers on a laboratory floor",
+  "media_style": "photo",
+  "reason": "A real, technically labeled photograph of a small rover with visible wheels, encoders, motor hardware, and an emergency-stop setup would ground the abstract controller discussion in physical hardware. It would complement rather than replace the planned schematics and simulation plots.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
