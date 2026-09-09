@@ -20,3 +20,10 @@ install_runtime_hook()
 from .visual_integrity import install_runtime_hook as install_visual_integrity_hook
 
 install_visual_integrity_hook()
+
+# Full-lesson editorial/technical rewrites must also preserve the exact required
+# Professor OS chapter contract. If a valid section is accidentally omitted or
+# harmlessly renamed, restore/normalize it deterministically before validation.
+from .heading_integrity import install_runtime_hook as install_heading_integrity_hook
+
+install_heading_integrity_hook()
