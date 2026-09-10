@@ -1,0 +1,8 @@
+{
+  "title": "Robot Kinematics: Predicting Motion Without Modeling Forces",
+  "description": "A practical introduction to pose, coordinate frames, circular-arc motion, numerical updates, and the gap between ideal kinematics and real rover behavior.",
+  "commentary": "How can a robot predict where it will be without calculating every force and motor torque?\n\nThis Professor OS lesson introduces robot kinematics through RoboRover and connects equations directly to a runnable Python simulation.\n\nStudents learn to:\n\u2022 Represent a planar pose with position and orientation.\n\u2022 Convert forward body-frame velocity into world-frame motion.\n\u2022 Predict circular-arc motion from speed and angular velocity.\n\u2022 Compare approximate time-step updates with an exact constant-curvature update.\n\u2022 Explain why wheel slip, calibration, latency, and mechanical limits separate a model from a real robot.\n\nThe prediction experiments are especially valuable: learners change speed and turn rate, state what should happen, then use the plot and equations to test their reasoning.\n\nTry the lab with a simulated rover, then ask students how the result would change on a real floor with unequal wheels or slipping tires.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Kinematics #EngineeringEducation #Python",
+  "thumbnail_alt_text": "RoboRover following a curved path with world and body coordinate frames",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
