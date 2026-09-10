@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 6: Electricity for Roboticists · Professor OS</title>
+<title>Class 18: Robot Kinematics: Motion Without Forces · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,42 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -71,557 +35,505 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="6">
+<body data-class="18">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_06</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_18</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_06</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 06 · Hardware &amp; Sensors</div><h1>Electricity for Roboticists</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>voltage, current, resistance</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_18</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 18 · Control &amp; Motion</div><h1>Robot Kinematics: Motion Without Forces</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~16 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 91/100</b></div><div class="meta"><span>Concepts</span><b>pose, velocity</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Electricity for Roboticists</h2>
+      <h2>Class podcast · Robot Kinematics: Motion Without Forces</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-06-electricity-for-roboticists.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-18-robot-kinematics-motion-without-forces.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 6: Electricity for Roboticists</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 18: Robot Kinematics: Motion Without Forces</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>Last class, RoboRover described motion using distance and speed:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{speed}=\frac{\text{distance}}{\text{time}}\]</span></div>
-<p>Motion also requires <strong>energy</strong>, the capacity to cause change or perform work. <strong>Power</strong> is the rate at which energy is transferred. Energy is measured in joules (J) or watt-hours (Wh); power is measured in watts (W). RoboRover moves because a circuit transfers electrical energy from a source to a motor, where it becomes mechanical motion.</p>
-<h3>Prerequisite: charge, circuit, energy, and power</h3>
-<ul>
-<li><strong>Electric charge</strong> is a property of matter that can move through conductors.</li>
-<li>A <strong>circuit</strong> is a connected path through which charge can move.</li>
-<li><strong>Energy</strong> is transferred to a motor, resistor, or other load.</li>
-<li><strong>Power</strong> is the rate of that energy transfer.</li>
-</ul>
-<p>This class introduces:</p>
-<ul>
-<li><strong>Voltage:</strong> electrical potential difference that can drive charge.</li>
-<li><strong>Current:</strong> the rate of charge flow.</li>
-<li><strong>Resistance:</strong> opposition to current flow.</li>
-</ul>
-<p>We will use these ideas to reason about indicator circuits, batteries, motor drivers, measurements, and component safety. Next class, we will examine motors in greater detail.</p>
+<p>In the previous class, RoboRover learned about <strong>PI and PID control</strong>: comparing a desired value with a measured value, then adjusting motor commands to reduce the error.</p>
+<p>Today we step back and ask a different question:</p>
+<blockquote>If we know the robot’s motion command, where will the robot be and how fast will it move?</blockquote>
+<p>This is the study of <strong>kinematics</strong>. Kinematics describes motion using position, orientation, velocity, and time. It does not explain the forces or motor torques that caused the motion.</p>
+<p>Next class, we will apply these ideas to a <strong>differential-drive robot</strong>—a robot with a separately powered left wheel and right wheel.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ol>
-<li>Describe voltage, current, and resistance using a useful, bounded analogy.</li>
-<li>Explain why a circuit needs a complete conducting path.</li>
-<li>Use Ohm’s law to calculate current, voltage, or resistance.</li>
-<li>Calculate electrical power using \(P=VI\), \(P=I^2R\), and \(P=V^2/R\) when appropriate.</li>
-<li>Interpret calculations using correct units.</li>
-<li>Explain why short circuits, excessive current, voltage sag, and component ratings matter.</li>
-<li>Predict how resistance affects current and resistor power.</li>
-<li>Relate simplified calculations to real robot hardware and measurements.</li>
-</ol>
+<ul>
+<li>describe a robot’s planar <strong>pose</strong> using position and orientation;</li>
+<li>distinguish pose from velocity;</li>
+<li>distinguish velocity measured in the robot’s body frame from velocity measured in the world frame;</li>
+<li>calculate a simple robot motion over time;</li>
+<li>explain why kinematics is useful even though it ignores forces;</li>
+<li>recognize practical problems caused by time steps, calibration errors, and slipping;</li>
+<li>simulate RoboRover moving along a curved path.</li>
+</ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover’s speed depends on its motors, wheels, load, floor surface, and control commands. Those systems depend partly on electrical power.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{electrical circuit} \rightarrow \text{motor} \rightarrow \text{wheel rotation} \rightarrow \text{distance traveled}\]</span></div>
-<p>Today we focus on the electrical circuit in the middle of that chain.</p>
+<p>A controller has a goal, a measurement, and an action.</p>
+<p>For example, if RoboRover should travel at \(0.5\ \text{m/s}\), a speed controller compares:</p>
+<ul>
+<li>desired speed: \(0.5\ \text{m/s}\);</li>
+<li>measured speed: perhaps \(0.43\ \text{m/s}\);</li>
+<li>speed error: \(0.07\ \text{m/s}\).</li>
+</ul>
+<p>A PI or PID controller can use that error to change motor commands.</p>
+<p>But the controller’s motor command is not the same thing as the robot’s location. To reason about location, we need a motion model. Kinematics provides that bridge.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Side-by-side educational diagram of an electrical circuit and a water-pipe analogy showing voltage, current, and resistance."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The pipe analogy builds intuition: voltage encourages flow, current is flow, and resistance opposes flow.</p>
-<p>Imagine water moving through pipes:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Top-down coordinate diagram of a rover showing fixed world axes, robot-attached body axes, heading angle theta, and a curved direction of travel."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The world frame stays fixed, while the body frame rotates with RoboRover.</p>
+<p>Imagine drawing a tiny arrow on the floor showing where RoboRover is facing.</p>
+<p>At any instant, we can describe RoboRover with a <strong>pose</strong>:</p>
+<ol>
+<li>its horizontal position;</li>
+<li>its vertical position on a map;</li>
+<li>the direction it faces.</li>
+</ol>
+<p>A common two-dimensional pose is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\mathbf{q} =
+\begin{bmatrix}
+x\\
+y\\
+\theta
+\end{bmatrix}\]</span></div>
+<p>where:</p>
 <ul>
-<li><strong>Voltage</strong> is similar to a pressure difference that encourages water to move.</li>
-<li><strong>Current</strong> is similar to the amount of flow passing a point each second.</li>
-<li><strong>Resistance</strong> is similar to a narrow or rough section that makes flow harder.</li>
+<li>\(x\) is the robot’s position east-west, measured in metres \((\text{m})\);</li>
+<li>\(y\) is the robot’s position north-south, measured in metres \((\text{m})\);</li>
+<li>\(\theta\) is the robot’s orientation angle, measured in radians \((\text{rad})\).</li>
 </ul>
-<p>This analogy is only for intuition. Current is a circuit variable; charge motion in a conductor is not the same as bulk water circulation. Electrons are not consumed by a load. A circuit transfers energy while charge continues around the conducting path.</p>
-<p>For RoboRover:</p>
+<p>A pose answers:</p>
+<blockquote>Where is the robot, and which way is it pointing?</blockquote>
+<p>Velocity answers a different question:</p>
+<blockquote>How is the pose changing right now?</blockquote>
+<p>A robot can have:</p>
 <ul>
-<li>the battery provides a voltage difference;</li>
-<li>wires provide conducting paths;</li>
-<li>a motor driver controls power delivered to the motor;</li>
-<li>a resistor can limit current;</li>
-<li>a switch or transistor can open, close, or regulate part of a circuit.</li>
+<li>a changing position but constant orientation;</li>
+<li>a changing orientation but almost no position change;</li>
+<li>both changing at once;</li>
+<li>zero velocity while still having a perfectly meaningful pose.</li>
 </ul>
-<p>A circuit needs a complete conducting path. If the path is broken, continuous current cannot flow through the intended loop.</p>
-<h3>The simplest complete loop</h3>
-<div class="code-card"><div class="code-label">text</div><pre><code>source positive ───&gt; load ───&gt; source negative
-       |                         ^
-       └────────── source ───────┘</code></pre></div>
-<p><strong>Text description:</strong> A source, conductors, and load form one closed loop. Conventional current leaves the source positive terminal, passes through the load, and returns to the source negative terminal.</p>
-<p><strong>Predict:</strong> If RoboRover’s battery is connected to only one motor terminal and the other motor terminal is disconnected, will the motor turn continuously?</p>
-<p>No. The intended path is open, so continuous current cannot pass through the motor.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<figure><img loading="lazy" src="inline_02.png" alt="Labeled H-bridge diagram showing VM, GND, OUT1, OUT2, motor connections, controller logic connections, and one highlighted current path."></figure>
-<p class="figure-caption"><strong>Figure:</strong> In an H-bridge, the motor connects between two switched output nodes; VM and GND are the driver’s supply connections.</p>
-<p>Picture RoboRover from above with a battery pack near its center. A motor driver has separate supply connections and switched output connections. The motor connects <strong>between two output nodes</strong>, not between a battery terminal and an unspecified point in the driver.</p>
-<p>The following is a simplified <strong>H-bridge</strong> diagram. It shows one possible current state.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>                         motor-driver power stage
-                                  VM
-                                   |
-                         +---------+---------+
-                         |                   |
-                       high-side           high-side
-                       switch              switch
-                         |                   |
-                       OUT1               OUT2
-                         |                   |
-                         +----[  MOTOR  ]---+
-                         |                   |
-                       low-side            low-side
-                       switch              switch
-                         |                   |
-                        GND-----------------+
-
-Battery +  -------------------------------&gt; VM
-Battery -  -------------------------------&gt; GND
-Controller logic GND ---------------------&gt; specified logic reference*
-Controller PWM/direction signals ---------&gt; logic/control inputs</code></pre></div>
-<p><code>VM</code> means the motor-supply positive connection. <code>GND</code> is a label commonly used for a circuit return or reference; it is not automatically earth ground. <code>OUT1</code> and <code>OUT2</code> are switched motor terminals.</p>
-<p>For the illustrated forward-current state:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>VM → upper-left switch → OUT1 → motor → OUT2
-   → lower-right switch → GND → battery negative</code></pre></div>
-<p>The exact pin names, capacitors, enable pins, current limits, and wiring requirements depend on the driver datasheet. <strong>Do not wire a driver from this simplified teaching diagram alone. Connect logic ground only as specified by the driver datasheet.</strong> A shared power and logic ground is a common configuration, not a universal default.</p>
-<p>An H-bridge must also prevent unsafe switch combinations. Turning on both the high-side and low-side switches in the same leg can create a near-short path from VM to GND called <strong>shoot-through</strong>. Real drivers may use interlock logic, dead time, current limiting, or other protection. Treat these details as enrichment; follow the driver’s control requirements rather than manually operating bridge switches.</p>
-<p>The pipe comparison can reinforce the basic analogy:</p>
+<p>Picture a sheet of graph paper on the floor.</p>
 <ul>
-<li>battery beside a pressure source;</li>
-<li>wires beside pipes;</li>
-<li>resistor beside a narrow pipe;</li>
-<li>current arrows beside flow arrows;</li>
-<li>motor beside a water wheel.</li>
+<li>The horizontal \(x\)-axis points east.</li>
+<li>The vertical \(y\)-axis points north.</li>
+<li>A small rectangular RoboRover sits at \((2,1)\).</li>
+<li>An arrow attached to its top points northeast.</li>
+<li>The arrow makes an angle \(\theta\) with the positive \(x\)-axis.</li>
 </ul>
-<blockquote>Analogy for intuition—not a complete model.</blockquote>
+<p>Now draw two coordinate systems:</p>
+<h3>World frame</h3>
+<p>The world frame stays fixed to the room. Its axes do not rotate when RoboRover turns.</p>
+<h3>Body frame</h3>
+<p>The body frame is attached to RoboRover.</p>
+<ul>
+<li>The body \(x\)-axis points forward.</li>
+<li>The body \(y\)-axis points to the robot’s left.</li>
+<li>When RoboRover turns, the body axes turn with it.</li>
+</ul>
+<p>This distinction matters. If RoboRover says “move forward at \(0.5\ \text{m/s}\),” that velocity is naturally expressed in the body frame. On the room’s map, the same motion may point east, northeast, or north depending on \(\theta\).</p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Voltage: electrical potential difference</h3>
-<p><strong>Voltage</strong> is the difference in electrical potential between two points. It is measured in <strong>volts (V)</strong>. Voltage is measured between points, not as an isolated property of one point.</p>
-<p>A battery labeled 7.4 V has a nominal voltage of approximately 7.4 V under specified conditions. Its actual voltage may differ:</p>
+<h3>Pose</h3>
+<p>A pose is a complete planar position-and-orientation description:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(x,y,\theta)\]</span></div>
+<p>For example,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(2.0\ \text{m},\ 1.0\ \text{m},\ 90^\circ)\]</span></div>
+<p>means RoboRover is 2 metres east of the map origin, 1 metre north of it, and facing north.</p>
+<p>Robotics software often stores angles in radians, so</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[90^\circ = \frac{\pi}{2}\ \text{rad}.\]</span></div>
+<p>A pose is not a path. It describes one instant, not all the places the robot previously visited.</p>
+<h3>Velocity</h3>
+<p>Velocity describes the rate of change of position. It includes direction, not merely speed.</p>
+<p>For a point moving in the world frame,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\mathbf{v} =
+\begin{bmatrix}
+v_x\\
+v_y
+\end{bmatrix}\]</span></div>
+<p>where:</p>
 <ul>
-<li><strong>Open-circuit voltage:</strong> measured with no significant load connected.</li>
-<li><strong>Loaded terminal voltage:</strong> measured at the battery terminals while current is drawn.</li>
-<li><strong>Load voltage:</strong> measured across the connected component.</li>
+<li>\(v_x\) is the east-west velocity in \(\text{m/s}\);</li>
+<li>\(v_y\) is the north-south velocity in \(\text{m/s}\).</li>
 </ul>
-<p>Battery internal resistance, wires, connectors, protection circuits, and battery state can cause voltage to fall under load. This reduction is called <strong>voltage sag</strong>. Every connected component must be suitable for the applied voltage.</p>
-<h3>Current: charge flow</h3>
-<p><strong>Electric current</strong> is the rate at which electric charge passes a point. It is measured in <strong>amperes</strong>, or <strong>amps (A)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[1\ \text{A}=1\ \text{C/s}\]</span></div>
-<p>This lesson uses <strong>conventional current</strong>, defined as flowing from a source’s positive terminal through the external circuit toward its negative terminal. Electrons in metal move in the opposite direction.</p>
-<p>Motor current is often higher during startup, acceleration, heavy loading, or stall because the motor’s speed-dependent opposing voltage is then small.</p>
-<h3>Resistance: opposition to current</h3>
-<p><strong>Resistance</strong> describes how strongly a component opposes current. It is measured in <strong>ohms (Ω)</strong>.</p>
-<p>A resistor deliberately provides resistance. Wires also have resistance, usually much less than an intentional resistor. Resistance depends on material, dimensions, temperature, and construction. For introductory calculations, we treat a resistor’s value as approximately constant.</p>
-<h3>Retrieval checkpoint</h3>
-<ol>
-<li>Voltage is measured between what?</li>
-<li>What unit measures current?</li>
-<li>If resistance increases while voltage stays constant, does current increase or decrease?</li>
-</ol>
-<p><strong>Answers:</strong> Voltage is measured between two points. Current is measured in amperes. Current decreases because \(I=V/R\).</p>
-<h3>Ohm’s law</h3>
-<p>For a component that behaves approximately like an ohmic resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V=IR\]</span></div>
-<p>where \(V\) is voltage in volts, \(I\) is current in amperes, and \(R\) is resistance in ohms.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R}
-\qquad\text{and}\qquad
-R=\frac{V}{I}\]</span></div>
-<p>These equations are models, not descriptions of every component. Motors, batteries, LEDs, and electronic controllers have more complex behavior.</p>
-<h3>Electrical power</h3>
-<p><strong>Power</strong> is the rate at which electrical energy is transferred. It is measured in <strong>watts (W)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI\]</span></div>
-<p>For a resistor, substituting \(V=IR\) gives:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=I^2R
-\qquad\text{and}\qquad
-P=\frac{V^2}{R}\]</span></div>
-<p>Use these resistor forms for the same component at the same operating point. Compare calculated power with the component’s rated power and leave engineering margin.</p>
-<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Unit</th><th>Typical measurement</th></tr></thead><tbody><tr><td>Voltage \(V\)</td><td>Potential difference</td><td>volts (V)</td><td>Meter in parallel</td></tr><tr><td>Current \(I\)</td><td>Charge flow rate</td><td>amperes (A)</td><td>Meter in series</td></tr><tr><td>Resistance \(R\)</td><td>Opposition to current</td><td>ohms (Ω)</td><td>Unpowered circuit only</td></tr><tr><td>Power \(P\)</td><td>Energy-transfer rate</td><td>watts (W)</td><td>Calculated or measured</td></tr></tbody></table></div>
+<p>RoboRover can also rotate. Its angular velocity is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\omega = \frac{d\theta}{dt}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(\omega\) is angular velocity in \(\text{rad/s}\);</li>
+<li>\(\theta\) is orientation in radians;</li>
+<li>\(t\) is time in seconds.</li>
+</ul>
+<p>A positive \(\omega\) will mean counterclockwise rotation in this class.</p>
+<h3>Body-frame velocity</h3>
+<p>Suppose RoboRover moves forward with speed \(v\), without sliding sideways. In its own body frame:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v_x^{body}=v,\qquad v_y^{body}=0.\]</span></div>
+<p>But the world-frame components depend on orientation:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v_x^{world}=v\cos\theta\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v_y^{world}=v\sin\theta.\]</span></div>
+<p>These equations are a coordinate conversion. They do not say that the robot is accelerating or that a force is being applied.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose a 9 V source is connected across a 300 Ω resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{9\ \text{V}}{300\ \Omega}
-=0.03\ \text{A}=30\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(9)(0.03)=0.27\ \text{W}\]</span></div>
-<p>or:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{9^2}{300}=0.27\ \text{W}\]</span></div>
-<p>The units confirm \(\text{V}/\Omega=\text{A}\). Estimate first: 9 V divided by 300 Ω should be much less than 1 A. A result of 30 A signals an arithmetic or unit error.</p>
-<p>At fixed voltage, increasing resistance decreases both current and resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R},\qquad P=\frac{V^2}{R}\]</span></div>
-<h3>Series and parallel preview</h3>
-<p>For two resistors in series:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=R_1+R_2\]</span></div>
-<p>The same current flows through both, and their voltage drops add to the source voltage. For \(100\ \Omega\) and \(200\ \Omega\) across 6.0 V:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=300\ \Omega,\qquad I=\frac{6.0}{300}=0.020\ \text{A}\]</span></div>
-<p>The voltage drops are 2.0 V and 4.0 V.</p>
-<p>In parallel, branches share voltage and their currents add at the source:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{1}{R_{\text{total}}}
+<p>The basic planar kinematic equations for a robot whose body-frame velocities are \(v_x^{body}\) and \(v_y^{body}\) are</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{x}
 =
-\frac{1}{R_1}+\frac{1}{R_2}\]</span></div>
-<p>A parallel branch can reduce total resistance and increase source current.</p>
+v_x^{body}\cos\theta
+-
+v_y^{body}\sin\theta\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{y}
+=
+v_x^{body}\sin\theta
++
+v_y^{body}\cos\theta\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{\theta}=\omega.\]</span></div>
+<p>Here:</p>
+<ul>
+<li>\(\dot{x}\) is the rate of change of \(x\), in \(\text{m/s}\);</li>
+<li>\(\dot{y}\) is the rate of change of \(y\), in \(\text{m/s}\);</li>
+<li>\(\dot{\theta}\) is the rate of change of orientation, in \(\text{rad/s}\);</li>
+<li>\(v_x^{body}\) and \(v_y^{body}\) are body-frame velocity components in \(\text{m/s}\);</li>
+<li>\(\theta\) is orientation in radians;</li>
+<li>\(\omega\) is angular velocity in \(\text{rad/s}\).</li>
+</ul>
+<p>For a wheeled robot that moves only forward and rotates, \(v_y^{body}=0\). The equations become</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{x}=v\cos\theta\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{y}=v\sin\theta\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\dot{\theta}=\omega.\]</span></div>
+<p>If \(\omega=0\), the robot travels in a straight line. If both \(v\) and \(\omega\) are constant and nonzero, the robot follows a circular arc.</p>
+<p>A computer usually advances the motion in small time steps. With a time step \(\Delta t\),</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[x_{\text{new}}\approx x+\dot{x}\Delta t\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[y_{\text{new}}\approx y+\dot{y}\Delta t\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta_{\text{new}}\approx\theta+\omega\Delta t.\]</span></div>
+<p>The symbol \(\approx\) reminds us that this is a numerical approximation. Smaller time steps usually improve the approximation, but require more computation.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational circuit illustration of a 5-volt RoboRover indicator branch with a red LED, 220-ohm series resistor, assumed 2.0-volt forward drop, and calculated current of about 13.6 milliamperes."></figure>
-<p class="figure-caption"><strong>Figure:</strong> With a 2.0-volt LED forward-drop assumption, the 220-ohm resistor gives an approximate branch current of 13.6 milliamperes.</p>
-<p>RoboRover has a 5.0 V indicator branch containing:</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Top-down diagram of a rover following a counterclockwise circular arc from an initial pose to a final pose, with turning radius and heading change indicated."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A constant forward speed combined with a constant turn rate produces a circular arc, not a straight path.</p>
+<p>RoboRover starts at</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[x_0=1.0\ \text{m},\qquad y_0=2.0\ \text{m},\qquad \theta_0=0\ \text{rad}.\]</span></div>
+<p>It drives forward at</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v=0.50\ \text{m/s}\]</span></div>
+<p>while rotating counterclockwise at</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\omega=0.20\ \text{rad/s}\]</span></div>
+<p>for</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[T=3.0\ \text{s}.\]</span></div>
+<p>Because it starts facing east, \(\theta_0=0\). After 3 seconds,</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta_T=\theta_0+\omega T
+=0+(0.20\ \text{rad/s})(3.0\ \text{s})
+=0.60\ \text{rad}.\]</span></div>
+<p>The robot has travelled a distance along its curved path of</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[s=vT=(0.50\ \text{m/s})(3.0\ \text{s})
+=1.50\ \text{m}.\]</span></div>
+<p>For constant forward speed and angular velocity, the exact circular-arc position change is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x=\frac{v}{\omega}
+\left[\sin(\theta_0+\omega T)-\sin(\theta_0)\right]\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta y=\frac{v}{\omega}
+\left[\cos(\theta_0)-\cos(\theta_0+\omega T)\right].\]</span></div>
+<p>The turning radius is</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{v}{\omega}
+=\frac{0.50\ \text{m/s}}{0.20\ \text{rad/s}}
+=2.50\ \text{m}.\]</span></div>
+<p>Using \(\theta_0=0\) and \(\omega T=0.60\ \text{rad}\),</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta x\approx 1.412\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta y\approx 0.702\ \text{m}.\]</span></div>
+<p>Therefore the final pose is approximately</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(x_T,y_T,\theta_T)
+=
+(2.412\ \text{m},\ 2.702\ \text{m},\ 0.600\ \text{rad}).\]</span></div>
+<p>Interpretation:</p>
 <ul>
-<li>a red LED with an <strong>assumed</strong> forward voltage of \(V_f=2.0\ \text{V}\);</li>
-<li>a 220 Ω series resistor.</li>
+<li>RoboRover moved mostly east, because it began facing east.</li>
+<li>It also moved north, because it gradually turned counterclockwise.</li>
+<li>Its path length was \(1.50\ \text{m}\), but its straight-line displacement was shorter because the path curved.</li>
+<li>No force, mass, wheel torque, or friction calculation was needed. This was a kinematic prediction.</li>
 </ul>
-<p>An LED is not an ohmic resistor. The resistor receives the remaining voltage:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{220}\approx0.0136\ \text{A}=13.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=I^2R\approx(0.0136)^2(220)\approx0.0409\ \text{W}\]</span></div>
-<p>The forward-voltage assumption depends on current and temperature. Check the LED’s maximum current, the resistor’s power rating, supply tolerance, and thermal conditions.</p>
-<p>For comparison, a 100 Ω resistor would give:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{100}=0.030\ \text{A}=30\ \text{mA}\]</span></div>
-<p>The lower resistance produces more current and may exceed the LED’s safe operating range.</p>
-<h3>Compact motor-driver connection example</h3>
-<p>A driver may provide:</p>
-<ul>
-<li><strong>VM:</strong> motor-supply positive;</li>
-<li><strong>GND:</strong> motor-supply return;</li>
-<li><strong>OUT1</strong> and <strong>OUT2:</strong> switched motor outputs;</li>
-<li>logic inputs such as PWM or direction.</li>
-</ul>
-<p>For one channel, connect battery positive to VM, battery negative to the driver’s specified power return, and the motor between OUT1 and OUT2. Connect the controller only to the driver’s specified logic reference and control inputs. Motor current flows through the driver’s power stage, not through a controller signal pin.</p>
-<p>A motor is not a fixed resistor. As it spins, it generates <strong>back electromotive force (back EMF)</strong> that opposes the applied voltage. At startup or stall, speed is low or zero, so current can be much higher.</p>
+<p>The formulas assume the commanded velocity is actually achieved and that the robot does not slip.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>This program models a <strong>resistor-only branch</strong> at 5.0 V. It includes executable assertions for the numerical checks shown in its output.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
+<p>This program simulates the worked example. It uses an exact circular-arc update for constant \(v\) and \(\omega\), then plots the path.</p>
+<p>Before running it, predict:</p>
+<ol>
+<li>Will the path bend above or below the starting point?</li>
+<li>Will the final orientation be greater than or less than \(0\ \text{rad}\)?</li>
+<li>Will the robot’s path length be greater than the straight-line distance from start to finish?</li>
+</ol>
+<div class="code-card"><div class="code-label">python</div><pre><code>import math
+import matplotlib.pyplot as plt
 
 
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
-
-
-def compare_with_exercise_limit(current, limit=0.05):
-    &quot;&quot;&quot;Compare current with a classroom exercise threshold.&quot;&quot;&quot;
-    if current &gt; limit:
-        return &quot;above the {:.3f} A exercise threshold&quot;.format(limit)
-    return &quot;at or below the {:.3f} A exercise threshold&quot;.format(limit)
-
-
-def main():
-    voltage = 5.0
-    exercise_threshold = 0.05
-    resistances = [100, 200, 220, 500, 1000, 10000]
-
-    assert abs(current_from_resistance(5.0, 100) - 0.05) &lt; 1e-12
-    assert abs(current_from_resistance(5.0, 1000) - 0.005) &lt; 1e-12
-    assert abs(resistor_power(5.0, 100) - 0.25) &lt; 1e-12
-
-    try:
-        current_from_resistance(-1.0, 100.0)
-    except ValueError:
-        pass
+def update_pose(x, y, theta, speed, angular_speed, dt):
+    &quot;&quot;&quot;Update a planar pose for constant forward speed and turn rate.&quot;&quot;&quot;
+    if abs(angular_speed) &lt; 1e-12:
+        # Straight-line motion when the angular speed is effectively zero.
+        new_x = x + speed * math.cos(theta) * dt
+        new_y = y + speed * math.sin(theta) * dt
+        new_theta = theta
     else:
-        raise AssertionError(&quot;Negative voltage must be rejected.&quot;)
+        # Exact circular-arc update for constant speed and angular speed.
+        new_theta = theta + angular_speed * dt
+        radius = speed / angular_speed
 
-    print(&quot;RoboRover resistor-branch simulation&quot;)
-    print(&quot;Supply voltage: {:.1f} V&quot;.format(voltage))
-    print(&quot;Exercise threshold: {:.3f} A&quot;.format(exercise_threshold))
-    print()
+        new_x = x + radius * (
+            math.sin(new_theta) - math.sin(theta)
+        )
+        new_y = y + radius * (
+            math.cos(theta) - math.cos(new_theta)
+        )
 
-    for resistance in resistances:
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-        print(&quot;{:&gt;5} ohms -&gt; {:.2f} mA, {:.4f} W: {}&quot;.format(
-            resistance,
-            current * 1000.0,
-            power,
-            compare_with_exercise_limit(current, exercise_threshold)))
+    return new_x, new_y, new_theta
 
 
-if __name__ == &quot;__main__&quot;:
-    main()</code></pre></div>
-<p>Negative voltage is rejected here because this small teaching model describes a supply magnitude and assumes conventional current in one chosen direction. Signed voltage is meaningful in broader circuit analysis; it is simply outside this function’s stated model.</p>
-<p>Change <code>exercise_threshold</code> and observe the messages. The threshold is a classroom comparison, not a component rating. This model does not simulate LED nonlinearity, motor startup current, battery sag, or motor-driver switching.</p>
+# Initial pose and constant motion command.
+x = 1.0
+y = 2.0
+theta = 0.0
+
+speed = 0.50          # metres per second
+angular_speed = 0.20  # radians per second
+total_time = 3.0      # seconds
+dt = 0.05             # seconds
+
+times = [0.0]
+xs = [x]
+ys = [y]
+thetas = [theta]
+
+steps = int(round(total_time / dt))
+
+for step in range(steps):
+    x, y, theta = update_pose(
+        x, y, theta, speed, angular_speed, dt
+    )
+    times.append((step + 1) * dt)
+    xs.append(x)
+    ys.append(y)
+    thetas.append(theta)
+
+# Independent checks of the worked example.
+expected_theta = angular_speed * total_time
+expected_x = 1.0 + (speed / angular_speed) * math.sin(expected_theta)
+expected_y = 2.0 + (speed / angular_speed) * (
+    1.0 - math.cos(expected_theta)
+)
+
+assert len(times) == steps + 1
+assert abs(times[-1] - total_time) &lt; 1e-12
+assert abs(theta - expected_theta) &lt; 1e-12
+assert abs(x - expected_x) &lt; 1e-12
+assert abs(y - expected_y) &lt; 1e-12
+
+path_length = speed * total_time
+assert abs(path_length - 1.5) &lt; 1e-12
+
+print(&quot;Final pose:&quot;)
+print(&quot;x = {:.3f} m&quot;.format(x))
+print(&quot;y = {:.3f} m&quot;.format(y))
+print(&quot;theta = {:.3f} rad&quot;.format(theta))
+print(&quot;Commanded path length = {:.3f} m&quot;.format(path_length))
+print(&quot;All worked-example checks passed.&quot;)
+
+plt.figure(figsize=(7, 6))
+plt.plot(xs, ys, color=&quot;darkblue&quot;, linewidth=2, label=&quot;RoboRover path&quot;)
+plt.scatter([xs[0]], [ys[0]], color=&quot;green&quot;, s=70, label=&quot;Start&quot;)
+plt.scatter([xs[-1]], [ys[-1]], color=&quot;red&quot;, s=70, label=&quot;Finish&quot;)
+
+# Draw a short arrow showing the final heading.
+arrow_length = 0.35
+plt.arrow(
+    xs[-1],
+    ys[-1],
+    arrow_length * math.cos(thetas[-1]),
+    arrow_length * math.sin(thetas[-1]),
+    width=0.015,
+    head_width=0.10,
+    head_length=0.12,
+    color=&quot;red&quot;,
+    length_includes_head=True
+)
+
+plt.axis(&quot;equal&quot;)
+plt.xlabel(&quot;x position (m)&quot;)
+plt.ylabel(&quot;y position (m)&quot;)
+plt.title(&quot;RoboRover: constant forward speed and turn rate&quot;)
+plt.grid(True)
+plt.legend()
+plt.show()</code></pre></div>
+<p>Important lines:</p>
+<ul>
+<li><code>update_pose</code> contains the motion model.</li>
+<li>The <code>if</code> branch prevents division by a nearly zero angular speed.</li>
+<li><code>radius = speed / angular_speed</code> gives the circular turning radius.</li>
+<li>The <code>assert</code> statements verify the exact numerical claims from the worked example.</li>
+<li><code>plt.axis("equal")</code> is important: without it, a circle or arc can look stretched.</li>
+</ul>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play <strong>Tune RoboRover’s Resistor Branch</strong>. The supply is fixed at 5.0 V. Predict before checking:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistance</th><th>Predicted current</th><th>Predicted power</th><th>Prediction</th></tr></thead><tbody><tr><td>100 Ω</td><td>0.050 A (50 mA)</td><td>0.250 W</td><td></td></tr><tr><td>200 Ω</td><td>0.025 A (25 mA)</td><td>0.125 W</td><td></td></tr><tr><td>1,000 Ω</td><td>0.005 A (5 mA)</td><td>0.025 W</td><td></td></tr><tr><td>10,000 Ω</td><td>0.0005 A (0.5 mA)</td><td>0.0025 W</td><td></td></tr></tbody></table></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{R}
-\qquad\text{and}\qquad
-P=\frac{25}{R}\]</span></div>
-<ol>
-<li>Which resistance produces the largest current?</li>
-<li>Which produces the smallest current?</li>
-<li>When resistance changes from 100 Ω to 200 Ω, does current double or halve?</li>
-<li>Which listed resistance dissipates the greatest power?</li>
-<li>What happens if voltage changes from 5.0 V to 10.0 V while resistance stays constant?</li>
-</ol>
-<p>At fixed resistance, doubling voltage doubles current but quadruples resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{V^2}{R}\]</span></div>
-<p>This is a parameter-changing model, not a real powered circuit.</p>
+<p>Try this prediction game by changing only these two lines:</p>
+<div class="code-card"><div class="code-label">python</div><pre><code>speed = 0.50
+angular_speed = 0.20</code></pre></div>
+<p>Make a prediction before running each experiment.</p>
+<div class="table-scroll"><table><thead><tr><th>Experiment</th><th>Change</th><th>Prediction to make</th></tr></thead><tbody><tr><td>A</td><td>Set <code>angular_speed = 0.0</code></td><td>What shape will the path have?</td></tr><tr><td>B</td><td>Set <code>angular_speed = -0.20</code></td><td>Which side of the starting point will the path bend toward?</td></tr><tr><td>C</td><td>Keep <code>angular_speed = 0.20</code>, set <code>speed = 1.00</code></td><td>Will the turning radius become larger or smaller?</td></tr><tr><td>D</td><td>Keep <code>speed = 0.50</code>, set <code>angular_speed = 0.40</code></td><td>Will RoboRover turn through a larger or smaller angle in 3 seconds?</td></tr></tbody></table></div>
+<p>Use these relationships to check your reasoning:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{v}{\omega}\]</span></div>
+<p>and</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\theta=\omega T.\]</span></div>
+<p>For Experiment C, doubling \(v\) while keeping \(\omega\) fixed doubles the turning radius. For Experiment D, doubling \(\omega\) doubles the change in orientation.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>The table is verified directly by \(I=5/R\) and \(P=25/R\). The 100 Ω resistor has the greatest current and power; the 10,000 Ω resistor has the smallest.</p>
-<p>For 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{100}=0.050\ \text{A},\qquad
-P=\frac{5.0^2}{100}=0.250\ \text{W}\]</span></div>
-<p>For 200 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{200}=0.025\ \text{A}\]</span></div>
-<p>The current halves.</p>
-<p>If voltage becomes 10.0 V across 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{10.0}{100}=0.10\ \text{A},\qquad
-P=\frac{10.0^2}{100}=1.0\ \text{W}\]</span></div>
-<p>Compare the output with your predictions and revise any incorrect result.</p>
+<p>For Experiment A, the path should be a straight line because the angular velocity is zero.</p>
+<p>For Experiment B, the path should bend in the opposite direction. The negative angular velocity represents clockwise rotation.</p>
+<p>For Experiment C, the turning radius should become \(5.0\ \text{m}\), because</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{1.00\ \text{m/s}}{0.20\ \text{rad/s}}
+=5.0\ \text{m}.\]</span></div>
+<p>The robot moves faster but turns at the same rate, so it follows a wider arc.</p>
+<p>For Experiment D, the orientation change should be</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\theta=(0.40\ \text{rad/s})(3.0\ \text{s})
+=1.20\ \text{rad}.\]</span></div>
+<p>That is a larger turn than the original \(0.60\ \text{rad}\).</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Thinking voltage is the same as current</h3>
-<p>A battery can have voltage across its terminals while an open circuit carries no continuous current. Current depends on the complete path and load.</p>
-<h3>Forgetting the return path</h3>
-<p>The path must leave the source, pass through the load and active driver stage, and return through the power-return connection. OUT1 and OUT2 are motor outputs, not replacements for VM and GND.</p>
-<h3>Mixing units</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.02\ \text{A}=20\ \text{mA}\]</span></div>
-<p>Write units throughout each calculation and distinguish Ω from kΩ.</p>
-<h3>Treating a motor as a fixed resistor</h3>
-<p>Motor current changes with speed, torque, and mechanical load. Back EMF generally increases as the motor spins, reducing current compared with startup or stall.</p>
-<h3>Creating a short circuit</h3>
-<p>A short is an unintended very low-resistance path. The ideal \(I=V/R\) equation warns that current could be large, but source resistance, fuses, current limiting, and protection determine the actual result. Never deliberately short an unknown or high-energy battery.</p>
-<h3>Measuring with the wrong meter configuration</h3>
-<p>Voltage is measured in parallel:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─────── load ─────── source -
-              |       |
-              | meter |
-              └───────┘</code></pre></div>
-<p>Current is measured in series:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─── meter ─── load ─── source -</code></pre></div>
-<p>Never place a meter configured for current directly across a supply. Before current measurements, an instructor must verify the meter fuse, lead placement, current terminal, and range rating. Current mode introduces burden voltage and can alter the circuit.</p>
-<p>Use resistance mode only on an unpowered, disconnected circuit. Calculations do not replace datasheets, ratings, or supervised procedures.</p>
+<h3>Confusing speed with velocity</h3>
+<p>Speed is a scalar: \(0.5\ \text{m/s}\).</p>
+<p>Velocity includes direction. A robot moving north and a robot moving east can have the same speed but different velocities.</p>
+<h3>Mixing degrees and radians</h3>
+<p>Most Python trigonometric functions use radians. Passing \(90\) to <code>math.sin</code> means 90 radians, not 90 degrees.</p>
+<h3>Mixing body and world frames</h3>
+<p>“Forward” is defined relative to the robot. On a fixed map, forward changes direction when the robot rotates.</p>
+<h3>Treating pose as a path</h3>
+<p>The pose \((2,1,\pi/2)\) tells you one state. It does not tell you whether RoboRover arrived there by a straight line, a curve, or several stops.</p>
+<h3>Assuming commands are reality</h3>
+<p>A command of \(0.50\ \text{m/s}\) does not guarantee actual motion of \(0.50\ \text{m/s}\). A wheel can slip, a motor can saturate, or a battery can be weak.</p>
+<h3>Ignoring time-step effects</h3>
+<p>A simulation that updates once every second can miss important turning behavior. Smaller steps generally represent changing motion more accurately, but numerical approximation is still an approximation.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Challenge:</strong> Design a resistor for a 5.0 V indicator branch with an assumed LED forward drop of 2.0 V and target current of approximately 0.020 A.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{3.0}{0.020}=150\ \Omega\]</span></div>
-<p>The ideal value is 150 Ω, and its resistor power is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=V_RI=(3.0)(0.020)=0.060\ \text{W}\]</span></div>
-<p>Compare standard values:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistor</th><th>Current at 3.0 V</th><th>Relative to 20 mA</th></tr></thead><tbody><tr><td>150 Ω</td><td>20.0 mA</td><td>target</td></tr><tr><td>180 Ω</td><td>16.7 mA</td><td>below target</td></tr><tr><td>220 Ω</td><td>13.6 mA</td><td>below target</td></tr></tbody></table></div>
-<p>For a design check, suppose the supply could reach 5.5 V and the LED forward drop could be as low as 1.8 V. Then the resistor voltage could be \(3.7\ \text{V}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{150}=\frac{3.7}{150}\approx24.7\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{180}=\frac{3.7}{180}\approx20.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{220}=\frac{3.7}{220}\approx16.8\ \text{mA}\]</span></div>
-<p>If the LED limit is 20 mA, 220 Ω is the only one of these three that remains below that limit under this stated condition. Confirm the actual supply tolerance, LED range, current rating, and resistor power rating before selecting a part.</p>
-<h3>Optional Python extension</h3>
-<p>This independently runnable program accepts a voltage and resistance. It rejects negative voltage and zero or negative resistance.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
-
-
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
-
-
-def interactive_calculation():
-    try:
-        voltage = float(input(&quot;Enter voltage in volts: &quot;))
-        resistance = float(input(&quot;Enter resistance in ohms: &quot;))
-
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-
-        print(&quot;Current: {:.6f} A ({:.2f} mA)&quot;.format(
-            current, current * 1000.0))
-        print(&quot;Resistor power: {:.6f} W&quot;.format(power))
-
-    except EOFError:
-        print(&quot;No input was provided; run this extension interactively.&quot;)
-    except ValueError as error:
-        print(&quot;Input error: {}&quot;.format(error))
-
-
-if __name__ == &quot;__main__&quot;:
-    interactive_calculation()</code></pre></div>
+<h3>Challenge</h3>
+<p>Modify the Python program so that the robot begins at</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(0.0\ \text{m},0.0\ \text{m})\]</span></div>
+<p>with orientation</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\theta_0=\frac{\pi}{4}\ \text{rad}.\]</span></div>
+<p>Use</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v=0.60\ \text{m/s},\qquad
+\omega=-0.30\ \text{rad/s},\qquad
+T=4.0\ \text{s}.\]</span></div>
+<p>Before running it, predict:</p>
+<ol>
+<li>whether the robot initially moves northeast, southeast, southwest, or northwest;</li>
+<li>whether it turns clockwise or counterclockwise;</li>
+<li>whether its final orientation is greater or less than its initial orientation.</li>
+</ol>
+<h3>Optional extension</h3>
+<p>Add a second arrow at the starting pose showing the initial heading. Then compare it with the final heading arrow.</p>
+<p>Do not just inspect the picture. Use the equations to calculate</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\Delta\theta=\omega T\]</span></div>
+<p>and explain the sign of the result.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
-<p>Answer in a complete sentence or show the calculation.</p>
 <ol>
-<li>What electrical quantity is measured in volts?</li>
-<li>If voltage stays constant and resistance increases, what happens to current?</li>
-<li>A 12 V supply is connected to a 600 Ω resistor. Calculate current in amperes and milliamperes.</li>
-<li>Using the result from Question 3, calculate resistor power with \(P=VI\).</li>
-<li>Why might a motor draw more current when starting or mechanically blocked?</li>
-<li>Why is \(V/R\) not always an accurate prediction of short-circuit current?</li>
-<li>Why does an LED indicator normally need a series resistor?</li>
-<li>How should a meter be connected to measure voltage across a resistor and current through it?</li>
+<li>What three quantities make up a common planar robot pose?</li>
+</ol>
+<ol>
+<li>RoboRover has body-frame forward speed \(v=0.8\ \text{m/s}\) and orientation \(\theta=0\). What are its world-frame \(x\)- and \(y\)-velocity components if it does not rotate?</li>
+</ol>
+<ol>
+<li>What does angular velocity \(\omega\) measure, and what are its units?</li>
+</ol>
+<ol>
+<li>RoboRover travels at \(0.4\ \text{m/s}\) for \(5\ \text{s}\) with zero angular velocity. What is the length of its straight path?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>Voltage, or electrical potential difference, is measured in volts and describes the difference between two points.</li>
-<li>Current decreases. From \(I=V/R\), increasing resistance while holding voltage constant reduces current.</li>
-<p>3.</p>
+<li>A planar pose commonly contains \(x\) position in metres, \(y\) position in metres, and orientation \(\theta\) in radians.</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{12\ \text{V}}{600\ \Omega}
-   =0.020\ \text{A}=20\ \text{mA}\]</span></div>
-<p>4.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(12)(0.020)=0.24\ \text{W}\]</span></div>
 <ol>
-<li>At startup or stall, speed is low or zero, so back EMF is small or absent. More applied voltage therefore drives current through the motor winding.</li>
-<li>Source and wiring resistance, fuses, current limiting, and protection circuits affect actual short-circuit current. The ideal equation is a warning, not an exact prediction.</li>
-<li>An LED is not a simple ohmic resistor. A series resistor limits current and helps keep it within the LED’s safe operating range.</li>
-<li>Measure voltage in parallel across the resistor. Measure current in series so current passes through the meter. Never place a current-configured meter directly across the supply.</li>
+<li>Since \(\cos(0)=1\) and \(\sin(0)=0\),</li>
 </ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v_x^{world}=0.8\ \text{m/s}\]</span></div>
+<p>and</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[v_y^{world}=0\ \text{m/s}.\]</span></div>
+<ol>
+<li>Angular velocity measures how quickly orientation changes. Its units are radians per second \((\text{rad/s})\).</li>
+</ol>
+<ol>
+<li>The path length is</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[s=vT=(0.4\ \text{m/s})(5\ \text{s})
+=2.0\ \text{m}.\]</span></div>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>When RoboRover receives a command to drive forward, the controller sends logic signals to motor-driving electronics. The driver switches or regulates power delivered to the motors.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>battery voltage
-      |
-      v
-motor driver power stage
-      |
-      v
-motor current and voltage
-      |
-      v
-torque and wheel rotation
-      |
-      v
-RoboRover speed and distance</code></pre></div>
-<p><strong>Text description:</strong> Battery voltage enters the driver’s power stage. The driver controls motor voltage and current, which create torque and wheel rotation. Wheel rotation affects RoboRover’s speed and distance.</p>
-<p>The battery positive connection supplies VM. The battery negative connection supplies the driver’s specified power return, often labeled GND. The controller connects to the driver’s specified logic reference. Motor outputs such as OUT1 and OUT2 connect to the motor and are switched by the power stage.</p>
-<p>If battery voltage sags or wiring loses voltage, the motor may receive less effective voltage and RoboRover may move more slowly than expected.</p>
-<p>A practical workflow is:</p>
-<ol>
-<li>Check supply voltage.</li>
-<li>Estimate expected current.</li>
-<li>Estimate power and compare it with ratings.</li>
-<li>Check voltage sag and current limits.</li>
-<li>Use suitable wires, connectors, and protection.</li>
-<li>Secure the robot and keep rotating parts clear.</li>
-<li>Measure actual behavior rather than relying only on calculations.</li>
-</ol>
-<h3>Low-voltage measurement activity</h3>
-<p>This activity requires <strong>explicit instructor supervision</strong>. Use only:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="A wheeled rover with two nearby trajectories, one ideal and one deviating due to wheel slip and calibration errors."></figure>
+<p class="figure-caption"><strong>Figure:</strong> Kinematics predicts an ideal motion; slip, calibration, latency, and mechanical limits can make the real path different.</p>
+<p>Kinematic models are useful because they are fast and understandable. A navigation program can predict where a robot should be after applying a motion command without simulating every motor force and contact force.</p>
+<p>However, real robots depart from the model.</p>
 <ul>
-<li>a regulated supply set to <strong>5.0 V maximum</strong>;</li>
-<li>a current limit set to <strong>50 mA or less</strong>;</li>
-<li>a 1 kΩ resistor rated for at least 0.25 W;</li>
-<li>a correctly fused multimeter and suitable leads;</li>
-<li>an unpowered circuit for resistance measurements.</li>
+<li><strong>Wheel slip:</strong> The wheels may rotate without producing the expected ground motion.</li>
+<li><strong>Unequal motors:</strong> The left and right sides may produce slightly different speeds.</li>
+<li><strong>Calibration error:</strong> The assumed wheel diameter or wheel spacing may be inaccurate.</li>
+<li><strong>Latency:</strong> A command may arrive after a delay, so the robot continues using an older command.</li>
+<li><strong>Mechanical limits:</strong> The robot may be unable to turn as sharply or move as quickly as the model requests.</li>
+<li><strong>Numerical error:</strong> Repeated approximate updates can gradually create position error.</li>
 </ul>
-<p>Before current mode, the instructor must verify the meter fuse, lead placement, current terminal, and range rating.</p>
-<ol>
-<li>Turn the supply off before wiring.</li>
-<li>Connect the 1 kΩ resistor across the supply. At 5.0 V, ideal current is 5 mA and ideal power is 0.025 W.</li>
-<li>For voltage, use correctly configured voltage leads and probes across the resistor in parallel. Keep the circuit intact and follow the instructor-approved probing procedure.</li>
-<li>Power off before changing circuit wiring or moving a lead connected to the current terminal.</li>
-<li>For current, with power off, move the lead to the verified current terminal and insert the meter in series.</li>
-<li>Begin on the highest suitable current range.</li>
-<li><strong>Never reposition a current-configured lead across a live supply, and never place a current-configured meter directly across the supply.</strong></li>
-<li>Use resistance mode only after disconnecting and discharging the circuit as appropriate.</li>
-<li>Compare measurements with \(I=V/R\), allowing for meter accuracy, resistor tolerance, burden voltage, and supply variation.</li>
-<li>Turn the supply off before changing wiring or meter connections.</li>
-</ol>
-<p>If supervised hardware is unavailable, use the simulation-only path. Do not substitute an unverified battery, resistor, or meter.</p>
+<p>This is where the previous class becomes important. A PI or PID speed controller can help the robot achieve a desired wheel or motor speed, but it cannot automatically guarantee that the robot’s estimated pose is correct. Motion control and pose estimation are related but separate engineering tasks.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Voltage:</strong> Electrical potential difference between two points, measured in volts (V).</li>
-<li><strong>Current:</strong> Rate of electric charge flow, measured in amperes (A).</li>
-<li><strong>Resistance:</strong> Opposition to current flow, measured in ohms (Ω).</li>
-<li><strong>Circuit:</strong> A connected electrical path containing a source, conductors, and one or more loads or components.</li>
-<li><strong>Open circuit:</strong> A broken path that prevents continuous current through the intended loop.</li>
-<li><strong>Short circuit:</strong> An unintended very low-resistance path that can allow dangerously large current.</li>
-<li><strong>Ohm’s law:</strong> The relationship \(V=IR\) for a component modeled as an ohmic resistor.</li>
-<li><strong>Electrical power:</strong> The rate of electrical energy transfer, measured in watts (W), commonly calculated with \(P=VI\).</li>
-<li><strong>Battery:</strong> A source of electrical energy that provides a potential difference and has practical voltage and current limits.</li>
-<li><strong>Ground:</strong> A circuit reference or return node in this lesson; it is not automatically earth ground.</li>
-<li><strong>Motor driver:</strong> Electronic hardware with an active power stage that controls electrical power delivered to a motor.</li>
-<li><strong>Voltage sag:</strong> A reduction in actual supply voltage under load.</li>
-<li><strong>Back EMF:</strong> A voltage generated by a spinning motor that opposes the applied voltage.</li>
-<li><strong>Load:</strong> A component or device that receives electrical energy, such as a resistor, LED, controller, or motor.</li>
-<li><strong>Energy:</strong> The capacity to cause change or perform work; electrical energy can become heat, light, or mechanical motion.</li>
-<li><strong>Power:</strong> The rate of energy transfer, measured in watts (W).</li>
+<li><strong>Kinematics:</strong> The study of motion—position, orientation, velocity, and acceleration—without directly modeling forces and torques.</li>
+<li><strong>Pose:</strong> A robot’s position and orientation at one instant.</li>
+<li><strong>Position:</strong> Location in a coordinate frame, such as \(x\) and \(y\) in metres.</li>
+<li><strong>Orientation:</strong> The direction a robot is facing, represented here by \(\theta\).</li>
+<li><strong>Velocity:</strong> A directed rate of motion. It includes speed and direction.</li>
+<li><strong>Speed:</strong> The magnitude of velocity, measured here in metres per second.</li>
+<li><strong>Angular velocity:</strong> The rate at which orientation changes, measured in radians per second.</li>
+<li><strong>World frame:</strong> A fixed coordinate system attached to the room, map, or ground.</li>
+<li><strong>Body frame:</strong> A coordinate system attached to the robot and moving with it.</li>
+<li><strong>Time step:</strong> A small interval \(\Delta t\) used to update a simulated or measured state.</li>
+<li><strong>Turning radius:</strong> For constant forward speed and angular velocity, the radius \(R=v/\omega\) of the circular path when \(\omega\neq0\).</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Study these topics in order:</p>
+<p>Useful search terms and study topics:</p>
+<ul>
+<li>“planar robot pose and velocity”</li>
+<li>“body frame and world frame robotics”</li>
+<li>“unicycle kinematic model”</li>
+<li>“robot coordinate transformations”</li>
+<li>“wheel slip and odometry error”</li>
+<li>“numerical integration robotics”</li>
+</ul>
+<p>When studying these topics, keep asking two questions:</p>
 <ol>
-<li>Multimeter voltage and resistance measurements.</li>
-<li>Series and parallel resistor circuits.</li>
-<li>Electrical power and component heating.</li>
-<li>Battery internal resistance and voltage sag.</li>
-<li>Motor-driver current limits and protection.</li>
-<li>DC-motor behavior under changing mechanical load.</li>
+<li>Which coordinate frame is being used?</li>
+<li>Is the quantity a state, a velocity, a command, or a measurement?</li>
 </ol>
-<p>Useful search terms include <strong>Ohm’s Law</strong>, <strong>introductory DC circuits</strong>, and <strong>DC motor fundamentals</strong>. Begin with low-voltage, current-limited educational equipment and follow meter instructions carefully.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>Next class is <strong>Motors: Turning Electricity into Motion</strong>.</p>
-<p>You will learn how current creates torque, why motors draw different currents during startup and normal operation, and how RoboRover’s electrical inputs become wheel rotation, speed, and distance.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/005-distance-and-speed/"><span>Previous stream</span><b>Class 05 · Distance and Speed</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 07 · Motors: Turning Electricity into Motion</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>Next class introduces <strong>Differential Drive Robots</strong>.</p>
+<p>RoboRover will have a left wheel and a right wheel, each capable of turning at a different speed. We will connect those wheel speeds to:</p>
+<ul>
+<li>forward motion;</li>
+<li>turning motion;</li>
+<li>the robot’s pose change;</li>
+<li>the kinematic equations from this class.</li>
+</ul>
+<p>The key idea will be that a differential-drive robot cannot move sideways directly under the usual no-slip model. Its two wheel speeds determine how it moves forward and turns.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/017-pi-and-pid-intuition/"><span>Previous stream</span><b>Class 17 · PI and PID Intuition</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 19 · Differential Drive Robots</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -634,7 +546,7 @@ RoboRover speed and distance</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=6,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=18,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}

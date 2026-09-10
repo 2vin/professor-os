@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2787,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 91,
+      "clarity": 92,
+      "depth": 91,
+      "examples": 94,
+      "interactivity": 92,
+      "code_alignment": 96,
+      "visual_teaching_plan": 84,
+      "originality": 86,
+      "consistency": 94,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify that the exact circular-arc equations and the code assume constant actual forward velocity and angular velocity over each update, not merely commanded values; this distinction is mentioned later but should appear immediately before the equations.",
+      "The generic instruction under the schematic\u2014\u201cTrace the signal or idea from left to right\u201d\u2014does not fit the coordinate-frame visual and may confuse learners. Replace it with directions specific to identifying the world frame, body frame, heading, and velocity components.",
+      "State explicitly that the turning-radius formula is conventionally signed when using R=v/omega, while geometric radius is usually reported as |v/omega|. This would prevent confusion for the negative-angular-speed experiment.",
+      "The lesson is strong but dense for a first kinematics class. Consider labeling the general body-frame equations as an optional extension or adding a short transition explaining why they are introduced before the simpler forward-only model.",
+      "The time-step discussion could distinguish forward Euler integration from the exact constant-curvature update used in the Python code. The current wording may lead beginners to think the displayed approximate equations are what the program implements.",
+      "Add a short answer or checking method for the Try It Yourself numerical challenge so learners can verify their final pose, not only their qualitative predictions.",
+      "The visual plan is technically relevant, but the central schematic should be described more specifically in its caption and reading instructions; the existing left-to-right signal language appears templated rather than purpose-built."
+    ],
+    "linkedin": {
+      "title": "Robot Kinematics: Predicting Motion Without Modeling Forces",
+      "description": "A practical introduction to pose, coordinate frames, circular-arc motion, numerical updates, and the gap between ideal kinematics and real rover behavior.",
+      "commentary": "How can a robot predict where it will be without calculating every force and motor torque?\n\nThis Professor OS lesson introduces robot kinematics through RoboRover and connects equations directly to a runnable Python simulation.\n\nStudents learn to:\n\u2022 Represent a planar pose with position and orientation.\n\u2022 Convert forward body-frame velocity into world-frame motion.\n\u2022 Predict circular-arc motion from speed and angular velocity.\n\u2022 Compare approximate time-step updates with an exact constant-curvature update.\n\u2022 Explain why wheel slip, calibration, latency, and mechanical limits separate a model from a real robot.\n\nThe prediction experiments are especially valuable: learners change speed and turn rate, state what should happen, then use the plot and equations to test their reasoning.\n\nTry the lab with a simulated rover, then ask students how the result would change on a real floor with unequal wheels or slipping tires.\n\n#Robotics #Kinematics #EngineeringEducation #Python",
+      "thumbnail_alt_text": "RoboRover following a curved path with world and body coordinate frames"
+    },
+    "media_query": "real differential-drive rover wheel slip odometry trajectory laboratory photograph",
+    "image_query": "differential drive robot rover wheel slip calibration error real hardware trajectory",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the idealized pose and circular-arc model by showing wheels, chassis geometry, and the physical conditions that produce slip, unequal wheel behavior, and calibration error. It should supplement the existing generated diagrams rather than replace them.",
+    "media_would_help": true
+  }
+}

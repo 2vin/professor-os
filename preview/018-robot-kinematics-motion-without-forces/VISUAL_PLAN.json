@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of a small wheeled educational rover named RoboRover on a clean graph-paper floor map, showing its planar pose with x and y world axes, a heading arrow, a curved trajectory, and a subtle distinction between a fixed world frame and a body frame attached to the rover. Technically plausible two-wheel rover, restrained modern engineering style, clear lighting, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover's pose describes where it is and which way it is facing, while its velocity describes how that pose is changing.",
+    "alt_text": "A small wheeled rover on a coordinate grid with a curved path, world axes, and a heading arrow illustrating position, orientation, and motion."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational technical diagram showing a top-down wheeled rover at position x,y on a fixed world coordinate grid. Draw a world x-axis and y-axis, a robot body frame with forward and left axes attached to the rover, a heading angle theta between the world x-axis and robot forward direction, and a short curved path arrow. Use precise geometry, restrained textbook colors, clean linework, and only essential labels.",
+      "caption": "The world frame stays fixed, while the body frame rotates with RoboRover.",
+      "alt_text": "Top-down coordinate diagram of a rover showing fixed world axes, robot-attached body axes, heading angle theta, and a curved direction of travel."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically accurate top-down engineering illustration of RoboRover starting at x=1 m, y=2 m, facing east, moving forward at constant 0.50 m/s while rotating counterclockwise at 0.20 rad/s for 3 seconds. Show the circular arc, start and final pose, radius labeled 2.50 m, final heading angle about 0.60 rad, and a separate curved path-length annotation. Use a clean coordinate grid and restrained publication-quality colors; labels must be sparse and legible.",
+      "caption": "A constant forward speed combined with a constant turn rate produces a circular arc, not a straight path.",
+      "alt_text": "Top-down diagram of a rover following a counterclockwise circular arc from an initial pose to a final pose, with turning radius and heading change indicated."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium engineering cutaway-style illustration comparing an ideal kinematic prediction with a real small wheeled rover on a floor. Show the predicted smooth trajectory as a thin dashed line and the actual slipping or slightly miscalibrated trajectory as a nearby solid line, with subtle callouts for wheel slip, unequal wheel calibration, command latency, and pose error. Keep the robot physically plausible, avoid hazardous hardware, use a clean robotics textbook layout, and do not make the image text-heavy.",
+      "caption": "Kinematics predicts an ideal motion; slip, calibration, latency, and mechanical limits can make the real path different.",
+      "alt_text": "A wheeled rover with two nearby trajectories, one ideal and one deviating due to wheel slip and calibration errors."
+    }
+  ]
+}
