@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational differential-drive robot on a marked floor grid demonstrating odometry and wheel slip",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the idealized equations in physical hardware and make wheel slip, calibration error, and trajectory deviation easier to recognize. It should supplement, not replace, the planned technical diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
