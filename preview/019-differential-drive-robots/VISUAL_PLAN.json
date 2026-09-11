@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium robotics textbook illustration of a compact differential-drive rover named RoboRover shown in a clean three-quarter top view on a matte laboratory floor, with two clearly visible independently driven wheels, a subtle centerline, wheel separation indicated by a restrained technical dimension marker, and three faint trajectory traces behind it showing straight motion, a left-curving arc, and a spin in place. Technically plausible educational engineering style, realistic materials and lighting, uncluttered composition, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover changes its motion by changing the speeds of its left and right wheels.",
+    "alt_text": "Technical illustration of a two-wheel differential-drive robot with straight, curved, and spin-in-place trajectories."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A precise top-view educational diagram of a differential-drive robot with labeled left wheel speed v_L, right wheel speed v_R, wheel separation b, forward direction, and three adjacent motion cases: equal wheel arrows producing a straight path, a longer right-wheel arrow producing a path curving left, and equal opposite arrows producing rotation about the robot center. Use restrained textbook colors, clear arrows, minimal labels, white background, technically correct geometry.",
+      "caption": "Equal wheel speeds translate the robot; unequal speeds create a turn; opposite equal speeds create a spin.",
+      "alt_text": "Top-view differential-drive diagrams showing straight motion, left-turning motion, and spin in place."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A clean engineering illustration showing RoboRover viewed from above as if it were a tray being pushed at two side wheels, with the right wheel traveling farther than the left and the robot body rotating counterclockwise toward a left-curving path. Include subtle circular arc geometry and a clear instantaneous turning center, but avoid dense text. Premium robotics textbook editorial style, realistic robot proportions, accurate wheel placement.",
+      "caption": "When the right wheel moves faster, it travels on the outside of the curve and RoboRover turns left.",
+      "alt_text": "Top-view engineering illustration of a differential-drive robot turning left because its right wheel is faster."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A technically accurate annotated diagram of RoboRover following a circular arc from an initial pose, with left wheel speed 0.20 m/s, right wheel speed 0.50 m/s, wheel separation 0.30 m, forward speed 0.35 m/s, angular velocity 1.0 rad/s, and turning radius 0.35 m. Show the robot at the starting pose and after a short interval, with a clean radius line from the turning center to the robot center. Use only essential labels, professional mathematical illustration styling, no clutter.",
+      "caption": "The worked example combines wheel speeds to calculate forward speed, turning rate, and turning radius.",
+      "alt_text": "Annotated circular-arc motion diagram for a differential-drive robot with labeled wheel speeds, turning rate, and radius."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A photorealistic generated engineering illustration of a small educational differential-drive robot on a laboratory floor during a calibration test, showing two drive wheels, wheel encoders, motor housings, a caster support, and a slightly curved measured track compared with an ideal straight reference line. The image should communicate wheel mismatch, slip, and calibration without danger or clutter. Premium robotics lab publication style, realistic materials and restrained lighting.",
+      "caption": "Real robots can deviate from the ideal model because of wheel mismatch, slip, and mechanical differences.",
+      "alt_text": "Laboratory differential-drive robot with visible drive wheels and encoders following a slightly curved path beside an ideal reference line."
+    }
+  ]
+}

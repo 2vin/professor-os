@@ -1,0 +1,8 @@
+{
+  "title": "Differential Drive Robots: From Wheel Speeds to Motion",
+  "description": "A practical lesson on how independently controlled wheel speeds create translation, turning, and in-place rotation\u2014complete with equations, Python simulation, and RoboRover experiments.",
+  "commentary": "How does a mobile robot turn when it has only two independently driven wheels?\n\nThis Professor OS lesson builds the answer from first principles and connects wheel-level commands to robot-level motion.\n\nStudents learn to:\n\u2022 compute forward velocity from the average wheel speed;\n\u2022 compute angular velocity from the wheel-speed difference and track width;\n\u2022 predict straight, curved, and in-place rotational motion;\n\u2022 verify the mathematics with an executable Python simulation;\n\u2022 recognize why slip, wheel mismatch, and mechanical differences affect a real robot.\n\nThe lesson also prepares students for odometry by showing why measured wheel motion becomes the foundation for estimating pose.\n\nTry the wheel-speed challenge: choose left and right speeds, predict the path, then compare your reasoning with the plotted result.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #MobileRobots #Kinematics #Python",
+  "thumbnail_alt_text": "Differential-drive robot diagram showing wheel speeds, turning, and circular motion",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

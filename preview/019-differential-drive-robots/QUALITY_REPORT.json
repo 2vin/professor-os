@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3225,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 93,
+      "clarity": 94,
+      "depth": 92,
+      "examples": 94,
+      "interactivity": 91,
+      "code_alignment": 96,
+      "visual_teaching_plan": 90,
+      "originality": 85,
+      "consistency": 94,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify explicitly that the robot reference point is the midpoint of the drive-wheel axle/contact pair, since the equations for v and omega depend on that choice.",
+      "Define the positive heading convention relative to the initial pose earlier in the lesson, then connect the visual \u2018upward\u2019 orientation and the Python \u2018positive x\u2019 orientation more explicitly. The current transition is technically recoverable but may momentarily confuse beginners.",
+      "Replace or supplement the generic alt text for diagram.png with a content-specific description of the schematic\u2019s blocks, signals, and relationships. The current instruction to \u2018trace the signal\u2019 presumes that the diagram visibly contains such a signal flow.",
+      "The challenge asks students to replace a case in the code but does not ask them to inspect heading numerically. Add a small heading-output task so the spin case and curved-motion case are represented in both position and orientation.",
+      "Add one short warning that commanded wheel speeds, measured wheel speeds, and motor power are different quantities. This distinction is mentioned later, but introducing it before the Python lab would better prevent a common implementation mistake.",
+      "The section sequence is strong but slightly long for a foundational kinematics lesson. The repeated explanations of straight motion, equal speeds, and the faster-right-wheel case could be compressed to preserve attention for the lab and real-robot limitations.",
+      "For accessibility, ensure equations are accompanied by plain-language interpretations in the rendered course platform and that color is not the sole way the generated diagrams distinguish left turns, right turns, or wheel roles."
+    ],
+    "linkedin": {
+      "title": "Differential Drive Robots: From Wheel Speeds to Motion",
+      "description": "A practical lesson on how independently controlled wheel speeds create translation, turning, and in-place rotation\u2014complete with equations, Python simulation, and RoboRover experiments.",
+      "commentary": "How does a mobile robot turn when it has only two independently driven wheels?\n\nThis Professor OS lesson builds the answer from first principles and connects wheel-level commands to robot-level motion.\n\nStudents learn to:\n\u2022 compute forward velocity from the average wheel speed;\n\u2022 compute angular velocity from the wheel-speed difference and track width;\n\u2022 predict straight, curved, and in-place rotational motion;\n\u2022 verify the mathematics with an executable Python simulation;\n\u2022 recognize why slip, wheel mismatch, and mechanical differences affect a real robot.\n\nThe lesson also prepares students for odometry by showing why measured wheel motion becomes the foundation for estimating pose.\n\nTry the wheel-speed challenge: choose left and right speeds, predict the path, then compare your reasoning with the plotted result.\n\n#Robotics #MobileRobots #Kinematics #Python",
+      "thumbnail_alt_text": "Differential-drive robot diagram showing wheel speeds, turning, and circular motion"
+    },
+    "media_query": "differential drive mobile robot two independently driven wheels encoders caster laboratory",
+    "image_query": "engineering photograph differential drive robot visible drive wheels wheel encoders passive caster",
+    "youtube_query": "differential drive robot wheel speeds turning radius encoder hardware demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real hardware photograph would materially ground the ideal model by showing the two independently driven wheels, encoder hardware, wheel separation, and passive support element. The generated illustrations explain motion well, but a photograph would strengthen the transition from equations to physical robot construction before odometry.",
+    "media_would_help": true
+  }
+}

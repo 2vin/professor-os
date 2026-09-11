@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real differential drive robot with two drive wheels wheel encoders caster on laboratory floor",
+  "media_style": "photo",
+  "reason": "A real hardware photograph would ground the abstract model by showing the two independently driven wheels, encoder hardware, and passive support element. It would also help students connect ideal wheel speeds and wheel separation to the physical robot before the next odometry lesson.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
