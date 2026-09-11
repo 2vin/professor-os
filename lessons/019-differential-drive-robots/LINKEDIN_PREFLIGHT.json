@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "errors": [],
+  "warnings": [],
+  "title_length": 54,
+  "description_length": 185,
+  "commentary_length": 926,
+  "hashtags": [
+    "#Robotics",
+    "#MobileRobots",
+    "#Kinematics",
+    "#Python"
+  ],
+  "thumbnail_width": 1376,
+  "thumbnail_height": 768,
+  "post_type": "image",
+  "public_source": "https://connect.vin/professor-os"
+}
