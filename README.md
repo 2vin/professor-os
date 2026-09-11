@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/638cdc2a-499e-4b86-a954-767b527bba1d
+
 # Professor OS — Robotics Teacher Agent (Python 3.7)
 
 **Built by Connect.Vin**
