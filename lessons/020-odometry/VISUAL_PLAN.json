@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact differential-drive educational rover with two large powered wheels and visible wheel encoders, traveling across a marked laboratory floor. Show a clean top-down overlay with a blue modeled true square path and a red odometry estimate that gradually drifts away and fails to close perfectly. Professional robotics textbook composition, realistic materials and lighting, restrained modern styling, high visual clarity, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover estimates its path from wheel motion, but small errors accumulate into odometry drift.",
+    "alt_text": "A differential-drive rover on a laboratory floor with blue and red overlaid paths; the red estimated path misses the starting point after completing an almost-square route."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical top-down diagram explaining dead reckoning: show RoboRover beginning at a marked origin, moving through three commanded forward-and-turn steps, with heading arrows at each step. Include a dashed modeled true route and a solid estimated route that gradually separates. Use a clear coordinate grid with positive x east, positive y north, and positive heading counterclockwise. Use restrained blue and red lines and only essential labels for start, heading, measured motion, and drift. Premium robotics textbook diagram, precise geometry, no clutter.",
+      "caption": "Dead reckoning accumulates measured motion from a known starting pose.",
+      "alt_text": "Top-down coordinate diagram of RoboRover updating its estimated position through several forward movements and turns, with the estimated route drifting from the modeled true route."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical differential-drive motion diagram for a worked example: show a small rover with left-wheel travel 0.48 meters, right-wheel travel 0.52 meters, track width 0.20 meters, and an initial heading 30 degrees counterclockwise from east. Show the coordinate convention with positive x east, positive y north, and positive heading counterclockwise. Indicate the curved forward displacement, average travel, heading change, midpoint heading, and resulting x and y displacement with clean arrows and a coordinate frame. Use accurate engineering geometry, restrained colors, minimal text, premium educational illustration.",
+      "caption": "Unequal wheel travel creates both forward displacement and a change in heading.",
+      "alt_text": "A differential-drive rover diagram showing the two wheel distances, track width, an initial heading 30 degrees counterclockwise from east, curved motion, midpoint heading, and estimated horizontal and vertical displacement."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium robotics textbook visualization of a Python odometry simulation: split composition showing a perfect black dashed modeled true square path and a red solid odometry path with small distance and turn calibration errors. Include the rover at several square corners, a coordinate grid, start marker, and a visibly separated final estimated position. Do not show code text; focus on the plotted paths and clear technical geometry.",
+      "caption": "The simulation compares an ideal square route with an odometry estimate affected by small calibration errors.",
+      "alt_text": "A plotted square route where the ideal modeled path closes at the starting point while the red odometry path ends offset because of accumulated distance and turn errors."
+    }
+  ]
+}
