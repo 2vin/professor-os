@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 3765,
+    "code_blocks": 5,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 85,
+      "clarity": 91,
+      "depth": 91,
+      "examples": 91,
+      "interactivity": 89,
+      "code_alignment": 96,
+      "visual_teaching_plan": 91,
+      "originality": 85,
+      "consistency": 94,
+      "accessibility": 92
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is technically strong and internally consistent, but the worked numerical example is repeated almost verbatim in \u201cWorked Robotics Example\u201d after \u201cMath Without Fear.\u201d Replace the second derivation with a contrasting case, such as straight motion, turning in place, or a slip-induced mismatch.",
+      "The lesson introduces the midpoint integration update well but mentions the exact differential-drive integration formula without presenting it. Either omit that reference for a tighter foundational lesson or include the exact formula in an optional advanced note with its numerical-stability caveat for very small heading changes.",
+      "The code models calibration error by changing the wheel distances supplied to the odometry estimate, which is pedagogically valid, but explicitly distinguish encoder-scale error from physical true motion at the point where the estimate is generated. This will prevent beginners from thinking that the robot physically travels 2% farther merely because its estimate does.",
+      "Add a short learner checkpoint immediately after the core equations requiring students to predict the sign of heading change and the direction of displacement before seeing the worked result.",
+      "The Python lab would be stronger with one expected sample output or a stated approximate final estimated pose. The assertions verify behavior, but beginners cannot easily tell whether their run is numerically plausible.",
+      "The human-scale activity is safe and thoughtful, but its mapping from recorded human steps and turns to differential-drive wheel measurements is indirect. Add a sentence explaining that it demonstrates dead reckoning conceptually rather than validating the wheel equations quantitatively.",
+      "Clarify that systematic and changing errors are not always cleanly separable in practice: wheel slip can be repeatable in one condition and variable in another. The current wording is acceptable for beginners but slightly categorical.",
+      "The lesson is long for a single foundational class. Removing duplicated calculations and compressing repeated caveats would improve pacing without sacrificing technical depth.",
+      "The optional command conversion correctly allows negative wheel travel for sufficiently large turns, but note that a command labeled forward distance can produce one wheel reversing when the requested turn is large. This is useful for preventing surprising beginner results."
+    ],
+    "linkedin": {
+      "title": "Odometry: How Robots Estimate Where They Are\u2014and Why That Estimate Drifts",
+      "description": "A hands-on Professor OS lesson connects differential-drive wheel measurements to pose estimation, Python simulation, calibration error, and real-world odometry drift.",
+      "commentary": "A robot can estimate its position without GPS, cameras, or a map\u2014but that estimate is never automatically perfect.\n\nThis Professor OS lesson introduces odometry through RoboRover\u2019s differential-drive motion:\n\n\u2022 Convert left- and right-wheel travel into forward displacement and heading change.\n\u2022 Use midpoint integration to update a robot pose.\n\u2022 See why wheel slip, calibration errors, and track-width mistakes create drift.\n\u2022 Compare a modeled square path with an odometry estimate in Python.\n\u2022 Test accumulated error through a safe tabletop dead-reckoning activity.\n\nThe central engineering lesson is simple: odometry is excellent for estimating short-term motion, but uncertainty grows as measurements accumulate. That makes calibration and sensor fusion essential in practical mobile robots.\n\nTry the lab by changing the distance scale, turn error, or starting heading, then observe how the estimated route separates from the modeled reference.\n\n#Robotics #Odometry #Python #EngineeringEducation",
+      "thumbnail_alt_text": "Differential-drive robot odometry diagram showing wheel measurements, pose updates, and accumulated path drift."
+    },
+    "media_query": "differential drive mobile robot wheel encoders track width wheel slip close-up engineering photograph",
+    "image_query": "mobile robot wheel encoder differential drive wheel contact floor slip laboratory photograph",
+    "youtube_query": "differential drive robot wheel encoder odometry slip demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real, clearly labeled hardware photograph would connect the abstract wheel-distance equations to encoder housings, wheel contact points, track width, and visible slip. It should supplement\u2014not replace\u2014the existing schematic and generated simulation plot.",
+    "media_would_help": true
+  }
+}
