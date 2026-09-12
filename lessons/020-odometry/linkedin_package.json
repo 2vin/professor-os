@@ -1,0 +1,8 @@
+{
+  "title": "Odometry: How Robots Estimate Where They Are\u2014and Why That Estimate Drifts",
+  "description": "A hands-on Professor OS lesson connects differential-drive wheel measurements to pose estimation, Python simulation, calibration error, and real-world odometry drift.",
+  "commentary": "A robot can estimate its position without GPS, cameras, or a map\u2014but that estimate is never automatically perfect.\n\nThis Professor OS lesson introduces odometry through RoboRover\u2019s differential-drive motion:\n\n\u2022 Convert left- and right-wheel travel into forward displacement and heading change.\n\u2022 Use midpoint integration to update a robot pose.\n\u2022 See why wheel slip, calibration errors, and track-width mistakes create drift.\n\u2022 Compare a modeled square path with an odometry estimate in Python.\n\u2022 Test accumulated error through a safe tabletop dead-reckoning activity.\n\nThe central engineering lesson is simple: odometry is excellent for estimating short-term motion, but uncertainty grows as measurements accumulate. That makes calibration and sensor fusion essential in practical mobile robots.\n\nTry the lab by changing the distance scale, turn error, or starting heading, then observe how the estimated route separates from the modeled reference.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Odometry #Python #EngineeringEducation",
+  "thumbnail_alt_text": "Differential-drive robot odometry diagram showing wheel measurements, pose updates, and accumulated path drift.",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
