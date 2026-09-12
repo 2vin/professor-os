@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "differential drive mobile robot wheel encoders laboratory odometry real photograph",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract equations in recognizable hardware and show where wheel encoders, wheel contact, and slip occur. It complements the planned diagrams rather than replacing them.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
