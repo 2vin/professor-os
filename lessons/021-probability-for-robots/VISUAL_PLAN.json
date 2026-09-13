@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a small plausible wheeled educational rover, driving from a marked start line toward a charging pad on a laboratory floor. Show three subtly ghosted possible stopping positions at 0.80 m, 1.00 m, and 1.20 m, with the central position visually most prominent. Include a clean probability-distribution motif with three bars rising beneath the possible positions, but keep labels minimal and technically clear. Professional editorial composition, realistic materials, restrained blue and amber palette, soft laboratory lighting, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover's movement is not one guaranteed distance: a probability distribution represents several possible outcomes and their likelihoods.",
+    "alt_text": "RoboRover driving toward a charging pad with three possible stopping positions and probability bars showing the middle distance as most likely."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram showing a number line from 0.80 m to 1.20 m with three possible RoboRover stopping locations. Place vertical bars above 0.80 m, 1.00 m, and 1.20 m, with heights proportional to probabilities 0.20, 0.50, and 0.30. Include a small rover silhouette at the start and subtle arrows indicating repeated possible trials. Use clean vector-style geometry, minimal labels, high contrast, premium robotics textbook design.",
+      "caption": "The bars show the relative likelihood of each possible travel distance, not three simultaneous robot positions.",
+      "alt_text": "Probability bar chart for RoboRover travel distances, with the tallest bar at 1.00 m and smaller bars at 0.80 m and 1.20 m."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Clear engineering illustration of RoboRover approaching a charging pad at a nominal distance of 1.00 m. Show three aligned possible stopping points labeled 0.80 m, 1.00 m, and 1.20 m, with the 1.00 m point emphasized as the most probable. Add a restrained inset showing a weighted-average calculation concept using distance markers and probability weights, without dense text. Realistic rover hardware, laboratory floor, technically plausible scale, premium educational publication style.",
+      "caption": "The expected distance is a weighted average of possible outcomes; it describes the distribution's center, not a guaranteed stopping point.",
+      "alt_text": "RoboRover with three possible stopping distances and a visual explanation of a probability-weighted average."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical diagram connecting Python simulation steps to a probability chart: a code-like panel conceptually maps possible distances 0.80, 1.00, and 1.20 m with weights 0.20, 0.50, and 0.30 to repeated sampled dots and a bar chart. Use abstract code shapes rather than long readable text. Show a fixed random seed as a small reproducibility symbol, with a clean plotting area and no clutter. Professional robotics textbook infographic style.",
+      "caption": "A simulation draws repeated outcomes from a modeled distribution so the theoretical pattern can be compared with sampled trials.",
+      "alt_text": "Educational diagram showing a Python simulation sampling weighted RoboRover distances and displaying the results as a bar chart."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Realistic engineering illustration of RoboRover near a charging pad with an uncertain odometry estimate visualized as a translucent spread around its predicted position. Show wheel encoders, a simple odometry path, and a nearby sensor measurement aimed at the pad, emphasizing that probability represents uncertainty and that another measurement can reduce risk. Technically plausible educational rover, clean laboratory environment, restrained modern styling, no sci-fi clutter.",
+      "caption": "A robot can use uncertainty to decide when wheel odometry is not reliable enough and another measurement is needed.",
+      "alt_text": "RoboRover near a charging pad with a translucent uncertainty region around its odometry-based position and a sensor taking an additional measurement."
+    }
+  ]
+}
