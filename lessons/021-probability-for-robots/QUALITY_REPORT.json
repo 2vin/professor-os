@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3203,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 91,
+      "clarity": 91,
+      "depth": 91,
+      "examples": 92,
+      "interactivity": 88,
+      "code_alignment": 96,
+      "visual_teaching_plan": 88,
+      "originality": 84,
+      "consistency": 94,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add a brief explicit distinction between probability mass for a discrete outcome and probability density for a continuous variable, or defer continuous distributions until a later lesson to avoid a subtle conceptual gap.",
+      "The phrase \u201cstandard deviation tells us how spread out the results are\u201d is appropriate for beginners, but could be strengthened by noting that it is sensitive to outliers and does not by itself describe the shape of the distribution.",
+      "The section beginning \u201cAn illustrator could show\u201d is redundant because the lesson already includes the generated visual immediately above it. Replace it with a short learner task, such as asking students to predict which stopping position has the greatest visual weight.",
+      "The charging-pad example introduces an operational decision but does not define the pad\u2019s acceptable capture range. Add a concrete success interval so students can calculate the probability of successful docking rather than infer risk informally.",
+      "The Python lab is technically sound, but learners would benefit from one modification task, such as changing the probabilities or trial count and predicting the effect before rerunning the program.",
+      "The lesson is unusually thorough for a foundational class. Consider trimming repeated reminders that expected values are not guaranteed outcomes and that simulated frequencies need not equal theoretical probabilities.",
+      "Explain briefly that the model probabilities are empirical estimates from repeated tests and may themselves carry uncertainty; this would better connect the example to real robot calibration.",
+      "The visual plan is strong, but the generated engineering schematic should be checked for accurate labels, legible probability notation, and consistency with the surrounding bar chart before publication.",
+      "The vocabulary definition of \u201ccontinuous distribution\u201d is serviceable but simplified. Avoid implying that a continuous distribution assigns ordinary nonzero probability to every individual distance."
+    ],
+    "linkedin": {
+      "title": "Probability for Robots: Turning Odometry Uncertainty into Better Decisions",
+      "description": "A practical robotics lesson on distributions, expected value, standard deviation, Monte Carlo simulation, and why real robots must model uncertainty rather than assume perfect motion.",
+      "commentary": "Robots rarely move exactly as commanded. Wheel slip, calibration error, floor conditions, and battery changes all create uncertainty in motion estimates.\n\nThis Professor OS lesson introduces probability through a concrete RoboRover task: predicting how far a robot may travel toward a charging pad.\n\nStudents learn to:\n\u2022 represent possible travel distances with a discrete probability distribution;\n\u2022 calculate expected distance and standard deviation;\n\u2022 distinguish theoretical probabilities from simulated frequencies;\n\u2022 explore Monte Carlo sampling in Python; and\n\u2022 recognize bias, dependence, and model mismatch in real experiments.\n\nThe key engineering idea is simple but important: an expected value is not a guarantee. A robot that stores uncertainty can decide when to slow down, gather another sensor measurement, or avoid trusting odometry alone.\n\nTry the landing-zone simulation, then repeat it on two different surfaces and compare the resulting distributions. What changes: the center, the spread, or both?\n\n#Robotics #ProbabilisticRobotics #Python #STEMEducation",
+      "thumbnail_alt_text": "RoboRover probability distribution showing uncertain travel distances near a charging pad"
+    },
+    "media_query": "documentary photograph mobile robot wheel odometry charging dock sensor uncertainty laboratory floor",
+    "image_query": "mobile robot near charging dock wheel odometry sensor documentary engineering photograph",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A technically clear real photograph would ground the abstract distribution in recognizable hardware and make the relationship among wheel motion, odometry, a charging pad, and a corrective sensor more concrete. It should supplement, not replace, the existing uncertainty illustration.",
+    "media_would_help": true
+  }
+}
