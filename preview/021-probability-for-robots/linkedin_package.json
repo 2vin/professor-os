@@ -1,0 +1,8 @@
+{
+  "title": "Probability for Robots: Turning Odometry Uncertainty into Better Decisions",
+  "description": "A practical robotics lesson on distributions, expected value, standard deviation, Monte Carlo simulation, and why real robots must model uncertainty rather than assume perfect motion.",
+  "commentary": "Robots rarely move exactly as commanded. Wheel slip, calibration error, floor conditions, and battery changes all create uncertainty in motion estimates.\n\nThis Professor OS lesson introduces probability through a concrete RoboRover task: predicting how far a robot may travel toward a charging pad.\n\nStudents learn to:\n\u2022 represent possible travel distances with a discrete probability distribution;\n\u2022 calculate expected distance and standard deviation;\n\u2022 distinguish theoretical probabilities from simulated frequencies;\n\u2022 explore Monte Carlo sampling in Python; and\n\u2022 recognize bias, dependence, and model mismatch in real experiments.\n\nThe key engineering idea is simple but important: an expected value is not a guarantee. A robot that stores uncertainty can decide when to slow down, gather another sensor measurement, or avoid trusting odometry alone.\n\nTry the landing-zone simulation, then repeat it on two different surfaces and compare the resulting distributions. What changes: the center, the spread, or both?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #ProbabilisticRobotics #Python #STEMEducation",
+  "thumbnail_alt_text": "RoboRover probability distribution showing uncertain travel distances near a charging pad",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational wheeled robot near charging dock with wheel encoder and distance markers",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph would ground the abstract probability model in recognizable hardware, especially the relationship among wheel motion, odometry, a charging pad, and a second sensor. It should be documentary and technically clear rather than decorative.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

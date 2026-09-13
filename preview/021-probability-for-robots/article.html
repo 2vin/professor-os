@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#060708">
-<title>Class 6: Electricity for Roboticists · Professor OS</title>
+<title>Class 21: Probability for Robots · Professor OS</title>
 <script>
 window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$','$$']],processEscapes:true},options:{skipHtmlTags:['script','noscript','style','textarea','pre','code']},svg:{fontCache:'global'}};
 </script>
@@ -25,51 +25,6 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 @media(max-width:760px){:root{--dock:0px}.dock{display:none}.desktop{margin-left:0}.os-topbar{grid-template-columns:auto 1fr}.crumb{display:none}.shell{padding:10px 10px 82px}.hero-copy,.content-window{padding:18px}.hero h1{font-size:40px}.rail{grid-template-columns:1fr}.hero-meta,.lessonnav{grid-template-columns:1fr}.navtile.next{text-align:left}.mobile-dock{position:fixed;left:10px;right:10px;bottom:10px;z-index:120;display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px;border:1px solid var(--line2);border-radius:15px;background:rgba(6,7,8,.95);backdrop-filter:blur(16px)}.mobile-dock .mprogress{display:grid;gap:4px}.mobile-dock span{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}.mobile-dock b{font-size:10px}.mobile-dock .complete{width:auto;padding:10px}.table-scroll{margin-left:-4px;margin-right:-4px}.chapter-assistant{align-items:flex-start;flex-direction:column}.chapter-ask{width:100%}.professor-chat{right:0;left:0;bottom:0;width:100%;height:min(78vh,720px);border-radius:20px 20px 0 0}.chat-top{display:none}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* PROFESSOR_OS_PODCAST_STYLE_START */
 .podcast-strip{margin-top:16px;padding:0;overflow:hidden}
 .podcast-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;align-items:center;padding:18px 20px;background:radial-gradient(circle at 88% 50%,rgba(202,255,79,.10),transparent 28%),linear-gradient(135deg,#0d1013,#0a0d0f)}
@@ -80,566 +35,488 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 
 </style>
 </head>
-<body data-class="6">
+<body data-class="21">
 <div class="reading-line"><i></i></div>
-<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_06</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
+<header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_21</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_06</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 06 · Hardware &amp; Sensors</div><h1>Electricity for Roboticists</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~22 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>voltage, current, resistance</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_21</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 21 · Probability &amp; Filtering</div><h1>Probability for Robots</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~18 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>uncertainty, distributions</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
   <div class="podcast-inner">
     <div class="podcast-copy">
       <span class="podcast-kicker">Listen anywhere</span>
-      <h2>Class podcast · Electricity for Roboticists</h2>
+      <h2>Class podcast · Probability for Robots</h2>
       <p>~7 min · AI-generated narration · Play here or download the MP3 for offline listening.</p>
     </div>
     <div class="podcast-controls">
       <audio controls preload="metadata"><source src="podcast.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio>
-      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-06-electricity-for-roboticists.mp3">↓ Download podcast</a>
+      <a class="podcast-download" href="podcast.mp3" download="professor-os-class-21-probability-for-robots.mp3">↓ Download podcast</a>
     </div>
   </div>
 </section>
 <!-- PROFESSOR_OS_PODCAST_END -->
 
-<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 6: Electricity for Roboticists</h1>
+<div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 21: Probability for Robots</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>Last class, RoboRover described motion using distance and speed:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{speed}=\frac{\text{distance}}{\text{time}}\]</span></div>
-<p>Motion also requires <strong>energy</strong>, the capacity to cause change or perform work. <strong>Power</strong> is the rate at which energy is transferred. Energy is measured in joules (J) or watt-hours (Wh); power is measured in watts (W). RoboRover moves because a circuit transfers electrical energy from a source to a motor, where it becomes mechanical motion.</p>
-<h3>Prerequisite: charge, circuit, energy, and power</h3>
-<ul>
-<li><strong>Electric charge</strong> is a property of matter that can move through conductors.</li>
-<li>A <strong>circuit</strong> is a connected path through which charge can move.</li>
-<li><strong>Energy</strong> is transferred to a motor, resistor, or other load.</li>
-<li><strong>Power</strong> is the rate of that energy transfer.</li>
-</ul>
-<p>This class introduces:</p>
-<ul>
-<li><strong>Voltage:</strong> electrical potential difference that can drive charge.</li>
-<li><strong>Current:</strong> the rate of charge flow.</li>
-<li><strong>Resistance:</strong> opposition to current flow.</li>
-</ul>
-<p>We will use these ideas to reason about indicator circuits, batteries, motor drivers, measurements, and component safety. Next class, we will examine motors in greater detail.</p>
+<p>RoboRover has learned how to estimate its movement using <strong>odometry</strong>: it counts wheel rotation and converts that count into distance and turning.</p>
+<p>But odometry is never perfectly reliable. A wheel may slip on dust. The measured wheel diameter may be slightly wrong. The floor may be uneven. Two journeys that receive the same motor command may not end at exactly the same place.</p>
+<p>In previous classes, we often wrote an estimate such as:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{RoboRover moved } 1.00\ \text{m}\]</span></div>
+<p>Today we will improve that statement:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{RoboRover probably moved close to }1.00\ \text{m, but several distances are possible.}\]</span></div>
+<p>That is the beginning of <strong>probabilistic robotics</strong>: representing uncertainty with numbers instead of pretending every measurement is exact.</p>
+<p>In the next class, <strong>Sensor Noise</strong>, we will study one important source of uncertainty: sensors that report slightly different values even when the world has not changed.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
-<ol>
-<li>Describe voltage, current, and resistance using a useful, bounded analogy.</li>
-<li>Explain why a circuit needs a complete conducting path.</li>
-<li>Use Ohm’s law to calculate current, voltage, or resistance.</li>
-<li>Calculate electrical power using \(P=VI\), \(P=I^2R\), and \(P=V^2/R\) when appropriate.</li>
-<li>Interpret calculations using correct units.</li>
-<li>Explain why short circuits, excessive current, voltage sag, and component ratings matter.</li>
-<li>Predict how resistance affects current and resistor power.</li>
-<li>Relate simplified calculations to real robot hardware and measurements.</li>
-</ol>
+<ul>
+<li>explain why robots need probability;</li>
+<li>distinguish an outcome, an event, and a probability distribution;</li>
+<li>read a simple discrete distribution;</li>
+<li>calculate a weighted average, called an expected value;</li>
+<li>describe uncertainty using spread;</li>
+<li>simulate repeated robot movements in Python;</li>
+<li>explain why a probability model is useful but not automatically true.</li>
+</ul>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover’s speed depends on its motors, wheels, load, floor surface, and control commands. Those systems depend partly on electrical power.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{battery} \rightarrow \text{electrical circuit} \rightarrow \text{motor} \rightarrow \text{wheel rotation} \rightarrow \text{distance traveled}\]</span></div>
-<p>Today we focus on the electrical circuit in the middle of that chain.</p>
+<p>Odometry estimates motion from wheel movement.</p>
+<p>For a simple wheeled robot, distance can be estimated from wheel circumference:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[d = N C\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(d\) is estimated distance in metres \((\text{m})\);</li>
+<li>\(N\) is the number of wheel rotations;</li>
+<li>\(C\) is wheel circumference in metres \((\text{m})\).</li>
+</ul>
+<p>The circumference is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[C = \pi D\]</span></div>
+<p>where \(D\) is wheel diameter in metres.</p>
+<p>This calculation gives a useful estimate. It does not guarantee the true distance because the wheel may slip, the diameter may be mismeasured, or the floor may change the motion.</p>
+<p>Today we will treat the result not as one certain number, but as a collection of possible results with different likelihoods.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Side-by-side educational diagram of an electrical circuit and a water-pipe analogy showing voltage, current, and resistance."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The pipe analogy builds intuition: voltage encourages flow, current is flow, and resistance opposes flow.</p>
-<p>Imagine water moving through pipes:</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Probability bar chart for RoboRover travel distances, with the tallest bar at 1.00 m and smaller bars at 0.80 m and 1.20 m."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The bars show the relative likelihood of each possible travel distance, not three simultaneous robot positions.</p>
+<p>Imagine RoboRover is commanded to drive from a blue starting line to a red marker exactly \(1.00\ \text{m}\) away.</p>
+<p>On a clean, dry floor, it might travel:</p>
 <ul>
-<li><strong>Voltage</strong> is similar to a pressure difference that encourages water to move.</li>
-<li><strong>Current</strong> is similar to the amount of flow passing a point each second.</li>
-<li><strong>Resistance</strong> is similar to a narrow or rough section that makes flow harder.</li>
+<li>\(0.80\ \text{m}\) if its wheels slip;</li>
+<li>\(1.00\ \text{m}\) if the odometry is accurate;</li>
+<li>\(1.20\ \text{m}\) if the measured wheel size or motion calibration causes an overshoot.</li>
 </ul>
-<p>This analogy is only for intuition. Current is a circuit variable; charge motion in a conductor is not the same as bulk water circulation. Electrons are not consumed by a load. A circuit transfers energy while charge continues around the conducting path.</p>
-<p>For RoboRover:</p>
-<ul>
-<li>the battery provides a voltage difference;</li>
-<li>wires provide conducting paths;</li>
-<li>a motor driver controls power delivered to the motor;</li>
-<li>a resistor can limit current;</li>
-<li>a switch or transistor can open, close, or regulate part of a circuit.</li>
-</ul>
-<p>A circuit needs a complete conducting path. If the path is broken, continuous current cannot flow through the intended loop.</p>
-<h3>The simplest complete loop</h3>
-<div class="code-card"><div class="code-label">text</div><pre><code>source positive ───&gt; load ───&gt; source negative
-       |                         ^
-       └────────── source ───────┘</code></pre></div>
-<p><strong>Text description:</strong> A source, conductors, and load form one closed loop. Conventional current leaves the source positive terminal, passes through the load, and returns to the source negative terminal.</p>
-<p><strong>Predict:</strong> If RoboRover’s battery is connected to only one motor terminal and the other motor terminal is disconnected, will the motor turn continuously?</p>
-<p>No. The intended path is open, so continuous current cannot pass through the motor.</p>
+<p>A probability model assigns a likelihood to each possibility.</p>
+<p>For example:</p>
+<div class="table-scroll"><table><thead><tr><th>Actual distance</th><th>Probability</th></tr></thead><tbody><tr><td>\(0.80\ \text{m}\)</td><td>\(0.20\)</td></tr><tr><td>\(1.00\ \text{m}\)</td><td>\(0.50\)</td></tr><tr><td>\(1.20\ \text{m}\)</td><td>\(0.30\)</td></tr></tbody></table></div>
+<p>The probabilities add to 1:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.20 + 0.50 + 0.30 = 1.00\]</span></div>
+<p>This three-distance table is a deliberately <strong>discretized model</strong>. Physical distance is usually continuous: a real robot may stop at many intermediate values, such as \(0.93\ \text{m}\) or \(1.07\ \text{m}\). The table groups or approximates those possibilities into three representative outcomes so that we can calculate with them easily.</p>
+<p>This does not mean RoboRover travels all three distances at once. It means that before observing the result, we describe three possible outcomes and how plausible each one is according to our model.</p>
+<p>A distribution is like a probability-shaped map of uncertainty.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
 <p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<figure><img loading="lazy" src="inline_02.png" alt="Labeled H-bridge diagram showing VM, GND, OUT1, OUT2, motor connections, controller logic connections, and one highlighted current path."></figure>
-<p class="figure-caption"><strong>Figure:</strong> In an H-bridge, the motor connects between two switched output nodes; VM and GND are the driver’s supply connections.</p>
-<p>Picture RoboRover from above with a battery pack near its center. A motor driver has separate supply connections and switched output connections. The motor connects <strong>between two output nodes</strong>, not between a battery terminal and an unspecified point in the driver.</p>
-<p>The following is a simplified <strong>H-bridge</strong> diagram. It shows one possible current state.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>                         motor-driver power stage
-                                  VM
-                                   |
-                         +---------+---------+
-                         |                   |
-                       high-side           high-side
-                       switch              switch
-                         |                   |
-                       OUT1               OUT2
-                         |                   |
-                         +----[  MOTOR  ]---+
-                         |                   |
-                       low-side            low-side
-                       switch              switch
-                         |                   |
-                        GND-----------------+
-
-Battery +  -------------------------------&gt; VM
-Battery -  -------------------------------&gt; GND
-Controller logic GND ---------------------&gt; specified logic reference*
-Controller PWM/direction signals ---------&gt; logic/control inputs</code></pre></div>
-<p><code>VM</code> means the motor-supply positive connection. <code>GND</code> is a label commonly used for a circuit return or reference; it is not automatically earth ground. <code>OUT1</code> and <code>OUT2</code> are switched motor terminals.</p>
-<p>For the illustrated forward-current state:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>VM → upper-left switch → OUT1 → motor → OUT2
-   → lower-right switch → GND → battery negative</code></pre></div>
-<p>The exact pin names, capacitors, enable pins, current limits, and wiring requirements depend on the driver datasheet. <strong>Do not wire a driver from this simplified teaching diagram alone. Connect logic ground only as specified by the driver datasheet.</strong> A shared power and logic ground is a common configuration, not a universal default.</p>
-<p>An H-bridge must also prevent unsafe switch combinations. Turning on both the high-side and low-side switches in the same leg can create a near-short path from VM to GND called <strong>shoot-through</strong>. Real drivers may use interlock logic, dead time, current limiting, or other protection. Treat these details as enrichment; follow the driver’s control requirements rather than manually operating bridge switches.</p>
-<p>The pipe comparison can reinforce the basic analogy:</p>
-<ul>
-<li>battery beside a pressure source;</li>
-<li>wires beside pipes;</li>
-<li>resistor beside a narrow pipe;</li>
-<li>current arrows beside flow arrows;</li>
-<li>motor beside a water wheel.</li>
-</ul>
-<blockquote>Analogy for intuition—not a complete model.</blockquote>
+<p>Picture three vertical bars above a number line:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Probability
+0.50 |                 █
+0.40 |                 █
+0.30 |                 █       █
+0.20 |       █         █       █
+0.10 |       █         █       █
+     +--------------------------------
+          0.80 m    1.00 m    1.20 m</code></pre></div>
+<p>The tallest bar is at \(1.00\ \text{m}\), so that is the most likely result.</p>
+<p>The bars do not show where RoboRover is currently located. They show our uncertainty before the movement is observed.</p>
+<p>An illustrator could show:</p>
+<ol>
+<li>RoboRover at a starting line.</li>
+<li>Three faint possible stopping positions.</li>
+<li>A short stopping position at \(0.80\ \text{m}\), a central one at \(1.00\ \text{m}\), and a long one at \(1.20\ \text{m}\).</li>
+<li>Bar heights beneath the positions representing their probabilities.</li>
+</ol>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Voltage: electrical potential difference</h3>
-<p><strong>Voltage</strong> is the difference in electrical potential between two points. It is measured in <strong>volts (V)</strong>. Voltage is measured between points, not as an isolated property of one point.</p>
-<p>A battery labeled 7.4 V has a nominal voltage of approximately 7.4 V under specified conditions. Its actual voltage may differ:</p>
+<h3>Outcomes and events</h3>
+<p>An <strong>outcome</strong> is one possible result.</p>
+<p>For the movement example, \(1.00\ \text{m}\) is an outcome.</p>
+<p>An <strong>event</strong> is a collection of outcomes that we care about. For example:</p>
+<blockquote>“RoboRover travels at least \(1.00\ \text{m}\).”</blockquote>
+<p>“At least \(1.00\ \text{m}\)” includes the boundary value \(1.00\ \text{m}\), as well as values greater than \(1.00\ \text{m}\). In our model, that event includes \(1.00\ \text{m}\) and \(1.20\ \text{m}\). Its probability is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P(d \geq 1.00\ \text{m}) = 0.50 + 0.30 = 0.80\]</span></div>
+<p>The symbol \(P(\cdot)\) means “the probability of.”</p>
+<h3>Distributions</h3>
+<p>A <strong>probability distribution</strong> describes how probability is assigned to possible outcomes.</p>
+<p>There are two useful beginner-level types:</p>
 <ul>
-<li><strong>Open-circuit voltage:</strong> measured with no significant load connected.</li>
-<li><strong>Loaded terminal voltage:</strong> measured at the battery terminals while current is drawn.</li>
-<li><strong>Load voltage:</strong> measured across the connected component.</li>
+<li>A <strong>discrete distribution</strong> lists separate outcomes, such as \(0.80\ \text{m}\), \(1.00\ \text{m}\), and \(1.20\ \text{m}\).</li>
+<li>A <strong>continuous distribution</strong> describes values along a continuous range, such as every distance between \(0.80\ \text{m}\) and \(1.20\ \text{m}\).</li>
 </ul>
-<p>Battery internal resistance, wires, connectors, protection circuits, and battery state can cause voltage to fall under load. This reduction is called <strong>voltage sag</strong>. Every connected component must be suitable for the applied voltage.</p>
-<h3>Current: charge flow</h3>
-<p><strong>Electric current</strong> is the rate at which electric charge passes a point. It is measured in <strong>amperes</strong>, or <strong>amps (A)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[1\ \text{A}=1\ \text{C/s}\]</span></div>
-<p>This lesson uses <strong>conventional current</strong>, defined as flowing from a source’s positive terminal through the external circuit toward its negative terminal. Electrons in metal move in the opposite direction.</p>
-<p>Motor current is often higher during startup, acceleration, heavy loading, or stall because the motor’s speed-dependent opposing voltage is then small.</p>
-<h3>Resistance: opposition to current</h3>
-<p><strong>Resistance</strong> describes how strongly a component opposes current. It is measured in <strong>ohms (Ω)</strong>.</p>
-<p>A resistor deliberately provides resistance. Wires also have resistance, usually much less than an intentional resistor. Resistance depends on material, dimensions, temperature, and construction. For introductory calculations, we treat a resistor’s value as approximately constant.</p>
-<h3>Retrieval checkpoint</h3>
-<ol>
-<li>Voltage is measured between what?</li>
-<li>What unit measures current?</li>
-<li>If resistance increases while voltage stays constant, does current increase or decrease?</li>
-</ol>
-<p><strong>Answers:</strong> Voltage is measured between two points. Current is measured in amperes. Current decreases because \(I=V/R\).</p>
-<h3>Ohm’s law</h3>
-<p>For a component that behaves approximately like an ohmic resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V=IR\]</span></div>
-<p>where \(V\) is voltage in volts, \(I\) is current in amperes, and \(R\) is resistance in ohms.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R}
-\qquad\text{and}\qquad
-R=\frac{V}{I}\]</span></div>
-<p>These equations are models, not descriptions of every component. Motors, batteries, LEDs, and electronic controllers have more complex behavior.</p>
-<h3>Electrical power</h3>
-<p><strong>Power</strong> is the rate at which electrical energy is transferred. It is measured in <strong>watts (W)</strong>:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI\]</span></div>
-<p>For a resistor, substituting \(V=IR\) gives:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=I^2R
-\qquad\text{and}\qquad
-P=\frac{V^2}{R}\]</span></div>
-<p>Use these resistor forms for the same component at the same operating point. Compare calculated power with the component’s rated power and leave engineering margin.</p>
-<div class="table-scroll"><table><thead><tr><th>Quantity</th><th>Meaning</th><th>Unit</th><th>Typical measurement</th></tr></thead><tbody><tr><td>Voltage \(V\)</td><td>Potential difference</td><td>volts (V)</td><td>Meter in parallel</td></tr><tr><td>Current \(I\)</td><td>Charge flow rate</td><td>amperes (A)</td><td>Meter in series</td></tr><tr><td>Resistance \(R\)</td><td>Opposition to current</td><td>ohms (Ω)</td><td>Unpowered circuit only</td></tr><tr><td>Power \(P\)</td><td>Energy-transfer rate</td><td>watts (W)</td><td>Calculated or measured</td></tr></tbody></table></div>
+<p>Today’s main example is discrete because it is easy to calculate and draw. It is a simplified, discretized representation of a physically continuous quantity. Real robot quantities such as distance, angle, and temperature are often modeled as continuous.</p>
+<h3>Probability is not confidence in a single robot</h3>
+<p>If we say there is a \(0.50\) probability of \(1.00\ \text{m}\), we are not saying RoboRover is “halfway certain.” We are describing how often that outcome is expected across repeated comparable trials, or how plausible it is under a chosen model.</p>
+<p>The model must match the situation. A distribution measured on a smooth laboratory floor may be poor on carpet.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose a 9 V source is connected across a 300 Ω resistor:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{9\ \text{V}}{300\ \Omega}
-=0.03\ \text{A}=30\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(9)(0.03)=0.27\ \text{W}\]</span></div>
-<p>or:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{9^2}{300}=0.27\ \text{W}\]</span></div>
-<p>The units confirm \(\text{V}/\Omega=\text{A}\). Estimate first: 9 V divided by 300 Ω should be much less than 1 A. A result of 30 A signals an arithmetic or unit error.</p>
-<p>At fixed voltage, increasing resistance decreases both current and resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{V}{R},\qquad P=\frac{V^2}{R}\]</span></div>
-<h3>Series and parallel preview</h3>
-<p>For two resistors in series:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=R_1+R_2\]</span></div>
-<p>The same current flows through both, and their voltage drops add to the source voltage. For \(100\ \Omega\) and \(200\ \Omega\) across 6.0 V:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R_{\text{total}}=300\ \Omega,\qquad I=\frac{6.0}{300}=0.020\ \text{A}\]</span></div>
-<p>The voltage drops are 2.0 V and 4.0 V.</p>
-<p>In parallel, branches share voltage and their currents add at the source:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\frac{1}{R_{\text{total}}}
-=
-\frac{1}{R_1}+\frac{1}{R_2}\]</span></div>
-<p>A parallel branch can reduce total resistance and increase source current.</p>
+<h3>Expected value</h3>
+<p>The <strong>expected value</strong> is a probability-weighted average. It is not necessarily an outcome that will actually occur.</p>
+<p>For possible distances \(d_i\) and probabilities \(p_i\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[E[d] = \sum_i p_i d_i\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(E[d]\) is the expected distance, in metres \((\text{m})\);</li>
+<li>\(d_i\) is the \(i\)-th possible distance, in metres;</li>
+<li>\(p_i\) is the probability of that distance;</li>
+<li>\(\sum_i\) means “add all the terms.”</li>
+</ul>
+<p>The probabilities must add to 1.</p>
+<h3>Spread</h3>
+<p>Two robots could have the same expected distance but different reliability.</p>
+<p>A simple measure of spread is the <strong>standard deviation</strong>, written \(\sigma\). A larger \(\sigma\) means the outcomes are more widely scattered around the expected value.</p>
+<p>For a discrete distribution:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\sigma =
+\sqrt{\sum_i p_i(d_i-\mu)^2}\]</span></div>
+<p>where:</p>
+<ul>
+<li>\(\sigma\) is standard deviation, in metres \((\text{m})\);</li>
+<li>\(\mu\) is the expected distance, in metres;</li>
+<li>\(d_i\) is one possible distance, in metres;</li>
+<li>\(p_i\) is its probability.</li>
+</ul>
+<p>The squared quantity \((d_i-\mu)^2\) has units of \(\text{m}^2\). Taking the square root returns the standard deviation to metres.</p>
+<p>You do not need to memorize this equation yet. The important idea is:</p>
+<ul>
+<li>expected value tells us the center;</li>
+<li>standard deviation tells us how spread out the results are.</li>
+</ul>
+<p>Standard deviation is a model-dependent measure of spread. It does not guarantee that most outcomes lie within one standard deviation of the expected value.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Educational circuit illustration of a 5-volt RoboRover indicator branch with a red LED, 220-ohm series resistor, assumed 2.0-volt forward drop, and calculated current of about 13.6 milliamperes."></figure>
-<p class="figure-caption"><strong>Figure:</strong> With a 2.0-volt LED forward-drop assumption, the 220-ohm resistor gives an approximate branch current of 13.6 milliamperes.</p>
-<p>RoboRover has a 5.0 V indicator branch containing:</p>
+<figure><img loading="lazy" src="inline_02.png" alt="RoboRover with three possible stopping distances and a visual explanation of a probability-weighted average."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The expected distance is a weighted average of possible outcomes; it describes the distribution's center, not a guaranteed stopping point.</p>
+<p>RoboRover uses odometry to drive toward a charging pad. Based on repeated tests, the engineering team uses this distribution:</p>
+<div class="table-scroll"><table><thead><tr><th>Distance traveled \(d_i\)</th><th>Probability \(p_i\)</th></tr></thead><tbody><tr><td>\(0.80\ \text{m}\)</td><td>\(0.20\)</td></tr><tr><td>\(1.00\ \text{m}\)</td><td>\(0.50\)</td></tr><tr><td>\(1.20\ \text{m}\)</td><td>\(0.30\)</td></tr></tbody></table></div>
+<p>First calculate the expected distance:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[E[d]
+=
+(0.20)(0.80\ \text{m})
++
+(0.50)(1.00\ \text{m})
++
+(0.30)(1.20\ \text{m})\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[E[d] = 0.16\ \text{m} + 0.50\ \text{m} + 0.36\ \text{m}\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[E[d] = 1.02\ \text{m}\]</span></div>
+<p>The expected distance is \(1.02\ \text{m}\).</p>
+<p>Now calculate the standard deviation. The squared differences from \(1.02\ \text{m}\) are:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(0.80-1.02)^2 = 0.0484\ \text{m}^2\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(1.00-1.02)^2 = 0.0004\ \text{m}^2\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(1.20-1.02)^2 = 0.0324\ \text{m}^2\]</span></div>
+<p>Weighting them by probability:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\sigma^2
+=
+(0.20)(0.0484)
++
+(0.50)(0.0004)
++
+(0.30)(0.0324)\]</span></div>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\sigma^2 = 0.0196\ \text{m}^2\]</span></div>
+<p>Therefore:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\sigma = \sqrt{0.0196\ \text{m}^2}
+= 0.14\ \text{m}\]</span></div>
+<p>Interpretation:</p>
 <ul>
-<li>a red LED with an <strong>assumed</strong> forward voltage of \(V_f=2.0\ \text{V}\);</li>
-<li>a 220 Ω series resistor.</li>
+<li>the expected travel distance is \(1.02\ \text{m}\);</li>
+<li>the model-dependent typical spread is \(0.14\ \text{m}\), or \(14\ \text{cm}\);</li>
+<li>the most likely single result is \(1.00\ \text{m}\);</li>
+<li>the expected value \(1.02\ \text{m}\) is not one of the listed outcomes;</li>
+<li>the standard deviation is not a guarantee that most individual results will fall within \(0.14\ \text{m}\) of the expected value.</li>
 </ul>
-<p>An LED is not an ohmic resistor. The resistor receives the remaining voltage:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{220}\approx0.0136\ \text{A}=13.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=I^2R\approx(0.0136)^2(220)\approx0.0409\ \text{W}\]</span></div>
-<p>The forward-voltage assumption depends on current and temperature. Check the LED’s maximum current, the resistor’s power rating, supply tolerance, and thermal conditions.</p>
-<p>For comparison, a 100 Ω resistor would give:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{3.0}{100}=0.030\ \text{A}=30\ \text{mA}\]</span></div>
-<p>The lower resistance produces more current and may exceed the LED’s safe operating range.</p>
-<h3>Compact motor-driver connection example</h3>
-<p>A driver may provide:</p>
-<ul>
-<li><strong>VM:</strong> motor-supply positive;</li>
-<li><strong>GND:</strong> motor-supply return;</li>
-<li><strong>OUT1</strong> and <strong>OUT2:</strong> switched motor outputs;</li>
-<li>logic inputs such as PWM or direction.</li>
-</ul>
-<p>For one channel, connect battery positive to VM, battery negative to the driver’s specified power return, and the motor between OUT1 and OUT2. Connect the controller only to the driver’s specified logic reference and control inputs. Motor current flows through the driver’s power stage, not through a controller signal pin.</p>
-<p>A motor is not a fixed resistor. As it spins, it generates <strong>back electromotive force (back EMF)</strong> that opposes the applied voltage. At startup or stall, speed is low or zero, so current can be much higher.</p>
+<p>This model warns the engineer that aiming for a charging pad only a few centimetres wide may be risky without another measurement or correction.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>This program models a <strong>resistor-only branch</strong> at 5.0 V. It includes executable assertions for the numerical checks shown in its output.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
+<figure><img loading="lazy" src="inline_03.png" alt="Educational diagram showing a Python simulation sampling weighted RoboRover distances and displaying the results as a bar chart."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A simulation draws repeated outcomes from a modeled distribution so the theoretical pattern can be compared with sampled trials.</p>
+<p>This program simulates repeated RoboRover drives using the three-outcome distribution. It prints the theoretical expected value and standard deviation, estimates the distribution from simulated trials, and draws a grouped bar chart comparing theoretical probabilities with simulated relative frequencies.</p>
+<p>Before running it, predict:</p>
+<ol>
+<li>Which distance will have the tallest theoretical bar?</li>
+<li>Will the simulated average be exactly \(1.02\ \text{m}\)?</li>
+<li>Will the simulated average usually become closer to \(1.02\ \text{m}\) if we increase the number of trials?</li>
+</ol>
+<div class="code-card"><div class="code-label">python</div><pre><code>import random
+import math
+import matplotlib.pyplot as plt
 
+# Possible distances in metres.
+distances = [0.80, 1.00, 1.20]
 
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
+# Probabilities for the corresponding distances.
+probabilities = [0.20, 0.50, 0.30]
 
+# Calculate the theoretical expected value.
+expected_distance = sum(
+    distance * probability
+    for distance, probability in zip(distances, probabilities)
+)
 
-def compare_with_exercise_limit(current, limit=0.05):
-    &quot;&quot;&quot;Compare current with a classroom exercise threshold.&quot;&quot;&quot;
-    if current &gt; limit:
-        return &quot;above the {:.3f} A exercise threshold&quot;.format(limit)
-    return &quot;at or below the {:.3f} A exercise threshold&quot;.format(limit)
+# Calculate the theoretical variance and standard deviation.
+variance = sum(
+    probability * (distance - expected_distance) ** 2
+    for distance, probability in zip(distances, probabilities)
+)
+standard_deviation = math.sqrt(variance)
 
+# Use a fixed seed so this experiment is repeatable.
+random.seed(21)
 
-def main():
-    voltage = 5.0
-    exercise_threshold = 0.05
-    resistances = [100, 200, 220, 500, 1000, 10000]
+number_of_trials = 5000
+trials = random.choices(
+    distances,
+    weights=probabilities,
+    k=number_of_trials
+)
 
-    assert abs(current_from_resistance(5.0, 100) - 0.05) &lt; 1e-12
-    assert abs(current_from_resistance(5.0, 1000) - 0.005) &lt; 1e-12
-    assert abs(resistor_power(5.0, 100) - 0.25) &lt; 1e-12
+# Count how often each outcome appeared.
+counts = []
+for distance in distances:
+    counts.append(trials.count(distance))
 
-    try:
-        current_from_resistance(-1.0, 100.0)
-    except ValueError:
-        pass
-    else:
-        raise AssertionError(&quot;Negative voltage must be rejected.&quot;)
+# Convert counts into simulated relative frequencies.
+simulated_frequencies = [
+    count / number_of_trials
+    for count in counts
+]
 
-    print(&quot;RoboRover resistor-branch simulation&quot;)
-    print(&quot;Supply voltage: {:.1f} V&quot;.format(voltage))
-    print(&quot;Exercise threshold: {:.3f} A&quot;.format(exercise_threshold))
-    print()
+simulated_average = sum(trials) / number_of_trials
 
-    for resistance in resistances:
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-        print(&quot;{:&gt;5} ohms -&gt; {:.2f} mA, {:.4f} W: {}&quot;.format(
-            resistance,
-            current * 1000.0,
-            power,
-            compare_with_exercise_limit(current, exercise_threshold)))
+print(&quot;Theoretical expected distance: {:.3f} m&quot;.format(expected_distance))
+print(&quot;Theoretical standard deviation: {:.3f} m&quot;.format(
+    standard_deviation
+))
+print(&quot;Simulated average distance: {:.3f} m&quot;.format(simulated_average))
+print(&quot;Counts for 0.80 m, 1.00 m, 1.20 m:&quot;, counts)
+print(&quot;Simulated relative frequencies:&quot;, [
+    &quot;{:.3f}&quot;.format(frequency)
+    for frequency in simulated_frequencies
+])
 
+# These assertions verify exact claims about the model and program setup.
+assert abs(expected_distance - 1.02) &lt; 1e-12
+assert abs(standard_deviation - 0.14) &lt; 1e-12
+assert len(trials) == number_of_trials
+assert sum(counts) == number_of_trials
+assert abs(sum(probabilities) - 1.0) &lt; 1e-12
+assert abs(sum(simulated_frequencies) - 1.0) &lt; 1e-12
 
-if __name__ == &quot;__main__&quot;:
-    main()</code></pre></div>
-<p>Negative voltage is rejected here because this small teaching model describes a supply magnitude and assumes conventional current in one chosen direction. Signed voltage is meaningful in broader circuit analysis; it is simply outside this function’s stated model.</p>
-<p>Change <code>exercise_threshold</code> and observe the messages. The threshold is a classroom comparison, not a component rating. This model does not simulate LED nonlinearity, motor startup current, battery sag, or motor-driver switching.</p>
+# Plot theoretical probabilities and simulated relative frequencies
+# as separate, directly labeled series.
+positions = list(range(len(distances)))
+bar_width = 0.36
+
+plt.bar(
+    [position - bar_width / 2 for position in positions],
+    probabilities,
+    width=bar_width,
+    color=&quot;steelblue&quot;,
+    hatch=&quot;//&quot;,
+    label=&quot;Theoretical probability&quot;
+)
+plt.bar(
+    [position + bar_width / 2 for position in positions],
+    simulated_frequencies,
+    width=bar_width,
+    color=&quot;white&quot;,
+    edgecolor=&quot;darkorange&quot;,
+    hatch=&quot;..&quot;,
+    label=&quot;Simulated relative frequency&quot;
+)
+
+plt.xticks(positions, [&quot;{:.2f} m&quot;.format(distance) for distance in distances])
+plt.ylim(0, 0.60)
+plt.xlabel(&quot;Distance traveled&quot;)
+plt.ylabel(&quot;Probability or relative frequency&quot;)
+plt.title(&quot;Theoretical probabilities and simulated frequencies&quot;)
+plt.legend()
+plt.grid(axis=&quot;y&quot;, alpha=0.3)
+plt.show()</code></pre></div>
+<p>Important lines:</p>
+<ul>
+<li><code>distances</code> stores the possible outcomes.</li>
+<li><code>probabilities</code> stores their likelihoods in the same order.</li>
+<li><code>random.choices</code> selects repeated outcomes using weighted probabilities.</li>
+<li><code>expected_distance</code> calculates the weighted average.</li>
+<li><code>counts</code> records how many times each outcome appeared.</li>
+<li><code>simulated_frequencies</code> converts those counts into observed relative frequencies.</li>
+<li><code>assert</code> checks exact relationships that should always be true.</li>
+<li>The first bar series displays the theoretical probability mass.</li>
+<li>The second bar series displays the empirical, or observed, relative frequencies from the sampled trials.</li>
+<li>Different hatch patterns and a legend distinguish the two quantities without relying on color alone.</li>
+</ul>
+<p>The simulated average will vary because random sampling varies. The theoretical values are the model’s values; the simulation is an experiment using that model. With a finite number of trials, the simulated relative frequencies will generally be close to, but not exactly equal to, the theoretical probabilities.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play <strong>Tune RoboRover’s Resistor Branch</strong>. The supply is fixed at 5.0 V. Predict before checking:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistance</th><th>Predicted current</th><th>Predicted power</th><th>Prediction</th></tr></thead><tbody><tr><td>100 Ω</td><td>0.050 A (50 mA)</td><td>0.250 W</td><td></td></tr><tr><td>200 Ω</td><td>0.025 A (25 mA)</td><td>0.125 W</td><td></td></tr><tr><td>1,000 Ω</td><td>0.005 A (5 mA)</td><td>0.025 W</td><td></td></tr><tr><td>10,000 Ω</td><td>0.0005 A (0.5 mA)</td><td>0.0025 W</td><td></td></tr></tbody></table></div>
-<p>Use:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{R}
-\qquad\text{and}\qquad
-P=\frac{25}{R}\]</span></div>
-<ol>
-<li>Which resistance produces the largest current?</li>
-<li>Which produces the smallest current?</li>
-<li>When resistance changes from 100 Ω to 200 Ω, does current double or halve?</li>
-<li>Which listed resistance dissipates the greatest power?</li>
-<li>What happens if voltage changes from 5.0 V to 10.0 V while resistance stays constant?</li>
-</ol>
-<p>At fixed resistance, doubling voltage doubles current but quadruples resistor power:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=\frac{V^2}{R}\]</span></div>
-<p>This is a parameter-changing model, not a real powered circuit.</p>
+<h3>RoboRover’s landing-zone game</h3>
+<p>Draw a line on paper with three landing zones:</p>
+<ul>
+<li>Zone A: \(0.80\ \text{m}\)</li>
+<li>Zone B: \(1.00\ \text{m}\)</li>
+<li>Zone C: \(1.20\ \text{m}\)</li>
+</ul>
+<p>Assign the probabilities \(0.20\), \(0.50\), and \(0.30\).</p>
+<p>Before each trial, predict the landing zone. Then use a random number from 0 to 99:</p>
+<ul>
+<li>0–19 means \(0.80\ \text{m}\);</li>
+<li>20–69 means \(1.00\ \text{m}\);</li>
+<li>70–99 means \(1.20\ \text{m}\).</li>
+</ul>
+<p>Record 20 trials.</p>
+<p>Then calculate:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{observed frequency}
+=
+\frac{\text{number of times an outcome occurred}}
+{\text{number of trials}}\]</span></div>
+<p>Your frequencies may not equal the model probabilities exactly. That is normal. With only 20 trials, chance causes noticeable variation. Try 100 trials and compare.</p>
+<p>This activity demonstrates a central probability idea:</p>
+<blockquote>A probability describes a long-run pattern, not a promise about the next individual trial.</blockquote>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>The table is verified directly by \(I=5/R\) and \(P=25/R\). The 100 Ω resistor has the greatest current and power; the 10,000 Ω resistor has the smallest.</p>
-<p>For 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{100}=0.050\ \text{A},\qquad
-P=\frac{5.0^2}{100}=0.250\ \text{W}\]</span></div>
-<p>For 200 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{5.0}{200}=0.025\ \text{A}\]</span></div>
-<p>The current halves.</p>
-<p>If voltage becomes 10.0 V across 100 Ω:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{10.0}{100}=0.10\ \text{A},\qquad
-P=\frac{10.0^2}{100}=1.0\ \text{W}\]</span></div>
-<p>Compare the output with your predictions and revise any incorrect result.</p>
+<p>Before running the Python program, your predictions should be:</p>
+<ol>
+<li>The \(1.00\ \text{m}\) theoretical-probability bar is tallest because its probability is \(0.50\).</li>
+<li>The simulated average is unlikely to be exactly \(1.02\ \text{m}\).</li>
+<li>With more trials, the simulated average will generally tend to get closer to \(1.02\ \text{m}\), although it may not improve smoothly on every single increase.</li>
+</ol>
+<p>The grouped chart displays two related but different quantities:</p>
+<ul>
+<li>the theoretical probability mass bars have heights exactly \(0.20\), \(0.50\), and \(0.30\);</li>
+<li>the simulated relative-frequency bars are calculated from the sampled counts and can change if the seed or trial count changes.</li>
+</ul>
+<p>The simulated frequencies should generally become more representative of the theoretical probabilities as the number of trials increases, but finite samples can still fluctuate.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Thinking voltage is the same as current</h3>
-<p>A battery can have voltage across its terminals while an open circuit carries no continuous current. Current depends on the complete path and load.</p>
-<h3>Forgetting the return path</h3>
-<p>The path must leave the source, pass through the load and active driver stage, and return through the power-return connection. OUT1 and OUT2 are motor outputs, not replacements for VM and GND.</p>
-<h3>Mixing units</h3>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.02\ \text{A}=20\ \text{mA}\]</span></div>
-<p>Write units throughout each calculation and distinguish Ω from kΩ.</p>
-<h3>Treating a motor as a fixed resistor</h3>
-<p>Motor current changes with speed, torque, and mechanical load. Back EMF generally increases as the motor spins, reducing current compared with startup or stall.</p>
-<h3>Creating a short circuit</h3>
-<p>A short is an unintended very low-resistance path. The ideal \(I=V/R\) equation warns that current could be large, but source resistance, fuses, current limiting, and protection determine the actual result. Never deliberately short an unknown or high-energy battery.</p>
-<h3>Measuring with the wrong meter configuration</h3>
-<p>Voltage is measured in parallel:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─────── load ─────── source -
-              |       |
-              | meter |
-              └───────┘</code></pre></div>
-<p>Current is measured in series:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>source + ─── meter ─── load ─── source -</code></pre></div>
-<p>Never place a meter configured for current directly across a supply. Before current measurements, an instructor must verify the meter fuse, lead placement, current terminal, and range rating. Current mode introduces burden voltage and can alter the circuit.</p>
-<p>Use resistance mode only on an unpowered, disconnected circuit. Calculations do not replace datasheets, ratings, or supervised procedures.</p>
+<h3>Mistake 1: Treating the expected value as a guaranteed result</h3>
+<p>An expected distance of \(1.02\ \text{m}\) does not mean every drive travels \(1.02\ \text{m}\). It is an average predicted by the model.</p>
+<h3>Mistake 2: Forgetting that probabilities must add to 1</h3>
+<p>A valid complete distribution must account for all possible outcomes. If probabilities add to \(1.3\), something is wrong. If they add to \(0.7\), some possibility has been omitted.</p>
+<h3>Mistake 3: Confusing likely with certain</h3>
+<p>A \(0.50\) probability is the most likely outcome in this example, but it still occurs only about half the time in the long run.</p>
+<h3>Mistake 4: Assuming a distribution is automatically correct</h3>
+<p>A neat graph can still describe the wrong situation. If the floor changes from smooth tile to thick carpet, the measured distribution may change.</p>
+<h3>Mistake 5: Ignoring bias</h3>
+<p>Suppose every wheel is slightly larger than the value used in the odometry calculation. RoboRover may consistently travel farther than expected. This is <strong>bias</strong>, a systematic error. Random probability alone cannot repair a badly calibrated robot.</p>
+<h3>Mistake 6: Treating repeated trials as perfectly independent</h3>
+<p>One trial may affect the next. A warm motor, a patch of dust, or a battery voltage change can make several consecutive results similar. Independence is an assumption, not a guarantee.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
-<p><strong>Challenge:</strong> Design a resistor for a 5.0 V indicator branch with an assumed LED forward drop of 2.0 V and target current of approximately 0.020 A.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[V_R=5.0-2.0=3.0\ \text{V}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R=\frac{3.0}{0.020}=150\ \Omega\]</span></div>
-<p>The ideal value is 150 Ω, and its resistor power is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P_R=V_RI=(3.0)(0.020)=0.060\ \text{W}\]</span></div>
-<p>Compare standard values:</p>
-<div class="table-scroll"><table><thead><tr><th>Resistor</th><th>Current at 3.0 V</th><th>Relative to 20 mA</th></tr></thead><tbody><tr><td>150 Ω</td><td>20.0 mA</td><td>target</td></tr><tr><td>180 Ω</td><td>16.7 mA</td><td>below target</td></tr><tr><td>220 Ω</td><td>13.6 mA</td><td>below target</td></tr></tbody></table></div>
-<p>For a design check, suppose the supply could reach 5.5 V and the LED forward drop could be as low as 1.8 V. Then the resistor voltage could be \(3.7\ \text{V}\):</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{150}=\frac{3.7}{150}\approx24.7\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{180}=\frac{3.7}{180}\approx20.6\ \text{mA}\]</span></div>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I_{220}=\frac{3.7}{220}\approx16.8\ \text{mA}\]</span></div>
-<p>If the LED limit is 20 mA, 220 Ω is the only one of these three that remains below that limit under this stated condition. Confirm the actual supply tolerance, LED range, current rating, and resistor power rating before selecting a part.</p>
-<h3>Optional Python extension</h3>
-<p>This independently runnable program accepts a voltage and resistance. It rejects negative voltage and zero or negative resistance.</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>def current_from_resistance(voltage, resistance):
-    &quot;&quot;&quot;Return current in amperes using I = V / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage / resistance
-
-
-def resistor_power(voltage, resistance):
-    &quot;&quot;&quot;Return resistor power in watts using P = V^2 / R.&quot;&quot;&quot;
-    if voltage &lt; 0:
-        raise ValueError(&quot;Voltage must be nonnegative.&quot;)
-    if resistance &lt;= 0:
-        raise ValueError(&quot;Resistance must be greater than zero.&quot;)
-    return voltage * voltage / resistance
-
-
-def interactive_calculation():
-    try:
-        voltage = float(input(&quot;Enter voltage in volts: &quot;))
-        resistance = float(input(&quot;Enter resistance in ohms: &quot;))
-
-        current = current_from_resistance(voltage, resistance)
-        power = resistor_power(voltage, resistance)
-
-        print(&quot;Current: {:.6f} A ({:.2f} mA)&quot;.format(
-            current, current * 1000.0))
-        print(&quot;Resistor power: {:.6f} W&quot;.format(power))
-
-    except EOFError:
-        print(&quot;No input was provided; run this extension interactively.&quot;)
-    except ValueError as error:
-        print(&quot;Input error: {}&quot;.format(error))
-
-
-if __name__ == &quot;__main__&quot;:
-    interactive_calculation()</code></pre></div>
+<h3>Challenge: Choose a safer approach to a charging pad</h3>
+<p>RoboRover must stop near a charging pad centered at \(1.00\ \text{m}\). Its current distribution is:</p>
+<div class="table-scroll"><table><thead><tr><th>Distance</th><th>Probability</th></tr></thead><tbody><tr><td>\(0.80\ \text{m}\)</td><td>\(0.20\)</td></tr><tr><td>\(1.00\ \text{m}\)</td><td>\(0.50\)</td></tr><tr><td>\(1.20\ \text{m}\)</td><td>\(0.30\)</td></tr></tbody></table></div>
+<p>Calculate:</p>
+<ol>
+<li>The probability that RoboRover travels at least \(1.00\ \text{m}\).</li>
+<li>The probability that it travels more than \(1.00\ \text{m}\).</li>
+<li>Whether traveling at least \(1.00\ \text{m}\) is more likely than traveling less than \(1.00\ \text{m}\).</li>
+</ol>
+<p>Then explain, in words, why a second sensor measurement near the charging pad could be valuable.</p>
+<p><strong>Optional extension:</strong> Change the probabilities to represent a slippery floor. For example, make short travel more common. Recalculate the expected distance and standard deviation. Which quantity changes more: the center, the spread, or both?</p>
+<h3>Worked answer</h3>
+<ol>
+<li>“At least \(1.00\ \text{m}\)” includes \(1.00\ \text{m}\) and \(1.20\ \text{m}\):</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P(d \geq 1.00\ \text{m}) = 0.50 + 0.30 = 0.80\]</span></div>
+<ol>
+<li>“More than \(1.00\ \text{m}\)” excludes the boundary value \(1.00\ \text{m}\), so only \(1.20\ \text{m}\) counts:</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P(d &gt; 1.00\ \text{m}) = 0.30\]</span></div>
+<ol>
+<li>Traveling less than \(1.00\ \text{m}\) means traveling \(0.80\ \text{m}\), so:</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P(d &lt; 1.00\ \text{m}) = 0.20\]</span></div>
+<p>Therefore, traveling at least \(1.00\ \text{m}\) is more likely: \(0.80 &gt; 0.20\).</p>
+<p>A second sensor measurement could provide information about the rover’s actual position near the charging pad. It could help the robot correct an odometry error before stopping, reducing the risk of stopping too far away or overshooting.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
-<p>Answer in a complete sentence or show the calculation.</p>
 <ol>
-<li>What electrical quantity is measured in volts?</li>
-<li>If voltage stays constant and resistance increases, what happens to current?</li>
-<li>A 12 V supply is connected to a 600 Ω resistor. Calculate current in amperes and milliamperes.</li>
-<li>Using the result from Question 3, calculate resistor power with \(P=VI\).</li>
-<li>Why might a motor draw more current when starting or mechanically blocked?</li>
-<li>Why is \(V/R\) not always an accurate prediction of short-circuit current?</li>
-<li>Why does an LED indicator normally need a series resistor?</li>
-<li>How should a meter be connected to measure voltage across a resistor and current through it?</li>
+<li>What does a probability distribution describe?</li>
+</ol>
+<ol>
+<li>RoboRover has possible travel distances of \(0.5\ \text{m}\) and \(1.0\ \text{m}\), each with probability \(0.5\). What is the expected distance?</li>
+</ol>
+<ol>
+<li>In the worked example, what is the probability that RoboRover travels more than \(1.00\ \text{m}\)?</li>
+</ol>
+<ol>
+<li>Why can a simulated average differ from the theoretical expected value?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>Voltage, or electrical potential difference, is measured in volts and describes the difference between two points.</li>
-<li>Current decreases. From \(I=V/R\), increasing resistance while holding voltage constant reduces current.</li>
-<p>3.</p>
+<li>A probability distribution assigns likelihoods to possible outcomes.</li>
 </ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[I=\frac{12\ \text{V}}{600\ \Omega}
-   =0.020\ \text{A}=20\ \text{mA}\]</span></div>
-<p>4.</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[P=VI=(12)(0.020)=0.24\ \text{W}\]</span></div>
 <ol>
-<li>At startup or stall, speed is low or zero, so back EMF is small or absent. More applied voltage therefore drives current through the motor winding.</li>
-<li>Source and wiring resistance, fuses, current limiting, and protection circuits affect actual short-circuit current. The ideal equation is a warning, not an exact prediction.</li>
-<li>An LED is not a simple ohmic resistor. A series resistor limits current and helps keep it within the LED’s safe operating range.</li>
-<li>Measure voltage in parallel across the resistor. Measure current in series so current passes through the meter. Never place a current-configured meter directly across the supply.</li>
+<li>The expected distance is:</li>
+</ol>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[(0.5)(0.5\ \text{m}) + (0.5)(1.0\ \text{m})
+= 0.75\ \text{m}\]</span></div>
+<ol>
+<li>Traveling more than \(1.00\ \text{m}\) means traveling \(1.20\ \text{m}\), so the probability is \(0.30\), or \(30\%\).</li>
+</ol>
+<ol>
+<li>A simulation uses a finite number of random trials. Chance causes the observed frequencies and average to vary from the theoretical values.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<p>When RoboRover receives a command to drive forward, the controller sends logic signals to motor-driving electronics. The driver switches or regulates power delivered to the motors.</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>battery voltage
-      |
-      v
-motor driver power stage
-      |
-      v
-motor current and voltage
-      |
-      v
-torque and wheel rotation
-      |
-      v
-RoboRover speed and distance</code></pre></div>
-<p><strong>Text description:</strong> Battery voltage enters the driver’s power stage. The driver controls motor voltage and current, which create torque and wheel rotation. Wheel rotation affects RoboRover’s speed and distance.</p>
-<p>The battery positive connection supplies VM. The battery negative connection supplies the driver’s specified power return, often labeled GND. The controller connects to the driver’s specified logic reference. Motor outputs such as OUT1 and OUT2 connect to the motor and are switched by the power stage.</p>
-<p>If battery voltage sags or wiring loses voltage, the motor may receive less effective voltage and RoboRover may move more slowly than expected.</p>
-<p>A practical workflow is:</p>
-<ol>
-<li>Check supply voltage.</li>
-<li>Estimate expected current.</li>
-<li>Estimate power and compare it with ratings.</li>
-<li>Check voltage sag and current limits.</li>
-<li>Use suitable wires, connectors, and protection.</li>
-<li>Secure the robot and keep rotating parts clear.</li>
-<li>Measure actual behavior rather than relying only on calculations.</li>
-</ol>
-<h3>Low-voltage measurement activity</h3>
-<p>This activity requires <strong>explicit instructor supervision</strong>. Use only:</p>
-<ul>
-<li>a regulated supply set to <strong>5.0 V maximum</strong>;</li>
-<li>a current limit set to <strong>50 mA or less</strong>;</li>
-<li>a 1 kΩ resistor rated for at least 0.25 W;</li>
-<li>a correctly fused multimeter and suitable leads;</li>
-<li>an unpowered circuit for resistance measurements.</li>
-</ul>
-<p>Before current mode, the instructor must verify the meter fuse, lead placement, current terminal, and range rating.</p>
-<ol>
-<li>Turn the supply off before wiring.</li>
-<li>Connect the 1 kΩ resistor across the supply. At 5.0 V, ideal current is 5 mA and ideal power is 0.025 W.</li>
-<li>For voltage, use correctly configured voltage leads and probes across the resistor in parallel. Keep the circuit intact and follow the instructor-approved probing procedure.</li>
-<li>Power off before changing circuit wiring or moving a lead connected to the current terminal.</li>
-<li>For current, with power off, move the lead to the verified current terminal and insert the meter in series.</li>
-<li>Begin on the highest suitable current range.</li>
-<li><strong>Never reposition a current-configured lead across a live supply, and never place a current-configured meter directly across the supply.</strong></li>
-<li>Use resistance mode only after disconnecting and discharging the circuit as appropriate.</li>
-<li>Compare measurements with \(I=V/R\), allowing for meter accuracy, resistor tolerance, burden voltage, and supply variation.</li>
-<li>Turn the supply off before changing wiring or meter connections.</li>
-</ol>
-<p>If supervised hardware is unavailable, use the simulation-only path. Do not substitute an unverified battery, resistor, or meter.</p>
+<figure><img loading="lazy" src="inline_04.png" alt="RoboRover near a charging pad with a translucent uncertainty region around its odometry-based position and a sensor taking an additional measurement."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A robot can use uncertainty to decide when wheel odometry is not reliable enough and another measurement is needed.</p>
+<p>Probability allows a robot to represent uncertainty explicitly.</p>
+<p>After odometry, RoboRover might not store only:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>distance = 1.00 m</code></pre></div>
+<p>It might store something closer to:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>likely distance: 1.00 m
+possible spread: about 0.14 m</code></pre></div>
+<p>That information can influence later decisions. For example, RoboRover may decide that its position is uncertain enough to slow down, take another measurement, or avoid relying on the wheel estimate alone.</p>
+<p>This class does not yet teach RoboRover how to combine many sensor readings or maintain a full position estimate. Those are later topics. Today’s foundation is simpler:</p>
+<blockquote>A robot can represent several possible states, each with a different probability.</blockquote>
+<p>The practical engineering caveat is that the probability model must be tested under conditions similar to real operation. A model created from ten smooth-floor trials may fail on a ramp, carpet, or dusty surface.</p>
+<p>Next class, we will examine <strong>sensor noise</strong>: random variation in sensor readings. We will see how repeated readings can form their own distributions and why calibration and filtering matter.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
 <ul>
-<li><strong>Voltage:</strong> Electrical potential difference between two points, measured in volts (V).</li>
-<li><strong>Current:</strong> Rate of electric charge flow, measured in amperes (A).</li>
-<li><strong>Resistance:</strong> Opposition to current flow, measured in ohms (Ω).</li>
-<li><strong>Circuit:</strong> A connected electrical path containing a source, conductors, and one or more loads or components.</li>
-<li><strong>Open circuit:</strong> A broken path that prevents continuous current through the intended loop.</li>
-<li><strong>Short circuit:</strong> An unintended very low-resistance path that can allow dangerously large current.</li>
-<li><strong>Ohm’s law:</strong> The relationship \(V=IR\) for a component modeled as an ohmic resistor.</li>
-<li><strong>Electrical power:</strong> The rate of electrical energy transfer, measured in watts (W), commonly calculated with \(P=VI\).</li>
-<li><strong>Battery:</strong> A source of electrical energy that provides a potential difference and has practical voltage and current limits.</li>
-<li><strong>Ground:</strong> A circuit reference or return node in this lesson; it is not automatically earth ground.</li>
-<li><strong>Motor driver:</strong> Electronic hardware with an active power stage that controls electrical power delivered to a motor.</li>
-<li><strong>Voltage sag:</strong> A reduction in actual supply voltage under load.</li>
-<li><strong>Back EMF:</strong> A voltage generated by a spinning motor that opposes the applied voltage.</li>
-<li><strong>Load:</strong> A component or device that receives electrical energy, such as a resistor, LED, controller, or motor.</li>
-<li><strong>Energy:</strong> The capacity to cause change or perform work; electrical energy can become heat, light, or mechanical motion.</li>
-<li><strong>Power:</strong> The rate of energy transfer, measured in watts (W).</li>
+<li><strong>Probability:</strong> A numerical description of how likely an outcome or event is.</li>
+<li><strong>Outcome:</strong> One possible result of an experiment or robot action.</li>
+<li><strong>Event:</strong> A group of outcomes described by a condition of interest.</li>
+<li><strong>Probability distribution:</strong> A description assigning probabilities to possible outcomes.</li>
+<li><strong>Discrete distribution:</strong> A distribution with separate listed outcomes.</li>
+<li><strong>Continuous distribution:</strong> A distribution over a continuous range of possible values.</li>
+<li><strong>Expected value:</strong> A probability-weighted average of possible outcomes.</li>
+<li><strong>Mean:</strong> A common name for an average; in this class, the expected value is the model-based average.</li>
+<li><strong>Standard deviation:</strong> A model-dependent measure of the spread of values around the expected value.</li>
+<li><strong>Variance:</strong> The square of the standard deviation; its units are squared.</li>
+<li><strong>Uncertainty:</strong> Limited knowledge about a quantity, condition, or future outcome.</li>
+<li><strong>Bias:</strong> A systematic tendency for measurements or results to be too high or too low.</li>
+<li><strong>Trial:</strong> One run of an experiment or one robot attempt.</li>
+<li><strong>Model:</strong> A simplified mathematical description of a real system.</li>
 </ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>Study these topics in order:</p>
-<ol>
-<li>Multimeter voltage and resistance measurements.</li>
-<li>Series and parallel resistor circuits.</li>
-<li>Electrical power and component heating.</li>
-<li>Battery internal resistance and voltage sag.</li>
-<li>Motor-driver current limits and protection.</li>
-<li>DC-motor behavior under changing mechanical load.</li>
-</ol>
-<p>Useful search terms include <strong>Ohm’s Law</strong>, <strong>introductory DC circuits</strong>, and <strong>DC motor fundamentals</strong>. Begin with low-voltage, current-limited educational equipment and follow meter instructions carefully.</p>
+<p>Useful search terms and activities:</p>
+<ul>
+<li>“probability distributions for beginners”</li>
+<li>“expected value and standard deviation”</li>
+<li>“histogram versus probability distribution”</li>
+<li>“robot odometry uncertainty experiment”</li>
+<li>“Monte Carlo simulation introduction”</li>
+</ul>
+<p>A good follow-up experiment is to repeat RoboRover’s movement test on two surfaces, such as smooth card and fabric. Keep the motor command the same and compare the two distributions.</p>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>Next class is <strong>Motors: Turning Electricity into Motion</strong>.</p>
-<p>You will learn how current creates torque, why motors draw different currents during startup and normal operation, and how RoboRover’s electrical inputs become wheel rotation, speed, and distance.</p></article></section></div>
-<nav class="lessonnav"><a class="navtile" href="/lessons/005-distance-and-speed/"><span>Previous stream</span><b>Class 05 · Distance and Speed</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 07 · Motors: Turning Electricity into Motion</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
+<p>In <strong>Class 22: Sensor Noise</strong>, we will connect probability to real sensor readings.</p>
+<p>RoboRover will measure the same object repeatedly. The object will remain still, but the readings may vary because of electrical effects, lighting, reflections, resolution limits, and other causes. We will use distributions to describe those variations and learn why one sensor reading should not automatically be treated as perfect truth.</p></article></section></div>
+<nav class="lessonnav"><a class="navtile" href="/lessons/020-odometry/"><span>Previous stream</span><b>Class 20 · Odometry</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 22 · Sensor Noise</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
 <aside class="professor-chat" id="professorChatPanel" aria-label="Professor OS chapter tutor" aria-hidden="true">
@@ -652,7 +529,7 @@ RoboRover speed and distance</code></pre></div>
 <div class="mobile-dock"><div class="mprogress"><span>Reading progress</span><b id="mobilePct">0%</b><div class="track"><i id="mobileReadingBar"></i></div></div><button class="complete" id="mobileCompleteBtn" type="button">Complete</button></div>
 <script>
 (function(){
-var CLASS_NO=6,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
+var CLASS_NO=21,KEY='professorOSStudentProgressV2',ACTIVE_SECTION='',CHAT_BUSY=false,CHAT_HISTORY={};
 function read(){try{return JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){return {}}}
 function norm(s){s=s||{};if(!Array.isArray(s.completed))s.completed=[];if(!s.reading)s.reading={};return s}
 function save(s){localStorage.setItem(KEY,JSON.stringify(s))}
