@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3822,
+    "code_blocks": 5,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 3822 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 92,
+      "pedagogy": 90,
+      "clarity": 91,
+      "depth": 90,
+      "examples": 91,
+      "interactivity": 91,
+      "code_alignment": 95,
+      "visual_teaching_plan": 88,
+      "originality": 86,
+      "consistency": 93,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add a brief distinction between sensor noise, measurement uncertainty, and total measurement error so beginners do not treat these terms as interchangeable.",
+      "Mention the startup transient of the exponential smoothing filter: initializing y1=z1 can make the first several filtered values depend strongly on the initial reading, especially with a small alpha.",
+      "The discussion of outliers is accurate but could recommend one concrete alternative, such as a median filter or outlier rejection, rather than leaving the limitation abstract.",
+      "The acceptance test is valuable but introduces a relatively advanced performance requirement late in the lesson; label it explicitly as an engineering extension or briefly explain how settling time is measured.",
+      "The lesson is strong but long for a foundational introduction. Several caveats about correlated errors, motion, vibration, reflections, and environmental effects could be consolidated to preserve beginner momentum.",
+      "The Python lab would be more accessible with a short installation or environment note for matplotlib and a sentence explaining that assertions stop the program if a claimed calculation is wrong.",
+      "The generated diagrams are pedagogically relevant and well placed, but a real hardware photograph showing sensor placement, a target surface, and a vibration source would improve physical grounding."
+    ],
+    "linkedin": {
+      "title": "Sensor Noise in Robotics: From Imperfect Readings to Better Estimates",
+      "description": "A practical Professor OS lesson on random error, bias, filtering, lag, and Python simulation\u2014helping students connect noisy measurements to real robot decisions.",
+      "commentary": "Robots rarely receive perfectly stable measurements. A distance sensor may fluctuate even when the target is stationary\u2014and a smooth signal is not necessarily a correct one.\n\nThis Professor OS lesson helps students:\n\u2022 model measurements as true value plus error and bias;\n\u2022 distinguish random noise from systematic calibration error;\n\u2022 calculate averages and exponential smoothing by hand;\n\u2022 explore the trade-off between smoothness and response time;\n\u2022 test the ideas in a repeatable Python simulation.\n\nThe lesson also connects filtering to physical causes such as vibration, target geometry, reflections, lighting, and electrical interference. Its central engineering question is simple but important: how much should a robot trust the newest reading?\n\nTry the lab with different filter weights, then introduce a sudden change in the simulated environment. Observe when smoothing helps\u2014and when it becomes dangerous.\n\n#RoboticsEducation #Robotics #Python #Engineering",
+      "thumbnail_alt_text": "RoboRover distance sensor readings shown as noisy raw data and a smoother filtered estimate"
+    },
+    "media_query": "robot distance sensor mounted on rover measuring wall target, engineering documentation photo",
+    "image_query": "close-up of ultrasonic or time-of-flight distance sensor mounted on a mobile robot measuring a flat target, visible mounting and vibration context",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated visuals explain noisy signals and filtering effectively, but a concise real hardware photograph would connect the abstract model to sensor placement, target geometry, vibration, and environmental conditions. A photograph is more useful here than another conceptual video.",
+    "media_would_help": true
+  }
+}
