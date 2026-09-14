@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational mobile robot front distance sensor measuring a cardboard box, robotics lab photograph",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract filtering discussion in actual hardware, especially sensor placement, vibration sources, target surfaces, and the physical distance-measurement setup. The generated diagrams already explain the signal behavior, so a concise hardware photo is more valuable than another conceptual video.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

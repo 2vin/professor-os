@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a small wheeled educational rover, facing a stationary cardboard box in a clean engineering test area. Show a plausible front distance sensor projecting several subtly varied measurement rays toward the box, with a restrained overlay suggesting raw noisy readings becoming a smooth filtered estimate. Professional editorial composition, realistic materials and lighting, technically plausible sensor placement, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover measures a steady target repeatedly: the physical distance stays nearly constant while the sensor readings fluctuate.",
+    "alt_text": "A small wheeled rover points a front distance sensor at a cardboard box, with visualized measurement rays showing variation and a smoother filtered estimate."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram for a robotics textbook showing a fixed wall, a true-distance vertical reference line, and several sensor measurement endpoints scattered slightly before and after the wall distance. Include a second smooth estimate line passing through the cluster. Use clear restrained labels for true value, noisy measurements, and filtered estimate. White background, precise geometry, professional engineering publication style, no clutter.",
+      "caption": "The wall is stationary, but individual measurements vary around the true distance; filtering produces a steadier estimate.",
+      "alt_text": "Technical diagram comparing a fixed true distance, scattered noisy sensor readings, and a smoother filtered estimate."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Detailed engineering illustration of RoboRover measuring a blue storage box from a fixed position. Beside the rover, show a compact five-row measurement table with readings near 100 centimeters and a visual sequence changing from jagged raw values to a smoother estimate. Emphasize the distinction between physical distance, measurement error, and filtered estimate. Realistic rover hardware, clean laboratory setting, premium robotics textbook layout, minimal readable labels.",
+      "caption": "RoboRover\u2019s five measurements vary around 100 cm; averaging and filtering reduce the effect of random fluctuations.",
+      "alt_text": "RoboRover measures a blue box while a technical overlay compares raw distance readings, their errors, and a smoother filtered estimate."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional explanatory graph-style diagram showing two lines over reading number: a jagged translucent line labeled raw sensor readings and a smoother bold line labeled weighted filtered estimate, both fluctuating around a dashed true distance line. Include a small visual indication that a low alpha value gives more weight to the previous estimate. Use technically accurate axes for reading number and distance in centimeters, restrained colors, no invented numerical claims beyond generic illustrative values.",
+      "caption": "The simulated graph makes the filtering trade-off visible: the filtered line is smoother but does not instantly follow every raw reading.",
+      "alt_text": "A graph compares jagged raw sensor measurements with a smoother weighted filtered estimate around a horizontal true-distance line."
+    }
+  ]
+}
