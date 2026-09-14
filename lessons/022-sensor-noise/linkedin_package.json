@@ -1,0 +1,8 @@
+{
+  "title": "Sensor Noise in Robotics: From Imperfect Readings to Better Estimates",
+  "description": "A practical Professor OS lesson on random error, bias, filtering, lag, and Python simulation\u2014helping students connect noisy measurements to real robot decisions.",
+  "commentary": "Robots rarely receive perfectly stable measurements. A distance sensor may fluctuate even when the target is stationary\u2014and a smooth signal is not necessarily a correct one.\n\nThis Professor OS lesson helps students:\n\u2022 model measurements as true value plus error and bias;\n\u2022 distinguish random noise from systematic calibration error;\n\u2022 calculate averages and exponential smoothing by hand;\n\u2022 explore the trade-off between smoothness and response time;\n\u2022 test the ideas in a repeatable Python simulation.\n\nThe lesson also connects filtering to physical causes such as vibration, target geometry, reflections, lighting, and electrical interference. Its central engineering question is simple but important: how much should a robot trust the newest reading?\n\nTry the lab with different filter weights, then introduce a sudden change in the simulated environment. Observe when smoothing helps\u2014and when it becomes dangerous.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #Robotics #Python #Engineering",
+  "thumbnail_alt_text": "RoboRover distance sensor readings shown as noisy raw data and a smoother filtered estimate",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
