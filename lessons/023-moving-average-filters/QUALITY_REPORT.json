@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3155,
+    "code_blocks": 3,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 91,
+      "clarity": 93,
+      "depth": 91,
+      "examples": 92,
+      "interactivity": 88,
+      "code_alignment": 95,
+      "visual_teaching_plan": 89,
+      "originality": 84,
+      "consistency": 92,
+      "accessibility": 90
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify earlier that the lesson implements a causal trailing moving average, distinguishing it from a centered moving average that would require future samples and is unsuitable for real-time control.",
+      "The lesson is exceptionally complete but somewhat long for a foundational class. The repeated explanations of spike influence, delay, and startup behavior could be consolidated to improve pacing.",
+      "Add one compact expected-results table for window sizes 1, 3, and 5, so students can compare smoothing and responsiveness without relying only on visual inspection.",
+      "The phrase 'three nearby measurements' could briefly note that the measurements are separated in time, not simultaneous readings from three sensors.",
+      "The Python lab is well aligned, but an optional efficient implementation using a fixed-size buffer and running sum would better connect the lesson to memory and computation constraints mentioned in the real-robot section.",
+      "The 'See It in Your Head' section contains both an existing schematic and instructions describing what an illustrator could show. Remove or revise the latter so the section reads as intentional lesson content rather than leftover asset direction.",
+      "Add a direct safety note in the lab telling students not to connect the example to motors or collision-avoidance hardware without testing latency and emergency-stop behavior.",
+      "The lesson could explicitly state that a moving average attenuates some high-frequency variation but does not necessarily remove periodic noise, bias, dropouts, or correlated errors.",
+      "The generated visuals are relevant and well captioned, but a real photograph of a rover and distance sensor would materially strengthen the physical-hardware connection."
+    ],
+    "linkedin": {
+      "title": "Moving Average Filters: Teaching Robot Sensing Without Hiding the Delay",
+      "description": "A practical robotics lesson on smoothing noisy sensor data, calculating moving averages, tuning window size, and understanding why cleaner signals can respond too late.",
+      "commentary": "A smoother sensor signal is not automatically a better control signal.\n\nThis Professor OS lesson uses RoboRover to teach moving-average filters through hand calculations, plotted Python output, and a deliberately suspicious distance spike. Students learn to:\n\n\u2022 calculate a trailing moving average and track a sliding window;\n\u2022 compare window sizes and observe the trade-off between smoothness and responsiveness;\n\u2022 understand why one unusual reading can influence several later outputs;\n\u2022 estimate steady-state group delay from window size and sampling rate;\n\u2022 distinguish signal processing from the larger feedback-control system.\n\nThe lab includes executable assertions, raw-versus-filtered plots, startup behavior, and a tuning challenge. Try changing the window from 1 to 3 to 5, then ask whether the calmer signal would still be fast enough for a real robot.\n\n#Robotics #Sensors #Python #Engineering",
+      "thumbnail_alt_text": "RoboRover distance readings with a raw noisy signal and smoother moving-average signal"
+    },
+    "media_query": "real educational mobile robot rover distance sensor measuring a wall, visible sensor placement and reflected sensing path",
+    "image_query": "mobile robot rover with ultrasonic or time-of-flight distance sensor measuring distance to a wall, engineering laboratory photograph",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the simulation and graphs in sensor placement, wall reflections, and physical failure modes while preserving the existing schematic visuals for explaining the filter itself.",
+    "media_would_help": true
+  }
+}
