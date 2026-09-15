@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled educational rover, traveling beside a wall while a distance sensor produces a visual stream of numerical readings. Show a translucent overlay of a jagged raw sensor signal becoming a smoother moving-average signal, with a restrained modern engineering aesthetic, realistic materials, clear sensor placement, technically plausible rover proportions, soft studio lighting, and no decorative sci-fi elements or excessive text.",
+    "caption": "RoboRover uses recent distance measurements to create a smoother signal, trading some responsiveness for reduced jitter.",
+    "alt_text": "A compact wheeled rover beside a wall with a distance sensor and an overlay showing a jagged raw measurement line transformed into a smoother moving-average line."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram showing a moving window of three consecutive sensor readings sliding across a sequence of distance values. Depict three highlighted boxes moving one position at a time, each producing one average output, with a jagged input trace and a smoother output trace. Use minimal essential labels such as raw readings, three-sample window, and filtered output. Premium robotics textbook styling, precise alignment, high visual clarity, no clutter.",
+      "caption": "The moving window drops the oldest sample, includes the newest sample, and recalculates the average.",
+      "alt_text": "A technical diagram of a three-sample window sliding across sensor readings and producing a smoother filtered signal."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible engineering illustration of RoboRover measuring distance to a wall. Include a small table-like visual sequence of sensor readings near 100 centimeters with one isolated 130 centimeter spike, alongside a graph showing the raw spike reduced and spread across several points by a three-sample moving average. Use restrained colors, realistic rover hardware, clear sensor beam, and textbook diagram composition. Keep labels sparse and legible.",
+      "caption": "A single suspicious distance reading is reduced by averaging, but its influence remains in several later outputs.",
+      "alt_text": "RoboRover measures a wall while a graph compares raw distance readings containing a spike with a three-sample moving-average signal."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium educational diagram of a Python data-processing pipeline for RoboRover: a list of raw distance measurements enters a three-sample moving-average function, then produces a filtered list and a plot with raw and smooth lines. Show the window selection, sum, division by the number of samples, and plotted result using concise technical labels. Modern robotics textbook style, clean vector-like presentation, no unrelated code.",
+      "caption": "The program selects recent values, computes their average, stores the result, and plots raw versus filtered data.",
+      "alt_text": "A visual pipeline showing raw sensor data entering a three-sample moving-average function and producing filtered data and a comparison plot."
+    }
+  ]
+}

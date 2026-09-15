@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational robot rover ultrasonic or time-of-flight distance sensor beside wall",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph of a rover and its distance sensor would ground the otherwise simulation-heavy lesson in physical hardware. It would help students connect the plotted measurements, sensor placement, reflections, and real-world failure modes without replacing the existing diagrams used to explain the abstract filter.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
