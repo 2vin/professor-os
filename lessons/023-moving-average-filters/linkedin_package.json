@@ -1,0 +1,8 @@
+{
+  "title": "Moving Average Filters: Teaching Robot Sensing Without Hiding the Delay",
+  "description": "A practical robotics lesson on smoothing noisy sensor data, calculating moving averages, tuning window size, and understanding why cleaner signals can respond too late.",
+  "commentary": "A smoother sensor signal is not automatically a better control signal.\n\nThis Professor OS lesson uses RoboRover to teach moving-average filters through hand calculations, plotted Python output, and a deliberately suspicious distance spike. Students learn to:\n\n\u2022 calculate a trailing moving average and track a sliding window;\n\u2022 compare window sizes and observe the trade-off between smoothness and responsiveness;\n\u2022 understand why one unusual reading can influence several later outputs;\n\u2022 estimate steady-state group delay from window size and sampling rate;\n\u2022 distinguish signal processing from the larger feedback-control system.\n\nThe lab includes executable assertions, raw-versus-filtered plots, startup behavior, and a tuning challenge. Try changing the window from 1 to 3 to 5, then ask whether the calmer signal would still be fast enough for a real robot.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Sensors #Python #Engineering",
+  "thumbnail_alt_text": "RoboRover distance readings with a raw noisy signal and smoother moving-average signal",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
