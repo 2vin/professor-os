@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover moving along a straight indoor corridor, showing a predicted position as a blue point with a wide translucent uncertainty cloud, a noisy range-sensor measurement as a red point with its own uncertainty cloud, and a corrected estimate as a green point between them. Clean engineering environment, technically plausible small wheeled rover, restrained blue-red-green visual language, no decorative sci-fi elements, clear space for a lesson title, editorial lighting.",
+    "caption": "RoboRover combines a motion prediction with a noisy measurement to form a corrected position estimate.",
+    "alt_text": "Small wheeled RoboRover in a corridor with blue predicted-position uncertainty, a red sensor measurement, and a green corrected estimate between them."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram showing a one-dimensional Kalman filter cycle: previous estimate flows to motion prediction, then to predicted estimate plus a widening uncertainty cloud, then combines with a new sensor measurement, then produces a corrected estimate with a narrower uncertainty cloud. Use simple arrows and minimal labels, precise geometric layout, premium robotics textbook style, white background, no clutter.",
+      "caption": "The Kalman filter repeats prediction and correction while carrying uncertainty from one cycle to the next.",
+      "alt_text": "Flow diagram of a Kalman filter showing prediction, sensor measurement, weighted correction, and updated estimate with changing uncertainty."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear corridor number-line diagram for beginners: a blue predicted position at 12.4 meters with a blue uncertainty cloud, a red sensor reading at 11.0 meters with a red uncertainty cloud, and a green corrected estimate at approximately 11.62 meters between them. Include subtle distance tick marks and concise labels, technically accurate, premium educational illustration.",
+      "caption": "The corrected estimate lies between prediction and measurement, closer according to their relative uncertainty.",
+      "alt_text": "Number line showing a prediction at 12.4 meters, a sensor measurement at 11.0 meters, and a corrected estimate near 11.62 meters."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a small wheeled RoboRover on an indoor test track beside a wall marker, with visual overlays showing wheel-encoder motion prediction, a range-sensor reading, and a corrected position estimate. The overlays should be sparse and technically meaningful, with arrows indicating prediction forward and correction toward the wall measurement. Realistic materials and lighting, premium robotics textbook editorial style.",
+      "caption": "Wheel motion supplies the prediction while a wall measurement supplies evidence for correction.",
+      "alt_text": "Small wheeled rover on an indoor test track using wheel encoders and a wall range measurement to estimate its position."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical plotting-focused educational visual showing three trajectories across update number: a smooth hidden true-position line, scattered noisy red sensor measurements, and a green Kalman estimate between them. Include a subtle inset showing uncertainty variance becoming smaller after correction. Clean axes, restrained colors, no invented numerical claims, premium robotics textbook style.",
+      "caption": "A simulation makes the hidden true position, noisy measurements, and filtered estimate visible together.",
+      "alt_text": "Plot-style diagram with a true-position line, scattered noisy sensor points, and a smoother green Kalman-filter estimate."
+    }
+  ]
+}
