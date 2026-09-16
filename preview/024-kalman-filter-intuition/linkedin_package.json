@@ -1,0 +1,8 @@
+{
+  "title": "Kalman Filter Intuition: How Robots Combine Motion Models and Sensor Evidence",
+  "description": "A practical introduction to Kalman filtering through RoboRover: prediction, uncertainty, correction, a worked calculation, and a runnable Python simulation.",
+  "commentary": "Robots rarely receive a perfect measurement of where they are. They estimate.\n\nThis lesson introduces Kalman filter intuition through a simple one-dimensional RoboRover example:\n\n\u2022 Predict position from motion and carry uncertainty forward.\n\u2022 Compare the prediction with a noisy sensor measurement.\n\u2022 Use the Kalman gain to determine how far the estimate should move.\n\u2022 Verify the mathematics with a worked example and Python code.\n\u2022 Experiment with measurement variance to see how trust changes the result.\n\nThe lesson also addresses practical failure modes, including sensor bias, incorrect uncertainty settings, delayed measurements, and wheel slip. That matters because filtering is not magic: a precise equation can still produce a poor estimate when its model or assumptions are wrong.\n\nTry the lab, change the measurement variance, and predict the graph before running it. What happens when the motion model becomes wrong halfway through the simulation?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #KalmanFilter #Python #SensorFusion",
+  "thumbnail_alt_text": "RoboRover combining wheel-motion prediction with a noisy sensor measurement in a Kalman filter",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}

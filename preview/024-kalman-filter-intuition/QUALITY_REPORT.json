@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2990,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 93,
+      "pedagogy": 91,
+      "clarity": 92,
+      "depth": 86,
+      "examples": 93,
+      "interactivity": 91,
+      "code_alignment": 94,
+      "visual_teaching_plan": 93,
+      "originality": 87,
+      "consistency": 94,
+      "accessibility": 90
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "State the simplifying assumptions explicitly: scalar position, linear motion model, independent errors, correctly specified variances, and approximately Gaussian uncertainty. This would prevent students from overgeneralizing the scalar equations to every Kalman-filter application.",
+      "Clarify that a range sensor measuring distance to a wall or landmark does not automatically provide absolute position; the geometry, landmark location, and sensor orientation must make that conversion valid.",
+      "Explain that Q is not merely uncertainty added because the robot moves. It represents uncertainty in the process model over the update interval, and its units and value depend on the chosen state and model.",
+      "The lesson is long for an intuition class. Consider shortening the repeated trust explanations and moving some failure-mode detail into an optional advanced section.",
+      "Add a short activity requiring students to calculate the gain for two contrasting Q/R settings before running the simulation. This would connect the equations to the later parameter experiment more directly.",
+      "The Python lab depends on matplotlib but does not state how to install it or what students should do if graphical display is unavailable. Add a brief environment note or a text-output fallback.",
+      "In the challenge, specify whether the simulated true motion changes at update index 15 or after completing update 15. This minor indexing ambiguity is easy to resolve for beginners.",
+      "The visual plan is strong, but the schematic and inline flow diagram partially overlap in purpose. Give the schematic a clearly distinct role, such as mapping state, uncertainty, and sensor evidence to physical robot components."
+    ],
+    "linkedin": {
+      "title": "Kalman Filter Intuition: How Robots Combine Motion Models and Sensor Evidence",
+      "description": "A practical introduction to Kalman filtering through RoboRover: prediction, uncertainty, correction, a worked calculation, and a runnable Python simulation.",
+      "commentary": "Robots rarely receive a perfect measurement of where they are. They estimate.\n\nThis lesson introduces Kalman filter intuition through a simple one-dimensional RoboRover example:\n\n\u2022 Predict position from motion and carry uncertainty forward.\n\u2022 Compare the prediction with a noisy sensor measurement.\n\u2022 Use the Kalman gain to determine how far the estimate should move.\n\u2022 Verify the mathematics with a worked example and Python code.\n\u2022 Experiment with measurement variance to see how trust changes the result.\n\nThe lesson also addresses practical failure modes, including sensor bias, incorrect uncertainty settings, delayed measurements, and wheel slip. That matters because filtering is not magic: a precise equation can still produce a poor estimate when its model or assumptions are wrong.\n\nTry the lab, change the measurement variance, and predict the graph before running it. What happens when the motion model becomes wrong halfway through the simulation?\n\n#Robotics #KalmanFilter #Python #SensorFusion",
+      "thumbnail_alt_text": "RoboRover combining wheel-motion prediction with a noisy sensor measurement in a Kalman filter"
+    },
+    "media_query": "mobile robot wheel encoders range sensor indoor corridor localization hardware",
+    "image_query": "mobile robot with visible wheel encoders and 2D lidar or range sensor indoor robotics laboratory",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the abstract prediction-correction cycle by showing where encoder motion and range measurements originate. The generated diagrams already teach the mathematical flow, so a photo should add physical context rather than repeat the schematic.",
+    "media_would_help": true
+  }
+}

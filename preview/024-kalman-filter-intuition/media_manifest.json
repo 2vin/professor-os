@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot wheel encoders range sensor indoor test track localization",
+  "media_style": "photo",
+  "reason": "A real photograph of a mobile robot with visible wheels, encoders, and a range sensor would ground the abstract prediction-and-correction cycle in physical hardware. The generated diagrams already explain the mathematics, so additional media should provide hardware context rather than repeat the filter schematic.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
