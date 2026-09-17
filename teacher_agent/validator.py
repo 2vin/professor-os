@@ -28,7 +28,7 @@ REQUIRED_HEADINGS = [
     '## Next Class',
 ]
 
-BLOCK_RE = re.compile(r'```python\\s+(.*?)```', re.S | re.I)
+BLOCK_RE = re.compile(r'```python\s+(.*?)```', re.S | re.I)
 
 
 def extract_python(markdown):
@@ -110,7 +110,7 @@ def validate_python_blocks(markdown, timeout=8):
                     env=env,
                 )
                 if proc.returncode != 0:
-                    errors.append('Block {0}: runtime error:\\n{1}'.format(
+                    errors.append('Block {0}: runtime error:\n{1}'.format(
                         index, proc.stderr[-1500:]))
             except subprocess.TimeoutExpired:
                 errors.append('Block {0}: timed out after {1}s.'.format(index, timeout))
