@@ -1,0 +1,8 @@
+{
+  "title": "Computer Vision Foundations: Teaching Robots to Read Pixels as Measurements",
+  "description": "A practical robotics lesson that connects RGB arrays, normalization, Python visualization, and camera uncertainty to the next step: thresholding and segmentation.",
+  "commentary": "A robot camera does not see \u201corange marker\u201d or \u201copen path.\u201d It records organized numerical measurements, and computer vision begins by learning how to interpret them.\n\nThis Professor OS lesson introduces students to:\n\n\u2022 Pixels as locations in a rectangular image array\n\u2022 RGB channels, 8-bit values, and normalization from 0\u2013255 to 0\u20131\n\u2022 Width, height, channels, and row-column indexing\n\u2022 A complete Python lab using nested RGB lists and Matplotlib\n\u2022 Why lighting, exposure, shadows, and noise make vision measurements uncertain\n\nThe RoboRover activities make the abstraction concrete: students predict how changing one channel changes a pixel and the image average, then experiment with a small simulated scene. The lesson ends by connecting pixel evidence to the next class on thresholding and segmentation.\n\nTry the Pixel Detective lab, then ask: what evidence would make a color-based decision unreliable?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#RoboticsEducation #ComputerVision #Python #STEM",
+  "thumbnail_alt_text": "RoboRover camera image represented as an RGB pixel array with numerical channel values",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image"
+}
