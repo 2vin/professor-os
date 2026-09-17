@@ -28,7 +28,7 @@ REQUIRED_HEADINGS = [
     '## Next Class',
 ]
 
-BLOCK_RE = re.compile(r'```python\s+(.*?)```', re.S | re.I)
+BLOCK_RE = re.compile(r'```python\\s+(.*?)```', re.S | re.I)
 
 
 def extract_python(markdown):
@@ -39,6 +39,41 @@ def validate_structure(markdown):
     return [h for h in REQUIRED_HEADINGS if h not in markdown]
 
 
+def _is_reference_only_expression(tree):
+    if not isinstance(tree, ast.Module) or len(tree.body) != 1:
+        return False
+
+    statement = tree.body[0]
+    if not isinstance(statement, ast.Expr):
+        return False
+
+    value = statement.value
+    if not isinstance(value, (ast.Name, ast.Attribute, ast.Subscript)):
+        return False
+
+    allowed = (
+        ast.Name,
+        ast.Attribute,
+        ast.Subscript,
+        ast.Load,
+        ast.Tuple,
+        ast.List,
+        ast.Slice,
+        ast.Constant,
+        ast.Str,
+        ast.Num,
+        ast.NameConstant,
+    )
+    if hasattr(ast, 'Index'):
+        allowed = allowed + (ast.Index,)
+
+    for node in ast.walk(value):
+        if not isinstance(node, allowed):
+            return False
+
+    return True
+
+
 def validate_python_blocks(markdown, timeout=8):
     errors = []
     blocks = extract_python(markdown)
@@ -47,12 +82,14 @@ def validate_python_blocks(markdown, timeout=8):
 
     for index, code in enumerate(blocks, 1):
         try:
-            ast.parse(code)
+            tree = ast.parse(code)
         except SyntaxError as exc:
             errors.append('Block {0}: syntax error: {1}'.format(index, exc))
             continue
 
-        # Hardware/large external frameworks are syntax-checked only in this lightweight validator.
+        if _is_reference_only_expression(tree):
+            continue
+
         hardware_imports = ('RPi', 'gpiozero', 'serial', 'rclpy', 'cv2', 'pybullet')
         if any(name in code for name in hardware_imports):
             continue
@@ -73,7 +110,7 @@ def validate_python_blocks(markdown, timeout=8):
                     env=env,
                 )
                 if proc.returncode != 0:
-                    errors.append('Block {0}: runtime error:\n{1}'.format(
+                    errors.append('Block {0}: runtime error:\\n{1}'.format(
                         index, proc.stderr[-1500:]))
             except subprocess.TimeoutExpired:
                 errors.append('Block {0}: timed out after {1}s.'.format(index, timeout))
