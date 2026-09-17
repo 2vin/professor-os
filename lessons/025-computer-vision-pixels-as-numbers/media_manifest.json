@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational wheeled robot camera viewing an orange calibration marker in bright light and shadow, robotics lab photograph",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph would ground the abstract pixel-array discussion in physical hardware and make the relationship between illumination, camera placement, and measured pixel values more concrete. The lesson's diagrams already explain the numerical abstraction, so additional media should be limited to one technically clear photograph rather than decorative footage.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
