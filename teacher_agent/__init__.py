@@ -27,3 +27,10 @@ install_visual_integrity_hook()
 from .heading_integrity import install_runtime_hook as install_heading_integrity_hook
 
 install_heading_integrity_hook()
+
+# Every automatic LinkedIn post must begin with the deterministic Professor OS
+# class headline, using the same Unicode bold style regardless of AI-generated
+# marketing copy.
+from .linkedin_headline import install_runtime_hook as install_linkedin_headline_hook
+
+install_linkedin_headline_hook()
