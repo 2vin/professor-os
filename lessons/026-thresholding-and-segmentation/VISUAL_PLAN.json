@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium robotics textbook illustration of RoboRover, a small wheeled inspection rover, viewing a dark laboratory floor with a bright rectangular marker through a downward-facing camera. Show a clean visual transition from the grayscale camera image to a stark black-and-white binary mask, with the bright marker represented as a white foreground region. Technically plausible camera placement, realistic materials, restrained modern editorial style, high clarity, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover converts camera brightness measurements into a binary mask that highlights a possible floor marker.",
+    "alt_text": "Small wheeled rover with a downward camera above a dark floor and bright marker, alongside a grayscale image and corresponding black-and-white threshold mask."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A clean technical diagram teaching image thresholding. Show a grayscale pixel grid on the left, a vertical intensity scale from 0 to 255 in the center with a clearly marked threshold T, and a binary black-and-white mask on the right. Use arrows showing pixels below T becoming 0 and pixels at or above T becoming 1. Include only essential labels, professional robotics textbook composition, high visual clarity.",
+      "caption": "Thresholding replaces each intensity value with a binary decision based on a cutoff.",
+      "alt_text": "Diagram showing grayscale pixels compared with a threshold and converted into a black-and-white binary mask."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A technically precise educational diagram showing exactly the 4 by 5 grayscale matrix from the lesson: [20, 35, 40, 180, 210]; [25, 45, 155, 190, 205]; [30, 50, 60, 170, 220]; [15, 40, 130, 160, 200]. Show the threshold value T equals 150 and the resulting exact 4 by 5 binary mask: [0, 0, 0, 1, 1]; [0, 0, 1, 1, 1]; [0, 0, 0, 1, 1]; [0, 0, 0, 1, 1]. Highlight values at or above 150 and show exactly nine foreground pixels and an approximate area of 36 mm\u00b2 using 2 mm square pixels. Use restrained typography, clear alignment, no unnecessary decoration.",
+      "caption": "The worked example contains nine selected foreground pixels, giving an approximate area of 36 mm\u00b2 when each pixel represents a 2 mm by 2 mm surface square.",
+      "alt_text": "Grayscale matrix with threshold 150 beside its exact binary mask, showing nine foreground pixels and an area calculation of 36 square millimetres using two millimetre pixels."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A premium technical illustration of a Python computer-vision experiment with two side-by-side panels: a simulated grayscale camera image containing a bright circular marker and a binary mask panel. Include a simple threshold slider below the panels, with the mask visibly changing as the threshold changes. Show a laptop or monitor in a clean robotics lab, realistic engineering context, no readable code text, no watermark.",
+      "caption": "The Python lab lets the learner change the threshold and observe how the selected region changes.",
+      "alt_text": "Computer display showing a simulated grayscale image, its binary threshold mask, and a threshold slider for interactive experimentation."
+    }
+  ]
+}
