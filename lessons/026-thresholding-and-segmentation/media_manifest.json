@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small educational mobile robot downward camera bright tape marker dark laboratory floor real photograph",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the otherwise simulated pipeline in physical robotics and help learners connect a binary mask to camera placement, floor texture, reflections, and lighting conditions. The existing generated diagrams are appropriate for abstract explanation; a single carefully chosen hardware photo would add realism without replacing them.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
