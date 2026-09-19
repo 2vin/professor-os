@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover viewing a floor scene through a forward-facing camera, with a bright triangular marker and rectangular marker segmented in the image; show a clean inset progression from camera image to binary mask to colored contour outlines and labeled bounding boxes, technically plausible small wheeled rover, realistic materials, restrained modern editorial styling, clear geometry, no decorative sci-fi elements, no watermark",
+    "caption": "RoboRover turns segmented image regions into measurable boundaries and shape clues.",
+    "alt_text": "A small wheeled rover camera views two floor markers, with an inset showing their binary mask, contour outlines, and bounding rectangles."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram showing the contour-processing pipeline: grayscale camera image, thresholded black-and-white mask, connected foreground regions, ordered boundary contours, and final measurements for area, perimeter, centroid, and bounding box; use simple arrows, restrained colors, precise image-coordinate axes, premium robotics textbook design, minimal essential labels only",
+      "caption": "A contour pipeline converts segmented pixels into geometric measurements.",
+      "alt_text": "A five-stage diagram shows a camera image becoming a binary mask, then connected regions, contour boundaries, and labeled geometric measurements."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational technical illustration of a white triangle on a black image background with the filled region, green contour boundary, blue axis-aligned bounding rectangle, magenta centroid point, and a simplified three-segment polygon approximation shown in aligned panels; include image coordinates with x rightward and y downward, premium textbook clarity",
+      "caption": "The same object can be viewed as a filled region, a boundary, a box, a centroid, or a simplified polygon.",
+      "alt_text": "A triangle in a binary image is annotated with its contour, blue bounding rectangle, magenta centroid, image axes, and simplified polygon."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical editorial illustration of RoboRover analyzing three segmented floor regions: a tiny noise blob, a wide rectangular marker, and a roughly circular marker; show a hypothetical measurement table beside them with area, perimeter, bounding width and height, and highlight the rejected noise blob and the shape evidence for the two larger candidates, realistic floor and camera perspective, no clutter",
+      "caption": "Area filters remove noise, while perimeter and bounding-box measurements provide evidence about shape.",
+      "alt_text": "Three segmented floor regions are compared by contour area, perimeter, and bounding dimensions, with a small noise region rejected."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "photorealistic generated engineering illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a compact educational rover using a front camera to detect a painted charging marker on a laboratory floor; show a subtle visualization overlay of the marker's green contour, blue axis-aligned bounding box, and magenta pixel centroid, technically plausible camera placement and wheel geometry, realistic lighting, premium robotics publication style, no floating decorative graphics, no watermark",
+      "caption": "In a real robot, contour measurements are combined with color, position, and frame-to-frame consistency.",
+      "alt_text": "A small rover camera detects a floor charging marker with a green contour, blue bounding-box overlay, and magenta pixel centroid in a realistic laboratory environment."
+    }
+  ]
+}
