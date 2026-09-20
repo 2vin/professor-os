@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot camera calibration checkerboard real hardware field of view",
+  "media_style": "mixed",
+  "reason": "The generated diagrams adequately teach the abstract geometry, but a real photograph of a rover camera and a calibration target would ground intrinsic calibration, camera mounting, and lens distortion in physical hardware. A short calibration video could further show why image measurements differ from the ideal pinhole model without replacing the core diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
