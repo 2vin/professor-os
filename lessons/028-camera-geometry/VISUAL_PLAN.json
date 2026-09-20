@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover facing an orange inspection marker in a workshop corridor, with a technically accurate camera field-of-view wedge extending from the front camera toward the marker, subtle projected image-plane geometry, clean engineering materials, restrained modern blue and orange palette, realistic lighting, no decorative sci-fi elements, no watermark, minimal essential labels only. Show the wedge as a 2D slice of a 3D camera frustum rather than as the complete frustum.",
+    "caption": "RoboRover uses camera geometry to relate a 3D marker in the world to its 2D position and apparent size in the image. The wedge is a 2D slice of the camera's 3D viewing frustum.",
+    "alt_text": "RoboRover viewing an orange marker through a camera field-of-view wedge in a corridor, illustrating projection from the physical scene to an image; the wedge represents a two-dimensional slice of the three-dimensional camera frustum."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear technical diagram showing a 3D point with coordinates X, Y, Z in front of a simplified pinhole camera and its projected 2D point on an image plane with coordinates u and v; include straight light rays, optical center, camera forward axis, and a visually obvious mapping from 3D scene to 2D image; premium robotics textbook style, restrained colors, precise geometry, minimal labels.",
+      "caption": "Projection converts a 3D scene point into a 2D image coordinate, losing some depth information.",
+      "alt_text": "Pinhole camera diagram with a 3D point projected by straight rays onto a 2D image plane, labeled with world and image coordinates."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Top-down and side-view educational diagram of RoboRover camera field of view, showing two boundary rays forming a wedge and three identical orange markers at near, middle, and far distances; markers appear progressively smaller in the image; technically plausible rover camera, clean white background, premium engineering publication styling, no clutter.",
+      "caption": "The same physical object occupies fewer image pixels as its distance from the camera increases.",
+      "alt_text": "Two-view camera geometry diagram showing field-of-view boundary rays and identical markers appearing smaller at greater distances."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical illustration of RoboRover camera image with a 640-pixel-wide frame, optical center marked near pixel 320, and an orange beacon appearing at pixel 420; beside it show the physical beacon to the right of the camera centerline and a simple projection ray; premium robotics textbook visual, accurate coordinate labels, restrained colors, no excessive text.",
+      "caption": "A beacon to the right of the camera centerline appears to the right of the optical center in the image.",
+      "alt_text": "RoboRover camera geometry example showing an orange beacon projected to the right side of a 640-pixel image."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical visualization of a Python camera-geometry simulation: side-view camera at the origin, two blue field-of-view rays calculated from the vertical field of view and forming a two-dimensional slice of a 3D camera frustum, and an orange vertical marker at a measured distance; include axes in metres and emphasize that the marker is represented in world coordinates while its projected pixel height is calculated; premium educational engineering style.",
+      "caption": "The simulation combines a world-coordinate 2D slice of the camera frustum with a pinhole-model calculation of apparent image height.",
+      "alt_text": "Side-view simulation diagram with a camera, vertical-field-of-view rays, axes in metres, and an orange marker at a known distance."
+    }
+  ]
+}
