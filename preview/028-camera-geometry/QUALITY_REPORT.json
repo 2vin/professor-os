@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 4779,
+    "code_blocks": 4,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4779 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 89,
+      "clarity": 87,
+      "depth": 92,
+      "examples": 92,
+      "interactivity": 88,
+      "code_alignment": 96,
+      "visual_teaching_plan": 87,
+      "originality": 86,
+      "consistency": 91,
+      "accessibility": 83
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Replace the generic alt text for diagram.png with a precise description of the camera frame, optical axis, image plane, projected point, and field-of-view rays; the current alt text is not sufficiently useful for screen-reader users.",
+      "Reduce repetition around coordinate conventions, cropping, calibration, and model assumptions. These caveats are technically valuable but recur often enough to interrupt the foundational learning flow.",
+      "Add one compact transition explaining why the length-coordinate equations use a virtual image plane while the physical sensor is behind the pinhole. The current explanation is correct but arrives after the first projection equations and may confuse beginners.",
+      "Clarify that the image-center steering rule is a heuristic for a particular camera and vehicle configuration, not a general consequence of camera geometry. The later qualification is good but should appear immediately beside the initial steering bullets.",
+      "The lesson is mathematically strong but text-heavy. Consider moving some advanced material, such as rolling shutter and detailed uncertainty discussion, into an optional extension or collapsible enrichment section.",
+      "Add a brief calibration-target activity or photograph showing a real rover camera, checkerboard target, and lens-distortion effect. This would connect intrinsic parameters and calibration to hardware rather than leaving them entirely abstract.",
+      "The vocabulary definitions for optical center and principal point are careful, but their distinction could be made more explicit: the principal point is a calibrated image parameter, while optical center can be used more informally and is not necessarily the geometric image center.",
+      "Provide a short expected-output block for the Python lab immediately after the code, before the longer explanation, so learners can quickly verify a successful run.",
+      "The exercise design is strong, but the distance-estimation example would benefit from explicitly stating that the known dimension must be parallel to the image plane, or from distinguishing this simplified case from full pose-aware measurement."
+    ],
+    "linkedin": {
+      "title": "Camera Geometry for Robotics: From 3D Scene Points to 2D Image Measurements",
+      "description": "A practical robotics lesson on pinhole projection, field of view, camera calibration, intrinsic and extrinsic parameters, and a Python simulation for RoboRover.",
+      "commentary": "A camera image is not a map of the world. It is a projection that compresses 3D geometry into 2D pixels.\n\nThis Professor OS lesson uses RoboRover to build an intuitive and mathematical understanding of camera geometry:\n\n\u2022 how the pinhole model maps camera-frame coordinates to pixels\n\u2022 why apparent size decreases with distance\n\u2022 how focal length and sensor dimensions determine field of view\n\u2022 how intrinsic parameters differ from extrinsic transformations\n\u2022 how to test the relationships in a runnable Python simulation\n\nStudents also examine calibration, lens distortion, image cropping, coordinate conventions, and the limits of estimating distance from apparent object size. The prediction-first experiment makes the inverse-distance relationship concrete: doubling distance should halve projected height.\n\nTry the lab with a different focal length, marker size, or distance, then compare the prediction with the generated plot. What changes when the camera is resized, cropped, or physically tilted?\n\n#Robotics #ComputerVision #STEMEducation #Python",
+      "thumbnail_alt_text": "RoboRover camera projecting a 3D marker onto a 2D image plane with field-of-view rays"
+    },
+    "media_query": "robot rover camera calibration checkerboard target intrinsic parameters lens distortion",
+    "image_query": "robotics camera mounted on rover with checkerboard calibration target, engineering documentation photograph",
+    "youtube_query": "camera calibration checkerboard lens distortion robotics tutorial",
+    "media_style": "mixed",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams teach the abstract projection and field-of-view mathematics well, but a real hardware photograph would ground camera mounting, calibration targets, and physical lens distortion. A short calibration video could demonstrate why measured image points depart from the ideal pinhole model without replacing the lesson's diagrams.",
+    "media_would_help": true
+  }
+}
