@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration of RoboRover in a clean indoor test arena viewing a camera image overlay. Show three clearly drawn bounding boxes around a blue supply crate, a yellow cone, and a red navigation beacon, with restrained technical labels for class names and confidence values. Include subtle image-coordinate arrows with x increasing rightward and y increasing downward. Use technically plausible rover hardware, realistic materials and lighting, professional editorial composition, high visual clarity, no decorative sci-fi elements, no clutter, and no large text blocks.",
+    "caption": "RoboRover\u2019s camera system reports where an object is, what class it may belong to, and how strongly the detector supports the result.",
+    "alt_text": "A small mobile rover views an indoor arena while an annotated camera image shows colored bounding boxes around a crate, cone, and beacon with class labels and confidence scores."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram showing one camera image divided into three concepts: a rectangular bounding box labeled where, a class label labeled what, and a numerical confidence score labeled how strongly supported. Use a blue crate as the example object, with clean arrows from the image region to the three reported detection fields. Professional robotics textbook style, restrained colors, minimal essential labels, no decorative imagery.",
+      "caption": "An object-detection result combines location, category, and evidence strength.",
+      "alt_text": "A diagram of a camera image with a box around a crate and three callouts identifying its location, class, and confidence."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Precise image-coordinate diagram for a 640 by 480 pixel camera frame containing a blue supply crate inside a bounding box with corners at left 180, top 120, right 340, bottom 300 pixels. Mark the box center at 260, 210 pixels, show the image center at 320, 240 pixels, and include clear x-right and y-down coordinate arrows. Include a small confidence label 0.86. Premium technical illustration, uncluttered, accurate geometry.",
+      "caption": "The box edges can be used to calculate width, height, and center in pixel units.",
+      "alt_text": "A 640 by 480 image-coordinate diagram showing a crate box from 180,120 to 340,300 pixels, its center, and the camera image center."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean robotics perception pipeline diagram showing four stages: camera image, candidate bounding boxes, class and confidence outputs, and a later robot behavior decision. Use RoboRover and a crate example. Visually distinguish perception from action with separate colored regions, and include a subtle note that a single detection is not yet tracking. Professional engineering textbook design, technically plausible, minimal text.",
+      "caption": "Detection supplies evidence to later robot behaviors; it does not by itself decide what the robot should do.",
+      "alt_text": "A four-stage diagram from camera image through detected boxes and confidence labels to a rover behavior decision, with perception separated from action."
+    }
+  ]
+}

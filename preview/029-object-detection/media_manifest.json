@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot camera object detection bounding boxes indoor robotics lab",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph of a mobile robot or warehouse rover using camera-based detection would ground the otherwise simulated diagrams in physical hardware. It should be paired with the existing technical diagrams rather than replace them, and should avoid unverifiable claims about a specific detector.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
