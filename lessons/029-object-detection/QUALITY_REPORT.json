@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2753,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 92,
+      "clarity": 94,
+      "depth": 89,
+      "examples": 92,
+      "interactivity": 92,
+      "code_alignment": 96,
+      "visual_teaching_plan": 89,
+      "originality": 86,
+      "consistency": 94,
+      "accessibility": 92
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify whether the bounding-box convention uses inclusive or exclusive right and bottom edges, since this can affect width and height by one pixel in some APIs.",
+      "Briefly distinguish detector confidence from architecture-specific scores such as objectness, class probability, or combined confidence. The current explanation is appropriately cautious but still presents one generalized interpretation.",
+      "The second crate candidate is described as possibly a duplicate, but duplicate-box suppression is not explained. Add one sentence noting that real pipelines often use duplicate-removal methods such as non-maximum suppression, while keeping the topic out of scope.",
+      "Add a short environment note stating that the lab requires Python, matplotlib, and a display-capable environment, or provide a no-plot fallback for learners working without a graphical interface.",
+      "The lesson is strong visually, but the generated diagrams are all schematic. A carefully sourced real photograph of a mobile robot or warehouse rover using camera-based detection would improve physical grounding without replacing the existing explanatory figures.",
+      "Consider adding one explicit question about detector latency and moving objects in the worked example, since latency is mentioned later and is an important bridge to tracking.",
+      "The phrase 'cannot reliably produce a meaningful wheel result' could be tightened to 'a conventional closed-set detector trained without a wheel class will not reliably recognize wheels,' which avoids overgeneralizing to open-vocabulary detectors."
+    ],
+    "linkedin": {
+      "title": "Object Detection for Robotics: From Pixels to Bounding Boxes, Classes, and Confidence",
+      "description": "A practical robotics lesson that explains bounding boxes, classes, confidence thresholds, image coordinates, and a transparent Python simulation for RoboRover.",
+      "commentary": "Object detection becomes much easier to reason about when its output is treated as a structured engineering claim rather than a mysterious label.\n\nThis Professor OS lesson guides learners from pixels to three core elements:\n\n\u2022 where an object appears, using a bounding box;\n\u2022 what category it may belong to, using a class;\n\u2022 how strongly the detector supports the result, using confidence.\n\nStudents calculate box dimensions and centers, examine image-coordinate conventions, and test threshold trade-offs in a small Python simulation. The lesson also makes an essential distinction: perception proposes evidence, while later behavior logic decides whether a robot should approach, avoid, display, or ignore an object.\n\nTry the lab by changing the confidence threshold and predicting which candidates RoboRover will accept. Then consider how the same detection changes when lighting, motion, occlusion, or processing delay affects the camera stream.\n\n#Robotics #ComputerVision #STEMEducation",
+      "thumbnail_alt_text": "RoboRover camera image with labeled bounding boxes for crate, cone, and beacon"
+    },
+    "media_query": "real mobile robot or warehouse rover camera object detection bounding boxes physical hardware",
+    "image_query": "mobile robot camera detecting crate warehouse rover bounding box",
+    "youtube_query": "mobile robot camera object detection bounding boxes warehouse demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real, verifiable photograph would connect the simulated boxes and labels to physical camera hardware, rover mounting, lighting, and operating context. It should supplement the generated technical diagrams rather than claim performance for a specific detector.",
+    "media_would_help": true
+  }
+}
