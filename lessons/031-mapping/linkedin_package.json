@@ -1,0 +1,10 @@
+{
+  "title": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udfed \u00b7 \ud835\udde0\ud835\uddee\ud835\uddfd\ud835\uddfd\ud835\uddf6\ud835\uddfb\ud835\uddf4",
+  "description": "A practical robotics lesson on coordinate frames, occupancy, unknown space, map updates, and the uncertainty behind every robot-generated map.",
+  "commentary": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udfed \u00b7 \ud835\udde0\ud835\uddee\ud835\uddfd\ud835\uddfd\ud835\uddf6\ud835\uddfb\ud835\uddf4\n\nA robot does not see a finished map. It builds one gradually from partial, noisy observations.\n\nThis lesson introduces the foundations of robotic mapping through RoboRover:\n\n\u2022 the difference between a sensor snapshot and a persistent world model;\n\u2022 occupied, free, and unknown space;\n\u2022 converting robot-relative measurements into map coordinates;\n\u2022 why calibration, heading error, sensor noise, and moving objects matter;\n\u2022 a hands-on Python occupancy-map exercise with prediction checks and assertions.\n\nThe central idea is simple but important: unknown is not the same as free. A reliable robot must represent not only what it believes, but also where that belief is uncertain and when it was last checked.\n\nTry the lab, predict the cell counts before running it, then extend the map with a third observation batch. What assumptions would your own mapping system need to make?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #Mapping #Python #STEMEducation",
+  "thumbnail_alt_text": "RoboRover building an occupancy map from sensor observations in a workshop",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image",
+  "headline": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udfed \u00b7 \ud835\udde0\ud835\uddee\ud835\uddfd\ud835\uddfd\ud835\uddf6\ud835\uddfb\ud835\uddf4",
+  "headline_style": "unicode_math_sans_serif_bold"
+}
