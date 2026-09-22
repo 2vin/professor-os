@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2914,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 89,
+      "pedagogy": 92,
+      "clarity": 93,
+      "depth": 87,
+      "examples": 92,
+      "interactivity": 91,
+      "code_alignment": 95,
+      "visual_teaching_plan": 90,
+      "originality": 86,
+      "consistency": 93,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Explicitly state that the coordinate equations assume the sensor is colocated with the robot reference point and measures directly along the robot's forward axis; briefly introduce sensor-to-robot extrinsic calibration as the general case.",
+      "Label the Python lab as a categorical teaching model rather than a realistic occupancy-mapping algorithm. The last-reading-wins update rule does not represent probabilistic evidence accumulation and could otherwise create an inaccurate expectation of how real occupancy grids work.",
+      "Clarify the distinction between object-level mapping with data association and occupancy mapping. The crate example appropriately mentions identity, but the lesson could state more directly that recognizing the same crate is a separate perception and data-association problem.",
+      "Add one explicit numerical example showing how a small heading error changes the estimated position at a longer range. This would make the calibration discussion more concrete without requiring advanced mathematics.",
+      "The phrase 'occupied' as 'solid or impassable' slightly conflates physical occupancy with navigational traversability. State that a cell may contain matter while traversability also depends on robot size, clearance, and task constraints.",
+      "Consider reducing the repeated reminders that maps are estimates and unknown is not free. These points are essential, but they recur often enough that the lesson could be shortened modestly while preserving emphasis.",
+      "Add a short accessibility note for the plot: state the exact state-to-color mapping in text near the code output and avoid relying on grayscale contrast alone for occupied, free, and unknown."
+    ],
+    "linkedin": {
+      "title": "Mapping Fundamentals: How Robots Turn Sensor Observations into World Models",
+      "description": "A practical robotics lesson on coordinate frames, occupancy, unknown space, map updates, and the uncertainty behind every robot-generated map.",
+      "commentary": "A robot does not see a finished map. It builds one gradually from partial, noisy observations.\n\nThis lesson introduces the foundations of robotic mapping through RoboRover:\n\n\u2022 the difference between a sensor snapshot and a persistent world model;\n\u2022 occupied, free, and unknown space;\n\u2022 converting robot-relative measurements into map coordinates;\n\u2022 why calibration, heading error, sensor noise, and moving objects matter;\n\u2022 a hands-on Python occupancy-map exercise with prediction checks and assertions.\n\nThe central idea is simple but important: unknown is not the same as free. A reliable robot must represent not only what it believes, but also where that belief is uncertain and when it was last checked.\n\nTry the lab, predict the cell counts before running it, then extend the map with a third observation batch. What assumptions would your own mapping system need to make?\n\n#Robotics #Mapping #Python #STEMEducation",
+      "thumbnail_alt_text": "RoboRover building an occupancy map from sensor observations in a workshop"
+    },
+    "media_query": "mobile robot LiDAR mapping workshop coordinate frames calibration sensor photograph",
+    "image_query": "professional photograph of a mobile robot using LiDAR to map an indoor workshop, visible sensors and calibration context",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the abstract map and coordinate ideas well, but a carefully selected real hardware photograph would ground the discussion in recognizable sensors, robot geometry, mounting offsets, and calibration constraints. It should supplement rather than replace the existing diagrams.",
+    "media_would_help": true
+  }
+}
