@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot lidar sensor mapping workshop real photograph",
+  "media_style": "mixed",
+  "reason": "A real hardware photograph would connect the coordinate-frame and uncertainty discussion to recognizable sensors, robot geometry, and calibration constraints. A short mapping demonstration could further show how changing viewpoints reveal previously unknown space; it should supplement rather than replace the lesson's diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
