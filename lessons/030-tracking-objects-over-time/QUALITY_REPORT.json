@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3848,
+    "code_blocks": 5,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 3848 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 93,
+      "pedagogy": 88,
+      "clarity": 89,
+      "depth": 91,
+      "examples": 91,
+      "interactivity": 88,
+      "code_alignment": 92,
+      "visual_teaching_plan": 90,
+      "originality": 84,
+      "consistency": 89,
+      "accessibility": 85
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove the duplicated missed-frame code block. The same complete snippet appears first under \u201cImportant lines\u201d and then again under \u201cWhen a track is missed,\u201d adding substantial repetition without new instruction.",
+      "Make the association-count explanation explicit at the moment the baseline code is introduced: the first frame initializes tracks, so only the following four frames produce two successful associations each, giving 8 total.",
+      "Add one short warning that a fixed distance threshold is frame-rate dependent and may need to scale with elapsed time or uncertainty. The lesson mentions time qualitatively, but connecting it directly to the threshold would strengthen the control and estimation reasoning.",
+      "Clarify that the greedy matcher is deterministic here because candidates are sorted by distance, but it is not globally optimal. The lesson states this earlier, and a brief cross-reference near the code would improve continuity.",
+      "The standalone missed-frame example intentionally omits last_measured_position, but explicitly label it as a simplified illustration so beginners do not infer that it is a complete substitute for the main tracker state.",
+      "Improve the alt text for diagram.png. \u201cProfessor OS engineering schematic\u201d does not communicate the visual\u2019s educational content; it should describe the prediction, detection, association, and update flow.",
+      "Consider adding a small table of expected baseline output and one representative association log entry. This would make verification easier for beginners without materially increasing complexity.",
+      "The real-robot section would benefit from naming the camera model assumptions more concretely, such as monocular versus depth camera, while retaining the current introductory treatment of coordinate transformations."
+    ],
+    "linkedin": {
+      "title": "Tracking Objects Over Time: Prediction, Association, and Robust Robot Perception",
+      "description": "A practical robotics lesson on connecting detections across frames, predicting motion, handling missed observations, and understanding identity switches through code and experiments.",
+      "commentary": "A robot that detects an object in one image still does not know whether the next detection belongs to the same object.\n\nThis lesson introduces object tracking through a practical one-dimensional RoboRover simulation:\n\n\u2022 Predict where an object should appear next using a constant-velocity model.\n\u2022 Associate new detections with existing tracks.\n\u2022 Handle missed detections without immediately deleting an object.\n\u2022 See why crossings, occlusion, and similar objects can cause identity switches.\n\u2022 Connect image observations to calibrated world coordinates and future mapping.\n\nThe Python lab is intentionally small enough to inspect line by line, while still exposing real engineering trade-offs such as greedy matching, gating thresholds, track deletion, and uncertainty.\n\nTry the lab, remove one detection, and predict what the tracker will do before running the code. That simple experiment makes temporal reasoning visible.\n\n#Robotics #ComputerVision #RoboticsEducation #Python",
+      "thumbnail_alt_text": "Mobile robot tracking a moving toolbox while distinguishing it from stationary wall features"
+    },
+    "media_query": "real mobile robot corridor camera view occlusion moving toolbox stationary wall feature robotics",
+    "image_query": "mobile robot RGB-D camera in corridor observing a partially occluded moving toolbox and stationary wall features",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain prediction and association well, but a carefully selected real photograph would ground the distinction between image observations, occlusion, camera motion, and stationary versus moving objects in a physical robot scene.",
+    "media_would_help": true
+  }
+}
