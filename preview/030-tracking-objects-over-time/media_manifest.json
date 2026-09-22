@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real mobile robot with RGB camera observing a moving toolbox or person in a laboratory corridor object tracking",
+  "media_style": "photo",
+  "reason": "The lesson already has an excellent generated visual plan for abstract prediction and association. A real photograph at the robot-connection section would add physical grounding by showing camera placement, occlusion, scale, and the difference between image observations and the robot's environment.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact indoor mobile research robot, observing two colored toolbox-like objects moving along a laboratory floor. Show subtle translucent motion trails, predicted future positions as dashed paths, and clean sensor-view overlays suggesting object tracks over several moments. Premium robotics textbook editorial style, technically plausible camera and wheels, restrained modern laboratory lighting, no decorative sci-fi elements, no watermarks, minimal essential labels only.",
+    "caption": "RoboRover links detections from successive moments to maintain object tracks and predict motion.",
+    "alt_text": "Compact mobile robot in a laboratory tracking two moving objects with colored trails and dashed predicted positions."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean technical diagram showing the object-tracking pipeline: existing tracks flow into motion prediction, new detections arrive, association connects each detection to a predicted track, and updated tracks continue forward in time. Use two colored object paths, solid circles for measurements, dashed circles or lines for predictions, arrows between four stages, and a restrained robotics textbook visual language. Avoid dense text and decorative imagery.",
+      "caption": "Tracking repeatedly predicts, associates, and updates rather than treating every image as an unrelated observation.",
+      "alt_text": "Four-stage diagram showing existing tracks, predicted positions, new detections, and updated tracks connected in a loop."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Top-down educational sequence of five time snapshots showing RoboRover tracking one orange toolbox moving from 2 metres to just over 5 metres, with one missed detection in the middle. Use solid orange circles for measured positions, a dashed predicted position during the missed frame, a horizontal distance scale, and clear time progression. Premium technical illustration, uncluttered, no unnecessary labels.",
+      "caption": "A tracker can preserve a short-lived motion hypothesis when an object is missing from one frame.",
+      "alt_text": "Five sequential top-down snapshots of an orange toolbox moving along a line, including a dashed predicted position during one missed observation."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical one-dimensional association diagram for RoboRover: show an old toolbox position at 2.4 metres, a predicted position at 2.8 metres using a rightward velocity arrow, a measured detection at 2.9 metres marked as a close match, and another detection at 4.1 metres marked as too far away. Include a clear number line in metres and restrained equation-style annotations for prediction and distance threshold. Premium robotics textbook math illustration, precise spacing, minimal text.",
+      "caption": "The predicted position and gating threshold make one detection plausible and reject the distant alternative.",
+      "alt_text": "Number-line diagram showing a predicted toolbox position at 2.8 metres, a nearby accepted detection at 2.9 metres, and a distant rejected detection at 4.1 metres."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of RoboRover in a laboratory corridor with a stationary wall feature, a moving toolbox, and a person partly occluding the toolbox. Overlay two restrained visual layers: a stable landmark marker for the wall and a moving-object track with a short predicted path for the toolbox. Clearly communicate why tracking moving objects matters before mapping. Technically plausible robot sensors, realistic materials and lighting, premium robotics textbook editorial composition, no clutter or watermark.",
+      "caption": "Tracking helps RoboRover separate moving objects from features that may belong in a map.",
+      "alt_text": "Mobile robot in a corridor distinguishing a stationary wall feature from a tracked moving toolbox partly hidden by a person."
+    }
+  ]
+}
