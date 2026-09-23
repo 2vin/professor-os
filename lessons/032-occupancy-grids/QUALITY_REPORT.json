@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 3,
+  "static": {
+    "passed": true,
+    "word_count": 4170,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4170 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 93,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 95,
+      "clarity": 94,
+      "depth": 94,
+      "examples": 93,
+      "interactivity": 95,
+      "code_alignment": 94,
+      "visual_teaching_plan": 94,
+      "originality": 88,
+      "consistency": 94,
+      "accessibility": 94
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify even more explicitly that a range return supports clearance only along the modeled beam, not necessarily throughout the entire endpoint cell; the current wording is careful but the initial definition of \u201cfree\u201d could still be read as stronger than the evidence warrants.",
+      "Add a compact instructor answer key for the five Mini Simulation predictions, especially the exact qualitative result of the crate visibility and the effect of the diagonal approximation.",
+      "State near the beginning of the Python Lab that the simulation operates directly in grid coordinates after the initial position conversion, so beginners do not infer that the ray loop models arbitrary world-frame sensor orientations.",
+      "Consider adding one short exercise involving a non-axis-aligned robot heading or an origin offset in both x and y. This would connect the coordinate equations more directly to realistic sensor placement without substantially expanding the lesson.",
+      "The lesson is highly complete but somewhat long for a foundational class. Several caveats about uncertainty, endpoint interpretation, and simplified ray traversal could be consolidated into one focused \u201cWhat the model leaves out\u201d subsection."
+    ],
+    "linkedin": {
+      "title": "Occupancy Grids: How Robots Turn Range Measurements into Maps",
+      "description": "A hands-on robotics lesson showing how sensor beams update free, occupied, and unknown cells, with coordinate math, a Python simulation, and practical mapping limits.",
+      "commentary": "A robot does not begin with a perfect map. It builds an evidence-based approximation from sensor measurements, one small cell at a time.\n\nThis Professor OS lesson on occupancy grids guides learners through:\n\n\u2022 the difference between free, occupied, and unknown space;\n\u2022 converting world coordinates into grid indices;\n\u2022 updating cells along a range-sensor beam;\n\u2022 resolution, memory, pose error, and robot footprint;\n\u2022 a Python simulation that compares hidden reality with the robot\u2019s partial map.\n\nThe strongest teaching feature is the deliberate separation between the hidden environment and RoboRover\u2019s incomplete belief about it. Students can change the robot position, sensor directions, range, and obstacles, then observe how coverage and uncertainty change.\n\nTry the lab, remove the diagonal rays, and explain which regions remain unknown. That small experiment reveals why mapping, sensing, and localization must be designed together.\n\n#Robotics #RobotMapping #Python #STEMEducation",
+      "thumbnail_alt_text": "RoboRover sensor rays updating free, occupied, and unknown cells in an occupancy grid"
+    },
+    "media_query": "mobile robot lidar occupancy grid mapping range sensor indoor robot",
+    "image_query": "mobile robot equipped with 2D lidar scanning an indoor room, engineering documentation photograph",
+    "youtube_query": "mobile robot lidar occupancy grid mapping visualization",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real hardware photograph would ground the abstract grid, ray, and pose concepts in a recognizable robot while preserving the generated schematics for precise cell and coordinate explanations. It should be used as a contextual supplement rather than as the primary instructional diagram.",
+    "media_would_help": true
+  }
+}
