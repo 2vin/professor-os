@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled robot, viewed from above inside a clean indoor room with a transparent square occupancy-grid overlay. Clearly show red occupied cells around walls and a crate, pale gray unknown cells, and blue-white free cells along sensor beams. Professional robotics textbook composition, technically plausible range sensor, restrained modern colors, high visual clarity, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover builds an occupancy grid by classifying observed cells as free, occupied, or unknown.",
+    "alt_text": "Top-down engineering illustration of a wheeled robot in a room with a square grid overlay, showing free cells along sensor beams, occupied cells at walls and a crate, and many unobserved gray cells."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical top-down diagram for a robotics textbook showing a square occupancy grid over a simple room. Use three visually distinct cell styles: light blue for free, dark red for occupied, and pale gray with question marks for unknown. Include a small RoboRover icon and a narrow sensor beam that passes through free cells and ends at one occupied cell. Use sparse labels: free, occupied, unknown. No decorative clutter.",
+      "caption": "An occupancy grid stores local evidence about each small region of space.",
+      "alt_text": "Technical grid diagram showing RoboRover, free cells along a sensor beam, an occupied endpoint cell, and unknown cells outside the observed beam."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Precise educational coordinate diagram showing a rectangular grid with 0.25 metre square cells, a robot at x=0.50 m and y=0.50 m, and a forward sensor beam reaching an obstacle beginning at x=1.25 m. Highlight the robot cell, three free cells before the obstacle, and the occupied obstacle cell. Include clear axes, a lower-left origin, and restrained textbook styling.",
+      "caption": "World distances are converted into grid indices, allowing a sensor measurement to update several cells.",
+      "alt_text": "Coordinate-grid diagram with 0.25 metre cells showing RoboRover at 0.50 metres, an obstacle at 1.25 metres, three free cells between them, and the occupied obstacle cell."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional split-panel robotics simulation diagram. Left panel shows the hidden room with boundary walls, a rectangular crate, and RoboRover. Right panel shows the robot's partial occupancy grid after eight sensor rays, with unknown light-gray cells, free white cells, and occupied red cells. Use a clear shared coordinate orientation and minimal labels. Premium technical publication style, no code text in the image.",
+      "caption": "The simulator separates the hidden physical environment from the incomplete map available to RoboRover.",
+      "alt_text": "Two-panel simulation diagram comparing a complete hidden room and RoboRover's partial occupancy grid formed from several sensor rays."
+    }
+  ]
+}
