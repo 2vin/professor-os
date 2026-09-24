@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium editorial robotics textbook illustration of a small wheeled robot named RoboRover inside a warehouse represented by a subtle occupancy-grid floor map. Show the robot as an arrow-shaped pose marker with a position and heading, surrounded by a translucent uncertainty ellipse. Include nearby walls, a square storage column, and a charging station, with a restrained modern technical palette, realistic materials, clear geometry, and no decorative science-fiction elements.",
+    "caption": "Localization estimates RoboRover's position and heading within an existing map, while representing uncertainty around that estimate.",
+    "alt_text": "A wheeled robot in a mapped warehouse shown as a pose arrow with an uncertainty ellipse, illustrating localization."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean technical diagram showing the difference between a map and localization. On the left, show an occupancy grid containing walls and open cells with no robot marker. On the right, show the same grid with RoboRover represented by an arrow at a specific x-y position and heading theta, surrounded by a small uncertainty ellipse. Use minimal labels, precise coordinate axes, and premium robotics textbook styling.",
+      "caption": "An occupancy grid describes the environment; localization adds an estimate of where the robot is and which way it faces.",
+      "alt_text": "Side-by-side occupancy grid diagrams, one showing only the map and the other showing a robot pose with position, heading, and uncertainty."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Draw a clear coordinate-system diagram for a ground robot motion update. Show a robot starting at x0,y0, facing an angle theta, traveling distance d, and ending at x1,y1. Include vector components d cos(theta) along the x-axis and d sin(theta) along the y-axis. Use accurate arrows, metre units, and uncluttered mathematical labels suitable for a robotics textbook.",
+      "caption": "A measured forward distance becomes horizontal and vertical displacement through the robot's heading angle.",
+      "alt_text": "Coordinate diagram showing a robot moving a distance d at heading theta and decomposing that motion into x and y components."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Create a top-down engineering illustration of RoboRover driving a four-sided square route on a marked warehouse floor. Overlay two paths: an exact true path that returns to its start and a slightly displaced dashed odometry path caused by unequal measured side lengths. Show the start marker, final estimated displacement, coordinate axes, and a small legend. Use realistic but simple robot geometry and premium technical publication styling.",
+      "caption": "Small distance errors on four sides leave the odometry estimate slightly displaced from the true starting point.",
+      "alt_text": "Top-down diagram of a robot's true square path and a nearby odometry path that finishes a few centimetres from the start."
+    }
+  ]
+}

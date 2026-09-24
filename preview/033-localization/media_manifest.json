@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real differential drive mobile robot with lidar and wheel encoders in a mapped indoor environment",
+  "media_style": "photo",
+  "reason": "The generated diagrams teach pose, motion decomposition, and drift well. A carefully selected real photograph near the hardware connection would add physical grounding by showing where wheel encoders, range sensors, and the robot chassis exist on an actual platform without replacing the conceptual diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
