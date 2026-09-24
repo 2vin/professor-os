@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3911,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 3911 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 90,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 91,
+      "clarity": 92,
+      "depth": 93,
+      "examples": 94,
+      "interactivity": 91,
+      "code_alignment": 96,
+      "visual_teaching_plan": 89,
+      "originality": 87,
+      "consistency": 96,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is exceptionally accurate, but it is very long for a foundational localization class. Consider moving the covariance-matrix extension and some repeated caveats into an optional advanced section or companion lesson.",
+      "The distinction between heading, orientation, and direction of travel is correct but appears in several places. State it once prominently, then shorten later references to reduce cognitive load.",
+      "Add a brief explicit statement that a range measurement must be interpreted together with the sensor\u2019s bearing, pose, and map geometry; distance alone is insufficient for reliable map matching.",
+      "The Python lab demonstrates odometry drift rather than localization, and the lesson labels this honestly. Consider adding a very small optional correction step or pseudocode showing how a landmark observation would alter the estimate, without introducing Bayes Rule prematurely.",
+      "The covariance example is mathematically sound but introduces covariance without defining it in plain language. Add one sentence explaining that the matrix records uncertainty and correlations between coordinates.",
+      "The visual plan is strong conceptually. The schematic instructions could specify more clearly which visual elements should be labeled and how uncertainty should differ between prediction and corrected estimate.",
+      "Accessibility is good overall, but the lesson relies heavily on long prose, equations, and plots. Add a short plain-language summary before the covariance section and ensure the plot has a textual interpretation for students who cannot view it."
+    ],
+    "linkedin": {
+      "title": "Localization: How Robots Estimate Where They Are",
+      "description": "A practical lesson on pose, odometry, drift, uncertainty, and sensor evidence, with a Python simulation that makes localization concepts observable.",
+      "commentary": "A robot can have an excellent map and still not know where it is on that map.\n\nThis Professor OS lesson introduces localization through RoboRover\u2019s pose, motion estimates, sensor observations, and uncertainty. Students build understanding progressively:\n\n\u2022 distinguish mapping from localization;\n\u2022 represent position and orientation as a pose;\n\u2022 calculate motion with sine and cosine;\n\u2022 see how small odometry errors accumulate;\n\u2022 visualize drift in a Python simulation;\n\u2022 reason about how landmarks and range observations provide corrective evidence.\n\nThe lesson is careful to distinguish an odometry precursor from a complete localization system, preparing students for the next class on Bayes Rule. The graph-paper activity and prediction prompts also make the ideas testable without requiring advanced software.\n\nTry the lab, change the distance errors, and predict the final displacement before running the code. What would your robot need to observe in order to correct its estimate?\n\n#Robotics #Localization #STEM #Python",
+      "thumbnail_alt_text": "Mobile robot pose on an occupancy map with an uncertainty region and odometry drift path"
+    },
+    "media_query": "real mobile robot chassis wheel encoders lidar range sensor warehouse robotics platform photograph",
+    "image_query": "mobile robot chassis with wheel encoders and lidar range sensor real hardware photograph",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams effectively teach pose, coordinate decomposition, and odometry drift. A carefully selected real hardware photograph would add physical grounding by showing where the chassis, wheel encoders, and range sensors exist on an actual robot, reinforcing the connection between abstract measurements and hardware.",
+    "media_would_help": true
+  }
+}
