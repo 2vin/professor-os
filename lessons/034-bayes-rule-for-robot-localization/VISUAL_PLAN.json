@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled indoor rover, localized in a four-zone corridor labeled A, B, C, and D through translucent probability bars hovering above each zone. Show a blue beacon reflection near zone B, subtle sensor rays, a clean technical environment, realistic materials and lighting, restrained modern editorial style, clear visual emphasis on uncertainty rather than certainty, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover combines its previous belief with a noisy sensor observation to estimate which corridor zone is most likely.",
+    "alt_text": "A compact rover in a four-zone corridor with probability bars over zones A through D, with the tallest bar near a blue beacon observation."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational Bayesian localization diagram in three horizontal panels: first show equal prior probability bars over corridor locations A, B, C, and D; second show sensor compatibility bars for detecting a blue beacon, with the largest compatibility at B; third show the normalized posterior bars with B tallest but not equal to certainty. Use precise arrows labeled multiply and normalize, restrained textbook graphics, high visual clarity, no clutter.",
+      "caption": "The update process multiplies prior belief by sensor compatibility, then normalizes the results.",
+      "alt_text": "Three-panel diagram showing equal prior beliefs, location-dependent blue-beacon likelihoods, and a posterior distribution favoring location B."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible engineering illustration of RoboRover in a four-zone indoor corridor receiving a blue reflection from a beacon. Include a nearby probability table or clean overlay showing prior, likelihood, unnormalized score, and posterior for locations A, B, C, and D; make B the strongest but not certain. Use realistic rover sensors, soft laboratory lighting, premium robotics textbook composition, limited readable labels.",
+      "caption": "A sensor report favors B because blue detection is most likely there, but the other locations retain nonzero probability.",
+      "alt_text": "RoboRover detects a blue beacon reflection in a four-zone corridor, with a posterior probability display that favors B while retaining uncertainty elsewhere."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean instructional flow diagram for a Python Bayes update: arrays labeled prior and likelihood feed into element-by-element multiplication, then a normalization sum, then a posterior array whose entries add to 1. Show four aligned states A, B, C, and D throughout. Professional robotics programming textbook style, white background, restrained blue and orange accents, no decorative code clutter.",
+      "caption": "The Python function performs the same three operations as the equation: multiply, sum, and divide.",
+      "alt_text": "Flow diagram showing prior and likelihood arrays multiplied element by element, normalized by their total, and returned as a posterior array summing to one."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional robotics systems diagram showing a real indoor rover localization pipeline: motion estimate enters a prior belief, camera and lidar measurements enter sensor likelihood models, Bayes update produces a posterior belief over a floor map. Include subtle callouts for calibration, latency, drift, and model mismatch. Technically accurate, visually sparse, premium engineering publication style, no unexplained decorative icons.",
+      "caption": "Real localization systems must combine uncertain motion and sensor models while accounting for calibration and timing problems.",
+      "alt_text": "Systems diagram of a rover localization pipeline combining motion prediction and sensor measurements in a Bayesian belief update, with engineering caveats marked."
+    }
+  ]
+}
