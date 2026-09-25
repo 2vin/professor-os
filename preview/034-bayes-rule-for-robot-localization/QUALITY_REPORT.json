@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 6,
+  "static": {
+    "passed": true,
+    "word_count": 2214,
+    "code_blocks": 5,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 97,
+      "pedagogy": 93,
+      "clarity": 95,
+      "depth": 92,
+      "examples": 95,
+      "interactivity": 91,
+      "code_alignment": 98,
+      "visual_teaching_plan": 94,
+      "originality": 87,
+      "consistency": 97,
+      "accessibility": 90
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is unusually strong mathematically and numerically; preserve the exact worked calculations and assertion checks.",
+      "Reduce repetition between \u201cThe Big Idea,\u201d \u201cCore Concept,\u201d \u201cMath Without Fear,\u201d and \u201cWorked Robotics Example\u201d by assigning each section a distinct purpose: intuition, notation, derivation, and transfer.",
+      "Add one short sentence explaining that a likelihood model describes the sensor response for a fixed observation, not necessarily the probability of all possible observations at once.",
+      "The phrase that zero likelihoods can make a sensor \u201cunrealistically certain\u201d is directionally useful but should distinguish model certainty from mathematically valid zero-probability events; otherwise beginners may infer that zero likelihoods are inherently invalid.",
+      "In the Python lab, explicitly label array index 0\u20133 as A\u2013D immediately before the code so the connection between mathematical states and implementation indices is impossible to miss.",
+      "The simulation would be stronger if students were asked to compute at least one changed-input posterior numerically rather than only predict the winning state.",
+      "Consider adding a brief note that repeated readings may be conditionally independent only after conditioning on the relevant hidden state and any shared nuisance variables, such as lighting or sensor bias.",
+      "The lesson is accessible but long for a foundational Bayesian update. Move some engineering caveats or the extended red-observation challenge into an optional extension panel if lesson duration is constrained."
+    ],
+    "linkedin": {
+      "title": "Bayes Rule for Robot Localization: Turning Sensor Readings into Belief Updates",
+      "description": "A practical robotics lesson on priors, likelihoods, posteriors, normalization, and Python implementation through a discrete RoboRover localization problem.",
+      "commentary": "A sensor reading does not tell a robot exactly where it is. It changes the relative plausibility of possible locations.\n\nThis lesson makes that update concrete with a four-cell RoboRover corridor and a noisy blue-beacon sensor. Students:\n\n\u2022 distinguish P(z|x) from P(x|z)\n\u2022 multiply prior belief by sensor likelihood\n\u2022 normalize scores into a posterior distribution\n\u2022 test the mathematics with defensive Python code\n\u2022 investigate strong priors, equal evidence, impossible observations, and dependent measurements\n\nThe worked example is deliberately small enough to calculate by hand, while the engineering discussion connects the same logic to motion prediction, calibration, latency, drift, and real localization systems.\n\nTry the lab by changing one prior or likelihood at a time, predicting the result, and then checking whether the code agrees. What evidence would your own sensor produce at each possible state?\n\n#Robotics #BayesianInference #Python #RobotLocalization",
+      "thumbnail_alt_text": "RoboRover localization diagram showing prior belief, sensor likelihood, and posterior probability"
+    },
+    "media_query": "",
+    "image_query": "",
+    "youtube_query": "",
+    "media_style": "none",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams already provide the most relevant teaching representation: they connect the equation, probability tables, and implementation without introducing distracting hardware detail. A real photograph would add grounding but would not materially improve understanding of this abstract update.",
+    "media_would_help": false
+  }
+}
