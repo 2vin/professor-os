@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled indoor rover, moving through a long marked corridor while a translucent cloud of many position hypotheses surrounds it. Show several particle clusters at plausible locations, sensor beams or colour markers providing evidence, and a clean editorial robotics-laboratory environment. Technically plausible rover, realistic materials and lighting, restrained modern blue and amber palette, no decorative sci-fi elements, no text except minimal essential diagram labels.",
+    "caption": "RoboRover uses many sampled position hypotheses to represent uncertainty about where it is.",
+    "alt_text": "A compact rover travels through a marked corridor surrounded by several translucent clusters representing particle-filter location hypotheses."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear premium educational diagram of a one-dimensional corridor particle filter. Show three stages from left to right: particles spread across a corridor before sensing, particles with darker or brighter weights after a colour measurement, and resampled particles concentrated into two clusters near matching blue markers. Use small dots or arrowheads for particles, simple corridor boxes, restrained colours, and concise labels Predict, Update, Resample. Emphasize that two hypotheses can remain simultaneously.",
+      "caption": "The predict-update-resample cycle changes a broad cloud of hypotheses into evidence-weighted clusters.",
+      "alt_text": "Three-panel diagram showing particles spread across a corridor, weighted near matching sensor locations, and resampled into two likely clusters."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram of a 12 metre corridor with candidate positions at 2, 5, 8, and 11 metres. Highlight positions 5 and 11 metres as blue-marker hypotheses. Include a compact visual table or proportional bars showing low posterior probability at 2 and 8 metres and high equal posterior probability at 5 and 11 metres after a blue sensor reading. Use mathematically accurate, minimal labels and professional textbook composition.",
+      "caption": "A blue measurement increases both blue-marker hypotheses; it does not yet identify which marker RoboRover is near.",
+      "alt_text": "A corridor probability diagram showing two equally likely blue-marker locations receiving high posterior probability after a blue sensor reading."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical illustration of a Python particle-filter simulation displayed as a clean histogram over a coloured corridor. Show blue histogram bars representing particle counts by position, a red vertical line for the hidden true robot position, and coloured corridor markers beneath the axis. Include a small inset flow diagram labeled Predict, Update, Resample, with no code text and no decorative imagery.",
+      "caption": "The histogram displays the particle cloud while the red line marks the simulated true position used only for comparison.",
+      "alt_text": "A particle-filter histogram over corridor positions with blue particle-count bars and a red line indicating the simulated true robot position."
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robotics localization rover lidar camera indoor corridor real photograph",
+  "media_style": "photo",
+  "reason": "A real photograph of a mobile robot equipped with localization sensors would ground the abstract particle representation in recognizable hardware and clarify the relationship between the estimator, sensors, and map. The supplied diagrams already cover the abstract process, so a photograph is more useful than another conceptual video.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
