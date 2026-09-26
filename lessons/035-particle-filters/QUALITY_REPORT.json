@@ -1,0 +1,54 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 3450,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 92,
+      "clarity": 91,
+      "depth": 94,
+      "examples": 94,
+      "interactivity": 91,
+      "code_alignment": 96,
+      "visual_teaching_plan": 91,
+      "originality": 88,
+      "consistency": 94,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify the notation in the state-vector equation by distinguishing the full state vector from its x component, for example by writing bold x_t^(i) = [x, y, theta]^T.",
+      "The lesson is exceptionally thorough but somewhat overextended for a foundational class. Consider shortening repeated qualifications about discrete examples, post-resampling weights, model consistency, and simulation limitations, or moving some of them into an advanced note.",
+      "Add a brief visual or textual warning that weighting changes particle importance but does not physically move particles; only prediction and resampling change the displayed particle set.",
+      "The Python lab reports useful diagnostics but does not display the observation sequence or intermediate particle distributions by default. Printing observations or showing one intermediate histogram would make the predict-update-resample cycle easier to verify.",
+      "Define effective sample size more explicitly for beginners, including that the reported value is based on unnormalized pre-resampling weights and is a diagnostic rather than a direct accuracy score.",
+      "The human simulation is valuable, but provide a small worked redraw example with five particles so students can perform step 8 without ambiguity.",
+      "The final histogram can be misread as proof that the filter is correct because the true position is overlaid. Emphasize more prominently that the red line is unavailable to the estimator and is only an evaluation aid."
+    ],
+    "linkedin": {
+      "title": "Particle Filters: How Robots Maintain Multiple Location Hypotheses",
+      "description": "A practical robotics lesson on predict, update, and resample, combining Bayesian reasoning, a Python simulation, hands-on activities, and real-world localization limits.",
+      "commentary": "A robot rarely knows its exact location. It maintains uncertainty and updates that uncertainty as motion and sensor evidence arrive.\n\nThis particle-filter lesson gives students a concrete way to understand that process:\n\n\u2022 Each particle represents a possible robot state.\n\u2022 Prediction models uncertain motion.\n\u2022 Sensor updates weight hypotheses by how well they explain the measurement.\n\u2022 Resampling concentrates computation without pretending uncertainty has vanished.\n\u2022 A Python corridor simulation makes ambiguity, particle impoverishment, effective sample size, and misleading averages visible.\n\nThe lesson also includes a human particle-filter activity and challenges students to weaken the sensor model and compare the resulting belief distribution.\n\nTry the paper-particle simulation before running the code: can you predict when two plausible location clusters will remain? Then inspect the histogram and ask whether the tallest bar, mean, or mode is the most useful summary.\n\n#Robotics #Localization #ParticleFilters #STEMEducation",
+      "thumbnail_alt_text": "Particle cloud and sensor-update diagram illustrating robot localization with a particle filter"
+    },
+    "media_query": "mobile robot localization sensors lidar camera wheel encoders map",
+    "image_query": "engineering photograph autonomous mobile robot with lidar camera wheel encoders in indoor mapped environment",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain the abstract particle cycle effectively, but a carefully selected real photograph would ground the estimator in recognizable hardware and make the relationship among sensors, map, motion model, and localization software more concrete. A photo is preferable to another conceptual video because the lesson already contains several process diagrams.",
+    "media_would_help": true
+  }
+}
