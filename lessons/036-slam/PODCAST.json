@@ -1,0 +1,12 @@
+{
+  "filename": "podcast.mp3",
+  "transcript_filename": "podcast_transcript.txt",
+  "class_no": 36,
+  "title": "SLAM",
+  "script_words": 995,
+  "estimated_minutes": 7,
+  "tts_model": "gpt-4o-mini-tts",
+  "voice": "alloy",
+  "synthetic_narration": true,
+  "generated_at_utc": "2026-09-27T18:56:49Z"
+}
