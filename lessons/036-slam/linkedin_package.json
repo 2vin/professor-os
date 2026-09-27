@@ -1,0 +1,10 @@
+{
+  "title": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udff2 \u00b7 \ud835\udde6\ud835\udddf\ud835\uddd4\ud835\udde0",
+  "description": "A rigorous Professor OS lesson introduces landmark-based SLAM, coordinate transforms, loop closure, gauge freedom, and a reproducible Python simulation.",
+  "commentary": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udff2 \u00b7 \ud835\udde6\ud835\udddf\ud835\uddd4\ud835\udde0\n\nHow can a robot build a map when its own position is uncertain?\n\nThis Professor OS lesson introduces SLAM through a carefully staged progression from odometry drift to landmark-based localization, coordinate-frame transformations, and map refinement.\n\nStudents will learn:\n\u2022 Why localization and mapping depend on each other\n\u2022 How to transform landmark observations into map coordinates\n\u2022 Why loop closure matters\u2014and why repeated correction is not always loop closure\n\u2022 How data association and gauge freedom affect real systems\n\u2022 How a deliberately simplified Python simulation exposes drift and correction\n\nThe lab is explicit about its limitations: it is a one-dimensional teaching model, not production SLAM. That transparency helps students connect the code to real filters, graph optimization, occupancy grids, and robot navigation without confusing a demonstration with a complete estimator.\n\nInvite learners to change the odometry bias and sensing range, predict the result, then test their reasoning in the simulation.\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #SLAM #RobotLearning #Python",
+  "thumbnail_alt_text": "Mobile robot with lidar sensor beside a mapped indoor environment",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image",
+  "headline": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udfef\ud835\udff2 \u00b7 \ud835\udde6\ud835\udddf\ud835\uddd4\ud835\udde0",
+  "headline_style": "unicode_math_sans_serif_bold"
+}
