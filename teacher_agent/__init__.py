@@ -14,6 +14,14 @@ from .quality_duplicate_guard import install_runtime_hook
 
 install_runtime_hook()
 
+# Reserve ```python fences for actual Python and give repair rounds exact,
+# numbered source context when a fence contains prose/output by mistake.
+# Install this BEFORE the visual/heading integrity wrappers so they continue to
+# protect the upgraded repair_code method.
+from .python_fence_guard import install_runtime_hook as install_python_fence_hook
+
+install_python_fence_hook()
+
 # Full-lesson AI rewrites are not allowed to silently delete generated Gemini
 # teaching visuals. Restore any protected inline_XX.png block deterministically
 # before pipeline.py performs its existing fail-closed visual validation.
