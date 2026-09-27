@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium robotics textbook hero illustration of RoboRover, a compact wheeled indoor exploration robot with illustrative lidar and camera sensors, driving through a clean warehouse-like room while constructing a luminous coordinate map of walls and three recognizable landmarks. Show a subtle split between the physical environment and the robot's estimated map, with a slightly drifting estimated path being corrected where the robot revisits a landmark. Technically plausible hardware, restrained modern editorial styling, realistic materials and lighting, clear spatial composition, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover estimates its pose while building a map from repeated observations of environmental landmarks.",
+    "alt_text": "A wheeled robot explores a room with three landmarks while a projected map shows its estimated path and landmark positions."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A clean technical diagram explaining the SLAM loop: Move, Sense, Localize, and Map arranged around RoboRover. Show a robot path with odometry drift, landmark observations, a map being created, and a corrected pose after recognizing a known landmark. Use clear arrows and restrained textbook colors, with minimal labels and no clutter.",
+      "caption": "SLAM repeatedly combines motion prediction, sensor observations, pose correction, and map updates.",
+      "alt_text": "A four-step circular diagram shows a robot moving, sensing landmarks, correcting its pose, and updating a map."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A precise two-dimensional coordinate transformation diagram for landmark SLAM. Show RoboRover at map position (2.00 m, 1.00 m), rotated 30 degrees, with a landmark observation vector in the robot frame labeled approximately (1.73 m, -1.00 m). Show the rotated vector reaching a landmark at approximately (4.00 m, 1.00 m). Include x and y axes, a heading arrow, and technically accurate vector geometry.",
+      "caption": "A landmark measured in robot coordinates is rotated and translated into the map coordinate frame.",
+      "alt_text": "Coordinate diagram showing a robot pose, a rotated sensor observation, and the resulting landmark position in map coordinates."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A premium educational engineering illustration of a one-dimensional hallway SLAM simulation: RoboRover travels along a marked corridor past three labeled landmark markers A, B, and C. Show a slightly stretched estimated position track above the true hallway track, with repeated landmark observations producing small correction arrows. Use realistic but simple robot hardware, clear measurement units in metres, and uncluttered textbook composition.",
+      "caption": "The simulation shows how biased odometry drifts while repeated landmark observations provide corrections.",
+      "alt_text": "A small wheeled robot moves along a hallway past three landmarks, with true and estimated positions shown as separate tracks."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A technically rigorous graph-based SLAM concept diagram showing robot poses connected along a trajectory, landmark nodes connected by observation constraints, and a loop-closure connection between the end and beginning of the path. Use a clean robotics textbook style, labeled pose nodes and landmark nodes, restrained colors, and no unnecessary decorative elements.",
+      "caption": "Real SLAM systems combine motion and observation constraints, including loop closures, to make the whole map more consistent.",
+      "alt_text": "A graph diagram shows robot pose nodes, landmark nodes, odometry links, observation links, and a loop-closure link."
+    }
+  ]
+}

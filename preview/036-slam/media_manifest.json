@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot with lidar and camera building a 2D SLAM map indoor robotics lab",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract lesson by showing the sensors, physical robot, and environmental features that produce SLAM observations. It should complement rather than replace the mathematically precise diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
