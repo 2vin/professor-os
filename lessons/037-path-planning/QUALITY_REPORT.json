@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3288,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 91,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 92,
+      "clarity": 93,
+      "depth": 89,
+      "examples": 92,
+      "interactivity": 91,
+      "code_alignment": 95,
+      "visual_teaching_plan": 85,
+      "originality": 87,
+      "consistency": 94,
+      "accessibility": 91
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify the distinction between a grid cell's physical width and the distance between neighboring cell centers. The current wording is correct under the stated model, but a brief diagram label would prevent students from generalizing the formula incorrectly.",
+      "In the optional route-comparison example, explicitly state that four right moves followed by two up moves has two direction runs but only one turn. This will prevent confusion between runs, direction changes, and turns.",
+      "Add a brief note that the plotted polyline connects cell centers and is not necessarily a collision-free continuous trajectory for a finite-sized robot. The later caveats imply this, but stating it near the first plot would improve technical precision.",
+      "The visual instructions in 'See It in Your Head' use generic left-to-right signal language that does not clearly match the path-planning schematic. Replace it with path-specific prompts such as identifying the start, goal, obstacle boundary, route, and safety margin.",
+      "The Python lab relies on matplotlib without stating the installation requirement or offering a no-install fallback. Add a short setup note and, if appropriate, a text-only validation alternative for accessibility and classroom portability.",
+      "Consider adding one explicit student prediction before the worked route: ask whether the direct Manhattan route intersects the obstacle and which side route might be shortest. This would strengthen the transition from intuition to formal validation.",
+      "The lesson mentions unknown occupancy and map uncertainty in the real-robot section but does not connect them to a concrete planning policy. A one-sentence example such as 'treat unknown cells as blocked' would make the engineering implication more actionable.",
+      "The lesson is exceptionally complete for an introductory class, but the vocabulary, further-learning, and repeated validation explanations could be trimmed slightly if the course prioritizes shorter class sessions."
+    ],
+    "linkedin": {
+      "title": "Class 37: Path Planning from Grid Models to Real Robot Safety",
+      "description": "Learn how RoboRover represents routes, validates grid movements, calculates distance, and connects idealized paths to real-world clearance and uncertainty.",
+      "commentary": "A path on a map is not yet a safe route for a robot.\n\nIn Professor OS Class 37, students move from SLAM\u2019s map to the next robotics question: where should the robot drive? They build and validate a grid-based path from a start to a goal while avoiding obstacles.\n\nStudents learn to:\n\u2022 Represent a route as an ordered sequence of positions.\n\u2022 Verify obstacle avoidance and one-cell movement constraints.\n\u2022 Calculate planned center-to-center distance.\n\u2022 Use Python assertions to catch collisions and invalid jumps.\n\u2022 Recognize why robot width, uncertainty, wheel slip, and changing obstacles matter.\n\nThe lesson deliberately separates planning from control: a planner proposes a route, while a controller later turns that route into motor commands. The hands-on lab also shows why checking only listed obstacle cells is insufficient.\n\nTry the lab by designing a second safe route and comparing its length and number of turns with the example. Which route would your robot prefer, and why?\n\n#Robotics #PathPlanning #RobotLearning #Python",
+      "thumbnail_alt_text": "Grid map showing a mobile robot route around an obstacle with start and goal markers"
+    },
+    "media_query": "real mobile robot navigating warehouse obstacle with lidar and safety clearance",
+    "image_query": "warehouse autonomous mobile robot navigating around pallet obstacle lidar safety clearance",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real photograph would ground the transition from the idealized point-robot grid to physical robot width, sensors, clearance, and changing obstacles. It should supplement rather than replace the existing generated schematics and should show authentic hardware in a relevant environment.",
+    "media_would_help": true
+  }
+}
