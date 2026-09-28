@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration viewed from above: a compact wheeled RoboRover in a warehouse grid, blue start marker behind it, gold goal marker ahead, a thick green planned path bending around a large rectangular stack of crates, subtle square floor grid, clear spatial separation between free space and obstacle, technically plausible sensors and chassis, restrained modern editorial style, realistic materials and lighting, no decorative sci-fi elements, minimal labels.",
+    "caption": "RoboRover plans a safe route from its start to its goal around an obstacle.",
+    "alt_text": "Top-down engineering illustration of a wheeled rover following a green route from a blue start marker around a gray obstacle to a gold goal marker on a gridded warehouse floor."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram of a square grid path-planning problem: blue circle labeled Start, gold target labeled Goal, dark gray rectangular obstacle cells in the middle, and a green connected route that bends around the obstacle. Use arrows to show travel direction, clear grid lines, high contrast, professional robotics textbook design, minimal essential labels, no extra scenery.",
+      "caption": "A path connects start to goal while avoiding every obstacle cell.",
+      "alt_text": "Grid diagram showing a start point, a goal point, a rectangular obstacle, and a safe green path around the obstacle."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical top-down warehouse grid diagram for a numerical path-planning example: start at coordinate (1,1), goal at (7,5), a rectangular obstacle occupying x coordinates 3 through 5 and y coordinates 2 through 4, and a highlighted route traveling upward along x=2 then right along y=5. Include restrained coordinate tick marks and a small visual indication that each grid spacing represents 0.5 meters. Premium educational publication style, precise geometry, no clutter.",
+      "caption": "The example route uses 10 grid moves, each representing 0.5 meters, for a planned distance of 5.0 meters.",
+      "alt_text": "Coordinate grid showing RoboRover's start, goal, rectangular obstacle, and a safe route that rises along the obstacle's left side before traveling above it."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional educational visual explaining a Python path-validation program: split composition with a gridded map on one side showing a green route and dark obstacle cells, and a simple code-editor panel on the other side highlighting path list, obstacle membership check, move count, and plotted route. Keep code text minimal and legible, emphasize the relationship between coordinate data and the map, no fake logos, no decorative sci-fi styling.",
+      "caption": "The program checks every path cell, counts movements, calculates distance, and draws the result.",
+      "alt_text": "Educational split diagram connecting Python path data and collision checking to a plotted grid route around obstacles."
+    }
+  ]
+}
