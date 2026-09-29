@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 0,
+  "static": {
+    "passed": true,
+    "word_count": 2747,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 92,
+      "pedagogy": 91,
+      "clarity": 91,
+      "depth": 87,
+      "examples": 90,
+      "interactivity": 92,
+      "code_alignment": 93,
+      "visual_teaching_plan": 84,
+      "originality": 86,
+      "consistency": 90,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify that the recursive program uses a path-local visited set with backtracking; this is different from a globally visited set used by some graph-search algorithms.",
+      "Replace the loose cycle definition with a more precise explanation: a cycle is a closed sequence of edges that returns to an earlier node. Distinguish cycles from repeated-node walks.",
+      "The section instructing an illustrator to create a warehouse map is redundant after the lesson already presents generated visuals. Convert it into a student diagram activity or remove it.",
+      "Add a short sample output block for the Python lab so students can verify not only the assertions but also the four discovered routes and their costs.",
+      "In the optional travel-time extension, explicitly state that every edge incident to Ramp is affected by the slower speed and demonstrate one complete conversion, such as 4 m at 0.5 m/s = 8 s.",
+      "The generated engineering schematic is described generically as a left-to-right signal diagram, while the lesson's central visual need is graph structure. Add a caption-specific reading guide that names the graph, route, cost, and sensor elements.",
+      "The lesson could briefly distinguish a simple path from a general walk before introducing the code, reducing possible confusion around route repetition and cycle handling.",
+      "Consider adding one short question about whether the listed graph is truly undirected and why each reverse connection is present in the Python representation."
+    ],
+    "linkedin": {
+      "title": "Graph Search for Robotics: Modeling Routes, Costs, and Real-World Constraints",
+      "description": "A practical Professor OS lesson introduces nodes, edges, path costs, route comparison, recursive search, and the gap between a warehouse graph and physical robot reality.",
+      "commentary": "A robot cannot plan a route until its environment has been represented in a form a computer can search.\n\nProfessor OS Class 38 introduces graph search through a warehouse navigation problem built around RoboRover:\n\n\u2022 Model meaningful locations as nodes and possible movements as edges.\n\u2022 Add costs for distance, time, energy, or risk.\n\u2022 Compare complete route costs instead of choosing the cheapest immediate move.\n\u2022 Use a small Python search to enumerate simple routes and verify the best result.\n\u2022 Examine why sensors must validate a graph that may no longer match the real warehouse.\n\nThe lesson combines equations, a worked example, an interactive route-design activity, and executable code. Students also modify the graph by adding a cold-storage area and explore how changing the meaning of cost can change planning decisions.\n\nTry the paper-based RoboRover Route Captain activity, then run the code and predict its output before executing it.\n\n#Robotics #PathPlanning #Python #EngineeringEducation",
+      "thumbnail_alt_text": "Warehouse graph with RoboRover comparing weighted routes between a dock and delivery bay"
+    },
+    "media_query": "documentary photograph autonomous warehouse mobile robot navigating aisles intersections safety sensors",
+    "image_query": "autonomous warehouse robot aisle intersection lidar safety sensor documentary photo",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain graph structure and model-versus-sensor relationships effectively, but a technically clear documentary photograph would ground the abstraction in recognizable warehouse infrastructure: aisles, racks, intersections, and safety sensors. It should support the discussion of graph models versus real environments rather than serve as decoration.",
+    "media_would_help": true
+  }
+}
