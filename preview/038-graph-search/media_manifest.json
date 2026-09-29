@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real warehouse AMR robot navigating aisles, industrial autonomous mobile robot, unobstructed engineering photograph",
+  "media_style": "photo",
+  "reason": "The generated diagrams explain graph structure and model-to-sensor relationships well, but a carefully selected real photograph of an autonomous warehouse robot would ground the abstract graph in recognizable physical infrastructure such as aisles, intersections, racks, and safety sensors. It should be documentary and technically clear rather than promotional or decorative.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

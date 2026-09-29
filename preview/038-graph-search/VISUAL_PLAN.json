@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration showing RoboRover, a compact wheeled warehouse robot, at a labeled Dock node in a top-down warehouse environment. Connected warehouse locations are represented as glowing but technically restrained graph nodes and corridor edges leading toward a Bay goal. Edge costs are shown as clean distance labels such as 2 m, 5 m, and 4 m. Emphasize the idea that a robot searches connected nodes and edges rather than treating the whole warehouse as an undifferentiated space. Realistic materials, clear engineering geometry, restrained blue and amber palette, high visual clarity, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover represents a warehouse as connected nodes, edges, and measurable costs.",
+    "alt_text": "Top-down warehouse illustration with RoboRover at Dock and a graph of labeled locations connected by cost-labeled corridors toward Bay."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram comparing two routes through a warehouse graph. Show nodes labeled Dock, Junction, Ramp, Hall, and Bay. Display the upper route Dock to Junction to Ramp to Bay with edge costs 2 m, 3 m, and 4 m, totaling 9 m. Display the lower route Dock to Hall to Bay with edge costs 5 m and 2 m, totaling 7 m. Use distinct route colors and clear arrows or connecting lines, with a visual emphasis that the longer first edge can belong to the cheaper complete route. Premium robotics textbook style, white background, precise linework, minimal text.",
+      "caption": "A route is evaluated by its total edge cost, not by its cheapest first move.",
+      "alt_text": "Graph diagram showing a 9-meter three-edge route and a 7-meter two-edge route from Dock to Bay."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible top-down engineering illustration of a warehouse route-planning example for RoboRover. Show five named locations: Dock, Junction, Ramp, Hall, and Bay, connected by corridors with distance labels. Highlight three candidate routes in separate visual treatments and show their summed distances: 9 m, 7 m, and 8 m. Include realistic aisle boundaries, a ramp indication, and the small wheeled robot at Dock. Labels must be crisp and limited to the essential educational content. Premium robotics textbook editorial style.",
+      "caption": "Three complete routes can be compared by adding the costs of their edges.",
+      "alt_text": "Warehouse graph with RoboRover at Dock and three highlighted candidate routes whose total distances are 9 meters, 7 meters, and 8 meters."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical systems diagram showing the relationship between a warehouse graph model and a real robot. On the left, a simplified graph contains nodes, weighted edges, and a planned route. In the center, RoboRover follows a physical corridor. On the right, a safety sensor detects a newly blocked aisle and sends information back to the navigation system, indicating that the graph or route may need revision. Clearly distinguish model, search, motion execution, and safety monitoring. Premium robotics engineering textbook style, restrained colors, no clutter.",
+      "caption": "A graph is a useful model, but sensors must check whether its assumptions still match the real warehouse.",
+      "alt_text": "Systems diagram linking a weighted warehouse graph to RoboRover motion and a sensor detecting a blocked corridor."
+    }
+  ]
+}
