@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real autonomous mobile robot navigating a warehouse or indoor facility, visible sensors and floor transitions, professional robotics engineering photograph",
+  "media_style": "photo",
+  "reason": "A restrained real photograph would ground the abstract cost model in actual robot hardware and floor conditions. The lesson already supplies the exact graph diagrams, so the external media should provide physical context rather than duplicate the algorithm illustration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

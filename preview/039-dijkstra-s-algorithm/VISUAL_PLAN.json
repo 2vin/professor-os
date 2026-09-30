@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium editorial robotics textbook illustration of RoboRover, a small plausible wheeled indoor mobile robot, navigating a weighted floor-map graph toward delivery station G. The complete directed graph must use exactly these edges and costs: S\u2192A=2 s, S\u2192B=5 s, A\u2192B=1 s, A\u2192C=4 s, B\u2192C=1 s, B\u2192D=5 s, C\u2192D=1 s, C\u2192G=7 s, D\u2192G=2 s. Show explicit readable edge labels in seconds and a legend stating that labels are travel-time costs; do not communicate cost through line thickness or tone alone. Highlight exactly the least-cost route S\u2192A\u2192B\u2192C\u2192D\u2192G, total cost 7 s. Emphasize that this route has five edges and is not selected by counting moves. Technically clear, restrained modern styling, realistic materials and lighting, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover selects a route by total travel cost, not simply by counting the number of moves.",
+    "alt_text": "A weighted directed graph has edges S-A 2 seconds, S-B 5, A-B 1, A-C 4, B-C 1, B-D 5, C-D 1, C-G 7, and D-G 2; the highlighted least-cost route is S-A-B-C-D-G with total cost 7 seconds."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean technical diagram explaining Dijkstra's algorithm as a cost wave expanding from start node S. The complete directed graph must contain exactly these edges and no others: S\u2192A=2 s, S\u2192B=5 s, A\u2192B=1 s, A\u2192C=4 s, B\u2192C=1 s, B\u2192D=5 s, C\u2192D=1 s, C\u2192G=7 s, D\u2192G=2 s. Label every edge with its exact travel-time cost in seconds. Show tentative total costs beside nodes, highlight the finalized-node sequence S, A, B, C, D, G, and highlight exactly the final least-cost route S\u2192A\u2192B\u2192C\u2192D\u2192G with total cost 7 s. Use clear arrows, restrained textbook colors, minimal essential labels, and accurate graph geometry.",
+      "caption": "Dijkstra expands through the graph according to accumulated cost, not geometric distance or edge count alone.",
+      "alt_text": "A directed weighted graph contains the nine specified edges from S through A, B, C, D, and G; tentative costs are updated in finalized order S, A, B, C, D, G, and the route S-A-B-C-D-G totals 7 seconds."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Create a technically plausible engineering illustration of RoboRover navigating a warehouse route with several floor conditions: smooth floor, rough flooring, and a muddy or obstructed section. Overlay exactly this directed weighted graph, with explicit readable travel-time labels: S\u2192A=2 s, S\u2192B=5 s, A\u2192B=1 s, A\u2192C=4 s, B\u2192C=1 s, B\u2192D=5 s, C\u2192D=1 s, C\u2192G=7 s, D\u2192G=2 s. Do not add or omit edges. Highlight exactly the final route S\u2192A\u2192B\u2192C\u2192D\u2192G and label its total cost as 7 s. Make the contrast between fewest edges and lowest total travel time visually understandable. Premium robotics textbook composition, realistic hardware and environment, no clutter.",
+      "caption": "The winning route may contain more edges while still having the smallest total estimated travel time.",
+      "alt_text": "RoboRover navigates a directed warehouse graph with nine labeled edges; the highlighted route S-A-B-C-D-G has five edges and the lowest total travel time, 7 seconds."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clear algorithm-flow diagram for the Python implementation of Dijkstra's algorithm: initialize distances, place the start node in a priority queue, pop the smallest-cost entry, ignore a stale entry when current_cost is greater than the stored distance, relax neighboring edges, update predecessor records, stop when the goal is finalized, and reconstruct the path. Include a small inset showing an outdated priority-queue entry being ignored. If a graph inset is included, it must show exactly these directed edges and costs: S\u2192A=2 s, S\u2192B=5 s, A\u2192B=1 s, A\u2192C=4 s, B\u2192C=1 s, B\u2192D=5 s, C\u2192D=1 s, C\u2192G=7 s, D\u2192G=2 s; the required final route is S\u2192A\u2192B\u2192C\u2192D\u2192G with total cost 7 s. Use professional technical diagram styling and only essential labels.",
+      "caption": "The implementation combines a distance table, predecessor records, and a priority queue.",
+      "alt_text": "A flow diagram shows initialization, priority-queue removal, stale-entry checking, neighbor relaxation, predecessor updates, and path reconstruction; an optional graph inset uses nine specified edges and highlights S-A-B-C-D-G at 7 seconds."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a small indoor mobile robot planning across a mapped facility with floor tiles assigned different costs for time, energy, and roughness. If a graph overlay is shown, it must use exactly these directed edges and costs: S\u2192A=2 s, S\u2192B=5 s, A\u2192B=1 s, A\u2192C=4 s, B\u2192C=1 s, B\u2192D=5 s, C\u2192D=1 s, C\u2192G=7 s, D\u2192G=2 s; show explicit edge labels and highlight the final route S\u2192A\u2192B\u2192C\u2192D\u2192G with total cost 7 s. Also show a separate blocked-corridor condition causing a clearly labeled replanning alternative, without changing the original worked-example route claim. The robot should have plausible wheels and sensors, realistic materials and lighting, and a clean technical editorial composition. Do not use decorative sci-fi imagery or unreadable text.",
+      "caption": "A real robot's shortest path depends on the quality of its map, cost model, and updated environmental information.",
+      "alt_text": "A wheeled mobile robot follows a labeled weighted facility map whose original least-cost route is S-A-B-C-D-G at 7 seconds; a blocked corridor is shown separately with an alternative replanning route."
+    }
+  ]
+}
