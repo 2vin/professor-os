@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled warehouse robot, planning a route across a top-down grid warehouse map. Show a blue start position, a red goal position, dark shelf obstacles, and a bright highlighted A* path. Include subtle visual overlays for g(n), h(n), and f(n)=g(n)+h(n) near a few frontier cells, with clean sparse technical labeling. Professional editorial composition, realistic robot materials, restrained modern colors, high clarity, no decorative sci-fi elements.",
+    "caption": "A* combines the route cost already traveled with a heuristic estimate of the remaining distance.",
+    "alt_text": "Top-down warehouse grid showing RoboRover and an A* route around shelf obstacles, with frontier cells labeled by known cost, estimated remaining cost, and combined priority."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical diagram comparing Dijkstra and A* on the same rectangular warehouse grid. Show Dijkstra expanding a broad circular wave from the start, while A* concentrates expansion toward the goal using a directional heuristic. Use the same blocked shelf layout in both panels, with minimal labels for g(n), h(n), and f(n). Premium robotics textbook style, precise geometry, clean colors, no clutter.",
+      "caption": "Dijkstra uses known cost alone; A* also uses an estimate of distance to the goal.",
+      "alt_text": "Side-by-side grid diagrams showing broad Dijkstra exploration and goal-directed A* exploration around identical obstacles."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear educational grid diagram for a four-direction Manhattan-distance calculation. Show a warehouse cell n and a goal cell separated by five horizontal-or-vertical grid differences, with a route-cost annotation g(n)=3.0 m, heuristic annotation h(n)=2.5 m, and combined f(n)=5.5 m. Use a 0.50 meter cell scale, restrained technical typography, and no unnecessary decoration.",
+      "caption": "The A* score adds measured travel so far to a lower-bound estimate of remaining travel.",
+      "alt_text": "Grid illustration showing a candidate cell, a goal, five Manhattan grid differences, and the numerical calculation g plus h equals f in meters."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium technical illustration of two candidate frontier cells in a warehouse grid for RoboRover. Candidate A should be closer to the robot but farther from the goal; candidate B should be slightly farther from the robot but much nearer the goal. Show compact labels for g, h, and f beside each candidate, with B highlighted as the A* choice. Include realistic shelf obstacles and a small top-down rover icon, using precise educational composition.",
+      "caption": "A* can prefer a slightly more expensive-to-reach cell when its estimated total route is better.",
+      "alt_text": "Warehouse grid comparing two frontier cells: A has lower known cost but higher total estimate, while B has the lower A* score."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Layered robotics architecture diagram showing A* path planning connected to a mobile robot system. Include a map and planner producing a grid path, a motion controller converting the path into wheel commands, sensors checking the real warehouse, and a replanning loop when the environment changes. Clearly separate planning from control, with technically plausible RoboRover hardware and concise labels.",
+      "caption": "A* plans a route, while a separate controller follows it and replans when reality differs from the map.",
+      "alt_text": "Robotics system diagram linking map-based A* planning, motion control, sensors, the physical rover, and a replanning feedback loop."
+    }
+  ]
+}
