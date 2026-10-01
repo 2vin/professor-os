@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real warehouse autonomous mobile robot with lidar navigating between shelves, professional robotics engineering photograph",
+  "media_style": "photo",
+  "reason": "The lesson already provides strong generated diagrams for the algorithm and architecture. A carefully selected real photograph after the Real Robot Connection section would add physical grounding by showing the scale, aisle geometry, sensors, and clearance constraints that a grid abstraction omits. It should support the planning-versus-control discussion rather than serve as decoration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

@@ -1,0 +1,10 @@
+{
+  "title": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udff0\ud835\udfec \u00b7 \ud835\uddd4* \ud835\udde6\ud835\uddf2\ud835\uddee\ud835\uddff\ud835\uddf0\ud835\uddf5",
+  "description": "A practical Professor OS lesson on A* search, admissible heuristics, Python implementation, weighted search, and the gap between a planned grid route and physical robot control.",
+  "commentary": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udff0\ud835\udfec \u00b7 \ud835\uddd4* \ud835\udde6\ud835\uddf2\ud835\uddee\ud835\uddff\ud835\uddf0\ud835\uddf5\n\nA* is often introduced as \u201cDijkstra plus a heuristic,\u201d but robotics students need to understand what that heuristic changes\u2014and what it cannot do.\n\nThis Professor OS lesson guides learners from grid-based route planning to a working Python comparison of Dijkstra and A*.\n\nStudents will learn:\n\u2022 how g(n), h(n), and f(n) work together;\n\u2022 why Manhattan distance is admissible for four-direction equal-cost grids;\n\u2022 how weighted A* trades optimality guarantees for potentially faster search;\n\u2022 why a planned path is not the same thing as a motor command;\n\u2022 how maps, localization, clearance, and replanning affect a real rover.\n\nThe included lab invites students to alter the heuristic, inspect expanded nodes, and add terrain costs. Try the experiment, then ask: what assumptions must remain true for the guarantee to hold?\n\nExplore Professor OS: https://connect.vin/professor-os\n\n#Robotics #PathPlanning #ArtificialIntelligence #Python",
+  "thumbnail_alt_text": "Professor OS A* search lesson showing a warehouse grid, route, heuristic scores, and rover planning architecture",
+  "source": "https://connect.vin/professor-os",
+  "post_type": "image",
+  "headline": "\ud835\uddd6\ud835\uddf9\ud835\uddee\ud835\ude00\ud835\ude00 \ud835\udff0\ud835\udfec \u00b7 \ud835\uddd4* \ud835\udde6\ud835\uddf2\ud835\uddee\ud835\uddff\ud835\uddf0\ud835\uddf5",
+  "headline_style": "unicode_math_sans_serif_bold"
+}
