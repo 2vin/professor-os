@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled research rover in a clean top-down greenhouse arena, navigating toward a glowing green goal marker while red circular obstacles create visible repulsive influence zones and blue directional arrows curve around them toward the goal; technically plausible sensors and chassis, restrained modern engineering style, clear spatial composition, realistic materials and lighting, no decorative sci-fi elements, minimal labels",
+    "caption": "RoboRover combines attraction toward the goal with repulsion from nearby obstacles.",
+    "alt_text": "Top-down engineering illustration of RoboRover moving through a greenhouse-like arena toward a goal while curved directional arrows show attraction and obstacle avoidance."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram for a robotics textbook showing a two-dimensional potential field: a green goal represented as a valley, a red circular obstacle represented as a hill with outward arrows, and RoboRover between them with attraction and repulsion vectors combining into one net vector; use a three-panel layout for attraction only, repulsion only, and combined field; restrained colors, precise arrows, sparse essential labels, no clutter",
+      "caption": "The goal pulls RoboRover toward it, obstacles push it away, and vector addition gives the local steering direction.",
+      "alt_text": "Three-panel technical diagram comparing attraction toward a goal, repulsion away from an obstacle, and the combined potential-field direction."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical top-down illustration of a small greenhouse inspection rover at coordinate position (1,1) meters, a charging goal at (8,7) meters, and a large plant container with center (4,4) meters and modeled radius 0.60 meters; show a northeast attraction arrow from the rover and a later bent path curving around the obstacle, with a subtle coordinate grid and clear metric scale, premium engineering textbook style, no excessive text",
+      "caption": "RoboRover initially follows the goal direction, then bends when the obstacle enters its influence distance.",
+      "alt_text": "Top-down coordinate-grid illustration showing RoboRover, a distant goal, a plant-container obstacle with modeled radius, attraction toward the goal, and a path that curves around the obstacle."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium robotics textbook diagram of a Matplotlib-style potential-field simulation: a blue RoboRover path begins in the lower-left, curves around three red circular obstacles, and ends near a green goal in the upper-right; include a sampled gray vector field with arrows pointing toward the goal and away from obstacle boundaries, equal-aspect coordinate axes in meters, technically clean plotting style, no code or decorative interface elements",
+      "caption": "The simulation visualizes a sampled vector field, repeated local force calculation, and kinematic motion steps.",
+      "alt_text": "Coordinate plot showing a blue simulated RoboRover path, sampled vector-field arrows, three red circular obstacles, and a green goal."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a compact indoor mobile robot using range sensors near obstacles, shown in a laboratory corridor with translucent overlay arrows indicating attraction toward a waypoint and repulsion from nearby objects; include realistic wheels, sensor modules, safety clearance zones, and a subtle control-system visualization, professional robotics publication style, realistic materials and lighting, no hazardous machinery, no text-heavy labels",
+      "caption": "A physical robot must combine potential-field steering with sensor uncertainty, speed limits, safety margins, and actuator constraints.",
+      "alt_text": "Realistic indoor mobile robot with range sensors navigating near obstacles, overlaid with attraction, repulsion, and safety-clearance arrows."
+    }
+  ]
+}
