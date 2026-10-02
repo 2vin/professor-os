@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real indoor autonomous mobile robot range sensors navigating around obstacles",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the transition from idealized circular obstacles and artificial forces to actual sensors, robot footprint, safety clearance, and laboratory hardware. It should complement rather than replace the planned schematic diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
