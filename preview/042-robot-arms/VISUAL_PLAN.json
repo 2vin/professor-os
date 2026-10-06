@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational mobile robot beside a two-link planar robotic arm on a laboratory table. Clearly visible revolute joints at the base and elbow, rigid links, and a small gripper. Show the arm reaching toward a lightweight object, with clean technical styling, realistic motors and bearings, restrained modern robotics textbook composition, no decorative sci-fi elements, no watermark, high visual clarity.",
+    "caption": "RoboRover uses connected links and independently controlled joints to position a gripper.",
+    "alt_text": "Educational engineering illustration of a mobile robot with a two-link arm, showing a base joint, elbow joint, rigid links, and gripper."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean technical diagram of a two-link planar robot arm with a fixed base, two labeled revolute joints, link 1, link 2, and a hand tool. Show three small side-by-side configurations: links stretched, elbow bent upward, and elbow folded. Use arrows to indicate joint rotations and restrained textbook colors. Labels should be minimal and legible.",
+      "caption": "The same links can form different arm configurations when the joint angles change.",
+      "alt_text": "Diagram showing a two-link robot arm in three configurations with labeled base joint, elbow joint, links, and hand."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical instructional diagram of a planar two-link robot arm viewed from above or directly in a flat plane. Show the base, elbow, and hand, with an arc around each revolute joint and clear visual distinction between rigid links and rotating joints. Include one elbow-up pose and one elbow-down pose reaching similar hand positions. Premium robotics textbook style, no clutter.",
+      "caption": "Different elbow arrangements can sometimes place the hand near the same location.",
+      "alt_text": "Planar robot arm diagram comparing elbow-up and elbow-down configurations that reach similar hand positions."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a precise educational geometry diagram of a two-link planar arm with link lengths 0.30 m and 0.20 m, first joint angle 30 degrees, second relative joint angle 60 degrees. Mark the base, elbow, and hand; show the first link at 30 degrees and the second link pointing at 90 degrees, with horizontal and vertical coordinate components indicated but minimal mathematical text. Clean engineering illustration with accurate proportions.",
+      "caption": "The 30-degree first link and 60-degree relative elbow angle place the second link vertically.",
+      "alt_text": "Geometry diagram of a two-link arm with 0.30 metre and 0.20 metre links, showing 30 and 60 degree joint angles and the resulting elbow and hand positions."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of an educational six-axis industrial-style robot arm mounted near RoboRover, with visible joint housings, bearings, cable routing, a gripper, and a lightweight object. Add subtle callout-style visual emphasis on joint limits, payload, and backlash without dense text. Show a realistic laboratory environment, premium robotics textbook/editorial lighting, technically plausible construction.",
+      "caption": "Real robot arms must handle joint limits, payload forces, calibration, and mechanical looseness in addition to ideal geometry.",
+      "alt_text": "Realistic laboratory robot arm with visible joint mechanisms, gripper, cable routing, and a payload, illustrating practical engineering constraints."
+    }
+  ]
+}

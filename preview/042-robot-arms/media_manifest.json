@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "close-up engineering photograph of a two-link robotic arm showing base joint elbow joint rigid links and gripper",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the distinction between links, joints, motors, bearings, cables, and tools after students have learned the ideal planar model. It would complement rather than replace the planned diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

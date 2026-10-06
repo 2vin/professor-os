@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 3,
+  "static": {
+    "passed": true,
+    "word_count": 4170,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4170 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 89,
+      "clarity": 86,
+      "depth": 92,
+      "examples": 91,
+      "interactivity": 90,
+      "code_alignment": 94,
+      "visual_teaching_plan": 88,
+      "originality": 86,
+      "consistency": 92,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is technically strong but substantially longer than necessary for a foundational class. Compress the repeated robot definition, controller-architecture caveats, visual inventory, and repeated ideal-model limitations.",
+      "Move the singularity discussion into a shorter introductory note or defer most of its detail to the forward-kinematics lesson. The current explanation is accurate but creates a late jump in mathematical depth.",
+      "Clarify the coordinate convention visually and in the Python lab by explicitly stating that positive angles are counterclockwise and that the base frame has +x horizontal and +y vertical axes.",
+      "Add a short worked answer or distance-calculation helper for the Joint-Angle Target Game so students can quantitatively evaluate attempts without needing to infer how to extend the code.",
+      "The distinction between position workspace and complete pose is excellent; reinforce it with one compact diagram or a highlighted callout rather than several prose caveats.",
+      "The spherical-joint row is appropriately qualified, but beginners may still interpret it as a standard single mechanical joint. Consider labeling it as an introductory analogy and briefly stating that many robot wrists use multiple revolute joints instead.",
+      "The generated visuals are well placed and purposeful, but the lesson would benefit from a real hardware photograph showing a joint, bearing, cable routing, and tool after the ideal model has been introduced.",
+      "The vocabulary section repeats the robot definition from the recap. Keep the recap focused on the transition from rover motion to arm motion and retain the full definition only once."
+    ],
+    "linkedin": {
+      "title": "Robot Arms: From Links and Joints to Simulated Hand Positions",
+      "description": "A practical introduction to robot-arm structure, degrees of freedom, planar geometry, and Python simulation, with experiments that connect ideal models to real hardware.",
+      "commentary": "A robot arm is more than a collection of motors. Its behavior emerges from the geometry of connected links, the motion allowed by joints, and the independent coordinates we call degrees of freedom.\n\nThis Professor OS lesson guides students from a simple two-link planar arm to a working Python simulation. Students learn to:\n\n\u2022 distinguish links from joints and actuators\n\u2022 count independent degrees of freedom\n\u2022 relate relative joint angles to absolute link directions\n\u2022 calculate and plot elbow and hand positions\n\u2022 recognize workspace limits, backlash, payload effects, and singular configurations\n\nThe strongest learning moment comes from prediction: students choose joint angles, estimate where the hand will land, run the simulation, and revise their model. That turns forward-kinematics preparation into an experiment rather than a vocabulary exercise.\n\nTry the target-point lab with RoboRover\u2019s 0.30 m and 0.20 m links, then compare two different elbow configurations that reach a similar location. Which would be safer or more useful on a real robot?\n\n#RoboticsEducation #RobotArms #Python #Engineering",
+      "thumbnail_alt_text": "Two-link robot arm schematic beside a simulated hand-position plot"
+    },
+    "media_query": "industrial robot arm close-up showing revolute joints bearings cable routing and gripper laboratory",
+    "image_query": "industrial or collaborative robot arm close-up with visible joints links bearings cables and end effector",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real hardware photograph would ground the ideal planar model by letting students identify links, joint housings, bearings, cables, and the tool on an actual arm. It would complement the existing diagrams rather than replace them.",
+    "media_would_help": true
+  }
+}
