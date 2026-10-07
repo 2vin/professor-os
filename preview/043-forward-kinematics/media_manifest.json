@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "realistic educational laboratory photo of a two-link planar robot arm with visible joint encoders and calibration markers",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the transition from ideal planar geometry to physical hardware, making encoder placement, calibration markers, backlash, and the difference between predicted and measured pose easier to understand. The generated illustration in the visual plan can explain the concept, but a genuine hardware image would add useful physical authenticity.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}

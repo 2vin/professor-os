@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A technically plausible two-link planar robotic arm mounted on a compact rover platform, shown on a clean engineering tabletop with the base, shoulder joint, elbow joint, gripper, x-axis, y-axis, link lengths, and joint angles clearly but minimally indicated. Emphasize the geometric idea of converting joint angles into the gripper pose. Premium robotics textbook editorial style, realistic brushed metal and polymer materials, restrained modern colors, precise lighting, uncluttered composition, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover\u2019s two-link arm: known link lengths and joint angles determine the gripper\u2019s position and orientation.",
+    "alt_text": "A two-link robotic arm on a rover, with the shoulder and elbow angles shown in a flat coordinate plane and the gripper pose marked."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean technical diagram of a two-link planar arm decomposed into vector contributions. Show the base at the origin, Link 1 reaching the elbow, Link 2 reaching the gripper, horizontal and vertical axes, and separate x and y displacement components. Use restrained labels for L1, L2, theta1, theta2, and the final gripper pose. Make clear that the total gripper position is the sum of the two link vectors. Premium robotics textbook diagram, white background, high geometric clarity, minimal text.",
+      "caption": "Forward kinematics adds the displacement contributed by each link to find the end-effector position.",
+      "alt_text": "A labeled two-link planar arm diagram showing each link as a vector and the summed horizontal and vertical components leading to the gripper."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Illustrate the distinction between a relative elbow angle and a world-frame link direction. Show Link 1 at 40 degrees above horizontal, Joint 2 bending Link 2 by negative 25 degrees relative to Link 1, and Link 2 pointing 15 degrees above horizontal. Include a small circular angle indicator at the elbow and a separate world horizontal reference axis. Precise educational engineering graphic, uncluttered, technically correct, no unnecessary decoration.",
+      "caption": "The second link\u2019s room-relative direction is theta1 plus theta2, because the elbow angle is measured relative to Link 1.",
+      "alt_text": "A two-link arm showing Link 1 at 40 degrees, a negative 25-degree relative elbow angle, and Link 2 at a 15-degree world-frame direction."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Create a precise educational illustration of RoboRover\u2019s planar two-link arm using L1 equal to 0.30 metres, L2 equal to 0.20 metres, theta1 equal to 40 degrees, and theta2 equal to negative 25 degrees. Show the base at the origin, elbow coordinates conceptually, gripper at approximately x 0.423 metres and y 0.245 metres, and final gripper orientation 15 degrees. Use a clean coordinate grid and restrained labels, with realistic but simplified robot hardware. Premium robotics textbook style, no dense paragraphs of text.",
+      "caption": "For the worked pose, the gripper is approximately 0.423 metres right and 0.245 metres above the base, pointing at 15 degrees.",
+      "alt_text": "A coordinate-grid illustration of a two-link rover arm with 0.30-metre and 0.20-metre links, showing the calculated gripper position and orientation."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "photorealistic generated engineering illustration",
+      "source": "gemini",
+      "prompt": "Show a realistic laboratory scene with a compact two-joint robot arm, joint encoders, a calibration marker at the base, and a computer display containing a simple wireframe forward-kinematics model overlaid on the measured arm. Visually communicate the difference between an ideal geometric prediction and real hardware affected by small encoder zero error and mechanical play. Technically plausible safe educational robotics lab, premium engineering publication photography style, restrained lighting, no hazardous equipment, no readable brand names, no watermark.",
+      "caption": "Real hardware can differ from the ideal forward-kinematics model because of calibration error, backlash, flexibility, and imperfect measurements.",
+      "alt_text": "A laboratory robot arm with encoders and a computer showing an ideal model slightly offset from the measured physical arm."
+    }
+  ]
+}
