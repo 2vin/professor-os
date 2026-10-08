@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational mobile robot with a two-link planar robotic arm, reaching toward a red target marker on a workbench. Show two translucent overlaid arm configurations, one geometrically elbow-up and one geometrically elbow-down, with theta_1 measured from the positive x-axis and theta_2 defined as the relative angle from link 1 to link 2 in the forward-kinematics equations. For this convention and target, show negative theta_2 for elbow-up and positive theta_2 for elbow-down. Include clean technical coordinate axes, subtle angle arcs at the shoulder and elbow, and a small note that branch names depend on convention. Premium robotics textbook composition, realistic brushed metal and polymer materials, restrained modern laboratory lighting, high clarity, no decorative sci-fi elements, no clutter, no watermark. Verify the elbow labels geometrically from each elbow's side of the shoulder-to-target line.",
+    "caption": "RoboRover can reach the same target with two different joint-angle solutions. In the convention used here, negative theta_2 is geometrically elbow-up and positive theta_2 is geometrically elbow-down for the illustrated target.",
+    "alt_text": "A compact mobile robot with a two-link arm reaching toward a marked target, with two overlaid configurations labelled geometrically elbow-up and elbow-down and coordinate axes."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram explaining inverse kinematics for a two-link planar robot arm. Use theta_1 measured from the positive x-axis and theta_2 as the relative angle from link 1 to link 2 in the forward-kinematics equations. Show a shoulder at the origin, a red target point with coordinates x and y, and two separate arm configurations reaching the same target: one elbow geometrically above and one below the shoulder-to-target line. Include clear dimension arrows for link lengths L1 and L2 and angle arcs for theta_1 and theta_2. For the illustrated target, label the negative-theta_2 configuration elbow-up and the positive-theta_2 configuration elbow-down. Add a small note that branch names depend on the angle convention. Minimal labels, white background, professional engineering textbook style, precise geometry, no unnecessary decorative elements.",
+      "caption": "Inverse kinematics works backward from a desired tip position to the joint angles that can produce it.",
+      "alt_text": "A two-link planar arm is shown in two configurations reaching the same target point, with link lengths, coordinates, and convention-dependent joint-angle labels."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technically accurate geometry illustration of a two-link arm with L1 equal to 0.60 metres and L2 equal to 0.40 metres reaching the target at x equal to 0.70 metres and y equal to 0.30 metres. Use theta_1 measured from the positive x-axis and theta_2 as the relative angle from link 1 to link 2. Show both geometrically verified configurations: positive theta_2 approximately 82.8 degrees with theta_1 approximately -8.2 degrees and the elbow below the shoulder-to-target line, labelled elbow-down; negative theta_2 approximately -82.8 degrees with theta_1 approximately 54.6 degrees and the elbow above the line, labelled elbow-up. Show the shoulder at the origin, the target, the shoulder-to-target dashed line, angle arcs, and a note that branch names depend on convention. Use restrained blue, charcoal, and red accents, with readable mathematical labels and no dense paragraphs.",
+      "caption": "The target, link lengths, and law-of-cosines triangle determine both geometric branches and their shoulder angles.",
+      "alt_text": "A labelled two-link arm geometry diagram shows a 0.60 metre first link and 0.40 metre second link reaching a target at 0.70 metres horizontally and 0.30 metres vertically, with both convention-specific branches verified."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical visualization of a Python-generated inverse-kinematics plot using theta_1 measured from the positive x-axis and theta_2 as the relative elbow angle. Show coordinate axes in metres, a red target point, two colored two-link arm configurations reaching exactly the same target, and a dashed circular maximum-reach boundary. Add a faint dotted inner exclusion circle for the unequal-link inner radius when applicable. Include accurate geometric labels for Solution 1 elbow-down and Solution 2 elbow-up, verified from the signed cross product of the target and elbow coordinates, plus labels for Target, Maximum reach, and Inner exclusion boundary. Clean plotting aesthetic, accurate geometry, white background, suitable for a robotics programming textbook. Include a small note that positive theta_2 is not universally called elbow-up across textbooks.",
+      "caption": "The simulation verifies both mathematical solutions by sending each calculated angle pair back through forward kinematics and classifying the elbow geometrically.",
+      "alt_text": "A coordinate plot shows two differently bent two-link arms reaching the same red target inside an outer reach circle, with an inner exclusion boundary and verified geometric branch labels."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of a compact robot arm approaching a small object on a workbench, with a semi-transparent overlay showing the desired tool position, calculated joint angles, encoder zero marks, joint-limit arcs, and a safe versus rejected configuration. Technically plausible motors, joints, wiring, and gripper mount; restrained laboratory setting; premium robotics textbook style; no hazardous equipment, no clutter, no watermark. Use a clearly stated coordinate convention for the joint angles and avoid implying that the sign of theta_2 universally determines the elbow-up or elbow-down name.",
+      "caption": "A real robot must convert mathematical angles into calibrated motor commands while respecting joint limits and mechanical constraints.",
+      "alt_text": "A robot arm approaches an object while overlays identify desired tool position, joint angles, encoder references, and joint limits."
+    }
+  ]
+}
