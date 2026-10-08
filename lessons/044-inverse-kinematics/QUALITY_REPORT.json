@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 4234,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4234 words; consider tightening for reading flow.",
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 96,
+      "pedagogy": 84,
+      "clarity": 88,
+      "depth": 94,
+      "examples": 93,
+      "interactivity": 90,
+      "code_alignment": 95,
+      "visual_teaching_plan": 88,
+      "originality": 84,
+      "consistency": 90,
+      "accessibility": 87
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove or rewrite the exposed authoring note, \u201cA useful diagram would show,\u201d because the lesson already contains the relevant visual and the sentence reads like production guidance rather than student-facing instruction.",
+      "Reduce repetition of the equal-link shoulder exception, boundary behavior, and branch-labeling caveats. These are technically valuable, but they recur often enough to interrupt the foundational learning flow.",
+      "Add a short installation or environment note for Python and Matplotlib, such as the required package installation command or a browser-based alternative.",
+      "Clarify earlier that the workspace annulus describes the ideal unconstrained arm\u2019s radial reach, while joint limits and obstacles can remove portions of that annulus.",
+      "Make the lab more progressive by first providing a minimal IK function and plot, then introducing boundary handling, branch classification, and deduplication as extensions. The current complete program is technically strong but cognitively dense for beginners.",
+      "The generic instruction beneath diagram.png about tracing a signal from left to right should be replaced with guidance specific to the actual schematic\u2019s elements.",
+      "Consider adding one explicitly physical calibration example showing how a mathematical joint angle becomes an encoder command after applying an offset and sign convention."
+    ],
+    "linkedin": {
+      "title": "Inverse Kinematics: Turning a Target Position into Robot Joint Angles",
+      "description": "A practical lesson on two-link inverse kinematics, solution branching, reachability, Python verification, and the gap between ideal geometry and real robot control.",
+      "commentary": "How does a robot know which joint angles will place its tool at a desired point?\n\nIn this Professor OS lesson, students build that answer from geometry rather than treating inverse kinematics as a black box.\n\nThey learn to:\n\u2022 distinguish forward kinematics from inverse kinematics;\n\u2022 use the law of cosines and atan2 to solve a two-link planar arm;\n\u2022 understand elbow-up and elbow-down solution branches;\n\u2022 identify reachable, unreachable, and boundary targets;\n\u2022 verify both solutions with forward kinematics in Python.\n\nThe lesson also connects the ideal equations to real engineering constraints: joint limits, collision risk, encoder offsets, calibration, backlash, and singular configurations. The included experiment challenges learners to predict the arm\u2019s posture before running the simulation, then compare the prediction with the plotted result.\n\nTry the lab with the supplied targets, then add a joint-limit filter and see how many mathematical solutions remain physically usable.\n\n#Robotics #InverseKinematics #Python #EngineeringEducation",
+      "thumbnail_alt_text": "Two-link robot arm showing two joint configurations reaching the same target"
+    },
+    "media_query": "real two-link robotic arm encoder calibration joint limits laboratory",
+    "image_query": "industrial or educational two-link robotic arm with visible joints, encoders, wiring, and calibration markings",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams and Python plot teach the geometry well, but a carefully selected real hardware photograph would ground the transition from ideal joint angles to encoder references, wiring, calibration offsets, mechanical limits, and physical reachability. It should supplement rather than replace the mathematical visuals.",
+    "media_would_help": true
+  }
+}
