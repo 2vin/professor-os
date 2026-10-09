@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled educational robot with a two-finger parallel gripper, carefully lifting a small rectangular box. Show realistic engineering materials, rubber fingertip pads, opposing contact forces, subtle upward friction arrows and inward normal-force arrows, clean laboratory background, restrained blue and graphite color palette, technically plausible mechanism, high visual clarity, no decorative sci-fi elements, no watermark.",
+    "caption": "RoboRover uses opposing finger forces and friction to hold a box without crushing it.",
+    "alt_text": "A compact wheeled robot with a two-finger gripper holds a rectangular box; arrows show inward normal forces and upward friction at the finger contacts."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram of a rectangular object held between two opposing parallel gripper fingers. Show horizontal inward normal-force arrows from both fingers and upward friction-force arrows at both contact surfaces, with the object's weight arrow downward. Use clear minimal labels, accurate force directions, white background, professional robotics textbook style, no clutter.",
+      "caption": "Notice how inward squeezing creates contact, while friction acts upward to oppose the object\u2019s weight.",
+      "alt_text": "A box between two gripper fingers with inward normal-force arrows, upward friction arrows, and a downward weight arrow."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Three-panel technical illustration comparing robotic grasp geometry: first panel shows centered opposing contacts on the middle of a rectangular box and a stable grasp; second shows staggered contacts near opposite corners causing rotation; third shows a smooth cylindrical object with small contact area. Include simple center-of-mass dot and turning arrows where appropriate, premium engineering illustration, restrained colors, minimal text.",
+      "caption": "Contact placement and object shape can make the same squeezing force stable, twisting, or unreliable.",
+      "alt_text": "Three panels compare centered stable contacts, offset contacts that create rotation, and a smooth cylindrical object with limited contact area."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration of RoboRover's two-finger gripper lifting a 0.35 kilogram rectangular box. Show a clean force-analysis overlay with two equal inward normal forces at the finger pads, two upward friction arrows, a downward weight arrow, and a small center-of-mass marker. Make the hardware realistic and the force arrows precise but not text-heavy, premium robotics textbook style.",
+      "caption": "The worked example compares the box\u2019s weight with the total friction capacity from two finger contacts.",
+      "alt_text": "A realistic robot gripper lifts a box while an overlay shows equal inward finger forces, upward friction forces, and downward weight at the center of mass."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium engineering cutaway illustration of a parallel-jaw robotic gripper showing compliant rubber finger pads, a compact actuator and linkage, position sensing, and a force-sensing contact region gripping a delicate container. Emphasize realistic mechanical limits and alignment, with clean callout areas but minimal labels, modern robotics laboratory lighting, no sci-fi styling.",
+      "caption": "Real grippers combine geometry, compliant materials, sensing, and actuator limits rather than relying on motor commands alone.",
+      "alt_text": "A cutaway parallel-jaw gripper shows compliant pads, actuator linkage, sensing elements, and a delicate container held between the fingers."
+    }
+  ]
+}

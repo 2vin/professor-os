@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real parallel-jaw robotic gripper holding a box, compliant rubber finger pads, force sensing, robotics laboratory",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the generated diagrams in actual hardware and help students recognize compliant pads, linkages, sensors, and mechanical limits. It should be documentary and technically labeled rather than decorative.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
