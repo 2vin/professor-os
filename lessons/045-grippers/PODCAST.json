@@ -1,0 +1,12 @@
+{
+  "filename": "podcast.mp3",
+  "transcript_filename": "podcast_transcript.txt",
+  "class_no": 45,
+  "title": "Grippers",
+  "script_words": 987,
+  "estimated_minutes": 7,
+  "tts_model": "gpt-4o-mini-tts",
+  "voice": "alloy",
+  "synthetic_narration": true,
+  "generated_at_utc": "2026-10-09T19:39:37Z"
+}
