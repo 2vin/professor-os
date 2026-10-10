@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real compact wheeled mobile robot with two-finger gripper carrying a toolbox in a robotics laboratory, visible wheels and payload, engineering documentation photograph",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract force model in visible hardware, payload placement, wheel contact, and chassis geometry. It should supplement rather than replace the planned force diagrams and simulation visuals.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
