@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact wheeled educational mobile robot with a simple two-finger gripper, carrying a visibly heavy toolbox across a smooth laboratory floor. Show subtle translucent vector arrows: a larger forward drive-force arrow at the wheels, a smaller backward rolling-resistance arrow, and a forward acceleration indicator. Premium robotics textbook composition, technically plausible chassis, realistic materials and lighting, restrained modern color palette, uncluttered background, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover accelerates when its forward drive force is greater than opposing resistance, while the carried payload increases mass.",
+    "alt_text": "RoboRover carries a toolbox while forward and backward force arrows show how net force produces acceleration."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean premium technical diagram in a robotics textbook style showing three side-view panels of the same wheeled mobile robot: balanced forward and backward individual force arrows whose vector sum is a zero net force, unbalanced individual force arrows whose vector sum is a forward net force, and identical net force acting on a heavier robot carrying a toolbox. Clearly distinguish individual force arrows from any separately labeled net-force arrow; do not imply that the 20 N arrow in the balanced panel is the net force. Use clear vector arrows and sparse labels for force, resistance, net force, mass, and acceleration. White background, precise line work, restrained blue and orange accents, no unnecessary text, no cartoon styling.",
+      "caption": "Compare balanced forces, unbalanced forces, and the effect of increasing mass while keeping net force the same.",
+      "alt_text": "Three-panel engineering diagram illustrates balanced forces, forward net force, and lower acceleration for a heavier robot under the same force."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical side-view illustration of RoboRover carrying a toolbox, with a visual force inventory: forward wheel-ground drive force labeled 30 N, backward rolling resistance labeled 6 N, and a combined mass callout showing 12 kg rover plus 3 kg toolbox equals 15 kg. Include a separate clean calculation area visually emphasizing net force 24 N and forward acceleration 1.6 m/s^2. Premium educational engineering graphic, realistic wheeled robot geometry, highly legible sparse labels, no decorative clutter.",
+      "caption": "The worked example subtracts resistance from drive force before dividing by the combined rover-and-payload mass.",
+      "alt_text": "RoboRover carrying a toolbox is shown with drive force, resistance, combined mass, net force, and calculated acceleration."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Editorial technical diagram explaining a semi-implicit Euler simulation for RoboRover motion. Show a horizontal timeline with small time steps, and at each step the sequence acceleration equals net force divided by mass, velocity update, then position update using the newly updated velocity. Include a note that this differs from explicit Euler and produces a small position bias for constant acceleration. Include two colored position curves for a 12 kg rover and a 15 kg loaded rover under the same net force. Keep equations and labels sparse but accurate, with a clean robotics-computing textbook aesthetic and no code screenshot.",
+      "caption": "The simulation repeatedly updates velocity and position using acceleration calculated from net force and mass.",
+      "alt_text": "A timeline and two rising position curves explain semi-implicit Euler time-step simulation for light and loaded RoboRover."
+    }
+  ]
+}
