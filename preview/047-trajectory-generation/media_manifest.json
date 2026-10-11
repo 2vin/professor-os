@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "small differential drive robot on marked indoor test track trajectory tracking laboratory",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the distinction between a mathematically generated reference trajectory and the physical rover that must track it. The lesson already has appropriate diagrams and generated plots, so a restrained hardware photograph is more useful than an additional decorative illustration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
