@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A technically plausible small differential-drive educational rover named RoboRover moving along a marked straight laboratory path, with a luminous but restrained motion ribbon showing a smooth start, peak speed near the middle, and smooth stop; premium robotics textbook editorial style, realistic materials, clean laboratory floor, no decorative science-fiction elements, no clutter, clear sense of time-based motion",
+    "caption": "RoboRover follows a planned trajectory that starts and ends gently instead of changing speed abruptly.",
+    "alt_text": "Small wheeled RoboRover traveling along a straight marked path with a smooth motion ribbon illustrating gradual acceleration and deceleration."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A clean three-panel technical diagram comparing a geometric path and two trajectories along the same straight line: a fast trajectory completed in short time and a slow trajectory completed in longer time; show identical start and end positions but different time labels and speed profiles; premium robotics textbook diagram, restrained colors, minimal essential labels",
+      "caption": "The path can stay the same while the trajectory changes the timing and speed.",
+      "alt_text": "Diagram showing one straight route with fast and slow time-based trajectories between the same start and end points."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A precise educational graph with three vertically stacked plots for a quintic RoboRover trajectory over four seconds: position rising smoothly from 0 to 1.2 metres, velocity starting and ending at zero with a rounded peak, and acceleration starting at zero, crossing zero at the midpoint, and ending at zero; use technically correct smooth curves, clear axes, sparse labels, premium robotics textbook styling",
+      "caption": "The three plots show how one smooth position command produces coordinated velocity and acceleration.",
+      "alt_text": "Three stacked graphs of position, velocity, and acceleration for RoboRover moving 1.2 metres in four seconds."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A realistic engineering workstation illustration showing a laptop with three clean trajectory plots for position, velocity, and acceleration beside a small wheeled RoboRover on a marked test track; emphasize that software-generated curves are desired motion commands for a physical robot; premium technical editorial style, realistic lighting, no readable code text, no clutter",
+      "caption": "The Python plot is a model of the motion that RoboRover is being asked to follow.",
+      "alt_text": "Laptop displaying position, velocity, and acceleration plots next to RoboRover on a laboratory test track."
+    }
+  ]
+}
