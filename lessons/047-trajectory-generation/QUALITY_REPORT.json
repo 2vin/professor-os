@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 3211,
+    "code_blocks": 2,
+    "errors": [],
+    "warnings": [
+      "Quiz language appears sparse; make assessment prompts explicit."
+    ]
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 96,
+      "pedagogy": 91,
+      "clarity": 92,
+      "depth": 94,
+      "examples": 94,
+      "interactivity": 91,
+      "code_alignment": 97,
+      "visual_teaching_plan": 88,
+      "originality": 86,
+      "consistency": 95,
+      "accessibility": 88
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add an explicit safety boundary before the Python lab: simulation and plotting should precede any physical execution, with low-speed testing, a clear emergency-stop procedure, a clear workspace, and supervision. The current lesson discusses physical limitations but does not provide an operational safety instruction.",
+      "The lesson is mathematically excellent but unusually long for a single foundational class. Consider moving the analytical acceleration-extrema derivation, some repeated caveats, and part of the extended vocabulary into an optional advanced section or instructor notes.",
+      "Clarify the distinction between a mathematically smooth trajectory and a command stream implemented by a sampled controller. The trajectory itself is smooth, but zero-order-hold or delayed actuator commands can introduce effective discontinuities or tracking error.",
+      "The phrase 'acceleration begins positive' is slightly imprecise because the acceleration is exactly zero at the initial endpoint before becoming positive. Revise to 'acceleration starts at zero, becomes positive, crosses zero at the midpoint, and becomes negative before returning to zero.'",
+      "The visual plan is strong, but the generated illustrations should not be allowed to substitute for the actual Python output. Consider adding a small labeled comparison between the ideal trajectory and sampled command points.",
+      "The challenge is appropriate, but add one intermediate numerical prediction before asking learners to modify the full program. For example, ask them to predict the new peak velocity for 1.5 m in 5 s using the supplied scaling law.",
+      "The lesson could state explicitly that the quintic profile is monotonic for positive distance because its derivative is nonnegative over the normalized interval. This would support the statement that the rover does not reverse direction.",
+      "Use consistent terminology for 'desired,' 'commanded,' and 'reference' trajectory. Introducing 'reference trajectory' once would better connect this class to feedback control and prevent students from interpreting the generated values as guaranteed physical motion."
+    ],
+    "linkedin": {
+      "title": "Trajectory Generation: Turning a Destination into Motion a Robot Can Follow",
+      "description": "A rigorous Professor OS lesson on paths, trajectories, quintic motion profiles, scaling laws, Python plotting, and the limits of real robot execution.",
+      "commentary": "A robot cannot execute \u201cmove one metre\u201d as a complete motion command. It needs a time-based plan: where it should be, how fast it should move, and how its acceleration should change.\n\nThis Professor OS lesson develops that idea through RoboRover and a quintic trajectory:\n\n\u2022 distinguish a geometric path from a time-parameterized trajectory;\n\u2022 derive position, velocity, and acceleration from normalized time;\n\u2022 connect shorter motion times to higher speed and acceleration demands;\n\u2022 verify the mathematics with executable Python assertions;\n\u2022 search for the shortest duration that satisfies speed and acceleration limits.\n\nThe lesson also makes an important engineering distinction: a smooth mathematical reference does not guarantee smooth physical motion. Motor saturation, sampling, calibration, traction, and tracking control still matter.\n\nTry the lab by changing the duration and predicting how the curves will scale before running the code. What is the fastest motion your hypothetical RoboRover could safely execute?\n\n#Robotics #TrajectoryPlanning #Python #EngineeringEducation",
+      "thumbnail_alt_text": "RoboRover trajectory with position, velocity, and acceleration plots"
+    },
+    "media_query": "real differential-drive educational rover following a marked trajectory in a robotics laboratory, engineering documentation photograph, no people required",
+    "image_query": "differential drive educational robot rover trajectory tracking laboratory floor markers",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A restrained real hardware photograph would ground the distinction between the mathematically generated reference trajectory and the physical rover that must track it. The existing generated diagrams and plots already explain the abstract mathematics, so additional illustration is unnecessary; a clearly captioned laboratory photograph would add hardware context without competing with the instructional visuals.",
+    "media_would_help": true
+  }
+}
