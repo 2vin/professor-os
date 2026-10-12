@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real autonomous mobile robot docking with charging station and visible charging contacts",
+  "media_style": "photo",
+  "reason": "A carefully selected real photograph would ground the abstract states in physical hardware, especially the distinction between visual proximity, mechanical docking, and confirmed electrical charging. It should show a real mobile robot and dock with visible contacts or alignment features, not serve as decoration or replace the state-machine diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
