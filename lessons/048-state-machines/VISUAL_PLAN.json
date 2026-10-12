@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium educational engineering illustration of a compact wheeled robot named RoboRover shown as a clean left-to-right mission-progress strip rather than multiple simultaneous robots: search for a blue marker, align, drive, stop safely for an obstacle, dock, and charge. Use six clearly separated annotated stages with subtle arrows between them, realistic sensors and charging contacts, clean laboratory materials, restrained modern colors, high legibility, and no decorative science-fiction elements. The image should teach that distinct states occur over time.",
+    "caption": "RoboRover changes behavior over time as events and conditions select each state: search, align, drive, stop, dock, and charge.",
+    "alt_text": "A left-to-right sequence shows a compact wheeled robot searching, aligning, driving, stopping for an obstacle, docking, and charging."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a precise educational state-machine diagram for RoboRover's docking mission. Use a sparse, highly legible layout suitable for print and small screens. Show labeled circles for IDLE, SEARCH, ALIGN, DRIVE, STOP, DOCKED, and CHARGING, with a clear normal mission path from IDLE through SEARCH, ALIGN, DRIVE, DOCKED, CHARGING, and back to IDLE. Place STOP as a clearly separated obstacle-recovery branch from DRIVE with a return arrow to DRIVE. Label arrows with start, marker_seen, marker_centered, obstacle_detected, path_clear, dock_reached, charger_connected, and battery_full. Add a small note that dock_reached represents the guard distance <= 0.30 meters and that DOCKED is the docking or connection-verification phase before CHARGING. Emphasize that circles are persistent states and arrow labels are events or conditions. Use a premium robotics textbook style, sparse layout, high contrast, and no unnecessary decorative imagery.",
+      "caption": "The circles represent persistent behaviors; the arrows show the events or conditions that cause RoboRover to change behavior.",
+      "alt_text": "A clear finite-state-machine diagram shows RoboRover's normal docking path and a separate obstacle-stop recovery loop."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Create a technically plausible side-view engineering illustration of RoboRover approaching a charging dock. Show a marked initial distance of 1.8 meters, a stopping distance of 0.30 meters, and a forward travel segment of 1.50 meters. Include a restrained annotation indicating constant speed of 0.25 meters per second and an estimated travel time of 6.0 seconds. Make the diagram visually clear, physically realistic, and suitable for a robotics mathematics lesson; avoid clutter and avoid decorative sci-fi styling.",
+      "caption": "The numerical example separates the distance RoboRover must travel from the distance at which it should stop.",
+      "alt_text": "A wheeled robot is shown 1.8 meters from a docking station, with a 0.30 meter stopping offset and a 1.50 meter travel distance at 0.25 meters per second."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a premium educational diagram showing a cyclic software state-machine loop for RoboRover: read an event or sensor result, combine it with the current state, evaluate a transition-table entry or guard, update the state, and execute the state's action before repeating. Use a small code-inspired transition table with examples such as DRIVE plus obstacle_detected leading to STOP, DRIVE plus the guard distance <= 0.30 meters producing dock_reached and leading to DOCKED, and STOP plus path_clear leading to DRIVE. Show that unexpected events in DRIVE, DOCKED, or CHARGING enter SAFE_HOLD, where drive motion is stopped and docking or charging is safely inhibited through the hardware interface. Show the software architecture clearly without reproducing a full programming listing.",
+      "caption": "The program repeatedly combines the current state with new information, selects a next state, and applies that state's action.",
+      "alt_text": "A cyclic flow diagram illustrates a software loop that reads events, evaluates state transitions, updates RoboRover's state, and performs the corresponding action."
+    }
+  ]
+}
