@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a compact wheeled delivery rover, paused at a branching decision point in a warehouse corridor. Show three clearly implied behavioral choices: recharge at a charging station, avoid a detected obstacle, or drive toward a delivery station. Include a subtle translucent tree structure above or behind the rover, with clean branch geometry and restrained modern engineering styling. Technically plausible sensors, wheels, battery compartment, realistic materials and lighting, no decorative sci-fi elements, no readable text except minimal essential labels if needed.",
+    "caption": "RoboRover uses a prioritized behavior tree to choose what to do next.",
+    "alt_text": "A compact wheeled rover in a warehouse faces an obstacle and a branching visual representing recharge, avoidance, and delivery behaviors."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram of a behavior tree for RoboRover. Show a root priority selector branching left to a recharge branch, center to an obstacle-avoidance branch, and right to a delivery sequence. The delivery sequence should contain drive-to-station followed by release-package. Use arrows showing left-to-right priority and visually distinguish condition nodes, action nodes, sequence control, selector control, and the three result states SUCCESS, FAILURE, and RUNNING. Minimal text, high clarity, premium robotics textbook layout.",
+      "caption": "A selector chooses the first usable branch, while a sequence performs required steps in order.",
+      "alt_text": "A tree diagram shows a priority selector with recharge, obstacle avoidance, and a delivery sequence containing driving and package release."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical editorial illustration of RoboRover's worked example in three connected moments: first beside a battery charger with a low battery indicator, second turning around a box obstacle, third driving four short equal movement segments toward a delivery station. Include a small measurement overlay indicating 0.50 metre movement increments and a 2.0 metre total path, without clutter. Realistic rover geometry, warehouse floor, clear educational composition.",
+      "caption": "The numerical example combines behavior priority with distance, speed, and battery accounting.",
+      "alt_text": "Three sequential scenes show RoboRover recharging, avoiding an obstacle, and traveling four half-metre increments to a delivery station."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium software-and-robotics diagram showing one behavior-tree tick flowing through Condition, Sequence, Selector, Action, and UntilDelivered decorator nodes, then updating RoboRover's battery, obstacle flag, distance, and delivery state. Use clear arrows and compact status tokens SUCCESS, FAILURE, and RUNNING. Make the relationship between the Python simulation and the physical robot state visually explicit. No generic code wall and no decorative imagery.",
+      "caption": "Each tick evaluates the tree and updates a small model of RoboRover's world.",
+      "alt_text": "A flow diagram connects behavior-tree nodes to simulated rover variables for battery, obstacle state, distance, and package delivery."
+    }
+  ]
+}
