@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "ROS 2 robot software architecture nodes topics services schematic",
+  "media_style": "mixed",
+  "reason": "A clean architecture schematic would materially improve comprehension of node boundaries, topic direction, and service request-response semantics. A restrained real-robot photograph could then ground the abstract graph in physical hardware without replacing the technical diagram.",
+  "insert_after_heading": "## The Big Idea",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
