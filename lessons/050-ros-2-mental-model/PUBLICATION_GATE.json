@@ -13,12 +13,11 @@
     "podcast": true
   },
   "visuals": {
-    "planned_inline_count": 4,
+    "planned_inline_count": 3,
     "planned_inline_files": [
       "inline_01.png",
       "inline_02.png",
-      "inline_03.png",
-      "inline_04.png"
+      "inline_03.png"
     ]
   },
   "errors": [],
