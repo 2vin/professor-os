@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "ROS 2 mobile robot computer and sensors real hardware software architecture",
+  "media_style": "mixed",
+  "reason": "A real photograph would ground the abstract communication model in physical robotics hardware, while a clean schematic would make the distinctions among topics, services, and actions easier to inspect. Media should supplement rather than replace the lesson\u2019s planned diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
