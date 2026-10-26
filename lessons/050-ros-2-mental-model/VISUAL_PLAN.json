@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium editorial robotics textbook illustration of RoboRover in a clean engineering workshop, surrounded by a visually clear ROS 2 communication architecture: separate labeled conceptual modules for behavior tree, front distance sensor, safety controller, drive controller, and odometry service, connected by restrained glowing communication paths representing topics and a request-response service; technically plausible compact wheeled rover, realistic materials, modern lighting, uncluttered composition, no decorative sci-fi elements, minimal essential labels only",
+    "caption": "RoboRover is organized as cooperating software nodes that exchange topic messages and service requests.",
+    "alt_text": "Engineering illustration of a wheeled RoboRover surrounded by separate behavior, sensor, safety, drive, and service modules connected by communication paths."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear premium technical diagram showing a ROS 2 mental model for RoboRover: rectangular nodes labeled Range Sensor Node, Behavior Tree Node, Safety Node, Drive Node, and Odometry Service; arrows for topic streams labeled front_distance, desired_cmd, and safe_cmd; a distinct two-way request-response arrow labeled reset_odometry; use clean engineering typography, restrained colors, obvious arrow directions, no unnecessary decorative elements",
+      "caption": "Notice that topics carry ongoing messages while the odometry service uses a request-and-response exchange.",
+      "alt_text": "Technical node graph showing RoboRover sensor, behavior, safety, drive, and odometry components connected by topic arrows and a bidirectional service arrow."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically accurate cutaway workshop illustration representing ROS 2 communication as three connected rooms: a sensor room placing distance measurements on a notice board labeled front_distance, a safety room reading distance and desired speed and posting safe_speed, and a drive room receiving the safe command; depict RoboRover hardware in the drive room, professional textbook style, realistic materials, sparse labels, high visual clarity",
+      "caption": "Each node has a focused responsibility, and communication channels connect the responsibilities without merging them into one giant program.",
+      "alt_text": "Three-room engineering visualization of sensor, safety, and drive nodes exchanging named messages for RoboRover."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Educational robotics diagram of RoboRover approaching an obstacle: show desired speed 0.40 m/s entering a safety controller, front distance measurement 0.35 m, safety threshold 0.50 m, and safe speed 0.00 m/s leaving toward the drive controller; include a second inset with distance 0.80 m producing safe speed 0.40 m/s; precise arrows, unit labels, restrained technical colors, no clutter",
+      "caption": "The safety node combines task intent with measured distance and changes the command when the obstacle is inside the threshold.",
+      "alt_text": "Two-panel safety communication diagram showing RoboRover stopped at 0.35 meters and allowed to move at 0.40 meters per second at 0.80 meters."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium realistic engineering illustration of a compact mobile robot software stack visualized beside the physical robot: camera driver, wheel encoder driver, localization, behavior tree, safety controller, motor controller, diagnostics, and operator dashboard represented as clean connected modules; emphasize practical networked robotics, timestamps, message flow, and failure monitoring without dense text; realistic lab environment, professional editorial robotics textbook style",
+      "caption": "A real robot may contain many cooperating nodes, so latency, stale data, interface units, and node failures must be designed for explicitly.",
+      "alt_text": "Realistic mobile robot in a laboratory beside a structured network of software modules representing sensors, behavior, safety, motors, diagnostics, and dashboard communication."
+    }
+  ]
+}
