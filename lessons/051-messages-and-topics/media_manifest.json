@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "ROS 2 mobile robot with lidar or front distance sensor in robotics laboratory, real hardware photograph",
+  "media_style": "photo",
+  "reason": "A real, well-captioned photograph would ground the abstract topic model in actual robot hardware and help students connect the software nodes to sensors, onboard computers, and motor controllers. It should supplement\u2014not replace\u2014the existing logical diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
