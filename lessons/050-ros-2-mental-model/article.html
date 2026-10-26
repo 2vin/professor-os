@@ -40,7 +40,7 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 <header class="os-topbar"><div class="brand"><div class="mark">π</div><div><b>Professor OS</b><br><span>Reader application</span></div></div><div class="crumb">ProfessorOS / Library / <b>CLS_50</b></div><div class="top-actions"><a class="pill" href="#professorOSPodcast">♫ Podcast</a><button class="pill chat-top" id="professorChatTop" type="button">✦ Ask Professor</button><a class="pill" href="/">Home</a><a class="pill" href="/#library">Library</a></div></header>
 <nav class="dock"><a href="/">⌂</a><a href="/#library">▦</a><a class="active" href="#">R</a><div class="spacer"></div><a href="/#system">⚙</a></nav>
 <main class="desktop"><div class="shell">
-<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_50</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 50 · Robot Software &amp; Simulation</div><h1>ROS 2 Mental Model</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~24 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 89/100</b></div><div class="meta"><span>Concepts</span><b>nodes, topics, services</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
+<section class="window"><div class="bar"><div class="dots"><i></i><i></i><i></i></div><div class="bar-title">Reader / Knowledge Stream</div><div class="bar-state">CLS_50</div></div><div class="hero"><div class="hero-copy"><div class="eyebrow">Class 50 · Robot Software &amp; Simulation</div><h1>ROS 2 Mental Model</h1><p class="lead">A focused Professor OS reading workspace. Learn the concept, inspect the visuals, run the code, and keep your position in the curriculum.</p><div class="hero-meta"><div class="meta"><span>Reading time</span><b>~30 min</b></div><div class="meta"><span>Editorial quality</span><b>Editorial score 88/100</b></div><div class="meta"><span>Concepts</span><b>nodes, topics, services</b></div><div class="meta"><span>State</span><b id="headerProgressState">In progress</b></div></div></div><div class="hero-media"><img src="hero.png" alt="Professor OS lesson visual"></div></div></section>
 
 <!-- PROFESSOR_OS_PODCAST_START -->
 <section class="window podcast-strip" id="professorOSPodcast" aria-label="Professor OS podcast">
@@ -61,248 +61,305 @@ window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]'],['$$'
 <div class="reader"><aside class="rail"><section class="window rail-window"><h3>Reading progress</h3><div class="progress-row"><span>Progress</span><b id="readingPct">0%</b></div><div class="track"><i id="sideReadingBar"></i></div><button class="complete" id="completeBtn" type="button">Mark class complete</button><div class="resume-note" id="resumeNote"></div></section><section class="window rail-window"><h3>On this page</h3><nav class="toc" id="toc"></nav></section><section class="window rail-window"><h3>Lesson core</h3><div class="core"><i></i></div></section></aside><section class="window content-window"><article class="content" id="lessonContent"><h1>Class 50: ROS 2 Mental Model</h1>
 <h2>Where We Are in the Robotics Journey</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Where We Are in the Robotics Journey">Ask Professor OS <em>↗</em></button></div>
-<p>RoboRover has just learned to organize decisions with a <strong>Behavior Tree</strong>. A behavior tree answers questions such as:</p>
+<p>RoboRover has learned to choose actions with a <strong>Behavior Tree</strong>. A behavior tree answers questions such as:</p>
 <ul>
-<li>Should RoboRover search for a charging dock?</li>
-<li>Should it follow a corridor?</li>
-<li>Should it stop because an obstacle is too close?</li>
-<li>Which action should happen next?</li>
+<li>“Is the battery low?”</li>
+<li>“Should I search for the charging station?”</li>
+<li>“Should I drive toward the delivery zone?”</li>
+<li>“Did the last action succeed?”</li>
 </ul>
-<p>That tree is useful, but a real robot is not one giant program. Its camera, motor controller, battery monitor, mapping software, safety system, and behavior logic may all be separate programs running at different speeds.</p>
-<p>ROS 2, commonly pronounced “Ross Two,” helps these programs communicate.</p>
-<p>This class builds a mental model of three important ROS 2 ideas:</p>
+<p>That was the <strong>decision structure</strong>.</p>
+<p>Now we need to ask a different engineering question:</p>
+<blockquote>How do the different software parts of RoboRover communicate?</blockquote>
+<p>A behavior tree may decide, “Drive to the blue marker,” but another software component must read the camera, another must command the motors, and another may report battery voltage. These components should not all be tangled into one enormous program.</p>
+<p>ROS 2 provides a common mental model for organizing this communication.</p>
+<p>In this class, we will learn four related ideas:</p>
 <ol>
-<li><strong>Nodes</strong> — independent programs or program components.</li>
-<li><strong>Topics</strong> — named streams of messages.</li>
-<li><strong>Services</strong> — request-and-response interactions.</li>
+<li><strong>Nodes</strong> — logical software runtime entities.</li>
+<li><strong>Topics</strong> — communication channels commonly used for recurring or asynchronous data.</li>
+<li><strong>Services</strong> — request-and-response interfaces for short, bounded operations.</li>
+<li><strong>Actions</strong> — interfaces for longer operations that need progress, cancellation, and a final result.</li>
 </ol>
-<p>This is not yet a software installation lesson. We will first understand the architecture well enough to draw it, explain it, and simulate a small version in ordinary Python.</p>
+<p>The next class will examine <strong>messages and topics</strong> more closely: what a message contains, how publishers and subscribers use it, and why message design matters.</p>
 <h2>Today We Will Learn</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Today We Will Learn">Ask Professor OS <em>↗</em></button></div>
 <p>By the end of this class, you should be able to:</p>
 <ul>
-<li>explain why a robot system is divided into nodes;</li>
-<li>distinguish a topic from a service;</li>
-<li>trace a message from a publisher to one or more subscribers;</li>
-<li>explain why a behavior tree usually should not directly contain every hardware detail;</li>
-<li>calculate a simple message rate and data rate;</li>
-<li>recognize practical problems such as stale messages, mismatched interfaces, and service delays;</li>
-<li>run a small Python simulation of RoboRover’s ROS-like communication.</li>
+<li>describe a ROS 2 node in plain language;</li>
+<li>distinguish a topic from a service and an action;</li>
+<li>sketch a simple ROS 2 communication graph;</li>
+<li>explain how a behavior tree can use ROS 2 components;</li>
+<li>calculate a simple message rate and data volume;</li>
+<li>identify practical problems such as stale data, delays, unavailable services, and timeouts;</li>
+<li>run a small Python simulation of nodes, a topic, an optional service-based readiness check, and an action goal.</li>
 </ul>
-<p>The key idea is:</p>
-<blockquote>A ROS 2 robot is commonly organized as cooperating nodes that exchange typed messages through topics and use services for request-and-response operations.</blockquote>
-<p>This is a teaching model, not a complete description of every ROS 2 feature. ROS 2 also includes actions, parameters, launch systems, quality-of-service settings, and much more. We will meet those later.</p>
+<p>ROS 2 itself is a robotics software framework. Our Python activity will model selected communication ideas without requiring a ROS 2 installation.</p>
 <h2>2-Minute Recap</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="2-Minute Recap">Ask Professor OS <em>↗</em></button></div>
-<p>A <strong>Behavior Tree</strong> is a structured decision system. It is made from nodes such as:</p>
+<p>A <strong>Behavior Tree</strong> is a structured way to select actions. A condition checks something, and an action attempts something. Nodes in a behavior tree often return statuses such as:</p>
 <ul>
-<li><strong>Sequence</strong>: perform children in order, usually requiring them all to succeed;</li>
-<li><strong>Selector</strong>: try alternatives until one succeeds;</li>
-<li><strong>Condition</strong>: check something;</li>
-<li><strong>Action</strong>: perform something.</li>
+<li><strong>Success</strong> — the task completed;</li>
+<li><strong>Failure</strong> — the task could not be completed;</li>
+<li><strong>Running</strong> — the task is still in progress.</li>
 </ul>
-<p>For example:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Selector
-├── Sequence
-│   ├── Battery low?
-│   └── Drive to charging dock
-└── Sequence
-    ├── Obstacle close?
-    └── Stop</code></pre></div>
-<p>The behavior tree chooses a task-level action. It does not need to know the electrical details of every motor command. A separate part of the robot can turn “drive to the dock” into wheel speeds.</p>
-<p>That separation is one reason ROS 2 is useful.</p>
+<p>Consider RoboRover’s charging behavior:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Sequence
+├── Is battery below 25%?
+└── Go to charging station</code></pre></div>
+<p>The behavior tree decides <em>what RoboRover should attempt</em>. It does not necessarily contain all camera drivers, motor-control code, battery-reading code, and wheel encoder processing.</p>
+<p>ROS 2 helps those software parts communicate while remaining separate.</p>
 <h2>The Big Idea</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="The Big Idea">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_01.png" alt="Technical node graph showing RoboRover sensor, behavior, safety, drive, and odometry components connected by topic arrows and a bidirectional service arrow."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Notice that topics carry ongoing messages while the odometry service uses a request-and-response exchange.</p>
+<figure><img loading="lazy" src="inline_01.png" alt="Technical communication diagram contrasting a one-way battery topic stream, a two-way diagnostic service, and a docking action with goal, feedback, cancellation, and result."></figure>
+<p class="figure-caption"><strong>Figure:</strong> A topic carries recurring messages, a service represents a bounded request and response, and an action manages a longer operation with feedback and a result.</p>
 <p>Imagine RoboRover as a small company.</p>
 <ul>
-<li>A <strong>node</strong> is a worker with a specific job.</li>
-<li>A <strong>topic</strong> is a labeled notice board or radio channel.</li>
-<li>A <strong>message</strong> is a note placed on that channel.</li>
-<li>A <strong>service</strong> is a direct request: “Please perform this operation and tell me the result.”</li>
+<li>A <strong>node</strong> is a logical software participant with a focused responsibility. It may run in its own process or as a composable component within a process.</li>
+<li>A <strong>topic</strong> is a notice board where departments publish updates.</li>
+<li>A <strong>service</strong> is a counter where one department requests a short, bounded operation and receives a response.</li>
+<li>An <strong>action</strong> is a job desk for a longer operation that can report progress, be cancelled, and eventually return a result.</li>
 </ul>
-<p>A possible RoboRover system looks like this:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>             obstacle_distance
-[Range Sensor Node] ─────────────────► [Safety Node]
-                                           │
-                                           │ safe_cmd
-                                           ▼
-                                      [Drive Node]
-                                           │
-                                           ▼
-                                      Wheel motors
-
-[Behavior Tree Node] ─────► desired_cmd ─► [Safety Node]
-
-[Dashboard Node] ── request ─► [Battery Service Node]
-                  ◄─ response ──</code></pre></div>
-<p>The arrows represent communication, not necessarily physical wires.</p>
-<p>A node usually has one focused responsibility. This gives engineers useful choices:</p>
+<p>For example:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>[Battery Node] ── publishes battery_state ──&gt; [Behavior Tree Node]
+      |
+      └── provides clear_battery_fault service</code></pre></div>
+<p>A larger system might look like this:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>[Camera Node] ── image topic ──&gt; [Vision Node]
+                                  |
+                                  └── marker topic ──&gt; [Behavior Tree Node]
+                                                           |
+[Wheel Encoder Node] ── odometry topic ──&gt; [Navigation Node]
+                                                           |
+                                                           └── velocity command topic ──&gt; [Motor Node]</code></pre></div>
+<p>The arrows represent software communication. The rectangular boxes represent logical software nodes. They are not a physical wiring diagram.</p>
+<h3>Nodes</h3>
+<p>A <strong>node</strong> is a logical runtime entity with a focused responsibility. A node can be deployed as a standalone process, or it can be implemented as a composable component loaded into a shared process with other nodes.</p>
+<p>Examples:</p>
 <ul>
-<li>restart one component without restarting everything;</li>
-<li>test a sensor node separately;</li>
-<li>replace a simulated motor node with a real motor node;</li>
-<li>inspect messages while the robot is running;</li>
-<li>allow several nodes to use the same information.</li>
+<li><code>camera_node</code> obtains images;</li>
+<li><code>battery_node</code> measures voltage;</li>
+<li><code>motor_node</code> receives velocity commands;</li>
+<li><code>vision_node</code> detects colored markers;</li>
+<li><code>behavior_tree_node</code> selects tasks.</li>
 </ul>
-<p>For example, the range sensor might publish one distance measurement. Both the safety node and the dashboard could subscribe to it. The sensor does not need to know who is listening.</p>
+<p>A node may publish, subscribe, provide services, call services, send action goals, or perform several of these roles.</p>
+<p>A node is not necessarily one Python file or one independently deployed operating-system process. It is better to think of it as a named participant in the robot’s communication system.</p>
+<h3>Topics</h3>
+<p>A <strong>topic</strong> is commonly used for messages that may occur repeatedly or asynchronously.</p>
+<p>Examples:</p>
+<ul>
+<li>camera images;</li>
+<li>wheel speed measurements;</li>
+<li>battery state;</li>
+<li>obstacle detections;</li>
+<li>velocity commands.</li>
+</ul>
+<p>A node <strong>publishes</strong> messages to a topic. Other nodes <strong>subscribe</strong> to that topic.</p>
+<p>The publisher does not normally need to know every subscriber. This reduces coupling. A battery node can publish battery information whether one dashboard or five diagnostic tools are listening.</p>
+<p>Topics are especially useful for streams:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>battery_node ── battery_state ──&gt; behavior_tree_node
+                              └──&gt; dashboard_node
+                              └──&gt; safety_monitor_node</code></pre></div>
+<p>ROS 2 topics are not inherently only asynchronous streams: their scheduling and delivery behavior depends on the middleware, executors, queues, quality-of-service settings, and application design. A subscriber is not guaranteed to process every newest message immediately. Queue depth, QoS compatibility, executor scheduling, callback processing time, and application logic affect which messages are received and processed. “Recurring or asynchronous data” is useful beginner shorthand for common topic use.</p>
+<h3>Services</h3>
+<p>A <strong>service</strong> is a request-and-response interface.</p>
+<p>Services are appropriate for short, bounded operations such as:</p>
+<ul>
+<li>“Clear this fault.”</li>
+<li>“Reset this subsystem.”</li>
+<li>“Return the current configuration value.”</li>
+<li>“Report a diagnostic summary.”</li>
+</ul>
+<p>Some operations often described informally as service calls—such as opening a gripper, saving a map, or starting calibration—may take long enough to need an action instead. The correct choice depends on duration, cancellation needs, progress reporting, and the interface contract.</p>
+<p>A service is not inherently transactional in the database sense. It simply defines a request and a response.</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>[Behavior Tree Node] ── request: clear_fault ──&gt; [Diagnostic Node]
+[Behavior Tree Node] &lt;─ response: cleared=true ── [Diagnostic Node]</code></pre></div>
+<p>A service client can make an <strong>asynchronous service call</strong> rather than blocking the entire robot system. The client should still apply a timeout and define what to do if the response is late or absent.</p>
+<h3>Actions</h3>
+<p>An <strong>action</strong> is designed for a longer-running operation. An action commonly provides:</p>
+<ul>
+<li>a goal sent by a client;</li>
+<li>a goal response indicating whether the server accepted or rejected that goal;</li>
+<li>feedback while the operation runs;</li>
+<li>cancellation;</li>
+<li>a final result after execution finishes.</li>
+</ul>
+<p>The <strong>goal response is not the final result</strong>. Acceptance means that the action server agreed to begin or manage the requested operation. The later result reports whether execution succeeded, failed, or was otherwise terminated.</p>
+<p>Docking is typically a long-running, cancellable operation with progress and feedback. Therefore, a realistic design represents the docking process itself with an action:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>[Behavior Tree Node] ── action goal: dock ──&gt; [Docking Action Server]
+[Behavior Tree Node] &lt;─ goal response: accepted/rejected
+[Behavior Tree Node] &lt;─ feedback: aligning ── [Docking Action Server]
+[Behavior Tree Node] &lt;─ result: success/fail ─ [Docking Action Server]</code></pre></div>
+<p>An application may optionally use a separate service to perform a short admission or readiness check before sending the action goal. ROS 2 actions do <strong>not</strong> normally require a preceding service: an action goal already has its own goal-acceptance mechanism.</p>
 <h2>See It in Your Head</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="See It in Your Head">Ask Professor OS <em>↗</em></button></div>
 <h3>AI-Generated Engineering Visual · Professor OS</h3>
 <figure><img loading="lazy" src="diagram.png" alt="Professor OS engineering schematic"></figure>
-<p><strong>How to read this visual:</strong> Trace the signal or idea from left to right. Match each block to the lesson explanation, then predict what would change if one block produced a wrong value.</p>
-<figure><img loading="lazy" src="inline_02.png" alt="Three-room engineering visualization of sensor, safety, and drive nodes exchanging named messages for RoboRover."></figure>
-<p class="figure-caption"><strong>Figure:</strong> Each node has a focused responsibility, and communication channels connect the responsibilities without merging them into one giant program.</p>
-<p>Picture three rooms in a workshop.</p>
-<h3>Room 1: The sensor room</h3>
-<p>A worker repeatedly measures the distance to the nearest obstacle. Every measurement is placed on a notice board labeled:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>/front_distance</code></pre></div>
-<p>The note might contain:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>distance: 0.42 m</code></pre></div>
-<p>This is a <strong>topic message</strong>.</p>
-<h3>Room 2: The safety room</h3>
-<p>The safety worker watches <code>/front_distance</code>. If the distance is too small, it publishes a safer velocity command on:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>/cmd_safe</code></pre></div>
-<p>The safety node may also listen to the behavior tree’s desired command:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>/cmd_desired</code></pre></div>
-<p>It combines intent with safety.</p>
-<h3>Room 3: The drive room</h3>
-<p>The drive node listens to <code>/cmd_safe</code>. It converts a requested speed into motor commands.</p>
-<p>Notice the direction of responsibility:</p>
-<ul>
-<li>the behavior tree decides <em>what task RoboRover wants to do</em>;</li>
-<li>the safety node decides whether that command is currently acceptable;</li>
-<li>the drive node handles the mechanical interface.</li>
-</ul>
-<p>The names here are illustrative. Real robot systems choose names and message types according to their design.</p>
+<p><strong>How to read this visual:</strong> Identify the named topic, the service request and response, and the action goal, feedback, cancellation path, and result. Then trace each path from its sending node to its receiving node. Which path carries recurring data? Which path can report that a request is unavailable? Which path distinguishes goal acceptance from eventual completion?</p>
+<figure><img loading="lazy" src="inline_02.png" alt="Technical workshop scene where a battery software component publishes measurement cards, a diagnostic component handles a short request and response, and a docking action component reports progress and a result."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The workshop analogy makes the difference between a recurring topic notice board, a bounded service exchange, and a long-running action visible.</p>
+<p>Picture a workshop containing three labeled machines:</p>
+<ol>
+<li><strong>Battery Node</strong></li>
+<p>It measures RoboRover’s battery and places a small card on the <code>battery_state</code> notice board.</p>
+</ol>
+<ol>
+<li><strong>Behavior Tree Node</strong></li>
+<p>It reads the newest card available to its application. If the voltage is low, it decides to start docking.</p>
+</ol>
+<ol>
+<li><strong>Docking Action Node</strong></li>
+<p>It accepts or rejects a docking goal, reports progress while docking, supports cancellation, and eventually returns a result.</p>
+</ol>
+<p>The workshop has three communication styles:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Recurring observation:
+Battery Node ──&gt; battery_state topic ──&gt; Behavior Tree Node
+
+Optional short readiness check:
+Behavior Tree Node ── request ──&gt; Diagnostic Node
+Behavior Tree Node &lt;─ response ─── Diagnostic Node
+
+Long-running operation:
+Behavior Tree Node ── docking goal ──&gt; Docking Action Node
+Behavior Tree Node &lt;─ goal response ── Docking Action Node
+Behavior Tree Node &lt;─ progress/result ── Docking Action Node</code></pre></div>
+<p>The optional readiness check is an application-specific design. The action goal itself already has a goal-acceptance response, so a preceding service is not a normal ROS 2 requirement.</p>
+<p>This distinction is important: <strong>the behavior tree chooses an intention; ROS 2 communication connects that intention to specialized software.</strong></p>
 <h2>Core Concept</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Core Concept">Ask Professor OS <em>↗</em></button></div>
-<h3>Nodes: independent participants</h3>
-<p>A node is a running unit of computation that communicates with other parts of the robot.</p>
-<p>A node may:</p>
+<h3>Topics are commonly used for recurring data</h3>
+<p>When a battery node publishes a voltage, it does not necessarily pause until the behavior tree has finished processing it. The message enters the communication system, and subscribers process it according to their own timing.</p>
+<p>This allows different components to run at different rates:</p>
 <ul>
-<li>publish data;</li>
-<li>subscribe to data;</li>
-<li>provide a service;</li>
-<li>call a service;</li>
-<li>perform several of these roles.</li>
+<li>a camera at 10 images per second;</li>
+<li>a motor controller at 50 command updates per second;</li>
+<li>a battery monitor at 2 measurements per second;</li>
+<li>a behavior tree tick at 5 times per second.</li>
 </ul>
-<p>“Independent” does not mean completely isolated. It means the node has a clear boundary and communicates through defined interfaces.</p>
-<p>A camera node might publish images. A perception node might subscribe to those images and publish detected objects. A behavior node might subscribe to detected objects and publish a desired action.</p>
-<p>A ROS 2 node is a software-process abstraction. It is not the same thing as a <strong>behavior-tree node</strong>. A behavior-tree node represents a decision, condition, or action within a behavior tree; a ROS 2 node is a communication and computation unit. A behavior tree can run inside a ROS 2 node, and a ROS 2 node can contain code that executes a behavior tree.</p>
-<h3>Topics: ongoing streams</h3>
-<p>A topic is appropriate when information may be produced repeatedly or asynchronously.</p>
-<p>Examples include:</p>
+<p>The subscriber may work with the newest message currently available to its callback, but delivery does not guarantee that every subscriber has the newest message at every instant. Queue depth, QoS, executor scheduling, callback duration, and application logic affect which messages are processed.</p>
+<h3>Services are bounded request-and-response interfaces</h3>
+<p>A service resembles asking a technician:</p>
+<blockquote>“Please perform this short operation, and tell me whether it worked.”</blockquote>
+<p>The response may contain success information, a result, or an error explanation.</p>
+<p>A service is a good fit for an operation with a clear, bounded request and response. It is less suitable for a high-rate sensor stream or a long-running operation that needs progress and cancellation.</p>
+<p>The client need not block the whole robot while waiting. A ROS 2 client can issue an asynchronous service request, monitor its future, and enforce a timeout.</p>
+<h3>Actions are for longer operations</h3>
+<p>An action is appropriate when an operation may take substantial time or needs progress, cancellation, and a final result. Examples include:</p>
 <ul>
-<li>sensor measurements;</li>
-<li>camera images;</li>
-<li>robot pose estimates;</li>
-<li>battery percentage;</li>
-<li>velocity commands;</li>
-<li>detected objects.</li>
+<li>docking;</li>
+<li>navigation to a goal;</li>
+<li>calibration;</li>
+<li>manipulation;</li>
+<li>a long map-saving operation.</li>
 </ul>
-<p>A topic commonly has:</p>
+<p>The action client can continue running other node work while the action server performs the operation.</p>
+<p>The action’s goal response and final result have different meanings:</p>
 <ul>
-<li>a name;</li>
-<li>a message type;</li>
-<li>one or more publishers;</li>
-<li>zero or more subscribers.</li>
+<li><strong>Goal response:</strong> whether the server accepted or rejected the requested goal.</li>
+<li><strong>Feedback:</strong> progress information while an accepted goal is executing.</li>
+<li><strong>Final result:</strong> the outcome after execution finishes or terminates.</li>
 </ul>
-<p>The publisher does not normally wait for each subscriber to ask for the next message. It publishes according to its own timing.</p>
-<p>This makes topics useful for “Here is the latest information” communication.</p>
-<h3>Services: a request and a response</h3>
-<p>A service is appropriate when one node asks another node to perform a specific operation and return a result.</p>
-<p>Examples:</p>
+<h3>The ROS graph</h3>
+<p>The collection of nodes and their communication connections is often called a <strong>ROS graph</strong>.</p>
+<p>The graph is not a map of physical space. It is a map of software communication.</p>
+<p>RoboRover may be physically in a hallway, while its ROS graph contains:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>camera_node
+vision_node
+battery_node
+behavior_tree_node
+motor_node
+diagnostics_node
+docking_action_server</code></pre></div>
+<p>The graph describes who communicates with whom, not where the robot is located.</p>
+<p>A <strong>behavior-tree graph</strong> is different: it describes control-flow relationships such as sequences, selectors, and conditions. A <strong>physical wiring diagram</strong> describes sensors, actuators, power, and hardware connections. The arrows in these three diagrams do not all mean the same thing.</p>
+<h3>ROS 2 does not remove engineering responsibility</h3>
+<p>ROS 2 can connect components, but it cannot automatically make the system correct.</p>
+<p>You still need to decide:</p>
 <ul>
-<li>reset an odometry counter;</li>
-<li>save a map;</li>
-<li>enable a test mode;</li>
-<li>ask for a diagnostic report;</li>
-<li>request a calibration operation.</li>
+<li>What does each message mean?</li>
+<li>What units are used?</li>
+<li>How old may a measurement be?</li>
+<li>What happens if a node crashes?</li>
+<li>What happens if a service is unavailable or never responds?</li>
+<li>What happens if an action goal is rejected or cancelled?</li>
+<li>What command is safe when communication stops?</li>
 </ul>
-<p>A service interaction has two sides:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Client ── request ──► Service server
-Client ◄─ response ── Service server</code></pre></div>
-<p>A service is not usually the best tool for a high-rate sensor stream. Asking separately for every camera frame would be clumsy and could create delays. A topic is a better fit for continuing data.</p>
-<h3>One compact comparison</h3>
-<div class="table-scroll"><table><thead><tr><th>Mechanism</th><th>Main pattern</th><th>Good question to ask</th></tr></thead><tbody><tr><td>Topic</td><td>Repeated, asynchronous messages</td><td>“What information is being announced?”</td></tr><tr><td>Service</td><td>One request followed by one response</td><td>“Can you perform this operation and report the result?”</td></tr><tr><td>Behavior tree</td><td>Decision organization</td><td>“Which task should happen now?”</td></tr></tbody></table></div>
-<p>These are not competing choices at the same level. A behavior tree may run inside a ROS 2 node, subscribe to topics, publish commands, and call services.</p>
+<p>These are engineering decisions, not merely programming syntax.</p>
 <h2>Math Without Fear</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Math Without Fear">Ask Professor OS <em>↗</em></button></div>
-<p>Suppose RoboRover’s front-distance node publishes:</p>
-<ul>
-<li>one message every \(0.10\ \text{s}\);</li>
-<li>each message contains \(24\ \text{bytes}\).</li>
-</ul>
+<p>Suppose RoboRover’s battery node publishes one battery message every \(0.5\ \text{s}\).</p>
 <p>The publication frequency is:</p>
 <div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f = \frac{1}{T}\]</span></div>
 <p>where:</p>
 <ul>
 <li>\(f\) is frequency in hertz, \(\text{Hz}\), meaning messages per second;</li>
-<li>\(T\) is the time between messages in seconds, \(\text{s}\).</li>
+<li>\(T\) is the period in seconds per message.</li>
 </ul>
-<p>Therefore:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f = \frac{1}{0.10\ \text{s}} = 10\ \text{Hz}\]</span></div>
-<p>The approximate application-payload data rate for one delivered copy is:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = fB\]</span></div>
+<p>Substituting:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f = \frac{1}{0.5\ \text{s}} = 2\ \text{Hz}\]</span></div>
+<p>So the battery node publishes <strong>2 messages per second</strong>.</p>
+<p>Now suppose each message contains 3 floating-point values, and each value occupies 8 bytes in our simplified calculation. Ignoring headers and communication overhead:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[\text{payload size} = 3 \times 8\ \text{bytes} = 24\ \text{bytes}\]</span></div>
+<p>The payload rate, also called payload <strong>throughput</strong> in this simplified context, is:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = f \times S\]</span></div>
 <p>where:</p>
 <ul>
-<li>\(R\) is data rate in bytes per second, \(\text{B/s}\);</li>
-<li>\(f\) is messages per second, \(\text{messages/s}\);</li>
-<li>\(B\) is bytes per message, \(\text{B/message}\).</li>
+<li>\(R\) is payload data rate in bytes per second;</li>
+<li>\(f\) is message frequency in messages per second;</li>
+<li>\(S\) is payload size in bytes per message.</li>
 </ul>
-<p>So:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = (10\ \text{messages/s})(24\ \text{B/message})
-= 240\ \text{B/s}\]</span></div>
-<p>If three subscribers each receive a delivered application-data copy, the total delivered application payload is approximately:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[3(240\ \text{B/s}) = 720\ \text{B/s}\]</span></div>
-<p>This is not necessarily the network bandwidth. Actual traffic depends on the transport topology, serialization, middleware and transport overhead, quality-of-service settings, buffering, compression, and whether communication is intra-process or inter-process. The useful lesson is that node graphs can be analyzed quantitatively, while the exact network cost requires more implementation information.</p>
+<p>Therefore:</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[R = 2\ \frac{\text{messages}}{\text{s}}
+\times 24\ \frac{\text{bytes}}{\text{message}}
+= 48\ \frac{\text{bytes}}{\text{s}}\]</span></div>
+<p>This is a small data stream.</p>
+<p>A camera image topic can be dramatically larger. That is one reason robotics engineers pay attention to message rates, message sizes, compression, payload throughput, and network capacity.</p>
 <h2>Worked Robotics Example</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Worked Robotics Example">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_03.png" alt="Two-panel safety communication diagram showing RoboRover stopped at 0.35 meters and allowed to move at 0.40 meters per second at 0.80 meters."></figure>
-<p class="figure-caption"><strong>Figure:</strong> The safety node combines task intent with measured distance and changes the command when the obstacle is inside the threshold.</p>
-<p>RoboRover is patrolling a library aisle.</p>
-<p>Its behavior tree publishes a desired command:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>desired speed: 0.40 m/s</code></pre></div>
-<p>The front sensor publishes:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>distance: 0.35 m</code></pre></div>
-<p>The safety node has a stopping threshold of:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>0.50 m</code></pre></div>
-<p>The safety node compares the measured distance with the threshold:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[0.35\ \text{m} &lt; 0.50\ \text{m}\]</span></div>
-<p>Because the obstacle is closer than the safety threshold, the safety node publishes:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>safe speed: 0.00 m/s</code></pre></div>
-<p>Interpretation:</p>
+<figure><img loading="lazy" src="inline_03.png" alt="ROS-style communication graph for RoboRover showing battery and vision topics, a velocity command topic, and a docking action with goal, feedback, cancellation, and result."></figure>
+<p class="figure-caption"><strong>Figure:</strong> The behavior tree makes decisions while specialized nodes provide measurements, motor commands, and a docking action.</p>
+<p>The initial system graph includes camera, vision, wheel-encoder, navigation, and motor communication to show how a realistic robot can be decomposed. For a focused worked example, we now reduce the graph to the components needed to demonstrate battery freshness, a behavior-tree decision, motor communication, and docking. This reduction makes the timing and communication decisions easier to inspect.</p>
+<p>RoboRover is carrying a small package. Its software is divided into four nodes and one action server:</p>
+<div class="table-scroll"><table><thead><tr><th>Component</th><th>Main responsibility</th><th>Communication</th></tr></thead><tbody><tr><td><code>battery_node</code></td><td>Measures battery voltage</td><td>Publishes <code>battery_state</code></td></tr><tr><td><code>vision_node</code></td><td>Finds the blue delivery marker</td><td>Publishes <code>marker_detection</code></td></tr><tr><td><code>behavior_tree_node</code></td><td>Chooses the next task</td><td>Subscribes and initiates operations</td></tr><tr><td><code>motor_node</code></td><td>Converts velocity commands into wheel commands</td><td>Subscribes to <code>cmd_velocity</code></td></tr><tr><td><code>docking_action_server</code></td><td>Performs the long-running docking operation</td><td>Accepts goals, publishes feedback, and returns a result</td></tr></tbody></table></div>
+<p>The behavior tree receives a battery message every \(0.5\ \text{s}\), or \(2\ \text{Hz}\). It checks the newest battery reading available to its application whenever its tree tick runs.</p>
+<p>Suppose the behavior tree ticks every \(0.2\ \text{s}\):</p>
+<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f_{\text{tree}} = \frac{1}{0.2\ \text{s}} = 5\ \text{Hz}\]</span></div>
+<p>The tree may therefore evaluate its battery condition five times per second while the battery measurement changes only twice per second.</p>
+<p>That is not automatically wrong. Between battery measurements, the tree may read the most recently received value. But the value may become stale.</p>
+<p>If the latest battery message is \(1.4\ \text{s}\) old, the behavior tree should not pretend it is a fresh measurement. A safety-oriented design might label it stale and avoid making an important decision from it.</p>
+<p>A possible sequence is:</p>
+<ol>
+<li><code>battery_node</code> publishes \(11.8\ \text{V}\) with a timestamp.</li>
+<li><code>behavior_tree_node</code> receives it.</li>
+<li>The tree later receives a fresh \(11.2\ \text{V}\) reading and decides to dock.</li>
+<li>The tree optionally sends a short readiness or admission request to an application-specific service.</li>
+<li>If that optional check is accepted, the tree sends a docking goal to the docking action server.</li>
+<li>The action server returns a goal response indicating acceptance or rejection.</li>
+<li>If accepted, it reports progress and eventually returns a final result.</li>
+</ol>
+<p>The optional service is not required by ROS 2 actions. It is included here only to model a possible application-specific readiness check. The action goal has its own acceptance mechanism.</p>
+<p>Notice the division of responsibility:</p>
 <ul>
-<li>The behavior tree still expresses the task-level intention to move.</li>
-<li>The safety node modifies the immediate command because the measured state is unsafe.</li>
-<li>The drive node receives the safe command and stops the wheels.</li>
+<li>the battery node measures;</li>
+<li>the topic transports the measurement;</li>
+<li>the behavior tree decides;</li>
+<li>the optional service performs a short bounded check;</li>
+<li>the action server manages the long-running docking operation.</li>
 </ul>
-<p>This is a useful architecture because “go forward” and “do not collide” are different responsibilities.</p>
-<p>Now imagine the sensor publishes at \(10\ \text{Hz}\), while the drive node processes commands at \(20\ \text{Hz}\). Between new sensor messages, the drive system may see the previous safety result twice. That can be acceptable only if the system accounts for message age and defines what happens when data becomes too old.</p>
-<p>A real velocity safety layer typically needs:</p>
-<ul>
-<li>a command timeout;</li>
-<li>sensor-freshness checks based on timestamps or reception time;</li>
-<li>a defined safe behavior if the safety node stops communicating;</li>
-<li>a defined safe behavior if the sensor stops publishing;</li>
-<li>rules for invalid measurements and communication failures.</li>
-</ul>
-<p>ROS 2 provides mechanisms that can support these designs, but the safety policy remains the robot developer’s responsibility.</p>
-<p>A real safety node might therefore stop the robot when a distance measurement is older than an allowed age, even if the last reported distance was safe.</p>
+<p>A service might also be used for a short, separate operation such as clearing a docking fault, but it should not be used to represent the entire docking process when that process needs progress or cancellation.</p>
 <h2>Python Lab</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Python Lab">Ask Professor OS <em>↗</em></button></div>
-<p>The following program is a small ROS-like simulation. It does not require ROS 2. It demonstrates:</p>
+<p>The following Python 3.7 program is a small ROS-like simulation. It contains:</p>
 <ul>
-<li>nodes;</li>
-<li>topic publishers and subscribers;</li>
-<li>a service server registered through a node;</li>
-<li>a service client call;</li>
-<li>RoboRover’s safety decision.</li>
+<li>a <code>Topic</code> class for publishing and subscribing;</li>
+<li>a <code>Service</code> class for an optional, application-specific short admission or readiness check;</li>
+<li>an <code>Action</code> class representing acceptance of a long-running docking goal;</li>
+<li>a <code>BatteryNode</code> that publishes battery measurements with simulated timestamps;</li>
+<li>a <code>BehaviorTreeNode</code> that checks measurement age;</li>
+<li>modeled service-availability and timeout branches.</li>
 </ul>
-<p>The <code>Topic</code> class stores subscriber callbacks and invokes them synchronously and immediately when <code>publish</code> is called. Real ROS 2 communication is generally asynchronous and is mediated by executors, middleware, quality-of-service settings, serialization, and transport. Consequently, this program does not model real scheduling, message delivery delay, queueing, or concurrency.</p>
-<p>The <code>Node</code> class provides a simplified service registry. The service is created through an <code>odometry_node</code>, and the behavior node calls it through that node’s discoverable service dictionary. Real ROS 2 service discovery and client/server APIs are more detailed.</p>
+<p>This is not ROS 2 itself. <code>Topic.publish()</code> invokes callbacks immediately and synchronously, unlike distributed ROS 2 communication. The model does not reproduce middleware scheduling, queues, quality-of-service policies, executors, serialization, or network timing.</p>
+<p>The service and action delays below are modeled values, not real sleeping or measured ROS 2 timings. In a real ROS 2 node, the client can make an asynchronous service call and apply a timeout without blocking the entire robot system. The action goal’s acceptance response is separate from the later action result; this compact model returns the acceptance decision from <code>Action.start()</code> but does not simulate feedback or final execution.</p>
 <div class="code-card"><div class="code-label">python</div><pre><code>class Topic:
     def __init__(self, name):
         self.name = name
@@ -312,415 +369,425 @@ Client ◄─ response ── Service server</code></pre></div>
         self.subscribers.append(callback)
 
     def publish(self, message):
-        # Simplification: callbacks run synchronously and immediately.
+        # Simplified conceptual delivery: callbacks run immediately.
         for callback in self.subscribers:
             callback(message)
 
 
-class ServiceServer:
-    def __init__(self, name, handler):
+class Service:
+    def __init__(self, name, handler, available=True, response_delay_s=0.0):
         self.name = name
         self.handler = handler
+        self.available = available
+        self.response_delay_s = response_delay_s
 
-    def call(self, request):
+    def call(self, request, timeout_s):
+        if not self.available:
+            return {
+                &quot;accepted&quot;: False,
+                &quot;reason&quot;: &quot;SERVICE_UNAVAILABLE&quot;
+            }
+
+        if self.response_delay_s &gt; timeout_s:
+            return {
+                &quot;accepted&quot;: False,
+                &quot;reason&quot;: &quot;SERVICE_TIMEOUT&quot;
+            }
+
         return self.handler(request)
 
 
-class Node:
-    def __init__(self, name):
+class Action:
+    def __init__(self, name, available=True):
         self.name = name
-        self.services = {}
+        self.available = available
 
-    def create_service(self, name, handler):
-        self.services[name] = ServiceServer(name, handler)
+    def start(self, goal):
+        # This return value models the action goal response:
+        # acceptance or rejection of the goal, not final completion.
+        if not self.available:
+            return {
+                &quot;accepted&quot;: False,
+                &quot;reason&quot;: &quot;ACTION_UNAVAILABLE&quot;
+            }
 
-    def call_service(self, server_node, name, request):
-        if name not in server_node.services:
-            raise KeyError(&quot;Service is not available: {}&quot;.format(name))
-        return server_node.services[name].call(request)
-
-
-class SafetyNode(Node):
-    def __init__(self, name, distance_topic, desired_topic, safe_topic,
-                 threshold_m):
-        super().__init__(name)
-        self.distance_m = None
-        self.desired_speed_mps = 0.0
-        self.threshold_m = threshold_m
-        self.safe_topic = safe_topic
-
-        distance_topic.subscribe(self.receive_distance)
-        desired_topic.subscribe(self.receive_desired_speed)
-
-    def receive_distance(self, distance_m):
-        self.distance_m = distance_m
-        self.publish_safe_command()
-
-    def receive_desired_speed(self, speed_mps):
-        self.desired_speed_mps = speed_mps
-        self.publish_safe_command()
-
-    def publish_safe_command(self):
-        if self.distance_m is None:
-            safe_speed = 0.0
-        elif self.distance_m &lt; self.threshold_m:
-            safe_speed = 0.0
-        else:
-            safe_speed = self.desired_speed_mps
-
-        self.safe_topic.publish(safe_speed)
+        return {
+            &quot;accepted&quot;: True,
+            &quot;status&quot;: &quot;RUNNING&quot;,
+            &quot;goal&quot;: goal
+        }
 
 
-def reset_odometry(request):
-    if request == &quot;reset&quot;:
-        return &quot;odometry reset&quot;
-    return &quot;unknown request&quot;
+class BatteryNode:
+    def __init__(self, battery_topic):
+        self.battery_topic = battery_topic
+        self.voltage = 11.8
+
+    def publish_measurement(self, now_s):
+        message = {
+            &quot;voltage_v&quot;: self.voltage,
+            &quot;stamp_s&quot;: now_s,
+            &quot;source&quot;: &quot;battery_node&quot;
+        }
+        self.battery_topic.publish(message)
 
 
-front_distance = Topic(&quot;/front_distance&quot;)
-desired_speed = Topic(&quot;/desired_speed&quot;)
-safe_speed = Topic(&quot;/safe_speed&quot;)
+class BehaviorTreeNode:
+    def __init__(
+        self,
+        battery_topic,
+        docking_service,
+        docking_action,
+        max_battery_age_s=1.0,
+        service_timeout_s=0.5
+    ):
+        self.latest_battery = None
+        self.docking_service = docking_service
+        self.docking_action = docking_action
+        self.max_battery_age_s = max_battery_age_s
+        self.service_timeout_s = service_timeout_s
+        battery_topic.subscribe(self.receive_battery)
 
-behavior_node = Node(&quot;behavior_tree&quot;)
-drive_node = Node(&quot;drive_controller&quot;)
-odometry_node = Node(&quot;odometry_service&quot;)
+    def receive_battery(self, message):
+        self.latest_battery = message
 
-safety_node = SafetyNode(
-    &quot;safety_controller&quot;,
-    front_distance,
-    desired_speed,
-    safe_speed,
-    threshold_m=0.50
-)
+    def tick(self, now_s):
+        if self.latest_battery is None:
+            return &quot;WAITING_FOR_BATTERY&quot;
 
-drive_commands = []
-safe_speed.subscribe(drive_commands.append)
+        age_s = now_s - self.latest_battery[&quot;stamp_s&quot;]
+        if age_s &lt; 0.0 or age_s &gt; self.max_battery_age_s:
+            return &quot;STALE_BATTERY&quot;
 
-odometry_node.create_service(&quot;/reset_odometry&quot;, reset_odometry)
+        voltage = self.latest_battery[&quot;voltage_v&quot;]
 
-desired_speed.publish(0.40)
-front_distance.publish(0.35)
-assert drive_commands[-1] == 0.0
+        if voltage &lt; 11.5:
+            # Optional, application-specific readiness/admission check.
+            # ROS 2 actions do not require a preceding service.
+            response = self.docking_service.call(
+                {
+                    &quot;reason&quot;: &quot;low_battery&quot;
+                },
+                timeout_s=self.service_timeout_s
+            )
 
-front_distance.publish(0.80)
-assert drive_commands[-1] == 0.40
+            if not response[&quot;accepted&quot;]:
+                return response[&quot;reason&quot;]
 
-response = behavior_node.call_service(
-    odometry_node,
-    &quot;/reset_odometry&quot;,
-    &quot;reset&quot;
-)
-assert response == &quot;odometry reset&quot;
+            # This models the action&#x27;s own goal-acceptance response.
+            # It is not the final result of docking.
+            action_response = self.docking_action.start({
+                &quot;reason&quot;: &quot;low_battery&quot;
+            })
 
-# The three safe commands are:
-# 1. No distance is known yet: stop.
-# 2. The measured distance is 0.35 m: stop.
-# 3. The measured distance is 0.80 m: allow 0.40 m/s.
-assert drive_commands == [0.0, 0.0, 0.40]
+            if action_response[&quot;accepted&quot;]:
+                return &quot;DOCKING_ACTION_STARTED&quot;
 
-print(&quot;First safe command: {:.2f} m/s&quot;.format(drive_commands[0]))
-print(&quot;Second safe command: {:.2f} m/s&quot;.format(drive_commands[1]))
-print(&quot;Third safe command: {:.2f} m/s&quot;.format(drive_commands[2]))
-print(&quot;Service response: {}&quot;.format(response))
-print(&quot;All assertions passed.&quot;)</code></pre></div>
-<p>The exact output is verified by the assertions and is:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>First safe command: 0.00 m/s
-Second safe command: 0.00 m/s
-Third safe command: 0.40 m/s
-Service response: odometry reset
-All assertions passed.</code></pre></div>
+            return action_response[&quot;reason&quot;]
+
+        return &quot;CONTINUE_MISSION&quot;
+
+
+def docking_request_handler(request):
+    if request[&quot;reason&quot;] == &quot;low_battery&quot;:
+        return {
+            &quot;accepted&quot;: True,
+            &quot;message&quot;: &quot;Docking goal may be started&quot;
+        }
+
+    return {
+        &quot;accepted&quot;: False,
+        &quot;reason&quot;: &quot;REQUEST_REJECTED&quot;
+    }
+
+
+def main():
+    battery_topic = Topic(&quot;battery_state&quot;)
+
+    # This optional application-specific service models a bounded
+    # admission/readiness check before sending the action goal.
+    docking_service = Service(
+        &quot;request_docking&quot;,
+        docking_request_handler,
+        available=True,
+        response_delay_s=0.1
+    )
+
+    # The action models the actual long-running docking operation.
+    # start() models only the goal response, not final completion.
+    docking_action = Action(&quot;dock&quot;, available=True)
+
+    battery_node = BatteryNode(battery_topic)
+    behavior_node = BehaviorTreeNode(
+        battery_topic,
+        docking_service,
+        docking_action,
+        max_battery_age_s=1.0,
+        service_timeout_s=0.5
+    )
+
+    battery_node.publish_measurement(now_s=0.0)
+    first_decision = behavior_node.tick(now_s=0.2)
+    assert first_decision == &quot;CONTINUE_MISSION&quot;
+
+    battery_node.voltage = 11.2
+    battery_node.publish_measurement(now_s=0.5)
+    second_decision = behavior_node.tick(now_s=0.6)
+    assert second_decision == &quot;DOCKING_ACTION_STARTED&quot;
+
+    stale_decision = behavior_node.tick(now_s=1.7)
+    assert stale_decision == &quot;STALE_BATTERY&quot;
+
+    docking_service.available = False
+    battery_node.publish_measurement(now_s=2.0)
+    unavailable_decision = behavior_node.tick(now_s=2.1)
+    assert unavailable_decision == &quot;SERVICE_UNAVAILABLE&quot;
+
+    print(&quot;First decision:&quot;, first_decision)
+    print(&quot;Second decision:&quot;, second_decision)
+    print(&quot;Stale-data decision:&quot;, stale_decision)
+    print(&quot;Unavailable-service decision:&quot;, unavailable_decision)
+    print(&quot;Verified: fresh low voltage started a docking action.&quot;)
+    print(&quot;Verified: stale data and service unavailability were detected.&quot;)
+
+
+if __name__ == &quot;__main__&quot;:
+    main()</code></pre></div>
+<p>The verified output is:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>First decision: CONTINUE_MISSION
+Second decision: DOCKING_ACTION_STARTED
+Stale-data decision: STALE_BATTERY
+Unavailable-service decision: SERVICE_UNAVAILABLE
+Verified: fresh low voltage started a docking action.
+Verified: stale data and service unavailability were detected.</code></pre></div>
+<p>The <code>assert</code> statements verify the exact decisions made by the program:</p>
+<ul>
+<li>the first decision is <code>CONTINUE_MISSION</code>;</li>
+<li>the fresh low-voltage reading produces <code>DOCKING_ACTION_STARTED</code>;</li>
+<li>a message \(1.2\ \text{s}\) old is rejected as <code>STALE_BATTERY</code>;</li>
+<li>an unavailable optional service produces <code>SERVICE_UNAVAILABLE</code>.</li>
+</ul>
 <p>Important lines:</p>
 <ul>
-<li><code>Topic("/front_distance")</code> creates a named communication channel.</li>
-<li><code>subscribe(...)</code> connects a callback to that channel.</li>
-<li><code>publish(...)</code> sends a message to every subscriber.</li>
-<li><code>SafetyNode</code> remembers the latest distance and desired speed.</li>
-<li><code>threshold_m=0.50</code> gives the safety rule a unit-bearing engineering parameter.</li>
-<li><code>odometry_node.create_service(...)</code> registers a service through the node abstraction.</li>
-<li><code>behavior_node.call_service(...)</code> calls the registered service through the server node.</li>
-<li>The assertions verify all three safety outcomes and the service response.</li>
+<li><code>battery_topic.subscribe(self.receive_battery)</code> connects the behavior node to the topic.</li>
+<li><code>battery_topic.publish(message)</code> sends a message to subscribers.</li>
+<li><code>stamp_s</code> allows the behavior node to calculate message age.</li>
+<li><code>max_battery_age_s</code> defines the maximum acceptable age.</li>
+<li><code>docking_service.call(...)</code> represents an optional bounded admission request with a modeled timeout.</li>
+<li><code>docking_action.start(...)</code> represents the action goal response.</li>
+<li>The action’s <code>accepted</code> value means that the goal was accepted, not that docking has finished.</li>
+<li>The <code>assert</code> statements verify the exact decisions made by the program.</li>
 </ul>
-<p>The simulation is intentionally simpler than ROS 2. It does not model real processes, network transport, message types, timestamps, asynchronous executors, quality-of-service policies, command timeouts, sensor-freshness checks, or behavior when a node or sensor stops communicating. A production safety layer must define those behaviors explicitly.</p>
+<p>The behavior tree node does not directly reach inside the battery node. It receives a message through a named communication channel.</p>
 <h2>Mini Simulation or Game</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Mini Simulation or Game">Ask Professor OS <em>↗</em></button></div>
-<p>Play “trace the message.”</p>
-<p>Use this communication graph:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>Behavior Node ── desired_speed ──► Safety Node
-Sensor Node ─── front_distance ───► Safety Node
-Safety Node ─── safe_speed ───────► Drive Node
-Behavior Node ── reset request ────► Odometry Service
-Behavior Node ◄─ reset response ─── Odometry Service</code></pre></div>
-<p>Rules:</p>
-<ol>
-<li>The behavior node publishes \(0.40\ \text{m/s}\).</li>
-<li>The sensor publishes \(0.35\ \text{m}\).</li>
-<li>The safety threshold is \(0.50\ \text{m}\).</li>
-<li>The safety node publishes either \(0.00\ \text{m/s}\) or the desired speed.</li>
-<li>The behavior node then requests an odometry reset.</li>
-</ol>
-<p>For every step, write down:</p>
+<p>Play “ROS graph designer” with RoboRover.</p>
+<p>On paper, draw these six cards:</p>
 <ul>
-<li>the sending node;</li>
-<li>the receiving node;</li>
-<li>the topic or service name;</li>
-<li>the message or request;</li>
-<li>the resulting action.</li>
+<li>Camera</li>
+<li>Vision</li>
+<li>Behavior Tree</li>
+<li>Battery</li>
+<li>Motor</li>
+<li>Docking Action Server</li>
 </ul>
+<p>Now assign each card one responsibility.</p>
+<p>Your task is to draw arrows using three different styles:</p>
+<ul>
+<li>a <strong>one-way stream arrow</strong> for a topic;</li>
+<li>a <strong>request-and-response pair</strong> for a service;</li>
+<li>a <strong>goal, feedback, cancellation, and result relationship</strong> for an action.</li>
+</ul>
+<p>Create this graph:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Camera ── image topic ──&gt; Vision
+Vision ── marker topic ──&gt; Behavior Tree
+Battery ── battery topic ──&gt; Behavior Tree
+Behavior Tree ── velocity topic ──&gt; Motor
+Behavior Tree ── docking goal ──&gt; Docking Action Server
+Docking Action Server ── feedback/result ──&gt; Behavior Tree</code></pre></div>
+<p>A short service, such as <code>clear_fault</code>, could be drawn separately if the diagnostic node provides one. An application-specific readiness service could also be drawn before the docking goal, but it is optional. Do not draw the entire long-running docking process as a service response.</p>
 <h3>Predict before you run it</h3>
 <p>Before running the Python program, predict:</p>
 <ol>
-<li>Will the first drive command be \(0.00\ \text{m/s}\) or \(0.40\ \text{m/s}\)?</li>
-<li>Will the second drive command, after the \(0.35\ \text{m}\) measurement, be \(0.00\ \text{m/s}\) or \(0.40\ \text{m/s}\)?</li>
-<li>After the distance becomes \(0.80\ \text{m}\), what speed will the drive node receive?</li>
-<li>What response will the reset service return?</li>
+<li>What will the first behavior-tree decision be when the voltage is \(11.8\ \text{V}\)?</li>
+<li>What will the second decision be after the voltage changes to \(11.2\ \text{V}\)?</li>
+<li>What will happen when the stored battery message becomes \(1.2\ \text{s}\) old?</li>
+<li>What will happen when the optional docking-request service becomes unavailable?</li>
+<li>Which interaction uses a topic?</li>
+<li>Which interaction is the optional service check?</li>
+<li>Which interaction sends and accepts the docking action goal?</li>
+<li>Why does acceptance of the action goal not prove that docking has succeeded?</li>
 </ol>
-<p>Then run the program and compare your prediction with the assertions and printed lines.</p>
-<p>The expected printed lines are:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>First safe command: 0.00 m/s
-Second safe command: 0.00 m/s
-Third safe command: 0.40 m/s
-Service response: odometry reset
-All assertions passed.</code></pre></div>
-<p>These exact values are verified by the assertions in the same program.</p>
+<p>Then run the program and compare your prediction with the verified assertions and printed decisions.</p>
 <h2>What Should Happen?</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="What Should Happen?">Ask Professor OS <em>↗</em></button></div>
-<p>The first desired-speed message arrives before a distance measurement. The safety node therefore has no measured distance yet and publishes zero speed. This is a conservative startup behavior.</p>
-<p>When the distance message is \(0.35\ \text{m}\), it is below the \(0.50\ \text{m}\) threshold, so the safe command remains \(0.00\ \text{m/s}\).</p>
-<p>When the distance becomes \(0.80\ \text{m}\), the obstacle is beyond the threshold. The safety node allows the desired \(0.40\ \text{m/s}\) command.</p>
-<p>Thus, the first three safe commands are:</p>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[[0.00,\ 0.00,\ 0.40]\ \text{m/s}\]</span></div>
-<p>The service call is separate from the topic messages. It does not continuously stream odometry data. It asks for one operation and receives one response.</p>
-<p>In a real system, the safety node would also need a freshness rule. For example, if the \(0.80\ \text{m}\) measurement became too old, the node might stop rather than continue allowing motion.</p>
+<p>The first battery message contains \(11.8\ \text{V}\). Since that is not below the program’s \(11.5\ \text{V}\) threshold, the behavior node returns:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>CONTINUE_MISSION</code></pre></div>
+<p>The next message contains \(11.2\ \text{V}\) and has a fresh timestamp. The behavior node makes an optional short docking admission request. After the request is accepted, it sends a docking goal to the action server. The action server accepts the goal, so the behavior node returns:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>DOCKING_ACTION_STARTED</code></pre></div>
+<p>This means that the action goal was accepted and the operation was started. It does <strong>not</strong> mean that docking has already completed successfully. A complete action would later provide feedback and a final result.</p>
+<p>When the most recent battery message is more than \(1.0\ \text{s}\) old, the behavior node returns:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>STALE_BATTERY</code></pre></div>
+<p>When the modeled docking-request service is unavailable, the behavior node returns:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>SERVICE_UNAVAILABLE</code></pre></div>
+<p>The topic carries the battery measurement. The optional bounded service request checks whether docking may be started. The action represents the actual longer-running docking process and has its own goal-acceptance response.</p>
+<p>The exact results are checked by the <code>assert</code> statements inside the program.</p>
 <h2>Common Mistakes</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Common Mistakes">Ask Professor OS <em>↗</em></button></div>
-<h3>Mistake 1: Thinking a topic is a physical wire</h3>
-<p>A topic is a communication abstraction. Several nodes may use it, and the underlying transport may involve processes, computers, or networks.</p>
-<h3>Mistake 2: Using a service for continuous sensor data</h3>
-<p>A service is suitable for “reset now” or “save now.” A rapidly repeating stream is generally better represented by a topic.</p>
-<h3>Mistake 3: Assuming publishing means the robot acted</h3>
-<p>A behavior node may publish a desired speed, but that does not guarantee the wheels moved. A safety node, motor controller, hardware fault, or stale command may change the outcome.</p>
-<h3>Mistake 4: Ignoring message age</h3>
-<p>A message can be correct when measured but unsafe when used later. For example, an obstacle distance measured \(0.8\ \text{s}\) ago may no longer describe the robot’s surroundings. A safety layer should define a maximum sensor age and a timeout for commands or safety outputs.</p>
-<h3>Mistake 5: Treating nodes as automatically safe boundaries</h3>
-<p>Separating software into nodes improves organization, but it does not automatically prevent collisions. Safety behavior must be designed, tested, and monitored.</p>
-<h3>Mistake 6: Confusing a service response with a guarantee of physical success</h3>
-<p>A service may report that a request was accepted or processed. That does not always prove that a mechanical action completed successfully. The interface must define what the response means.</p>
-<h3>Mistake 7: Confusing a ROS 2 node with a behavior-tree node</h3>
-<p>The shared word “node” does not mean the abstractions are identical. A ROS 2 node is a software communication and computation unit. A behavior-tree node is an element of a decision structure. One ROS 2 node may execute an entire behavior tree.</p>
-<h3>Mistake 8: Assuming the simplified simulation has real ROS 2 timing</h3>
-<p>The <code>Topic</code> class invokes callbacks immediately and synchronously. Real ROS 2 systems may queue and schedule callbacks through executors, middleware, and quality-of-service policies. Timing, ordering, and failure behavior must therefore be designed explicitly in real systems.</p>
+<h3>Mistake 1: Treating a topic like a function call</h3>
+<p>A topic is usually a stream or channel of messages. Publishing does not mean “run this other function and immediately return its result.”</p>
+<p>Use a service when a short, bounded request-and-response interaction is the right model.</p>
+<h3>Mistake 2: Using a service for every sensor reading</h3>
+<p>A camera or encoder can produce many readings per second. Making a separate request for each reading can introduce avoidable waiting and coordination problems. A topic is generally more suitable for repeated data.</p>
+<h3>Mistake 3: Assuming a service must precede every action</h3>
+<p>An application may add a readiness or admission service, but ROS 2 actions do not normally require one. An action goal already has a goal-acceptance mechanism.</p>
+<p>The goal response only says whether the action server accepted the goal. It is distinct from feedback during execution and the final result after execution.</p>
+<h3>Mistake 4: Using a service for a long-running operation</h3>
+<p>A docking operation may need progress feedback, cancellation, and a final result. A service response that only says “accepted” does not represent the complete docking process. An action is generally a better interface for the operation itself.</p>
+<h3>Mistake 5: Assuming the newest message is always fresh</h3>
+<p>A subscriber may still hold an old measurement if the publisher stopped, communication is delayed, the queue contains older messages, the QoS settings do not provide the intended delivery behavior, or the receiving node is overloaded.</p>
+<p>A robust node should consider:</p>
+<ul>
+<li>message timestamp;</li>
+<li>maximum acceptable age;</li>
+<li>queue and QoS behavior;</li>
+<li>missing-message behavior;</li>
+<li>safe fallback action.</li>
+</ul>
+<h3>Mistake 6: Confusing a node with a physical part</h3>
+<p>A node is a software component. One physical sensor may be managed by one node, several logical functions may share a process, and a robot may have many nodes that cooperate with one actuator.</p>
+<p>A node is also not necessarily an independently deployed process: ROS 2 systems can use composable nodes within a shared process.</p>
+<h3>Mistake 7: Forgetting service or action failure</h3>
+<p>A service may be unavailable, reject a request, or take longer than expected. An action may reject a goal, lose communication, be cancelled, or fail during execution. A behavior tree should not remain indefinitely in a waiting state without a timeout or fallback plan.</p>
+<h3>Practical engineering caveat: communication is not magic</h3>
+<p>Real robots experience latency, dropped communication, overloaded processors, startup ordering problems, and incompatible message assumptions.</p>
+<p>For example, if RoboRover’s motor node stops receiving velocity commands, continuing the last command forever could be dangerous. Engineers often design a timeout or “watchdog” behavior that stops motion when commands become too old.</p>
+<p>The exact safety mechanism depends on the robot and hardware, but the principle is general:</p>
+<blockquote>Every important communication path needs a sensible failure behavior.</blockquote>
+<p>The optional emergency-state extension in this lesson is only a software simulation. A real emergency stop must use an independent, safety-appropriate hardware or control path; it must not rely solely on a ROS service.</p>
 <h2>Try It Yourself</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Try It Yourself">Ask Professor OS <em>↗</em></button></div>
 <h3>Challenge</h3>
-<p>Modify the Python program so that the drive node has a second topic called <code>/drive_status</code>.</p>
-<p>The drive node should publish:</p>
+<p>Modify the program so the behavior node distinguishes three voltage ranges:</p>
 <ul>
-<li><code>"STOPPED"</code> when it receives \(0.00\ \text{m/s}\);</li>
-<li><code>"MOVING"</code> when it receives a positive speed.</li>
+<li>above or equal to \(11.5\ \text{V}\): continue;</li>
+<li>below \(11.5\ \text{V}\) but at least \(10.8\ \text{V}\): request docking readiness, then send a docking goal if the check succeeds;</li>
+<li>below \(10.8\ \text{V}\): request an <strong>emergency-state transition</strong> through a simulated software service instead.</li>
 </ul>
-<p>Add an assertion proving that the first status is <code>"STOPPED"</code> and the second is <code>"MOVING"</code>.</p>
-<p>A short reference solution is:</p>
-<div class="code-card"><div class="code-label">python</div><pre><code>class Topic:
-    def __init__(self, name):
-        self.name = name
-        self.subscribers = []
-
-    def subscribe(self, callback):
-        self.subscribers.append(callback)
-
-    def publish(self, message):
-        for callback in self.subscribers:
-            callback(message)
-
-
-drive_commands = []
-drive_status = Topic(&quot;/drive_status&quot;)
-drive_status_messages = []
-drive_status.subscribe(drive_status_messages.append)
-
-
-def record_drive_command(speed_mps):
-    drive_commands.append(speed_mps)
-    if speed_mps == 0.0:
-        drive_status.publish(&quot;STOPPED&quot;)
-    elif speed_mps &gt; 0.0:
-        drive_status.publish(&quot;MOVING&quot;)
-
-
-safe_speed = Topic(&quot;/safe_speed&quot;)
-safe_speed.subscribe(record_drive_command)
-
-desired_speed = Topic(&quot;/desired_speed&quot;)
-front_distance = Topic(&quot;/front_distance&quot;)
-
-distance_m = None
-desired_speed_mps = 0.0
-threshold_m = 0.50
-
-
-def publish_safe_command():
-    if distance_m is None or distance_m &lt; threshold_m:
-        safe_speed.publish(0.0)
-    else:
-        safe_speed.publish(desired_speed_mps)
-
-
-def receive_desired_speed(speed_mps):
-    global desired_speed_mps
-    desired_speed_mps = speed_mps
-    publish_safe_command()
-
-
-def receive_distance(distance):
-    global distance_m
-    distance_m = distance
-    publish_safe_command()
-
-
-desired_speed.subscribe(receive_desired_speed)
-front_distance.subscribe(receive_distance)
-
-# Use the modified subscriber before publishing commands.
-desired_speed.publish(0.40)
-front_distance.publish(0.35)
-assert drive_status_messages[-1] == &quot;STOPPED&quot;
-
-front_distance.publish(0.80)
-assert drive_status_messages[-1] == &quot;MOVING&quot;</code></pre></div>
-<p>If adapting the full lab, replace the original <code>safe_speed.subscribe(drive_commands.append)</code> line with the <code>record_drive_command</code> subscription before publishing any commands.</p>
-<p>The drive node should own the status that describes the command it received. The safety node could separately publish a safety reason, such as <code>"OBSTACLE_TOO_CLOSE"</code> or <code>"NO_FRESH_SENSOR_DATA"</code>. These are different kinds of information:</p>
-<ul>
-<li>the drive node knows what command it received;</li>
-<li>the safety node knows why it allowed or changed that command.</li>
-</ul>
+<p>Keep the topic, optional service checks, and action ideas separate. Model service availability and a timeout for both requests.</p>
+<p>For the docking branch, remember that a service can represent a short application-specific readiness or admission check, while the actual docking operation should be represented by an action. The action goal has its own acceptance response.</p>
+<p>For the emergency-state simulation, add assertions for the three voltage cases. Name the simulated request something such as <code>request_emergency_state</code>, rather than presenting it as a real emergency-stop mechanism.</p>
+<p>Do not use this simulated emergency-state service as a model for real safety hardware.</p>
 <h3>Optional extension</h3>
-<p>Add a third distance measurement of \(0.20\ \text{m}\) after RoboRover is moving. Verify that the next safe command returns to \(0.00\ \text{m/s}\).</p>
-<h3>Interface-choice activity</h3>
-<p>For each item, choose <strong>topic</strong>, <strong>service</strong>, or <strong>action</strong>, and explain why:</p>
-<ol>
-<li>A camera image stream.</li>
-<li>An emergency-stop state that must be observed continuously.</li>
-<li>A request to save a map immediately.</li>
-<li>A long navigation goal that reports progress and can be canceled.</li>
-</ol>
-<p>Reference answers:</p>
-<ol>
-<li><strong>Topic</strong> — images are a continuing stream.</li>
-<li><strong>Topic</strong> — the current emergency-stop state must be available continuously; a separate hardware safety circuit may also be required.</li>
-<li><strong>Service</strong> — saving a map is a discrete request-and-response operation.</li>
-<li><strong>Action</strong> — navigation is a longer-running operation that benefits from progress feedback and cancellation.</li>
-</ol>
+<p>Add a second subscriber called <code>DashboardNode</code>. It should receive every battery message and print a short status such as:</p>
+<div class="code-card"><div class="code-label">text</div><pre><code>Dashboard received 11.8 V</code></pre></div>
+<p>Do not make the battery node call the dashboard directly. The dashboard should receive the information by subscribing to the topic. This demonstrates why topics reduce direct connections between components.</p>
 <h2>Quick Quiz</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Quick Quiz">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>What is the main difference between a topic and a service?</li>
+<li>What is the main responsibility of a ROS 2 node?</li>
 </ol>
 <ol>
-<li>In the RoboRover example, why does the safety node subscribe to both desired speed and front distance?</li>
+<li>RoboRover publishes battery voltage repeatedly so several components can observe it. Should this normally use a topic or a service?</li>
 </ol>
 <ol>
-<li>A sensor publishes a measurement every \(0.25\ \text{s}\). What is its publication frequency in hertz?</li>
+<li>RoboRover needs to clear a diagnostic fault with a short request and response. Should this normally use a topic, a service, or an action?</li>
 </ol>
 <ol>
-<li>Why might a service be appropriate for resetting odometry but inappropriate for streaming camera images?</li>
+<li>RoboRover’s behavior tree starts docking, which may take time and needs progress, cancellation, and a final result. Should the docking operation normally use a service or an action?</li>
 </ol>
 <ol>
-<li>Why is the <code>Topic</code> class in the lab not a faithful model of ROS 2 timing?</li>
+<li>What is the difference between an action goal response and an action result?</li>
+</ol>
+<ol>
+<li>Why can an old topic message be dangerous in a real robot?</li>
 </ol>
 <h2>Answers</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Answers">Ask Professor OS <em>↗</em></button></div>
 <ol>
-<li>A topic is mainly for ongoing asynchronous messages. A service is mainly for a request followed by a response.</li>
+<li>A node is a focused logical software runtime entity that performs a responsibility and may communicate with other nodes. It may run as a standalone process or as a composable component.</li>
 </ol>
 <ol>
-<li>The safety node needs the desired action and the measured environment state. It can then decide whether to allow or modify the command.</li>
+<li>A topic, because battery voltage is a repeating stream of data.</li>
 </ol>
 <ol>
-<li>Using \(f = 1/T\):</li>
-</ol>
-<div class="math-block" role="group" aria-label="Mathematical expression"><span class="math-source">\[f = \frac{1}{0.25\ \text{s}} = 4\ \text{Hz}\]</span></div>
-<p>The sensor publishes four messages per second.</p>
-<ol>
-<li>Resetting odometry is a single requested operation with a result. Camera images are a continuing stream, so a topic better matches their repeated, time-sensitive nature.</li>
+<li>A service, because clearing the fault is modeled as a short request followed by a response.</li>
 </ol>
 <ol>
-<li>The simplified <code>Topic.publish</code> method invokes callbacks immediately and synchronously. Real ROS 2 communication involves executors, middleware, serialization, quality-of-service settings, and possible transport and scheduling delays.</li>
+<li>An action, because docking is a longer-running operation that may need goal acceptance, feedback, cancellation, and a final result.</li>
+</ol>
+<ol>
+<li>The goal response says whether the action server accepted or rejected the requested goal. The result reports the outcome after the accepted operation finishes or terminates. Acceptance is not the same as successful completion.</li>
+</ol>
+<ol>
+<li>The robot may make a decision using information that no longer describes the current physical situation. For example, it might believe a battery measurement is recent when the battery node has stopped publishing.</li>
 </ol>
 <h2>Real Robot Connection</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Real Robot Connection">Ask Professor OS <em>↗</em></button></div>
-<figure><img loading="lazy" src="inline_04.png" alt="Realistic mobile robot in a laboratory beside a structured network of software modules representing sensors, behavior, safety, motors, diagnostics, and dashboard communication."></figure>
-<p class="figure-caption"><strong>Figure:</strong> A real robot may contain many cooperating nodes, so latency, stale data, interface units, and node failures must be designed for explicitly.</p>
-<p>A real ROS 2 robot may have many nodes:</p>
-<div class="code-card"><div class="code-label">text</div><pre><code>camera driver
-wheel encoder driver
-laser scanner driver
-localization
-behavior tree
-safety controller
-motor controller
-diagnostics
-operator dashboard</code></pre></div>
-<p>This structure allows teams to replace one part without rewriting everything. A simulator can publish virtual sensor topics using the same conceptual interfaces that real sensors use. A hardware driver can later replace the simulator.</p>
-<p>However, communication introduces engineering concerns:</p>
+<p>In a real ROS 2 robot, the graph may contain dozens or hundreds of nodes. The motor controller may be separate from the navigation software. The camera driver may be separate from marker detection. A diagnostic system may subscribe to many topics without changing the main behavior.</p>
+<p>This modular structure has practical benefits:</p>
 <ul>
-<li><strong>Latency</strong>: a message takes time to travel and be processed.</li>
-<li><strong>Dropped or delayed data</strong>: a subscriber may not receive every message.</li>
-<li><strong>Stale commands</strong>: an old velocity command may be dangerous.</li>
-<li><strong>Startup order</strong>: one node may publish before another is ready.</li>
-<li><strong>Interface mismatch</strong>: two nodes may disagree about units or meaning.</li>
-<li><strong>Clock differences</strong>: timestamps must be interpreted consistently.</li>
-<li><strong>Resource limits</strong>: high-rate images can consume much more bandwidth than simple distances.</li>
-<li><strong>Failure detection</strong>: the robot needs a response when a critical node stops communicating.</li>
-<li><strong>Freshness</strong>: safety logic must define how old a sensor reading or command may be.</li>
-<li><strong>Timeout behavior</strong>: the robot needs a defined safe response when a safety node, sensor, or command source stops communicating.</li>
+<li>a camera node can be replaced without rewriting the behavior tree;</li>
+<li>a new dashboard can observe existing topics;</li>
+<li>a simulator can publish synthetic sensor data;</li>
+<li>a test node can imitate a motor or battery component;</li>
+<li>failures can be isolated more easily.</li>
 </ul>
-<p>For example, one node might publish speed in kilometers per hour while another expects meters per second. Both messages could look numerically reasonable, yet the robot would behave incorrectly. A message interface should make units and meaning explicit.</p>
-<p>A real velocity safety layer commonly uses a command timeout, sensor-freshness checks, and a defined fallback such as stopping the robot. These behaviors are not demonstrated by the simplified Python program, so they must not be inferred from it.</p>
-<p>The data-rate calculation in this lesson estimates delivered application payload. Actual network and middleware traffic depends on transport topology, intra-process communication, serialization, quality-of-service settings, compression, buffering, and implementation details.</p>
-<p>ROS 2 also supports <strong>actions</strong>, which are useful for longer-running tasks that provide progress and can often be canceled. That is a later topic, not part of today’s core model.</p>
+<p>It also creates integration work. All components must agree on message meaning, units, timing, names, QoS expectations, and failure behavior.</p>
+<p>The relationship with Behavior Trees is especially useful:</p>
+<ul>
+<li>the <strong>behavior tree</strong> organizes decisions and task status;</li>
+<li><strong>nodes</strong> implement specialized capabilities;</li>
+<li><strong>topics</strong> commonly carry ongoing observations and commands;</li>
+<li><strong>services</strong> support short request-and-response operations;</li>
+<li><strong>actions</strong> manage longer operations with progress, cancellation, and results.</li>
+</ul>
+<p>The next class will focus on the contents of those communications: message fields, topic data, units, timestamps, and the design choices that make messages reliable rather than ambiguous.</p>
 <h2>Vocabulary</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Vocabulary">Ask Professor OS <em>↗</em></button></div>
-<p><strong>ROS 2</strong> — A software framework and communication system commonly used to build distributed robot applications.</p>
-<p><strong>Node</strong> — A running unit of computation with a defined responsibility that can communicate with other nodes. This is distinct from a behavior-tree node, which is an element in a decision structure.</p>
-<p><strong>Topic</strong> — A named communication channel used mainly for publishing and subscribing to messages, often as an ongoing stream.</p>
-<p><strong>Publisher</strong> — A node or component that sends messages on a topic.</p>
-<p><strong>Subscriber</strong> — A node or component that receives messages from a topic.</p>
-<p><strong>Message</strong> — Structured data exchanged through a topic or included in another communication interface.</p>
-<p><strong>Service</strong> — A request-and-response communication interface for asking one node to perform an operation and return a result.</p>
-<p><strong>Service client</strong> — The part of a system that sends a service request.</p>
-<p><strong>Service server</strong> — The part of a system that receives a service request and produces a response.</p>
-<p><strong>Interface</strong> — The agreed structure and meaning of data exchanged between software components, including fields, units, and expected behavior.</p>
-<p><strong>Latency</strong> — The time delay between an event, a message, or a request and its effect or response.</p>
+<ul>
+<li><strong>ROS 2</strong> — A robotics software framework and communication ecosystem used to organize cooperating robot software.</li>
+<li><strong>Node</strong> — A logical software runtime entity with a focused responsibility that can communicate with other components. It may be deployed as a standalone process or as a composable component.</li>
+<li><strong>Topic</strong> — A named communication channel used mainly for publishing and subscribing to messages, especially recurring or asynchronous data.</li>
+<li><strong>Publisher</strong> — A node or component that sends messages to a topic.</li>
+<li><strong>Subscriber</strong> — A node or component that receives messages from a topic.</li>
+<li><strong>Service</strong> — A named request-and-response interface for asking a component to perform a short, bounded operation or provide a result.</li>
+<li><strong>Service client</strong> — The component that sends a service request.</li>
+<li><strong>Service server</strong> — The component that receives a service request and produces a response.</li>
+<li><strong>Action</strong> — An interface for a longer-running operation that can accept or reject a goal, provide feedback, support cancellation, and return a final result.</li>
+<li><strong>Action client</strong> — The component that sends an action goal and monitors its goal response, progress, and result.</li>
+<li><strong>Action server</strong> — The component that accepts or rejects an action goal, executes an accepted goal, and provides feedback and a result.</li>
+<li><strong>ROS graph</strong> — The network of nodes and their communication connections.</li>
+<li><strong>Latency</strong> — The delay between an event, such as publishing a message, and its reception or use.</li>
+<li><strong>Stale data</strong> — Information that is too old to safely represent the current state of the robot or environment.</li>
+<li><strong>Message rate</strong> — The number of messages transmitted per unit time, commonly measured in hertz.</li>
+<li><strong>Throughput</strong> — The amount of payload data transferred per unit time, commonly measured in bytes per second.</li>
+<li><strong>Timeout</strong> — A limit on how long software waits for a response or progress before taking a fallback action.</li>
+</ul>
 <h2>Further Learning</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Further Learning">Ask Professor OS <em>↗</em></button></div>
-<p>To continue developing this mental model:</p>
+<p>For continued study, look for learning resources using search terms such as:</p>
 <ul>
-<li>Draw RoboRover’s nodes and communication channels on paper.</li>
-<li>Label every arrow with a topic or service name.</li>
-<li>Write the message fields and units beside each topic.</li>
-<li>Identify which messages are continuous streams and which interactions are one-time requests.</li>
-<li>Search for learning resources using the terms <strong>ROS 2 nodes topics services</strong>, <strong>ROS 2 command-line interface</strong>, and <strong>ROS 2 message interfaces</strong>.</li>
-<li>Compare a topic-based sensor stream with a service-based reset operation.</li>
-<li>Add a command-timeout and sensor-freshness rule to the simulation.</li>
+<li>“ROS 2 nodes topics services actions beginner”</li>
+<li>“ROS 2 communication graph”</li>
+<li>“ROS 2 message timestamps and quality of service”</li>
+<li>“ROS 2 Python publisher subscriber”</li>
+<li>“robot software watchdog timeout design”</li>
 </ul>
-<p>When studying real ROS 2 examples, ask three questions:</p>
+<p>When studying examples, always ask:</p>
 <ol>
-<li>Which node owns this responsibility?</li>
-<li>Is this communication a stream or a request-response operation?</li>
-<li>What happens if the data is late, missing, or physically impossible?</li>
+<li>Which part is a node?</li>
+<li>Which data is a topic stream?</li>
+<li>Which interaction is a short service?</li>
+<li>Which interaction needs an action?</li>
+<li>What happens if the communication fails?</li>
+<li>What units and timestamps does each message use?</li>
+<li>Does an action goal response merely indicate acceptance, or is a final result available?</li>
 </ol>
 <h2>Next Class</h2>
 <div class="chapter-assistant"><div class="chapter-assistant-copy"><span>Professor OS Tutor</span><b>Questions about this chapter?</b></div><button class="chapter-ask" type="button" data-professor-chat-section="Next Class">Ask Professor OS <em>↗</em></button></div>
-<p>In the next class, <strong>Messages and Topics</strong>, we will look more closely at the contents of messages and the rules that make topic communication reliable.</p>
-<p>We will examine:</p>
-<ul>
-<li>message fields and data types;</li>
-<li>units and naming;</li>
-<li>one publisher with multiple subscribers;</li>
-<li>how a subscriber reacts when messages arrive;</li>
-<li>why interface design matters as much as the communication graph.</li>
-</ul>
-<p>RoboRover will keep the same node structure, but we will inspect the notes traveling through its topics in much greater detail.</p></article></section></div>
+<p><strong>Class 51: Messages and Topics</strong></p>
+<p>Next, we will open the messages themselves. RoboRover will publish structured data containing fields such as voltage, timestamp, and sensor status. We will examine why names, units, timestamps, and message meaning are essential when multiple nodes share information.</p></article></section></div>
 <nav class="lessonnav"><a class="navtile" href="/lessons/049-behavior-trees/"><span>Previous stream</span><b>Class 49 · Behavior Trees</b></a><a class="navtile next upcoming" href="/#tonight"><span>Coming next</span><b>Class 51 · Messages and Topics</b><em>Nightly release</em></a></nav><footer class="footer"><span>Professor OS · Learning Operating System</span><span>Built by Connect.Vin</span></footer>
 </div></main>
 <div class="chat-backdrop" id="professorChatBackdrop"></div>
