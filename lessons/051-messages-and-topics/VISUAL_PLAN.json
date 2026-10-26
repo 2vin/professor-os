@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover in a clean engineering lab, with a front distance sensor publishing structured data into a clearly visualized software topic stream, branching toward separate Safety, Recorder, and Dashboard software nodes; technically plausible small wheeled rover, restrained modern editorial styling, realistic materials and lighting, clear visual hierarchy, no decorative sci-fi elements, minimal essential labels only.",
+    "caption": "RoboRover\u2019s sensor data travels through a named topic to several independent subscribers.",
+    "alt_text": "A small wheeled rover with a front distance sensor sends data through a software communication channel to safety, recording, and dashboard nodes."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear technical diagram showing publish/subscribe communication for RoboRover: a Distance Sensor Publisher on the left sends repeated structured distance messages into a central labeled topic /roborover/front_distance, which branches to Safety Node, Recorder Node, and Dashboard Node on the right; use arrows to show one publisher and multiple subscribers, with clean engineering typography and no unnecessary text.",
+      "caption": "One topic can deliver the same published data to several subscribers without the publisher knowing their internal code.",
+      "alt_text": "A publish/subscribe diagram with one distance sensor publisher, a named front-distance topic, and three subscriber nodes."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technically plausible editorial illustration of RoboRover facing a cardboard wall in a hallway, with a front distance sensor and a visual software-flow overlay: measured distance message travels to a Safety node and then to a Motor Command topic; show the physical rover, sensor measurement, software nodes, and directional arrows as distinct layers, restrained colors, high clarity, no cartoon styling.",
+      "caption": "The sensor publishes information; the safety node interprets it and publishes a motor command.",
+      "alt_text": "RoboRover measures the distance to a wall, sends the reading to a safety software node, and receives a resulting motor command."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Professional educational bandwidth diagram for a grayscale camera topic: show a 320 by 240 pixel image, 1 byte per pixel, and 5 images per second; show every calculation stage with explicit units, including 76,800 bytes per image, 384,000 bytes per second, 3,072,000 bits per second, and 3.072 megabits per second; use clean symbolic layout, restrained technical colors, and only essential labels.",
+      "caption": "Image dimensions, bytes per pixel, and publication rate determine the raw topic data rate.",
+      "alt_text": "A technical calculation diagram showing a 320 by 240 grayscale image published five times per second and the resulting data rate in bytes per second and megabits per second."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium engineering illustration of RoboRover approaching a cardboard wall with a four-step distance timeline: 0.80 metres, 0.65 metres, 0.48 metres, and 0.44 metres; show the safety node changing the motor command from FORWARD to STOP at the 0.50 metre threshold, with a clear timeline and technically plausible sensor visualization.",
+      "caption": "The safety subscriber changes RoboRover\u2019s command when the latest distance message crosses the threshold.",
+      "alt_text": "A rover approaches a wall while distance readings decrease and the safety command changes from forward to stop below 0.50 metres."
+    }
+  ]
+}
