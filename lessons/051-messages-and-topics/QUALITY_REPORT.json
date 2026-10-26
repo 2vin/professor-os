@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3554,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 90,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 91,
+      "clarity": 90,
+      "depth": 93,
+      "examples": 92,
+      "interactivity": 89,
+      "code_alignment": 91,
+      "visual_teaching_plan": 91,
+      "originality": 84,
+      "consistency": 93,
+      "accessibility": 90
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add one brief, authentic ROS 2 command-line demonstration, such as `ros2 topic list`, `ros2 topic echo`, or `ros2 topic info`, so students connect the structural Python model to the actual platform named throughout the lesson.",
+      "Reduce repetition around topic contracts, invalid data, stale messages, and the limitations of the Python model. The cautions are valuable, but several appear in multiple sections and lengthen a foundational lesson.",
+      "Clarify that ROS 2 publisher/subscriber matching requires compatible topic names, interface types, and QoS compatibility, while QoS settings are not necessarily identical between endpoints.",
+      "The `diagram.png` section is followed by prose describing what an illustrator could draw, even though the visual already exists. Replace that paragraph with a direct visual-reading task or remove it.",
+      "The worked example could include one deliberately delayed or missing message in its table so the freshness and timeout discussion becomes experimentally testable rather than primarily explanatory.",
+      "The optional WarningNode challenge would be stronger with a small expected implementation outline or a stated callback behavior, allowing beginners to focus on topic routing rather than infer all architecture decisions independently."
+    ],
+    "linkedin": {
+      "title": "Messages and Topics: How ROS 2 Nodes Exchange Robot Data",
+      "description": "Learn how ROS 2 messages, topics, publishers, and subscribers connect robot components, then test routing, thresholds, stale data, and safety behavior in Python.",
+      "commentary": "A robot is rarely one program. Sensors, safety logic, recorders, dashboards, and motor controllers must exchange information without becoming tightly dependent on one another.\n\nThis lesson introduces the core ROS 2 communication model through RoboRover:\n\n\u2022 messages are structured data items;\n\u2022 topics are named communication channels;\n\u2022 publishers send data and subscribers consume it;\n\u2022 one topic can support multiple independent subscribers;\n\u2022 units, timestamps, validity, QoS, and freshness matter as much as the topic name.\n\nStudents also calculate camera-stream bandwidth, trace a distance-threshold safety decision, and run a deliberately limited Python publish/subscribe simulation. The lesson makes the important distinction between communication and physical actuation: successfully publishing a motor command does not guarantee that a wheel moved.\n\nTry the dispatcher activity, then extend the lab with a warning subscriber or recorder node. What should your robot do when a message is missing, invalid, or too old?\n\n#Robotics #ROS2 #RoboticsEducation #Python",
+      "thumbnail_alt_text": "RoboRover topic diagram connecting a distance sensor, safety node, and motor controller"
+    },
+    "media_query": "real mobile robot ROS 2 hardware distance sensor onboard computer motor controller",
+    "image_query": "ROS 2 mobile robot with front distance sensor onboard computer and motor controller",
+    "youtube_query": "ROS 2 publisher subscriber mobile robot sensor topic demonstration",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "The generated diagrams explain topic routing well, but a carefully captioned real photograph would ground the abstraction in physical hardware by showing how sensors, onboard computers, and motor controllers correspond to software nodes. It should supplement the existing diagrams, not replace them.",
+    "media_would_help": true
+  }
+}
