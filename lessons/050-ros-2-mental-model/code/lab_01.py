@@ -7,114 +7,187 @@ class Topic:
         self.subscribers.append(callback)
 
     def publish(self, message):
-        # Simplification: callbacks run synchronously and immediately.
+        # Simplified conceptual delivery: callbacks run immediately.
         for callback in self.subscribers:
             callback(message)
 
 
-class ServiceServer:
-    def __init__(self, name, handler):
+class Service:
+    def __init__(self, name, handler, available=True, response_delay_s=0.0):
         self.name = name
         self.handler = handler
+        self.available = available
+        self.response_delay_s = response_delay_s
 
-    def call(self, request):
+    def call(self, request, timeout_s):
+        if not self.available:
+            return {
+                "accepted": False,
+                "reason": "SERVICE_UNAVAILABLE"
+            }
+
+        if self.response_delay_s > timeout_s:
+            return {
+                "accepted": False,
+                "reason": "SERVICE_TIMEOUT"
+            }
+
         return self.handler(request)
 
 
-class Node:
-    def __init__(self, name):
+class Action:
+    def __init__(self, name, available=True):
         self.name = name
-        self.services = {}
+        self.available = available
 
-    def create_service(self, name, handler):
-        self.services[name] = ServiceServer(name, handler)
+    def start(self, goal):
+        # This return value models the action goal response:
+        # acceptance or rejection of the goal, not final completion.
+        if not self.available:
+            return {
+                "accepted": False,
+                "reason": "ACTION_UNAVAILABLE"
+            }
 
-    def call_service(self, server_node, name, request):
-        if name not in server_node.services:
-            raise KeyError("Service is not available: {}".format(name))
-        return server_node.services[name].call(request)
-
-
-class SafetyNode(Node):
-    def __init__(self, name, distance_topic, desired_topic, safe_topic,
-                 threshold_m):
-        super().__init__(name)
-        self.distance_m = None
-        self.desired_speed_mps = 0.0
-        self.threshold_m = threshold_m
-        self.safe_topic = safe_topic
-
-        distance_topic.subscribe(self.receive_distance)
-        desired_topic.subscribe(self.receive_desired_speed)
-
-    def receive_distance(self, distance_m):
-        self.distance_m = distance_m
-        self.publish_safe_command()
-
-    def receive_desired_speed(self, speed_mps):
-        self.desired_speed_mps = speed_mps
-        self.publish_safe_command()
-
-    def publish_safe_command(self):
-        if self.distance_m is None:
-            safe_speed = 0.0
-        elif self.distance_m < self.threshold_m:
-            safe_speed = 0.0
-        else:
-            safe_speed = self.desired_speed_mps
-
-        self.safe_topic.publish(safe_speed)
+        return {
+            "accepted": True,
+            "status": "RUNNING",
+            "goal": goal
+        }
 
 
-def reset_odometry(request):
-    if request == "reset":
-        return "odometry reset"
-    return "unknown request"
+class BatteryNode:
+    def __init__(self, battery_topic):
+        self.battery_topic = battery_topic
+        self.voltage = 11.8
+
+    def publish_measurement(self, now_s):
+        message = {
+            "voltage_v": self.voltage,
+            "stamp_s": now_s,
+            "source": "battery_node"
+        }
+        self.battery_topic.publish(message)
 
 
-front_distance = Topic("/front_distance")
-desired_speed = Topic("/desired_speed")
-safe_speed = Topic("/safe_speed")
+class BehaviorTreeNode:
+    def __init__(
+        self,
+        battery_topic,
+        docking_service,
+        docking_action,
+        max_battery_age_s=1.0,
+        service_timeout_s=0.5
+    ):
+        self.latest_battery = None
+        self.docking_service = docking_service
+        self.docking_action = docking_action
+        self.max_battery_age_s = max_battery_age_s
+        self.service_timeout_s = service_timeout_s
+        battery_topic.subscribe(self.receive_battery)
 
-behavior_node = Node("behavior_tree")
-drive_node = Node("drive_controller")
-odometry_node = Node("odometry_service")
+    def receive_battery(self, message):
+        self.latest_battery = message
 
-safety_node = SafetyNode(
-    "safety_controller",
-    front_distance,
-    desired_speed,
-    safe_speed,
-    threshold_m=0.50
-)
+    def tick(self, now_s):
+        if self.latest_battery is None:
+            return "WAITING_FOR_BATTERY"
 
-drive_commands = []
-safe_speed.subscribe(drive_commands.append)
+        age_s = now_s - self.latest_battery["stamp_s"]
+        if age_s < 0.0 or age_s > self.max_battery_age_s:
+            return "STALE_BATTERY"
 
-odometry_node.create_service("/reset_odometry", reset_odometry)
+        voltage = self.latest_battery["voltage_v"]
 
-desired_speed.publish(0.40)
-front_distance.publish(0.35)
-assert drive_commands[-1] == 0.0
+        if voltage < 11.5:
+            # Optional, application-specific readiness/admission check.
+            # ROS 2 actions do not require a preceding service.
+            response = self.docking_service.call(
+                {
+                    "reason": "low_battery"
+                },
+                timeout_s=self.service_timeout_s
+            )
 
-front_distance.publish(0.80)
-assert drive_commands[-1] == 0.40
+            if not response["accepted"]:
+                return response["reason"]
 
-response = behavior_node.call_service(
-    odometry_node,
-    "/reset_odometry",
-    "reset"
-)
-assert response == "odometry reset"
+            # This models the action's own goal-acceptance response.
+            # It is not the final result of docking.
+            action_response = self.docking_action.start({
+                "reason": "low_battery"
+            })
 
-# The three safe commands are:
-# 1. No distance is known yet: stop.
-# 2. The measured distance is 0.35 m: stop.
-# 3. The measured distance is 0.80 m: allow 0.40 m/s.
-assert drive_commands == [0.0, 0.0, 0.40]
+            if action_response["accepted"]:
+                return "DOCKING_ACTION_STARTED"
 
-print("First safe command: {:.2f} m/s".format(drive_commands[0]))
-print("Second safe command: {:.2f} m/s".format(drive_commands[1]))
-print("Third safe command: {:.2f} m/s".format(drive_commands[2]))
-print("Service response: {}".format(response))
-print("All assertions passed.")
+            return action_response["reason"]
+
+        return "CONTINUE_MISSION"
+
+
+def docking_request_handler(request):
+    if request["reason"] == "low_battery":
+        return {
+            "accepted": True,
+            "message": "Docking goal may be started"
+        }
+
+    return {
+        "accepted": False,
+        "reason": "REQUEST_REJECTED"
+    }
+
+
+def main():
+    battery_topic = Topic("battery_state")
+
+    # This optional application-specific service models a bounded
+    # admission/readiness check before sending the action goal.
+    docking_service = Service(
+        "request_docking",
+        docking_request_handler,
+        available=True,
+        response_delay_s=0.1
+    )
+
+    # The action models the actual long-running docking operation.
+    # start() models only the goal response, not final completion.
+    docking_action = Action("dock", available=True)
+
+    battery_node = BatteryNode(battery_topic)
+    behavior_node = BehaviorTreeNode(
+        battery_topic,
+        docking_service,
+        docking_action,
+        max_battery_age_s=1.0,
+        service_timeout_s=0.5
+    )
+
+    battery_node.publish_measurement(now_s=0.0)
+    first_decision = behavior_node.tick(now_s=0.2)
+    assert first_decision == "CONTINUE_MISSION"
+
+    battery_node.voltage = 11.2
+    battery_node.publish_measurement(now_s=0.5)
+    second_decision = behavior_node.tick(now_s=0.6)
+    assert second_decision == "DOCKING_ACTION_STARTED"
+
+    stale_decision = behavior_node.tick(now_s=1.7)
+    assert stale_decision == "STALE_BATTERY"
+
+    docking_service.available = False
+    battery_node.publish_measurement(now_s=2.0)
+    unavailable_decision = behavior_node.tick(now_s=2.1)
+    assert unavailable_decision == "SERVICE_UNAVAILABLE"
+
+    print("First decision:", first_decision)
+    print("Second decision:", second_decision)
+    print("Stale-data decision:", stale_decision)
+    print("Unavailable-service decision:", unavailable_decision)
+    print("Verified: fresh low voltage started a docking action.")
+    print("Verified: stale data and service unavailability were detected.")
+
+
+if __name__ == "__main__":
+    main()
