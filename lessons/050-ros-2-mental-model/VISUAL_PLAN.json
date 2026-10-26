@@ -4,42 +4,34 @@
     "section": "top",
     "visual_type": "premium robotics hero illustration",
     "source": "gemini",
-    "prompt": "Premium editorial robotics textbook illustration of RoboRover in a clean engineering workshop, surrounded by a visually clear ROS 2 communication architecture: separate labeled conceptual modules for behavior tree, front distance sensor, safety controller, drive controller, and odometry service, connected by restrained glowing communication paths representing topics and a request-response service; technically plausible compact wheeled rover, realistic materials, modern lighting, uncluttered composition, no decorative sci-fi elements, minimal essential labels only",
-    "caption": "RoboRover is organized as cooperating software nodes that exchange topic messages and service requests.",
-    "alt_text": "Engineering illustration of a wheeled RoboRover surrounded by separate behavior, sensor, safety, drive, and service modules connected by communication paths."
+    "prompt": "Premium robotics textbook illustration of RoboRover in a clean engineering workshop, surrounded by clearly separated software communication modules represented as elegant labeled interface panels: Battery Node, Vision Node, Behavior Tree Node, Motor Node, and Docking Action Server. Show glowing but restrained communication lines, with a stream of small message cards along topic channels and a distinct docking goal, progress, cancellation, and final-result relationship between the Behavior Tree Node and Docking Action Server. Technically plausible small wheeled rover, realistic materials, modern editorial composition, no decorative sci-fi elements, minimal readable labels, high visual clarity.",
+    "caption": "RoboRover\u2019s software is divided into nodes that communicate through topics, services, and actions.",
+    "alt_text": "Engineering illustration of RoboRover with separate battery, vision, behavior-tree, motor, and docking-action software components connected by topic streams and long-running action feedback."
   },
   "inline_visuals": [
     {
       "section_heading": "## The Big Idea",
       "visual_type": "diagram",
       "source": "gemini",
-      "prompt": "Clear premium technical diagram showing a ROS 2 mental model for RoboRover: rectangular nodes labeled Range Sensor Node, Behavior Tree Node, Safety Node, Drive Node, and Odometry Service; arrows for topic streams labeled front_distance, desired_cmd, and safe_cmd; a distinct two-way request-response arrow labeled reset_odometry; use clean engineering typography, restrained colors, obvious arrow directions, no unnecessary decorative elements",
-      "caption": "Notice that topics carry ongoing messages while the odometry service uses a request-and-response exchange.",
-      "alt_text": "Technical node graph showing RoboRover sensor, behavior, safety, drive, and odometry components connected by topic arrows and a bidirectional service arrow."
+      "prompt": "Clean technical diagram showing a ROS 2 mental model for RoboRover: separate rectangular nodes labeled Battery Node, Behavior Tree Node, Diagnostic Node, and Docking Action Server. Draw repeated battery messages moving one direction from Battery Node through a channel labeled battery_state topic to Behavior Tree Node. Draw one request envelope and one response envelope between Behavior Tree Node and Diagnostic Node through a channel labeled clear_fault service. Draw a docking goal from Behavior Tree Node to Docking Action Server and distinct feedback and final-result arrows returning, with optional cancellation indicated separately. Use distinct visual conventions for topic stream, service request-response, and action goal-feedback-result-cancellation. Use restrained textbook colors, white background, precise arrows, and minimal labels. Do not imply topic delivery is physically continuous or that a service is a persistent connection.",
+      "caption": "A topic carries recurring messages, a service represents a bounded request and response, and an action manages a longer operation with feedback and a result.",
+      "alt_text": "Technical communication diagram contrasting a one-way battery topic stream, a two-way diagnostic service, and a docking action with goal, feedback, cancellation, and result."
     },
     {
       "section_heading": "## See It in Your Head",
       "visual_type": "illustration",
       "source": "gemini",
-      "prompt": "Technically accurate cutaway workshop illustration representing ROS 2 communication as three connected rooms: a sensor room placing distance measurements on a notice board labeled front_distance, a safety room reading distance and desired speed and posting safe_speed, and a drive room receiving the safe command; depict RoboRover hardware in the drive room, professional textbook style, realistic materials, sparse labels, high visual clarity",
-      "caption": "Each node has a focused responsibility, and communication channels connect the responsibilities without merging them into one giant program.",
-      "alt_text": "Three-room engineering visualization of sensor, safety, and drive nodes exchanging named messages for RoboRover."
+      "prompt": "Cutaway editorial illustration of a robotics workshop representing software communication as physical stations: a Battery Node places repeated measurement cards on a notice board labeled battery_state, a Behavior Tree Node reads the cards, a Diagnostic Node handles a short request envelope and response envelope, and a Docking Action Server receives a docking goal, sends progress cards, accepts cancellation, and returns a final result. Show RoboRover nearby as the physical system. Make the analogy visually clear without childish cartoon styling, using realistic workshop materials, clean labels, and premium technical illustration quality. Distinguish the ROS graph analogy from a physical wiring diagram.",
+      "caption": "The workshop analogy makes the difference between a recurring topic notice board, a bounded service exchange, and a long-running action visible.",
+      "alt_text": "Technical workshop scene where a battery software component publishes measurement cards, a diagnostic component handles a short request and response, and a docking action component reports progress and a result."
     },
     {
       "section_heading": "## Worked Robotics Example",
       "visual_type": "diagram",
       "source": "gemini",
-      "prompt": "Educational robotics diagram of RoboRover approaching an obstacle: show desired speed 0.40 m/s entering a safety controller, front distance measurement 0.35 m, safety threshold 0.50 m, and safe speed 0.00 m/s leaving toward the drive controller; include a second inset with distance 0.80 m producing safe speed 0.40 m/s; precise arrows, unit labels, restrained technical colors, no clutter",
-      "caption": "The safety node combines task intent with measured distance and changes the command when the obstacle is inside the threshold.",
-      "alt_text": "Two-panel safety communication diagram showing RoboRover stopped at 0.35 meters and allowed to move at 0.40 meters per second at 0.80 meters."
-    },
-    {
-      "section_heading": "## Real Robot Connection",
-      "visual_type": "illustration",
-      "source": "gemini",
-      "prompt": "Premium realistic engineering illustration of a compact mobile robot software stack visualized beside the physical robot: camera driver, wheel encoder driver, localization, behavior tree, safety controller, motor controller, diagnostics, and operator dashboard represented as clean connected modules; emphasize practical networked robotics, timestamps, message flow, and failure monitoring without dense text; realistic lab environment, professional editorial robotics textbook style",
-      "caption": "A real robot may contain many cooperating nodes, so latency, stale data, interface units, and node failures must be designed for explicitly.",
-      "alt_text": "Realistic mobile robot in a laboratory beside a structured network of software modules representing sensors, behavior, safety, motors, diagnostics, and dashboard communication."
+      "prompt": "Professional robotics systems diagram for RoboRover showing four software nodes: Battery Node, Vision Node, Behavior Tree Node, and Motor Node, plus a Docking Action Server. Include labeled communication paths: battery_state topic from Battery Node to Behavior Tree Node, marker_detection topic from Vision Node to Behavior Tree Node, cmd_velocity topic from Behavior Tree Node to Motor Node, and dock action with a goal arrow from Behavior Tree Node to Docking Action Server plus feedback, cancellation, and final-result arrows returning. Include small timing annotations showing battery at 2 Hz and behavior-tree ticks at 5 Hz, with no unnecessary equations or clutter. Use exact labels and distinguish topic arrows from action goal and result arrows.",
+      "caption": "The behavior tree makes decisions while specialized nodes provide measurements, motor commands, and a docking action.",
+      "alt_text": "ROS-style communication graph for RoboRover showing battery and vision topics, a velocity command topic, and a docking action with goal, feedback, cancellation, and result."
     }
   ]
 }
