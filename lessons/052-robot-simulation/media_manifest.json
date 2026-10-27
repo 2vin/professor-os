@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational mobile robot range sensor hallway laboratory photograph",
+  "media_style": "photo",
+  "reason": "A restrained photograph of a real mobile robot and its range sensor would ground the transition from the one-dimensional digital model to physical hardware. It would reinforce which effects are omitted by the simulation without replacing the lesson's technically stronger diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
