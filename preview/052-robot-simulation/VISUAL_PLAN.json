@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration showing RoboRover represented simultaneously as a small physical rover on one side and a clean digital simulation model on the other, connected by glowing but technically restrained data-flow lines. Include a simple virtual hallway, a wall, a range sensor beam, a plotted position curve, and clearly separated visual layers for environment, robot state, command input, and sensor output. Professional engineering editorial style, realistic materials, restrained blue and amber palette, high clarity, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover can be tested in a digital world before its commands are sent to physical hardware.",
+    "alt_text": "A technical illustration of RoboRover beside a computer simulation showing a hallway, wall, sensor beam, command data, and a position graph."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical systems diagram of a robot simulation loop: command message topic enters a simulated RoboRover model, the model updates position in a hallway environment, a virtual range sensor produces a distance message topic, and a controller reads that message to generate the next command. Use arrows arranged as a clear loop, with small clock symbols indicating discrete simulation time steps. Premium robotics textbook graphic, white background, restrained colors, precise linework, minimal labels.",
+      "caption": "A simulation repeats a digital version of the command, motion, sensing, and decision cycle.",
+      "alt_text": "A loop diagram showing command messages entering a robot model, simulated motion producing sensor messages, and a controller using those messages for the next command."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical side-view diagram of RoboRover moving along a straight 2-meter hallway toward a wall. Show three successive positions separated by half-second time steps, a forward speed arrow labeled 0.4 meters per second, a distance sensor beam to the wall, and a highlighted calculation showing 0.4 meters per second multiplied by 0.5 seconds equals 0.2 meters per step. Professional educational engineering illustration, accurate proportions, uncluttered, no unnecessary text.",
+      "caption": "The position update equation turns speed and a time step into a small movement.",
+      "alt_text": "RoboRover is shown at successive positions in a hallway, with a speed arrow, sensor distance to a wall, and a 0.2-meter movement per half-second calculation."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium educational visualization of the Python simulation experiment: two position-versus-time curves for RoboRover, one ending farther along the hallway for an ideal sensor and one ending earlier for a sensor with negative distance bias. Include a small inset showing a virtual range sensor reporting a distance smaller than the true wall distance. Clean matplotlib-inspired styling, technically accurate axes, restrained colors, no decorative clutter.",
+      "caption": "The plotted curves show how sensor bias changes the stopping position even though the controller rule stays the same.",
+      "alt_text": "A technical graph compares two RoboRover position curves, with the biased sensor run stopping earlier than the ideal sensor run."
+    }
+  ]
+}
