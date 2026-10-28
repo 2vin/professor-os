@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real mobile robot obstacle avoidance sensor laboratory differential drive rover lidar obstacle",
+  "media_style": "photo",
+  "reason": "The lesson already provides excellent abstract diagrams and a runnable simulation. A real photograph at this point would materially reinforce the sim-to-real gap by showing actual sensor placement, chassis geometry, and the physical testing context without replacing the conceptual diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
