@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 2,
+  "static": {
+    "passed": true,
+    "word_count": 4134,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4134 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 92,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 93,
+      "clarity": 89,
+      "depth": 94,
+      "examples": 94,
+      "interactivity": 93,
+      "code_alignment": 96,
+      "visual_teaching_plan": 96,
+      "originality": 88,
+      "consistency": 95,
+      "accessibility": 91
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is substantially longer than necessary for a foundational concepts class. Consolidate repeated caveats about the Python program not being a full physics engine, tangency policy, and simulation limitations.",
+      "Add a short estimated lesson sequence, such as concept explanation, prediction, lab, experiment, and reflection, so instructors can pace the unusually dense material.",
+      "The distinction between contact detection and overlap-only motion blocking is technically useful but appears in several places. Define it once in a compact policy box and refer back to it.",
+      "The lesson explains Gazebo-style concepts accurately but does not provide a Gazebo-specific artifact or screenshot. Add a small world/model configuration excerpt or explicitly label the class as simulator-independent preparation for Gazebo.",
+      "The second-obstacle challenge is well designed but requires substantial code changes. Provide a compact data-structure pattern or partial implementation so beginners can focus on collision and sensor concepts rather than debugging architecture.",
+      "Make the sensor-origin simplification more prominent near the first sensor equation: a real range sensor is located at a defined sensor frame, not necessarily at the robot center.",
+      "Add one explicit question about tunneling with a numerical example, such as comparing a 0.5 m step with a 0.1 m obstacle, to connect the warning to observable behavior.",
+      "Consider adding a no-Matplotlib fallback that prints the rover path or a small text trace, improving accessibility for constrained environments.",
+      "The vocabulary and explanations are strong, but several paragraphs use long multi-clause sentences. Shortening them would improve readability for younger or less experienced learners."
+    ],
+    "linkedin": {
+      "title": "Gazebo Physics Simulation Concepts: Worlds, Collisions, Sensors, and the Sim-to-Real Gap",
+      "description": "A hands-on Professor OS lesson teaches how simulated worlds, collision geometry, and range sensors work through a runnable Python rover experiment.",
+      "commentary": "A robot simulator is more than a moving picture. It is a model that combines a world, geometry, physical rules, collision calculations, and sensor observations.\n\nThis Professor OS lesson helps students:\n\n\u2022 distinguish visual geometry from collision geometry;\n\u2022 separate collision detection from collision response;\n\u2022 calculate when a circular rover reaches an obstacle;\n\u2022 run and modify a complete Python simulation;\n\u2022 reason about sensor limits, time steps, tunneling, and the sim-to-real gap.\n\nThe central experiment is deliberately modest: RoboRover advances in fixed steps, tests a proposed position against a rectangular obstacle, and reads an ideal forward range sensor. That makes the assumptions visible rather than hiding them inside a simulator.\n\nTry the prediction exercise before running the code. Then change the rover\u2019s height, speed, sensor range, or obstacle layout and explain the result. This is a practical bridge from geometric reasoning to Gazebo-style simulation and, in the next class, reinforcement learning.\n\n#RoboticsEducation #Gazebo #Python #Simulation",
+      "thumbnail_alt_text": "RoboRover simulation diagram showing collision geometry and a forward range sensor"
+    },
+    "media_query": "small differential-drive educational rover testing an obstacle avoidance sensor in a robotics laboratory",
+    "image_query": "robotics lab mobile rover ultrasonic or lidar sensor obstacle testing chassis close-up",
+    "youtube_query": "educational mobile robot simulation to real hardware sensor testing Gazebo",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real photograph would materially ground the sim-to-real discussion by showing actual sensor mounting, chassis geometry, floor contact, and the controlled testing environment. It should supplement\u2014not replace\u2014the existing generated diagrams and runnable simulation.",
+    "media_would_help": true
+  }
+}
