@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of a small wheeled rover in a clean top-down physics simulation world, with a rectangular obstacle, visible ground plane, subtle coordinate grid, a forward orange range-sensor ray stopping at the obstacle, and a faint overlay suggesting simulated collision boundaries. Technically plausible mobile robot, restrained modern blue-green palette, clear educational composition, realistic materials and lighting, no decorative sci-fi elements, no watermark, minimal essential labels only.",
+    "caption": "RoboRover observes a simulated world in which collision geometry and sensor measurements are separate from the robot's rendered appearance.",
+    "alt_text": "Top-down educational illustration of RoboRover in a simulated rectangular room approaching a blue obstacle, with an orange range-sensor ray ending at the obstacle."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical textbook diagram showing the relationship between a simulated world, robot model, physics engine, collisions, and sensors. Use a central world rectangle containing RoboRover and an obstacle, with clean arrows labeled world state, collision response, and sensor observation. Distinguish rendered geometry from collision geometry using different line styles. Professional engineering infographic, high visual clarity, restrained colors, no clutter, no watermark.",
+      "caption": "A simulator combines a world model, physical rules, collision calculations, and sensor observations.",
+      "alt_text": "Engineering diagram connecting a simulated world and robot to a physics engine, collision detection, and sensor observations."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean top-down technical diagram of a circular RoboRover approaching a rectangular obstacle. Show the rover's visible body, a simpler circular collision boundary around it, the obstacle's collision boundary, and a thin forward orange sensor ray ending at the obstacle's front face. Use concise labels for rendered appearance, collision geometry, and sensor measurement. Premium robotics textbook style, precise geometry, white background, no unnecessary text, no watermark.",
+      "caption": "The picture separates what a person sees, what collision detection uses, and what a forward range sensor measures.",
+      "alt_text": "Top-down technical diagram showing a circular rover, its collision boundary, a rectangular obstacle, and a forward sensor ray."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Mathematically clear top-down engineering diagram of RoboRover centered at y equals 3 meters moving right toward a rectangular obstacle beginning at x equals 4 meters. Show the rover radius of 0.25 meters, the safe center position x equals 3.75 meters, a horizontal distance arrow of 0.25 meters from rover center to obstacle face, and a forward sensor ray. Use coordinate axes and units, with uncluttered professional textbook styling and only essential labels.",
+      "caption": "The rover stops when its center is one radius from the obstacle face, while the forward sensor reports that remaining center-to-face distance.",
+      "alt_text": "Coordinate diagram showing RoboRover at a safe center position 0.25 meters from the left face of an obstacle."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Photorealistic generated engineering illustration comparing a simulated rover view and a real small wheeled rover test setup in a supervised indoor laboratory. Show the same obstacle layout and forward range sensor concept in both halves, with subtle visual contrast between ideal simulation and real-world sensor uncertainty. Technically plausible hardware, safe laboratory setting, restrained editorial robotics style, no logos, no watermark, no dramatic sci-fi effects.",
+      "caption": "Simulation enables repeatable testing, but real hardware adds noise, delay, calibration errors, friction, and other sources of mismatch.",
+      "alt_text": "Split engineering illustration comparing a simulated rover approaching an obstacle with a real rover testing the same situation in a laboratory."
+    }
+  ]
+}
