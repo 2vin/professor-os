@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover, a compact educational wheeled rover, at a warehouse junction choosing between a reliable wide route and a risky shortcut. Show subtle visual indicators for agent, action, reward, and environment without decorative sci-fi elements. Premium robotics textbook composition, realistic wheels, range sensors, battery indicator, warehouse floor, restrained modern colors, clear visual hierarchy, no watermark.",
+    "caption": "RoboRover interacts with an environment, chooses an action, and receives a reward that influences future decisions.",
+    "alt_text": "A compact wheeled robot at a warehouse junction choosing between a wide route and a shortcut, with visual cues for actions and reward feedback."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean premium technical diagram showing the reinforcement-learning loop: Environment sends an observation to an Agent, the Agent sends an action back, and the Environment returns a reward and next situation. Include RoboRover as the agent in the center and a warehouse as the environment. Use clear arrows, minimal labels, professional robotics textbook styling, no clutter.",
+      "caption": "The agent\u2013environment loop connects observations, actions, and rewards.",
+      "alt_text": "A circular diagram showing an agent receiving an observation, choosing an action, and receiving a reward and next situation from the environment."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Technical editorial illustration comparing two warehouse routes for RoboRover: a wide reliable route and a narrow shortcut with a fallen box. Include a small probability-and-reward annotation area showing that success reward and failure penalty both matter, but keep labels sparse and legible. Realistic warehouse materials, physically plausible rover, premium educational composition.",
+      "caption": "Expected reward must include both successful and unsuccessful route outcomes.",
+      "alt_text": "RoboRover faces a reliable wide route and a risky shortcut with an obstacle, illustrating success probabilities and reward penalties."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A clean instructional visualization of a small deterministic two-armed bandit experiment: an action-statistics table with two route names, observed rewards, counts, totals, and sample-average estimates, beside a simple RoboRover warehouse icon. Explicitly label the table as action statistics or sample-average estimates, not a learned value function. Emphasize that the policy tests each route and then chooses the higher observed average. Premium technical publication style, limited text, accurate tabular structure.",
+      "caption": "The Python experiment stores action statistics and uses sample-average reward to select later actions; the table is not a sequential value function.",
+      "alt_text": "A technical diagram showing route action statistics, counts, totals, sample averages, and a policy choosing between two RoboRover routes."
+    }
+  ]
+}
