@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real warehouse autonomous mobile robot AMR navigating around obstacles",
+  "media_style": "mixed",
+  "reason": "A real photograph of an autonomous mobile robot would ground the agent, sensors, motors, and safety-layer discussion in physical hardware. A short, technically accurate simulation or warehouse-navigation video could then connect the abstract interaction loop to repeated action and reward cycles without replacing the planned instructional diagrams.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
