@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook illustration of RoboRover, a small realistic educational wheeled rover, navigating a clean 4 by 4 warehouse grid marked on the floor. Show a glowing but restrained Q-table overlay beside the grid, with rows representing grid states and columns labeled Up, Right, Down, Left, while the rover approaches a clearly marked goal square and avoids one obstacle. Technically plausible sensors and wheels, modern editorial composition, realistic materials and lighting, high visual clarity, no decorative sci-fi elements, no clutter, no watermark.",
+    "caption": "RoboRover learns which action is valuable in each grid state by updating a Q table.",
+    "alt_text": "A realistic small wheeled rover moves across a four-by-four grid toward a goal while a visual Q table links grid states to Up, Right, Down, and Left actions."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical educational diagram showing one highlighted grid square for RoboRover connected to four directional action arrows labeled Up, Right, Down, and Left. Place a distinct Q value beside each arrow, with the highest value on the arrow leading toward a goal. Include a compact table showing State, Up, Right, Down, Left. Use restrained colors, precise geometry, minimal essential labels, premium robotics textbook style, no childish cartoon styling.",
+      "caption": "A Q table stores an estimated value for every possible action from a state.",
+      "alt_text": "A highlighted grid state connects to four directional actions, each with a different Q value, demonstrating action selection from a Q table."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear technical flow diagram of one Q-learning update: current state and action lead to an immediate reward and next state; the next state branches to possible future actions, the maximum future Q value is selected, and the old Q value is moved toward the target. Show the equation Q(s,a) updated using alpha, reward, gamma, and maximum next-state value. Use color coding for old estimate, target, and prediction error, with minimal readable labels and no decorative content.",
+      "caption": "The update moves an old Q estimate toward a target built from immediate and future reward.",
+      "alt_text": "A flow diagram shows a state-action transition producing a reward and next state, whose best future Q value contributes to the updated Q estimate."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "Premium technical illustration of a small wheeled RoboRover one square left of a goal on a simple grid. Show the rover taking a Right action into the goal, with a nearby annotation panel explaining old Q value 0.0 reward points, goal reward plus 10.0 reward points, learning rate 0.5, and updated Q value 5.0 reward points. Make the grid and arrow visually dominant, use realistic rover hardware, restrained editorial colors, technically accurate composition, no excessive text.",
+      "caption": "One successful goal transition raises the Q value for moving Right from the neighboring state.",
+      "alt_text": "A small rover moves right from a grid square into a goal, accompanied by a concise numerical Q-learning update from 0.0 to 5.0 reward points."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Engineering comparison diagram showing a simulated grid rover on the left and a physical indoor rover on the right. Connect them with labels for sensor noise, wheel slip, latency, changing floor friction, and safety override. Show that a simple grid state may not capture every physical condition. Professional robotics textbook infographic, realistic hardware details, restrained modern styling, clear hierarchy, no sci-fi decoration.",
+      "caption": "A Q table learned in a clean grid may need protection and adaptation before controlling a physical rover.",
+      "alt_text": "A simulated grid rover is compared with a physical wheeled rover, with arrows identifying noise, slip, latency, changing conditions, and a safety controller."
+    }
+  ]
+}
