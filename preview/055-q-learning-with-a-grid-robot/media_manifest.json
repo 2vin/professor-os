@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "educational wheeled mobile robot on a taped grid floor with obstacle and goal markers",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the transition from an idealized grid world to physical robotics, making sensor noise, wheel slip, and safety limits more concrete than a generated schematic alone. It should supplement, not replace, the planned engineering comparison diagram.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
