@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot teleoperation in robotics laboratory human operator joystick rover demonstration",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract observation-action relationship in physical robotics and clarify what an operator demonstration, rover, sensors, and safety boundary look like. The lesson already supplies strong diagrams for the abstract pipeline, so a photograph is more useful than another conceptual illustration.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
