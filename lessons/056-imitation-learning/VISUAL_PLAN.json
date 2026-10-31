@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Premium robotics textbook hero illustration showing RoboRover, a compact wheeled rover, following a blue route demonstrated by a human operator on a tiled indoor test floor. Include a subtle visual transition from the human joystick and recorded observation-action cards to the rover independently replaying the route. Technically plausible educational engineering setting, restrained modern colors, clear route arrows, realistic materials and lighting, no decorative sci-fi elements, no text-heavy labels.",
+    "caption": "RoboRover learns an observation-to-action policy by watching an expert demonstration.",
+    "alt_text": "A small wheeled rover follows a marked route on a tiled test floor while a human operator and recorded action cards represent learning from demonstrations."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical diagram of the imitation-learning pipeline: expert observation flows to expert action, many observation-action examples flow into a learned policy, and a new robot observation produces a predicted action. Use simple rover icons and arrows, with minimal essential labels, professional robotics textbook style, high visual clarity, white background, restrained blue and orange palette.",
+      "caption": "Imitation learning turns recorded expert decisions into a policy that predicts actions from observations.",
+      "alt_text": "A four-stage diagram showing expert observations and actions becoming training examples, then a learned policy that maps a new observation to a predicted robot action."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Top-down engineering diagram of a 7 by 5 tiled robot test floor with a central vertical obstacle wall, a charging beacon on the right, and two demonstrated RoboRover routes: one around the top and one around the bottom. Show small directional arrows on the routes and distinguish the obstacle, start locations, and goal with clear visual symbols. No unnecessary text, premium technical illustration.",
+      "caption": "Two expert routes provide RoboRover with action examples for different starting situations.",
+      "alt_text": "A top-down tiled floor shows a central obstacle, a goal on the right, and two rover demonstration paths traveling around the obstacle by different sides."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical visual explaining a small behavior-cloning simulation: a table of observed tile positions paired with UP, DOWN, and RIGHT actions feeds a learned policy, which generates a replayed route across a grid. Include a highlighted unseen tile with no learned action to show the limitation of incomplete demonstrations. Professional educational diagram, sparse labels, crisp grid, no decorative clutter.",
+      "caption": "The simulation memorizes demonstrated actions and has no guaranteed action for an unseen observation.",
+      "alt_text": "A diagram shows grid-position and action pairs entering a learned policy, a replayed grid route leaving the policy, and an unseen grid tile marked as having no learned action."
+    }
+  ]
+}
