@@ -1,0 +1,59 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 5,
+  "static": {
+    "passed": true,
+    "word_count": 4123,
+    "code_blocks": 4,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 4123 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 90,
+    "dimensions": {
+      "technical_accuracy": 95,
+      "pedagogy": 92,
+      "clarity": 89,
+      "depth": 95,
+      "examples": 92,
+      "interactivity": 94,
+      "code_alignment": 95,
+      "visual_teaching_plan": 92,
+      "originality": 86,
+      "consistency": 92,
+      "accessibility": 85
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Remove or substantially shorten the repeated course-specific robot definition in the Vocabulary section; it already appears in The Big Idea and interrupts the technical vocabulary list.",
+      "The lesson is exceptionally thorough but longer than necessary for a single foundational class. Consider moving the saturation-margin calculation, velocity-estimation extension, some sensor details, and selected common mistakes into an optional advanced section.",
+      "Replace the student-facing instruction 'For an illustration, show...' with a concise learner activity or remove it. The generated visual already supplies the intended diagram, so this wording reads like an internal production note.",
+      "Clarify that the four rotor inputs do not provide four fully independent force-and-torque degrees of freedom in every operating condition; they allocate total thrust and three torque components subject to actuator limits and vehicle configuration.",
+      "The Python lab's final assertion band of 1.5 to 2.5 m is permissive for a 2.0 m target and does not meaningfully verify settling, overshoot, or steady-state error. Add explicit checks or a student task that measures those behaviors.",
+      "The challenge code is correct when integrated into the main loop, but the first compact target-schedule snippet could confuse beginners because it evaluates only once outside a simulation loop. Label it explicitly as pseudocode or omit it.",
+      "The vocabulary definition of yaw as rotation around the vertical direction should acknowledge that the relevant vertical axis is convention-dependent in a moving body frame, while the usual vehicle interpretation is rotation about the body/world vertical axis under near-level conditions.",
+      "Add one short explanation of why a quadrotor can control four allocation variables while its full vehicle state has six pose coordinates. This would make the actuator-versus-state distinction more concrete.",
+      "Accessibility would improve with a brief 'minimum path' indicating which sections beginners must complete and which calculations or extensions are optional.",
+      "The visual plan is strong, but the coordinate-frame schematic should explicitly show the chosen positive thrust direction and the world vertical axis with matching sign labels; this prevents the common body-z convention confusion identified in the text."
+    ],
+    "linkedin": {
+      "title": "Autonomous Drones: From Six Degrees of Freedom to Safe Feedback Control",
+      "description": "A practical robotics lesson on quadrotor frames, thrust, sensing, feedback control, simulation, and the layered architecture behind autonomous flight.",
+      "commentary": "What makes an autonomous drone more than a flying camera?\n\nThis lesson follows the complete reasoning chain from physical motion to software behavior:\n\n\u2022 Six degrees of freedom describe the vehicle\u2019s possible motion, not its number of motors.\n\u2022 Body and world frames explain why tilting redirects thrust and changes altitude behavior.\n\u2022 Sensor noise, bias, delay, and actuator saturation turn ideal equations into engineering problems.\n\u2022 A Python altitude-control lab lets students test gain, damping, noise, target changes, and saturation.\n\u2022 Layered control connects task-level autonomy with state estimation, attitude control, and motor commands.\n\nThe strongest learning opportunity is to predict the graph before running the simulation, then explain why force changes acceleration before velocity and altitude change. Try the lab in simulation first, especially before discussing any physical drone test.\n\n#Robotics #AutonomousSystems #ControlEngineering #DroneEducation",
+      "thumbnail_alt_text": "Quadrotor schematic showing thrust vectors, coordinate frames, and feedback-control layers"
+    },
+    "media_query": "supervised indoor quadrotor robotics laboratory propeller guards safety tether flight test",
+    "image_query": "protected autonomous quadrotor test bench indoor robotics lab supervised safety cage",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A restrained real photograph would ground the otherwise abstract layered architecture in physical hardware and reinforce the lesson's safety discussion. It should show a supervised, protected indoor test setup rather than outdoor flight footage or an aspirational drone image.",
+    "media_would_help": true
+  }
+}

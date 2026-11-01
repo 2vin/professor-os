@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover's compact quadrotor scout hovering above a marked inspection pad in a robotics laboratory, technically plausible four-rotor frame, visible downward range sensor and small camera, subtle translucent overlays showing three translation arrows and three rotation arrows for 6-DoF, restrained modern robotics textbook styling, realistic materials and lighting, clean uncluttered composition, no decorative sci-fi elements, no watermark",
+    "caption": "RoboRover's aerial scout must sense and control six kinds of motion while hovering and moving.",
+    "alt_text": "A technically plausible quadrotor version of RoboRover hovering above a marked pad, with visual overlays indicating three translational and three rotational degrees of freedom."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium technical diagram of a quadrotor showing its six degrees of freedom: straight arrows for forward-backward, left-right, and up-down translation, and curved arrows labeled roll, pitch, and yaw around the body axes; clearly distinguish the forward body x-axis from the body z thrust axis with separate labels and arrows; use a clean three-dimensional coordinate frame, restrained blue and orange engineering colors, minimal labels, white background, precise textbook illustration",
+      "caption": "The drone can translate along three axes and rotate around three axes; its main thrust follows the body thrust axis, not necessarily its forward axis.",
+      "alt_text": "A labeled quadrotor coordinate diagram with three translational arrows, three rotational arrows, and separate labels for the forward body x-axis and body z thrust axis."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear engineering force diagram of a 1.20 kilogram quadrotor tilted 10 degrees while maintaining altitude, showing total thrust angled upward, its vertical component balancing weight, and its horizontal component producing forward acceleration; include visually legible symbolic labels T, mg, theta, vertical component, and horizontal component, with accurate vector geometry and restrained textbook styling",
+      "caption": "When the drone tilts, thrust splits into vertical and horizontal components, so total thrust must increase to maintain altitude.",
+      "alt_text": "A force-vector diagram of a tilted quadrotor showing thrust components, weight, and the 10-degree tilt used in the numerical example."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Illustrative editorial robotics simulation diagram, clearly schematic rather than a measured output screenshot, showing a vertical drone model beside a representative altitude-control plot with a noisy sensor measurement line, smoother true altitude line, dashed target altitude, and a feedback loop arrow from sensor to controller to thrust; use distinct line styles and markers as well as color; do not imply exact numerical agreement with a particular Python run, use technically clean restrained educational publication style, no excessive text",
+      "caption": "Illustrative schematic: the simulation separates true altitude from the noisy measurement used by the controller.",
+      "alt_text": "An illustrative educational diagram combining a vertical drone model with a representative graph of true altitude, noisy measured altitude, and a target line connected through a feedback-control loop."
+    }
+  ]
+}

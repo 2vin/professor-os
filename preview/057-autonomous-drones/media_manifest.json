@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "engineering photograph of a small quadrotor research drone with propeller guards, downward range sensor, and indoor laboratory test setup",
+  "media_style": "photo",
+  "reason": "A restrained real photograph would ground the layered architecture in physical hardware and reinforce the safety discussion. It should show a supervised, protected laboratory setup rather than an aspirational outdoor flight scene.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
