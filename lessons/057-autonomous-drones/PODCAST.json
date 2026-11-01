@@ -1,0 +1,12 @@
+{
+  "filename": "podcast.mp3",
+  "transcript_filename": "podcast_transcript.txt",
+  "class_no": 57,
+  "title": "Autonomous Drones",
+  "script_words": 978,
+  "estimated_minutes": 7,
+  "tts_model": "gpt-4o-mini-tts",
+  "voice": "alloy",
+  "synthetic_narration": true,
+  "generated_at_utc": "2026-11-01T18:19:14Z"
+}
