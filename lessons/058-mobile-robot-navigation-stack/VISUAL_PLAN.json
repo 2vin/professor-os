@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "A premium editorial engineering illustration of RoboRover, a compact wheeled mobile robot, navigating a mapped indoor corridor from a charging station to a delivery marker. Show a top-down semi-transparent floor map beneath the physical rover, with a dotted planned route, a short immediate steering arrow, sensor beams, and subtle visual separation of localization, planning, and control. Technically plausible wheels, camera, range sensor, and protective chassis; realistic materials and restrained modern blue, orange, and gray styling; clean textbook composition; no decorative sci-fi elements and no unnecessary text.",
+    "caption": "RoboRover repeatedly estimates its pose, plans a route, and controls its wheels as it moves through the environment.",
+    "alt_text": "A wheeled rover follows a dotted route around mapped obstacles while sensor beams, a pose estimate, and an immediate steering arrow illustrate localization, planning, and control."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A clear professional navigation-stack diagram for a robotics textbook: sensors at the top feed a localization block labeled with estimated pose x, y, theta; localization feeds a planning block containing a map, start, goal, and route; planning feeds a control block producing forward speed v and turning rate omega; control feeds motors and wheels; a feedback arrow returns from the moving rover and sensors to localization. Use technically accurate arrows, restrained colors, high legibility, minimal labels, white background, and no decorative imagery.",
+      "caption": "The navigation stack is a feedback loop: sensing updates the estimate, planning chooses the route, and control commands immediate motion.",
+      "alt_text": "A block diagram connects sensors, localization, planning, control, motors, and a feedback path returning measurements to localization."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "A top-down educational map of a school hallway for teaching mobile robot navigation. Show thick gray wall rectangles, a small blue RoboRover with a heading arrow, a green goal marker, a dotted blue multi-cell route around obstacles, and a short orange arrow from the rover toward the next waypoint. Include subtle sensor fan marks and clean visual separation between long-term route and immediate control direction. Premium technical illustration, uncluttered, no childish cartoon styling.",
+      "caption": "The long dotted route is the planner\u2019s output; the short orange arrow represents the controller\u2019s immediate motion target.",
+      "alt_text": "Top-down hallway map with a rover, obstacles, a dotted route to a goal, and a short arrow toward the next waypoint."
+    },
+    {
+      "section_heading": "## Math Without Fear",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A precise top-down coordinate diagram showing a mobile rover at estimated position (2.4 m, 1.1 m) and a waypoint at (3.0 m, 2.7 m). Include x and y axes in meters, a right-triangle displacement with delta x = 0.6 m and delta y = 1.6 m, a line labeled distance to waypoint, and a heading comparison between the rover\u2019s current 40-degree orientation and the desired approximately 69-degree direction. Use restrained technical colors, mathematically clean layout, and only essential labels.",
+      "caption": "The controller turns position error into a distance and desired heading before producing a motion command.",
+      "alt_text": "Coordinate diagram of a rover and waypoint connected by displacement components, showing distance and heading error calculations."
+    },
+    {
+      "section_heading": "## Real Robot Connection",
+      "visual_type": "illustration",
+      "source": "gemini",
+      "prompt": "A realistic generated engineering illustration of a small wheeled indoor rover on a polished floor near a wall, showing wheel encoder motion, a camera landmark, a range sensor beam, and a slight mismatch between estimated and actual position caused by wheel slip. Use a semi-transparent overlay to distinguish the estimated pose from the physical rover, with a safe obstacle margin marked near the wall. Premium robotics textbook style, technically plausible sensors and chassis, restrained lighting, no dramatic sci-fi effects.",
+      "caption": "Wheel slip can make the estimated pose differ from the rover\u2019s true pose, so real navigation needs cross-checking and safety margins.",
+      "alt_text": "A mobile rover near a wall has wheel-slip indicators, sensor measurements, and separate estimated and actual pose markers."
+    }
+  ]
+}
