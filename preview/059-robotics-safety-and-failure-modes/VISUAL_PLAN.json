@@ -1,0 +1,45 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of a small mobile robot named RoboRover in a clean indoor robotics test corridor, shown moving toward a marked safe stopping boundary, with two front distance sensors, an emergency-stop button, subtle green yellow and red safety zones on the floor, professional robotics textbook editorial style, realistic materials and lighting, technically plausible compact wheeled robot, no decorative sci-fi elements, no watermark; add a clear visible callout reading 'illustrative visualization only; no physical boundary or sensing function' so the colored floor zones cannot be mistaken for protection",
+    "caption": "RoboRover uses limits, validated sensor readings, and a fail-safe stop to manage uncertainty near an obstacle. Colored floor zones are illustrative only\u2014not a safety function.",
+    "alt_text": "A compact wheeled robot in a test corridor approaches an obstacle while green, yellow, and red illustrative floor zones show normal operation, caution, and a stopping response; the zones are not operational safety boundaries."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clear premium technical diagram showing a mobile robot command passing through a safety supervisor before reaching motor actuators; include three labeled safety checks represented visually: speed limit, sensor validation, and redundant sensor agreement; show accepted command continuing forward and a rejected command branching to a stop state; restrained modern textbook styling, minimal essential labels, high visual clarity",
+      "caption": "The safety layer checks normal navigation commands before allowing them to reach the actuators.",
+      "alt_text": "Block diagram of a robot command entering a safety supervisor with limit, validation, and redundancy checks before either reaching the motors or causing a stop."
+    },
+    {
+      "section_heading": "## See It in Your Head",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Top-down technical illustration of RoboRover in a corridor with two forward distance sensors, green normal operating region, yellow caution region, and red forbidden stopping region; use clear colored boundaries and arrows showing sensor fields of view; realistic robot geometry, professional engineering publication style, avoid clutter and excessive text; prominently annotate that the colored zones are illustrative only and not a safety function or operational boundary",
+      "caption": "Illustrative color zones make abstract limits visible; they are not a safety function or operational boundary.",
+      "alt_text": "Top-down view of a wheeled robot with two forward sensors and illustrative green, yellow, and red zones in front of it; the colored zones are not operational safety boundaries."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical explanatory diagram of a mobile robot stopping before an obstacle, showing reaction distance, braking distance, and additional safety margin as three consecutive measured segments along the floor; include speed arrow and braking direction, use units meters and seconds in a few precise labels, premium robotics textbook style, no unnecessary decorative elements",
+      "caption": "The required stopping distance combines motion during reaction time, braking distance, and a safety margin.",
+      "alt_text": "A mobile robot approaches an obstacle with labeled segments for reaction distance, braking distance, and safety margin."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Clean technical visualization of a simulation timeline for RoboRover showing speed commands, two distance sensor traces, a sensor disagreement event at one time step, and a latched stop afterward; use distinct lines for sensor A and sensor B, a highlighted fault marker, and zero allowed speed after the fault; premium educational robotics graphic, restrained colors, minimal labels",
+      "caption": "The simulated safety monitor clips excessive speed, detects sensor disagreement, and keeps RoboRover stopped after the fault.",
+      "alt_text": "Timeline chart showing two sensor readings diverging at a fault step and the robot's allowed speed dropping to zero for the remaining simulation."
+    }
+  ]
+}

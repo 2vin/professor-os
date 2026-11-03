@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "mobile robot emergency stop button safety controller robotics lab photograph",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract safety monitor in physical hardware, especially the emergency-stop button, motor controller, and mechanical robot structure. It would complement the generated schematics without implying that the illustrated floor zones are real protective boundaries.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
