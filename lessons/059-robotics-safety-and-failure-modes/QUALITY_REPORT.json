@@ -1,0 +1,53 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 5,
+  "static": {
+    "passed": true,
+    "word_count": 3630,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 92,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 92,
+      "clarity": 93,
+      "depth": 94,
+      "examples": 93,
+      "interactivity": 92,
+      "code_alignment": 95,
+      "visual_teaching_plan": 91,
+      "originality": 88,
+      "consistency": 95,
+      "accessibility": 89
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Add a brief hazard-to-learning-objective map near the beginning so students can see how the worked example, Python lab, and design challenge connect.",
+      "State more explicitly that the Python monitor is a supervisory simulation and does not provide an independent safety channel or safety-rated stop path, even though the lesson strongly implies this distinction.",
+      "Add executable tests for the obstacle-too-close branch, invalid sensor ranges, and a documented reset procedure; these would broaden code coverage beyond the currently tested cases.",
+      "Replace the generic alt text for diagram.png with a more descriptive accessibility text that names the navigation command, safety checks, actuator path, and fault-response branch.",
+      "The lesson is exceptionally thorough, but several safety caveats recur. Consolidating a few repeated disclaimers would reduce cognitive load without weakening the safety message.",
+      "In the mini simulation, ask students to calculate the exact new commanded distance for at least two parameter changes before running the code, strengthening the connection between prediction and execution."
+    ],
+    "linkedin": {
+      "title": "Robotics Safety: From Sensor Validation to Fault-Aware Motion",
+      "description": "A practical robotics lesson on limits, validation, redundancy, stopping distance, failure modes, and a Python safety-monitor simulation for RoboRover.",
+      "commentary": "Safe autonomy requires more than a planner that produces plausible commands. This lesson guides students from RoboRover\u2019s navigation stack into the engineering questions that must surround it:\n\n\u2022 How do operating limits differ from protective limits?\n\u2022 When is a sensor reading too old, implausible, or inconsistent to trust?\n\u2022 Why does doubling speed quadruple ideal braking distance?\n\u2022 When does redundancy help, and when can common-cause failures defeat it?\n\u2022 What evidence should be required before resetting a latched stop?\n\nThe Python lab makes these ideas executable: it clips excessive speed, rejects stale and non-finite data, detects sensor disagreement, and holds a fault until deliberate recovery. Students then modify the design and defend responses for communication loss, low battery, and nearby obstacles.\n\nTry the lab, predict the fault behavior before running it, and ask what independent evidence your own robot would need before motion is allowed again.\n\n#Robotics #SafetyEngineering #Python #AutonomousSystems",
+      "thumbnail_alt_text": "Mobile robot safety monitor schematic with sensor validation, speed limiting, and a latched stop response."
+    },
+    "media_query": "robotics emergency stop button motor controller mobile robot safety hardware laboratory",
+    "image_query": "industrial mobile robot emergency stop button motor controller safety hardware laboratory",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real photograph would ground the abstract safety monitor in physical hardware by showing the emergency-stop actuator, motor controller, wiring, and robot structure. It would complement the generated schematics without suggesting that the illustrated color zones are real protective boundaries.",
+    "media_would_help": true
+  }
+}
