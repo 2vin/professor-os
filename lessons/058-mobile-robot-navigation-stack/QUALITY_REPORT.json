@@ -1,0 +1,56 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 1,
+  "static": {
+    "passed": true,
+    "word_count": 3262,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": []
+  },
+  "ai": {
+    "overall_score": 89,
+    "dimensions": {
+      "technical_accuracy": 90,
+      "pedagogy": 92,
+      "clarity": 92,
+      "depth": 89,
+      "examples": 91,
+      "interactivity": 89,
+      "code_alignment": 91,
+      "visual_teaching_plan": 91,
+      "originality": 85,
+      "consistency": 90,
+      "accessibility": 91
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "Clarify the sign convention for positive heading, positive angular velocity, and the coordinate frame before applying the proportional steering equation.",
+      "State explicitly that the breadth-first search is optimal only for the four-connected grid with equal movement cost; it is not a physically valid shortest-time or shortest-distance planner for a real rover.",
+      "Replace or qualify the phrase \u201ccurrent estimated motion\u201d in the control definition, since the example primarily uses estimated pose and heading rather than velocity.",
+      "The lesson contains some repetition between the navigation-stack explanation, the text-equivalent diagram, the imagined hallway drawing, and the Python caveats. Consolidating these passages would improve pacing without reducing rigor.",
+      "Add one brief statement that a real differential-drive rover cannot execute an arbitrary grid displacement directly and must convert the desired motion into feasible curvature or wheel-speed commands.",
+      "The Python lab would teach more strongly if it printed a compact per-step state table containing estimated cell, target cell, and command, rather than repeatedly printing the entire map after every move.",
+      "The visual section says \u201cImagine a top-down drawing\u201d immediately after presenting an actual visual. Reframe this as an interpretation exercise or remove the redundant drawing instructions.",
+      "The challenge mentions a safety limit but does not specify what the program should do if the limit is exceeded beyond stopping with a warning; require an explicit failure state and final verification guard.",
+      "Add a short accessibility note explaining that the diagrams\u2019 signal flow and color-coded route elements are also described textually, and avoid relying on color alone in captions or instructions."
+    ],
+    "linkedin": {
+      "title": "Mobile Robot Navigation: From Localization and Planning to Physical Control",
+      "description": "A practical lesson on how mobile robots estimate pose, plan around obstacles, convert waypoints into motion, and expose the limits of simplified simulation.",
+      "commentary": "A mobile robot does not simply receive a destination and drive there. It repeatedly estimates where it is, chooses where to go, and converts that decision into immediate motion.\n\nThis lesson introduces students to:\n\u2022 The separation between localization, planning, and control\n\u2022 The difference between a long-horizon route and an immediate motion command\n\u2022 Distance, heading error, angle wrapping, and proportional steering\n\u2022 A Python breadth-first-search simulation with obstacles and graceful no-route handling\n\u2022 Real-world limits such as wheel slip, latency, robot size, and uncertain sensing\n\nThe lab is intentionally simplified, but it makes the navigation stack visible and gives students concrete experiments to run: change obstacles, block the goal, impose a move limit, or simulate failed motion.\n\nTry the lab, then ask: what information would the rover need before it could safely trust its planned route?\n\n#Robotics #MobileRobots #RobotProgramming #EngineeringEducation",
+      "thumbnail_alt_text": "Mobile robot navigation stack showing localization, planning, control, and rover motion"
+    },
+    "media_query": "real differential-drive mobile robot navigating an indoor corridor lidar wheel encoders localization",
+    "image_query": "engineering photograph of a differential-drive research rover with lidar and wheel encoders navigating an indoor mapped corridor",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A real photograph would ground the abstract stack in recognizable hardware and help students connect localization, sensing, wheel motion, slip, and obstacle margins to a physical rover. The existing generated diagrams already explain the information flow, so another schematic or conceptual video would add less value.",
+    "media_would_help": true
+  }
+}
