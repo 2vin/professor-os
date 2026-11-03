@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "real autonomous wheeled mobile robot navigation in an indoor corridor with lidar, camera, and obstacle avoidance",
+  "media_style": "photo",
+  "reason": "A real photograph would ground the abstract stack in recognizable hardware and help students connect localization, sensing, wheel motion, and obstacle margins to an actual rover. The existing generated diagrams already cover the abstract information flow, so a photograph is more useful than another conceptual video or schematic.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
