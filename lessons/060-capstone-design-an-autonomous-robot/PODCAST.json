@@ -1,0 +1,12 @@
+{
+  "filename": "podcast.mp3",
+  "transcript_filename": "podcast_transcript.txt",
+  "class_no": 60,
+  "title": "Capstone: Design an Autonomous Robot",
+  "script_words": 990,
+  "estimated_minutes": 7,
+  "tts_model": "gpt-4o-mini-tts",
+  "voice": "alloy",
+  "synthetic_narration": true,
+  "generated_at_utc": "2026-11-04T20:28:53Z"
+}
