@@ -1,0 +1,37 @@
+{
+  "hero_image": {
+    "needed": true,
+    "section": "top",
+    "visual_type": "premium robotics hero illustration",
+    "source": "gemini",
+    "prompt": "Photorealistic generated engineering illustration of RoboRover Scout, a compact wheeled indoor autonomous rover with a forward distance sensor, wheel encoders, battery compartment, sample tray, and small status display, positioned on a marked test course with a barrier ahead and measurement markers on the floor; show a professional robotics laboratory, realistic materials and lighting, restrained modern textbook composition, no decorative sci-fi elements, no watermark",
+    "caption": "RoboRover Scout is treated as a complete engineered system: requirements, architecture, implementation, and tests.",
+    "alt_text": "Compact wheeled RoboRover Scout on an indoor test course, with a forward distance sensor, sample tray, battery compartment, and obstacle clearance markings."
+  },
+  "inline_visuals": [
+    {
+      "section_heading": "## The Big Idea",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Create a clean premium robotics textbook systems-engineering diagram showing the capstone chain: mission goal leading to measurable requirements, then system architecture, implementation, tests and evidence, and revision; include small technically accurate icons for a mission card, requirement table, connected sensor-controller-motor blocks, code, test checklist, and feedback arrow returning to revision; restrained blue and orange palette, high visual clarity, minimal essential labels, no decorative clutter",
+      "caption": "A capstone design turns a mission goal into measurable promises, assigned responsibilities, and test evidence.",
+      "alt_text": "Systems-engineering flow diagram connecting mission goal, requirements, architecture, implementation, testing, evidence, and revision."
+    },
+    {
+      "section_heading": "## Worked Robotics Example",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Technical top-down diagram of RoboRover Scout approaching a rectangular obstacle on a marked indoor course. Clearly distinguish the 0.40 meter sensor-range example used by the Python simulation from the 0.50 meter provisional hardware design estimate derived from required clearance, reaction distance, measured braking distance, and uncertainty allowance. Show the required final physical clearance of 0.30 meters, the reaction distance, braking distance, and uncertainty allowance with clean dimension arrows; use realistic rover geometry and precise engineering drafting style, avoid excessive text and do not imply that either threshold is validated hardware data",
+      "caption": "The simulation uses a 0.40 m sensor-range example, while the worked calculation gives a separate provisional 0.50 m hardware design estimate.",
+      "alt_text": "Top-down engineering diagram distinguishing a 0.40-meter simulation sensor range from a provisional 0.50-meter stopping-threshold estimate, with clearance components shown."
+    },
+    {
+      "section_heading": "## Python Lab",
+      "visual_type": "diagram",
+      "source": "gemini",
+      "prompt": "Premium educational illustration of a software test harness for a small autonomous rover, showing three parallel test scenarios: clear path reaching a goal, obstacle causing a safe stop, and invalid sensor causing an immediate safe stop; connect each scenario to assertions and pass or fail evidence, with a small code panel containing abstract symbols but no long readable code; professional robotics textbook style, clean layout, realistic sensor and controller icons",
+      "caption": "A test harness converts expected robot behavior into repeatable checks with recorded evidence.",
+      "alt_text": "Educational diagram of three RoboRover simulation scenarios connected to assertions and pass or fail evidence."
+    }
+  ]
+}
