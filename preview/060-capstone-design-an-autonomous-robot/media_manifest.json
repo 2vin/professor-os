@@ -1,0 +1,10 @@
+{
+  "used": false,
+  "recommended": true,
+  "items": [],
+  "query": "autonomous mobile robot indoor test course obstacle clearance sensor mounting sample tray requirements testing",
+  "media_style": "mixed",
+  "reason": "A carefully selected real hardware photograph would ground the abstract architecture in sensor mounting, frontmost geometry, tray retention, battery placement, and marked-course testing. A short professional demonstration video could further show safe stopping, status reporting, and the difference between simulated reference-point behavior and measured physical clearance. Media should be instructional rather than decorative and should not be presented as evidence for the lesson's numerical claims.",
+  "insert_after_heading": "## Real Robot Connection",
+  "note": "Media was recommended by the editorial board, but no candidate passed legal/relevance checks."
+}
