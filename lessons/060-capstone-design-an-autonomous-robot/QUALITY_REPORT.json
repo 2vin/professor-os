@@ -1,0 +1,61 @@
+{
+  "passed": true,
+  "thresholds": {
+    "overall": 88,
+    "dimension": 80
+  },
+  "rewrite_rounds_used": 10,
+  "static": {
+    "passed": true,
+    "word_count": 6938,
+    "code_blocks": 1,
+    "errors": [],
+    "warnings": [
+      "Lesson is long at 6938 words; consider tightening for reading flow."
+    ]
+  },
+  "ai": {
+    "overall_score": 88,
+    "dimensions": {
+      "technical_accuracy": 94,
+      "pedagogy": 86,
+      "clarity": 84,
+      "depth": 96,
+      "examples": 93,
+      "interactivity": 89,
+      "code_alignment": 91,
+      "visual_teaching_plan": 92,
+      "originality": 87,
+      "consistency": 91,
+      "accessibility": 82
+    },
+    "blocking_issues": [],
+    "improvement_notes": [
+      "The lesson is exceptionally thorough, but it is substantially longer than a 90-minute core lesson can realistically support. Move the energy analysis, stopping-distance derivation, R6 measurement methodology, and detailed physical-validation procedures into clearly labeled extensions or instructor notes.",
+      "Reduce repeated distinctions between simulation evidence and physical evidence. The same limitation is explained in the requirements section, architecture section, Python Lab, worked example, game, traceability matrix, challenge, quiz, answers, and Real Robot Connection.",
+      "Resolve the pedagogical tension between the 80-second mission-level energy budget and the 10-second Python clear run. The text explains that they are separate models, but beginners may still infer that the code validates the 880 J budget. Add a short comparison table or rename the code quantity as step-energy rather than mission energy.",
+      "The opening definition of a robot is careful but unnecessarily defensive for this capstone. Introduce the practical course definition briefly and place the qualification in a note or vocabulary entry.",
+      "The state-machine section would benefit from a compact transition diagram showing priority among obstacle detection, invalid sensing, low battery, completion, and timeout. The tables are accurate but text-heavy.",
+      "The architecture diagram should visually distinguish information flow, command flow, power flow, and the independent emergency-stop path. The lesson requests this distinction in prose, but the generated visual plan does not confirm that the final diagram implements it.",
+      "The sample-delivery requirement is rigorous, but full-containment geometry is introduced at considerable length before students have a simple visual or worked pose example. Add one diagram showing a passing and failing container orientation.",
+      "The Python lab is strong, but students would learn more from one intentionally failing test or a short exercise that changes the obstacle position and explains the resulting status. Currently most provided assertions are already solved for them.",
+      "Clarify that R4's software simulation checks a logical safe-state decision, not actuator stopping. This distinction is present, but the test-coverage table could use a stronger visual warning because safety claims are especially prone to overinterpretation.",
+      "The fictional sample-data table is responsibly labeled, but showing every trial as Pass may unintentionally model confirmation bias. Include one failed trial and demonstrate how it changes the engineering conclusion.",
+      "Add an instructor-facing estimated time per activity. The stated 90-minute estimate is not credible for reading the full lesson, running the lab, completing the design sheet, and discussing physical validation in one session.",
+      "Accessibility would improve with fewer nested tables, shorter paragraphs, explicit plain-language summaries after the densest equations, and a concise core-reading path marked throughout."
+    ],
+    "linkedin": {
+      "title": "Capstone Robotics Lesson: Turn an Autonomous Robot Mission into Requirements, Tests, and Evidence",
+      "description": "A rigorous RoboRover capstone lesson connects requirements, architecture, simulation, safety states, energy estimates, physical validation, and traceable evidence.",
+      "commentary": "A capstone robot is not complete because it moves once. It is complete when its promises are measurable, its responsibilities are assigned, its failure responses are explicit, and its evidence is credible.\n\nThis Professor OS lesson guides students through:\n\n\u2022 Translating a mission into testable requirements\n\u2022 Mapping requirements to architecture and state-machine responsibilities\n\u2022 Separating simulation evidence from physical validation\n\u2022 Reasoning about energy reserve, sensor geometry, braking, and uncertainty\n\u2022 Building a Python test harness with assertions, safe states, and timeout behavior\n\nThe RoboRover example deliberately distinguishes reference-point simulation results from frontmost physical clearance, and sample-delivery claims from actual containment measurements. That distinction is central to responsible robotics engineering.\n\nTry the lab by changing one parameter, predicting the result before execution, and then labeling exactly what the simulation verified\u2014and what still requires a supervised hardware test.\n\n#RoboticsEducation #AutonomousRobots #SystemsEngineering #RobotSafety",
+      "thumbnail_alt_text": "RoboRover capstone architecture linking requirements, simulation, safety states, and physical validation"
+    },
+    "media_query": "educational autonomous mobile robot marked indoor test lane sensor mounting sample tray emergency stop",
+    "image_query": "engineering photograph small autonomous wheeled robot indoor test course front distance sensor sample tray battery emergency stop",
+    "youtube_query": "",
+    "media_style": "photo",
+    "media_insert_after_heading": "## Real Robot Connection",
+    "media_reason": "A carefully selected real hardware photograph would materially ground the abstract architecture by showing frontmost geometry, sensor mounting, tray retention, battery placement, course markings, and emergency-stop context. It should be used as an annotated teaching reference, not as evidence for the numerical claims.",
+    "media_would_help": true
+  }
+}
